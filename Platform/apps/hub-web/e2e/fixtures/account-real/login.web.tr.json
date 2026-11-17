@@ -1,0 +1,94 @@
+{
+  "status": 200,
+  "body": {
+    "expiresIn": 600,
+    "activeOrgId": "<id>",
+    "me": {
+      "person": {
+        "id": "<id>",
+        "name": "Ayşe Yılmaz",
+        "email": "ayse@ornek.test",
+        "phone": null,
+        "locale": "tr",
+        "emailVerified": false,
+        "pendingEmail": null
+      },
+      "orgs": [
+        {
+          "id": "<id>",
+          "name": "Örnek Ticaret",
+          "orgRole": "OWNER",
+          "status": "ACTIVE"
+        }
+      ],
+      "activeOrg": {
+        "id": "<id>",
+        "name": "Örnek Ticaret",
+        "country": "TR",
+        "currency": "TRY",
+        "timeZone": "Europe/Istanbul",
+        "locale": "tr",
+        "companyConfirmedAt": null,
+        "orgRole": "OWNER",
+        "membershipId": "<id>"
+      },
+      "account": {
+        "canCreateOrg": true,
+        "createOrgRequiresEmail": false,
+        "suspendedOrgCount": 0,
+        "mailEnabled": false,
+        "mailDelivers": false,
+        "canLeaveActiveOrg": false,
+        "leaveRequiresPassword": false,
+        "passwordRecovery": "email",
+        "defaultCountry": "TR"
+      },
+      "products": [
+        {
+          "key": "deciship",
+          "available": true,
+          "launch": "public",
+          "subscription": {
+            "status": "ACTIVE",
+            "plan": "early_access"
+          },
+          "role": "ADMIN",
+          "roleLabel": "Yönetici",
+          "roleKind": "builtin",
+          "permissions": [
+            "deciship.web.access",
+            "deciship.settings.manage",
+            "deciship.tariffs.view",
+            "deciship.tariffs.edit",
+            "deciship.invoices.upload",
+            "deciship.lines.decide",
+            "deciship.disputes.manage",
+            "deciship.invoices.view",
+            "deciship.reports.view",
+            "deciship.data.export",
+            "deciship.measurements.capture",
+            "deciship.measurements.view_all",
+            "deciship.measurements.manage",
+            "deciship.prices.view"
+          ]
+        },
+        {
+          "key": "orderloom",
+          "available": false,
+          "launch": "off",
+          "subscription": null,
+          "role": null,
+          "permissions": []
+        },
+        {
+          "key": "tagpress",
+          "available": false,
+          "launch": "off",
+          "subscription": null,
+          "role": null,
+          "permissions": []
+        }
+      ]
+    }
+  }
+}

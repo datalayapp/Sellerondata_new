@@ -1,0 +1,15 @@
+# Web imajı için derleme bağlamı (SellerOnData/ kökü): yalnız gerekenler gönderilir
+*
+!Ornekarac/apps/web
+!Platform/packages/contracts
+!Platform/packages/format
+!Platform/packages/shell
+!Platform/gateway/conf/access-log.conf
+Ornekarac/apps/web/node_modules
+Ornekarac/apps/web/dist
+Ornekarac/apps/web/e2e
+Ornekarac/apps/web/test-results
+Ornekarac/apps/web/playwright-report
+Platform/packages/*/node_modules
+**/.env
+**/*.log

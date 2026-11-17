@@ -1,0 +1,4206 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TR taban: PDF belge notları > KDV ve kur notu, ek ücret muafiyeti 1`] = `
+{
+  "carrier": null,
+  "currency": "USD",
+  "dimDivisor": null,
+  "discountPages": [],
+  "fuel": {
+    "kind": "UNKNOWN",
+    "pct": null,
+  },
+  "notes": [
+    "Fiyatlara KDV dahil değil",
+    "Başka para birimiyle faturada taşıyıcının günlük kuru kullanılır",
+  ],
+  "surchargeNotes": [],
+  "validFrom": null,
+  "weightUnit": null,
+}
+`;
+
+exports[`TR taban: biçimleme > sayılar, para, ağırlık, ölçü, yüzde, tarih 1`] = `
+{
+  "fmtDate": [
+    "27.10.2026",
+    "27.10.2026",
+    "geçersiz",
+  ],
+  "fmtDims": [
+    "40×30,5×25",
+    "40×0,5×1000",
+  ],
+  "fmtFxRate": [
+    "0,0000",
+    "1,0000",
+    "-1,0000",
+    "0,5000",
+    "1,0050",
+    "4,0200",
+    "4,0250",
+    "6,0000",
+    "9,5000",
+    "27,5000",
+    "999,9990",
+    "1.000,0000",
+    "1.234,5000",
+    "-458,5000",
+    "1.234.567,8910",
+  ],
+  "fmtKg": [
+    "0,0 kg",
+    "1,0 kg",
+    "-1,0 kg",
+    "0,5 kg",
+    "1,005 kg",
+    "4,02 kg",
+    "4,025 kg",
+    "6,0 kg",
+    "9,5 kg",
+    "27,5 kg",
+    "999,999 kg",
+    "1.000,0 kg",
+    "1.234,5 kg",
+    "-458,5 kg",
+    "1.234.567,891 kg",
+  ],
+  "fmtMoney": [
+    "0,00 ₺",
+    "0,00 €",
+    "0,00 $",
+    "0,00 £",
+    "0,00 CHF",
+    "1,00 ₺",
+    "1,00 €",
+    "1,00 $",
+    "1,00 £",
+    "1,00 CHF",
+    "-1,00 ₺",
+    "-1,00 €",
+    "-1,00 $",
+    "-1,00 £",
+    "-1,00 CHF",
+    "0,50 ₺",
+    "0,50 €",
+    "0,50 $",
+    "0,50 £",
+    "0,50 CHF",
+    "1,01 ₺",
+    "1,01 €",
+    "1,01 $",
+    "1,01 £",
+    "1,01 CHF",
+    "4,02 ₺",
+    "4,02 €",
+    "4,02 $",
+    "4,02 £",
+    "4,02 CHF",
+    "4,03 ₺",
+    "4,03 €",
+    "4,03 $",
+    "4,03 £",
+    "4,03 CHF",
+    "6,00 ₺",
+    "6,00 €",
+    "6,00 $",
+    "6,00 £",
+    "6,00 CHF",
+    "9,50 ₺",
+    "9,50 €",
+    "9,50 $",
+    "9,50 £",
+    "9,50 CHF",
+    "27,50 ₺",
+    "27,50 €",
+    "27,50 $",
+    "27,50 £",
+    "27,50 CHF",
+    "1.000,00 ₺",
+    "1.000,00 €",
+    "1.000,00 $",
+    "1.000,00 £",
+    "1.000,00 CHF",
+    "1.000,00 ₺",
+    "1.000,00 €",
+    "1.000,00 $",
+    "1.000,00 £",
+    "1.000,00 CHF",
+    "1.234,50 ₺",
+    "1.234,50 €",
+    "1.234,50 $",
+    "1.234,50 £",
+    "1.234,50 CHF",
+    "-458,50 ₺",
+    "-458,50 €",
+    "-458,50 $",
+    "-458,50 £",
+    "-458,50 CHF",
+    "1.234.567,89 ₺",
+    "1.234.567,89 €",
+    "1.234.567,89 $",
+    "1.234.567,89 £",
+    "1.234.567,89 CHF",
+  ],
+  "fmtMoneyEn": [
+    "0.00 EUR",
+    "1.00 EUR",
+    "-1.00 EUR",
+    "0.50 EUR",
+    "1.01 EUR",
+    "4.02 EUR",
+    "4.03 EUR",
+    "6.00 EUR",
+    "9.50 EUR",
+    "27.50 EUR",
+    "1,000.00 EUR",
+    "1,000.00 EUR",
+    "1,234.50 EUR",
+    "-458.50 EUR",
+    "1,234,567.89 EUR",
+  ],
+  "fmtNumber": [
+    "0,00",
+    "1,00",
+    "-1,00",
+    "0,50",
+    "1,01",
+    "4,02",
+    "4,03",
+    "6,00",
+    "9,50",
+    "27,50",
+    "1.000,00",
+    "1.000,00",
+    "1.234,50",
+    "-458,50",
+    "1.234.567,89",
+  ],
+  "fmtNumber0": [
+    "0",
+    "1",
+    "-1",
+    "1",
+    "1",
+    "4",
+    "4",
+    "6",
+    "10",
+    "28",
+    "1.000",
+    "1.000",
+    "1.235",
+    "-459",
+    "1.234.568",
+  ],
+  "fmtNumber4": [
+    "0,0000",
+    "1,0000",
+    "-1,0000",
+    "0,5000",
+    "1,0050",
+    "4,0200",
+    "4,0250",
+    "6,0000",
+    "9,5000",
+    "27,5000",
+    "999,9990",
+    "1.000,0000",
+    "1.234,5000",
+    "-458,5000",
+    "1.234.567,8910",
+  ],
+  "fmtPct": [
+    "%0",
+    "%1",
+    "%-1",
+    "%0,5",
+    "%1,01",
+    "%4,02",
+    "%4,03",
+    "%6",
+    "%9,5",
+    "%27,5",
+    "%1000",
+    "%1000",
+    "%1234,5",
+    "%-458,5",
+    "%1234567,89",
+  ],
+  "fmtSignedPct": [
+    "+%0",
+    "+%1",
+    "−%1",
+    "+%0,5",
+    "+%1,01",
+    "+%4,02",
+    "+%4,03",
+    "+%6",
+    "+%9,5",
+    "+%27,5",
+    "+%1000",
+    "+%1000",
+    "+%1234,5",
+    "−%458,5",
+    "+%1234567,89",
+  ],
+  "fmtWeightNumber": [
+    "0,0",
+    "1,0",
+    "-1,0",
+    "0,5",
+    "1,005",
+    "4,02",
+    "4,025",
+    "6,0",
+    "9,5",
+    "27,5",
+    "999,999",
+    "1.000,0",
+    "1.234,5",
+    "-458,5",
+    "1.234.567,891",
+  ],
+}
+`;
+
+exports[`TR taban: fatura okuma kontrolü > eksik eşleme ve boş sütunlar 1`] = `
+{
+  "chargesMismatch": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "4/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamıyla tutuyor",
+      ],
+      "netAmount": [
+        "4/4 satırda dolu",
+        "ücret kalemleri 0/4 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamıyla tutuyor",
+      ],
+      "shipDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Net tutar: 4/4 satırda dolu, ücret kalemleri 0/4 satırda net tutarla tutuyor, satır toplamı fatura toplamıyla tutuyor.",
+      "4 satırda okuma sorunu: ücret kalemlerinin toplamı net tutarla tutmuyor (4).",
+    ],
+    "warnings": [
+      "4 satırda ücret kalemlerinin toplamı net tutarla tutmuyor.",
+    ],
+  },
+  "desi": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "currency": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 0 kadarı cm/inç olarak tanınıyor",
+      ],
+      "dims": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 0 kadarı "40x30x25" biçiminde",
+      ],
+      "fuelAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamıyla tutuyor",
+      ],
+      "netAmount": [
+        "4/4 satırda dolu",
+        "ücret kalemleri 4/4 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamıyla tutuyor",
+      ],
+      "shipDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Ölçü: 4/4 satırda dolu, değerlerin yüzde 0 kadarı "40x30x25" biçiminde.",
+      "Ölçü birimi: 4/4 satırda dolu, değerlerin yüzde 0 kadarı cm/inç olarak tanınıyor.",
+      "4 satırda okuma sorunu: birim tanınmadı (cm/inç, kg/lb bekleniyor) (4).",
+    ],
+    "warnings": [],
+  },
+  "emptyCols": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "actualKgUnit": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "baseAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedDivisor": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "currency": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "destCountry": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimH": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimL": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimW": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "fuelAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamından -5.000,00 farklı",
+      ],
+      "netAmount": [
+        "Sütun takip no olan satırlarda boş",
+        "satır toplamı fatura toplamından -5.000,00 farklı",
+      ],
+      "shipDate": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "trackingNo": [
+        "Sütun hiçbir satırda dolu değil",
+      ],
+    },
+    "issues": [
+      "Takip no: Sütun hiçbir satırda dolu değil.",
+      "Net tutar: Sütun takip no olan satırlarda boş, satır toplamı fatura toplamından -5.000,00 farklı.",
+      "Gönderi tarihi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Varış ülkesi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Ücretli ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Uzunluk: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Genişlik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yükseklik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Desi böleni: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Navlun: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yakıt: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Para birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Fatura toplamı: 4/4 satırda dolu, satır toplamından -5.000,00 farklı.",
+      "Bu eşlemeyle hiç satır okunamadı.",
+    ],
+    "warnings": [
+      "Takip no sütunu ("Takip No") hiçbir satırda dolu değil; bu eşlemeyle faturadan satır alınamaz.",
+      "Net tutar sütunu ("Net Tutar") hiçbir satırda dolu değil.",
+      "Satır toplamı fatura toplamından -5000.00 farklı.",
+    ],
+  },
+  "emptyOptional": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "4/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamıyla tutuyor",
+      ],
+      "netAmount": [
+        "4/4 satırda dolu",
+        "ücret kalemleri 4/4 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamıyla tutuyor",
+      ],
+      "service": [
+        "Sütun okunan satırlarda boş",
+      ],
+      "shipDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Hizmet: Sütun okunan satırlarda boş.",
+    ],
+    "warnings": [],
+  },
+  "halfFilled": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "3/3 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "7/7 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "7/7 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "7/7 satırda dolu",
+        "satır toplamından -1.250,00 farklı",
+      ],
+      "netAmount": [
+        "3/3 satırda dolu",
+        "ücret kalemleri 3/3 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamından -1.250,00 farklı",
+      ],
+      "shipDate": [
+        "3/3 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "3/7 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+        "satırların önemli kısmında boş",
+      ],
+    },
+    "issues": [
+      "Takip no: 3/7 satırda dolu, değerlerin yüzde 100 kadarı takip no biçiminde, satırların önemli kısmında boş.",
+      "Net tutar: 3/3 satırda dolu, ücret kalemleri 3/3 satırda net tutarla tutuyor, satır toplamı fatura toplamından -1.250,00 farklı.",
+      "Fatura toplamı: 7/7 satırda dolu, satır toplamından -1.250,00 farklı.",
+    ],
+    "warnings": [
+      "Net tutar sütunu ("Net Tutar") tüm satırlarda aynı; fatura toplamı olabilir, satır tutarı sütununu seçin.",
+      "Satır toplamı fatura toplamından -1250.00 farklı.",
+    ],
+  },
+  "missingCol": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "4/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "Seçilen sütun bu dosyada yok",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamıyla tutuyor",
+      ],
+      "netAmount": [
+        "4/4 satırda dolu",
+        "ücret kalemleri 4/4 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamıyla tutuyor",
+      ],
+      "service": [
+        "Seçilen sütun bu dosyada yok",
+      ],
+      "shipDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Hizmet: Seçilen sütun bu dosyada yok.",
+      "Fatura no: Seçilen sütun bu dosyada yok.",
+    ],
+    "warnings": [],
+  },
+  "netConstant": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "6/6 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "6/6 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "6/6 satırda dolu",
+        "satır toplamından 2.500,00 farklı",
+      ],
+      "netAmount": [
+        "6/6 satırda dolu",
+        "tüm satırlarda aynı değer; fatura toplamı olabilir",
+        "ücret kalemleri 6/6 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamından 2.500,00 farklı",
+      ],
+      "shipDate": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "6/6 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Net tutar: 6/6 satırda dolu, tüm satırlarda aynı değer; fatura toplamı olabilir, ücret kalemleri 6/6 satırda net tutarla tutuyor, satır toplamı fatura toplamından 2.500,00 farklı.",
+      "Fatura toplamı: 6/6 satırda dolu, satır toplamından 2.500,00 farklı.",
+    ],
+    "warnings": [
+      "Net tutar sütunu ("Net Tutar") tüm satırlarda aynı; fatura toplamı olabilir, satır tutarı sütununu seçin.",
+      "Satır toplamı fatura toplamından 2500.00 farklı.",
+    ],
+  },
+  "noLines": {
+    "errors": [
+      {
+        "code": "BAD_TRACKING",
+        "message": "Satır 1: geçersiz takip no "ABCDEF"",
+        "rowIndex": 0,
+        "value": "ABCDEF",
+      },
+      {
+        "code": "BAD_TRACKING",
+        "message": "Satır 2: geçersiz takip no "GHIJKL"",
+        "rowIndex": 1,
+        "value": "GHIJKL",
+      },
+    ],
+    "fields": {
+      "actualKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "actualKgUnit": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "baseAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedDivisor": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "currency": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "destCountry": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimH": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimL": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimW": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "fuelAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "invoiceDate": [
+        "2/2 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "2/2 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "2/2 satırda dolu",
+        "satır toplamından -5.000,00 farklı",
+      ],
+      "netAmount": [
+        "2/2 satırda dolu",
+        "satır toplamı fatura toplamından -5.000,00 farklı",
+      ],
+      "shipDate": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "trackingNo": [
+        "2/2 satırda dolu",
+        "değerlerin yüzde 0 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Takip no: 2/2 satırda dolu, değerlerin yüzde 0 kadarı takip no biçiminde.",
+      "Net tutar: 2/2 satırda dolu, satır toplamı fatura toplamından -5.000,00 farklı.",
+      "Gönderi tarihi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Varış ülkesi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Ücretli ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Uzunluk: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Genişlik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yükseklik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Desi böleni: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Navlun: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yakıt: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Para birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Fatura toplamı: 2/2 satırda dolu, satır toplamından -5.000,00 farklı.",
+      "Bu eşlemeyle hiç satır okunamadı.",
+      "2 satırda okuma sorunu: takip no biçimi beklenmedik (8–35 harf/rakam olmalı) (2).",
+    ],
+    "warnings": [
+      "Bu eşlemeyle hiç fatura satırı okunamadı.",
+      "2 satırda okuma hatası var.",
+      "Satır toplamı fatura toplamından -5000.00 farklı.",
+    ],
+  },
+  "noNet": {
+    "errors": [
+      {
+        "code": "NO_NET_COLUMN",
+        "message": "Net tutar sütunu seçilmedi: gönderi başına ödenen tutarın bulunduğu sütunu seçin.",
+        "rowIndex": -1,
+      },
+    ],
+    "fields": {
+      "actualKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "actualKgUnit": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "baseAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedDivisor": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "currency": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "destCountry": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimH": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimL": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimW": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "fuelAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamından -5.000,00 farklı",
+      ],
+      "netAmount": [
+        "Sütun seçilmedi",
+      ],
+      "shipDate": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+      ],
+    },
+    "issues": [
+      "Net tutar: sütun seçilmedi.",
+      "Gönderi tarihi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Varış ülkesi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Ücretli ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Uzunluk: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Genişlik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yükseklik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Desi böleni: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Navlun: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yakıt: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Para birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Fatura toplamı: 4/4 satırda dolu, satır toplamından -5.000,00 farklı.",
+    ],
+    "warnings": [
+      "Net tutar sütunu seçilmedi.",
+      "Satır toplamı fatura toplamından -5000.00 farklı.",
+    ],
+  },
+  "noTracking": {
+    "errors": [
+      {
+        "code": "NO_TRACKING_COLUMN",
+        "message": "Takip no sütunu seçilmedi: takip numaralarının bulunduğu sütunu seçin.",
+        "rowIndex": -1,
+      },
+    ],
+    "fields": {
+      "actualKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "actualKgUnit": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "baseAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedDivisor": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "billedKg": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "currency": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "destCountry": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimH": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimL": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "dimW": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "fuelAmount": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamından -5.000,00 farklı",
+      ],
+      "netAmount": [
+        "Sütun takip no olan satırlarda boş",
+        "satır toplamı fatura toplamından -5.000,00 farklı",
+      ],
+      "shipDate": [
+        "Okunan satır yok; önce takip no ve net tutarı eşleyin",
+      ],
+      "trackingNo": [
+        "Sütun seçilmedi",
+      ],
+    },
+    "issues": [
+      "Takip no: sütun seçilmedi.",
+      "Net tutar: Sütun takip no olan satırlarda boş, satır toplamı fatura toplamından -5.000,00 farklı.",
+      "Gönderi tarihi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Varış ülkesi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Ücretli ağırlık: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Uzunluk: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Genişlik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yükseklik: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Desi böleni: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Navlun: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Yakıt: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Para birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Gerçek ağırlık birimi: Okunan satır yok; önce takip no ve net tutarı eşleyin.",
+      "Fatura toplamı: 4/4 satırda dolu, satır toplamından -5.000,00 farklı.",
+    ],
+    "warnings": [
+      "Takip no sütunu seçilmedi.",
+      "Satır toplamı fatura toplamından -5000.00 farklı.",
+    ],
+  },
+  "sameTrack": {
+    "errors": [],
+    "fields": {
+      "actualKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      ],
+      "actualKgUnit": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+      ],
+      "baseAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "billedDivisor": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+      ],
+      "billedKg": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+        "4/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+      ],
+      "currency": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı para birimi kodu",
+      ],
+      "destCountry": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+      ],
+      "dimH": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimL": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "dimW": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+      ],
+      "fuelAmount": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+      ],
+      "invoiceDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "invoiceNo": [
+        "4/4 satırda dolu",
+      ],
+      "invoiceTotal": [
+        "4/4 satırda dolu",
+        "satır toplamıyla tutuyor",
+      ],
+      "netAmount": [
+        "4/4 satırda dolu",
+        "ücret kalemleri 4/4 satırda net tutarla tutuyor",
+        "satır toplamı fatura toplamıyla tutuyor",
+      ],
+      "shipDate": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+      ],
+      "trackingNo": [
+        "4/4 satırda dolu",
+        "değerlerin yüzde 100 kadarı takip no biçiminde",
+        "yalnızca 2 farklı değer var; fatura/hesap numarası olabilir",
+      ],
+    },
+    "issues": [
+      "Takip no: 4/4 satırda dolu, değerlerin yüzde 100 kadarı takip no biçiminde, yalnızca 2 farklı değer var; fatura/hesap numarası olabilir.",
+    ],
+    "warnings": [],
+  },
+  "verify": [],
+}
+`;
+
+exports[`TR taban: fatura okuma kontrolü > sorunlu tablo 1`] = `
+{
+  "errors": [
+    {
+      "code": "BAD_DATE",
+      "message": "Satır 1: tarih okunamadı "dün"",
+      "rowIndex": 0,
+      "trackingRaw": "794812345301",
+      "value": "dün",
+    },
+    {
+      "code": "BAD_TRACKING",
+      "message": "Satır 5: geçersiz takip no "ABCDEF"",
+      "rowIndex": 4,
+      "value": "ABCDEF",
+    },
+    {
+      "code": "BAD_NET",
+      "message": "Satır 6: net tutar okunamadı "yok"",
+      "rowIndex": 5,
+      "trackingRaw": "794812345399",
+      "value": "yok",
+    },
+    {
+      "code": "BAD_NET",
+      "message": "Satır 7: net tutar okunamadı """,
+      "rowIndex": 6,
+      "trackingRaw": "794812345398",
+      "value": "",
+    },
+  ],
+  "fields": {
+    "actualKg": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı 0–1000 kg aralığında",
+    ],
+    "actualKgUnit": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı kg/lb olarak tanınıyor",
+    ],
+    "baseAmount": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı sayı olarak okunuyor",
+    ],
+    "billedDivisor": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı olağan bölen (1000–10000)",
+    ],
+    "billedKg": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      "3/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+    ],
+    "currency": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı para birimi kodu",
+    ],
+    "destCountry": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı ülke olarak tanınıyor",
+    ],
+    "dimH": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+    ],
+    "dimL": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı 1–300 cm aralığında",
+    ],
+    "dimW": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+    ],
+    "fuelAmount": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+    ],
+    "invoiceDate": [
+      "8/8 satırda dolu",
+      "2 farklı değer",
+      "değerlerin yüzde 88 kadarı tarih olarak okunuyor",
+    ],
+    "invoiceNo": [
+      "8/8 satırda dolu",
+    ],
+    "invoiceTotal": [
+      "8/8 satırda dolu",
+      "2 farklı değer",
+      "satır toplamıyla tutuyor",
+    ],
+    "netAmount": [
+      "6/7 satırda dolu",
+      "1 satırda sayı okunamadı",
+      "ücret kalemleri 3/3 satırda net tutarla tutuyor",
+      "satır toplamı fatura toplamıyla tutuyor",
+    ],
+    "shipDate": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 75 kadarı tarih olarak okunuyor",
+    ],
+    "trackingNo": [
+      "7/8 satırda dolu",
+      "değerlerin yüzde 43 kadarı takip no biçiminde",
+      "yalnızca 5 farklı değer var; fatura/hesap numarası olabilir",
+    ],
+  },
+  "issues": [
+    "Takip no: 7/8 satırda dolu, değerlerin yüzde 43 kadarı takip no biçiminde, yalnızca 5 farklı değer var; fatura/hesap numarası olabilir.",
+    "Net tutar: 6/7 satırda dolu, 1 satırda sayı okunamadı, ücret kalemleri 3/3 satırda net tutarla tutuyor, satır toplamı fatura toplamıyla tutuyor.",
+    "Gönderi tarihi: 4/4 satırda dolu, değerlerin yüzde 75 kadarı tarih olarak okunuyor.",
+    "Varış ülkesi: 4/4 satırda dolu, değerlerin yüzde 75 kadarı ülke olarak tanınıyor.",
+    "Gerçek ağırlık: 4/4 satırda dolu, değerlerin yüzde 75 kadarı 0–1000 kg aralığında.",
+    "Uzunluk: 4/4 satırda dolu, değerlerin yüzde 75 kadarı 1–300 cm aralığında.",
+    "Desi böleni: 4/4 satırda dolu, değerlerin yüzde 75 kadarı olağan bölen (1000–10000).",
+    "Navlun: 4/4 satırda dolu, değerlerin yüzde 75 kadarı sayı olarak okunuyor.",
+    "Para birimi: 4/4 satırda dolu, değerlerin yüzde 75 kadarı para birimi kodu.",
+    "Gerçek ağırlık birimi: 4/4 satırda dolu, değerlerin yüzde 75 kadarı kg/lb olarak tanınıyor.",
+    "Fatura tarihi: 8/8 satırda dolu, 2 farklı değer, değerlerin yüzde 88 kadarı tarih olarak okunuyor.",
+    "7 satırda okuma sorunu: ağırlık olağan aralığın dışında (0–1000 kg) (1); ölçü olağan aralığın dışında (1–300 cm) (1); gönderi tarihi okunamadı (1); birim tanınmadı (cm/inç, kg/lb bekleniyor) (1); takip no biçimi beklenmedik (8–35 harf/rakam olmalı) (4); net tutar sayı olarak okunamadı (2).",
+  ],
+  "warnings": [
+    "4 satırda okuma hatası var.",
+  ],
+}
+`;
+
+exports[`TR taban: fatura okuma kontrolü > temiz tablo 1`] = `
+{
+  "errors": [],
+  "fields": {
+    "actualKg": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+    ],
+    "actualKgUnit": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı kg/lb olarak tanınıyor",
+    ],
+    "baseAmount": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+    ],
+    "billedDivisor": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı olağan bölen (1000–10000)",
+    ],
+    "billedKg": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 0–1000 kg aralığında",
+      "4/4 satırda gerçek/hacimsel ağırlıkla uyumlu",
+    ],
+    "currency": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı para birimi kodu",
+    ],
+    "destCountry": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı ülke olarak tanınıyor",
+    ],
+    "dimH": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+    ],
+    "dimL": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+    ],
+    "dimW": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı 1–300 cm aralığında",
+    ],
+    "fuelAmount": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı sayı olarak okunuyor",
+    ],
+    "invoiceDate": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+    ],
+    "invoiceNo": [
+      "4/4 satırda dolu",
+    ],
+    "invoiceTotal": [
+      "4/4 satırda dolu",
+      "satır toplamıyla tutuyor",
+    ],
+    "netAmount": [
+      "4/4 satırda dolu",
+      "ücret kalemleri 4/4 satırda net tutarla tutuyor",
+      "satır toplamı fatura toplamıyla tutuyor",
+    ],
+    "shipDate": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı tarih olarak okunuyor",
+    ],
+    "trackingNo": [
+      "4/4 satırda dolu",
+      "değerlerin yüzde 100 kadarı takip no biçiminde",
+    ],
+  },
+  "issues": [],
+  "warnings": [],
+}
+`;
+
+exports[`TR taban: fatura özeti > cümleler 1`] = `
+[
+  "19/120 satır karşılaştırıldı · 3 satırda fark var · 63 satırın ölçümü bulunamadı · 38 satırda tarife yok",
+  "19/120 satır karşılaştırıldı · 3 satırda fark var · 53 satırın ölçümü bulunamadı · 10 satırda tarife yok · 38 pak/zarf satırı kapsam dışı",
+  "16/120 satır karşılaştırıldı, fark yok · 63 satırın ölçümü bulunamadı · 38 satırda tarife yok",
+  "Karşılaştırılan satırlarda fark yok",
+  "2 satırda fark var",
+  "1.100/1.200 satır karşılaştırıldı · 100 satırda fark var · 50 satırın ölçümü bulunamadı · 50 satırda tarife yok",
+]
+`;
+
+exports[`TR taban: fatura özeti > fazla ödeme notu 1`] = `
+[
+  null,
+  "Fazla ödeme yalnız fark olan satırlardaki fazla tutardır (mükerrerler dahil); tolerans içindeki küçük farklar sayılmaz.",
+  null,
+]
+`;
+
+exports[`TR taban: ipuçları ve barem > WhatsApp 1`] = `
+[
+  "DeciShip · FedEx fatura 9-482-11735 (27.10.2026): 18 gönderi, 4 fark, 1 eşleşmedi. Fazla ödeme 1.731,20 ₺. İtiraz için son gün 04.11.2026.",
+  "DeciShip · FedEx fatura 9-482-11735: 18 gönderi, 4 fark. Fazla ödeme 1.731,20 ₺.",
+  "DeciShip · FedEx fatura 9-482-11735 (27.10.2026): 18 gönderi, 4 fark, 1 eşleşmedi. Fazla ödeme yok.",
+]
+`;
+
+exports[`TR taban: ipuçları ve barem > ağırlık basamakları 1`] = `
+[
+  "yuvarlama yok",
+  "her 1 kg",
+  "70,5 kg'a kadar 0,5 kg, üstü 1 kg",
+  "20 kg'a kadar 0,5 kg, 1.000 kg'a kadar 1,5 kg, üstü 5 kg",
+]
+`;
+
+exports[`TR taban: ipuçları ve barem > barem 1`] = `
+[
+  "Ücretli ağırlık 6,0 kg basamağını 0,2 kg aşıyor.",
+  "Ücretli ağırlık 10,5 kg basamağını 0,125 kg aşıyor.",
+]
+`;
+
+exports[`TR taban: itiraz metni > listelenecek satır yok 1`] = `
+{
+  "body": "Sayın FedEx Faturalandırma Ekibi,
+
+Demo İhracat (müşteri no 123456789) olarak 27.10.2026 tarihli 9-482-11735 numaralı faturanızı, paketleme anında kayıt altına aldığımız ölçü ve ağırlıklar ile sözleşme tarifemize göre kontrol ettik. Aşağıdaki 0 gönderide fazla faturalandırma tespit edilmiştir:
+
+Toplam talep edilen düzeltme: 0,00 ₺ (KDV hariç)
+
+Ölçüm fotoğraflarımızı talep etmeniz hâlinde iletebiliriz. Yukarıdaki tutarlar için alacak dekontu düzenlenmesini rica ederiz.
+
+Saygılarımızla,
+Elif Kaya
+Demo İhracat
+E-posta: elif@demo.com
+Tel: +90 212 000 00 00",
+  "lineCount": 0,
+  "photoCount": 0,
+  "subject": "Fatura itirazı — FedEx 9-482-11735 (0 gönderi, 0,00 ₺)",
+  "total": 0,
+}
+`;
+
+exports[`TR taban: itiraz metni > müşteri no, tarih ve imza alanları olmadan; USD 1`] = `
+{
+  "body": "Sayın UPS Faturalandırma Ekibi,
+
+Demo İhracat olarak X1 numaralı faturanızı, paketleme anında kayıt altına aldığımız ölçü ve ağırlıklar ile sözleşme tarifemize göre kontrol ettik. Aşağıdaki 1 gönderide fazla faturalandırma tespit edilmiştir:
+
+1) Takip numarası 794812345305 (22.10.2026) — Ölçü farkı
+   Bizim ölçümümüz: 40×30,5×25 cm, 4,0 kg, ücretli 6,0 kg
+   Faturalanan: 45×35×30 cm, 4,5 kg, ücretli 9,5 kg
+   Beklenen tutar: 1.184,00 $ · Faturalanan tutar: 1.642,50 $ (KDV hariç)
+   Talep edilen düzeltme: 458,50 $
+
+Toplam talep edilen düzeltme: 458,50 $ (KDV hariç)
+
+Ölçüm fotoğraflarımızı talep etmeniz hâlinde iletebiliriz. Yukarıdaki tutarlar için alacak dekontu düzenlenmesini rica ederiz.
+
+Saygılarımızla,
+Demo İhracat",
+  "lineCount": 1,
+  "photoCount": 0,
+  "subject": "Fatura itirazı — UPS X1 (1 gönderi, 458,50 $)",
+  "total": 458.5,
+}
+`;
+
+exports[`TR taban: itiraz metni > tam metin 1`] = `
+{
+  "body": "Sayın FedEx Faturalandırma Ekibi,
+
+Demo İhracat (müşteri no 123456789) olarak 27.10.2026 tarihli 9-482-11735 numaralı faturanızı, paketleme anında kayıt altına aldığımız ölçü ve ağırlıklar ile sözleşme tarifemize göre kontrol ettik. Aşağıdaki 3 gönderide fazla faturalandırma tespit edilmiştir:
+
+1) Takip numarası 794812345305 (22.10.2026) — Ölçü farkı
+   Bizim ölçümümüz: 40×30,5×25 cm, 4,0 kg, ücretli 6,0 kg
+   Faturalanan: 45×35×30 cm, 4,5 kg, ücretli 9,5 kg
+   Beklenen tutar: 1.184,00 ₺ · Faturalanan tutar: 1.642,50 ₺ (KDV hariç)
+   Talep edilen düzeltme: 458,50 ₺
+
+2) Takip numarası 794812345288 — Mükerrer faturalama
+   Bu gönderi daha önce faturalanmıştır. Faturalanan: 1.120,00 ₺ (KDV hariç)
+   Talep edilen düzeltme: 1.120,00 ₺ (tamamının iptali)
+
+3) Takip numarası 794812345293 — Ek ücret, Ağırlık farkı
+   Bizim ölçümümüz: ücretli 4,5 kg
+   Faturalanan: ücretli 1.250,0 kg
+   Ek ücretler: Address Correction 412,00 ₺, PEAK 12,50 ₺
+   Beklenen tutar: — · Faturalanan tutar: 1.377,84 ₺ (KDV hariç)
+   Talep edilen düzeltme: 412,00 ₺
+
+Toplam talep edilen düzeltme: 1.990,50 ₺ (KDV hariç)
+
+Ölçüm fotoğraflarımızı talep etmeniz hâlinde iletebiliriz. Yukarıdaki tutarlar için alacak dekontu düzenlenmesini rica ederiz.
+
+Saygılarımızla,
+Elif Kaya
+Demo İhracat
+E-posta: elif@demo.com
+Tel: +90 212 000 00 00",
+  "lineCount": 3,
+  "photoCount": 0,
+  "subject": "Fatura itirazı — FedEx 9-482-11735 (3 gönderi, 1.990,50 ₺)",
+  "total": 1990.5,
+}
+`;
+
+exports[`TR taban: karşılaştırma notları > her sebep ve döküm dalı 1`] = `
+{
+  "currencyMismatch": {
+    "labels": [],
+    "note": "Para birimi uyuşmuyor (fatura EUR, tarife TRY)",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "dimension": {
+    "labels": [
+      "Taşıma + yakıt — faturadaki fiyatla: 2.000,00 ₺ × 1.527,75/5.800,00 (6,0 kg / 24,0 kg)",
+      "Tarifeye göre olurdu",
+    ],
+    "note": "Faturadaki fiyatla hesaplandı (tarifeden −%55,51)",
+    "reason": "Taşıyıcının fiyatı tarifeden −%55,51 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "duplicate": {
+    "labels": [],
+    "note": "Bu takip no daha önce faturalanmış",
+    "reason": null,
+    "status": "DIFF",
+  },
+  "excessSurcharge": {
+    "labels": [
+      "Taşıma + yakıt — faturadaki fiyatla: 1.000,00 ₺ × 1.527,75/1.527,75 (6,0 kg / 6,0 kg)",
+      "Ek elleçleme",
+      "Tarifeye göre olurdu",
+    ],
+    "note": "Tarifeden fazla ek ücret: ADDITIONAL_HANDLING +515,00 ₺ · Faturadaki fiyatla hesaplandı (tarifeden −%15,54)",
+    "reason": null,
+    "status": "DIFF",
+  },
+  "extremeDeviation": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": undefined,
+    "reason": "Taşıyıcının fiyatı tarifeden +%744,59 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "extremeWeight": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": undefined,
+    "reason": "Ölçüm ile faturadaki ağırlık çok farklı; eşleşme yanlış olabilir",
+    "status": "MATCH",
+  },
+  "favourable": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": "Lehimize fark",
+    "reason": "Taşıyıcının fiyatı tarifeden −%91,55 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "MATCH",
+  },
+  "fx": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+      "Beklenen 1.184,00 USD × 41,2345 (TCMB 23.10.2026, 25.10.2026 için)",
+    ],
+    "note": undefined,
+    "reason": "Taşıyıcının fiyatı tarifeden +%104,83 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "fxInvoiceBasis": {
+    "labels": [
+      "Taşıma + yakıt — faturadaki fiyatla: 30.000,00 ₺ × 1.527,75/2.119,35 (6,0 kg / 9,5 kg)",
+      "Tarifeye göre olurdu: 1.184,00 USD × 41,2345 (TCMB 23.10.2026, 25.10.2026 için)",
+    ],
+    "note": "Faturadaki fiyatla hesaplandı (tarifeden −%55,7)",
+    "reason": "Taşıyıcının fiyatı tarifeden −%55,7 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "fxMissing": {
+    "labels": [],
+    "note": "Kur bulunamadı (USD→TRY, 22.10.2026)",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "fxTolerance": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+      "Beklenen 1.184,00 USD × 41,2345 (TCMB 23.10.2026)",
+    ],
+    "note": "Kur farkı tolerans içinde (%1,5)",
+    "reason": null,
+    "status": "MATCH",
+  },
+  "invoiceBasis": {
+    "labels": [
+      "Taşıma — faturadaki fiyatla: 650,00 ₺ × 1.527,75/2.119,35 (6,0 kg / 9,5 kg)",
+      "Yakıt — faturadaki yakıtla: 100,00 ₺ × 1.527,75/2.119,35",
+      "Ek elleçleme",
+      "Tarifeye göre olurdu",
+    ],
+    "note": "Faturadaki fiyatla hesaplandı (tarifeden −%50,53) · Ağırlık farklı yazılmış, tutara etkisi yok · Lehimize fark",
+    "reason": "Taşıyıcının fiyatı tarifeden −%50,53 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "MATCH",
+  },
+  "invoiceBasisCombined": {
+    "labels": [
+      "Taşıma + yakıt — faturadaki fiyatla: 800,00 ₺ × 1.527,75/2.119,35 (6,0 kg / 9,5 kg)",
+      "Tarifeye göre olurdu",
+    ],
+    "note": "Faturadaki fiyatla hesaplandı (tarifeden −%51,29)",
+    "reason": "Taşıyıcının fiyatı tarifeden −%51,29 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "noBilledKg": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": undefined,
+    "reason": "Faturada ücretli ağırlık yok; beklenen yalnız tarifeden",
+    "status": "DIFF",
+  },
+  "noCountry": {
+    "labels": [],
+    "note": "Varış ülkesi bilinmiyor ve tarifede genel bölge (*) yok",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "noFreight": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+      "X",
+    ],
+    "note": "Tarifede olmayan ek ücretler faturadaki tutarıyla Beklenen'e eklendi: X 20,00 ₺ · Lehimize fark",
+    "reason": "Faturadaki taşıma bedeli okunamadı; beklenen yalnız tarifeden",
+    "status": "MATCH",
+  },
+  "noMeasurement": {
+    "labels": [],
+    "note": "Bu takip no için ölçüm yok",
+    "reason": null,
+    "status": "UNMATCHED",
+  },
+  "noRateAtKg": {
+    "labels": [
+      "Tarife fiyatı (Bölge B, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": undefined,
+    "reason": "Tarifede faturadaki ağırlık (40,0 kg) için fiyat yok; beklenen yalnız tarifeden",
+    "status": "DIFF",
+  },
+  "noRates": {
+    "labels": [],
+    "note": "Tarifede D bölgesi için fiyat satırı yok",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "noTariff": {
+    "labels": [],
+    "note": "Taşıyıcının geçerli tarifesi yok",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "pak": {
+    "labels": [],
+    "note": "Pak/zarf gönderisi — kapsam dışı; koli tarifesiyle karşılaştırılmadı",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+  "pakNoMeasurement": {
+    "labels": [],
+    "note": "Pak/zarf gönderisi — kapsam dışı",
+    "reason": null,
+    "status": "UNMATCHED",
+  },
+  "price": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": undefined,
+    "reason": "Taşıyıcının fiyatı tarifeden +%322,3 farklı; hizmet ya da bölge farklı olabilir",
+    "status": "DIFF",
+  },
+  "strictUnknown": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+    ],
+    "note": "Tarifede olmayan ek ücret: EPH 12,50 ₺ · Taşıma ve yakıt tarifeden fazla: +303,50 ₺",
+    "reason": null,
+    "status": "DIFF",
+  },
+  "unknownSurcharge": {
+    "labels": [
+      "Tarife fiyatı (Bölge A, 6,0 kg)",
+      "İndirim %38",
+      "Yakıt %25",
+      "EPH Ücreti",
+    ],
+    "note": "Tarifede olmayan ek ücretler faturadaki tutarıyla Beklenen'e eklendi: EPH Ücreti 12,50 ₺",
+    "reason": null,
+    "status": "DIFF",
+  },
+  "weight": {
+    "labels": [
+      "Taşıma + yakıt — faturadaki fiyatla: 2.000,00 ₺ × 1.527,75/3.632,26 (6,0 kg / 15,0 kg)",
+      "Tarifeye göre olurdu",
+    ],
+    "note": "Faturadaki fiyatla hesaplandı (tarifeden −%28,95)",
+    "reason": null,
+    "status": "DIFF",
+  },
+  "zoneMissing": {
+    "labels": [],
+    "note": "Tarifede JP için bölge yok",
+    "reason": null,
+    "status": "NO_TARIFF",
+  },
+}
+`;
+
+exports[`TR taban: karşılaştırma notları > kur kaynağı 1`] = `
+[
+  "TCMB 03.06.2025",
+  "TCMB 06.06.2025, 07.06.2025 için",
+]
+`;
+
+exports[`TR taban: sabit etiketler > dosya hataları 1`] = `
+[
+  "Dosya boş. Faturayı taşıyıcının portalından yeniden indirip yükleyin.",
+  "Dosyada başlık satırı var ama fatura satırı yok. Doğru dosyayı (dönemi) indirdiğinizden emin olun.",
+  "Excel dosyası açılamadı; bozuk ya da parola korumalı olabilir. Excel’de açıp parolayı kaldırın ve yeniden kaydedin.",
+  "Eski Excel (.xls) ya da parola korumalı dosya okunamıyor. Excel’de açıp “Excel Çalışma Kitabı (.xlsx)” olarak kaydedin.",
+  "Bu .xls dosyası aslında bir web sayfası. Excel’de açıp “Excel Çalışma Kitabı (.xlsx)” ya da CSV olarak kaydedin.",
+  "Desteklenmeyen dosya biçimi; CSV, XLSX veya PDF yükleyin.",
+  "Excel dosyasının açılmış hâli çok büyük; okunmadı. Gereksiz sayfaları silin ya da dosyayı bölerek yükleyin.",
+]
+`;
+
+exports[`TR taban: sabit etiketler > dosya hataları 2`] = `
+[
+  "Dosyada çok fazla satır var (en çok 200.000). Dosyayı bölerek yükleyin.",
+  "PDF çok uzun (en çok 300 sayfa). Dosyayı bölerek yükleyin.",
+]
+`;
+
+exports[`TR taban: sabit etiketler > etiket tabloları ve notlar 1`] = `
+{
+  "DIFF_TYPE_LABELS": {
+    "DIMENSION": "Ölçü farkı",
+    "DUPLICATE": "Mükerrer",
+    "PRICE": "Fiyat farkı",
+    "SURCHARGE": "Ek ücret",
+    "WEIGHT": "Ağırlık farkı",
+  },
+  "ESTIMATED_NOTE": "İncele: tutarından emin olunamayan satırlar (fiyat ya da ağırlık faturadan doğrulanamadı, hizmet tarifeden farklı ya da takip no başka faturada farklı tutarla var); Fazla ödeme'ye eklenmez, ayrıca gösterilir.",
+  "FAVOURABLE_NOTE": "Lehimize fark",
+  "FX_SOURCE_LABEL": "TCMB döviz alış/satış ortalaması",
+  "FX_TOLERANCE_NOTE": "Kur farkı tolerans içinde",
+  "INVOICE_BASIS_NOTE": "Faturadaki fiyatla hesaplandı",
+  "MAPPING_FIELD_LABELS": {
+    "actualKg": "Gerçek ağırlık (kg)",
+    "actualKgUnit": "Gerçek ağırlık birimi (kg/lb)",
+    "baseAmount": "Navlun / liste tutarı",
+    "billedDivisor": "Desi böleni",
+    "billedKg": "Ücretli ağırlık (kg ya da desi)",
+    "billedKgUnit": "Ücretli ağırlık birimi (kg/lb)",
+    "currency": "Para birimi",
+    "destCountry": "Varış ülkesi",
+    "dimH": "Yükseklik (cm)",
+    "dimL": "Uzunluk (cm)",
+    "dimUnit": "Ölçü birimi (cm/inç)",
+    "dimW": "Genişlik (cm)",
+    "dims": "Ölçü (tek hücre, 40x30x25)",
+    "discountAmount": "İndirim",
+    "fuelAmount": "Yakıt ek ücreti",
+    "netAmount": "Net tutar",
+    "reference": "Referans",
+    "service": "Hizmet",
+    "shipDate": "Gönderi tarihi",
+    "trackingNo": "Takip no",
+  },
+  "OVERCHARGE_NOTE": "Fazla ödeme yalnız fark olan satırlardaki fazla tutardır (mükerrerler dahil); tolerans içindeki küçük farklar sayılmaz.",
+  "PAK_NOTE": "Pak/zarf gönderisi — kapsam dışı",
+  "ROW_FLAG_LABELS": {
+    "AMOUNT_PARSE": "Net tutar sayı olarak okunamadı",
+    "BILLED_WEIGHT_ODD": "Ücretli ağırlık, gerçek ve hacimsel ağırlıkla uyuşmuyor",
+    "CHARGES_MISMATCH": "Ücret kalemlerinin toplamı net tutarla tutmuyor",
+    "CURRENCY_MISMATCH": "Para birimi faturanınkinden farklı",
+    "DATE_PARSE": "Gönderi tarihi okunamadı",
+    "DIMS_RANGE": "Ölçü olağan aralığın dışında (1–300 cm)",
+    "DUPLICATE_TRACKING": "Aynı takip no dosyada birden çok satırda var",
+    "PDF_AMOUNT_UNVERIFIED": "Net tutar PDF metninde bulunamadı",
+    "PDF_DIMS_UNVERIFIED": "Ölçüler PDF metninde bulunamadı",
+    "PDF_PAGE_BREAK": "Satır sayfa sınırında bölünmüş olabilir",
+    "PDF_SURCHARGE_UNVERIFIED": "Ek ücret tutarı PDF metninde bulunamadı",
+    "PDF_TRACKING_UNVERIFIED": "Takip no PDF metninde bulunamadı",
+    "PDF_VAT_UNCLEAR": "Tutarların KDV dahil olup olmadığı PDF'te belirsiz",
+    "PDF_WEIGHT_UNVERIFIED": "Ağırlık PDF metninde bulunamadı",
+    "TRACKING_FORMAT": "Takip no biçimi beklenmedik (8–35 harf/rakam olmalı)",
+    "UNIT_UNKNOWN": "Birim tanınmadı (cm/inç, kg/lb bekleniyor)",
+    "WEIGHT_RANGE": "Ağırlık olağan aralığın dışında (0–1000 kg)",
+  },
+  "STATUS_LABELS": {
+    "DIFF": "Fark var",
+    "MATCH": "Uyumlu",
+    "NO_TARIFF": "Tarife yok",
+    "UNMATCHED": "Eşleşmedi",
+  },
+  "UNCHECKED_SURCHARGE_NOTE": "Tarifede olmayan ek ücretler faturadaki tutarıyla Beklenen'e eklendi",
+}
+`;
+
+exports[`TR taban: sabit etiketler > etiketsiz ücret 1`] = `
+{
+  "code": "DIGER",
+  "kind": "surcharge",
+  "name": "Etiketsiz ücret",
+}
+`;
+
+exports[`TR taban: sabit etiketler > ülke adları ve ülke istisnası 1`] = `
+{
+  "adj": [
+    "İspanya istisnası −%15,45",
+    "Almanya istisnası +%3",
+  ],
+  "names": [
+    "İspanya",
+    "Almanya",
+    "Türkiye",
+    "Amerika Birleşik Devletleri",
+    "Bilinmeyen Bölge",
+    "XX",
+    "—",
+    "—",
+    "ABC",
+  ],
+}
+`;
+
+exports[`TR taban: tarife hesabı metinleri > expectedCharge etiketleri ve sebepleri 1`] = `
+[
+  {
+    "adjustment": 0,
+    "adjustmentPct": 0,
+    "base": 1527.75,
+    "discount": 580.55,
+    "freight": 947.2,
+    "fuel": 236.8,
+    "lines": [
+      {
+        "amount": 1527.75,
+        "label": "Tarife fiyatı (Bölge A, 6,0 kg)",
+      },
+      {
+        "amount": -580.55,
+        "label": "İndirim %38",
+      },
+      {
+        "amount": 236.8,
+        "label": "Yakıt %25",
+      },
+      {
+        "amount": 285,
+        "label": "Ek elleçleme",
+      },
+    ],
+    "ok": true,
+    "surcharges": 285,
+    "total": 1469,
+    "zone": "A",
+  },
+  {
+    "adjustment": 0,
+    "adjustmentPct": 0,
+    "base": 6550,
+    "discount": 2489,
+    "freight": 4061,
+    "fuel": 1015.25,
+    "lines": [
+      {
+        "amount": 6550,
+        "label": "Tarife fiyatı (Bölge A, 35,0 kg, taşma 5 birim)",
+      },
+      {
+        "amount": -2489,
+        "label": "İndirim %38",
+      },
+      {
+        "amount": 1015.25,
+        "label": "Yakıt %25",
+      },
+    ],
+    "ok": true,
+    "surcharges": 0,
+    "total": 5076.25,
+    "zone": "A",
+  },
+  {
+    "adjustment": -48.39,
+    "adjustmentPct": -15.45,
+    "base": 348,
+    "discount": 34.8,
+    "freight": 264.81,
+    "fuel": 33.1,
+    "lines": [
+      {
+        "amount": 348,
+        "label": "Tarife fiyatı (Bölge P, kg başı 4,35 × 80,0 kg)",
+      },
+      {
+        "amount": -34.8,
+        "label": "İndirim %10",
+      },
+      {
+        "amount": -48.39,
+        "label": "İspanya istisnası −%15,45",
+      },
+      {
+        "amount": 33.1,
+        "label": "Yakıt %12,5",
+      },
+    ],
+    "ok": true,
+    "surcharges": 0,
+    "total": 297.91,
+    "zone": "P",
+  },
+  {
+    "ok": false,
+    "reason": "120,0 kg tarifedeki son kg başı bandını (100,0 kg) aşıyor",
+  },
+  {
+    "ok": false,
+    "reason": "9,0 kg tarifedeki en yüksek ağırlığı (5,0 kg) aşıyor ve taşma fiyatı tanımlı değil",
+  },
+  {
+    "ok": false,
+    "reason": "Tarifede JP için bölge yok",
+  },
+  {
+    "ok": false,
+    "reason": "Varış ülkesi bilinmiyor ve tarifede genel bölge (*) yok",
+  },
+  {
+    "ok": false,
+    "reason": "Tarifede D bölgesi için fiyat satırı yok",
+  },
+  {
+    "ok": false,
+    "reason": "50,0 kg tarifedeki en yüksek ağırlığı (10,0 kg) aşıyor ve taşma fiyatı tanımlı değil",
+  },
+]
+`;
+
+exports[`TR taban: tarife içe aktarma kontrolleri > ham satır dökümü 1`] = `
+"1: s0
+2: s1
+3: s2
+… (7 satır atlandı) …
+11: s10
+12: s11"
+`;
+
+exports[`TR taban: tarife içe aktarma kontrolleri > hatalar 1`] = `
+{
+  "currency": {
+    "checks": [
+      {
+        "code": "CURRENCY_MISMATCH",
+        "detail": "Dosyada 2 hücrede USD işareti var; tarifenin para birimi TRY.",
+        "severity": "error",
+        "suggestion": "Fiyatlar gerçekten USD ise tarifenin para birimini USD yapın; değilse doğru dosyayı yükleyin.",
+        "title": "Dosyadaki fiyatlar USD, tarife TRY",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [
+      {
+        "id": "setCurrency",
+        "label": "Tarifenin para birimini USD yap",
+        "resolves": [
+          "CURRENCY_MISMATCH",
+        ],
+        "value": "USD",
+      },
+    ],
+    "headline": {
+      "lines": [
+        "Dosyadaki fiyatlar USD, tarife TRY",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [
+        "2 hücrede USD işareti",
+      ],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "currencyPdf": {
+    "checks": [
+      {
+        "code": "CURRENCY_MISMATCH",
+        "detail": "Belgedeki fiyatlar USD; tarifenin para birimi TRY.",
+        "severity": "error",
+        "suggestion": "Fiyatlar gerçekten USD ise tarifenin para birimini USD yapın; değilse doğru dosyayı yükleyin.",
+        "title": "Belgedeki fiyatlar USD, tarife TRY",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [
+      {
+        "id": "setCurrency",
+        "label": "Tarifenin para birimini USD yap",
+        "resolves": [
+          "CURRENCY_MISMATCH",
+        ],
+        "value": "USD",
+      },
+    ],
+    "headline": {
+      "lines": [
+        "Belgedeki fiyatlar USD, tarife TRY",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [
+        "belgedeki fiyatlar USD",
+      ],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "duplicateWeight": {
+    "checks": [
+      {
+        "code": "DUPLICATE_WEIGHT",
+        "detail": "Bölge A, 0,5 kg: 1,00 / 2,00 (satır 2–3)",
+        "rows": [
+          2,
+          3,
+        ],
+        "severity": "error",
+        "suggestion": "Her bölge ve ağırlık için tek fiyat olmalı. Dosyada tablonun bir kısmı iki kez yer alıyor olabilir.",
+        "title": "1 ağırlık için birden fazla farklı fiyat var",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "1 ağırlık için birden fazla farklı fiyat var",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "duplicateZone": {
+    "checks": [
+      {
+        "code": "DUPLICATE_ZONE",
+        "detail": "Tekrarlanan bölgeler: A.",
+        "rows": [
+          1,
+        ],
+        "severity": "error",
+        "suggestion": "Her bölge için tek sütun bırakın.",
+        "title": "Aynı bölge için birden fazla sütun var",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "0,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 0,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 0,5 kg. Bölge adları sadeleştirildi ("Zone A" → "A").",
+        "severity": "info",
+        "title": "1 bölge × 1 ağırlık okundu (1 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Aynı bölge için birden fazla sütun var",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–0,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "invalidPrice": {
+    "checks": [
+      {
+        "code": "INVALID_PRICE",
+        "detail": "satır 2, bölge A: "x"",
+        "rows": [
+          2,
+        ],
+        "severity": "error",
+        "suggestion": "Fiyat hücrelerinde yalnızca sayı olmalı (ör. 1.234,56). Boş bırakılan hücreler sorun değildir.",
+        "title": "1 fiyat hücresi okunamadı",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 1,0 kg.",
+        "severity": "info",
+        "title": "1 bölge × 1 ağırlık okundu (1 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "1 fiyat hücresi okunamadı",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 1,0–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "lb": {
+    "checks": [
+      {
+        "code": "WEIGHT_UNIT_LB",
+        "detail": "Dosyada libre ifadesi geçiyor: "Weight (lbs)", "1 lb", "2 lb". DeciShip ağırlıkları kilogram olarak karşılaştırır; 1 lb ≈ 0,454 kg.",
+        "severity": "error",
+        "suggestion": "Bu bir ABD (lb) tarifesi olabilir; doğru tarife olduğundan eminseniz "Ağırlıkları kilograma çevir" seçeneğini açın.",
+        "title": "Ağırlıklar libre (lb) cinsinden",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "2,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 2,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 2,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [
+      {
+        "id": "convertLbToKg",
+        "label": "Ağırlıkları libreden (lb) kilograma çevir",
+        "resolves": [
+          "WEIGHT_UNIT_LB",
+        ],
+      },
+    ],
+    "headline": {
+      "lines": [
+        "Ağırlıklar libre (lb) cinsinden",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""Weight (lbs)"",
+        ""1 lb"",
+        ""2 lb"",
+      ],
+    },
+    "summary": "1 bölge, 1,0–2,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "lbConverted": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "0,907 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 0,907 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,454 kg – 0,907 kg. Ağırlık yuvarlama tablodan alındı: her 0,454 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+      {
+        "code": "CONVERSIONS",
+        "severity": "info",
+        "title": "Ağırlıklar libreden kilograma çevrildi (1 lb = 0,45359237 kg)",
+      },
+    ],
+    "fixes": [
+      {
+        "id": "convertLbToKg",
+        "label": "Ağırlıkları libreden (lb) kilograma çevir",
+        "resolves": [
+          "WEIGHT_UNIT_LB",
+        ],
+      },
+    ],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 0,907 kg ile bitiyor ve aşım fiyatı yok",
+        "1 bölge, 0,454–0,907 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""Weight (lbs)"",
+        ""1 lb"",
+        ""2 lb"",
+      ],
+    },
+    "summary": "1 bölge, 0,454–0,907 kg · 1 ülke eşlemesi · TRY",
+  },
+  "mappingMissing": {
+    "checks": [
+      {
+        "code": "ZONE_MAPPING_MISSING",
+        "detail": "Fiyatı olmayan bölgeler: C (ülkeler: DE). Dosyadaki bölgeler: A, B.",
+        "severity": "error",
+        "suggestion": "Dosyadaki bölge sütun adlarını tarifedeki bölge adlarıyla aynı yapın ya da dosyaya bir "Bölgeler" sayfası ekleyin. Aksi hâlde bu ülkelere giden gönderiler "Tarife yok" olur.",
+        "title": "Bölge eşlemesindeki C bölgesinin fiyatı dosyada yok",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Bölge eşlemesindeki C bölgesinin fiyatı dosyada yok",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "mappingMissingMany": {
+    "checks": [
+      {
+        "code": "ZONE_MAPPING_MISSING",
+        "detail": "Fiyatı olmayan bölgeler: C, D (ülkeler: DE, FR). Dosyadaki bölgeler: A, B.",
+        "severity": "error",
+        "suggestion": "Bölgeler sayfasındaki bölge adlarını fiyat sütunlarıyla aynı yazın.",
+        "title": "Bölge eşlemesindeki 2 bölgenin fiyatı dosyada yok",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg. 2 ülke eşlemesi.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Bölge eşlemesindeki 2 bölgenin fiyatı dosyada yok",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 2 ülke eşlemesi · TRY",
+  },
+  "noRates": {
+    "checks": [
+      {
+        "code": "NO_RATES",
+        "detail": "Başlık satırı 1; altındaki satırlarda okunabilir ağırlık + fiyat yok.",
+        "severity": "error",
+        "suggestion": "İlk sütunda ağırlık (ör. 0,5 / 1 / 1,5), bölge sütunlarında fiyat olmalı.",
+        "title": "Dosyadan hiç fiyat okunamadı",
+      },
+      {
+        "code": "SKIPPED_ROWS",
+        "detail": "Satır 2: ağırlık okunamadı ("abc")",
+        "rows": [
+          2,
+        ],
+        "severity": "warning",
+        "suggestion": "Bu satırlardaki fiyatlar tarifeye girmez. Önemli bir satır varsa dosyayı düzeltip yeniden yükleyin.",
+        "title": "1 satırın ağırlığı okunamadı; bu satırlar alınmadı",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyadan hiç fiyat okunamadı",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [
+        {
+          "reason": "Ağırlık okunamadı",
+          "row": 2,
+          "text": "abc",
+        },
+      ],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "0 bölge · 1 ülke eşlemesi · TRY",
+  },
+  "noSheet": {
+    "checks": [
+      {
+        "code": "NO_RATES",
+        "severity": "error",
+        "suggestion": "İlk sütunda ağırlık, diğer sütunlarda bölge fiyatları olan bir tablo yükleyin (Excel şablonunu indirip doldurabilirsiniz).",
+        "title": "Dosyada fiyat tablosu bulunamadı",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada fiyat tablosu bulunamadı",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "0 bölge · 1 ülke eşlemesi · TRY",
+  },
+  "noZones": {
+    "checks": [
+      {
+        "code": "NO_ZONE_COLUMNS",
+        "detail": "Başlık satırı (satır 1) yalnızca ağırlık sütunu içeriyor.",
+        "rows": [
+          1,
+        ],
+        "severity": "error",
+        "suggestion": "Başlık satırında ağırlık sütunundan sonra her bölge için bir sütun olmalı (ör. A, B, C).",
+        "title": "Fiyat tablosunda bölge sütunu yok",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Fiyat tablosunda bölge sütunu yok",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "0 bölge · 1 ülke eşlemesi · TRY",
+  },
+}
+`;
+
+exports[`TR taban: tarife içe aktarma kontrolleri > uyarılar 1`] = `
+{
+  "big": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "BIG_CHANGE_VS_CURRENT",
+        "detail": "Bölge A: ortanca 1.000,00 ₺ → 150,00 ₺ (×0,15)",
+        "severity": "warning",
+        "suggestion": "Para birimi, birim (kg/lb) ya da indirim öncesi/sonrası fiyat farkı olabilir. Doğru dosya olduğundan emin olun.",
+        "title": "1 bölgede fiyatlar mevcut tarifeden çok farklı",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "csv": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg. CSV dosyasından yalnız fiyatlar alınır; ülke eşlemesi ve ek ücretler korunur. Bölge adları sadeleştirildi ("Zone A" → "A", "Zone B" → "B").",
+        "severity": "info",
+        "title": "2 bölge × 2 ağırlık okundu (4 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+        "2 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "distance": {
+    "checks": [
+      {
+        "code": "ZONE_MAPPING_MISSING",
+        "detail": "Fiyatı olmayan bölgeler: A (ülkeler: DE). Dosyadaki bölgeler: SEHIRICI, YAKIN, UZAK.",
+        "severity": "error",
+        "suggestion": "Dosyadaki bölge sütun adlarını tarifedeki bölge adlarıyla aynı yapın ya da dosyaya bir "Bölgeler" sayfası ekleyin. Aksi hâlde bu ülkelere giden gönderiler "Tarife yok" olur.",
+        "title": "Bölge eşlemesindeki A bölgesinin fiyatı dosyada yok",
+      },
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "DISTANCE_ZONES",
+        "detail": "DeciShip gönderinin bölgesini faturadaki varış ülkesinden bulur; yurt içi faturalarda il ya da mesafe bilgisi kullanılmaz. Tarifede * satırı olmadığı için yurt içi gönderiler "Tarife yok" kalır.",
+        "severity": "warning",
+        "suggestion": "Bölgeler bölümünde * için gönderilerinizin çoğunun düştüğü mesafe bölgesini seçin; diğer mesafelerin fiyatları karşılaştırmada kullanılmaz.",
+        "title": "Mesafe bölgeleri okundu (SEHIRICI, YAKIN, UZAK); fatura satırlarıyla eşlemek için bölge eşlemesini kontrol edin",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "2,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 2,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 2,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg. Bölge adları sadeleştirildi ("Şehir İçi" → "SEHIRICI", "Yakın" → "YAKIN", "Uzak" → "UZAK").",
+        "severity": "info",
+        "title": "3 bölge × 2 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Bölge eşlemesindeki A bölgesinin fiyatı dosyada yok",
+      ],
+      "status": "error",
+      "title": "Bu haliyle yüklenemez",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""Desi"",
+      ],
+    },
+    "summary": "3 bölge, 1,0–2,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "distanceStar": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "DISTANCE_ZONES",
+        "detail": "DeciShip gönderinin bölgesini faturadaki varış ülkesinden bulur; yurt içi faturalarda il ya da mesafe bilgisi kullanılmaz. Tüm yurt içi gönderiler * satırındaki "YAKIN" bölgesinin fiyatıyla karşılaştırılır.",
+        "severity": "warning",
+        "suggestion": "Bölgeler bölümünde * için gönderilerinizin çoğunun düştüğü mesafe bölgesini seçin; diğer mesafelerin fiyatları karşılaştırmada kullanılmaz.",
+        "title": "Mesafe bölgeleri okundu (SEHIRICI, YAKIN); fatura satırlarıyla eşlemek için bölge eşlemesini kontrol edin",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "2,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 2,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 2,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg. Bölge adları sadeleştirildi ("Şehir İçi" → "SEHIRICI", "Yakın" → "YAKIN").",
+        "severity": "info",
+        "title": "2 bölge × 2 ağırlık okundu (4 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Mesafe bölgeleri okundu (SEHIRICI, YAKIN); fatura satırlarıyla eşlemek için bölge eşlemesini kontrol edin",
+        "2 bölge, 1,0–2,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""Desi"",
+      ],
+    },
+    "summary": "2 bölge, 1,0–2,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "maxLow": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "noMapping": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "NO_COUNTRY_MAPPING",
+        "detail": "Fiyatlar kaydedilir ama hiçbir gönderinin hangi bölgeye düştüğü bilinmediği için faturalar "Tarife yok" olarak kalır.",
+        "severity": "warning",
+        "suggestion": "Kaydettikten sonra tarifenin "Bölgeler" bölümünden ülkeleri bölgelere atayın (yurt içi tek bölge için * kullanın).",
+        "title": "Bu tarifede ülke → bölge eşlemesi yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Bu tarifede ülke → bölge eşlemesi yok",
+        "2 bölge, 0,5–1,5 kg · ülke eşlemesi yok · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · ülke eşlemesi yok · TRY",
+  },
+  "openWeight": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "PRICE_DECREASES",
+        "detail": "Bölge A: 1,0 kg 100,00 → üst sınırsız 50,00",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": "Sütunlar kaymış ya da satırlar karışmış olabilir; işaretli satırları kontrol edin.",
+        "title": "1 yerde ağırlık artarken fiyat düşüyor",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 99.999,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [
+      {
+        "id": "openBandMode",
+        "label": "Açık uçlu satır: son satırın fiyatı + her ilave birim",
+        "resolves": [
+          "OPEN_BAND_UNCLEAR",
+          "OPEN_BAND_ADDITIONAL",
+        ],
+        "value": "additional",
+      },
+      {
+        "id": "openBandMode",
+        "label": "Açık uçlu satır: fiyat × toplam ağırlık (kg başı)",
+        "resolves": [
+          "OPEN_BAND_UNCLEAR",
+          "OPEN_BAND_ADDITIONAL",
+        ],
+        "value": "perKg",
+      },
+      {
+        "id": "openBandMode",
+        "label": "Açık uçlu satır: tablonun üstünde her koli bu sabit fiyat",
+        "resolves": [
+          "OPEN_BAND_UNCLEAR",
+          "OPEN_BAND_ADDITIONAL",
+        ],
+        "value": "flat",
+      },
+    ],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 yerde ağırlık artarken fiyat düşüyor",
+        "1 bölge, 1,0–99.999,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 1,0–99.999,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "order": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "PRICE_DECREASES",
+        "detail": "Bölge A: 0,5 kg 100,00 → 1,0 kg 50,00",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": "Sütunlar kaymış ya da satırlar karışmış olabilir; işaretli satırları kontrol edin.",
+        "title": "1 yerde ağırlık artarken fiyat düşüyor",
+      },
+      {
+        "code": "PRICE_JUMP",
+        "detail": "Bölge A: 1,0 kg 50,00 → 1,5 kg 500,00",
+        "rows": [
+          4,
+        ],
+        "severity": "warning",
+        "suggestion": "Bir fiyatta fazladan sıfır ya da yanlış ondalık ayırıcı olabilir.",
+        "title": "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 3 ağırlık okundu (3 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 yerde ağırlık artarken fiyat düşüyor",
+        "1 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "4 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "otherCurrency": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "OVERFLOW_KEPT",
+        "detail": "Bölge A: 3,00. Tablonun üstündeki (1,5 kg üstü) ağırlıklar eski aşım fiyatıyla hesaplanır.",
+        "severity": "warning",
+        "suggestion": "Aşım fiyatları yeni tabloya uymuyorsa tarifeyi kaydettikten sonra düzeltin.",
+        "title": "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+      },
+      {
+        "code": "SURCHARGES_OTHER_CURRENCY",
+        "detail": "3 sabit tutar TRY olarak yazılı: Ad: 5,00 TRY; B: 2,00 TRY / kg; Aşım bölge A: 3,00 TRY. Otomatik çevrilmez; olduğu gibi USD sayılır (ör. 250 TRY → 250 USD).",
+        "severity": "warning",
+        "suggestion": "İçe aktardıktan sonra tarifenin Ek ücretler bölümünde ve Fiyat tablosunun aşım satırında bu tutarları USD karşılıklarıyla değiştirip kaydedin ya da dosyaya Ek ücretler sayfası ekleyin.",
+        "title": "Ek ücretler ve aşım fiyatları TRY; tarife artık USD — ek ücretleri kontrol edin",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+      {
+        "code": "CONVERSIONS",
+        "severity": "info",
+        "title": "Tarifenin para birimi TRY → USD olacak",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+  },
+  "otherCurrencyOverflow": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "OVERFLOW_KEPT",
+        "detail": "Bölge A: 3,00. Tablonun üstündeki (1,5 kg üstü) ağırlıklar eski aşım fiyatıyla hesaplanır.",
+        "severity": "warning",
+        "suggestion": "Aşım fiyatları yeni tabloya uymuyorsa tarifeyi kaydettikten sonra düzeltin.",
+        "title": "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+      },
+      {
+        "code": "SURCHARGES_OTHER_CURRENCY",
+        "detail": "1 sabit tutar TRY olarak yazılı: Aşım bölge A: 3,00 TRY. Otomatik çevrilmez; olduğu gibi USD sayılır (ör. 250 TRY → 250 USD).",
+        "severity": "warning",
+        "suggestion": "İçe aktardıktan sonra tarifenin Fiyat tablosunun aşım satırında bu tutarları USD karşılıklarıyla değiştirip kaydedin ya da dosyaya Ek ücretler sayfası ekleyin.",
+        "title": "Aşım fiyatları TRY; tarife artık USD — aşım fiyatlarını kontrol edin",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+      {
+        "code": "CONVERSIONS",
+        "severity": "info",
+        "title": "Tarifenin para birimi TRY → USD olacak",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+  },
+  "otherCurrencySurcharge": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SURCHARGES_OTHER_CURRENCY",
+        "detail": "1 sabit tutar TRY olarak yazılı: Ad: 5,00 TRY. Otomatik çevrilmez; olduğu gibi USD sayılır (ör. 250 TRY → 250 USD).",
+        "severity": "warning",
+        "suggestion": "İçe aktardıktan sonra tarifenin Ek ücretler bölümünde bu tutarları USD karşılıklarıyla değiştirip kaydedin ya da dosyaya Ek ücretler sayfası ekleyin.",
+        "title": "Ek ücretler TRY; tarife artık USD — ek ücretleri kontrol edin",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+      {
+        "code": "CONVERSIONS",
+        "severity": "info",
+        "title": "Tarifenin para birimi TRY → USD olacak",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · USD",
+  },
+  "overflowChanged": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "OVERFLOW_CHANGED",
+        "detail": "Bölge A: 3,00 → 5,00; Bölge B: 4,00 → kaldırılıyor",
+        "severity": "warning",
+        "suggestion": "Tablonun üstündeki ağırlıklar bu fiyatlarla hesaplanır; dosyadaki aşım satırını kontrol edin.",
+        "title": "2 bölgede aşım (her ek birim) fiyatı değişiyor",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg. 1 bölgede aşım fiyatı var.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "2 bölgede aşım (her ek birim) fiyatı değişiyor",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""Aşım (kg başı)"",
+      ],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "overflowKept": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "OVERFLOW_KEPT",
+        "detail": "Bölge A: 3,00. Tablonun üstündeki (1,5 kg üstü) ağırlıklar eski aşım fiyatıyla hesaplanır.",
+        "severity": "warning",
+        "suggestion": "Aşım fiyatları yeni tabloya uymuyorsa tarifeyi kaydettikten sonra düzeltin.",
+        "title": "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Dosyada aşım satırı yok; mevcut 1 bölgenin aşım fiyatı korunuyor",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "overflowUnit": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "OVERFLOW_UNIT_MISSING",
+        "detail": "Satır 5 ("Aşım"): birim yazmadığı için tarifenin ağırlık basamağı kullanılır (her 0,5 kg). Taşıyıcı tutarı kg başı yazdıysa aşım iki kat hesaplanır.",
+        "rows": [
+          5,
+        ],
+        "severity": "warning",
+        "suggestion": "Satıra taşıyıcının listesindeki birimi yazıp yeniden yükleyin: "Aşım (kg başı)", "Aşım (desi başı)" ya da "Aşım (her ilave 0,5 kg)".",
+        "title": "Aşım satırında birim yazmıyor; tutar 1,5 kg üstünde her 0,5 kg için sayılacak",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. 2 bölgede aşım fiyatı var.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Aşım satırında birim yazmıyor; tutar 1,5 kg üstünde her 0,5 kg için sayılacak",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "perKg": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 2,0 kg; üstü 2 kg başı bant (fiyat × ücretli kg). Ağırlık yuvarlama tablodan alındı: her 1 kg. Tablo tüm ağırlıkları kapsadığı için eski aşım fiyatları kaldırılıyor.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık + 2 kg başı bant okundu (4 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 bölge, 1,0–2,0 kg, 2,0 kg üstü kg başı fiyat · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "1 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 1,0–2,0 kg, 2,0 kg üstü kg başı fiyat · 1 ülke eşlemesi · TRY",
+  },
+  "perKgOnly": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Yalnız kg başı fiyatlar (1 bant).",
+        "severity": "info",
+        "title": "1 bölge × 0 ağırlık + 1 kg başı bant okundu (1 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+        "1 bölge, kg başı fiyat · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""1 kg başı"",
+      ],
+    },
+    "summary": "1 bölge, kg başı fiyat · 1 ülke eşlemesi · TRY",
+  },
+  "recent": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "RECENT_COUNTRIES_UNMAPPED",
+        "detail": "Son 180 günün faturalarında geçen ama bölgesi olmayan ülkeler: FR, US.",
+        "severity": "warning",
+        "suggestion": "Bu ülkelere giden satırlar "Tarife yok" olur; tarifenin Bölgeler bölümüne ekleyin.",
+        "title": "Son faturalardaki 2 ülkenin bölgesi tanımlı değil",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "detail": "Tablonun üstündeki ağırlıklar için aşım (her ek birim) fiyatı da tanımlı değil.",
+        "severity": "warning",
+        "suggestion": "Daha ağır gönderiler "Tarife yok" olur. Tabloyu uzatın ya da "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor, son faturalarda 50,0 kg gönderi var",
+      },
+      {
+        "code": "CURRENCY_VS_INVOICES",
+        "detail": "Tarife TRY, bu taşıyıcının son 180 gündeki faturaları EUR cinsinden. Beklenen tutar fatura tarihindeki TCMB kuruyla çevrilerek karşılaştırılır.",
+        "severity": "info",
+        "title": "Faturalarınız EUR; karşılaştırmada TCMB kuruyla çevrilir.",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Son faturalardaki 2 ülkenin bölgesi tanımlı değil",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "sections": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MULTIPLE_SECTIONS",
+        "detail": "Okunmayan tablolar: "Çoklu paket" (satır 6).",
+        "rows": [
+          6,
+        ],
+        "severity": "warning",
+        "suggestion": "Diğer tablolar (ör. çoklu paket, kutu, kg başı fiyatlar) gerekiyorsa ayrı bir tarife olarak yükleyin.",
+        "title": "Dosyada birden fazla fiyat tablosu var; yalnızca ilki okundu",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg. 4 açıklama / paket tipi satırı atlandı.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Dosyada birden fazla fiyat tablosu var; yalnızca ilki okundu",
+        "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [
+        {
+          "reason": "Açıklama satırı",
+          "row": 2,
+          "text": "Başlık",
+        },
+        {
+          "reason": "İlk fiyat tablosundan sonraki bölüm",
+          "row": 5,
+          "text": "Çoklu paket",
+        },
+        {
+          "reason": "İlk fiyat tablosundan sonraki bölüm",
+          "row": 6,
+          "text": "Ağırlık",
+        },
+        {
+          "reason": "İlk fiyat tablosundan sonraki bölüm",
+          "row": 7,
+          "text": "0,5",
+        },
+      ],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "sheetIssues": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "SHEET_ROWS_SKIPPED",
+        "detail": "Bölgeler satır 2: geçersiz ülke kodu veya bölge; Bölgeler satır 4: DE zaten A bölgesinde; bu satır alınmadı; Ek ücretler satır 2: tür (FIXED/PCT/PER_KG) veya tutar okunamadı",
+        "severity": "warning",
+        "title": "Bölgeler / Ek ücretler sayfasında 3 satır okunmadı",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg. 1 ülke eşlemesi. 1 ek ücret.",
+        "severity": "info",
+        "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Bölgeler / Ek ücretler sayfasında 3 satır okunmadı",
+        "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [
+        {
+          "reason": "Geçersiz ülke kodu veya bölge",
+          "row": 2,
+          "sheet": "zones",
+        },
+        {
+          "reason": "DE zaten A bölgesinde; bu satır alınmadı",
+          "row": 4,
+          "sheet": "zones",
+        },
+        {
+          "reason": "Tür (FIXED/PCT/PER_KG) veya tutar okunamadı",
+          "row": 2,
+          "sheet": "surcharges",
+        },
+      ],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "2 bölge, 0,5–1,5 kg · 1 ülke eşlemesi · TRY",
+  },
+  "skipped": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "SKIPPED_ROWS",
+        "detail": "Satır 3: ağırlık okunamadı ("abc"). Satır 4: ağırlık hücresi boş",
+        "rows": [
+          3,
+          4,
+        ],
+        "severity": "warning",
+        "suggestion": "Bu satırlardaki fiyatlar tarifeye girmez. Önemli bir satır varsa dosyayı düzeltip yeniden yükleyin.",
+        "title": "2 satırın ağırlığı okunamadı; bu satırlar alınmadı",
+      },
+      {
+        "code": "PRICE_JUMP",
+        "detail": "Bölge A: 0,5 kg 1,00 → 1,0 kg 5,00",
+        "rows": [
+          6,
+        ],
+        "severity": "warning",
+        "suggestion": "Bir fiyatta fazladan sıfır ya da yanlış ondalık ayırıcı olabilir.",
+        "title": "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "1,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 1,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 0,5 kg – 1,0 kg. Ağırlık yuvarlama tablodan alındı: 1 kg'a kadar 0,5 kg, üstü 1 kg. 1 açıklama / paket tipi satırı atlandı.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "2 satırın ağırlığı okunamadı; bu satırlar alınmadı",
+        "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "4 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [
+        {
+          "reason": "Ağırlık okunamadı",
+          "row": 3,
+          "text": "abc",
+        },
+        {
+          "reason": "Ağırlık hücresi boş",
+          "row": 4,
+          "text": "",
+        },
+        {
+          "reason": "Paket tipi satırı (zarf/pak/kutu), ağırlık değil",
+          "row": 5,
+          "text": "Zarf",
+        },
+      ],
+      "stepIssues": [],
+      "unitEvidence": [],
+    },
+    "summary": "1 bölge, 0,5–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "stepAfterLast": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "STEP_RULE_UNUSED",
+        "detail": "Satır 4, bölge A: kuraldan sonra bitiş ağırlığı satırı yok",
+        "rows": [
+          4,
+        ],
+        "severity": "warning",
+        "suggestion": ""İlave 0,5 kg" satırı iki ağırlık satırının arasında olmalı (ör. 10,5 kg satırı, İlave 0,5 kg, 21 kg satırı).",
+        "title": "1 "ilave" satırı kullanılamadı",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 1,0 kg. 1 bölgede aşım fiyatı var.",
+        "severity": "info",
+        "title": "2 bölge × 1 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 "ilave" satırı kullanılamadı",
+        "2 bölge, 1,0–1,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "2 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [
+        {
+          "reason": "kuraldan sonra bitiş ağırlığı satırı yok",
+          "row": 4,
+          "zone": "A",
+        },
+      ],
+      "unitEvidence": [
+        ""Aşım (kg başı)"",
+        ""İlave 0,5 kg"",
+      ],
+    },
+    "summary": "2 bölge, 1,0–1,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "stepMismatch": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "PRICE_JUMP",
+        "detail": "Bölge A: 11,5 kg 130,00 → 12,0 kg 500,00",
+        "rows": [
+          4,
+        ],
+        "severity": "warning",
+        "suggestion": "Bir fiyatta fazladan sıfır ya da yanlış ondalık ayırıcı olabilir.",
+        "title": "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "12,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 12,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "STEP_MISMATCH",
+        "detail": "Bölge A: 10,0 kg → 12,0 kg kuralla 140,00, tabloda 500,00",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": "Ara ağırlıklar kurala göre üretildi, tablodaki satırlar olduğu gibi alındı. Fark büyükse bir değer yanlış okunmuş olabilir.",
+        "title": "1 yerde "ilave" kuralı sonraki satırla uyuşmuyor",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 10,0 kg – 12,0 kg. Ağırlık yuvarlama tablodan alındı: 12 kg'a kadar 0,5 kg, üstü 1 kg. "İlave" satırlarından 3 ara ağırlık fiyatı hesaplandı (tablodaki açık satırlar olduğu gibi alındı).",
+        "severity": "info",
+        "title": "1 bölge × 5 ağırlık okundu (5 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+        "1 bölge, 10,0–12,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "4 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""İlave 0,5 kg"",
+      ],
+    },
+    "summary": "1 bölge, 10,0–12,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "stepOrder": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "PRICE_DECREASES",
+        "detail": "Bölge A: 1,0 kg 500,00 → 9,0 kg 100,00",
+        "rows": [
+          2,
+        ],
+        "severity": "warning",
+        "suggestion": "Sütunlar kaymış ya da satırlar karışmış olabilir; işaretli satırları kontrol edin.",
+        "title": "1 yerde ağırlık artarken fiyat düşüyor",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "9,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 9,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "STEP_RULE_UNUSED",
+        "detail": "Satır 3, bölge A: önceki ve sonraki ağırlık sırası hatalı",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": ""İlave 0,5 kg" satırı iki ağırlık satırının arasında olmalı (ör. 10,5 kg satırı, İlave 0,5 kg, 21 kg satırı).",
+        "title": "1 "ilave" satırı kullanılamadı",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 9,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 yerde ağırlık artarken fiyat düşüyor",
+        "1 bölge, 1,0–9,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "4 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [
+        {
+          "reason": "önceki ve sonraki ağırlık sırası hatalı",
+          "row": 3,
+          "zone": "A",
+        },
+      ],
+      "unitEvidence": [
+        ""İlave 0,5 kg"",
+      ],
+    },
+    "summary": "1 bölge, 1,0–9,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "stepTooWide": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "PRICE_JUMP",
+        "detail": "Bölge A: 1,0 kg 100,00 → 9,0 kg 500,00",
+        "rows": [
+          4,
+        ],
+        "severity": "warning",
+        "suggestion": "Bir fiyatta fazladan sıfır ya da yanlış ondalık ayırıcı olabilir.",
+        "title": "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "9,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 9,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "STEP_RULE_UNUSED",
+        "detail": "Satır 3, bölge A: önceki ve sonraki ağırlık sırası hatalı",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": ""İlave 0,5 kg" satırı iki ağırlık satırının arasında olmalı (ör. 10,5 kg satırı, İlave 0,5 kg, 21 kg satırı).",
+        "title": "1 "ilave" satırı kullanılamadı",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 1,0 kg – 9,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 2 ağırlık okundu (2 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "1 yerde fiyat bir sonraki ağırlıkta 3 katından fazla artıyor",
+        "1 bölge, 1,0–9,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "4 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [
+        {
+          "reason": "önceki ve sonraki ağırlık sırası hatalı",
+          "row": 3,
+          "zone": "A",
+        },
+      ],
+      "unitEvidence": [
+        ""İlave 0,0001 kg"",
+      ],
+    },
+    "summary": "1 bölge, 1,0–9,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "stepUnused": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "10,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 10,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "STEP_RULE_UNUSED",
+        "detail": "Satır 2, bölge A: kuraldan önce ağırlık satırı yok; Satır 5, bölge A: önceki ve sonraki ağırlık sırası hatalı",
+        "rows": [
+          2,
+          5,
+        ],
+        "severity": "warning",
+        "suggestion": ""İlave 0,5 kg" satırı iki ağırlık satırının arasında olmalı (ör. 10,5 kg satırı, İlave 0,5 kg, 21 kg satırı).",
+        "title": "2 "ilave" satırı kullanılamadı",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 2,0 kg – 10,0 kg. Ağırlık yuvarlama tablodan alındı: her 1 kg.",
+        "severity": "info",
+        "title": "1 bölge × 3 ağırlık okundu (3 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 10,0 kg ile bitiyor ve aşım fiyatı yok",
+        "1 bölge, 2,0–10,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [
+        {
+          "reason": "kuraldan önce ağırlık satırı yok",
+          "row": 2,
+          "zone": "A",
+        },
+        {
+          "reason": "önceki ve sonraki ağırlık sırası hatalı",
+          "row": 5,
+          "zone": "A",
+        },
+      ],
+      "unitEvidence": [
+        ""İlave 0,5 kg"",
+        ""İlave 1 kg"",
+      ],
+    },
+    "summary": "1 bölge, 2,0–10,0 kg · 1 ülke eşlemesi · TRY",
+  },
+  "steps": {
+    "checks": [
+      {
+        "code": "NO_DISCOUNT",
+        "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+        "severity": "warning",
+        "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+        "title": "Dosyada indirim yok",
+      },
+      {
+        "code": "MAX_WEIGHT_LOW",
+        "severity": "warning",
+        "suggestion": "14,0 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+        "title": "Tablo 14,0 kg ile bitiyor ve aşım fiyatı yok",
+      },
+      {
+        "code": "STEP_MISMATCH",
+        "detail": "Bölge A: 10,0 kg → 12,0 kg kuralla 140,00, tabloda 150,00",
+        "rows": [
+          3,
+        ],
+        "severity": "warning",
+        "suggestion": "Ara ağırlıklar kurala göre üretildi, tablodaki satırlar olduğu gibi alındı. Fark büyükse bir değer yanlış okunmuş olabilir.",
+        "title": "1 yerde "ilave" kuralı sonraki satırla uyuşmuyor",
+      },
+      {
+        "code": "SUMMARY",
+        "detail": "Ağırlıklar 10,0 kg – 14,0 kg. Ağırlık yuvarlama tablodan alındı: 12 kg'a kadar 0,5 kg, üstü 1 kg. "İlave" satırlarından 3 ara ağırlık fiyatı hesaplandı (tablodaki açık satırlar olduğu gibi alındı).",
+        "severity": "info",
+        "title": "1 bölge × 6 ağırlık okundu (6 fiyat)",
+      },
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "Dosyada indirim yok",
+        "Tablo 14,0 kg ile bitiyor ve aşım fiyatı yok",
+        "1 bölge, 10,0–14,0 kg · 1 ülke eşlemesi · TRY",
+      ],
+      "status": "warning",
+      "title": "3 uyarıya bakın",
+    },
+    "reasons": {
+      "currencyEvidence": [],
+      "sheetIssues": [],
+      "skipped": [],
+      "stepIssues": [],
+      "unitEvidence": [
+        ""İlave 0,5 kg"",
+      ],
+    },
+    "summary": "1 bölge, 10,0–14,0 kg · 1 ülke eşlemesi · TRY",
+  },
+}
+`;
+
+exports[`TR taban: tarife içe aktarma kontrolleri > uygun dosya, notlar 1`] = `
+{
+  "checks": [
+    {
+      "code": "NO_DISCOUNT",
+      "detail": "Fiyatlar net sayılacak. Bunlar liste fiyatıysa beklenen tutar yüksek çıkar ve yanlış fark görünür.",
+      "severity": "warning",
+      "suggestion": "Fiyat sayfasına "İndirim %" sütunu ekleyin; net fiyatsa 0 yazın.",
+      "title": "Dosyada indirim yok",
+    },
+    {
+      "code": "MAX_WEIGHT_LOW",
+      "severity": "warning",
+      "suggestion": "1,5 kg üstündeki gönderiler fiyatlanamaz. Gerekirse "Aşım (her ek birim)" satırı ekleyin.",
+      "title": "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+    },
+    {
+      "code": "SUMMARY",
+      "detail": "Ağırlıklar 0,5 kg – 1,5 kg. Ağırlık yuvarlama tablodan alındı: 1,5 kg'a kadar 0,5 kg, üstü 1 kg.",
+      "severity": "info",
+      "title": "2 bölge × 3 ağırlık okundu (6 fiyat)",
+    },
+  ],
+  "fixes": [],
+  "headline": {
+    "lines": [
+      "Dosyada indirim yok",
+      "Tablo 1,5 kg ile bitiyor ve aşım fiyatı yok",
+      "2 bölge, 0,5–1,5 kg · 2 ülke eşlemesi · TRY",
+    ],
+    "status": "warning",
+    "title": "2 uyarıya bakın",
+  },
+  "reasons": {
+    "currencyEvidence": [],
+    "sheetIssues": [],
+    "skipped": [],
+    "stepIssues": [],
+    "unitEvidence": [],
+  },
+  "summary": "2 bölge, 0,5–1,5 kg · 2 ülke eşlemesi · TRY",
+}
+`;
+
+exports[`TR taban: tarife uyumu > genel not: kur ve aynı para birimi, yakıt notu 1`] = `
+{
+  "fuelHigh": "Faturada yakıt oranı %30, tarifenizde %25. Sözleşmeniz yakıtı taşıyıcının güncel oranına bağlıyorsa tarifedeki yakıt oranını güncelleyin; değilse fark "Fiyat farkı" olarak itiraz edilebilir.",
+  "fuelLow": "Faturada yakıt oranı %20,5, tarifenizde %25; taşıyıcı daha düşük oran uyguluyor.",
+  "fx": "Satırların çoğunda fiyat tarifeden yaklaşık +%1 yüksek. Bu büyük olasılıkla kur farkı: FedEx faturada kendi kurunu kullanıyor olabilir (FedEx sözleşmelerinde kur kaynağı OANDA olarak geçer), DeciShip TCMB kurunu kullanır. Kur toleransı (%1,5) bu farkı karşılar.",
+  "fxOver": "Satırların çoğunda fiyat tarifeden yaklaşık +%2,5 yüksek. Bu büyük olasılıkla kur farkı: FedEx faturada kendi kurunu kullanıyor olabilir (FedEx sözleşmelerinde kur kaynağı OANDA olarak geçer), DeciShip TCMB kurunu kullanır.",
+  "same": "Satırların çoğunda fiyat tarifeden yaklaşık −%2 düşük; tarifedeki genel indirim ya da yakıt oranı güncel olmayabilir.",
+}
+`;
+
+exports[`TR taban: tarife uyumu > tüm mesaj dalları 1`] = `
+{
+  "checkedLines": 16,
+  "fuelNote": null,
+  "groups": [
+    {
+      "country": "US",
+      "countryName": "Amerika Birleşik Devletleri",
+      "currentAdjustmentPct": 0,
+      "key": "US|A|IE",
+      "lines": 3,
+      "maxDeviationPct": 60,
+      "medianDeviationPct": 55,
+      "message": "Amerika Birleşik Devletleri (3 satır): FedEx tarifenizden %55 yüksek fiyat uyguluyor — bu kadar büyük fark genelde farklı hizmet ya da bölge demektir; tarifeyi ve hizmeti kontrol edin.",
+      "minDeviationPct": 50,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "pricier",
+      "suggestedAdjustmentPct": null,
+      "suspect": true,
+      "weak": true,
+      "zone": "A",
+    },
+    {
+      "country": "GB",
+      "countryName": "Birleşik Krallık",
+      "currentAdjustmentPct": 0,
+      "key": "GB|A|IE",
+      "lines": 3,
+      "maxDeviationPct": -50,
+      "medianDeviationPct": -55,
+      "message": "Birleşik Krallık (3 satır): FedEx tarifenizden %55 düşük fiyat uyguluyor — bu kadar büyük fark genelde farklı hizmet ya da bölge demektir; tarifeyi ve hizmeti kontrol edin.",
+      "minDeviationPct": -60,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "cheaper",
+      "suggestedAdjustmentPct": null,
+      "suspect": true,
+      "weak": true,
+      "zone": "A",
+    },
+    {
+      "country": "ES",
+      "countryName": "İspanya",
+      "currentAdjustmentPct": 0,
+      "key": "ES|A|IE",
+      "lines": 3,
+      "maxDeviationPct": -14.6,
+      "medianDeviationPct": -15,
+      "message": "İspanya (3 satır): FedEx tarifenizden %15 düşük fiyat uyguluyor — ayrı bir anlaşma olabilir.",
+      "minDeviationPct": -15.4,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "cheaper",
+      "suggestedAdjustmentPct": -15,
+      "suspect": false,
+      "weak": false,
+      "zone": "A",
+    },
+    {
+      "country": null,
+      "countryName": "Ülkesi bilinmeyen",
+      "currentAdjustmentPct": 0,
+      "key": "|A|IE",
+      "lines": 1,
+      "maxDeviationPct": 12.34,
+      "medianDeviationPct": 12.34,
+      "message": "Ülkesi bilinmeyen (1 satır): FedEx tarifenizden %12 yüksek fiyat uyguluyor — sözleşmenize göre fazla ücret olabilir; itiraz edebilirsiniz.",
+      "minDeviationPct": 12.34,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "pricier",
+      "suggestedAdjustmentPct": null,
+      "suspect": false,
+      "weak": true,
+      "zone": "A",
+    },
+    {
+      "country": "DE",
+      "countryName": "Almanya",
+      "currentAdjustmentPct": 0,
+      "key": "DE|A|IE",
+      "lines": 3,
+      "maxDeviationPct": 8.5,
+      "medianDeviationPct": 8,
+      "message": "Almanya (3 satır): FedEx tarifenizden %8 yüksek fiyat uyguluyor — sözleşmenize göre fazla ücret olabilir; itiraz edebilirsiniz.",
+      "minDeviationPct": 7.5,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "pricier",
+      "suggestedAdjustmentPct": 8,
+      "suspect": false,
+      "weak": false,
+      "zone": "A",
+    },
+    {
+      "country": "FR",
+      "countryName": "Fransa",
+      "currentAdjustmentPct": 0,
+      "key": "FR|A|IE",
+      "lines": 2,
+      "maxDeviationPct": 0.2,
+      "medianDeviationPct": 0.15,
+      "message": "Fransa (2 satır): tarifenizle uyumlu",
+      "minDeviationPct": 0.1,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "ok",
+      "suggestedAdjustmentPct": null,
+      "suspect": false,
+      "weak": true,
+      "zone": "A",
+    },
+    {
+      "country": "NL",
+      "countryName": "Hollanda",
+      "currentAdjustmentPct": 0,
+      "key": "NL|A|IE",
+      "lines": 1,
+      "maxDeviationPct": 0.3,
+      "medianDeviationPct": 0.3,
+      "message": "Hollanda (1 satır): tarifenizle uyumlu",
+      "minDeviationPct": 0.3,
+      "service": "IE",
+      "serviceMismatch": false,
+      "status": "ok",
+      "suggestedAdjustmentPct": null,
+      "suspect": false,
+      "weak": true,
+      "zone": "A",
+    },
+  ],
+  "invoiceFuelPct": null,
+  "okLines": 3,
+  "okTolerancePct": 1,
+  "overallMedianPct": 0.25,
+  "overallNote": null,
+  "skippedLines": 1,
+}
+`;
+
+exports[`TR taban: tarife uyumu > varsayılan taşıyıcı adı 1`] = `
+[
+  "İspanya (1 satır): Taşıyıcı tarifenizden %15 düşük fiyat uyguluyor — ayrı bir anlaşma olabilir.",
+]
+`;

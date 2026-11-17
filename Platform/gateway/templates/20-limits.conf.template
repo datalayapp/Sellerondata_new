@@ -1,0 +1,40 @@
+# Hız sınırı bölgeleri (http bağlamı). Değerler ortam değişkeninden gelir (Dockerfile'da varsayılanlar, compose'da üzerine yazılır).
+# Uygulama sınırlarının (Hesap `RateBucket`, DeciShip `rateLimit`) önünde kaba ilk savunmadır; onların yerine geçmez.
+#
+# Sınır IP başınadır. $binary_remote_addr gerçek istemci IP'sidir: 10-real-ip.conf, eş GATEWAY_REAL_IP_FROM içindeyse
+# X-Forwarded-For'dan istemciyi yazar. Sunucuda gateway Caddy arkasında: GATEWAY_REAL_IP_FROM Caddy'nin adresi olmazsa
+# herkes Caddy'nin tek IP'si sayılır ve bütün kovalar herkese birden dolar. Değişecek yer burası değil, o ortam değişkeni;
+# üretim katmanı onu Caddy'nin sabit adresine bağlar (KURULUM "Üretim açılışı", adım 3). IPv6 tam adres sayılır (/64'e
+# indirgenmez; Hesap'ın uygulama sınırı indirger).
+limit_req_status 429;
+limit_conn_status 429;
+
+# Yükleme kovası yalnız multipart isteklerde dolar: anahtar boşsa nginx isteği saymaz.
+map $content_type $sod_upload_key {
+  default "";
+  ~*^multipart/form-data $binary_remote_addr;
+}
+
+# Kimlik uçları: şifre, kod ya da bağlantı jetonu deneyen ve posta gönderen uçlar. Sıkı kova; ayrıca genel /api/ kovası da sayar.
+# Oturum yenileme, site-session yoklaması, çıkış ve firma değiştirme bilerek dışarıda: her sekme ve telefon bunları sık çağırır.
+# $uri nginx'in çözdüğü yoldur (%xx çözülmüş, // birleşik); harf duyarsız, sonda eğik çizgi de sayılır.
+map $uri $sod_auth_route {
+  default 0;
+  ~*^/api/account/auth/(login|register|forgot-password|reset-password|verify-email|resend-verification|join/preview|join/accept)/?$ 1;
+  ~*^/api/account/invites/ 1;
+}
+map $sod_auth_route $sod_auth_key {
+  default "";
+  1 $binary_remote_addr;
+}
+# 429 gövdesindeki kod (default.conf @ratelimited). Kimlik ucunda Hesap'ın kendi sınırıyla aynı kod: giriş ekranları
+# (Merkez, mobil) "çok fazla deneme, N dakika sonra" metnini bu koddan ve Retry-After'dan yazar.
+map $sod_auth_route $sod_rl_code {
+  default TOO_MANY_REQUESTS;
+  1 TOO_MANY_ATTEMPTS;
+}
+
+limit_req_zone $binary_remote_addr zone=sod_api:10m rate=${GATEWAY_API_RATE};
+limit_req_zone $sod_upload_key zone=sod_upload:10m rate=${GATEWAY_UPLOAD_RATE};
+limit_req_zone $sod_auth_key zone=sod_auth:10m rate=${GATEWAY_AUTH_RATE};
+limit_conn_zone $binary_remote_addr zone=sod_conn:10m;

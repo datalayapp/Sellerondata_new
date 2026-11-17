@@ -1,0 +1,47 @@
+{
+  "endpoint": "GET /api/deciship/invoices/:id/tariff-health",
+  "status": 200,
+  "shape": {
+    "health": {
+      "carrierName": "string",
+      "checkedLines": "number",
+      "fuelNote": "null",
+      "groups": [
+        {
+          "country": "null",
+          "countryName": "string",
+          "currentAdjustmentPct": "number",
+          "key": "string",
+          "lines": "number",
+          "maxDeviationPct": "number",
+          "medianDeviationPct": "number",
+          "message": "string",
+          "minDeviationPct": "number",
+          "service": "null",
+          "serviceMismatch": "boolean",
+          "status": "string",
+          "suggestedAdjustmentPct": "null",
+          "suspect": "boolean",
+          "weak": "boolean",
+          "zone": "string"
+        }
+      ],
+      "invoiceFuelPct": "null",
+      "invoiceId": "string",
+      "okLines": "number",
+      "okTolerancePct": "number",
+      "overallMedianPct": "number",
+      "overallNote": "null",
+      "skippedLines": "number",
+      "stale": "boolean",
+      "tariff": {
+        "countryAdjustments": [],
+        "currency": "string",
+        "id": "string",
+        "name": "string",
+        "removed": "boolean",
+        "revisionId": "string"
+      }
+    }
+  }
+}

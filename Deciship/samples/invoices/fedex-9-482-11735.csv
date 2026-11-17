@@ -1,0 +1,19 @@
+﻿Invoice Number,Invoice Date,Tracking ID,Shipment Date,Service Type,Recipient Name,Recipient Address,Recipient City,Recipient Postal Code,Recipient Country/Territory,Actual Weight,Rated Weight,Dim Length,Dim Width,Dim Height,Dim Divisor,Transportation Charge Amount,Discount,Fuel Surcharge,Address Correction,Remote Area Surcharge,Additional Handling,Net Charge Amount,Currency,Customer Reference
+9-482-11735,2026-10-27,794812345305,2026-10-22,FedEx International Economy,Jean Dupont,12 Rue de la Paix,Paris,75002,FR,4.0,9.5,45,35,30,5000,2119.35,-805.35,328.50,,,,1642.50,TRY,SIP-5305
+9-482-11735,2026-10-27,794812345302,2026-10-22,FedEx International Economy,Anna Schmidt,Hauptstrasse 45,Berlin,10115,GB,3.2,3.5,30,20,15,5000,1294.67,-491.97,200.68,,,,1003.38,TRY,SIP-5302
+9-482-11735,2026-10-27,794812345301,2026-10-22,FedEx International Economy,Pieter de Vries,Keizersgracht 210,Amsterdam,1016,US,9.6,12.0,50,40,30,5000,4350.91,-1653.35,674.39,,,,3371.95,TRY,SIP-5301
+9-482-11735,2026-10-27,794812345299,2026-10-21,FedEx International Economy,Marco Rossi,Via Roma 8,Milano,20121,DE,5.4,5.5,32,24,20,5000,1445.16,-549.16,224.00,,,,1120.00,TRY,SIP-5299
+9-482-11735,2026-10-27,794812345300,2026-10-22,FedEx International Economy,John Smith,455 Madison Ave,New York,10022,CH,2.6,3.0,28,22,18,5000,1206.73,-458.56,189.04,,,,937.21,TRY,SIP-5300
+9-482-11735,2026-10-27,794812345297,2026-10-21,FedEx International Economy,Emily Clark,22 Baker Street,London,NW1 6XE,IT,6.0,9.5,45,35,30,5000,2119.35,-805.35,328.50,,175.75,,1818.25,TRY,SIP-5297
+9-482-11735,2026-10-27,794812345293,2026-10-21,FedEx International Economy,Lucia Garcia,Calle Mayor 17,Madrid,28013,NL,3.9,4.5,36,26,22,5000,1246.24,-473.57,193.17,412.00,,,1377.84,TRY,SIP-5293
+9-482-11735,2026-10-27,794812345296,2026-10-21,FedEx International Economy,Hans Keller,Bahnhofstrasse 3,Zurich,8001,ES,4.0,4.0,34,24,17,5000,1171.71,-445.25,181.62,,,,908.08,TRY,SIP-5296
+9-482-11735,2026-10-27,794812345295,2026-10-21,FedEx International Economy,Sophie Martin,5 Avenue Louise,Brussels,1050,DE,3.5,6.0,40,30,25,5000,1527.75,-580.55,236.80,,,,1184.00,TRY,SIP-5295
+9-482-11735,2026-10-27,794812345294,2026-10-20,FedEx International Economy,Jean Dupont,12 Rue de la Paix,Paris,75002,CA,14.8,17.5,55,45,35,5000,6404.80,-2433.82,992.75,,,285.00,5248.73,TRY,SIP-5294
+9-482-11735,2026-10-27,794812345290,2026-10-20,FedEx International Economy,Anna Schmidt,Hauptstrasse 45,Berlin,10115,BE,12.4,15.0,60,50,25,5000,3632.26,-1380.26,619.30,,,,2871.30,TRY,SIP-5290
+9-482-11735,2026-10-27,794812345292,2026-10-20,FedEx International Economy,Pieter de Vries,Keizersgracht 210,Amsterdam,1016,FR,1.2,1.5,25,20,15,5000,799.06,-315.64,123.86,,,,607.28,TRY,SIP-5292
+9-482-11735,2026-10-27,794812345288,2026-10-20,FedEx International Economy,Marco Rossi,Via Roma 8,Milano,20121,FR,5.2,5.5,35,28,25,5000,1445.16,-549.16,224.00,,,,1120.00,TRY,SIP-5288
+9-482-11735,2026-10-27,794812345291,2026-10-19,FedEx International Economy,John Smith,455 Madison Ave,New York,10022,NL,6.9,8.0,42,32,28,5000,1865.81,-709.01,289.20,,,,1446.00,TRY,SIP-5291
+9-482-11735,2026-10-27,794812345289,2026-10-19,FedEx International Economy,Emily Clark,22 Baker Street,London,NW1 6XE,GB,4.4,4.5,36,30,20,5000,1470.56,-558.81,227.94,,,,1139.69,TRY,SIP-5289
+9-482-11735,2026-10-27,794812345287,2026-10-19,FedEx International Economy,Lucia Garcia,Calle Mayor 17,Madrid,28013,DE,3.1,4.0,34,27,21,5000,1171.71,-445.25,181.62,,,,908.08,TRY,SIP-5287
+9-482-11735,2026-10-27,794812345288,2026-10-20,FedEx International Economy,Hans Keller,Bahnhofstrasse 3,Zurich,8001,FR,5.2,5.5,35,28,25,5000,1445.16,-549.16,224.00,,,,1120.00,TRY,SIP-5288-R
+9-482-11735,2026-10-27,774012346105,2026-10-20,FedEx International Economy,Sophie Martin,5 Avenue Louise,Brussels,1050,FR,2.0,2.0,25,20,15,5000,873.59,-331.96,135.41,,,,677.04,TRY,SIP-6105

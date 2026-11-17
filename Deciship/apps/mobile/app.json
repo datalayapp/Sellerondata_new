@@ -1,0 +1,89 @@
+{
+  "expo": {
+    "name": "SellerOnData",
+    "slug": "sellerondata",
+    "scheme": "sellerondata",
+    "version": "1.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#f7f6f3",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sellerondata.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Barkod okutmak, tartıyı ve koliyi fotoğraflamak için kamera kullanılır."
+      }
+    },
+    "android": {
+      "package": "com.sellerondata.app",
+      "versionCode": 2,
+      "adaptiveIcon": {
+        "backgroundColor": "#0f2a5c",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.VIBRATE"
+      ],
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ],
+      "softwareKeyboardLayoutMode": "resize",
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0f2a5c"
+        }
+      ],
+      "expo-sqlite",
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Barkod okutmak, tartıyı ve koliyi fotoğraflamak için kamera kullanılır.",
+          "recordAudioAndroid": false,
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true,
+            "buildArchs": ["arm64-v8a"]
+          }
+        }
+      ],
+      "./modules/box-measure/app.plugin.js",
+      "./plugins/with-windows-cmake.js",
+      "./plugins/with-fonts.js",
+      "./plugins/with-dialog-buttons.js",
+      "./plugins/with-config-changes.js"
+    ],
+    "experiments": {
+      "typedRoutes": false
+    }
+  }
+}

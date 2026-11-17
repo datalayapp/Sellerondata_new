@@ -1,0 +1,148 @@
+{
+  "title": "Measurements",
+  "actions": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "sub": {
+    "deleted_one": "{{n}} deleted measurement · restoring compares the related invoices again",
+    "deleted_other": "{{n}} deleted measurements · restoring compares the related invoices again",
+    "deletedEmpty": "Deleted measurements · restoring compares the related invoices again",
+    "list_one": "{{n}} measurement",
+    "list_other": "{{n}} measurements",
+    "listEmpty": "Measurements"
+  },
+  "add": {
+    "title": "Add measurement manually",
+    "photos": "Photos (optional, JPEG)"
+  },
+  "tabs": {
+    "aria": "Measurement list",
+    "saved": "Saved",
+    "deleted": "Deleted"
+  },
+  "filter": {
+    "trackingSearch": "Search tracking no.",
+    "toggle": "Filters",
+    "from": "From",
+    "to": "To",
+    "everyone": "Everyone",
+    "allMethods": "All methods",
+    "clear": "Clear filters"
+  },
+  "empty": {
+    "deletedTitle": "No deleted measurements",
+    "deletedText": "Deleted measurements are listed here and can be restored. Their photos are permanently deleted after 30 days.",
+    "noMatchTitle": "No matching measurements",
+    "noMatchText": "Change or clear the filters.",
+    "noneTitle": "No measurements yet",
+    "noneText": "Employees scan the box barcode in the mobile app and record dimensions, weight and photos. Measurements are listed here."
+  },
+  "pagerLabel": "measurements",
+  "col": {
+    "trackingNo": "Tracking no.",
+    "dims": "Dimensions (cm)",
+    "actualKg": "Actual kg",
+    "desi": "Dim. weight",
+    "volKg": "Dimensional weight (kg)",
+    "method": "Method",
+    "measuredBy": "Measured by · time",
+    "measuredByOnly": "Measured by",
+    "photos": "Photos",
+    "status": "Status",
+    "invoice": "Invoice",
+    "action": "Action"
+  },
+  "row": {
+    "version": "Version {{n}}",
+    "deleted": "Deleted",
+    "restore": "Restore",
+    "restoreAria": "Restore measurement {{trackingNo}}",
+    "notOnInvoice": "Not on an invoice"
+  },
+  "toast": {
+    "restored": "Measurement restored",
+    "recompare": "Related invoices are compared again.",
+    "restoreFailed": "Could not restore",
+    "newerExists": "A newer measurement exists for this tracking no. Edit the current record or delete it first.",
+    "versionSaved": "New version saved",
+    "saved": "Measurement saved",
+    "deleted": "Measurement deleted",
+    "undo": "Undo",
+    "purged": "Measurement deleted permanently"
+  },
+  "form": {
+    "trackingRequired": "Tracking no. is required.",
+    "lengthInvalid": "Enter a valid length (up to 400 cm).",
+    "widthInvalid": "Enter a valid width (up to 400 cm).",
+    "heightInvalid": "Enter a valid height (up to 400 cm).",
+    "weightInvalid": "Enter a valid weight (under 1000 kg).",
+    "trackingBarcode": "Tracking no. / barcode",
+    "length": "Length",
+    "width": "Width",
+    "height": "Height",
+    "actualWeight": "Actual weight",
+    "desi": "Dim. weight ({{divisor}})",
+    "volumetric": "Dimensional weight (kg)",
+    "billable": "Billable weight (the greater)",
+    "note": "Note (optional)",
+    "presetLabel": "Box preset (optional) · dimensions fill in automatically",
+    "presetAria": "Box preset",
+    "photoType": "Photo type",
+    "removePhoto": "Remove",
+    "addPhoto": "Add photo"
+  },
+  "edit": {
+    "title": "Edit measurement",
+    "saveVersion": "Save as new version",
+    "hint": "The old record is kept; a new record is written as version {{n}} and shown in the version history.",
+    "methodToSave": "Measurement method to be saved",
+    "previous": "previous: {{method}}",
+    "existingPhotos": "Existing photos · mark the ones to remove",
+    "keepPhotoAria": "Keep {{kind}} photo",
+    "removePhotoAria": "Remove {{kind}} photo",
+    "toRemove": "To be removed",
+    "newPhotos": "Add new photos (optional, JPEG)"
+  },
+  "panel": {
+    "meta": "{{method}} · version {{n}}",
+    "metaFallback": "Measurement",
+    "edit": "Edit (new version)",
+    "deletedAt": "<b>Deleted · {{when}}.</b> This record is read-only; once restored it returns to the list and invoices are compared again.",
+    "deleted": "<b>Deleted.</b> This record is read-only; once restored it returns to the list and invoices are compared again.",
+    "readOnly": "This is an older version; it was replaced by a corrected version and cannot be edited.",
+    "noPermission": "You don't have permission to edit or delete this measurement. An admin or someone with measurement management permission can.",
+    "secDims": "Dimensions and weight",
+    "rawBarcode": "Raw barcode",
+    "dimMethod": "Measurement method",
+    "confidence": "confidence {{n}}%",
+    "weight": "Weight",
+    "weightOcr": "From scale photo",
+    "weightManual": "Entered manually",
+    "ocrRead": "read {{kg}}",
+    "time": "Time",
+    "note": "Note",
+    "secPhotos": "Photos",
+    "secInvoiceLine": "Matched invoice line",
+    "notSeen": "This tracking no. has not appeared on any invoice yet.",
+    "secHistory": "Version history",
+    "histVersion": "Version",
+    "histKg": "Kg",
+    "current": "Current",
+    "noHistory": "No earlier versions.",
+    "deleteTitle": "Delete this measurement?",
+    "deleteText": "The measurement is removed from the list; invoice lines matched to this tracking no. may fall back to \"Unmatched\". You can restore it from the Deleted tab. Its photos are permanently deleted after 30 days (unless it is evidence for a disputed line).",
+    "deleteAria": "Delete measurement",
+    "purgeAria": "Delete permanently",
+    "purgeBlocked": {
+      "DISPUTE": "Cannot be deleted permanently: this measurement is evidence in a dispute.",
+      "DECIDED_LINE": "Cannot be deleted permanently: a matched invoice line has a decision."
+    }
+  },
+  "purge": {
+    "title": "Delete permanently?",
+    "text": "The <mono>{{trackingNo}}</mono> measurement is deleted together with all its older versions and photos. <b>This cannot be undone.</b> Matched invoice lines are recalculated without it.",
+    "confirm": "Delete permanently"
+  }
+}

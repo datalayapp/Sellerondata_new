@@ -1,0 +1,50 @@
+{
+  "_uretildi": "ÜRETİLDİ: Platform/scripts/products-gen.mjs (kaynak contracts/src/products.ts). Elle düzenlemeyin.",
+  "products": [
+    {
+      "key": "deciship",
+      "name": "DeciShip",
+      "mark": "/deciship-mark.svg",
+      "color": "#1d5bd8",
+      "launch": "public",
+      "tagline": {
+        "tr": "Kargo faturasındaki fazlayı bulun",
+        "en": "Find overcharges on your carrier invoices"
+      },
+      "site": {
+        "tr": "/urunler/deciship/",
+        "en": "/en/products/deciship/"
+      }
+    },
+    {
+      "key": "orderloom",
+      "name": "OrderLoom",
+      "mark": "/orderloom-mark.svg",
+      "color": "#0e9384",
+      "launch": "off",
+      "tagline": {
+        "tr": "Siparişi ve ekibi tek yerden yönetin",
+        "en": "Manage orders and your team in one place"
+      },
+      "site": {
+        "tr": "/urunler/orderloom/",
+        "en": "/en/products/orderloom/"
+      }
+    },
+    {
+      "key": "tagpress",
+      "name": "TagPress",
+      "mark": "/tagpress-mark.svg",
+      "color": "#7a5af8",
+      "launch": "off",
+      "tagline": {
+        "tr": "Etiketinizi yapay zekâyla hazırlayın",
+        "en": "Create your labels with AI"
+      },
+      "site": {
+        "tr": "/urunler/tagpress/",
+        "en": "/en/products/tagpress/"
+      }
+    }
+  ]
+}

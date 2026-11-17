@@ -1,0 +1,12 @@
+{
+  "name": "@sellerondata/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SellerOnData tasarım belirteçlerinin tek kaynağı (tokens.json) ve üretim adımı. Çalışma zamanında içe aktarılmaz; çıktılar commit edilir.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "test": "node --test test/*.test.mjs"
+  }
+}

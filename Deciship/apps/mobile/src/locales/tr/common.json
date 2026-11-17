@@ -1,0 +1,28 @@
+{
+  "crash": {
+    "title": "Bir sorun oldu",
+    "text": "Uygulama bu ekranı açamadı. Girdiğiniz ölçüm telefonda saklı; yeniden deneyin.",
+    "retry": "Yeniden dene",
+    "home": "Bugün'e dön"
+  },
+  "update": {
+    "title": "Uygulamayı güncelleyin",
+    "body": "Bu sürüm artık desteklenmiyor. Devam etmek için yeni sürümü kurun.",
+    "queued_one": "Telefonda gönderilmemiş {{count}} ölçüm var. Silinmez; güncellemeden sonra gönderilebilir.",
+    "queued_other": "Telefonda gönderilmemiş {{count}} ölçüm var. Silinmez; güncellemeden sonra gönderilebilir.",
+    "keep": "Uygulamayı silmeyin; yeni sürümü üzerine kurun.",
+    "download": "Yeni sürümü indir",
+    "noLink": "Yeni sürüm için yöneticinize başvurun.",
+    "recheck": "Yeniden denetle",
+    "version": "Bu telefondaki sürüm: {{current}} · Gereken: {{min}}"
+  },
+  "queue": {
+    "blockedUpgrade": "Gönderim durdu: uygulamanın güncellenmesi gerekiyor."
+  },
+  "support": {
+    "title": "Yardım ve destek",
+    "sub": "Sorunuzu e-postayla iletin",
+    "version": "Sürüm {{version}}",
+    "device": "Cihaz: {{device}}"
+  }
+}

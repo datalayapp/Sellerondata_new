@@ -1,0 +1,392 @@
+# SellerOnData tüm sistem. Derleme bağlamı SellerOnData/ köküdür (ARCHITECTURE §2).
+# Yeni servisi kendi bölümüne ekleyin; postgres ve account-* tanımlarını değiştirmeden çalışır.
+# Eski Deciship compose'u ve hacimleri ayrıdır, buradan dokunulmaz.
+name: sellerondata
+
+# Kap günlükleri dönüşümlü: Docker'ın varsayılanı sınırsızdır, 7/24 sunucuda disk günlükle dolar (KALANLAR 3.4).
+# Kap başına en çok SOD_LOG_MAX_FILE dosya × SOD_LOG_MAX_SIZE (5 × 20 MB; eskiler sıkıştırılır). `docker logs` aynen çalışır.
+# Her servis `logging: *sod-logging` alır (gateway/test/compose-order.test.mjs denetler).
+x-logging: &sod-logging
+  driver: json-file
+  options:
+    max-size: ${SOD_LOG_MAX_SIZE:-20m}
+    max-file: "${SOD_LOG_MAX_FILE:-5}"
+    compress: "true"
+
+# Sağlık denetimi: açılışta 2 sn'de bir (start_interval, ilk başarıda "sağlıklı"), sonra seyrek. 3 ardışık hata "sağlıksız".
+# Kapanış süreleri (stop_grace_period): Docker varsayılanı 10 sn; uzun iş bekleyen servisler kendi süresini yazar.
+
+services:
+  # ---------- veritabanı ----------
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    logging: *sod-logging
+    # Hızlı kapanış (SIGINT: bağlantıları keser, son denetim noktasını yazar). 60 sn: 512 MB tamponun yavaş diske yazımına yeter;
+    # Docker bu süre dolunca öldürür ve sonraki açılışta kurtarma koşar. API'ler (45 sn) ondan önce kapanır (depends_on tersi).
+    stop_signal: SIGINT
+    stop_grace_period: 60s
+    mem_limit: ${POSTGRES_MEM:-2g}
+    shm_size: 256mb
+    # SSD için okuma maliyeti (varsayılan 4, döner disk içindir): RLS altında 30 günlük Merkez özetleri tam tarama yerine dizinle
+    # okunur (6.14 ölçümü: 150 ms → 30–60 ms; tam tarama bütün firmaların satırlarını okur). İnce ayar: KALANLAR "Yayından önce".
+    command: ["postgres", "-c", "random_page_cost=${SOD_PG_RANDOM_PAGE_COST:-1.1}"]
+    environment:
+      # Yalnız ilk kurulumda kullanılır; uygulamalar sod_* rolleriyle bağlanır (infra/postgres/init.sql).
+      SOD_ENV: ${SOD_ENV:-development}
+      POSTGRES_PASSWORD: ${SOD_POSTGRES_PASSWORD:-sod_postgres_dev}
+      SOD_PLATFORM_ADMIN_DB_PASSWORD: ${SOD_PLATFORM_ADMIN_DB_PASSWORD:-sod_platform_admin_dev}
+      SOD_DECISHIP_ADMIN_DB_PASSWORD: ${SOD_DECISHIP_ADMIN_DB_PASSWORD:-sod_deciship_admin_dev}
+      SOD_PLATFORM_DB_PASSWORD: ${SOD_PLATFORM_DB_PASSWORD:-sod_platform_dev}
+      SOD_DECISHIP_DB_PASSWORD: ${SOD_DECISHIP_DB_PASSWORD:-sod_deciship_dev}
+    ports:
+      - "127.0.0.1:${SOD_POSTGRES_PORT:-5434}:5432"
+    volumes:
+      - sod_pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      # Gerçek sorgu: pg_isready, veritabanı daha yokken de "hazır" diyebilir. Sorgu geçiyorsa init betiği bitmiştir.
+      test: ["CMD-SHELL", "psql -U postgres -d sellerondata -Atc 'select 1' >/dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+      start_interval: 2s
+
+  # Var olan hacmi güncel rol düzenine getirir. Veri silmez, tekrar çalıştırılabilir (infra/postgres/upgrade.sql).
+  # Kayda yeni eklenen aracın rolleri burada açılır: her kiracının iki parolası (postgres servisiyle aynı liste; products:check denetler).
+  postgres-upgrade:
+    image: postgres:17
+    restart: "no"
+    logging: *sod-logging
+    command: ["psql", "-h", "postgres", "-U", "postgres", "-d", "sellerondata", "-v", "ON_ERROR_STOP=1", "-f", "/infra/postgres/upgrade.sql"]
+    environment:
+      # Sunucunun .env dosyasında SOD_ENV=production: üretim katmanı unutulsa da upgrade.sql *_dev parolasını reddeder.
+      SOD_ENV: ${SOD_ENV:-development}
+      PGPASSWORD: ${SOD_POSTGRES_PASSWORD:-sod_postgres_dev}
+      SOD_PLATFORM_ADMIN_DB_PASSWORD: ${SOD_PLATFORM_ADMIN_DB_PASSWORD:-sod_platform_admin_dev}
+      SOD_DECISHIP_ADMIN_DB_PASSWORD: ${SOD_DECISHIP_ADMIN_DB_PASSWORD:-sod_deciship_admin_dev}
+      SOD_PLATFORM_DB_PASSWORD: ${SOD_PLATFORM_DB_PASSWORD:-sod_platform_dev}
+      SOD_DECISHIP_DB_PASSWORD: ${SOD_DECISHIP_DB_PASSWORD:-sod_deciship_dev}
+    volumes:
+      - ./infra/postgres:/infra/postgres:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ---------- Hesap servisi ----------
+  # Migration ayrı, tek seferlik kapta çalışır: uygulama kabında migration rolünün parolası bulunmaz.
+  account-migrate:
+    build: &account-build
+      context: ..
+      dockerfile: Platform/apps/account-api/Dockerfile
+    restart: "no"
+    logging: *sod-logging
+    command: ["npx", "prisma", "migrate", "deploy"]
+    environment:
+      MIGRATE_DATABASE_URL: postgresql://sod_platform_admin:${SOD_PLATFORM_ADMIN_DB_PASSWORD:-sod_platform_admin_dev}@postgres:5432/sellerondata?schema=platform
+    depends_on:
+      postgres-upgrade:
+        condition: service_completed_successfully
+
+  account-api:
+    build: *account-build
+    restart: unless-stopped
+    logging: *sod-logging
+    # Kapanış süren isteği ve arka plan postasını bekler (en çok 8 + 6 sn). Docker'ın 10 sn'si yetmez.
+    stop_grace_period: 20s
+    mem_limit: ${ACCOUNT_API_MEM:-512m}
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: "4100"
+      HOST: 0.0.0.0
+      DATABASE_URL: postgresql://sod_platform:${SOD_PLATFORM_DB_PASSWORD:-sod_platform_dev}@postgres:5432/sellerondata
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8088}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8088,http://localhost:5180}
+      # Tanıtım sitesinin kökenleri: yalnız site-session (kimim) ve çıkış uçlarında CORS/CSRF'i geçer (ARCHITECTURE §5 "Tek hesap").
+      SITE_ORIGINS: ${SITE_ORIGINS:-http://localhost:8089,http://localhost:5190}
+      # Geliştirmede boşsa anahtar ./keys altına üretilir. Üretimde zorunlu, yoksa servis başlamaz.
+      ACCOUNT_SIGNING_KEY: ${ACCOUNT_SIGNING_KEY:-}
+      ACCOUNT_PREVIOUS_PUBLIC_KEYS: ${ACCOUNT_PREVIOUS_PUBLIC_KEYS:-}
+      # Telefon kodu özeti için biber. Geliştirmede boş olabilir, üretimde zorunlu.
+      ACCOUNT_CODE_PEPPER: ${ACCOUNT_CODE_PEPPER:-}
+      ACCOUNT_CODE_PEPPER_PREVIOUS: ${ACCOUNT_CODE_PEPPER_PREVIOUS:-}
+      # Mobil sürüm politikası (GET /api/account/client-policy ve 426). Boş: denetim yok.
+      MIN_MOBILE_VERSION: ${MIN_MOBILE_VERSION:-}
+      MOBILE_LATEST_VERSION: ${MOBILE_LATEST_VERSION:-}
+      MOBILE_UPDATE_URL: ${MOBILE_UPDATE_URL:-}
+      ACCOUNT_KEYS_DIR: /data/keys
+      PRODUCT_EVENT_TARGETS: ${PRODUCT_EVENT_TARGETS:-deciship=http://deciship-api:4000/api/deciship/internal/events}
+      PRODUCT_LAUNCH: ${PRODUCT_LAUNCH:-}
+      # Araç bildirim anahtarları (urun=anahtar): araç bu anahtarla POST /api/account/internal/notify çağırır. Yerel varsayılan
+      # DeciShip API'ninkiyle aynıdır; üretimde zorunlu, en az 32 karakter (docker-compose.prod.yml).
+      PRODUCT_NOTIFY_SECRETS: deciship=${PRODUCT_NOTIFY_SECRET:-yerel-bildirim-anahtari-0123456789abcdef}
+      REGISTRATION_ENABLED: ${REGISTRATION_ENABLED:-true}
+      # Kapalı deneme (2026-11-12): invite iken yeni firma kaydı yalnız `signup:invite` davetiyle. Yerelde açık; üretim katmanı invite.
+      SIGNUP_MODE: ${SIGNUP_MODE:-open}
+      EMAIL_VERIFICATION_REQUIRED: ${SOD_EMAIL_VERIFICATION:-true}
+      DEV_MAILBOX: ${SOD_DEV_MAILBOX:-true}
+      SESSION_MAX_AGE_DAYS: ${SESSION_MAX_AGE_DAYS:-90}
+      ORG_PURGE_DAYS: ${ORG_PURGE_DAYS:-30}
+      SMTP_URL: ${SMTP_URL:-}
+      MAIL_FROM: ${MAIL_FROM:-SellerOnData <no-reply@sellerondata.com>}
+      COOKIE_SECURE: ${COOKIE_SECURE:-}
+      COOKIE_LANG_DOMAIN: ${COOKIE_LANG_DOMAIN:-}
+      # Önünde tek vekil var (gateway). Gateway eklenene kadar port yalnız 127.0.0.1'e açık.
+      TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-1}
+    ports:
+      - "127.0.0.1:${ACCOUNT_API_PORT:-4100}:4100"
+    volumes:
+      # Yerel imza anahtarı. Test yığını kendi klasörünü verir: aynı anahtarı iki sistem paylaşmaz.
+      - ${SOD_KEYS_DIR:-./keys}:/data/keys
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:4100/api/account/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+      start_interval: 2s
+    depends_on:
+      account-migrate:
+        condition: service_completed_successfully
+
+  # ---------- DeciShip ----------
+  # Derleme bağlamı SellerOnData/ köküdür (ARCHITECTURE §2). DeciShip Dockerfile'ları bu bağlama göre yazılır.
+  deciship-migrate:
+    build: &deciship-api-build
+      context: ..
+      dockerfile: Deciship/apps/api/Dockerfile
+    restart: "no"
+    logging: *sod-logging
+    command: ["npx", "prisma", "migrate", "deploy"]
+    environment:
+      # Migration sod_deciship_admin ile, deciship şemasında. Platform şemasını göremez. Uygulama kabında bu parola bulunmaz.
+      MIGRATE_DATABASE_URL: postgresql://sod_deciship_admin:${SOD_DECISHIP_ADMIN_DB_PASSWORD:-sod_deciship_admin_dev}@postgres:5432/sellerondata?schema=deciship&options=-c%20TimeZone%3DUTC
+      DATABASE_URL: postgresql://sod_deciship_admin:${SOD_DECISHIP_ADMIN_DB_PASSWORD:-sod_deciship_admin_dev}@postgres:5432/sellerondata?schema=deciship&options=-c%20TimeZone%3DUTC
+    depends_on:
+      postgres-upgrade:
+        condition: service_completed_successfully
+
+  vision:
+    build: ../Deciship/services/vision
+    restart: unless-stopped
+    logging: *sod-logging
+    # Süren görüntü okumasının bitmesi (uvicorn isteği bitirip kapanır).
+    stop_grace_period: 15s
+    mem_limit: ${VISION_MEM:-1g}
+    # Dockerfile'daki HEALTHCHECK (/health) kullanılır. Port yalnız 127.0.0.1'e açık: geliştirmede (scripts/dev.ps1) host'taki API ulaşır.
+    ports:
+      - "127.0.0.1:${VISION_PORT:-8001}:8001"
+
+  deciship-api:
+    build: *deciship-api-build
+    restart: unless-stopped
+    logging: *sod-logging
+    mem_limit: ${DECISHIP_API_MEM:-2g}
+    # Kapanışta süren arka plan işlerine JOB_SHUTDOWN_GRACE_MS (30 sn) tanınır, bitmeyenlerin kirası bırakılır: bundan uzun olmalı.
+    stop_grace_period: 45s
+    # Çöken dosya okuma süreci çekirdek dökümü bırakmasın: döküm müşteri dosyasının içeriğini taşıyabilir ve kapanışı 10+ sn geciktirir (Y151 incelemesi).
+    ulimits:
+      core: 0
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      # Node yığını kap sınırının (2g) altında kalır; dosya worker'ları kendi sınırını ayrıca alır.
+      NODE_OPTIONS: --max-old-space-size=1024
+      PORT: "4000"
+      HOST: 0.0.0.0
+      DATABASE_URL: postgresql://sod_deciship:${SOD_DECISHIP_DB_PASSWORD:-sod_deciship_dev}@postgres:5432/sellerondata
+      # Jeton doğrulama: hesap servisinin açık anahtarları, iç ağ adresi.
+      ACCOUNT_JWKS_URL: http://account-api:4100/api/account/.well-known/jwks.json
+      # İtiraz süresi hatırlatması: postayı Hesap servisi gönderir (iç ağ adresi). Adres boşsa hatırlatma kapalı.
+      ACCOUNT_NOTIFY_URL: ${ACCOUNT_NOTIFY_URL:-http://account-api:4100/api/account/internal/notify}
+      PRODUCT_NOTIFY_SECRET: ${PRODUCT_NOTIFY_SECRET:-yerel-bildirim-anahtari-0123456789abcdef}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:8088,http://localhost:5180}
+      TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-1}
+      # En düşük desteklenen mobil sürüm: altındaki uygulama 426 alır. Boş: denetim yok.
+      MIN_MOBILE_VERSION: ${MIN_MOBILE_VERSION:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CLAUDE_MODEL: ${CLAUDE_MODEL:-claude-sonnet-5-5}
+      VISION_URL: http://vision:8001
+      STORAGE_DIR: /data/storage
+      ENABLE_DATA_RESET: ${ENABLE_DATA_RESET:-false}
+      # Örnek veriyle deneme turu: off ise başlatılamaz (uç 404), açık kalmış deneme yine bitirilir.
+      DEMO_TOUR: ${DEMO_TOUR:-on}
+      # İmzalı dosya bağlantısı anahtarı. Geliştirmede boşsa süreç başına rastgele; üretimde zorunlu (docker-compose.prod.yml).
+      FILE_TOKEN_SECRET: ${FILE_TOKEN_SECRET:-}
+      # Veritabanı havuzu ve süreleri; dolunca kullanıcı 503 görür. Firma başına aynı anda Merkez isteği, aşılırsa 429.
+      DB_POOL_MAX: ${DB_POOL_MAX:-20}
+      DB_CONNECT_TIMEOUT_MS: ${DB_CONNECT_TIMEOUT_MS:-10000}
+      DB_STATEMENT_TIMEOUT_MS: ${DB_STATEMENT_TIMEOUT_MS:-60000}
+      HUB_CONCURRENCY_PER_ORG: ${HUB_CONCURRENCY_PER_ORG:-6}
+      HUB_DB_SLOTS: ${HUB_DB_SLOTS:-8}
+      # Yapay zekâ kotası, önbellek ve eşzamanlılık (Mesaj 6)
+      AI_QUOTA_ENFORCED: ${AI_QUOTA_ENFORCED:-true}
+      # Firma başına aylık yapay zekâ hakkı, TL (plan limiti yoksa). 2.500: ~100 sayfalık fatura PDF'i ~800 TL.
+      AI_FREE_CREDIT_MONTHLY_TRY: ${AI_FREE_CREDIT_MONTHLY_TRY:-2500}
+      AI_PRICE_TRY_PER_USD: ${AI_PRICE_TRY_PER_USD:-100}
+      AI_PRICE_TABLE: ${AI_PRICE_TABLE:-}
+      AI_CACHE_TTL_DAYS: ${AI_CACHE_TTL_DAYS:-30}
+      AI_CONCURRENCY_PER_ORG: ${AI_CONCURRENCY_PER_ORG:-2}
+      AI_FAILED_BUDGET_RATIO: ${AI_FAILED_BUDGET_RATIO:-1}
+      # Sistemin günlük yapay zekâ tavanı, TL (bütün firmalar; kapalı deneme 2026-11-12). Boş = 1000 (kod varsayılanı), off = yok.
+      AI_DAILY_BUDGET_TRY: ${AI_DAILY_BUDGET_TRY:-}
+      AI_RATE_SCALE_PER_MIN: ${AI_RATE_SCALE_PER_MIN:-30}
+      AI_RATE_PDF_PER_MIN: ${AI_RATE_PDF_PER_MIN:-6}
+      AI_RATE_OTHER_PER_MIN: ${AI_RATE_OTHER_PER_MIN:-10}
+      # Dosya işleme (worker, kuyruk, boyut sınırları)
+      FILE_WORKER_MODE: ${FILE_WORKER_MODE:-thread}
+      FILE_WORKERS: ${FILE_WORKERS:-2}
+      FILE_WORKER_HEAP_MB: ${FILE_WORKER_HEAP_MB:-512}
+      FILE_WORKER_TIMEOUT_MS: ${FILE_WORKER_TIMEOUT_MS:-60000}
+      FILE_QUEUE_MAX: ${FILE_QUEUE_MAX:-16}
+      FILE_MAX_ROWS: ${FILE_MAX_ROWS:-200000}
+      FILE_QUEUE_WAIT_MS: ${FILE_QUEUE_WAIT_MS:-60000}
+      FILE_WORKER_RSS_LIMIT_MB: ${FILE_WORKER_RSS_LIMIT_MB:-1200}
+      XLSX_MAX_UNCOMPRESSED_MB: ${XLSX_MAX_UNCOMPRESSED_MB:-200}
+      PDF_MAX_PAGES: ${PDF_MAX_PAGES:-300}
+      PDF_MAX_UNCOMPRESSED_MB: ${PDF_MAX_UNCOMPRESSED_MB:-300}
+      # Fatura raporu dosya çalışanında; önizleme tablosu önbelleği (yeni denetim Mesaj 6)
+      REPORT_WORKER_HEAP_MB: ${REPORT_WORKER_HEAP_MB:-1024}
+      REPORT_WORKER_TIMEOUT_MS: ${REPORT_WORKER_TIMEOUT_MS:-180000}
+      REPORT_PDF_MAX_ROWS: ${REPORT_PDF_MAX_ROWS:-1000}
+      INVOICE_TABLE_CACHE_MB: ${INVOICE_TABLE_CACHE_MB:-150}
+      INVOICE_TABLE_CACHE_TTL_MS: ${INVOICE_TABLE_CACHE_TTL_MS:-900000}
+      # API hız sınırı ve ağır yazma eşzamanlılığı
+      API_RATE_LIMIT: ${API_RATE_LIMIT:-on}
+      RATE_UPLOAD_PER_MIN_MEMBER: ${RATE_UPLOAD_PER_MIN_MEMBER:-60}
+      RATE_UPLOAD_PER_MIN_ORG: ${RATE_UPLOAD_PER_MIN_ORG:-300}
+      RATE_VISION_PER_MIN_MEMBER: ${RATE_VISION_PER_MIN_MEMBER:-60}
+      RATE_VISION_PER_MIN_ORG: ${RATE_VISION_PER_MIN_ORG:-240}
+      RATE_WRITE_PER_MIN_MEMBER: ${RATE_WRITE_PER_MIN_MEMBER:-300}
+      IMPORT_CONCURRENCY: ${IMPORT_CONCURRENCY:-3}
+      HEAVY_QUEUE_WAIT_MS: ${HEAVY_QUEUE_WAIT_MS:-30000}
+      # Arka plan iş kuyruğu (Mesaj 7). on: bu kap iş alır; off: almaz (ayrı çalışan kabı için). inline yalnız testler içindir.
+      JOB_RUNNER: ${JOB_RUNNER:-on}
+      JOB_SLOTS_AI: ${JOB_SLOTS_AI:-2}
+      JOB_SLOTS_RECALC: ${JOB_SLOTS_RECALC:-1}
+      MEASURE_RECOMPARE_SLOTS: ${MEASURE_RECOMPARE_SLOTS:-2}
+      JOB_POLL_MS: ${JOB_POLL_MS:-2000}
+      JOB_LEASE_MS: ${JOB_LEASE_MS:-60000}
+      JOB_MAX_ATTEMPTS: ${JOB_MAX_ATTEMPTS:-5}
+      JOB_SHUTDOWN_GRACE_MS: ${JOB_SHUTDOWN_GRACE_MS:-30000}
+      # Çok sayfalı PDF fatura gruplarla okunur (grup başına sayfa); firma başına dosya alanı, GB (0 = kapalı).
+      PDF_INVOICE_PAGES_PER_CALL: ${PDF_INVOICE_PAGES_PER_CALL:-5}
+      STORAGE_QUOTA_GB_PER_ORG: ${STORAGE_QUOTA_GB_PER_ORG:-10}
+      # Silinen fatura ve silinen ölçümün fotoğrafları bu kadar gün sonra kalıcı silinir. Boş (varsayılan) ya da off = kapalı;
+      # canlıda purge:preview ile bakıp 30 yazılır (KARARLAR 2026-11-12). En az 7.
+      DELETED_INVOICE_PURGE_DAYS: ${DELETED_INVOICE_PURGE_DAYS:-}
+      DELETED_MEASUREMENT_PHOTO_PURGE_DAYS: ${DELETED_MEASUREMENT_PHOTO_PURGE_DAYS:-}
+    volumes:
+      - sod_deciship_storage:/data/storage
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:4000/api/deciship/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+      start_interval: 2s
+    depends_on:
+      deciship-migrate:
+        condition: service_completed_successfully
+      account-api:
+        condition: service_healthy
+      # Görüntü servisi sağlıksızken API yine açılır (ölçüm ekranı kendi hata mesajını verir).
+      vision:
+        condition: service_started
+
+  # ---------- Web arayüzleri (yalnız gateway üzerinden erişilir) ----------
+  hub-web:
+    build:
+      context: ..
+      dockerfile: Platform/apps/hub-web/Dockerfile
+      args:
+        # Ekip ekranındaki "Uygulamayı paylaş" bağlantısı. Derlemede gömülür; boşsa arayüz "henüz tanımlı değil" der.
+        VITE_ANDROID_APK_URL: ${VITE_ANDROID_APK_URL:-}
+        # Hesap alanının (Profil, Üyelikler) site bağlantıları. Derlemede gömülür.
+        VITE_SITE_URL: ${SITE_BASE_URL:-http://localhost:8089}
+    restart: unless-stopped
+    logging: *sod-logging
+    mem_limit: ${WEB_MEM:-128m}
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:80/ || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+      start_interval: 2s
+
+  deciship-web:
+    build:
+      context: ..
+      dockerfile: Deciship/apps/web/Dockerfile
+    restart: unless-stopped
+    logging: *sod-logging
+    mem_limit: ${WEB_MEM:-128m}
+    healthcheck:
+      # Bu kap yalnız /deciship/ altını sunar, kök bilerek 404.
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:80/deciship/ || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+      start_interval: 2s
+
+  # ---------- Tanıtım sitesi (ayrı köken: sellerondata.com) ----------
+  site:
+    build:
+      context: ./apps/site
+      args:
+        APP_URL: ${APP_BASE_URL:-http://localhost:8088}
+        SITE_URL: ${SITE_BASE_URL:-http://localhost:8089}
+        # Hesap servisiyle aynı değer: invite iken "Hesap aç" yerine "Erken erişim isteyin" (destek postası). Değişince site yeniden derlenir.
+        SIGNUP_MODE: ${SIGNUP_MODE:-open}
+    restart: unless-stopped
+    logging: *sod-logging
+    mem_limit: ${WEB_MEM:-128m}
+    ports:
+      - "${SITE_PORT:-8089}:80"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:80/ || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+      start_interval: 2s
+
+  # ---------- Gateway: tek köken ----------
+  gateway:
+    build: ./gateway
+    restart: unless-stopped
+    logging: *sod-logging
+    # nginx (SIGQUIT) süren isteği bitirip kapanır; yarım kalan yükleme mobil kuyrukta yeniden denenir.
+    stop_grace_period: 15s
+    mem_limit: ${WEB_MEM:-128m}
+    environment:
+      # Önünde TLS sonlandıran yük dengeleyici varsa onun CIDR'ı. Boşsa X-Forwarded-For'a güvenilmez.
+      GATEWAY_REAL_IP_FROM: ${GATEWAY_REAL_IP_FROM:-127.0.0.1}
+      # IP başına hız sınırı: genel /api/, yükleme (multipart), kimlik uçları ve eşzamanlı bağlantı. Kaba katmandır: depodaki
+      # telefonlar tek IP'den gelir; yükleme kovası DeciShip API'nin firma sınırlarının (RATE_UPLOAD_PER_MIN_ORG + RATE_VISION_PER_MIN_ORG)
+      # toplamının üstünde, asıl sınırı kişi ve firma başına API koyar (gateway/test/rate-limits.test.mjs denetler).
+      GATEWAY_API_RATE: ${GATEWAY_API_RATE:-30r/s}
+      GATEWAY_API_BURST: ${GATEWAY_API_BURST:-200}
+      GATEWAY_UPLOAD_RATE: ${GATEWAY_UPLOAD_RATE:-600r/m}
+      GATEWAY_UPLOAD_BURST: ${GATEWAY_UPLOAD_BURST:-300}
+      # Kimlik uçları (giriş, kayıt, şifre sıfırlama, kod doğrulama, davet kabulü): sıkı kova
+      GATEWAY_AUTH_RATE: ${GATEWAY_AUTH_RATE:-30r/m}
+      GATEWAY_AUTH_BURST: ${GATEWAY_AUTH_BURST:-30}
+      GATEWAY_CONN_PER_IP: ${GATEWAY_CONN_PER_IP:-100}
+    ports:
+      - "${GATEWAY_PORT:-8088}:80"
+    depends_on:
+      account-api:
+        condition: service_healthy
+      hub-web:
+        condition: service_healthy
+
+# Hacim adları proje adından bağımsızdır: `-p baska` tek başına ayrı veri vermez, `down -v` de bu adları siler.
+# Yan yana ikinci bir sistem bu iki değişkeni mutlaka kendi adlarıyla verir (e2e/.env.e2e).
+volumes:
+  sod_pgdata:
+    name: ${SOD_PGDATA_VOLUME:-sod_pgdata}
+  sod_deciship_storage:
+    name: ${SOD_STORAGE_VOLUME:-sod_deciship_storage}

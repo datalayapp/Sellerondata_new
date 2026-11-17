@@ -1,0 +1,112 @@
+/* Sayfa bölümü: yalnız sahibi olan ajan/sayfa yazar. build.mjs site.css'in ardına sabit sırayla ekler. Satır içi stil yok (CSP). */
+/* =============================================================== SAYFA: ürün sayfaları ortak düzen (.pg-prod-*) */
+/* Kaynak: DeciShip/OrderLoom/TagPress.dc.html (.ds-* / .ol-* / .tp-*, üçü aynı). Renkler gövde sınıfından: --p-hero, --p-main, --p-on-dark, --p-soft, --p-text. */
+
+/* Hero: üç sayfada eşit boy (masaüstü/tablet en az yükseklik). */
+.pg-prod-hero { position: relative; overflow: hidden; padding: 64px 0 96px; background: var(--p-hero); color: #fff; }
+.pg-prod-hero-grid { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); gap: 64px; align-items: center; }
+.pg-prod-hero-txt { min-width: 0; }
+.pg-prod-id { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.pg-prod-mark { display: block; flex: none; }
+.pg-prod-id .eyebrow { color: var(--p-on-dark); }
+.pg-prod-hero .nv-badge { gap: 8px; flex: none; font-weight: 400; color: var(--p-on-dark); }
+.pg-prod-hero h1 { margin-top: 32px; }
+.pg-prod-hero .lead { margin: 32px 0 0; max-width: 560px; color: var(--p-soft); }
+.pg-prod-ctas { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; }
+.pg-prod-how-link { color: #fff; }
+.pg-prod-art { display: flex; justify-content: flex-end; min-width: 0; }
+.pg-prod-art svg { display: block; width: 100%; max-width: 480px; height: auto; }
+
+/* Ortak metin parçaları */
+.pg-prod-eyebrow { color: var(--p-text); }
+.pg-prod-h2 { margin-top: 16px; }
+.pg-prod-how-h2 { max-width: 880px; }
+.pg-prod-h4 { font-size: 24px; line-height: 1.3; }
+.pg-prod-text { margin: 8px 0 0; color: var(--ink-2); }
+
+/* Ne kazandırır */
+.pg-prod-why-sec { background: var(--p-soft); }
+.pg-prod-why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+.pg-prod-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 48px; }
+.pg-prod-item { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 24px; align-items: start; }
+.pg-prod-ico { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: #fff; color: var(--p-text); }
+.pg-prod-ico svg { display: block; flex: none; }
+
+/* Nasıl çalışır: üç adım, aralarında çizgi */
+.pg-prod-steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.pg-prod-steps li { position: relative; padding-top: 64px; }
+.pg-prod-step-n { position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--night); color: var(--sun); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 17px; font-weight: 500; }
+.pg-prod-steps li:not(:last-child)::after { content: ''; position: absolute; top: 19px; left: 56px; right: -32px; height: 2px; background: var(--line); }
+
+/* SSS ve ekosistem şeridi (üst dolgusuz bölümler) */
+.pg-prod-flush { padding-top: 0; }
+.pg-prod-faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 64px; align-items: start; }
+.pg-prod-eco { display: flex; align-items: center; gap: 32px; padding: 32px 48px; border: 1px solid var(--line); border-radius: 24px; }
+.pg-prod-eco-marks { display: flex; gap: 8px; flex: none; }
+.pg-prod-eco-text { margin: 0; flex: 1 1 auto; min-width: 0; }
+.pg-prod-eco-link { color: var(--p-text); flex: none; }
+
+/* Kapanış: ürün rengi zemin, amber düğme (ortak .cta-band değil; panoya özgü) */
+.pg-prod-close { background: var(--p-main); color: #fff; }
+.pg-prod-close :focus-visible { outline-color: var(--sun); }
+.pg-prod-close-in { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.pg-prod-close-txt { min-width: 0; }
+.pg-prod-close-txt p { margin: 16px 0 0; font-size: 20px; line-height: 1.5; }
+.pg-prod-close .btn { flex: none; }
+
+@media (min-width: 1101px) {
+  .pg-prod-hero-grid { min-height: 566px; }
+  .pg-prod-id .nv-badge { order: 1; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .pg-prod-hero-grid { min-height: 530px; }
+}
+/* Eşit boy güvencesi (panoda çizilmeyen aralıklar):
+ * 1101–1199'da metin sütunu daralır, 96 px başlık dört satıra iner (OrderLoom); bu aralık tablet ölçüsünü kullanır.
+ * EN başlıkları daha uzun (TagPress dört satır); üç EN sayfası eşit kalsın diye en az yükseklik en uzun EN hero'ya göre. */
+@media (min-width: 1101px) and (max-width: 1199px) {
+  .pg-prod-hero h1 { font-size: 72px; }
+  .pg-prod-hero-grid { min-height: 530px; }
+}
+@media (min-width: 1200px) {
+  .pg-prod-hero-grid:lang(en) { min-height: 632px; }
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  .pg-prod-hero-grid:lang(en) { min-height: 608px; }
+}
+@media (max-width: 1100px) {
+  .pg-prod-id .eyebrow { order: 1; flex-basis: 100%; }
+}
+@media (max-width: 900px) {
+  .pg-prod-hero { padding: 64px 0 72px; }
+  .pg-prod-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; min-height: 0; }
+  .pg-prod-art { justify-content: center; }
+  .pg-prod-why { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .pg-prod-list { gap: 32px; }
+  .pg-prod-steps { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 48px; }
+  .pg-prod-steps li { padding: 0 0 0 64px; min-height: 40px; }
+  .pg-prod-steps li:not(:last-child)::after { top: 48px; left: 19px; right: auto; bottom: -24px; width: 2px; height: auto; }
+  .pg-prod-faq { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .pg-prod-eco { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px; }
+  .pg-prod-close-in { flex-direction: column; align-items: flex-start; gap: 32px; }
+}
+/* SON: ürün ortak */
+
+/* =============================================================== SAYFA: deciship (.pg-deciship-*) */
+/* Cetvel: hero'nun alt kenarında amber çizgi ve çentikler (yalnız DeciShip, KIT.md). */
+.pg-deciship-ruler { position: absolute; left: 0; right: 0; bottom: 0; height: 24px; background-image: linear-gradient(var(--sun), var(--sun)), linear-gradient(90deg, var(--sun) 0 2px, transparent 2px), linear-gradient(90deg, var(--sun) 0 2px, transparent 2px); background-size: 100% 2px, 64px 24px, 16px 12px; background-repeat: no-repeat, repeat-x, repeat-x; background-position: 0 100%, max(32px, calc(50% - 544px)) 100%, max(32px, calc(50% - 568px)) 100%; }
+/* Destek satırı (panoda yok; karar gereği SSS'nin altında). E-posta altbilgidekiyle aynı. */
+.pg-deciship-support { margin: 24px 0 0; color: var(--ink-2); }
+.pg-deciship-support a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--p-text); overflow-wrap: anywhere; }
+@media (max-width: 560px) {
+  .pg-deciship-ruler { background-position: 0 100%, 20px 100%, 20px 100%; }
+}
+/* SON: deciship */
+
+/* =============================================================== SAYFA: orderloom (.pg-orderloom-*) */
+/* Kapanış zemini panoda --p-main (#0e9384) değil, daha koyu #0b7a6d (beyaz metin karşıtlığı). */
+.pg-orderloom .pg-prod-close { background: #0b7a6d; }
+/* SON: orderloom */
+
+/* =============================================================== SAYFA: tagpress (.pg-tagpress-*) */
+/* SON: tagpress */

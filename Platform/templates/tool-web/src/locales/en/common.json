@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "notFound": "Page not found"
+  },
+  "home": {
+    "body": "This is the tool's first page. The menu grows here as pages are added."
+  },
+  "gate": {
+    "noOrgTitle": "Choose a company first",
+    "noOrgBody": "This tool works with a company's data. Choose your company in the Hub or create a new one.",
+    "backHub": "Back to Hub"
+  },
+  "notFound": {
+    "body": "There is no page at this address. The link may be out of date.",
+    "home": "Go to the home page"
+  }
+}

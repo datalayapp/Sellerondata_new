@@ -1,0 +1,180 @@
+{
+  "title": "Hub",
+  "customRole": "Custom role",
+  "nav": {
+    "label": "Hub sections",
+    "overview": "Overview",
+    "activity": "Activity",
+    "team": "Team"
+  },
+  "tools": {
+    "label": "Tool selection",
+    "soon": "Soon"
+  },
+  "period": {
+    "label": "Period",
+    "7d": "7 days",
+    "30d": "30 days",
+    "mtd": "This month",
+    "90d": "90 days"
+  },
+  "overview": {
+    "previous": "previous period {{value}}",
+    "details": "Open details",
+    "sectionError": "Could not load {{name}} data"
+  },
+  "webCard": {
+    "title": "Detailed analysis and data are on the web",
+    "body": "Charts, carrier comparison, every row and Excel download are easier on a computer.",
+    "action": "Open on the web"
+  },
+  "queue": {
+    "title": "Waiting for you",
+    "open": "Open",
+    "emptyTitle": "Nothing is waiting",
+    "emptyBody": "New discrepancies and deadlines appear here."
+  },
+  "setup": {
+    "title": "{{name}} setup is not finished",
+    "action": "Continue setup",
+    "done": "{{name}} setup is complete"
+  },
+  "noData": {
+    "title": "No data for this period",
+    "body": "Pick another period or add data in the tool."
+  },
+  "noTool": {
+    "title": "You have no tools in this company",
+    "body": "You need a role in a tool to see its numbers. The company owner or an admin assigns it.",
+    "action": "Go to team and permissions"
+  },
+  "denied": {
+    "title": "This section is not open to your role",
+    "body": "The Hub is for admins and people with report access. Ask your company admin for access."
+  },
+  "boot": {
+    "title": "Could not open the Hub",
+    "body": "Check your internet connection and try again."
+  },
+  "stale": {
+    "offline": "You are offline. Last updated: {{time}}",
+    "failed": "Could not update. Last updated: {{time}}",
+    "retry": "Refresh"
+  },
+  "error": {
+    "network": "Check your internet connection and try again.",
+    "server": "The server is not responding. Try again in a moment.",
+    "retry": "Try again",
+    "openLink": "Could not open the link"
+  },
+  "link": {
+    "webHint": "Opens on the web"
+  },
+  "delta": {
+    "up": "Up {{amount}} on the previous period. Previous: {{previous}}",
+    "down": "Down {{amount}} on the previous period. Previous: {{previous}}",
+    "flat": "Same as the previous period. Previous: {{previous}}",
+    "same": "No change"
+  },
+  "ago": {
+    "now": "just now",
+    "minutes": "{{n}} min ago",
+    "hours": "{{n}} h ago",
+    "days": "{{n}} d ago"
+  },
+  "unit": {
+    "days": "days",
+    "points": "pts",
+    "thousand": "K",
+    "million": "M"
+  },
+  "chart": {
+    "last": "Latest: {{date}}",
+    "omitted": "The chart shows the first four series, the table shows all.",
+    "a11y": "{{label}} chart. Swipe to read the values."
+  },
+  "activity": {
+    "platform": "Account",
+    "system": "System",
+    "sourceError": "Could not load {{name}} activity. The rest is below.",
+    "emptyTitle": "No activity yet",
+    "emptyBody": "Work done in the tools appears here.",
+    "more": "Show more",
+    "web": "All activity and filters on the web",
+    "actions": {
+      "org.created": "opened the company",
+      "org.updated": "changed the company details",
+      "org.ownership_transferred": "transferred ownership",
+      "invitation.created": "created an invitation",
+      "invitation.resent": "renewed an invitation",
+      "invitation.revoked": "revoked an invitation",
+      "member.joined": "joined the company",
+      "member.updated": "changed a membership",
+      "member.removed": "removed from the company",
+      "member.reset_code_issued": "issued a password code",
+      "member.left": "left the company",
+      "unknown": "did something",
+      "person.phone_linked": "linked a phone to their account",
+      "person.password_changed": "changed their password",
+      "person.password_reset": "reset their password by email",
+      "person.password_reset_by_code": "reset their password with a code",
+      "person.identity_changed": "changed their contact details",
+      "session.revoked": "closed a session",
+      "session.reuse_detected": "session closed after suspicious reuse",
+      "support.phone_released": "support: phone number released",
+      "support.phone_restored": "support: phone number restored",
+      "outbox.dead_purged": "system: old event records purged"
+    },
+    "member": {
+      "suspended": "suspended the membership",
+      "resumed": "resumed the membership",
+      "orgRole": "set the company role to {{role}}",
+      "toolRole": "set the {{tool}} role to {{role}}",
+      "noAccess": "closed {{tool}} access"
+    }
+  },
+  "team": {
+    "summary": "{{active}} active, {{suspended}} suspended",
+    "suspended": "Suspended",
+    "noAccess": "No access",
+    "lastActive": "Last active: {{when}}",
+    "neverActive": "Has not signed in yet",
+    "emptyTitle": "No one in the team",
+    "emptyBody": "Add an employee with the button above.",
+    "error": "Could not load the team list",
+    "web": "Role changes and invitations on the web",
+    "add": {
+      "action": "Add employee",
+      "title": "Add employee",
+      "help": "For employees without email. The app creates a code; you pass it on in person or by WhatsApp.",
+      "name": "Full name",
+      "phone": "Phone",
+      "phonePlaceholder": "0532 000 00 00",
+      "toolRole": "{{tool}} role",
+      "orgRole": "Company role: {{role}}. Admin rights are given on the web.",
+      "submit": "Create code",
+      "cancel": "Cancel",
+      "nameRequired": "Enter a full name.",
+      "nameTooLong": "The name can be at most {{max}} characters.",
+      "phoneRequired": "Enter a phone number.",
+      "phoneInvalid": "The phone number is not valid.",
+      "limit": "This company has used its invitations for now. New companies have a lower hourly limit. Try again soon; what you typed is kept.",
+      "limitIn": "This company has used its invitations for now. New companies have a lower hourly limit. Try again in about {{minutes}} minutes; what you typed is kept.",
+      "alreadyMember": "This person is already a member of the company.",
+      "forbidden": "Only the company owner or an admin can add employees.",
+      "failed": "Could not create the code",
+      "codeTitle": "Code for {{name}}",
+      "codeA11y": "One-time code",
+      "codeOnce": "This code is not shown again. It works for 72 hours and is revoked after 5 wrong attempts.",
+      "codeHow": "They go to {{url}}, enter their phone number and the code, and set their own password.",
+      "share": "Share message",
+      "close": "Close",
+      "copyHint": "To copy only the code, press and hold it.",
+      "shareFailed": "Could not open the share screen",
+      "message": "{{org}} invited you to SellerOnData. Go to {{url}} and enter your phone number and this code: {{code}}. The code works for 72 hours. Your admin will share the Android app for measuring."
+    }
+  },
+  "sheet": {
+    "close": "Close"
+  }
+}

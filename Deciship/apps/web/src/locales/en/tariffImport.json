@@ -1,0 +1,273 @@
+{
+  "units": {
+    "weights_one": "{{formatted}} weight",
+    "weights_other": "{{formatted}} weights",
+    "zones_one": "{{formatted}} zone",
+    "zones_other": "{{formatted}} zones",
+    "countryMappings_one": "{{formatted}} country mapping",
+    "countryMappings_other": "{{formatted}} country mappings",
+    "surcharges_one": "{{formatted}} surcharge",
+    "surcharges_other": "{{formatted}} surcharges",
+    "prices_one": "{{formatted}} price",
+    "prices_other": "{{formatted}} prices",
+    "cells_one": "{{formatted}} cell",
+    "cells_other": "{{formatted}} cells"
+  },
+  "wizard": {
+    "recheckFailed": "Could not re-check",
+    "okLine": "Read {{weights}} × {{zones}}.",
+    "reasons": {
+      "warnings_one": "{{formatted}} warning",
+      "warnings_other": "{{formatted}} warnings",
+      "aiCaution": "AI flagged “Caution”",
+      "aiReject": "AI does not recommend this file",
+      "serverAsked": "extra confirmation is needed"
+    },
+    "err": {
+      "blocked": "This file has a problem that blocks the import; the tariff was not changed.",
+      "ackRequired": "The tariff was not changed: first confirm that you have read the warnings.",
+      "generic": "The tariff was not changed. {{message}}"
+    },
+    "why": {
+      "expired": "The preview has expired. Upload the file again.",
+      "blockedFixable": "Resolve the problems first: turn on the fix above, or correct the file and upload it again.",
+      "blocked": "Resolve the problems first: correct the file and upload it again.",
+      "name": "Enter a tariff name.",
+      "divisor": "The DIM divisor must be a positive number.",
+      "fuel": "The fuel rate must be between 0 and 100.",
+      "rechecking": "Re-checking…"
+    },
+    "titleNew": "New tariff: review and create",
+    "titleImport": "Import tariff",
+    "ackStrong": "AI does not recommend this; I understand the risks, apply anyway.",
+    "ack": "I have read the warnings, apply anyway.",
+    "backToTables": "Back to tables",
+    "cancel": "Cancel",
+    "ackFirst": "First confirm that you have read the warnings.",
+    "create": "Create tariff",
+    "apply": "Apply",
+    "expiredNote": "Your tariff was not changed.",
+    "dirtyNote": "Your unsaved changes will be replaced with this file.",
+    "aiAsk": "Have AI check it",
+    "aiAskWhy": "Explains the reason for the warnings and tells whether the file is the right tariff.",
+    "details": "Details",
+    "aiQuiet": "If you like, you can <a>have AI check it too</a>."
+  },
+  "newFields": {
+    "title": "Tariff details",
+    "name": "Tariff name",
+    "nameRequired": "Tariff name is required.",
+    "namePlaceholder": "e.g. FedEx International Priority 2026",
+    "service": "Service",
+    "serviceHelp": "The service name on the invoice",
+    "servicePlaceholder": "IP, IE, Standard…",
+    "currency": "Currency",
+    "divisor": "DIM divisor",
+    "divisorHelp": "Typically 5000 or 3000 (cm³ per kg)",
+    "divisorBad": "Enter a positive number.",
+    "fuel": "Fuel surcharge",
+    "fuelBad": "Must be between 0 and 100.",
+    "fuelMode": "Fuel rate",
+    "fuelVariable": "Variable (the invoice rate is accepted)",
+    "fuelFixed": "Fixed in the contract",
+    "fuelModeHelp": "Usually fixed for domestic carriers",
+    "validFrom": "Valid from",
+    "discount": "Discount",
+    "discountHelp": "The discount in your contract. Leave empty if the listed prices are already net."
+  },
+  "docInfo": {
+    "title": "Information in the document",
+    "service": "Service {{value}}",
+    "fuel": "Fuel {{value}}%",
+    "validFrom": "Valid from {{value}}",
+    "nowValue": "currently {{value}}",
+    "nowFuel": "currently {{value}}%",
+    "nowEmpty": "currently empty"
+  },
+  "checks": {
+    "title": "Checks",
+    "errors_one": "{{formatted}} error",
+    "errors_other": "{{formatted}} errors",
+    "warnings_one": "{{formatted}} warning",
+    "warnings_other": "{{formatted}} warnings",
+    "none": "No issues",
+    "noneDetail": "No blocking problems or warnings."
+  },
+  "preview": {
+    "title": "Price preview",
+    "none": "No readable prices in the file.",
+    "weightUpto": "Weight ≤ {{unit}}",
+    "perKg": "per kg",
+    "showing": "Showing {{shown}} of {{total}} weights.",
+    "counts": "{{countries}} · {{surcharges}}."
+  },
+  "compare": {
+    "title": "Comparison with the current tariff",
+    "bigDiff_one": "Large difference in {{formatted}} zone",
+    "bigDiff_other": "Large difference in {{formatted}} zones",
+    "consistent": "Consistent",
+    "noCommonShort": "no common zones",
+    "noCommon": "There are no zones in common with the current tariff, so it could not be compared.",
+    "hint": "Median price of the same zones. A ratio outside 0.5–2× usually means the wrong currency or service.",
+    "zone": "Zone",
+    "ratio": "Ratio",
+    "current": "Current ({{currency}})",
+    "thisFile": "This file ({{currency}})"
+  },
+  "source": {
+    "title": "Source and verification",
+    "unverified": "could not be verified",
+    "notFound_one": "{{formatted}} price not found",
+    "notFound_other": "{{formatted}} prices not found",
+    "same": "Matches the PDF"
+  },
+  "chip": {
+    "willUse": "Will be used · undo",
+    "use": "Use"
+  },
+  "sourceBody": {
+    "noText": "The prices could not be compared with the PDF text (scanned image). Check a few prices in the preview against the PDF by eye.",
+    "readDirect": "{{checked}} read directly from the PDF text.",
+    "readDirectMissing": "{{checked}} read directly from the PDF text; {{missing}} could not be read.",
+    "matched": "{{matched}} of {{checked}} prices were found verbatim in the PDF text.",
+    "zone": "Zone",
+    "weight": "Weight",
+    "price": "Price read",
+    "page": "Page",
+    "showLess": "Show less",
+    "showAll": "Show all ({{formatted}})",
+    "tables": "Tables: {{titles}}",
+    "pageLabel": "page {{pages}}"
+  },
+  "fileHelp": {
+    "title": "Which file should I upload?",
+    "p1": "Upload <b>your own contract price list</b>; you can ask your carrier representative for it. The general list prices on the website will not match your invoices.",
+    "p2": "It must be for shipments from your country, with weights in kg or dimensional weight and the same currency as your invoices.",
+    "p3": "The Excel template is the quickest option; a PDF sent by the carrier works too."
+  },
+  "ai": {
+    "loading": "AI is reviewing the file… this usually takes 10–40 seconds.",
+    "off": "AI check is not available right now; automatic checks were run.",
+    "failed": "The AI check could not be completed.",
+    "busy": "AI is busy right now. Try again in a moment.",
+    "retry": "Try again",
+    "facts": {
+      "carrier": "Carrier",
+      "service": "Service",
+      "origin": "Origin country",
+      "weightUnit": "Weight unit",
+      "currency": "Currency",
+      "validity": "Validity",
+      "listRate": "List price?",
+      "listYes": "Yes, a general list price",
+      "listNo": "No, a contract price"
+    },
+    "title": "AI",
+    "verdict": {
+      "ok": "Suitable",
+      "caution": "Caution",
+      "reject": "Not recommended"
+    },
+    "recheck": "Re-check after fixing",
+    "details": "Details",
+    "whatIsThis": "What is this file?",
+    "suggestedName": "Suggested name:",
+    "useName": "Use this name",
+    "model": "Model: {{model}}"
+  },
+  "issues": {
+    "suggestion": "Suggestion:",
+    "rows_one": "Row",
+    "rows_other": "{{formatted}} rows"
+  },
+  "pdf": {
+    "seconds": "{{n}} s",
+    "cancel": "Cancel",
+    "queued": "Waiting in line",
+    "other": {
+      "list": "List price",
+      "import": "Import"
+    },
+    "fuelPct": "fuel {{pct}}%",
+    "fuelIndexed": "indexed fuel",
+    "asOf": "as of {{date}}",
+    "fit": {
+      "invoices": "Matches your invoices",
+      "tariff": "Same service as your tariff",
+      "default": "Recommended"
+    },
+    "rescan": "Scan again",
+    "scan": "Scan PDF",
+    "scanAi": "Scan with AI",
+    "scanAiHint": "If automatic reading fails · 20–60 s",
+    "zonesOf": "Zones {{zones}}",
+    "listTimesDiscount": "list p. {{list}} × discount p. {{discount}}",
+    "pageShort": "p. {{pages}}",
+    "selectOne": "Select at least one table.",
+    "modalLabel": "Tariff from PDF",
+    "titlePick": "Which tables should be imported?",
+    "selectedFoot_one": "{{formatted}} table selected. A review summary comes before anything is applied.",
+    "selectedFoot_other": "{{formatted}} tables selected. A review summary comes before anything is applied.",
+    "cancelBtn": "Cancel",
+    "take": "Import selected",
+    "pageCount_one": "{{formatted}} page",
+    "pageCount_other": "{{formatted}} pages",
+    "progress": {
+      "aiScan": "AI is scanning the PDF…",
+      "scan": "Scanning PDF…",
+      "aiExtract": "Reading the selected tables…",
+      "extract": "Importing the selected tables…"
+    },
+    "expected": {
+      "aiScan": "20–60 seconds",
+      "aiExtract": "30 seconds to 2 minutes"
+    },
+    "aiOff": {
+      "title": "AI reading is off right now.",
+      "body": "Upload the price list as Excel or CSV, or enter the prices in the template."
+    },
+    "err": {
+      "extract": "The tables could not be imported.",
+      "scan": "The PDF could not be scanned.",
+      "expired": "The document has expired; upload the PDF again.",
+      "unchanged": "Your tariff was not changed."
+    },
+    "leadText": "Tables are read automatically and this takes a few seconds. If that fails, you can scan with AI.",
+    "leadImage": "This PDF looks like a scanned image; it can most likely only be read with AI.",
+    "noTables": "No price table was found in this PDF.",
+    "guide": {
+      "suggest_invoices_one": "Because your invoices use <b>{{name}}</b>, the table for this service was selected. If this is the only service you use, continue without changing the selection.",
+      "suggest_invoices_other": "Because your invoices use <b>{{name}}</b>, {{formatted}} tables for this service were selected; each covers a different country group, and you need all of them to cover every country. If this is the only service you use, continue without changing the selection.",
+      "suggest_tariff_one": "Because your tariff is for <b>{{name}}</b>, the table for this service was selected. If this is the only service you use, continue without changing the selection.",
+      "suggest_tariff_other": "Because your tariff is for <b>{{name}}</b>, {{formatted}} tables for this service were selected; each covers a different country group, and you need all of them to cover every country. If this is the only service you use, continue without changing the selection.",
+      "suggest_default_one": "Recommended: the table for <b>{{name}}</b> was selected. If this is the only service you use, continue without changing the selection.",
+      "suggest_default_other": "Recommended: {{formatted}} tables for <b>{{name}}</b> were selected; each covers a different country group, and you need all of them to cover every country. If this is the only service you use, continue without changing the selection.",
+      "regions": "The <b>Dünya</b> (World) and <b>Avrupa</b> (Europe) tables are different country groups of the same service.",
+      "net": "<b>net</b> = your discounted contract price.",
+      "single": "A tariff should contain a single service; if you also use another service (e.g. Economy), create a separate tariff for it."
+    },
+    "foundTables": "Tables found",
+    "pricing": {
+      "legend": "How should prices be taken?",
+      "listDiscount": "List price × discount table",
+      "listDiscountDesc": "Exact calculation based on the contract: the list prices (p. {{list}}) are reduced by the rate in the discount table (p. {{discount}}). Invoices are calculated the same way.",
+      "net": "Net price table",
+      "netDesc": "Ready-made discounted table (p. {{pages}}). It gives an approximate value only and may differ slightly from the invoice.",
+      "differ": "The two methods differ in {{differing}} of {{compared}} prices (by up to {{max}}); the difference is mostly at intermediate weights.",
+      "same": "Both methods give the same result for all {{compared}} prices.",
+      "unlinked_one": "One table has no list-price counterpart; it is taken at its own price.",
+      "unlinked_other": "{{formatted}} tables have no list-price counterpart; they are taken at their own prices."
+    },
+    "otherTables": "Other tables ({{formatted}})",
+    "otherTablesHint": "list price, import",
+    "mixed": "<b>The selected tables belong to different services ({{services}}).</b> For the same zone and weight, one overwrites the other and the comparison comes out wrong. Keep a single service in this tariff and create a separate tariff for the other.",
+    "takeCountryZones": "Also take the country → zone list",
+    "missingTables": "Tables missing or wrong?",
+    "templateFailed": "Could not download the template",
+    "downloadTemplate": "Download template",
+    "scanAiOff": "AI scanning is not available right now.",
+    "noTablesNoAi": "The tables in this PDF could not be read automatically and AI reading is off. Upload the price list as Excel or CSV, or enter the prices in the template.",
+    "leadTextNoAi": "Tables are read automatically and this takes a few seconds.",
+    "leadImageNoAi": "This PDF looks like a scanned image and AI reading is off. Upload the price list as Excel or CSV."
+  }
+}

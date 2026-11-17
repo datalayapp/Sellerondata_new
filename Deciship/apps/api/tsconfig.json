@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "fastify": [
+        "./node_modules/fastify"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "test",
+    "prisma.config.ts",
+    "vitest.config.ts",
+    "vitest.unit.config.ts",
+    "vitest.perf.config.ts",
+    "tsup.config.ts"
+  ]
+}

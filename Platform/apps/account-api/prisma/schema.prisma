@@ -1,0 +1,444 @@
+// Hesap servisi veri modeli. Sözleşme: docs/ARCHITECTURE.md §4.
+// Prisma'nın anlatamadığı kurallar (tek OWNER, en az bir kimlik, tetikleyici) migration SQL'indedir.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["platform"]
+}
+
+enum Locale {
+  tr
+  en
+
+  @@schema("platform")
+}
+
+enum Currency {
+  TRY
+  USD
+  EUR
+  GBP
+
+  @@schema("platform")
+}
+
+enum OrgRole {
+  OWNER
+  ADMIN
+  MEMBER
+
+  @@schema("platform")
+}
+
+enum MembershipStatus {
+  ACTIVE
+  SUSPENDED
+
+  @@schema("platform")
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  READ_ONLY
+  CANCELED
+
+  @@schema("platform")
+}
+
+/// PHONE_RESET: yöneticinin e-postasız çalışan için ürettiği şifre kodu. PHONE_CODE'dan farkı şifre belirletmesidir.
+enum InvitationKind {
+  EMAIL
+  PHONE_CODE
+  PHONE_RESET
+
+  @@schema("platform")
+}
+
+enum SessionClient {
+  web
+  mobile
+
+  @@schema("platform")
+}
+
+enum OneTimeTokenKind {
+  PASSWORD_RESET
+  EMAIL_VERIFY
+
+  @@schema("platform")
+}
+
+enum DeliveryStatus {
+  PENDING
+  DELIVERED
+  DEAD
+
+  @@schema("platform")
+}
+
+model Person {
+  id              String    @id @default(uuid(7))
+  name            String
+  /// Küçük harf. Veritabanı denetler.
+  email           String?   @unique
+  /// E.164
+  phone           String?   @unique
+  /// SMS doğrulaması için hazır. Henüz kullanılmıyor (ARCHITECTURE §11, kabul edilen risk).
+  phoneVerifiedAt DateTime?
+  /// Destek işlemi: giriş kimliği kalmayan kişi. Ayrıca bkz. `npm run phone:release`.
+  suspendedAt     DateTime?
+  passwordHash    String
+  locale          Locale    @default(tr)
+  emailVerifiedAt DateTime?
+  /// Onay bekleyen yeni e-posta adresi (küçük harf). Benzersiz değil: benzersizlik onay anında denetlenir.
+  pendingEmail    String?
+  lastOrgId       String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  memberships   Membership[]
+  sessions      Session[]
+  oneTimeTokens OneTimeToken[]
+
+  @@index([pendingEmail])
+  @@schema("platform")
+}
+
+model Organization {
+  id        String   @id @default(uuid(7))
+  name      String
+  /// ISO 3166-1 alfa-2
+  country   String   @default("TR")
+  currency  Currency @default(TRY)
+  locale    Locale   @default(tr)
+  /// IANA saat dilimi, `TIME_ZONES` listesinden (contracts). Uygulama denetler; firma açılışında `defaultTimeZone(country)`.
+  timeZone  String   @default("Europe/Istanbul")
+  /// Merkez kurulumu: firma bilgileri (ad, ülke, para birimi, saat dilimi) Merkez'de onaylandığı an; `null` = onay bekliyor.
+  /// Yeni firma `null` açılır; göçten (20261121090000) önce açılmış firmalar `createdAt` ile doldurulmuştur.
+  companyConfirmedAt DateTime?
+  /// Olay sürümü: ad, para birimi, ülke, saat dilimi veya firma onayı her değiştiğinde artar. Alıcı küçük sürümü uygulamaz.
+  version   Int      @default(0)
+  /// Sahip firmayı kapattı (`POST /org/close`). Kapalı firma etkin olamaz, ürün erişimi vermez, yazma
+  /// `409 ORG_CLOSED`; yalnız sahibinin `/me` listesinde görünür. `closedAt`/`purgeAfter` birlikte dolu ya da boş (göçteki CHECK).
+  closedAt   DateTime?
+  /// Kapatan kişi (Person.id). Yabancı anahtar yok.
+  closedById String?
+  /// Bu andan sonra saatlik bakım firmayı kalıcı siler (`closedAt + ORG_PURGE_DAYS`); o ana kadar sahip geri açabilir.
+  purgeAfter DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  memberships   Membership[]
+  subscriptions Subscription[]
+  invitations   Invitation[]
+  notices       ProductNotice[]
+  productRoles  ProductRole[]
+
+  @@schema("platform")
+}
+
+model Membership {
+  id           String           @id @default(uuid(7))
+  personId     String
+  orgId        String
+  orgRole      OrgRole          @default(MEMBER)
+  status       MembershipStatus @default(ACTIVE)
+  /// Her yetki değişiminde artar. Jetondaki `ep` bundan küçükse ürün 401 TOKEN_STALE döner.
+  epoch        Int              @default(0)
+  lastActiveAt DateTime?
+  createdAt    DateTime         @default(now())
+
+  person        Person          @relation(fields: [personId], references: [id], onDelete: Restrict)
+  org           Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  productAccess ProductAccess[]
+
+  @@unique([personId, orgId])
+  @@index([orgId])
+  @@schema("platform")
+}
+
+model ProductAccess {
+  membershipId String
+  product      String
+  /// Hazır rol anahtarı (`MEASURE`) ya da `custom:<ProductRole.id>`.
+  role         String
+  /// Özel rolde `ProductRole.id`. Göçteki CHECK: boş ⇔ rol `custom:` ile başlamaz; doluysa `role = 'custom:' || customRoleId`.
+  /// Silme engelli (NO ACTION): kullanılan özel rol önce başka role taşınmadan silinemez. Tetikleyici firma ve ürün eşleşmesini denetler.
+  customRoleId String?
+
+  membership Membership   @relation(fields: [membershipId], references: [id], onDelete: Cascade)
+  customRole ProductRole? @relation(fields: [customRoleId], references: [id], onDelete: NoAction)
+
+  @@id([membershipId, product])
+  @@index([customRoleId])
+  @@schema("platform")
+}
+
+/// Firmanın uygulama rolü. İki tür satır:
+/// - Özel rol: `builtinKey` boş; anahtarı `custom:<id>`; `name` zorunlu.
+/// - Hazır rolün gölgesi: `builtinKey` dolu (`MEASURE`); firmadaki ad, açıklama ve izinleri katalogun üstüne yazar ya da rolü
+///   gizler (`hidden`, "hazır rolü sil"). Boş `name`/`description` ve `inheritPermissions` katalog değerini kullanır.
+/// Ad tekilliği (`orgId, product, lower(name)`, gizli satır hariç) göçteki kısmi dizindedir; Prisma bu dizini anlatamaz.
+model ProductRole {
+  id                 String   @id @default(uuid(7))
+  orgId              String
+  product            String
+  /// Kırpılmış, 1–40 karakter. Gölge satırda boşsa katalog adı.
+  name               String?
+  /// En çok 200 karakter. Gölge satırda boşsa katalog açıklaması.
+  description        String?
+  /// Katalog sırasıyla, bağımlılıkları karşılanmış set. `inheritPermissions` doğruysa okunmaz.
+  permissions        String[] @default([])
+  /// Yalnız gölge satırda doğru olabilir: izinler katalogdan gelir (kilitli sahip rolü her zaman böyledir; katalog büyürse rol de büyür).
+  inheritPermissions Boolean  @default(false)
+  /// Özel rolün başladığı hazır rol (bilgi).
+  basedOn            String?
+  /// Gölge satırın gölgelediği hazır rol anahtarı. `(orgId, product, builtinKey)` tekildir.
+  builtinKey         String?
+  /// Hazır rol firmada silindi (gizli). Yalnız gölge satırda doğru olabilir.
+  hidden             Boolean  @default(false)
+  /// İyimser kilit. İlk yazım 1; her düzenleme artırır.
+  version            Int      @default(1)
+  /// Membership.id; yabancı anahtar yok (üye çıksa da iz kalır).
+  createdById        String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  org     Organization    @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  holders ProductAccess[]
+
+  @@unique([orgId, product, builtinKey])
+  @@index([orgId, product])
+  @@schema("platform")
+}
+
+model Subscription {
+  id               String             @id @default(uuid(7))
+  orgId            String
+  product          String
+  status           SubscriptionStatus @default(ACTIVE)
+  plan             String
+  limits           Json               @default("{}")
+  currentPeriodEnd DateTime?
+  canceledAt       DateTime?
+  deleteAfter      DateTime?
+  /// Ödeme sağlayıcı alanları boş kalır.
+  provider         String?
+  providerRef      String?
+  /// Olay sürümü: her durum değişiminde artar. Alıcı küçük sürümü uygulamaz.
+  version          Int                @default(0)
+  createdAt        DateTime           @default(now())
+
+  org Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, product])
+  @@schema("platform")
+}
+
+model Invitation {
+  id             String         @id @default(uuid(7))
+  orgId          String
+  kind           InvitationKind
+  email          String?
+  phone          String?
+  name           String?
+  orgRole        OrgRole        @default(MEMBER)
+  productRoles   Json           @default("{}")
+  /// SHA-256. Kod veya bağlantı jetonunun kendisi saklanmaz.
+  tokenHash      String         @unique
+  expiresAt      DateTime
+  attempts       Int            @default(0)
+  acceptedAt     DateTime?
+  revokedAt      DateTime?
+  /// Membership.id. Üye silinse de kayıt kalır, yabancı anahtar yoktur.
+  invitedById    String
+  /// Yalnız PHONE_RESET: kodun bağlı olduğu kişi.
+  targetPersonId String?
+  createdAt      DateTime       @default(now())
+
+  org Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@index([orgId])
+  @@index([phone])
+  @@index([email])
+  @@index([invitedById])
+  @@schema("platform")
+}
+
+/// Her döndürmede yeni satır. Etkin baş: rotatedAt ve revokedAt boş. Aile iptali tüm satırlara revokedAt yazar.
+model Session {
+  id          String        @id @default(uuid(7))
+  personId    String
+  activeOrgId String?
+  client      SessionClient
+  familyId    String
+  /// SHA-256
+  refreshHash String        @unique
+  userAgent   String?
+  ip          String?
+  createdAt   DateTime      @default(now())
+  /// Ailenin ilk oturumunun açılış zamanı; döndürmede kopyalanır (oturum üst sınırı).
+  familyCreatedAt DateTime  @default(now())
+  lastUsedAt  DateTime      @default(now())
+  expiresAt   DateTime
+  rotatedAt   DateTime?
+  revokedAt   DateTime?
+  /// Bu satırı doğuran yenilemede sunulan satır (04-B1). Kayıp yanıt toleransı: eski jeton ancak ailenin başı ONUN sunumuyla
+  /// doğduysa (yeni jeton henüz kullanılmadıysa) kabul edilir. Girişle açılan satırda ve göçten önceki satırlarda boş.
+  parentId    String?
+  /// SHA-256. Bu satırı doğuran yenilemede istemcinin gönderdiği tekrar anahtarı (6.8). Aynı eski jeton aynı anahtarla gelirse ve
+  /// yeni jeton henüz kullanılmadıysa süre toleransı aranmaz. Anahtarsız istemcide (web, eski mobil sürüm) ve girişte boş.
+  retryKeyHash String?
+
+  person Person @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  @@index([familyId])
+  @@index([personId])
+  @@index([expiresAt])
+  @@schema("platform")
+}
+
+model OneTimeToken {
+  id        String           @id @default(uuid(7))
+  kind      OneTimeTokenKind
+  personId  String
+  /// SHA-256
+  tokenHash String           @unique
+  /// Jetonun kanıtladığı adres. Göçten önceki jetonlarda boş: kişinin o anki adresi sayılır.
+  email     String?
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  person Person @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  @@index([personId, kind])
+  @@schema("platform")
+}
+
+/// Kayıt daveti (kullanıcı kararı 2026-11-12, kapalı deneme): `SIGNUP_MODE=invite` iken yeni firma kaydı yalnız bununla.
+/// Destek komutu `signup:invite` üretir; tek kullanımlık, süreli, tek e-posta adresine bağlı. Firmaya ekip daveti (`Invitation`) ayrıdır.
+model SignupInvite {
+  id             String    @id @default(uuid(7))
+  /// Küçük harf. Kayıt yalnız bu adresle yapılabilir.
+  email          String
+  /// SHA-256. Bağlantıdaki jetonun kendisi saklanmaz.
+  tokenHash      String    @unique
+  expiresAt      DateTime
+  usedAt         DateTime?
+  /// Kullanan kişi ve açılan firma. Yabancı anahtar yok: kişi ya da firma silinse de iz kalır.
+  usedByPersonId String?
+  orgId          String?
+  /// Komutu çalıştıran (`--operator`).
+  createdBy      String
+  createdAt      DateTime  @default(now())
+
+  @@index([email])
+  @@schema("platform")
+}
+
+/// Hız sınırı. Anahtarda kişi bilgisi yerine özet tutulur.
+model RateBucket {
+  key       String   @id
+  count     Int
+  windowEnd DateTime
+
+  @@index([windowEnd])
+  @@schema("platform")
+}
+
+model AuditLog {
+  id                String   @id @default(uuid(7))
+  orgId             String?
+  actorMembershipId String?
+  actorPersonId     String?
+  action            String
+  target            String?
+  meta              Json?
+  ip                String?
+  createdAt         DateTime @default(now())
+
+  @@index([orgId, createdAt])
+  @@schema("platform")
+}
+
+model Outbox {
+  /// Aynı zamanda eventId.
+  id        String   @id @default(uuid(7))
+  type      String
+  orgId     String?
+  payload   Json
+  createdAt DateTime @default(now())
+
+  deliveries OutboxDelivery[]
+
+  @@index([createdAt])
+  @@schema("platform")
+}
+
+/// Hedef başına teslim durumu. `Outbox.deliveries` için ayrı tablo: SKIP LOCKED ile satır satır sahiplenilir.
+model OutboxDelivery {
+  id            String         @id @default(uuid(7))
+  outboxId      String
+  /// Ürün anahtarı. Adres PRODUCT_EVENT_TARGETS'tan gönderim anında çözülür.
+  target        String
+  status        DeliveryStatus @default(PENDING)
+  attempts      Int            @default(0)
+  nextAttemptAt DateTime       @default(now())
+  lastError     String?
+  deliveredAt   DateTime?
+  createdAt     DateTime       @default(now())
+
+  outbox Outbox @relation(fields: [outboxId], references: [id], onDelete: Cascade)
+
+  @@unique([outboxId, target])
+  @@index([status, nextAttemptAt])
+  @@schema("platform")
+}
+
+/// Araçların Hesap servisinden istediği bildirim postası (`POST /api/account/internal/notify`, Mesaj 14 §4.5).
+/// Gövde ve alıcı listesi saklanmaz: satır tekrar anahtarını ve 24 saat tavanını taşır.
+model ProductNotice {
+  id          String    @id @default(uuid(7))
+  /// Ürün anahtarı (kayıttan).
+  product     String
+  orgId       String
+  /// `NOTICE_DEDUPE_KEY`, ör. DeciShip günlük özeti `ttk:<YYYY-MM-DD>`. `(product, orgId, dedupeKey)` tekildir: tekrar istek `duplicate` döner.
+  dedupeKey   String
+  /// Postanın kuyruğa girdiği kişi sayısı.
+  recipients  Int       @default(0)
+  /// İlk kayıt anı: 24 saat tavanı bununla sayılır, yeniden gönderimde değişmez.
+  createdAt   DateTime  @default(now())
+  /// Son gönderim denemesinin başladığı an (Y129), veritabanı saatiyle (`now()`). `sentAt` boşken `NOTICE_RESEND_AFTER_MINUTES`'tan
+  /// eskiyse tekrar istek yeniden gönderir. Varsayılanı YOK: boşsa satırı bu sütunu bilmeyen eski kod yazmıştır, gönderilmiş sayılır.
+  attemptedAt DateTime?
+  /// Bütün postaların gönderim denemesi bitti (başarılı ya da kalıcı hatalı). Boşsa süreç gönderim sırasında durmuş olabilir.
+  sentAt      DateTime?
+  /// İlk gövdenin özeti (`noticeBodyHash`: izin + iki dildeki metin). Yeniden gönderim yalnız aynı gövdeyle; farklıysa `duplicate`.
+  bodyHash    String?
+
+  org Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+
+  @@unique([product, orgId, dedupeKey])
+  @@index([orgId, product, createdAt])
+  @@schema("platform")
+}
+
+/// Yalnız geliştirme posta kutusu.
+model MailLog {
+  id        String   @id @default(uuid(7))
+  to        String
+  template  String
+  subject   String
+  body      String
+  createdAt DateTime @default(now())
+
+  @@index([to, createdAt])
+  @@schema("platform")
+}

@@ -1,0 +1,44 @@
+/*
+ * Erişilebilirlik: yüksek karşıtlık kipi (Mesaj 15 Parça P, plan §4.4; WCAG 1.4.11).
+ * Windows "Yüksek karşıtlık" (forced-colors) tarayıcının sistem renklerini zorlar; arka plan renkleri düşer,
+ * bu yüzden yalnız renk farkına dayanan kenarlar kaybolur. Burada düğme, alan, seçim kutusu, metin alanı ve
+ * rozet sistem renginde (ButtonText) açık bir çerçeve alır; odak Highlight renginde 2 px halka olur (sayfa kuralı silse de).
+ * Koyu tema yok (karar): renk şeması yalnız açık; yüksek karşıtlık kipi bunun dışında sistemden gelir.
+ */
+@media (forced-colors: active) {
+  .btn,
+  .inp,
+  .sel,
+  .txt,
+  textarea,
+  select,
+  input:not([type='checkbox']):not([type='radio']):not([type='hidden']),
+  .tag,
+  .seg {
+    border: 1px solid ButtonText;
+  }
+  .btn:disabled,
+  .btn[aria-disabled='true'],
+  .inp:disabled,
+  .sel:disabled,
+  .txt:disabled {
+    border-color: GrayText;
+  }
+  .seg button[aria-pressed='true'] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+  :focus-visible,
+  .inp:focus,
+  .sel:focus,
+  .txt:focus,
+  .btn:focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+  /* Sayfa kuralları odağı yalnız gölgeyle çizer (`outline: none` + halka); bu kipte gölge silinir, odak hiç görünmezdi.
+     Programla odaklanan kap ve başlık (tabindex=-1) hariç. */
+  :focus-visible:not([tabindex='-1']) {
+    outline: 2px solid Highlight !important;
+  }
+}

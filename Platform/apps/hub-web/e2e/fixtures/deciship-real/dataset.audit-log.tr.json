@@ -1,0 +1,74 @@
+{
+  "status": 200,
+  "body": {
+    "id": "audit-log",
+    "columns": [
+      {
+        "id": "at",
+        "label": "Zaman",
+        "format": "datetime",
+        "sortable": true
+      },
+      {
+        "id": "actor",
+        "label": "Kişi",
+        "format": "text"
+      },
+      {
+        "id": "action",
+        "label": "İşlem",
+        "format": "text"
+      },
+      {
+        "id": "target",
+        "label": "Kayıt",
+        "format": "text"
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "at": "<zaman>",
+          "actor": "Ayşe Yönetici",
+          "action": "itiraz gönderdi",
+          "target": "FedEx 9-482-11735"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+        "cells": {
+          "at": "<zaman>",
+          "actor": "Ayşe Yönetici",
+          "action": "bir farkı itiraz listesine aldı",
+          "target": "794812345305"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "at": "<zaman>",
+          "actor": "Ayşe Yönetici",
+          "action": "alacak dekontu girdi",
+          "target": "Sürat Kargo K-1"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "at": "<zaman>",
+          "actor": "Ayşe Yönetici",
+          "action": "itiraz gönderdi",
+          "target": "Sürat Kargo K-1"
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 5
+  }
+}

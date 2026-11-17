@@ -1,0 +1,12 @@
+# Hesap imajı için derleme bağlamı (SellerOnData kökü): yalnız gerekenler gönderilir
+*
+!Platform/packages/contracts/package.json
+!Platform/packages/contracts/src
+!Platform/packages/auth-kit/package.json
+!Platform/apps/account-api
+Platform/apps/account-api/node_modules
+Platform/apps/account-api/dist
+Platform/apps/account-api/test
+Platform/apps/account-api/src/generated
+**/.env
+**/*.log

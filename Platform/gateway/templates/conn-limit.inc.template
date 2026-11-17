@@ -1,0 +1,5 @@
+# Sunucu düzeyinde IP başına eşzamanlı istek sınırı (default.conf server bloğu içe alır; uzantısı .inc: kendiliğinden yüklenmez).
+# Web sayfaları, statik dosyalar ve sağlık uçları da sayılır: yavaş gövde gönderen ya da yanıtı yavaş okuyan tek istemci gateway'in
+# bağlantılarını tüketemez. /api/ konumları aynı bölgeyi ve değeri api-limits.inc'ten alır (konumdaki limit_conn sunucudakini ezer).
+# Anahtar gerçek istemci IP'sidir (10-real-ip.conf): Caddy arkasında herkes Caddy'nin adresi sayılmaz.
+limit_conn sod_conn ${GATEWAY_CONN_PER_IP};

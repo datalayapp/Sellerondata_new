@@ -1,0 +1,69 @@
+{
+  "endpoint": "GET /api/deciship/invoices",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "carrier": {
+          "code": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "createdAt": "string",
+        "currency": "string",
+        "disputeStatus": "string",
+        "disputeSums": {
+          "claimedAmount": "number",
+          "pendingAmount": "number",
+          "recoveredAmount": "number",
+          "rejectedAmount": "number",
+          "shortfallAmount": "number"
+        },
+        "id": "string",
+        "invoiceDate": "string",
+        "invoiceNo": "string",
+        "totals": {
+          "acceptedLines": "number",
+          "billedTotal": "number",
+          "comparedBilledTotal": "number",
+          "diff": "number",
+          "estimatedLines": "number",
+          "estimatedOverchargeTotal": "number",
+          "expectedTotal": "number",
+          "flaggedLines": "number",
+          "fxMissing": "number",
+          "lines": "number",
+          "match": "number",
+          "noTariff": "number",
+          "overchargeByType": [
+            {
+              "amount": "number",
+              "lines": "number",
+              "type": "string"
+            }
+          ],
+          "overchargeTotal": "number",
+          "pakNoTariff": "number",
+          "pakUnmatched": "number",
+          "pendingLines": "number",
+          "reconciliation": {
+            "overchargeTotal": "number",
+            "steps": [
+              {
+                "amount": "number",
+                "key": "string",
+                "lines": "number"
+              }
+            ]
+          },
+          "uncheckedSurchargeTotal": "number",
+          "unmatched": "number",
+          "verifiedTotal": "number"
+        }
+      }
+    ],
+    "page": "number",
+    "pageSize": "number",
+    "total": "number"
+  }
+}

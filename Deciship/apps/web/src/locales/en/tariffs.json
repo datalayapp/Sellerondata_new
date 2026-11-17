@@ -1,0 +1,107 @@
+{
+  "toast": {
+    "duplicated": "Tariff duplicated",
+    "defaultChanged": "Default tariff changed",
+    "defaultChangedBody": "{{name}} will be preselected on new invoices.",
+    "deleted": "Tariff deleted",
+    "carrierRemoved": "Carrier removed",
+    "carrierRemovedBody": "Carriers that have invoices are deactivated, not deleted.",
+    "templateFailed": "Could not download the template"
+  },
+  "page": {
+    "title": "Tariffs",
+    "sub": "Expected amounts are calculated from these tariffs. Prices exclude VAT.",
+    "downloadTemplate": "Download Excel template",
+    "more": "More actions"
+  },
+  "empty": {
+    "noCarriers": {
+      "title": "No carriers yet",
+      "add": "Add carrier",
+      "body": "Add FedEx, UPS, DHL or a domestic carrier, then enter the contract tariff or import it from Excel.",
+      "bodyView": "Carriers and tariffs appear here once they are added."
+    },
+    "noTariffs": {
+      "title": "No tariffs for {{name}}",
+      "body": "Without a tariff, invoice lines are marked \"No tariff\". Upload the carrier's price list (Excel, CSV or PDF) or enter the prices manually.",
+      "bodyView": "Without a tariff, invoice lines are marked \"No tariff\". Tariffs appear here once they are added."
+    }
+  },
+  "carriers": {
+    "heading": "Carriers",
+    "add": "Add carrier",
+    "inactiveLower": "inactive"
+  },
+  "main": {
+    "heading": "{{name}} tariffs",
+    "editCarrier": "Edit carrier",
+    "removeCarrier": "Remove",
+    "newTariff": "New tariff",
+    "moreAria": "More actions for {{name}}"
+  },
+  "table": {
+    "tariff": "Tariff",
+    "divisor": "DIM divisor",
+    "discount": "Discount",
+    "fuel": "Fuel",
+    "validity": "Validity",
+    "status": "Status",
+    "actions": "Actions"
+  },
+  "status": {
+    "default": "Default",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "row": {
+    "makeDefault": "Make default",
+    "zones_one": "{{formatted}} zone",
+    "zones_other": "{{formatted}} zones",
+    "unlimited": "No end date",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "moreAria": "More actions for {{name}}"
+  },
+  "delTariff": {
+    "label": "Tariff",
+    "title": "Delete {{name}}?",
+    "body": "This tariff will not be used for new invoices.",
+    "pastInvoices": "Past invoices are not affected; they keep the prices from the day they were calculated."
+  },
+  "delCarrier": {
+    "label": "Carrier",
+    "title": "Remove {{name}}?",
+    "body": "A carrier with invoices is deactivated, not deleted. A carrier without invoices is deleted along with its tariffs."
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "remove": "Remove",
+    "save": "Save"
+  },
+  "carrierModal": {
+    "updated": "Carrier updated",
+    "added": "Carrier added",
+    "addTitle": "Add carrier",
+    "template": "Invoice template",
+    "templateHelp": "Invoice columns are mapped automatically using this template.",
+    "name": "Display name",
+    "nameRequired": "Name is required.",
+    "active": "Active (listed when uploading invoices)"
+  },
+  "select": {
+    "unlimited": "no end date",
+    "defaultLower": "default",
+    "inactiveLower": "inactive",
+    "loadFailed": "Tariffs could not be loaded; the default tariff will be used.",
+    "noneMarked": "Lines are marked “No tariff”.",
+    "addTariff": "Add tariff",
+    "dateSelected": "The tariff valid on {{date}} is selected; change it to use a different tariff.",
+    "defaultSelected": "The default tariff is selected; change it to use a different tariff.",
+    "allLines": "All lines of the invoice are compared against this tariff.",
+    "label": "Tariff",
+    "noTariffs": "This carrier has no tariffs",
+    "loading": "Loading…",
+    "outOfRange": "This tariff is not valid on {{date}} ({{validity}}); calculations will still use it."
+  }
+}

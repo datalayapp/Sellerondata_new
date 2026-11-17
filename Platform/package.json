@@ -1,0 +1,9 @@
+{
+  "name": "sellerondata-platform",
+  "private": true,
+  "description": "Kök betikler. Workspaces yok, kök betikler: ../package.json (ARCHITECTURE §2).",
+  "scripts": {
+    "test": "node ../scripts/test.mjs quick --scope Platform",
+    "e2e": "npm --prefix e2e run e2e"
+  }
+}

@@ -1,0 +1,130 @@
+#!/usr/bin/env bash
+# Taklit docker (guncelle.test.mjs, kurulum.test.mjs). Gerçek Docker'a dokunmaz.
+# Durum $FAKE altındaki dosyalardan okunur; her çağrı $FAKE/calls.log'a "<komut> <bağımsız değişkenler> @<HEAD kısa sha>" yazılır.
+#   volumes            var olan hacimler (satır başına ad)
+#   running            "ps --status running --services" çıktısı
+#   fail-<adım>        adım hata verir. İçerik boşsa her zaman, değilse yalnız listelenen commit'lerde (kısa sha, satır başına).
+#                      adımlar: config build up migrate dump tar announce invite preview
+#   bozuk-sha          kaptaki döküm özeti tutmaz
+#   psql-stdin.txt     stdin'li psql çıktısı (kurulum.sh dogrula)
+#   compose-version    "docker compose version --short" çıktısı (yoksa 5.1.4)
+#   docker-ps.txt      ayakta-mi.sh'in "docker ps -a" çıktısı
+set -u
+# Ayrık HEAD'de .git/HEAD tam sha'dır: git süreci açmadan (her çağrıda bir süreç az; Windows'ta yavaş).
+head_sha() {
+  local h=
+  read -r h <"$FAKE_REPO/.git/HEAD" 2>/dev/null
+  case "$h" in ref:* | '') git -C "$FAKE_REPO" rev-parse --short=7 HEAD 2>/dev/null || echo yok ;; *) printf '%s
+' "${h:0:7}" ;; esac
+}
+SHA=$(head_sha)
+echo "$* @$SHA" >>"$FAKE/calls.log"
+
+fails() { # adım: bu commit'te hata mı
+  local f="$FAKE/fail-$1"
+  [ -f "$f" ] || return 1
+  [ -s "$f" ] || return 0
+  grep -qx "$SHA" "$f"
+}
+
+env_file=
+if [ "${1:-}" = compose ]; then
+  shift
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      -p | -f | --project-directory) shift 2 ;;
+      --env-file) env_file=$2; shift 2 ;;
+      *) break ;;
+    esac
+  done
+  sub=${1:-}
+  shift
+  case "$sub" in
+    version) cat "$FAKE/compose-version" 2>/dev/null || echo 5.1.4; exit 0 ;;
+    config) fails config && { echo "required variable SMTP_URL is missing a value" >&2; exit 15; }; exit 0 ;;
+    build) fails build && { echo "failed to solve: npm ci" >&2; exit 17; }; echo "built @$SHA"; exit 0 ;;
+    up) fails up && { echo "container sellerondata-deciship-api-1 is unhealthy" >&2; exit 1; }; exit 0 ;;
+    ps)
+      case "$*" in
+        *--services*) cat "$FAKE/running" 2>/dev/null ;;
+        *-q*) echo kap0123 ;;
+        *)
+          code=0
+          fails migrate && code=1
+          printf 'postgres|running|0\npostgres-upgrade|exited|0\naccount-migrate|exited|0\ndeciship-migrate|exited|%s\naccount-api|running|0\n' "$code"
+          ;;
+      esac
+      exit 0
+      ;;
+    cp)
+      src=$1 dst=$2
+      case "$src" in
+        postgres:*.dump) printf 'SAHTE-DUMP' >"$dst" ;;
+        postgres:*) printf -- '-- roller\n' >"$dst" ;;
+      esac
+      exit 0
+      ;;
+    exec)
+      [ "${1:-}" = -T ] && shift
+      svc=$1
+      shift
+      case "$svc:$*" in
+        postgres:pg_dump*) fails dump && { echo "pg_dump: error: connection refused" >&2; exit 1; }; exit 0 ;;
+        postgres:pg_dumpall* | postgres:rm*) exit 0 ;;
+        postgres:bash*" say "*) printf 'platform._prisma_migrations\t3\nplatform."Person"\t2\ndeciship._prisma_migrations\t4\ndeciship."Invoice"\t7\n' ;;
+        postgres:bash*" sha "*)
+          if [ -f "$FAKE/bozuk-sha" ]; then echo 0000; else printf 'SAHTE-DUMP' | sha256sum | cut -d ' ' -f 1; fi
+          ;;
+        postgres:psql*-v*) cat "$FAKE/psql-stdin.txt" 2>/dev/null ;;
+        postgres:psql*server_version*) echo 17.6 ;;
+        postgres:psql*) echo 20261116000000_son ;;
+        account-api:node\ dist/org-announce.js*) fails announce && exit 1; echo "2 firma yeniden duyuruldu." ;;
+        account-api:node\ dist/members-announce.js*) fails announce && exit 1; echo "DeciShip: 1 firmada 3 üyelik yeniden duyuruldu." ;;
+        account-api:node\ dist/signup-invite.js*)
+          fails invite && { echo "Hata: SIGNUP_MODE" >&2; exit 1; }
+          echo "https://app.ornek.test/register?invite=sahte-jeton"
+          echo "Kayıt daveti 0001: sahip@ornek.test, 30.11.2026 tarihine kadar, tek kullanımlık."
+          ;;
+        deciship-api:node\ dist/cli/purgePreview.js*)
+          fails preview && { echo "Error: database" >&2; exit 1; }
+          echo "invoices: 30 days (currently off; counted as if enabled), photos: 30 days (currently off; counted as if enabled), clock=database"
+          echo "company=c1 invoices=2 keptForDispute=1 photos=5 photoMB=1.2"
+          echo "Done (nothing deleted): companies=1 invoices=2 keptForDispute=1 photos=5 photoMB=1.2"
+          ;;
+        deciship-api:printenv*)
+          k=${@: -1}
+          [ -n "$env_file" ] && awk -v k="$k" -F '=' '$1 == k { v = substr($0, length(k) + 2) } END { print v }' "$env_file"
+          ;;
+        *) echo "taklit docker: bilinmeyen exec $svc $*" >&2; exit 99 ;;
+      esac
+      exit 0
+      ;;
+    logs) exit 0 ;;
+    *) echo "taklit docker: bilinmeyen compose $sub" >&2; exit 99 ;;
+  esac
+fi
+
+case "${1:-}" in
+  info) exit 0 ;;
+  volume)
+    [ "${2:-}" = inspect ] && grep -qx "${3:-}" "$FAKE/volumes" 2>/dev/null && exit 0
+    echo "Error: No such volume: ${3:-}" >&2
+    exit 1
+    ;;
+  inspect) echo postgres:17; exit 0 ;;
+  run)
+    fails tar && { echo "tar: /data: Cannot open" >&2; exit 2; }
+    out=
+    prev=
+    for a in "$@"; do
+      if [ "$prev" = -v ]; then case "$a" in *:/yedek) out=${a%:/yedek} ;; esac; fi
+      prev=$a
+    done
+    [ -n "$out" ] && printf 'SAHTE-TAR' >"$out/dosyalar.tar.gz"
+    printf 'DOSYA 3\nBAYT 300\n'
+    exit 0
+    ;;
+  ps) cat "$FAKE/docker-ps.txt" 2>/dev/null; exit 0 ;;
+esac
+echo "taklit docker: bilinmeyen komut $*" >&2
+exit 99

@@ -1,0 +1,663 @@
+{
+  "status": 200,
+  "body": {
+    "product": "deciship",
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "kpis": [
+      {
+        "id": "overcharge",
+        "label": "Overcharges caught",
+        "hint": "Firm difference between the billed amount and what your measurements and tariff expect. Accepted lines and lines marked \"Review\" are excluded.",
+        "value": 762.2,
+        "format": "money",
+        "currency": "TRY",
+        "previous": 400,
+        "goodDirection": "down",
+        "tone": "bad",
+        "href": "/analytics/deciship",
+        "trend": [
+          {
+            "id": "current",
+            "label": "This period",
+            "role": "current",
+            "points": [
+              {
+                "x": "2026-10-01",
+                "y": 0
+              },
+              {
+                "x": "2026-10-02",
+                "y": 0
+              },
+              {
+                "x": "2026-10-03",
+                "y": 0
+              },
+              {
+                "x": "2026-10-04",
+                "y": 0
+              },
+              {
+                "x": "2026-10-05",
+                "y": 0
+              },
+              {
+                "x": "2026-10-06",
+                "y": 0
+              },
+              {
+                "x": "2026-10-07",
+                "y": 0
+              },
+              {
+                "x": "2026-10-08",
+                "y": 0
+              },
+              {
+                "x": "2026-10-09",
+                "y": 0
+              },
+              {
+                "x": "2026-10-10",
+                "y": 130
+              },
+              {
+                "x": "2026-10-11",
+                "y": 130
+              },
+              {
+                "x": "2026-10-12",
+                "y": 151
+              },
+              {
+                "x": "2026-10-13",
+                "y": 151
+              },
+              {
+                "x": "2026-10-14",
+                "y": 151
+              },
+              {
+                "x": "2026-10-15",
+                "y": 151
+              },
+              {
+                "x": "2026-10-16",
+                "y": 151
+              },
+              {
+                "x": "2026-10-17",
+                "y": 151
+              },
+              {
+                "x": "2026-10-18",
+                "y": 151
+              },
+              {
+                "x": "2026-10-19",
+                "y": 151
+              },
+              {
+                "x": "2026-10-20",
+                "y": 151
+              },
+              {
+                "x": "2026-10-21",
+                "y": 151
+              },
+              {
+                "x": "2026-10-22",
+                "y": 151
+              },
+              {
+                "x": "2026-10-23",
+                "y": 151
+              },
+              {
+                "x": "2026-10-24",
+                "y": 151
+              },
+              {
+                "x": "2026-10-25",
+                "y": 151
+              },
+              {
+                "x": "2026-10-26",
+                "y": 151
+              },
+              {
+                "x": "2026-10-27",
+                "y": 762.2
+              },
+              {
+                "x": "2026-10-28",
+                "y": 762.2
+              },
+              {
+                "x": "2026-10-29",
+                "y": 762.2
+              },
+              {
+                "x": "2026-10-30",
+                "y": 762.2
+              },
+              {
+                "x": "2026-10-31",
+                "y": 762.2
+              }
+            ]
+          },
+          {
+            "id": "previous",
+            "label": "Previous period",
+            "role": "previous",
+            "points": [
+              {
+                "x": "2026-08-31",
+                "y": 0
+              },
+              {
+                "x": "2026-09-01",
+                "y": 0
+              },
+              {
+                "x": "2026-09-02",
+                "y": 0
+              },
+              {
+                "x": "2026-09-03",
+                "y": 0
+              },
+              {
+                "x": "2026-09-04",
+                "y": 0
+              },
+              {
+                "x": "2026-09-05",
+                "y": 0
+              },
+              {
+                "x": "2026-09-06",
+                "y": 0
+              },
+              {
+                "x": "2026-09-07",
+                "y": 0
+              },
+              {
+                "x": "2026-09-08",
+                "y": 0
+              },
+              {
+                "x": "2026-09-09",
+                "y": 0
+              },
+              {
+                "x": "2026-09-10",
+                "y": 0
+              },
+              {
+                "x": "2026-09-11",
+                "y": 0
+              },
+              {
+                "x": "2026-09-12",
+                "y": 0
+              },
+              {
+                "x": "2026-09-13",
+                "y": 0
+              },
+              {
+                "x": "2026-09-14",
+                "y": 0
+              },
+              {
+                "x": "2026-09-15",
+                "y": 0
+              },
+              {
+                "x": "2026-09-16",
+                "y": 0
+              },
+              {
+                "x": "2026-09-17",
+                "y": 0
+              },
+              {
+                "x": "2026-09-18",
+                "y": 0
+              },
+              {
+                "x": "2026-09-19",
+                "y": 0
+              },
+              {
+                "x": "2026-09-20",
+                "y": 400
+              },
+              {
+                "x": "2026-09-21",
+                "y": 400
+              },
+              {
+                "x": "2026-09-22",
+                "y": 400
+              },
+              {
+                "x": "2026-09-23",
+                "y": 400
+              },
+              {
+                "x": "2026-09-24",
+                "y": 400
+              },
+              {
+                "x": "2026-09-25",
+                "y": 400
+              },
+              {
+                "x": "2026-09-26",
+                "y": 400
+              },
+              {
+                "x": "2026-09-27",
+                "y": 400
+              },
+              {
+                "x": "2026-09-28",
+                "y": 400
+              },
+              {
+                "x": "2026-09-29",
+                "y": 400
+              },
+              {
+                "x": "2026-09-30",
+                "y": 400
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "diffs",
+        "label": "Shipments with a discrepancy",
+        "hint": "All discrepancy lines: awaiting decision, on the dispute list and accepted.",
+        "value": 12,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "down",
+        "tone": "warning",
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "deadlines",
+        "label": "Invoices near the dispute deadline",
+        "hint": "As of today. Does not depend on the selected period.",
+        "value": 1,
+        "format": "number",
+        "goodDirection": "none",
+        "tone": "warning",
+        "href": "/data/deciship/invoices?filter.deadline=soon"
+      },
+      {
+        "id": "overcharge:USD",
+        "label": "Overcharge (USD)",
+        "hint": "Currencies are not added together. This amount is not part of the figure above.",
+        "value": 30,
+        "format": "money",
+        "currency": "USD",
+        "previous": null,
+        "goodDirection": "down",
+        "tone": "bad",
+        "href": "/analytics/deciship?filter.currency=USD"
+      },
+      {
+        "id": "open",
+        "label": "Discrepancies to decide",
+        "value": 9,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "down",
+        "tone": "warning",
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "coverage",
+        "label": "Measurement coverage",
+        "hint": "Share of invoice lines that have a measurement.",
+        "value": 87.1,
+        "format": "percent",
+        "previous": 100,
+        "goodDirection": "up",
+        "href": "/data/deciship/invoice-lines?filter.status=UNMATCHED&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "verified",
+        "label": "On dispute list",
+        "hint": "Amount on the lines on the dispute list. Not a carrier refund.",
+        "value": 488.5,
+        "format": "money",
+        "currency": "TRY",
+        "previous": 0,
+        "goodDirection": "none",
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=VERIFIED&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "recovered",
+        "label": "Recovered",
+        "hint": "Amount recovered from carriers by credit note, by invoice month.",
+        "value": 20,
+        "format": "money",
+        "currency": "TRY",
+        "previous": 0,
+        "goodDirection": "up",
+        "tone": "good",
+        "href": "/deciship/disputes"
+      },
+      {
+        "id": "disputePending",
+        "label": "Pending in disputes",
+        "hint": "Amount claimed in sent disputes with no outcome yet.",
+        "value": 458.5,
+        "format": "money",
+        "currency": "TRY",
+        "previous": 0,
+        "goodDirection": "none",
+        "tone": "warning",
+        "href": "/deciship/disputes?status=SENT"
+      },
+      {
+        "id": "estimated",
+        "label": "Amount to review",
+        "hint": "Lines whose amount is not certain: the price or weight could not be confirmed from the invoice, the service differs from the tariff, or the tracking number is on another invoice with a different amount. Not added to overcharges.",
+        "value": 1130,
+        "format": "money",
+        "currency": "TRY",
+        "previous": 0,
+        "goodDirection": "down",
+        "tone": "warning",
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.confidence=LOW&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "measured",
+        "label": "Parcels measured",
+        "value": 57,
+        "format": "number",
+        "previous": 0,
+        "goodDirection": "up",
+        "href": "/data/deciship/measurements?filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "invoices",
+        "label": "Invoices processed",
+        "value": 4,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "none",
+        "href": "/data/deciship/invoices?filter.from=2026-10-01&filter.to=2026-10-31"
+      }
+    ],
+    "alerts": [
+      {
+        "id": "deadline:<id>",
+        "tone": "warning",
+        "title": "Sürat Kargo invoice K-2 has 1 discrepancy",
+        "body": "Last day to dispute: 10 Nov 2026.",
+        "href": "/deciship/invoices/<id>?tab=DIFF",
+        "actionLabel": "Open invoice",
+        "at": "<zaman>",
+        "dueAt": "2026-11-10",
+        "amount": {
+          "value": 40,
+          "format": "money",
+          "currency": "TRY"
+        }
+      },
+      {
+        "id": "open:TRY",
+        "tone": "warning",
+        "title": "8 discrepancies need a decision (TRY)",
+        "body": "Discrepancies not on the dispute list are left out of the dispute text.",
+        "amount": {
+          "value": 273.7,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "See lines"
+      },
+      {
+        "id": "unmatched:TRY",
+        "tone": "warning",
+        "title": "2 invoice lines are unmatched (TRY)",
+        "body": "Parcels without a measurement cannot be audited. Scan these tracking numbers in the mobile app or add them by hand under Measurements; the invoice is compared again automatically.",
+        "amount": {
+          "value": 688.04,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "href": "/data/deciship/invoice-lines?filter.status=UNMATCHED&filter.scope=in&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "Unmatched lines"
+      },
+      {
+        "id": "no-tariff:TRY",
+        "tone": "warning",
+        "title": "1 invoice line could not be compared with a tariff (TRY)",
+        "body": "No difference was calculated where the tariff, zone or exchange rate is missing.",
+        "amount": {
+          "value": 33,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "href": "/data/deciship/invoice-lines?filter.status=NO_TARIFF&filter.scope=in&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "See lines"
+      },
+      {
+        "id": "open:USD",
+        "tone": "warning",
+        "title": "1 discrepancy needs a decision (USD)",
+        "body": "Discrepancies not on the dispute list are left out of the dispute text.",
+        "amount": {
+          "value": 30,
+          "format": "money",
+          "currency": "USD"
+        },
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.currency=USD&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "See lines"
+      },
+      {
+        "id": "unmatched:USD",
+        "tone": "warning",
+        "title": "1 invoice line is unmatched (USD)",
+        "body": "Parcels without a measurement cannot be audited. Scan these tracking numbers in the mobile app or add them by hand under Measurements; the invoice is compared again automatically.",
+        "amount": {
+          "value": 50,
+          "format": "money",
+          "currency": "USD"
+        },
+        "href": "/data/deciship/invoice-lines?filter.status=UNMATCHED&filter.scope=in&filter.currency=USD&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "Unmatched lines"
+      },
+      {
+        "id": "tariff-none:<id>",
+        "tone": "warning",
+        "title": "Sürat Kargo has no active tariff",
+        "body": "This carrier's invoices cannot be compared.",
+        "href": "/deciship/tariffs?carrier=<id>",
+        "actionLabel": "Go to tariffs"
+      },
+      {
+        "id": "no-photo",
+        "tone": "info",
+        "title": "57 parcels were measured without a photo",
+        "body": "They will lack evidence in a dispute.",
+        "href": "/data/deciship/measurements?filter.photos=none&filter.from=2026-10-01&filter.to=2026-10-31",
+        "actionLabel": "See measurements"
+      }
+    ],
+    "split": {
+      "title": "Where the billed amount went (TRY)",
+      "total": {
+        "value": 29588.33,
+        "format": "money",
+        "currency": "TRY"
+      },
+      "parts": [
+        {
+          "key": "match",
+          "label": "Matched",
+          "value": 21170.49,
+          "tone": "good",
+          "href": "/data/deciship/invoice-lines?filter.status=MATCH&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+          "note": "Total of the lines that agree with the tariff."
+        },
+        {
+          "key": "diff",
+          "label": "Discrepancy",
+          "value": 7594.8,
+          "tone": "bad",
+          "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.decision=VERIFIED&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+          "note": "Total of the lines with a discrepancy. The overcharge is part of it."
+        },
+        {
+          "key": "accepted",
+          "label": "Accepted discrepancy",
+          "value": 80,
+          "tone": "info",
+          "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=ACCEPTED&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+          "note": "Total of the lines with a discrepancy that were accepted."
+        },
+        {
+          "key": "unmatched",
+          "label": "Unmatched",
+          "value": 710.04,
+          "tone": "warning",
+          "href": "/data/deciship/invoice-lines?filter.status=UNMATCHED&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+          "note": "Lines that could not be compared because there is no measurement."
+        },
+        {
+          "key": "noTariff",
+          "label": "No tariff",
+          "value": 33,
+          "tone": "neutral",
+          "href": "/data/deciship/invoice-lines?filter.status=NO_TARIFF&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+          "note": "Lines that could not be compared because there is no tariff."
+        }
+      ]
+    },
+    "leaders": [
+      {
+        "id": "carrier:<id>",
+        "label": "Carrier overbilling the most",
+        "name": "FedEx",
+        "value": {
+          "value": 611.2,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "share": 80.2,
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.carrier=<id>&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "carrier:<id>",
+        "label": "Carrier overbilling the most",
+        "name": "Sürat Kargo",
+        "value": {
+          "value": 151,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "share": 19.8,
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.carrier=<id>&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "type:DIMENSION",
+        "label": "Costliest discrepancy type",
+        "name": "Dimension discrepancy",
+        "value": {
+          "value": 558.5,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "share": 73.3,
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=DIMENSION&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "type:WEIGHT",
+        "label": "Costliest discrepancy type",
+        "name": "Weight discrepancy",
+        "value": {
+          "value": 126.4,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "share": 16.6,
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=WEIGHT&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "type:PRICE",
+        "label": "Costliest discrepancy type",
+        "name": "Price discrepancy",
+        "value": {
+          "value": 77.3,
+          "format": "money",
+          "currency": "TRY"
+        },
+        "share": 10.1,
+        "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=PRICE&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+      }
+    ],
+    "setup": {
+      "completed": true,
+      "href": "/deciship/setup",
+      "label": "",
+      "steps": [
+        {
+          "id": "carriers",
+          "label": "Add a carrier",
+          "done": true,
+          "href": "/deciship/setup?adim=tasiyicilar",
+          "required": true
+        },
+        {
+          "id": "tariffs",
+          "label": "Upload a tariff",
+          "done": true,
+          "href": "/deciship/setup?adim=tarifeler",
+          "required": true
+        },
+        {
+          "id": "measure-rules",
+          "label": "Set the measurement rules",
+          "done": true,
+          "href": "/deciship/setup?adim=olcum",
+          "required": true
+        },
+        {
+          "id": "first-measurement",
+          "label": "Take your first measurement (mobile app or by hand)",
+          "done": true,
+          "href": "/deciship/measurements",
+          "required": true
+        },
+        {
+          "id": "first-invoice",
+          "label": "Upload your first invoice",
+          "done": true,
+          "href": "/deciship/invoices/upload",
+          "required": true
+        },
+        {
+          "id": "box-presets",
+          "label": "Define box presets",
+          "done": true,
+          "href": "/deciship/setup?adim=koliler",
+          "required": false
+        }
+      ]
+    }
+  }
+}

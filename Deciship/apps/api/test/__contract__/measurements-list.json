@@ -1,0 +1,46 @@
+{
+  "endpoint": "GET /api/deciship/measurements",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "boxPresetId": "null",
+        "clientId": "string",
+        "createdAt": "string",
+        "deleted": "boolean",
+        "deletedAt": "null",
+        "desi": "number",
+        "dimConfidence": "null",
+        "dimMethod": "string",
+        "heightCm": "number",
+        "id": "string",
+        "invoiceStatus": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "lengthCm": "number",
+        "measuredAt": "string",
+        "measuredBy": {
+          "id": "string",
+          "name": "string"
+        },
+        "note": "null",
+        "ocrWeightKg": "null",
+        "photoCount": "number",
+        "superseded": "boolean",
+        "trackingNo": "string",
+        "trackingRaw": "string",
+        "version": "number",
+        "volumetricKg5000": "number",
+        "weightKg": "number",
+        "weightMethod": "string",
+        "widthCm": "number"
+      }
+    ],
+    "page": "number",
+    "pageSize": "number",
+    "total": "number"
+  }
+}

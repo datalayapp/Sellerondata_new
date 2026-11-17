@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="bm_scan">Scan the table: move the phone slowly</string>
+  <string name="bm_corner1">Aim the crosshair at the box\'s first bottom corner and tap</string>
+  <string name="bm_corner2">Tap the 2nd corner (length)</string>
+  <string name="bm_corner3">Tap the 3rd corner (width)</string>
+  <string name="bm_height">Tilt the phone up, aim at the top corner and tap</string>
+  <string name="bm_done">Done. Tap Save</string>
+  <string name="bm_undo">Undo</string>
+  <string name="bm_reset">Restart</string>
+  <string name="bm_cancel">Cancel</string>
+  <string name="bm_save">Save</string>
+  <string name="bm_dark">Too dark. Try a brighter place</string>
+  <string name="bm_slow">Move the phone more slowly</string>
+  <string name="bm_features">Aim at a textured surface and move slowly</string>
+  <string name="bm_len">L</string>
+  <string name="bm_wid">W</string>
+  <string name="bm_hei">H</string>
+</resources>

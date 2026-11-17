@@ -1,0 +1,218 @@
+{
+  "status": 200,
+  "body": {
+    "id": "invoice-lines",
+    "columns": [
+      {
+        "id": "tracking",
+        "label": "Takip no",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "carrier",
+        "label": "Taşıyıcı",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "invoice",
+        "label": "Fatura",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "currency",
+        "label": "Para birimi",
+        "format": "text"
+      },
+      {
+        "id": "diffAmount",
+        "label": "Fark",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "net",
+        "label": "Faturalanan",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "expected",
+        "label": "Beklenen",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "status",
+        "label": "Durum",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "types",
+        "label": "Fark türü",
+        "format": "text"
+      },
+      {
+        "id": "decision",
+        "label": "Karar",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "disputeOutcome",
+        "label": "İtiraz sonucu",
+        "format": "text"
+      },
+      {
+        "id": "recovered",
+        "label": "Geri alınan",
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "date",
+        "label": "Gönderim",
+        "format": "date",
+        "sortable": true
+      },
+      {
+        "id": "country",
+        "label": "Ülke",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "service",
+        "label": "Hizmet",
+        "format": "text"
+      },
+      {
+        "id": "ourKg",
+        "label": "Sizin kg",
+        "format": "number"
+      },
+      {
+        "id": "billedKg",
+        "label": "Faturalanan kg",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "confidence",
+        "label": "Güven",
+        "format": "text"
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+        "cells": {
+          "tracking": "K-2X1",
+          "carrier": "Sürat Kargo",
+          "invoice": "K-2",
+          "date": null,
+          "country": "Almanya",
+          "service": "Economy",
+          "status": "Fark var",
+          "types": "Ağırlık farkı",
+          "decision": "Karar bekliyor",
+          "disputeOutcome": null,
+          "ourKg": null,
+          "billedKg": null,
+          "currency": "TRY",
+          "recovered": null,
+          "net": 140,
+          "expected": 100,
+          "diffAmount": 40,
+          "confidence": "Kesin"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+        "cells": {
+          "tracking": "794812345305",
+          "carrier": "FedEx",
+          "invoice": "9-482-11735",
+          "date": "2026-10-22",
+          "country": "Fransa",
+          "service": "FedEx International Economy",
+          "status": "Fark var",
+          "types": "Ölçü farkı",
+          "decision": "İtiraz listesinde",
+          "disputeOutcome": "Sonuç bekliyor",
+          "ourKg": 6,
+          "billedKg": 9.5,
+          "currency": "TRY",
+          "recovered": null,
+          "net": 1642.5,
+          "expected": 1184,
+          "diffAmount": 458.5,
+          "confidence": "Kesin"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=MATCH&line=<id>",
+        "cells": {
+          "tracking": "794812345302",
+          "carrier": "FedEx",
+          "invoice": "9-482-11735",
+          "date": "2026-10-22",
+          "country": "Birleşik Krallık",
+          "service": "FedEx International Economy",
+          "status": "Uyumlu",
+          "types": null,
+          "decision": null,
+          "disputeOutcome": null,
+          "ourKg": 3.5,
+          "billedKg": 3.5,
+          "currency": "TRY",
+          "recovered": null,
+          "net": 1003.38,
+          "expected": 1003.38,
+          "diffAmount": 0,
+          "confidence": null
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=MATCH&line=<id>",
+        "cells": {
+          "tracking": "794812345301",
+          "carrier": "FedEx",
+          "invoice": "9-482-11735",
+          "date": "2026-10-22",
+          "country": "Amerika Birleşik Devletleri",
+          "service": "FedEx International Economy",
+          "status": "Uyumlu",
+          "types": null,
+          "decision": null,
+          "disputeOutcome": null,
+          "ourKg": 12,
+          "billedKg": 12,
+          "currency": "TRY",
+          "recovered": null,
+          "net": 3371.95,
+          "expected": 3371.95,
+          "diffAmount": 0,
+          "confidence": null
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 33
+  }
+}

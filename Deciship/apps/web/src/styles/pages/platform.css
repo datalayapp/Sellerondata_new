@@ -1,0 +1,367 @@
+/* SellerOnData kabuğu ile DeciShip'in buluştuğu yer (DESIGN.md › 4. D09 kabuğu ve sayfa kurma).
+ * Kabuk kaynağına dokunulmaz; yalnız `sod-*` üzerinde DeciShip'e özgü küçük ayarlar ve durum sayfaları burada. */
+
+/* bant menüsü: kurulum bitene kadar "Kurulum · Eksik". Etiket ölçü sarısı: mavi bantta okunur. */
+.ds-setup-tag {
+  flex: none;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* kurulum özeti: isteğe bağlı adım eksikse uyarı rengi taşımaz */
+.ob-cl.skip .ob-cl-st {
+  color: var(--text-3);
+}
+.ob-cl.skip .ob-cl-ic {
+  color: var(--text-3);
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.ob-req.is-opt {
+  font-weight: 400;
+}
+
+/* satır paneli: değiştirme izni yok */
+.pn-ro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+
+/* kayıt bu firmada yok: diğer firmalara geçiş */
+.ds-record-orgs {
+  margin-top: 12px;
+}
+.ds-record-orgs p {
+  margin: 0 0 8px;
+}
+.ds-record-orgs .ds-access-orgs {
+  justify-content: center;
+}
+
+/* oturum sona erdi: kişi sayfada kaldıysa giriş düğmesi burada */
+.ds-session-lost {
+  align-items: center;
+}
+.ds-session-lost > span {
+  flex: 1;
+}
+
+/* salt okunur abonelik / oturum uyarısı: içerik sütunuyla aynı kenarda, banda binen ilk öğe olur */
+.ds-readonly {
+  margin: 0 var(--gutter) 16px;
+  position: relative;
+}
+/* uyarı banda biner: standart bantta 24 px, büyük bantta (Pano) 72 px; telefonda 16 / 64 (kabuk .sod-lift ile aynı) */
+.page > .ds-readonly:first-child {
+  margin-top: -24px;
+}
+.sod-band[data-size='hero'] ~ .sod-main .page > .ds-readonly:first-child {
+  margin-top: -72px;
+}
+@media (max-width: 760px) {
+  .page > .ds-readonly:first-child {
+    margin-top: -16px;
+  }
+  .sod-band[data-size='hero'] ~ .sod-main .page > .ds-readonly:first-child {
+    margin-top: -64px;
+  }
+}
+/* uyarı banda bindiyse içerik ayrıca binmez */
+.sod-main .page:has(> .ds-readonly) :is(.lift, .sod-lift) {
+  margin-top: 0;
+}
+
+/* izne göre pasif bölüm: görünüm değişmez, kontroller kapanır */
+fieldset.ds-ro {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+/* salt okunur tarife: değerler soluk değil okunur, örnek metinler değer sanılmaz; dar ekranda fiyat hesabı üstte */
+fieldset.te-ro .inp:disabled,
+fieldset.te-ro .sel:disabled,
+fieldset.te-ro .cell:disabled {
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  opacity: 1;
+  cursor: default;
+}
+fieldset.te-ro input:not(.num)::placeholder {
+  color: transparent;
+}
+/* doldurulacak alan yok: zorunlu işareti anlamsız */
+fieldset.te-ro .fld.req > label::after {
+  content: none;
+}
+@media (max-width: 1439px) {
+  /* görüntüleyen için tek eylem fiyat hesabı: uzun formun altında kalmaz */
+  .editor-layout.te-view .te-side > .qt {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+/* Sunucu sayfası zaten "bağlanılamadı" der ve yeniden dener: kabuğun aynı uyarısı üstünde ikinci kez çıkmaz. */
+.sod-shell:has(.ds-offline) > .sod-status {
+  display: none;
+}
+
+/* Bildirim, kabuk uyarısının "Tekrar dene" düğmesini örtmesin. Telefonda bildirimler zaten altta. */
+@media (min-width: 769px) {
+  body:has(.sod-status) .toasts {
+    top: calc(var(--sod-top-h) + 96px);
+  }
+}
+
+/* ---------- D-B1: fatura ayrıntısı. Satır paneli açıkken özet tek satır, tablo ilk ekranda ---------- */
+.inv-sum.inv-sum-line {
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px 16px;
+}
+.inv-sum-line .inv-sum-l {
+  flex: none;
+}
+.inv-sum-line .inv-sum-v {
+  flex: none;
+  font-size: 18px;
+  line-height: 24px;
+}
+.inv-sum-line .inv-sum-n {
+  margin: 0;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.th-card.th-fold {
+  padding: 0;
+  margin-top: 16px;
+}
+.th-fold-btn {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  border: 0;
+  background: none;
+  border-radius: var(--r-card);
+  text-align: left;
+}
+.th-fold-btn:hover {
+  background: var(--surface-2);
+}
+.th-fold-t {
+  font-weight: 600;
+  flex: none;
+}
+.th-fold-s {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.th-fold.warn .th-fold-s {
+  color: var(--warning);
+  font-weight: 500;
+}
+.th-fold-btn svg.i {
+  flex: none;
+  color: var(--text-3);
+}
+/* yapışkan başlık seçili satırı örtmesin */
+.lines-dt tr {
+  scroll-margin-top: calc(var(--sod-sticky-top, 0px) + 8px);
+}
+
+/* ---------- metin içi bağlantı rengiyle ayrılmıyor: alt çizgi (WCAG link-in-text-block) ---------- */
+.fld .help a {
+  text-decoration: underline;
+}
+
+/* ---------- telefonda dokunma hedefi en az 44 px ---------- */
+@media (max-width: 767px) {
+  .inv-sum-i {
+    width: 44px;
+    height: 44px;
+    margin: -14px -10px -14px -6px;
+    vertical-align: middle;
+    border: 0;
+    position: relative;
+  }
+  .inv-sum-i::after {
+    inset: 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+  }
+  .notif .link-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    vertical-align: middle;
+  }
+  .inv-sum.inv-sum-line {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- durum sayfaları (mobil rol, erişim yok, firma seç, bağlantı yok) ---------- */
+.ds-access {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 96px;
+}
+.ds-access-card {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 40px 40px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.ds-access-ic {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary-hover);
+  margin-bottom: 12px;
+}
+.ds-access-card h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.ds-access-card p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-2);
+}
+.ds-access-info {
+  align-self: stretch;
+  margin: 12px 0 0;
+  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-btn);
+}
+.ds-access-info > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ds-access-info dt {
+  color: var(--text-2);
+}
+.ds-access-info dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.ds-access-card .ds-access-note {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.ds-access-steps {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-2);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ds-access-orgs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ds-access-orgs .btn {
+  width: 100%;
+  justify-content: flex-start;
+}
+.ds-access-acts {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ---------- kurulum özeti: ekip Merkez'de ---------- */
+.ds-team {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px 16px;
+  flex-wrap: wrap;
+  padding: 16px;
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-line);
+  border-radius: var(--r-card);
+}
+.ds-team-ic {
+  flex: none;
+  color: var(--primary);
+}
+.ds-team .grow {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.ds-team h3 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.ds-team p {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+
+@media (max-width: 767px) {
+  .ds-access {
+    padding-top: 24px;
+  }
+  .ds-access-card {
+    padding: 20px 16px;
+  }
+  .ds-access-acts,
+  .ds-access-acts .btn {
+    width: 100%;
+  }
+  .ds-team .btn {
+    width: 100%;
+  }
+}

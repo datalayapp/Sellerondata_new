@@ -1,0 +1,38 @@
+# Prettier yalnız denetler (npm run format:check); toplu biçimleme kullanıcı kararıdır (Mesaj 10 planı 3.8).
+# ESLint'in yok saydıkları (tools/lint/rules.mjs IGNORES) ile aynı:
+**/node_modules/**
+**/dist/**
+**/build/**
+**/src/generated/**
+Deciship/apps/mobile/android/**
+Deciship/apps/mobile/ios/**
+**/.expo/**
+Deciship/services/vision/**
+SONRAKI-OTURUM/**
+**/coverage/**
+**/playwright-report/**
+**/test-results/**
+**/screenshots/**
+.test-logs/**
+Platform/e2e/.stack/**
+Deciship/samples/invoices/**
+Deciship/packages/core/test/fixtures/**
+Platform/apps/site/dist/**
+**/*.d.ts
+# Biçimlenmeyen dosya türleri ve üretilmiş dosyalar:
+**/*.md
+**/*.html
+**/*.sql
+**/*.snap
+**/package-lock.json
+**/locales/**
+# Alt klasörlerin .gitignore dosyalarında olanlar (Prettier yalnız kökteki .gitignore'u okur) ve araç ayarları:
+**/storage/**
+**/keys/**
+**/.gece/**
+**/.vite/**
+**/.gradle/**
+**/.venv/**
+**/.impeccable/**
+# Hesap uçlarının gerçek yanıt kaydı: test dosyayı birebir karşılaştırır (6.24)
+Platform/apps/hub-web/e2e/fixtures/account-real/

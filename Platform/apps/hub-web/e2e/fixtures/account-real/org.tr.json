@@ -1,0 +1,14 @@
+{
+  "status": 200,
+  "body": {
+    "id": "<id>",
+    "name": "Örnek Ticaret",
+    "country": "TR",
+    "currency": "TRY",
+    "locale": "tr",
+    "timeZone": "Europe/Istanbul",
+    "companyConfirmedAt": null,
+    "createdAt": "<zaman>",
+    "orgRole": "OWNER"
+  }
+}

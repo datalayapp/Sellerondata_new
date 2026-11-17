@@ -1,0 +1,2640 @@
+/* Invoices: list (Invoices.tsx), upload wizard (InvoiceUpload.tsx), detail/comparison (InvoiceDetail.tsx).
+ * Page-specific only — shared components live in ../app.css. */
+
+/* =====================================================================
+ * LIST
+ * ===================================================================== */
+.is-stale {
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.inv-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.inv-id-t {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.inv-list td.card-title .sub {
+  margin-left: 0;
+}
+/* line-status mix: stacked bar + counts */
+.mix {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+.mix-bar {
+  display: flex;
+  gap: 2px;
+  height: 6px;
+  width: 140px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: #f2f4f7;
+}
+.mix-bar i {
+  display: block;
+  height: 100%;
+}
+.mix-bar i.match {
+  background: #47cd89;
+}
+.mix-bar i.diff {
+  background: var(--danger);
+}
+.mix-bar i.unmatched {
+  background: #98a2b3;
+}
+.mix-bar i.notariff {
+  background: var(--yellow); /* durum rengi; #fdb022 yalnız logoda */
+}
+.mix-txt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.inv-date-inline {
+  display: none;
+}
+/* orta genişlik: para sütunları kalır, tarih fatura adının altına iner
+ * (gizleme `.dt.` ile: 600–767 ekranda app.css'in `.dt.dt-cards td` geri alma kuralı ezmesin, başlık ile hücre kaymasın) */
+@container dtw (max-width: 979px) {
+  .dt.inv-list .inv-c-date,
+  .dt.inv-list .inv-c-ver {
+    display: none;
+  }
+  .inv-list .inv-date-inline {
+    display: block;
+  }
+  .inv-list td.card-title .sub {
+    white-space: normal;
+  }
+  .inv-list td.card-title {
+    white-space: normal;
+    min-width: 180px;
+  }
+  .inv-list .mix {
+    min-width: 96px;
+  }
+  .dt.inv-list th,
+  .dt.inv-list td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@container dtw (max-width: 599px) {
+  .dt.inv-list .inv-c-date,
+  .dt.inv-list .inv-c-ver {
+    display: flex;
+  }
+  .inv-list .inv-date-inline {
+    display: none;
+  }
+  .inv-list td.card-title {
+    padding-right: 44px;
+  }
+  .inv-list tr {
+    position: relative;
+  }
+  /* delete button sits in the card's top-right corner */
+  .dt.dt-cards.inv-list td.actions {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    width: auto;
+    padding: 0;
+  }
+  .inv-list .mix {
+    align-items: flex-end;
+  }
+  .inv-list .mix-txt {
+    justify-content: flex-end;
+  }
+}
+
+/* =====================================================================
+ * UPLOAD WIZARD
+ * ===================================================================== */
+.wiz {
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.wiz.narrow {
+  max-width: 880px;
+}
+.wiz-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  min-width: 0;
+}
+.wiz-file svg.i {
+  flex: none;
+  color: var(--text-3);
+}
+
+/* step indicator: one pill per step; current = dark outline, done = soft check badge, next = dashed */
+.wsteps {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ws {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 8px 18px 8px 12px;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: 12px;
+}
+.ws.done {
+  border: 1px solid var(--border);
+}
+.ws.on {
+  border: 1.5px solid var(--text);
+}
+.ws-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-3);
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+}
+.ws.on .ws-dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.ws.done .ws-dot {
+  border-color: transparent;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.ws-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ws-no {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.ws-t {
+  order: -1;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ws.on .ws-t {
+  color: var(--text);
+}
+@media (max-width: 767px) {
+  .wsteps {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+  .ws {
+    flex: none;
+    min-height: 48px;
+    padding-right: 14px;
+  }
+  .ws:not(.on) .ws-no {
+    display: none;
+  }
+}
+
+/* section number chip in card titles */
+.sec-no {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.wiz-one {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card.attn {
+  border-color: var(--warning-line);
+  box-shadow: 0 0 0 3px var(--warning-bg);
+}
+.cp-notice {
+  margin-bottom: 12px;
+}
+
+/* carrier picker: recognisable cards with a radio dot */
+.carrier-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.cp {
+  position: relative;
+  min-height: 64px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-ctl);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 40px 10px 12px;
+  text-align: left;
+  color: var(--text);
+  box-shadow: var(--sh-sm);
+  transition:
+    border-color 0.12s,
+    background 0.12s;
+  min-width: 0;
+}
+.cp:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-2);
+}
+.cp:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.cp.on {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+  background: var(--primary-soft);
+}
+.cp-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  background: #f2f4f7;
+  color: var(--text-2);
+}
+.cp-logo.c-purple {
+  background: #f4f3ff;
+  color: #5925dc;
+}
+.cp-logo.c-brown {
+  background: #f9f5f0;
+  color: #7a4a1d;
+}
+.cp-logo.c-yellow {
+  background: #fef7c3;
+  color: #a15c07;
+}
+.cp-logo.c-blue {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.cp-logo.c-navy {
+  background: #eef4ff;
+  color: #1f2a6b;
+}
+.cp-logo.c-orange {
+  background: #fff4ed;
+  color: #c4320a;
+}
+.cp-logo.c-gold {
+  background: #fffaeb;
+  color: #b54708;
+}
+.cp-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cp-name {
+  font-weight: 600;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cp-sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cp-sub svg.i {
+  color: var(--success);
+}
+.cp-radio {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.cp.on .cp-radio {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+.cp-add {
+  border-style: dashed;
+  box-shadow: none;
+  color: var(--primary);
+}
+.cp-add .cp-logo {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.cp-add .cp-name {
+  color: var(--primary);
+}
+.quick-carrier {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: var(--r-ctl);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+@media (max-width: 767px) {
+  .carrier-pick {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .cp {
+    padding: 10px 32px 10px 10px;
+    gap: 10px;
+  }
+  .cp-logo {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .cp-radio {
+    right: 8px;
+    width: 18px;
+    height: 18px;
+  }
+  .quick-carrier > .fld,
+  .quick-carrier .inp,
+  .quick-carrier .sel {
+    width: 100%;
+  }
+  .quick-carrier .btn-row {
+    width: 100%;
+  }
+  .quick-carrier .btn-row .btn {
+    flex: 1;
+  }
+}
+
+/* drop zone */
+.drop {
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  color: var(--text);
+  transition:
+    border-color 0.12s,
+    background 0.12s;
+}
+.drop:hover:not(:disabled),
+.drop.over {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.drop:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+.drop:disabled {
+  cursor: progress;
+}
+.drop.has-file {
+  border-style: solid;
+  border-color: var(--primary-line);
+  background: var(--surface);
+}
+.drop > b {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.drop-name {
+  font-family: var(--fm);
+  overflow-wrap: anywhere;
+}
+.drop-ic {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  box-shadow: 0 0 0 8px rgba(29, 91, 216, 0.06);
+}
+.drop-btn {
+  pointer-events: none;
+}
+/* Süren PDF okuma işi (Mesaj 7): bırakma alanı düğme değil, içinde ilerleme çıkar. */
+.drop.drop-job {
+  cursor: default;
+}
+.drop.drop-job .lp {
+  align-self: stretch;
+  text-align: left;
+}
+.drop-fmt {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+.drop-warn {
+  color: var(--warning);
+  font-weight: 500;
+}
+.wiz-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.wiz-hint svg.i {
+  flex: none;
+  margin-top: 1px;
+}
+@media (max-width: 767px) {
+  .drop {
+    min-height: 200px;
+    padding: 24px 16px;
+  }
+}
+
+/* sticky action bar (steps 2–3) */
+.wizbar {
+  position: sticky;
+  bottom: var(--sod-dock-h, 0px); /* telefonda alttaki uygulama çubuğunun üstünde (kabuk shell.css) */
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: 0 -4px 16px rgba(16, 24, 40, 0.08);
+}
+.wizbar-msg {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+}
+.wizbar-msg > span {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
+}
+.wizbar-msg svg.i {
+  flex: none;
+  margin-top: 1px;
+}
+.wizbar-msg .red {
+  font-weight: 500;
+}
+.ok-msg {
+  color: var(--text-2);
+}
+@media (max-width: 767px) {
+  .wizbar {
+    flex-wrap: wrap;
+    margin: 8px calc(-1 * var(--gutter)) -48px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 12px var(--gutter) calc(12px + var(--sod-safe-b, env(safe-area-inset-bottom)));
+  }
+  .wizbar-msg {
+    order: -1;
+    flex-basis: 100%;
+    text-align: left;
+  }
+  .wizbar > .btn {
+    flex: 1 1 0;
+  }
+  .wizbar > .btn:first-of-type {
+    flex: 0 0 auto;
+  }
+}
+
+/* mapping table: DeciShip field ← invoice column · sample values */
+.wiz-two {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.date-order-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 8px;
+}
+.map-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.mapt {
+  border-top: 1px solid var(--border);
+}
+.mrow {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(220px, 1.2fr) minmax(0, 1.4fr);
+  align-items: center;
+  column-gap: 20px;
+  padding: 10px 24px;
+  border-top: 1px solid var(--border);
+  min-height: 60px;
+}
+.mrow.h {
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--surface-2);
+  border-top: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.mgroup {
+  padding: 16px 24px 6px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--border);
+}
+.mgroup + .mrow {
+  border-top: 0;
+}
+.mf {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+}
+.mf > label {
+  font-weight: 500;
+  color: var(--text);
+}
+.mf-hint {
+  flex-basis: 100%;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.mc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mc svg.mc-arrow {
+  position: absolute;
+  left: -18px;
+  top: 12px;
+  color: var(--placeholder);
+}
+.mc .sel.unset {
+  color: var(--text-3);
+  background-color: var(--surface-2);
+}
+.merr {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--danger);
+  margin-top: 4px;
+  font-weight: 500;
+}
+.ms {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+}
+.sv {
+  display: inline-block;
+  max-width: 160px;
+  height: 24px;
+  line-height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-size: 12px;
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.mrow.mapped .sv {
+  background: var(--primary-soft);
+  border-color: var(--primary-line);
+  color: var(--text);
+}
+.mrow.missing {
+  background: var(--danger-bg);
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+.mrow.missing .mf > label {
+  color: var(--danger);
+  font-weight: 600;
+}
+@media (max-width: 899px) {
+  .mrow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    row-gap: 8px;
+  }
+  .mrow.h > div:last-child {
+    display: none;
+  }
+  .ms {
+    grid-column: 2;
+  }
+}
+@media (max-width: 767px) {
+  .mrow {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px 16px;
+    row-gap: 6px;
+  }
+  .mrow.h {
+    display: none;
+  }
+  .mgroup {
+    padding: 14px 16px 4px;
+  }
+  .ms {
+    grid-column: auto;
+  }
+  .mc svg.mc-arrow {
+    display: none;
+  }
+  .sv {
+    max-width: 120px;
+  }
+}
+
+/* surcharge + flags */
+.map-opts {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 24px 32px;
+  align-items: start;
+}
+.sur-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.sur-row .sel {
+  width: 240px;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+/* kod kutusu boş alana uzar: "ADDRESS_CORRECTION" gibi kodlar kesilmez */
+.sur-row .sur-code {
+  flex: 1 1 160px;
+  min-width: 0;
+  max-width: 280px;
+}
+.sur-empty {
+  margin-bottom: 8px;
+}
+.map-flags {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (max-width: 767px) {
+  .map-opts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* dar ekranda sütun seçimi üstte tam genişlik, kod + kaldır altında: ikisi de kesilmez */
+  .sur-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin-bottom: 16px;
+  }
+  .sur-row .sel {
+    grid-column: 1 / -1;
+  }
+  .sur-row .sur-code {
+    max-width: none;
+  }
+  .sur-row .sel,
+  .sur-row .inp {
+    width: 100%;
+  }
+}
+
+/* raw file preview (collapsible) + folded column mapping */
+.map-fold {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.map-fold .link-btn {
+  font-weight: 500;
+}
+.map-fold:hover {
+  border-color: var(--primary-line);
+}
+.map-fold:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.raw > summary,
+.map-fold {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 52px;
+}
+.raw > summary::-webkit-details-marker {
+  display: none;
+}
+.raw > summary:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--r-card);
+}
+.raw > summary svg.i,
+.map-fold svg.i {
+  flex: none;
+  color: var(--text-3);
+}
+.raw[open] .raw-chev {
+  transform: rotate(180deg);
+}
+.raw-wrap {
+  max-height: 440px;
+  border-top: 1px solid var(--border) !important;
+  border-bottom-left-radius: var(--r-card);
+  border-bottom-right-radius: var(--r-card);
+}
+.dt th.mapped {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.dt td.mapped {
+  background: #f7f9fe;
+}
+@media (max-width: 767px) {
+  .raw > summary,
+  .map-fold {
+    padding: 12px 16px;
+  }
+}
+
+/* step 3: meta + summary */
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 20px;
+  align-items: flex-start;
+}
+.wsum {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px 24px;
+  margin: 24px 0 0;
+  padding: 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+}
+.wsum > div {
+  min-width: 0;
+}
+.wsum dt {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.wsum dd {
+  margin: 2px 0 0;
+  font-weight: 500;
+}
+@media (max-width: 767px) {
+  .meta-row > .fld {
+    flex: 1 1 100%;
+  }
+  .meta-row .inp,
+  .meta-row .sel {
+    width: 100%;
+  }
+  .wsum {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* =====================================================================
+ * DETAIL
+ * ===================================================================== */
+/* (filled in below) */
+
+/* dispute text */
+.dispute-body {
+  font-family: var(--fm);
+  font-size: 13px;
+  line-height: 20px;
+  min-height: 320px;
+  white-space: pre-wrap;
+}
+
+/* ---- wizard fixes ---- */
+.map-card > .card-h > .grow {
+  flex: 1 1 280px;
+}
+@media (max-width: 767px) {
+  .cp {
+    padding: 10px;
+  }
+  .cp-name {
+    white-space: normal;
+    line-height: 18px;
+  }
+  .cp-radio {
+    display: none;
+  }
+  .cp.on .cp-radio {
+    display: inline-flex;
+    top: 6px;
+    right: 6px;
+    transform: none;
+    width: 16px;
+    height: 16px;
+  }
+}
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.inv-list td.card-title .sub {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+/* =====================================================================
+ * DETAIL — header
+ * ===================================================================== */
+.inv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 16px;
+  min-width: 0;
+}
+.inv-meta b {
+  font-weight: 600;
+  color: var(--text);
+}
+/* 08-B2: durum rozetleri; geniş ekranda başlıkta, telefonda (≤760 px) alt satırda (Header.tsx tek yerde çizer) */
+.inv-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  vertical-align: middle;
+}
+.sod-band .phead.is-band:not(.is-hero) .ptitle > .inv-pills {
+  flex-wrap: nowrap;
+}
+/* telefonda başlıkta yalnız fatura no kalır: ortaya hizalı eş yazı satırı 3 px uzatıyordu, bant tek satırlık başlıkta büyümez */
+@media (max-width: 760px) {
+  .sod-band .phead.is-band:not(.is-hero) .ptitle > .mono {
+    vertical-align: baseline;
+  }
+}
+.inv-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  min-width: 0;
+  font-weight: 500;
+}
+.inv-file svg.i {
+  flex: none;
+}
+.ptabs .cnt.red,
+.ptabs [aria-selected="true"] .cnt.red {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+/* header actions: the "Diğer" menu only on phones (see below) */
+.inv-more {
+  display: none;
+}
+@media (max-width: 767px) {
+  /* one row on phones: [Diğer ▾] [İtiraz metni]; downloads, edit and recompare live in the menu */
+  .pactions .inv-edit {
+    display: none;
+  }
+  .pactions .inv-more {
+    display: inline-flex;
+    flex: 0 0 auto;
+  }
+  .pactions .inv-dispute {
+    flex: 1 1 0;
+  }
+  .inv-tabs {
+    gap: 0;
+  }
+  .inv-tabs button {
+    padding: 0 7px;
+    gap: 5px;
+  }
+  .inv-tabs .cnt {
+    min-width: 18px;
+    padding: 0 5px;
+  }
+}
+
+/* =====================================================================
+ * DETAIL — summary (answer first: overpaid amount; counts are on the tabs)
+ * ===================================================================== */
+.inv-main {
+  container-type: inline-size;
+}
+.inv-sum {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--sh-sm);
+  padding: 22px 24px;
+}
+.inv-sum.inv-sum-line {
+  flex-direction: row;
+  border-radius: 12px;
+}
+.inv-sum-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px 40px;
+}
+.inv-sum-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.inv-sum-foot > * {
+  margin-top: 0;
+}
+.inv-sum-fine {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.inv-sum-l2 {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+.inv-sum.over {
+  border-color: var(--danger-line);
+}
+.inv-sum-main {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.inv-sum-l {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.inv-sum-v {
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 600;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+.inv-sum-v.red {
+  color: var(--danger);
+}
+.inv-sum-v small {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+.inv-sum-n {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+/* itiraz süresi (TTK 8 gün, yalnız Türkiye firmasında; başka ülkede taşıyıcının süresi): ≤2 gün uyarı rengi, dolduysa nötr gri */
+.inv-sum-due {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.inv-sum-due.soon {
+  color: var(--warning);
+}
+.inv-sum-due.over {
+  color: var(--text-3);
+  font-weight: 400;
+}
+.inv-sum-due .t3 {
+  font-weight: 400;
+}
+.inv-sum-i {
+  display: inline-grid;
+  place-items: center;
+  vertical-align: -3px;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  border: 1px solid var(--border-strong, var(--border));
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-3);
+  cursor: help;
+  /* <button>: tarayıcı varsayılanlarını sıfırla; dokunma alanı görünenden geniş */
+  position: relative;
+  padding: 0;
+  background: none;
+  font-family: inherit;
+}
+.inv-sum-i::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+}
+.inv-sum-i[aria-expanded="true"] {
+  color: var(--text);
+  border-color: var(--text-3);
+}
+/* "i"ye dokununca açılan küçük balon (akış içinde: telefonda taşmaz) */
+.inv-sum-tip {
+  margin-top: 6px;
+  max-width: 420px;
+  padding: 8px 10px;
+  background: var(--surface-2, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--text-2);
+}
+/* tarife şüphesi: tek satır uyarı */
+.inv-sum-warn {
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--warning);
+}
+.inv-sum-warn svg.i {
+  flex: none;
+  margin-top: 1px;
+}
+.inv-sum-warn a {
+  font-weight: 500;
+  white-space: nowrap;
+}
+.inv-sum-kvs {
+  margin: 0;
+  flex: 2 1 380px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
+  gap: 16px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.inv-sum-kvs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.inv-sum-kvs dt {
+  color: var(--text-3);
+  min-width: 0;
+}
+.inv-sum-kvs dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.inv-sum-kvs .cap dt {
+  font-size: 12px;
+}
+.inv-sum-kvs .muted dt,
+.inv-sum-kvs .muted dd {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+.inv-sum-kvs .note dt {
+  font-size: 12px;
+  line-height: 16px;
+  text-wrap: pretty;
+}
+/* Tamamı mükerrer fatura: tutar yerine tek cümle. Rakam gibi tek satıra zorlanınca dar sütundan taşıp yandaki
+   "İtiraz listesinde"nin üstüne biniyor, telefonda sayfayı yana taşırıyordu: cümle tam satır kaplar ve kırılır. */
+.inv-sum-kvs .only-dup {
+  grid-column: 1 / -1;
+}
+.inv-sum-kvs .only-dup dd {
+  white-space: normal;
+  text-wrap: pretty;
+}
+.inv-sum-kvs .sep {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+/* Büyük sayının altında "= Faturalanan − Beklenen" ya da aradaki adımlar (tolerans içi, lehinize…) */
+.inv-sum-eq {
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-3);
+  text-wrap: pretty;
+}
+/* Hiç karşılaştırılmamış fatura: Beklenen'in yerinde kısa metin (rakam boyunda değil) */
+.inv-sum-kvs .pending dd {
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--text-3);
+  white-space: normal;
+}
+/* Terim (ör. "Mükerrer"): noktalı alt çizgi; üzerine gelince, odakta ve dokununca baloncuk (`TermHint`) */
+.term {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.term:focus-visible {
+  outline: none;
+  border-radius: 2px;
+  box-shadow: var(--focus-ring);
+}
+.term-tip {
+  position: fixed;
+  z-index: 1000;
+  max-width: min(280px, calc(100vw - 16px));
+  padding: 8px 10px;
+  background: var(--surface-2, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: var(--sh-md);
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 400;
+  color: var(--text-2);
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  pointer-events: none;
+}
+.inv-main > .inv-tabs {
+  margin-top: 16px;
+}
+@container (max-width: 640px) {
+  .inv-sum {
+    padding: 16px;
+  }
+  .inv-sum-v {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .inv-sum-kvs {
+    flex-basis: 100%;
+  }
+}
+
+/* =====================================================================
+ * DETAIL — filters + lines table
+ * ===================================================================== */
+.line-filters {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+/* Karar süzgeci: en uzun seçenek ("Yeniden hesap bekleyen", "Waiting to be recalculated") kesilmesin; seçenek kadar geniş */
+.line-filters .ln-dec-sel {
+  width: auto;
+  min-width: 200px;
+  max-width: 100%;
+}
+/* Telefonda iki süzgeç yan yana: genişliği en uzun seçenekten gelen karar süzgeci sayfayı 390 px'ten taşırıyordu
+   (yatay kaydırma, telefonda sayfa küçülüyordu). Süzgeç kendi yarısına sığar, seçili metin gerekirse kısalır. */
+@media (max-width: 767px) {
+  .line-filters > .fld {
+    min-width: 0;
+  }
+  /* "Yeniden hesap bekleyen" seçili metni kesilmesin: seçenek kadar geniş, ama satırı aşmaz (Y32) */
+  .line-filters .ln-dec-sel {
+    min-width: min(100%, 12.5rem);
+  }
+}
+/* side panel open (narrow list): keep the three filters on one row. Yalnız masaüstünde (yan panel ≥ 768 px'te açılır):
+   ≤ 767 px'te kap da 600–820 aralığına düştüğü için arama kutusu boşuna 176 px'e kısılıyordu. */
+@media (min-width: 768px) {
+  @container (min-width: 600px) and (max-width: 820px) {
+    .line-filters .w-lg,
+    .line-filters .w-md {
+      width: 176px !important;
+    }
+  }
+}
+.lines-dt .bad {
+  color: var(--danger);
+  font-weight: 600;
+}
+/* 160px: 1440 px'te (yan panel kapalı) sekiz sütun yatay kaydırmasız sığar, "Karar bekliyor" kesilmez */
+.lines-dt .ln-note {
+  max-width: 160px;
+}
+.ln-id,
+.ln-dim {
+  display: inline-flex;
+  flex-direction: column;
+}
+.ln-dim {
+  align-items: flex-end;
+}
+.await {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--warning);
+}
+.await::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f79009;
+}
+.ln-dec-inline {
+  display: none;
+}
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.lines-dt td.card-title .sub {
+    display: block;
+    margin-left: 0;
+  }
+  .lines-dt td.ln-status .ln-note {
+    display: none;
+  }
+  .dt.dt-cards.lines-dt td.ln-nodec {
+    display: none;
+  }
+  .dt.dt-cards.lines-dt td.ln-diff {
+    font-size: 16px;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+  }
+  .dt.dt-cards.lines-dt td.ln-diff::before {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+  }
+}
+
+/* =====================================================================
+ * DETAIL — line panel
+ * ===================================================================== */
+.pn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.pn-sub {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+  margin: 0 0 16px;
+}
+.pn-note {
+  margin-bottom: 12px;
+}
+.dhero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+}
+.dhero.over {
+  background: var(--danger-bg);
+  border-color: var(--danger-line);
+}
+.dhero.under {
+  background: var(--success-bg);
+  border-color: var(--success-line);
+}
+.dhero-l {
+  display: flex;
+  flex-direction: column;
+}
+.dhero-k {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.dhero-v {
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: 600;
+}
+.dhero.over .dhero-v {
+  color: var(--danger);
+}
+.dhero.under .dhero-v {
+  color: var(--success);
+}
+.dhero-r {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.dhero-r b {
+  color: var(--text);
+  font-weight: 600;
+  margin-left: 4px;
+}
+.dhero-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+
+/* our measurement vs billed */
+.vs {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+  table-layout: fixed;
+}
+.vs th,
+.vs td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--border);
+}
+.vs thead th {
+  border-top: 0;
+  background: var(--surface-2);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.vs thead th:first-child {
+  width: 30%;
+}
+.vs tbody th {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.vs td {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.vs td + td {
+  border-left: 1px solid var(--border);
+}
+.vs td.bad {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+.vs-delta {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* decision footer */
+.dec-q {
+  flex-basis: 100%;
+  margin: 0 0 2px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* reason modal */
+.reason-lead {
+  margin-bottom: 16px;
+}
+.reason-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* narrow main column (tablet, or desktop with the panel open): keep the Fark column in view */
+@container dtw (max-width: 1080px) {
+  .dt.lines-dt .col-amt {
+    display: none;
+  }
+  .lines-dt .ln-note {
+    display: none;
+  }
+  .dt.lines-dt th,
+  .dt.lines-dt td {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+/* seçim kutusu sütunu (36 px, Mesaj 14) varken aynı kural 40 px daha geniş tabloda başlar (İngilizcede 1081–1115 px kayıyordu) */
+@container dtw (max-width: 1120px) {
+  .lines-dt.has-sel .col-amt,
+  .lines-dt.has-sel .ln-note {
+    display: none;
+  }
+  .dt.lines-dt.has-sel th:not(.ln-c-sel),
+  .dt.lines-dt.has-sel td:not(.ln-c-sel) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+.ln-dec-sub {
+  display: none;
+}
+/* tutar kırılmaz; panel açıkken de tek satır */
+.dt.lines-dt td.ln-diff {
+  white-space: nowrap;
+}
+/* daha dar: Karar kendi sütununu bırakır, Fark'ın altında küçük metin olur (fiyat izni yoksa durum hücresinde) */
+@container dtw (min-width: 600px) and (max-width: 820px) {
+  .dt.lines-dt .ln-c-dec {
+    display: none;
+  }
+  .lines-dt .ln-dec-inline {
+    display: inline-flex;
+  }
+  .lines-dt .ln-dec-sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: var(--text-3);
+  }
+  .lines-dt .ln-tags {
+    flex-wrap: wrap;
+  }
+  .dt.lines-dt td:not(.ln-diff) {
+    white-space: normal;
+  }
+  /* kg tek satır: başlık "ücretli kg" der, gerçek kg panelde. Faturadaki gerçek kg farklıysa satırda kalır. */
+  .lines-dt .ln-dim .sub {
+    white-space: nowrap;
+  }
+  .lines-dt .ln-kg-actual:not(.keep) {
+    display: none;
+  }
+  .dt.lines-dt th {
+    white-space: normal;
+  }
+}
+/* seçim kutusu sütunu (36 px, Mesaj 14) varken aynı dar düzen biraz daha geniş tabloda başlar: yoksa İngilizcede
+ * 821–880 px arası tablo yana kayıyordu (Karar sütunu kaydırmanın ardına düşüyordu). Kurallar yukarıdakinin aynısı. */
+@container dtw (min-width: 600px) and (max-width: 880px) {
+  .lines-dt.has-sel .ln-c-dec {
+    display: none;
+  }
+  .lines-dt.has-sel .ln-dec-inline {
+    display: inline-flex;
+  }
+  .lines-dt.has-sel .ln-dec-sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: var(--text-3);
+  }
+  .lines-dt.has-sel .ln-tags {
+    flex-wrap: wrap;
+  }
+  .dt.lines-dt.has-sel td:not(.ln-diff) {
+    white-space: normal;
+  }
+  .lines-dt.has-sel .ln-dim .sub {
+    white-space: nowrap;
+  }
+  .lines-dt.has-sel .ln-kg-actual:not(.keep) {
+    display: none;
+  }
+  .dt.lines-dt.has-sel th {
+    white-space: normal;
+  }
+}
+/* kartta masaüstü kararı: Fark ana, Beklenen ve Faturalanan panelde */
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.lines-dt td.col-amt {
+    display: none;
+  }
+}
+
+/* =====================================================================
+ * DETAIL — flexibility (SPEC §10.4): invoice edit modal, line match/note
+ * ===================================================================== */
+.inv-edit-form .notif {
+  margin: 0;
+}
+/* tracking no + match box in the line panel */
+.mbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  background: var(--surface-2);
+}
+.mbox-row {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  font-size: 14px;
+}
+.mbox-k {
+  color: var(--text-3);
+  font-size: 13px;
+}
+.mbox-v {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+}
+.mbox-v > .mono {
+  overflow-wrap: anywhere;
+}
+.mbox-v .btn {
+  margin-left: auto;
+  margin-right: -8px;
+}
+.mbox-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 4px;
+}
+.mbox-edit .inp {
+  width: 100%;
+}
+.mbox-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.mbox-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+  padding-top: 10px;
+}
+.vs th .pn-mlink {
+  font: inherit;
+  font-weight: 600;
+}
+/* line note */
+.pn-notebox .txt {
+  min-height: 72px;
+  width: 100%;
+}
+.pn-notebox-f {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+  min-height: 32px;
+}
+.pn-notebox-f .help {
+  font-size: 12px;
+  color: var(--text-3);
+}
+/* measurement picker (MatchModal) */
+.mpick-lead {
+  margin: 0 0 16px;
+}
+.mpick {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  max-height: min(48vh, 420px);
+  overflow-y: auto;
+  padding: 2px;
+}
+.mpick-it {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'main dim' 'sub sub';
+  gap: 2px 12px;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  cursor: pointer;
+}
+.mpick-it:hover {
+  border-color: var(--border-hover);
+}
+.mpick-it:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.mpick-it.on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+.mpick-main {
+  grid-area: main;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+}
+.mpick-no {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.mpick-dim {
+  grid-area: dim;
+  text-align: right;
+  font-size: 14px;
+}
+.mpick-sub {
+  grid-area: sub;
+  font-size: 12px;
+  color: var(--text-3);
+}
+@media (max-width: 767px) {
+  .mpick-it {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'main' 'dim' 'sub';
+  }
+  .mpick-dim {
+    text-align: left;
+  }
+}
+
+/* ---------- SPEC §11: yapay zekâ ile eşleme ve okuma kontrolü ---------- */
+.ai-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ai-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.ai-row .t3 {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.btn.ai-btn.hl {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(29, 91, 216, 0.12);
+}
+.btn.ai-btn.hl:hover:not(:disabled) {
+  background: #e2eafc;
+}
+.mstat {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.msrc {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 11px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.msrc.src-ai {
+  border-color: #d9d6fe;
+  background: #f4f3ff;
+  color: #5925dc;
+}
+.msrc.src-user {
+  border-color: var(--primary-line);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.mreason {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+.mreason.bad {
+  color: var(--warning);
+}
+.mrow.check {
+  background: var(--warning-bg);
+}
+.vchecks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+}
+.vchecks li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  column-gap: 8px;
+  align-items: start;
+}
+.vchecks li > svg.i {
+  margin-top: 2px;
+}
+.vchecks .vl {
+  font-weight: 500;
+  color: var(--text);
+}
+.vchecks .vv {
+  grid-column: 2;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.vchecks li.bad .vv {
+  color: var(--warning);
+}
+.issue-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.issue-list li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text);
+}
+.issue-list li > svg.i {
+  margin-top: 1px;
+}
+.issue-list.compact {
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-line);
+}
+.issue-ex {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.issue-ex .lbl {
+  font-weight: 500;
+  color: var(--text-2);
+  margin-bottom: 4px;
+}
+.issue-ex ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-2);
+}
+.vex {
+  margin-top: 12px;
+}
+.vex summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  list-style: none;
+}
+.vex summary::-webkit-details-marker {
+  display: none;
+}
+.vex[open] .raw-chev {
+  transform: rotate(180deg);
+}
+.vex ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.vex li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 13px;
+}
+.vex li > span:last-child {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.warn-t {
+  color: var(--warning);
+  font-weight: 500;
+}
+.pa.warn-act:not(:disabled) {
+  border-color: #fedf89;
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+.pa.warn-act:hover:not(:disabled) {
+  background: #fef0c7;
+}
+@media (max-width: 767px) {
+  .vchecks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Fatura detayı: okuma kontrolü */
+.pflags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pflags li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.pflags li.soft {
+  color: var(--text-2);
+}
+.pf-box {
+  border: 1px solid var(--warning-line);
+  background: var(--warning-bg);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.pf-box.done {
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+.pf-box .pf-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.ptabs .cnt.warn,
+.ptabs [aria-selected="true"] .cnt.warn {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: var(--warning-line);
+}
+.ln-tags .tag.yellow {
+  white-space: nowrap;
+}
+
+/* SPEC §FX: kurla çevrilen beklenen tutar */
+.pb tr.pb-sub td {
+  color: var(--text-2);
+}
+.pb tr.pb-fx td {
+  font-size: 13px;
+  color: var(--text-2);
+}
+.ln-tags .tag.ln-fx {
+  text-transform: lowercase;
+}
+
+/* Tarifede olmayan ek ücretler: Beklenen'e faturadaki tutarıyla eklenir (kontrol edilemez) */
+.pb tr.pb-tariff-sub td {
+  border-top: 1px solid var(--border);
+}
+.pb tr.pb-pass-h td {
+  padding-top: 12px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.pb tr.pb-pass td {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+/* Fatura tarifesi seçimi (yükleme adım 3 ve Düzenle penceresi) */
+.tariff-sel {
+  width: 100%;
+  max-width: 560px;
+}
+.fld .help.warn-t {
+  color: var(--warning);
+}
+.tariff-fld {
+  margin-top: 16px;
+}
+.inv-tariff {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.inv-tariff a,
+.ln-tariff a {
+  font-weight: 500;
+}
+.ln-tariff {
+  margin: -4px 0 8px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+/* =====================================================================
+ * DETAIL — Tarife uyumu (SPEC §3.9) + Tahmini (§3.8)
+ * ===================================================================== */
+.th-card {
+  margin-top: 16px;
+}
+.th-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.th-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.th-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.th-ic {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+.th-ic svg {
+  width: 14px;
+  height: 14px;
+}
+.th-row.ok .th-ic {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.th-row.cheaper .th-ic {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.th-row.pricier .th-ic,
+.th-row.suspect .th-ic {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+.th-msg {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 20px;
+  padding-top: 2px;
+  text-wrap: pretty;
+}
+.th-sub {
+  font-variant-numeric: tabular-nums;
+}
+.th-acts {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.th-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text-2);
+  line-height: 20px;
+}
+.th-note svg {
+  flex: none;
+  margin-top: 2px;
+}
+.th-foot {
+  margin: 10px 0 0;
+}
+.th-empty {
+  margin: 0;
+}
+.th-card .notif .btn {
+  margin-left: auto;
+  flex: none;
+}
+.th-card.compact .th-row {
+  padding: 8px 0;
+}
+@container (max-width: 640px) {
+  .th-row {
+    flex-wrap: wrap;
+  }
+  .th-acts {
+    width: 100%;
+    padding-left: 36px;
+  }
+}
+.inv-sum-kvs .est dt,
+.inv-sum-kvs .est dd {
+  color: var(--warning);
+}
+.ln-est {
+  cursor: help;
+}
+/* satır paneli: fiyat dayanağı ve tahmini gerekçesi */
+.pn-basis {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.pn-basis.est {
+  color: var(--warning);
+}
+.pb .pb-info td {
+  color: var(--text-3);
+  font-size: 12px;
+}
+/* uzun döküm etiketlerinde ("Taşıma — faturadaki fiyatla: …") tutar kırılmasın */
+.pb td + td {
+  white-space: nowrap;
+}
+
+/* =====================================================================
+ * "⋯" menüsü (MoreMenu): satır ve başlık eylemleri; liste gövdeye taşınır
+ * ===================================================================== */
+.mm {
+  display: inline-flex;
+}
+.mm-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.mm-btn:hover:not(:disabled),
+.mm-btn[aria-expanded='true'] {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.mm-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.mm-btn:focus-visible {
+  outline: 2px solid #1d5bd8;
+  outline-offset: 2px;
+}
+.mm-list {
+  position: fixed;
+  z-index: 60;
+  min-width: 220px;
+  max-width: calc(100vw - 16px);
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--sh-md);
+}
+.mm-list [role='menuitem'] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.mm-list [role='menuitem'] svg.i {
+  color: var(--text-3);
+}
+.mm-list [role='menuitem'].danger,
+.mm-list [role='menuitem'].danger svg.i {
+  color: var(--danger);
+}
+.mm-list [role='menuitem']:hover,
+.mm-list [role='menuitem']:focus-visible {
+  background: var(--surface-2);
+  outline: none;
+}
+.mm-list [role='menuitem']:focus-visible {
+  box-shadow: inset 0 0 0 2px #1d5bd8;
+}
+.mm-list [role='menuitem']:disabled {
+  color: var(--text-3);
+  cursor: default;
+}
+
+/* sütun eşleme: eşleme tablosu ve önizleme solda, kontrol sonuçları ve ayarlar sağda */
+.map-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+.map-main {
+  flex: 999 1 620px;
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+}
+.map-side {
+  flex: 1 1 340px;
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+}
+.wiz.wide {
+  max-width: 1280px;
+}
+.map-side .map-opts {
+  grid-template-columns: minmax(0, 1fr);
+}
+.map-side .sur-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.map-side .sur-row .sel {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+.map-side .sur-row .sur-code {
+  max-width: none;
+}
+
+/* =====================================================================
+ * DETAIL — D09 bandı: bant içi başlık ve sıkı gövde (tablo ilk ekranda)
+ * ===================================================================== */
+.sod-band .ptitle .tag {
+  height: 24px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.sod-band .ptitle .tag::before {
+  background: #fff;
+}
+.sod-band .inv-meta,
+.sod-band .inv-meta b,
+.sod-band .inv-meta .inv-tariff {
+  color: #fff;
+}
+.sod-band .inv-meta .t3,
+.sod-band .inv-meta .inv-tariff .t3 {
+  color: #dbe5ff;
+}
+.sod-band .inv-meta a,
+.sod-band .inv-meta .inv-file {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sod-band .inv-meta .inv-file svg.i {
+  color: #dbe5ff;
+}
+.sod-band .mm-btn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.sod-band .mm-btn:hover:not(:disabled),
+.sod-band .mm-btn[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+.sod-band .mm-btn:focus-visible {
+  outline-color: #b5cbff;
+}
+.sod-band .warn-t {
+  color: #ffe2a3;
+}
+
+/* özet banda biner ve kompakt */
+.inv-main > .inv-sum.lift {
+  gap: 10px;
+  padding: 14px 20px;
+}
+.inv-sum.lift .inv-sum-top {
+  gap: 8px 32px;
+}
+.inv-sum.lift .inv-sum-v {
+  font-size: 34px;
+  line-height: 40px;
+  margin-top: 0;
+}
+.inv-sum.lift .inv-sum-kvs {
+  gap: 8px 16px;
+}
+.inv-sum.lift .inv-sum-kvs > div {
+  flex-direction: column;
+  gap: 0;
+}
+.inv-sum.lift .inv-sum-kvs dd {
+  font-size: 16px;
+  line-height: 22px;
+}
+.inv-sum.lift .inv-sum-foot {
+  padding-top: 8px;
+  gap: 2px 16px;
+}
+.inv-sum.lift .inv-sum-n {
+  font-size: 13px;
+  line-height: 20px;
+}
+.inv-sum.lift .inv-sum-due {
+  font-size: 13px;
+}
+/* kur uyarısı ve tarife uyumu: ince tek satır */
+.inv-main > .notif {
+  margin-top: 8px;
+  min-height: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+.inv-main > .notif.mt16 {
+  margin-top: 8px;
+}
+.inv-main > .th-card.th-fold {
+  margin-top: 8px;
+}
+.inv-main > .th-card.th-fold .th-fold-btn {
+  min-height: 40px;
+}
+.inv-main > .inv-tabs {
+  margin-top: 8px;
+}
+.line-filters {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Mesaj 4: önce/sonra penceresi (RecalcDialog). Uzun liste pencereyi büyütmez, kendi içinde kayar. */
+/*
+ * Pencere görünüme sığar: gövde kayar, alt eylem satırı hep görünür (ilerleme kartı eklenince taşmasın).
+ * Dar ekranda (< 768px) ortak alt sayfa kuralı (app.css: .modal max-height 92dvh, .modal-in kayar) zaten geçerli;
+ * burası geniş ekranda aynı deseni verir: .overlay üst 72px + alt 32px boşluk bırakır.
+ * İtiraz metni penceresi (DisputeDialog, .dispute-dlg) de aynı desende: uzun metinde "Kopyala", "E-posta ile aç" ve
+ * "Gönderildi olarak işaretle" ekranın altında kalıyordu.
+ */
+@media (min-width: 768px) {
+  .modal.rc-dlg,
+  .modal.dispute-dlg {
+    max-height: calc(100vh - 104px);
+    max-height: calc(100dvh - 104px);
+  }
+  .modal.rc-dlg .modal-in,
+  .modal.dispute-dlg .modal-in {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+.rc-dlg .rc-subject {
+  margin: 0 0 4px;
+  font-weight: 500;
+}
+.rc-dlg .rc-stale {
+  margin-bottom: 12px;
+}
+.rc-dlg .rc-list {
+  /* 280px'te altıncı satır yarım kalıyordu; ekran yettiğince uzar, sonra kayar */
+  max-height: min(420px, 45vh);
+  overflow-y: auto;
+  box-shadow: none;
+}
+.rc-dlg .rc-list thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-2);
+}
+/* Telefonda toplu listede "Fazla ödeme" sütunu yana kayıp gizleniyordu: hücreler satır kırar, taşıyıcı adı alta iner */
+@media (max-width: 767px) {
+  .rc-dlg .rc-list .dt th,
+  .rc-dlg .rc-list .dt td {
+    white-space: normal;
+  }
+  .rc-dlg .rc-list .dt td:first-child {
+    position: static;
+    box-shadow: none;
+  }
+  .rc-dlg .rc-list .dt th:first-child {
+    left: auto;
+    box-shadow: none;
+  }
+  .rc-dlg .rc-car {
+    display: block;
+  }
+}
+
+/* Mesaj 5: "Nasıl hesaplandı?" ve alınmayan satırlar penceresi */
+.inv-how {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.inv-how > summary {
+  cursor: pointer;
+  color: var(--text-2);
+}
+.inv-how h4 {
+  margin: 10px 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.inv-how-rows {
+  margin: 0;
+  /* geniş ekranda tutar etiketin 1000 px sağında kalıyordu: satır okunur genişlikte durur */
+  max-width: 560px;
+}
+.inv-how-rows > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+}
+.inv-how-rows dt {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.inv-how-rows dd {
+  margin: 0;
+  flex: none;
+}
+.inv-how-rows .sum {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  font-weight: 500;
+}
+.inv-ir-wrap {
+  max-height: 60vh;
+  overflow: auto;
+}
+.inv-ir {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.inv-ir th,
+.inv-ir td {
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+/* Y32: telefonda özet kartındaki büyük tutar küçülür (44/34 px satırı taşıyordu) */
+@media (max-width: 767px) {
+  .inv-sum-v,
+  .inv-sum.lift .inv-sum-v {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}

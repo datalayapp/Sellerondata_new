@@ -1,0 +1,204 @@
+{
+  "actions": {
+    "close": "Close"
+  },
+  "error": {
+    "unexpected": "An unexpected error occurred. Refresh the page and try again."
+  },
+  "panel": {
+    "details": "Details",
+    "close": "Close panel"
+  },
+  "photos": {
+    "none": "No photos.",
+    "photo": "Photo",
+    "enlarge": "Enlarge {{kind}} photo",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "returnBar": {
+    "title": "You opened this from the setup wizard.",
+    "hint": "After saving, go back to the wizard and continue where you left off.",
+    "back": "Back to setup"
+  },
+  "update": {
+    "message": "<b>DeciShip has been updated.</b> Refresh the page before you continue.",
+    "reload": "Refresh",
+    "dismiss": "Dismiss for now",
+    "unsaved": "You have unsaved changes. They will be lost if the page is refreshed. Refresh anyway?"
+  },
+  "importHeadline": {
+    "error": "Cannot be imported as is",
+    "fixable": "The fix below can resolve this.",
+    "warnings_one": "Review {{n}} issue",
+    "warnings_other": "Review {{n}} issues",
+    "ok": "File looks good"
+  },
+  "apiError": {
+    "400": "The request is invalid. Check the details and try again.",
+    "401": "Your session has expired. Please sign in again.",
+    "403": "You do not have permission to do this.",
+    "404": "Record not found; it may have been deleted. Refresh the page.",
+    "409": "This record already exists.",
+    "413": "The file is too large. Choose a smaller file.",
+    "502": "The server is unreachable. Try again shortly.",
+    "503": "The service is unavailable right now. Try again shortly.",
+    "504": "The server did not respond. Try again shortly.",
+    "network": "Could not reach the server. Check your internet connection.",
+    "other": "Unexpected error ({{status}}). Please try again."
+  },
+  "notFound": {
+    "eyebrow": "404 · PAGE NOT FOUND",
+    "invoices": "Invoices",
+    "otherFirm": "If this is an invoice or measurement link, the record may belong to another of your companies; switch with the company selector above.",
+    "title": "Page not found",
+    "text": "The link may be outdated or mistyped. You can continue from the dashboard or the menu.",
+    "back": "Back to dashboard"
+  },
+  "routeError": {
+    "docTitle": "Error",
+    "home": "DeciShip home",
+    "title": "Something went wrong",
+    "stale": "DeciShip may have been updated, and this tab is still running the old version. Refreshing the page will fix it.",
+    "generic": "This page ran into an unexpected error. Your saved data was not affected. Refresh the page; if that does not help, go back to the dashboard and try again.",
+    "reload": "Refresh page",
+    "tech": "Technical details"
+  },
+  "status": {
+    "MATCH": "Matched",
+    "DIFF": "Discrepancy",
+    "UNMATCHED": "Unmatched",
+    "NO_TARIFF": "No tariff"
+  },
+  "diff": {
+    "DUPLICATE": "Duplicate",
+    "DIMENSION": "Dimension discrepancy",
+    "WEIGHT": "Weight discrepancy",
+    "SURCHARGE": "Surcharge",
+    "PRICE": "Price discrepancy"
+  },
+  "diffHint": {
+    "DUPLICATE": "The same parcel or line appears twice on the invoice; the second one is an overcharge."
+  },
+  "decision": {
+    "OPEN": "Awaiting decision",
+    "VERIFIED": "On dispute list",
+    "ACCEPTED": "Accepted"
+  },
+  "reviewCode": {
+    "MULTI_PARCEL": "Possible multi-parcel",
+    "SERVICE": "Service differs from tariff",
+    "SERVICE_UNKNOWN": "Tariff service unclear",
+    "SERVICE_MISSING": "No service on line",
+    "DUPLICATE": "Possible duplicate",
+    "TARIFF_ONLY": "Price not verified from invoice",
+    "ZONE_DISTANCE": "Distance zone not verified",
+    "EXTREME_RATE": "Price far from tariff",
+    "EXTREME_WEIGHT": "Weight far from measurement",
+    "FUEL_RATE": "Unusual fuel rate",
+    "FUEL_UNKNOWN": "Fuel not shown separately",
+    "FUEL_SURCHARGE": "Fuel also on surcharges",
+    "FX_STALE": "Older exchange rate"
+  },
+  "dimMethod": {
+    "LIDAR": "LiDAR",
+    "AR": "AR",
+    "REFERENCE": "Reference card",
+    "MANUAL": "Manual",
+    "PRESET": "Box preset"
+  },
+  "photoKind": {
+    "PHOTO_BOX": "Box",
+    "PHOTO_SCALE": "Scale",
+    "PHOTO_LABEL": "Label",
+    "PHOTO_OTHER": "Other"
+  },
+  "surchargeKind": {
+    "FIXED": "Fixed amount",
+    "PCT": "Percentage (%)",
+    "PER_KG": "Per kg"
+  },
+  "carrier": {
+    "generic": "Other (generic template)"
+  },
+  "mapping": {
+    "trackingNo": "Tracking no.",
+    "netAmount": "Net amount",
+    "shipDate": "Ship date",
+    "service": "Service",
+    "destCountry": "Destination country",
+    "actualKg": "Actual weight (kg)",
+    "billedKg": "Billable weight (kg or dimensional weight)",
+    "dimL": "Length (cm)",
+    "dimW": "Width (cm)",
+    "dimH": "Height (cm)",
+    "dims": "Dimensions (single cell, 40x30x25)",
+    "billedDivisor": "DIM divisor",
+    "baseAmount": "Freight / list amount",
+    "discountAmount": "Discount",
+    "fuelAmount": "Fuel surcharge",
+    "currency": "Currency",
+    "reference": "Reference",
+    "dimUnit": "Dimension unit (cm/in)",
+    "actualKgUnit": "Actual weight unit (kg/lb)",
+    "billedKgUnit": "Billable weight unit (kg/lb)"
+  },
+  "mappingHint": {
+    "netAmount": "Amount paid for the line"
+  },
+  "serviceInfo": {
+    "IP": "standard express international shipment",
+    "IPE": "faster than IP, time-definite delivery; more expensive",
+    "IE": "slower than IP, cheaper",
+    "IPF": "heavy freight (over 70 kg, pallets), fast",
+    "IEF": "heavy freight (over 70 kg, pallets), economy",
+    "ICP": "affordable service for e-commerce shipments"
+  },
+  "paste": {
+    "title": "This number can be read two ways",
+    "body": "\"{{value}}\" could be {{asTr}} or {{asEn}}. Choose which one it is so it is not misread.",
+    "readAs": "\"{{example}}\" = {{value}}",
+    "cancel": "Cancel"
+  },
+  "jobs": {
+    "queued": "Waiting in line",
+    "running": "In progress",
+    "elapsed": "{{time}} elapsed",
+    "step": "{{done}} of {{total}}",
+    "stop": "Stop",
+    "stopping": "Stopping…",
+    "background": "You can close this page; the work continues in the background.",
+    "resumed": "Picking up where it left off.",
+    "failed": "The work could not be finished",
+    "stopped": "Stopped",
+    "stage": {
+      "pdfRead": "Reading the PDF",
+      "pdfCheck": "Checking lines against the PDF text",
+      "pdfPages": "Pages {{from}}–{{to}} of {{pages}}",
+      "tariffScan": "Looking for tables",
+      "tariffExtract": "Reading prices",
+      "bulkCheck": "Checking invoices",
+      "bulkWrite": "Updating invoices",
+      "importRead": "Reading the file",
+      "importCompare": "Comparing lines with the tariff and measurements",
+      "importWrite": "Saving the invoice",
+      "tariffReview": "AI is reviewing the file"
+    }
+  },
+  "demo": {
+    "band": "You are trying DeciShip with sample data. These invoices and measurements are not real.",
+    "end": "End demo",
+    "endTitle": "Remove the sample data?",
+    "endBody": "Sample carriers, tariffs, invoices and measurements are removed and you start setup with your own data. Measurements your employees saved in the meantime are kept.",
+    "endChanges": "Changes you made to sample tariffs and carriers are deleted too.",
+    "endConfirm": "Remove and start setup",
+    "cancel": "Cancel",
+    "ended": "Sample data removed"
+  },
+  "weightChoice": {
+    "ask": "<a>{{decimal}}</a> or <b>{{thousands}}</b>?",
+    "aria": "Which weight is “{{value}}”?",
+    "item": "“{{text}}” = {{value}}",
+    "which": "Which is right?"
+  }
+}

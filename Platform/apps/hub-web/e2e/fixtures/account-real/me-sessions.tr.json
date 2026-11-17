@@ -1,0 +1,25 @@
+{
+  "status": 200,
+  "body": {
+    "sessions": [
+      {
+        "id": "<id>",
+        "client": "web",
+        "userAgent": "lightMyRequest",
+        "ip": "203.0.113.10",
+        "createdAt": "<zaman>",
+        "lastUsedAt": "<zaman>",
+        "current": true
+      },
+      {
+        "id": "<id>",
+        "client": "mobile",
+        "userAgent": "lightMyRequest",
+        "ip": "203.0.113.10",
+        "createdAt": "<zaman>",
+        "lastUsedAt": "<zaman>",
+        "current": false
+      }
+    ]
+  }
+}

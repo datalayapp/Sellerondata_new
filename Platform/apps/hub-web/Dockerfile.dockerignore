@@ -1,0 +1,20 @@
+# Derleme bağlamı SellerOnData kökü: yalnız gerekenler gönderilir
+*
+!Platform/packages/contracts/package.json
+!Platform/packages/contracts/src
+!Platform/packages/format/package.json
+!Platform/packages/format/src
+!Platform/packages/shell/package.json
+!Platform/packages/shell/src
+!Platform/apps/hub-web
+!Platform/gateway/conf/access-log.conf
+Platform/apps/hub-web/node_modules
+Platform/apps/hub-web/dist
+Platform/apps/hub-web/e2e
+Platform/apps/hub-web/dev
+Platform/apps/hub-web/screenshots
+Platform/apps/hub-web/test-results
+Platform/apps/hub-web/playwright-report
+**/.env
+**/.env.*
+**/*.log

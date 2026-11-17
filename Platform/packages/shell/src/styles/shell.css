@@ -1,0 +1,1357 @@
+/* SellerOnData kabuğu: D09 Renk bandı. Tüm sınıflar `sod-` önekli: DeciShip web'in app.css'i ile çakışmaz.
+ * Yerleşim: ürün renginde üst bant (üst satır: logo kilidi + yatay ürün menüsü + sağ küme [⊞][firma][avatar];
+ * altında sayfa başlığı bölgesi) + bandın altına binen içerik.
+ * Bant yüksekliği, üst satır ve sağ küme her üründe piksel aynı; yalnız renk ve logo değişir.
+ * Kırılım: telefon ≤ 760 (panolar).
+ */
+
+/* ---------- araçlar arası geçiş (ARCHITECTURE §8) ---------- */
+@view-transition {
+  navigation: auto;
+}
+.sod-top {
+  view-transition-name: sod-top;
+}
+.sod-top-r {
+  view-transition-name: sod-top-r;
+}
+.sod-main {
+  view-transition-name: sod-main;
+}
+/* sağ küme yerinde durur; logo, menü ve bant rengi kısa geçer; içerik yükselerek gelir */
+::view-transition-group(sod-top-r),
+::view-transition-old(sod-top-r),
+::view-transition-new(sod-top-r) {
+  animation: none;
+}
+::view-transition-old(sod-top-r) {
+  display: none;
+}
+::view-transition-group(sod-top),
+::view-transition-group(sod-main) {
+  animation: none;
+}
+::view-transition-old(sod-top) {
+  animation: sod-vt-out 0.12s ease-in both;
+}
+::view-transition-new(sod-top) {
+  animation: sod-vt-in 0.16s ease-out both;
+}
+::view-transition-old(sod-main) {
+  animation: sod-vt-out 0.08s ease-in both;
+}
+::view-transition-new(sod-main) {
+  animation: sod-vt-rise 0.22s cubic-bezier(0.2, 0, 0, 1) 0.08s both;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.16s;
+}
+@keyframes sod-vt-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes sod-vt-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sod-vt-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* ---------- iskelet ---------- */
+.sod-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  flex: 1;
+  background: var(--bg);
+  color: var(--text);
+}
+.sod-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+.sod-skip {
+  position: fixed;
+  left: 8px;
+  top: -60px;
+  z-index: 100;
+  background: var(--surface);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: var(--r-ctl);
+  box-shadow: var(--sh-md);
+}
+.sod-skip:focus {
+  top: 8px;
+}
+.sod-mark {
+  display: block;
+  flex: none;
+}
+.sod-wrap {
+  width: 100%;
+  max-width: var(--sod-wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.sod-main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  max-width: var(--sod-wrap);
+  margin: 0 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sod-main:focus {
+  outline: none;
+}
+/* Sayfa değişiminde ve "İçeriğe geç"te odak başlığa gelir (ekran okuyucu sayfanın adını okur); başlık eylem değil, çizgi çizilmez. */
+.sod-head h1.ptitle:focus {
+  outline: none;
+}
+/* İçeriğin ilk kartı banda biner. Büyük bant (hero): alt 112 px, binme 72. Standart: alt 40 px, binme 24. */
+.sod-lift,
+.sod-main .lift {
+  position: relative;
+  margin-top: -24px;
+}
+.sod-band[data-size='hero'] ~ .sod-main :is(.sod-lift, .lift) {
+  margin-top: -72px;
+}
+
+/* ---------- bant ----------
+ * Boy kuralı: `hero` (Genel Bakış, Pano) içerikle büyür. Diğer her sayfa (`standard`, başlıksız `none` dahil)
+ * aynı sabit yükseklikte: 1440'ta 72 + 128 + 40 = 240 px, telefonda 105 + 156 + 28 = 289 px. */
+.sod-band {
+  position: relative;
+  background: var(--sod-band);
+  color: var(--sod-band-on);
+  padding-bottom: var(--sod-band-pad);
+  --sod-head-h: 128px;
+  --sod-band-pad: 40px;
+}
+.sod-band[data-size='hero'] {
+  --sod-band-pad: 112px;
+}
+.sod-band:not([data-size='hero']) .sod-head {
+  min-height: var(--sod-head-h);
+}
+.sod-top {
+  position: relative;
+  z-index: 40; /* açılır menüler içeriğin (binen kartın) önünde */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  min-height: 72px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+/* Logo kilidi: işaret solda, iki satır (ad / SellerOnData) onunla dikey ortalı. */
+.sod-brand {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 160px; /* ürün menüsü her üründe aynı x'te başlar */
+  color: #fff;
+  flex: none;
+}
+@media (max-width: 760px) {
+  .sod-brand {
+    min-width: 0;
+  }
+}
+.sod-brand a,
+.sod-brand a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.sod-brand-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding-right: 4px;
+}
+.sod-brand-mark {
+  display: block;
+  border-radius: 6px;
+  /* işaretin karesi bant rengine yakın: ince halka kenarı belli eder */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+}
+.sod-brand-mark .sod-mark {
+  border-radius: 6px;
+}
+.sod-brand-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sod-brand-n {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.is-hub .sod-brand-n {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sod-brand-sub {
+  color: var(--sod-band-on);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.sod-brand-main:hover .sod-brand-sub {
+  color: #fff;
+}
+
+.sod-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  font-size: 15px;
+  line-height: 20px;
+  min-width: 0;
+  position: relative;
+}
+/* düğüm olarak verilen menü (ör. kendi <nav>'ı ve grup kutuları): sarmalayıcılar düzleşir, yalnız bağlantılar dizilir */
+.sod-nav.is-node :not(a, a *) {
+  display: contents;
+}
+.sod-nav.is-node :is(.sod-side-label, .sod-side-head) {
+  display: none;
+}
+.sod-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--sod-band-on);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sod-nav a svg.i {
+  display: none;
+}
+.sod-nav a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.sod-nav a[aria-current] {
+  color: #fff;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--sod-band-accent);
+}
+
+.sod-top-r {
+  /* Açılır menüler burada. view-transition-name yığın bağlamı kurar; telefonda menü (order: 3) sonra boyanır:
+   * kendi katmanı olmazsa yatay menü açılır kutunun üstüne biner. */
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.sod-top-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sod-pop-wrap {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+.sod-sw {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--sod-band-on);
+  flex: none;
+}
+.sod-sw:hover,
+.sod-sw[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+/* Uygulamalar düğmesi (⊞, F1-b): beyaz çip, açık hale, kareler uygulama renklerinde. */
+.sod-apps .sod-sw {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.18);
+  transition: box-shadow 0.15s;
+}
+.sod-apps .sod-sw:hover,
+.sod-apps .sod-sw[aria-expanded='true'] {
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.28);
+}
+.sod-apps .sod-sw:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sod-apps .sod-sw {
+    transition: none;
+  }
+}
+.sod-firm {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  max-width: 260px;
+  min-width: 0;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.sod-firm:hover,
+.sod-firm[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.sod-firm-n {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  font-weight: 600;
+}
+/* Firma seçici A: adın solunda bina simgesi; bandın açık tonunda, adla aynı satır. */
+.sod-firm-ic {
+  flex: none;
+  opacity: 0.85;
+}
+.sod-firm {
+  padding-left: 11px;
+}
+.sod-av {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  flex: none;
+}
+.sod-av:hover,
+.sod-av[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* koyu/renkli zeminde odak halkası */
+.sod-band :focus-visible,
+.sod-band a:focus-visible,
+.sod-band button:focus-visible,
+.sod-band input:focus-visible,
+.sod-band select:focus-visible,
+.sod-band .btn:focus-visible {
+  outline: 2px solid var(--focus-on-dark);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+/* Bandın içindeki açılır menüler beyaz kutudur: açık bant odağı orada görünmez, menü satırının kendi odağı (--focus) geçerli. */
+.sod-band .sod-pop :focus-visible {
+  outline-color: var(--focus);
+  outline-offset: -2px;
+}
+
+/* ---------- açılır menüler ---------- */
+.sod-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 70;
+  width: 280px;
+  max-width: calc(100vw - 32px);
+  max-height: min(72vh, 520px);
+  overflow-y: auto;
+  padding: 6px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: 0 12px 32px rgba(10, 26, 58, 0.16);
+  font-size: 15px;
+  animation: sod-pop-in 0.12s ease-out;
+}
+@keyframes sod-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sod-pop {
+    animation: none;
+  }
+}
+.sod-pop-head {
+  padding: 8px 10px 4px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.sod-pop-who {
+  padding: 8px 10px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+}
+.sod-pop-who b {
+  font-size: 15px;
+  line-height: 22px;
+}
+.sod-pop-who small {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.sod-pop-item {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 20px;
+  text-align: left;
+  text-decoration: none;
+}
+.sod-pop-item svg.i {
+  color: var(--text-3);
+  flex: none;
+}
+.sod-pop-item[aria-checked='true'] svg.i,
+.sod-pop-item[aria-current='page'] svg.i {
+  color: var(--focus);
+}
+.sod-pop-item:hover,
+.sod-pop-item:focus-visible {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.sod-pop-item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+.sod-pop-item[aria-disabled='true'] {
+  color: var(--text-3);
+  cursor: not-allowed;
+}
+.sod-pop-item.is-soon {
+  cursor: default;
+}
+/* Kapalı firma (yalnız sahibine): soluk ad, seçilince "geri aç" ekranı. */
+.sod-pop-item.is-closed b {
+  color: var(--text-3);
+}
+/* Dil satırı (sitedeki hesap paneli gibi): 🌐 Dil ········ Türkçe ⌄; açılınca seçenekler girintili. */
+.sod-pop-lang .sod-pop-text {
+  flex: 1 1 auto;
+}
+.sod-pop-lang-cur {
+  color: var(--text-3);
+  font-size: 14px;
+  white-space: nowrap;
+}
+.sod-pop-lang > svg.i:last-child {
+  transition: transform 0.15s;
+}
+.sod-pop-lang[aria-expanded='true'] > svg.i:last-child {
+  transform: rotate(180deg);
+}
+.sod-pop-langs .sod-pop-item {
+  padding-left: 40px;
+  min-height: 40px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sod-pop-lang > svg.i:last-child {
+    transition: none;
+  }
+}
+.sod-pop-item.is-soon:hover {
+  background: none;
+}
+.sod-pop-item.is-soon .sod-mark {
+  filter: grayscale(0.85);
+  opacity: 0.5;
+}
+.sod-pop-item .sod-mark {
+  border-radius: 6px;
+}
+.sod-pop-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sod-pop-text b {
+  font-weight: 500;
+}
+.sod-pop-text small {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.sod-pop-sep {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--border);
+}
+
+/* ---------- başlık bölgesi (PageHeader portalı) ---------- */
+.sod-band .sod-wrap {
+  position: relative;
+}
+/* AppShell `breadcrumb`: yükseklik değiştirmez, başlık bölgesinin üst boşluğunda durur */
+.sod-band-crumb {
+  position: absolute;
+  top: 78px;
+  left: var(--gutter);
+  right: var(--gutter);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--sod-band-on);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sod-band-crumb a {
+  color: #fff;
+}
+.sod-band .phead.is-band {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+}
+.sod-band .phead.is-band .phead-main {
+  min-width: 0;
+}
+.sod-band .phead.is-band .crumb {
+  color: var(--sod-band-on);
+  font-size: 14px;
+  line-height: 20px;
+}
+.sod-band .phead.is-band .crumb a {
+  color: #fff;
+  font-weight: 500;
+}
+.sod-band .phead.is-band .crumb .sep {
+  color: var(--sod-band-on);
+  opacity: 0.6;
+}
+.peyebrow {
+  font-family: var(--fm);
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin: 0 0 10px;
+}
+.sod-band .phead.is-band .peyebrow {
+  color: var(--sod-band-on);
+}
+.sod-band .phead.is-band .ptitle {
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+.sod-band .phead.is-band .psub {
+  color: var(--sod-band-on);
+}
+.sod-band .phead.is-band .pactions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* büyük bant (hero): H1 56, içerikle büyür */
+.sod-band .phead.is-hero {
+  flex-wrap: wrap;
+  padding: 64px 0 0;
+}
+.sod-band .phead.is-hero .phead-main {
+  flex: 1 1 420px;
+}
+.sod-band .phead.is-hero .crumb {
+  margin-bottom: 12px;
+}
+.sod-band .phead.is-hero .peyebrow {
+  margin-bottom: 14px;
+}
+.sod-band .phead.is-hero .ptitle {
+  font-size: 56px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.sod-band .phead.is-hero .psub {
+  font-size: 19px;
+  line-height: 1.5;
+  margin-top: 14px;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+.sod-band .phead.is-hero .pactions {
+  flex-wrap: wrap;
+}
+
+/* standart bant: üst satır 20, başlık 44 (geniş ekranda tek satır, taşan kısaltılır), alt metin en çok iki satır (24'er).
+ * Bant en az --sod-head-h kadardır; alt metin ikinci satıra geçince bant o kadar uzar. */
+.sod-band .phead.is-band:not(.is-hero) {
+  height: 100%;
+  padding: 28px 0 0;
+  flex-wrap: nowrap;
+}
+.sod-band .phead.is-band:not(.is-hero) .phead-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.phead-kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 20px;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.phead-kicker > .crumb,
+.phead-kicker > .peyebrow {
+  margin: 0;
+  flex-wrap: nowrap;
+  line-height: 20px;
+  min-width: 0;
+}
+.sod-band .phead.is-band:not(.is-hero) .ptitle {
+  display: block;
+  height: 44px;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sod-band .phead.is-band:not(.is-hero) .ptitle > * {
+  vertical-align: middle;
+}
+.sod-band .phead.is-band:not(.is-hero) .ptitle > * + * {
+  margin-left: 12px;
+}
+.sod-band .phead.is-band:not(.is-hero) .psub {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: auto;
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 24px;
+  white-space: normal;
+  overflow: hidden;
+}
+.sod-band .phead.is-band:not(.is-hero) .pactions {
+  flex: none;
+  flex-wrap: nowrap;
+  padding-bottom: 0;
+}
+.sod-band .phead.is-band:not(.is-hero) .pactions:empty {
+  display: none;
+}
+/* Başlığın solunda görsel (PageHeader `media`): başlık + alt metin satırlarının ortasına hizalı. Telefonda gizli. */
+.sod-band .phead.is-band.has-media .phead-media {
+  flex: none;
+  align-self: flex-end;
+  margin: 0 -8px 9px 0;
+}
+/* Baş harf dairesi (Hesabım): bandın tonunda, nötr; avatar düğmesiyle aynı dil, sarı değil. */
+.phead-av {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+/* sekme şeridi bantta değil, içeriğin başında */
+.phead-tabs {
+  padding: 24px var(--gutter) 0;
+}
+.phead-tabs > .ptabs {
+  margin-top: 0;
+}
+
+/* ---------- bant içinde düğmeler ve alanlar ---------- */
+.sod-band .btn {
+  height: 48px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+.sod-band .btn.btn-icon {
+  width: 48px;
+  padding: 0;
+}
+.sod-band .btn-primary,
+.sod-band .btn-primary:hover:not(:disabled),
+.sod-band .btn-primary:active:not(:disabled) {
+  background: var(--sod-band-cta);
+  color: var(--sod-band-cta-ink);
+}
+.sod-band .btn-primary:hover:not(:disabled) {
+  background: var(--sod-band-cta-hover);
+}
+.sod-band :is(.btn-secondary, .btn-dark, .btn-tert),
+.sod-band :is(.btn-secondary, .btn-dark, .btn-tert):hover:not(:disabled) {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-weight: 500;
+}
+.sod-band :is(.btn-secondary, .btn-dark, .btn-tert):hover:not(:disabled),
+.sod-band .btn[aria-pressed='true'],
+.sod-band .btn[aria-expanded='true'] {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+.sod-band .btn-ghost,
+.sod-band .btn-ghost.plain,
+.sod-band .btn-ghost:hover:not(:disabled) {
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+}
+.sod-band .btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+.sod-band .btn-danger-outline,
+.sod-band .btn-danger-outline:hover:not(:disabled) {
+  background: #fff;
+  border-color: #fff;
+  color: var(--danger);
+}
+.sod-band .btn:disabled {
+  opacity: 0.55;
+}
+.sod-band .icon-btn {
+  color: #fff;
+}
+.sod-band .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.sod-band .link-btn,
+.sod-band .link-btn:hover {
+  color: #fff;
+}
+.sod-band :is(.inp, .sel) {
+  height: 48px;
+  border-radius: 12px;
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  box-shadow: none;
+}
+.sod-band .sel {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.sod-band .sel option {
+  color: var(--text);
+  background: var(--surface);
+}
+.sod-band .tag {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ---------- telefon (≤ 760, panolar) ---------- */
+@media (max-width: 760px) {
+  .sod-band .phead.is-band.has-media .phead-media {
+    display: none;
+  }
+  .sod-top {
+    column-gap: 12px;
+    padding-top: 8px;
+  }
+  .sod-nav {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: 100%;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    scroll-padding: 0 var(--gutter);
+    /* menünün devamı olduğu kenarlarda solma */
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 24px), transparent);
+    mask-image: linear-gradient(to right, transparent 0, #000 16px, #000 calc(100% - 24px), transparent);
+  }
+  .sod-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .sod-nav a {
+    flex: none;
+  }
+  .sod-top-r {
+    order: 2;
+  }
+  .sod-firm {
+    max-width: 130px;
+  }
+  .sod-apps,
+  .sod-top-slot {
+    /* üst satır tek satırda kalsın: uygulamaya özel alan (headerSlot) telefonda gizli; ⊞ yerine alttaki uygulama çubuğu */
+    display: none !important;
+  }
+  .sod-pop {
+    /* alttaki uygulama çubuğunun üstünde biter */
+    max-height: calc(100dvh - 72px - var(--sod-dock-h, 0px));
+  }
+  .sod-band {
+    --sod-head-h: 156px;
+    --sod-band-pad: 28px;
+  }
+  .sod-band[data-size='hero'] {
+    --sod-band-pad: 96px;
+  }
+  .sod-band .phead.is-hero {
+    padding-top: 36px;
+    gap: 20px;
+  }
+  .sod-band .phead.is-hero .ptitle {
+    font-size: 38px;
+  }
+  .sod-band .phead.is-hero .psub {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  .sod-band .phead.is-hero .pactions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .sod-band .phead.is-hero .pactions > .btn {
+    flex: 1 1 auto;
+  }
+  /* standart: üst satır 18, başlık en çok iki satır (34'er), alt metin en çok iki satır (20'şer), eylem satırı 48 (boşsa yer tutmaz) */
+  .sod-band .phead.is-band:not(.is-hero) {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding-top: 16px;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .phead-main {
+    flex: none;
+  }
+  .phead-kicker {
+    height: 18px;
+    margin-bottom: 4px;
+  }
+  .phead-kicker > .crumb,
+  .phead-kicker > .peyebrow {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .ptitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: auto;
+    font-size: 26px;
+    line-height: 34px;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .psub {
+    height: auto;
+    margin-top: 4px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .pactions {
+    display: flex;
+    height: 48px;
+    margin-top: 12px;
+    justify-content: flex-start;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .pactions:empty {
+    display: none;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .pactions > .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .pactions > .btn.btn-icon {
+    flex: none;
+  }
+  .sod-lift,
+  .sod-main .lift {
+    margin-top: -16px;
+  }
+  .sod-band[data-size='hero'] ~ .sod-main :is(.sod-lift, .lift) {
+    margin-top: -64px;
+  }
+  .phead-tabs {
+    padding-top: 16px;
+  }
+}
+@media (max-width: 380px) {
+  .sod-brand-n {
+    font-size: 16px;
+  }
+  .sod-firm {
+    max-width: 112px;
+  }
+}
+
+/* Oturum uyarısı: sayfanın en üstünde yapışık durur, içeriği ve yazılı veriyi ellemez. */
+.sod-status {
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 10px var(--gutter);
+  background: var(--warning-bg);
+  border-bottom: 1px solid var(--warning-line);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text);
+}
+.sod-status > svg.i {
+  flex: none;
+  color: var(--warning);
+}
+.sod-status-text {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+.sod-status.is-info {
+  background: var(--primary-soft);
+  border-bottom-color: var(--primary-line);
+}
+.sod-status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Tek kare ön hazırlık: React çizene kadar bandın üst satırı (Merkez grafiti). */
+.sod-boot {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 73px;
+  background: var(--sod-band, #2a2d34);
+}
+.sod-boot .sod-rail {
+  display: none;
+}
+
+/* Hata sınırı yedek ekranı (ErrorBoundary). */
+.sod-err {
+  display: flex;
+  justify-content: center;
+  padding: 48px var(--gutter, 16px);
+}
+.sod-err-card {
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-md);
+}
+.sod-err-ico {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-line);
+  border-radius: var(--r-ctl);
+}
+.sod-err-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--text);
+}
+.sod-err-body {
+  margin: 0;
+  color: var(--text-2);
+}
+.sod-err-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sod-err-actions a.btn {
+  text-decoration: none;
+}
+.sod-err-tech {
+  width: 100%;
+  margin-top: 8px;
+  color: var(--text-3);
+  font-size: 13px;
+  text-align: left;
+}
+.sod-err-tech summary {
+  cursor: pointer;
+}
+.sod-err-tech code {
+  display: block;
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* ==== SABİT ÜST SATIR (deneme) — başlangıç ====
+ * Sayfa kayınca bandın üst satırı (logo, menü, ⊞, firma, avatar) ekranın üstünde sabit kalır; başlık bölgesi eskisi gibi
+ * kayıp gider. Telefonda (≤ 760) üst satır iki satırdır (logo satırı + sekme satırı `.sod-nav`); ikisi birlikte sabit kalır.
+ * Kaydırma yokken hiçbir kural devrede değildir: görünüm ve bant ölçüleri aynı.
+ * Durumu AppShell yazar: `html[data-sod-stuck]` (sayfa kaydırıldı), `--sod-bar-h` (üst satır), `--sod-status-h` (oturum uyarısı).
+ * Sayfa içi yapışkan öğeler `--sod-sticky-top`un altından başlar (yazdırmada 0). `--sod-top-h` eski sabit
+ * değerdir (0): bildirimlerin yeri ona bağlı, değişmez.
+ * Geri almak: bu bloğu ve AppShell.tsx'teki "SABİT ÜST SATIR" bloğunu silin; uygulamalardaki `var(--sod-sticky-top, 0px)`
+ * kullanımları 0'a düşer, eski davranış döner. Yalnız telefonu geri almak: aşağıdaki `@media screen`i
+ * `@media screen and (min-width: 761px)` yapın. */
+:root {
+  --sod-sticky-top: 0px;
+}
+@media screen {
+  :root {
+    --sod-sticky-top: calc(var(--sod-bar-h, 72px) + var(--sod-status-h, 0px));
+    /* klavyeyle odaklanan öğe ve #bağlantı hedefi sabit satırın altında kalmasın */
+    scroll-padding-top: calc(var(--sod-sticky-top) + 8px);
+  }
+  /* satır akıştan çıkınca yeri boş kalır: başlık bölgesi yerinden oynamaz (kırıntı `absolute`, etkilenmez) */
+  :root[data-sod-stuck] .sod-band > .sod-wrap {
+    padding-top: var(--sod-bar-h, 72px);
+  }
+  :root[data-sod-stuck] .sod-top {
+    position: fixed;
+    top: var(--sod-status-h, 0px);
+    left: 0;
+    right: 0;
+    /* içerik (z auto; yüzen panel açıkken 41) altından geçer; pencere, örtü (60) ve bildirim (80) üstünde kalır */
+    z-index: 42;
+    /* tam genişlik bant zemini, içerik `.sod-wrap` ile aynı hizada */
+    padding-inline: calc(max(0px, (100% - var(--sod-wrap)) / 2) + var(--gutter));
+    background: var(--sod-band);
+    border-bottom-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 1px 0 rgba(10, 18, 40, 0.18), 0 6px 16px -6px rgba(10, 18, 40, 0.28);
+  }
+}
+/* ==== SABİT ÜST SATIR — bitiş ==== */
+
+/* ==== A · BÖLMELİ SEKMELER (deneme) — başlangıç ====
+ * Geniş ekranda (≥ 761) menü tek "oluk" içinde simgeli sekmeler; seçili sekme dolu beyaz, yazı bant tonunda.
+ * ⊞ logo kilidinin hemen sağında (`.sod-lead`). Menü her üründe aynı x'te başlar: logo kilidi en az 136 + 8 + ⊞ 40 = 184 px.
+ * Sığmazsa sarılmaz: önce simgeler gizlenir (`data-compact`, AppShell ölçer), yine sığmazsa oluk yatay kayar.
+ * Telefonda (≤ 760) hiçbir kural devrede değil: `.sod-lead` kutusuz, simge gizli, menü bugünkü gibi.
+ * Geri almak: bu bloğu, AppShell.tsx'teki "A · BÖLMELİ SEKMELER" bloğunu, `.sod-lead` sarmalayıcısını ve sekme simgesini
+ * kaldırıp ⊞'yi (`<AppsMenu>`) sağ kümenin başına geri koyun. */
+.sod-lead {
+  display: contents;
+}
+@media (min-width: 761px) {
+  .sod-top {
+    flex-wrap: nowrap;
+  }
+  .sod-lead {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: none;
+  }
+  .sod-lead .sod-brand {
+    min-width: 136px;
+  }
+  /* ⊞ açılır kutusu yeni yerinde sola yaslı açılır */
+  .sod-apps .sod-pop {
+    right: auto;
+    left: 0;
+  }
+  .sod-nav {
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.09);
+    font-size: 14px;
+    line-height: 20px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+  .sod-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .sod-nav a {
+    flex: none;
+    gap: 7px;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 8px;
+  }
+  .sod-nav a svg.i {
+    display: block;
+  }
+  .sod-nav[data-compact] a svg.i {
+    display: none;
+  }
+  .sod-nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .sod-nav a[aria-current],
+  .sod-nav a[aria-current]:hover {
+    background: #fff;
+    color: var(--sod-band-cta-ink);
+    font-weight: 600;
+    box-shadow: none;
+  }
+  /* odak halkası oluğun iç boşluğuna (3 px) sığar: kayan oluk onu kırpmaz */
+  .sod-band .sod-nav a:focus-visible {
+    outline-offset: 1px;
+  }
+  /* kayan olukta devamı olan kenar solar */
+  .sod-nav[data-fade='r'] {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+  .sod-nav[data-fade='l'] {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 32px);
+    mask-image: linear-gradient(to right, transparent, #000 32px);
+  }
+  .sod-nav[data-fade='lr'] {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 32px, #000 calc(100% - 32px), transparent);
+  }
+  /* sağ küme daralmaz (firma adı okunur kalır); yer menüden açılır */
+  .sod-top-r {
+    flex: none;
+  }
+}
+@media (min-width: 761px) and (max-width: 1023px) {
+  /* dar masaüstü: menüye yer kalsın; uygulamaya özel alan telefondaki gibi gizli, firma adı kısalır */
+  .sod-top-slot {
+    display: none !important;
+  }
+  .sod-firm {
+    max-width: 180px;
+  }
+}
+@media (min-width: 761px) and (forced-colors: active) {
+  /* zemin rengi düşer: seçili sekme çerçeveyle ayrılır */
+  .sod-nav a[aria-current] {
+    outline: 2px solid CanvasText;
+    outline-offset: -2px;
+  }
+}
+/* ==== A · BÖLMELİ SEKMELER — bitiş ==== */
+
+/* ==== ALT UYGULAMA ÇUBUĞU (A3 · üstte kalın çizgi) — başlangıç ====
+ * Telefonda (≤ 760, yalnız ekran) ekranın altında sabit beyaz çubuk: Merkez ve ürünler eşit hücrelerde, logo 24 üstte, ad 12 altta.
+ * İçinde bulunulan uygulama: hücrenin tepesinde kendi renginde 3 px çizgi (kenarlardan 8 px içeride), aşağı solan açık ton zemin,
+ * ad kalın ve kendi metin renginde. Renkler hücrede (`--sod-dock-c`, `--sod-dock-soft`, `--sod-dock-ink`; AppShell `dockTone`),
+ * Merkez'inkiler burada (lacivert `--sod-ink`, açık ton #e7ebf3). Açık olmayan ürün soluk ve gri.
+ * Alttaki sabit ve yapışkan öğeler çubuğun üstünde durur: `bottom: var(--sod-dock-h, 0px)`; iç boşlukta güvenli alan payı
+ * `var(--sod-safe-b, env(safe-area-inset-bottom, 0px))` (çubuk varken 0: güvenli alanı çubuk karşılar). Geniş ekranda ikisi de eski değer.
+ * Katman: içerik ve yüzen panel (41, DOM'da önce) altında; üst satır (42), açılır menüler, örtü (60) ve bildirim (80) üstünde.
+ * Geri almak: bu bloğu, AppShell.tsx'teki `<AppDock>`u silin; `--sod-dock-h` ve `--sod-safe-b` kullanımları eski değerlere düşer. */
+:root {
+  --sod-dock-h: 0px;
+  --sod-safe-b: env(safe-area-inset-bottom, 0px);
+}
+.sod-dock {
+  display: none;
+}
+@media screen and (max-width: 760px) {
+  :root:has(.sod-dock) {
+    --sod-dock-h: calc(60px + env(safe-area-inset-bottom, 0px));
+    --sod-safe-b: 0px;
+  }
+  /* sayfanın sonu çubuğun altında kalmasın */
+  .sod-shell {
+    padding-bottom: var(--sod-dock-h);
+  }
+  .sod-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 41;
+    display: flex;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    view-transition-name: sod-dock;
+  }
+  .sod-dock-i {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 4px 4px;
+    color: var(--text-2);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sod-dock-i:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .sod-dock-i .sod-mark {
+    border-radius: 6px;
+  }
+  .sod-dock-n {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sod-dock-i[aria-current='page'] {
+    background: linear-gradient(var(--sod-dock-soft, #e7ebf3), var(--surface) 85%);
+    color: var(--sod-dock-ink, var(--sod-ink));
+    font-weight: 700;
+  }
+  .sod-dock-i[aria-current='page']::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background: var(--sod-dock-c, var(--sod-ink));
+  }
+  .sod-dock-i:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: -2px;
+  }
+  .sod-dock-i.is-soon {
+    opacity: 0.38;
+    filter: grayscale(0.6);
+    cursor: default;
+  }
+  .sod-dock-i.is-soon:hover {
+    color: var(--text-2);
+  }
+}
+/* sayfalar arası geçişte çubuk yerinde durur (sağ küme gibi) */
+::view-transition-group(sod-dock),
+::view-transition-old(sod-dock),
+::view-transition-new(sod-dock) {
+  animation: none;
+}
+::view-transition-old(sod-dock) {
+  display: none;
+}
+@media (max-width: 760px) and (forced-colors: active) {
+  /* zemin ve çizgi rengi düşer: seçili hücre çerçeveyle ayrılır */
+  .sod-dock-i[aria-current='page'] {
+    outline: 2px solid CanvasText;
+    outline-offset: -2px;
+  }
+}
+/* ==== ALT UYGULAMA ÇUBUĞU — bitiş ==== */

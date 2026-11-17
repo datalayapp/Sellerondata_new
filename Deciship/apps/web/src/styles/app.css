@@ -1,0 +1,1285 @@
+/* DeciShip web: yalnız DeciShip'e özgü kurallar (marka, yan panel, kart tablo kipi, karşılaştırma, foto, adımlar).
+ * Ortak bileşen stilleri @sellerondata/shell primitives.css'ten gelir (main.tsx sırası: tokens → tokens.deciship → shell → primitives → app → pages).
+ * Sayfaya özgü kurallar ./pages/<sayfa>.css içinde. Kırılımlar: telefon < 768 · tablet 768–1023 · masaüstü ≥ 1024 · geniş ≥ 1280.
+ * En sonda "DeciShip farkları": pakette aynı seçicide farklı değer taşıyan bildirimler; karar bekliyor (fark kataloğu).
+ */
+/* Gece zeminde (Pano baş kartı, bant) odak halkası açık mavi */
+.on-ink :focus-visible {
+  outline-color: var(--primary-on-dark);
+}
+
+/* ---------- base ---------- */
+/* WCAG 2.4.11: sekmeyle odaklanan öğe yapışkan çubukların (telefon üst çubuğu, kaydet çubuğu) altında kalmasın */
+
+/* focus ring — visible for keyboard users everywhere */
+/* an absolutely positioned .sr-only escapes overflow:auto wrappers unless something between
+ * them is positioned — table cells inside scrolling tables are the usual case */
+
+/* ---------- utilities ---------- */
+/* K36: tarife/fatura ağırlığında "1.500" için alanın altındaki seçim (1,5 kg mı, 1.500 kg mı?) */
+.weight-choice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 4px;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--warning);
+  text-align: left;
+  white-space: normal;
+}
+.weight-choice .link-btn {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+/* ======================================================================
+ * MARKA + ikon düğmesi. Ray, başlık ve menü @sellerondata/shell içindedir (DESIGN.md › 4. D09 kabuğu ve sayfa kurma).
+ * ====================================================================== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: var(--text);
+  flex: 1;
+}
+.brand:hover {
+  text-decoration: none;
+  color: var(--text);
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+/* DeciShip mark (components/Brand.tsx) — the SVG carries its own tile; never recolour it. */
+.brand-logo {
+  display: block;
+  flex: none;
+}
+.brand-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.brand-name {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.brand-co {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-3);
+}
+
+/* ---------- page layout ---------- */
+/* Every page = <PageHeader/> + <div className="content">…</div>. Both share the centered column. */
+/* ilk öğe banda biniyorsa (.lift, kabuk) üst boşluk yok: binme payı kabukta */
+.content:has(> .lift:first-child, > :first-child > .lift:first-child),
+.layout > .main:has(> .lift:first-child) {
+  padding-top: 0;
+}
+/* list + detail side panel */
+
+/* ---------- page header ---------- */
+
+/* ---------- tabs (underline) ---------- */
+
+/* ---------- cards ---------- */
+
+/* ---------- buttons ---------- */
+/* icon first ("ikon + metin"); forward arrows stay trailing */
+/* secondary — white + strong border. `dark` and `tert` are legacy kinds mapped here. */
+
+/* SidePanel takes focus as an overlay (<1280): no ring on the panel box itself */
+
+/* ActionMenu: "Diğer" düğmesi + açılır eylem listesi */
+.amenu-dots > svg.i {
+  width: 20px;
+  height: 20px;
+}
+/* "⋯" sayfa başlığının sağında: liste sağa hizalı açılır */
+.amenu-dots + .amenu-list,
+.pactions .amenu-list {
+  left: auto;
+  right: 0;
+}
+@media (max-width: 767px) {
+  .btn-sm {
+    height: 40px;
+  }
+  .btn-sm.btn-icon {
+    width: 40px;
+  }
+}
+
+/* ---------- forms ---------- */
+/* salt okunur alan da sekmeyle odak alır: halka görünür kalsın */
+/* field widths: short values should be short */
+/* password/adorned input */
+/* unit-suffixed input: <Affix sfx="kg"><input className="inp num"/></Affix> */
+
+/* sticky save bar at the bottom of long forms (Settings, TariffEditor)
+ * <div className="savebar is-dirty"><div className="savebar-in"><div className="savebar-state">…</div><div className="savebar-actions">…</div></div></div> */
+/* checkbox / radio */
+/* segmented control */
+
+/* ---------- filter bar ---------- */
+
+/* ---------- status pills / tags ---------- */
+.tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+/* D09 çipleri: dolgu zemin, çerçeve yok */
+/* son gün: ölçü sarısı, köşeli */
+.tag.sun::before {
+  display: none;
+}
+.tag.sm::before {
+  display: none;
+}
+.tag.nodot::before {
+  display: none;
+}
+
+/* ---------- notifications (inline alerts) ---------- */
+
+/* ======================================================================
+ * TABLES
+ * .tbl-wrap / .table-wrap  → white card, horizontal scroll, never overflows the page
+ * <768px: first column is sticky while scrolling horizontally.
+ * .dt.dt-cards             → when the table itself is narrow (< 600px) rows become stacked cards; label each <td data-label="…">
+ * ====================================================================== */
+/* kartın son öğesi tabloysa alt köşeler kartla aynı yuvarlak (16 px köşede kare satır taşmaz) */
+.card > .tbl-wrap:last-child,
+.card > .table-wrap:last-child {
+  border-radius: 0 0 calc(var(--r-card) - 1px) calc(var(--r-card) - 1px);
+}
+/* a table followed by the pager: square off the joint */
+/* Kart hali ekrana değil tablonun kendi genişliğine bağlıdır (ray ve menü yer kaplar, panel açılabilir).
+ * Tablo sığmıyorsa önce öncelikli sütunlar kalır (sayfa CSS'i), en darda satırlar karta döner. Para sütunu kaydırma ardında kalmaz. */
+@container dtw (max-width: 599px) {
+  /* stacked-card mode */
+  .dt.dt-cards,
+  .dt.dt-cards tbody,
+  .dt.dt-cards tr,
+  .dt.dt-cards td {
+    display: block;
+    width: 100%;
+  }
+  .dt.dt-cards thead {
+    display: none;
+  }
+  .dt.dt-cards tr {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .dt.dt-cards tbody tr:first-child {
+    border-top: 0;
+  }
+  .dt.dt-cards td[data-label]::before {
+    content: attr(data-label);
+    color: var(--text-3);
+    font-family: var(--f);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-align: left;
+    flex: none;
+    margin-right: auto; /* label left, every value child grouped on the right */
+  }
+  .dt.dt-cards td.card-title {
+    justify-content: flex-start;
+    text-align: left;
+    padding-bottom: 6px;
+  }
+  .dt.dt-cards td.card-title .sub {
+    display: inline;
+    margin-left: 8px;
+  }
+  .dt.dt-cards tbody tr.clickable:hover td {
+    background: transparent;
+  }
+  .dt.dt-cards tbody tr.clickable:hover {
+    background: var(--surface-2);
+  }
+  .dt.dt-cards td.actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  /* .dt.tight satır yüksekliği sabit: kartta içerik kadar olmalı, yoksa kartlar üst üste biner */
+  .dt.dt-cards tbody tr {
+    height: auto;
+  }
+  /* seçili satır kartta da belli */
+  .dt.dt-cards tbody tr.sel {
+    background: var(--primary-soft);
+    box-shadow: inset 3px 0 0 var(--primary);
+  }
+  .dt.dt-cards tbody tr.sel:hover {
+    background: var(--primary-soft);
+  }
+  /* işaret kartın kenarında; ilk hücredeki ikinci çizgi başlığın üstüne binmesin */
+  .dt.dt-cards tbody tr.sel td:first-child {
+    box-shadow: none;
+  }
+}
+/* pager footer */
+
+/* editable grid (tariff rates, invoice mapping preview) */
+
+/* ---------- side panel (list → detail) ----------
+ * ≥1280: beside the list, sticky at the top of the viewport. It starts below the page
+ * header, so SidePanel writes its visible top offset to --pn-top and the panel is
+ * exactly as tall as the visible area → the footer (.panel-actions) is always on screen.
+ * <1280: fixed overlay from the right (full height); <768: full screen.
+ * In both, only .panel-body scrolls; head and footer stay put. */
+.panel {
+  width: var(--panel-w);
+  flex: none;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: var(--sod-sticky-top, 0px); /* sabit üst satırın altında (shell.css "SABİT ÜST SATIR") */
+  align-self: flex-start;
+  height: calc(100vh - var(--pn-top, 0px));
+  height: calc(100dvh - var(--pn-top, 0px));
+  min-height: 0;
+  z-index: 20;
+}
+.panel-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  flex: none;
+}
+.panel-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+.panel-meta {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+  padding-right: 44px;
+}
+.panel-title {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  margin-top: 4px;
+  padding-right: 44px;
+  overflow-wrap: anywhere;
+}
+.panel-body {
+  padding: 16px 24px 24px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: none;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+/* panelin çöp kutusu düğmesi (Ölçümü sil): sakin gri; üstüne gelince ve odakta kırmızı */
+.panel-actions .pn-del {
+  color: var(--text-2);
+}
+.panel-actions .pn-del:hover:not(:disabled),
+.panel-actions .pn-del:focus-visible {
+  color: var(--danger);
+  border-color: var(--danger-line);
+  background: var(--danger-bg);
+}
+@media (max-width: 1279px) {
+  /* not enough room for list + panel side by side: panel floats over the list */
+  .panel {
+    position: fixed;
+    right: 0;
+    top: var(--sod-sticky-top, 0px);
+    bottom: var(--sod-dock-h, 0px); /* telefonda alttaki uygulama çubuğunun üstünde biter (kabuk shell.css) */
+    align-self: stretch;
+    height: auto;
+    max-height: calc(100dvh - var(--sod-sticky-top, 0px) - var(--sod-dock-h, 0px));
+    width: min(var(--panel-w), 100vw);
+    box-shadow: var(--sh-lg);
+    z-index: 45;
+  }
+  /* .sod-main kendi yığın bağlamıdır (view-transition-name): yüzen panel ancak içerik
+   * katmanı bandın (z 40) önüne geçince bandın üstünü örter; yoksa avatar kapat düğmesini yutar. */
+  .sod-main:has(.panel) {
+    z-index: 41;
+  }
+  .panel-actions {
+    padding-bottom: calc(12px + var(--sod-safe-b, env(safe-area-inset-bottom)));
+  }
+}
+@media (max-width: 767px) {
+  .panel {
+    width: 100vw;
+    border-left: 0;
+  }
+  .panel-head {
+    padding: 16px 16px 12px;
+  }
+  .panel-body {
+    padding: 12px 16px 24px;
+  }
+}
+/* modal + panel action buttons (ModalAction) — look like regular buttons */
+
+/* key-value list, section label, divider */
+.kvs {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 24px;
+  row-gap: 8px;
+}
+.kvs .k {
+  color: var(--text-3);
+}
+.sec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--text-2);
+  margin: 24px 0 10px;
+}
+.sec:first-child {
+  margin-top: 0;
+}
+.sec .r {
+  margin-left: auto;
+  font-weight: 400;
+}
+.hr {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+/* comparison two-column */
+.cmp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+}
+.cmp > div {
+  background: var(--surface);
+  padding: 12px;
+  min-width: 0;
+}
+.cmp > div + div {
+  border-left: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.cmp .v {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.cmp .v.bad {
+  color: var(--danger);
+}
+.cmp .s12 + .v {
+  margin-top: 2px;
+}
+/* price breakdown */
+.pb {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.pb td {
+  height: 34px;
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+.pb td:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.pb tr.tot td {
+  font-weight: 600;
+  border-bottom: 0;
+  height: 38px;
+}
+
+/* photos */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.thumb {
+  width: 88px;
+  border: 0;
+  padding: 0;
+  background: none;
+  text-align: left;
+}
+.thumb img,
+.thumb .ph {
+  width: 88px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: var(--r-ctl);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+}
+.thumb:hover img {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+.thumb .cap {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.92);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 64px 16px;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: calc(100vh - 160px);
+  object-fit: contain;
+  border-radius: var(--r-ctl);
+}
+.lightbox .lb-cap {
+  color: #f2f4f7;
+  font-size: 14px;
+}
+.lightbox .lb-close,
+.lightbox .lb-nav {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.12);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox .lb-close:hover,
+.lightbox .lb-nav:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+.lightbox .lb-close {
+  top: 16px;
+  right: 16px;
+}
+.lightbox .lb-nav.prev {
+  left: 16px;
+  top: 50%;
+}
+.lightbox .lb-nav.next {
+  right: 16px;
+  top: 50%;
+}
+.lightbox svg.i {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 767px) {
+  .lightbox .lb-nav {
+    top: auto !important;
+    bottom: 16px;
+  }
+}
+
+/* ======================================================================
+ * MODAL — centred card on desktop, bottom sheet under 768px
+ * ====================================================================== */
+
+/* ---------- toasts ---------- */
+/* optional inline action ("Geri al") — ToastOptions.action */
+/* "Bağlantı yok" / oturum bandı (.sod-status, ~64px) bandı aşağı iter: bildirim yine firma/kullanıcı menüsünün altında kalır
+   (çıkış yapılamadı bildirimi tam yeniden denenecek düğmeyi örtüyordu). Telefonda bildirim altta, kural yok. */
+@media (min-width: 769px) {
+  body:has(.sod-status) .toasts {
+    top: calc(var(--sod-top-h) + 148px);
+  }
+}
+@media (min-width: 769px) and (max-width: 1023px) {
+  body:has(.sod-status) .toasts {
+    top: calc(var(--sod-top-h) + 173px);
+  }
+}
+@media (max-width: 768px) {
+  /* phones: bottom of the screen (above the home indicator) so header actions stay reachable */
+  /* pencere (alt kâğıt) açıkken bildirim üste çıkar: Vazgeç / Uygula düğmelerini örtmesin */
+  body:has(> .overlay) .toasts {
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    bottom: auto;
+    flex-direction: column;
+  }
+}
+
+/* ---------- skeleton / empty / error ---------- */
+/* "all good" empties (no differences, nothing to dispute) read as success, not as a missing thing */
+
+/* ---------- progress bar ---------- */
+
+/* ---------- wizard steps (shared by multi-step flows) ---------- */
+.steps {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+.steps .st {
+  flex: 1;
+  min-width: 0;
+  border-top: 3px solid var(--border);
+  padding-top: 8px;
+  color: var(--text-3);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.steps .st.on {
+  border-top-color: var(--primary);
+  color: var(--text);
+  font-weight: 600;
+}
+.steps .st.done {
+  border-top-color: var(--primary);
+  color: var(--text-2);
+}
+.steps .st .no {
+  font-size: 12px;
+  font-family: var(--fm);
+}
+@media (max-width: 767px) {
+  .steps .st {
+    font-size: 12px;
+    line-height: 16px;
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+label.btn:has(input.sr-only:focus-visible) {
+  box-shadow: var(--focus-ring);
+}
+
+/* ===== DeciShip farkları (karar bekliyor; fark kataloğu) ===== */
+/* kabuk: scroll-padding-top yok */
+html {
+  scroll-padding-top: calc(var(--sod-top-h) + 8px);
+}
+/* kabuk: font-size 16px; line-height 1.55 */
+body {
+  font-size: 15px;
+  line-height: 22px;
+}
+/* kabuk: font-size 15px */
+button,
+input,
+select,
+textarea {
+  font-size: 14px;
+}
+/* kabuk: outline 2px solid var(--focus) */
+:focus-visible {
+  outline: 2px solid var(--primary);
+}
+/* kabuk: width 44px; height 44px */
+.icon-btn {
+  width: 40px;
+  height: 40px;
+}
+/* kabuk: margin-left 0 */
+.phead,
+.content {
+  margin-left: auto;
+}
+/* kabuk: padding-top 32px; padding-bottom 72px */
+.content {
+  padding-top: 24px;
+  padding-bottom: 96px;
+}
+/* kabuk: margin 0; padding 32px var(--gutter) 72px */
+.layout > .main {
+  margin: 0 auto;
+  padding: 24px var(--gutter) 96px;
+}
+/* kabuk: font-size 14px; line-height 20px */
+.crumb {
+  font-size: 13px;
+  line-height: 18px;
+}
+/* kabuk: font-size 32px; line-height 1.15; letter-spacing -0.02em */
+.ptitle {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: inherit;
+}
+/* kabuk: font-size 16px; line-height 1.5; margin-top 8px */
+.psub {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 4px;
+}
+@media (max-width: 767px) {
+  /* kabuk: font-size 26px; line-height yok */
+  .ptitle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+/* kabuk: gap 24px; border-bottom 1px solid var(--line) */
+.ptabs {
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+}
+/* kabuk: padding 0; height 48px */
+.ptabs button,
+.ptabs a {
+  padding: 0 12px;
+  height: 44px;
+}
+/* sekme yazısı: düğmede 14 (öğe kuralı), bağlantıda kalıtım */
+.ptabs button {
+  font-size: 14px;
+}
+.ptabs a {
+  font-size: inherit;
+}
+/* kabuk: color var(--text) */
+.ptabs button.on,
+.ptabs a.on,
+.ptabs [aria-selected='true'] {
+  color: var(--primary);
+}
+/* kabuk: background var(--surface-3) */
+.cnt {
+  background: var(--neutral-bg);
+}
+/* kabuk: box-shadow yok; padding 24px 28px */
+.card,
+.tile {
+  box-shadow: var(--sh-sm);
+  padding: 20px;
+}
+/* kabuk: align-items center; margin-bottom 16px; gap 8px 12px */
+.card-h,
+.tile-h {
+  align-items: baseline;
+  margin-bottom: 14px;
+  gap: 4px 16px;
+}
+/* kabuk: padding 18px 28px 0 */
+.card.flush > .card-h {
+  padding: 18px 20px 0;
+}
+/* kabuk: font-size 18px; line-height 26px; letter-spacing -0.01em */
+.card-h .tt,
+.tile-h .tt {
+  font-size: 17px;
+  line-height: 22px;
+  letter-spacing: inherit;
+}
+/* kabuk: font-size 14px; line-height 20px; color var(--text-2) */
+.card-h .note,
+.tile-h .note,
+.card-desc {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+/* kabuk: flex 1 1 280px */
+.card-h > .grow {
+  flex: 1 1 180px;
+}
+/* kabuk: font-size 22px; line-height 30px; letter-spacing -0.01em */
+.section-title {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: inherit;
+}
+/* kabuk: font-size 15px; line-height 22px; color var(--text-2) */
+.section-desc {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+/* kabuk: box-shadow yok; padding 24px 28px 28px */
+.editor-sec {
+  box-shadow: var(--sh-sm);
+  padding: 20px 24px 24px;
+}
+@media (max-width: 767px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .card,
+  .tile,
+  .editor-sec {
+    padding: 16px;
+  }
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .card.flush > .card-h {
+    padding: 16px 16px 0;
+  }
+}
+/* kabuk: padding 0 22px; font-size 16px */
+.btn {
+  padding: 0 20px;
+  font-size: 15px;
+}
+/* kabuk: outline 2px solid var(--focus); box-shadow yok */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+/* kabuk: box-shadow yok */
+.btn-primary {
+  box-shadow: var(--sh-sm);
+}
+/* kabuk: border-color var(--line); box-shadow yok */
+.btn-secondary,
+.btn-dark,
+.btn-tert {
+  border-color: var(--border-strong);
+  box-shadow: var(--sh-sm);
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.btn-danger-outline {
+  border-color: var(--danger-line);
+}
+/* kabuk: padding 0 14px */
+.btn-ghost {
+  padding: 0 12px;
+}
+/* kabuk: background var(--surface-3) */
+.btn-ghost:hover:not(:disabled) {
+  background: var(--neutral-bg);
+}
+/* kabuk: font-size 15px */
+.btn-sm {
+  padding: 0 14px;
+  font-size: 14px;
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.btn-icon {
+  padding: 0;
+}
+/* kabuk: padding 6px; border-radius var(--r-btn); box-shadow var(--sh-lg) */
+.amenu-list {
+  padding: 4px;
+  border-radius: var(--r-ctl);
+  box-shadow: var(--sh-md);
+}
+/* kabuk: border-radius 8px; font-size 15px */
+.amenu-list [role='menuitem'] {
+  border-radius: 6px;
+  font-size: inherit;
+}
+/* kabuk: box-shadow inset 0 0 0 2px var(--focus) */
+.amenu-list [role='menuitem']:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+/* kabuk: font-size 14px; line-height 20px; color var(--text) */
+.fld > label,
+.lbl {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+/* kabuk: font-size 14px; line-height 20px; color var(--text-2) */
+.fld .help {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+/* kabuk: font-size 14px; line-height 20px */
+.fld .err {
+  font-size: 13px;
+  line-height: 18px;
+}
+/* kabuk: box-shadow yok; font-size 15px */
+.inp,
+.sel,
+.txt {
+  outline: none;
+  box-shadow: var(--sh-sm);
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .inp,
+  .sel,
+  .txt {
+    font-size: 16px;
+  }
+}
+/* kabuk: border-color var(--focus); box-shadow 0 0 0 1px var(--focus) */
+.inp:focus,
+.sel:focus,
+.txt:focus,
+.inp:focus-visible,
+.sel:focus-visible,
+.txt:focus-visible {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.inp.invalid,
+.sel.invalid,
+.txt.invalid,
+.inp[aria-invalid='true'],
+.sel[aria-invalid='true'],
+.txt[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.inp:disabled,
+.sel:disabled,
+.txt:disabled,
+.inp[readonly] {
+  box-shadow: none;
+}
+/* kabuk: border-color var(--focus); box-shadow 0 0 0 1px var(--focus) */
+.inp[readonly]:focus-visible {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+}
+/* kabuk: background-position right 12px center */
+.sel {
+  background-position: right 10px center;
+}
+/* kabuk: padding 12px 16px 12px 24px; border 1px solid var(--border); box-shadow 0 12px 32px rgba(10,26,58,0.12) */
+.savebar-in {
+  padding: 12px 16px 12px 20px;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--sh-md);
+}
+@media (max-width: 767px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .savebar-in {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    padding: 10px 16px calc(10px + var(--sod-safe-b, env(safe-area-inset-bottom)));
+  }
+}
+/* kabuk: background var(--surface-3) */
+.seg {
+  background: #f2f4f7;
+}
+/* kabuk: height 36px; padding 0 14px; font-size 15px; border-radius 8px */
+.seg button {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.seg button.on,
+.seg button[aria-pressed='true'] {
+  color: var(--text);
+}
+@media (max-width: 767px) {
+  /* kabuk: height 40px */
+  .seg button {
+    height: 38px;
+  }
+}
+/* kabuk: height 26px; padding 0 10px; line-height 18px; background var(--surface-3) */
+.tag {
+  height: 24px;
+  padding: 0 10px 0 8px;
+  line-height: 16px;
+  background: var(--neutral-bg);
+}
+/* kabuk: color var(--primary) */
+.tag.blue {
+  color: var(--primary-hover);
+}
+/* kabuk: background var(--surface-3) */
+.tag.gray {
+  background: var(--neutral-bg);
+  color: var(--text-2);
+}
+/* DeciShip çipleri çerçevesiz; küçük çip yazısı 13 */
+.tag.green,
+.tag.red,
+.tag.yellow,
+.tag.blue {
+  border-color: transparent;
+}
+.tag.sm {
+  font-size: 13px;
+}
+/* DeciShip kuralı; sıra koruması için burada */
+.tag.sun {
+  background: var(--accent);
+  color: var(--text);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 12px;
+  height: 22px;
+  padding: 0 8px;
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.tag.purple {
+  background: #f4f3ff;
+  border-color: #d9d6fe;
+  color: #5925dc;
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.tag.teal {
+  background: #f0fdf9;
+  border-color: #99f6e0;
+  color: #107569;
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.tag.outline {
+  background: var(--surface);
+  border-color: var(--success-line);
+  color: var(--success);
+}
+/* kabuk: height 22px */
+.tag.sm {
+  height: 20px;
+}
+/* kabuk: min-height 48px; padding 13px 16px; border-radius var(--r-btn); font-size 15px; line-height 22px */
+.notif {
+  min-height: 44px;
+  padding: 12px 16px;
+  border-radius: var(--r-ctl);
+  font-size: 14px;
+  line-height: 20px;
+}
+/* kabuk: margin-top 3px */
+.notif svg.i {
+  margin-top: 2px;
+}
+/* kabuk: container yok; box-shadow yok */
+.tbl-wrap,
+.table-wrap {
+  container: dtw / inline-size;
+  box-shadow: var(--sh-sm);
+}
+/* kabuk: background var(--surface); height 44px; line-height 18px; border-bottom 1px solid var(--line) */
+.dt th {
+  background: var(--surface-2);
+  height: 42px;
+  line-height: 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+/* kabuk: font-size 12px; line-height 16px */
+.dt th .sub {
+  font-size: 11px;
+  line-height: 14px;
+}
+/* kabuk: height 56px; border-top 1px solid var(--line-soft); padding 10px 16px; font-size 15px */
+.dt td {
+  height: 52px;
+  border-top: 1px solid var(--border-soft);
+  padding: 8px 16px;
+  font-size: 14px;
+}
+/* kabuk: outline 2px solid var(--focus) */
+.dt tbody tr:focus-visible {
+  outline: 2px solid var(--primary);
+}
+/* kabuk: font-size 13px; line-height 18px; color var(--text-2) */
+.dt .sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+/* kabuk: font-weight 500 */
+.dt .id {
+  font-weight: 600;
+}
+/* kabuk: height 48px */
+.dt.compact td {
+  height: 44px;
+}
+@media (max-width: 767px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .dt th,
+  .dt td {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@container dtw (max-width: 599px) {
+  /* DeciShip kuralı; sıra koruması için burada */
+  .dt.dt-cards td {
+    height: auto;
+    border: 0;
+    padding: 3px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    text-align: right;
+    background: transparent;
+  }
+}
+/* Tablo kart kipi: DeciShip'te tablonun kendi genişliğine bağlı (kap sorgusu dtw < 600), kabukta ekrana bağlı (medya ≤ 767).
+ * Kabuğun medya kuralları burada geri alınır: dar kapta yalnız satır kırma, geniş kapta (600+) tablo düzeni.
+ * Dikkat: aşağıdaki `.dt.dt-cards td { display: table-cell }` (özgüllük 0,2,1) sayfaların sütun gizlemesinden güçlüdür.
+ * Sayfa CSS'inde sütun gizleyen kural tablo sınıfını `.dt.` ile yazar (`.dt.inv-list .inv-c-date`, 0,3,0); yoksa 600–767 ekranda
+ * başlık gizli kalır, hücre görünür, satırlar kayar (e2e: table-widths.spec.ts "600–767"). */
+@media (max-width: 767px) {
+  @container dtw (max-width: 599px) {
+    .dt.dt-cards td {
+      white-space: nowrap;
+    }
+  }
+  @container dtw (min-width: 600px) {
+    .dt.dt-cards {
+      display: table;
+    }
+    .dt.dt-cards thead {
+      display: table-header-group;
+    }
+    .dt.dt-cards tbody {
+      display: table-row-group;
+      width: auto;
+    }
+    .dt.dt-cards tr {
+      display: table-row;
+      width: auto;
+      padding: 0;
+      border-top: 0;
+    }
+    .dt.dt-cards td {
+      display: table-cell;
+      width: auto;
+      height: 52px;
+      border: 0;
+      border-top: 1px solid var(--border-soft);
+      padding: 8px 12px;
+      justify-content: normal;
+      align-items: normal;
+      gap: normal;
+      white-space: nowrap;
+      text-align: left;
+      background: var(--surface);
+    }
+    .dt td.r {
+      text-align: right;
+    }
+    .dt.compact td {
+      height: 44px;
+      padding: 6px 16px;
+    }
+    .dt.tight td {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .dt td.actions {
+      text-align: right;
+      width: 1%;
+    }
+    .dt.dt-cards td[data-label]::before {
+      content: none;
+    }
+    .dt.dt-cards td.card-title {
+      justify-content: normal;
+      padding-bottom: 8px;
+    }
+    .dt.dt-cards.compact td.card-title {
+      padding-bottom: 6px;
+    }
+    .dt.dt-cards td.card-title .sub {
+      display: block;
+      margin-left: 0;
+    }
+    .dt.dt-cards tbody tr.clickable:hover td {
+      background: var(--surface-2);
+    }
+    .dt.dt-cards tbody tr.clickable.sel:hover td {
+      background: var(--primary-soft);
+    }
+    .dt.dt-cards tbody tr.clickable:hover {
+      background: none;
+    }
+    .dt.dt-cards td.actions {
+      width: 1%;
+      justify-content: normal;
+    }
+  }
+}
+/* kabuk: border-top 1px solid var(--line-soft); min-height 56px */
+.tfoot {
+  border-top: 0;
+  min-height: 52px;
+}
+/* kabuk: width 44px; height 44px; border 1px solid var(--line) */
+.pager-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-strong);
+}
+@media (max-width: 767px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .pager-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.edit-grid td.ro {
+  background: var(--surface-2);
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.cell {
+  outline: none;
+}
+/* kabuk: outline 2px solid var(--focus) */
+.cell:focus {
+  outline: 2px solid var(--primary);
+}
+/* kabuk: padding 0 22px; font-size 16px */
+.pa {
+  padding: 0 20px;
+  font-size: 15px;
+}
+/* kabuk: outline 2px solid var(--focus); box-shadow yok */
+.pa:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+/* kabuk: border-color var(--line); box-shadow yok; font-weight 500 */
+.pa.dark,
+.pa.ghost {
+  border-color: var(--border-strong);
+  box-shadow: var(--sh-sm);
+  font-weight: 600;
+}
+/* kabuk: box-shadow yok */
+.pa.prim {
+  box-shadow: var(--sh-sm);
+}
+/* kabuk: padding 28px 28px 24px */
+.modal-in {
+  padding: 24px 24px 24px;
+}
+/* kabuk: font-size 20px; line-height 28px; letter-spacing -0.01em */
+.modal-title {
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: inherit;
+}
+/* kabuk: padding 16px 28px */
+.modal-actions {
+  padding: 16px 24px;
+}
+/* masaüstünde pencere düğmeleri içerik kadar (kabukta eşit genişlik) */
+.modal-actions .pa {
+  flex: 0 1 auto;
+}
+@media (max-width: 767px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .modal-in {
+    padding: 24px 16px 16px;
+  }
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .modal-actions {
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+  /* kabuk: flex 1 1 0; min-width yok; max-width yok; justify-content yok; text-align yok */
+  .modal-actions .pa {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+/* kabuk: top 20px */
+.toasts {
+  top: calc(var(--sod-top-h) + 84px);
+}
+/* kabuk: border-radius var(--r-btn) */
+.toast {
+  border-radius: var(--r-card);
+}
+/* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+.toast svg.i {
+  width: 18px;
+  height: 18px;
+}
+/* kabuk: outline 2px solid var(--focus); box-shadow yok */
+.toast .toast-act:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+@media (max-width: 1023px) {
+  /* kabuk: top calc(var(--topbar-h)+8px) */
+  .toasts {
+    top: calc(var(--sod-top-h) + 109px);
+  }
+}
+@media (max-width: 768px) {
+  /* sıra koruması (paketle aynı değer; sona taşınan farkların ardından sırayı korur) */
+  .toasts {
+    top: auto;
+  }
+}
+/* kabuk: background linear-gradient(90deg,#ebe8e1 0%,#f5f3ee 40%,#ebe8e1 80%) */
+.skel {
+  background: linear-gradient(90deg, #eef0f3 0%, #f7f8fa 40%, #eef0f3 80%);
+  background-size: 300% 100%;
+}
+/* kabuk: box-shadow yok */
+.empty .ic {
+  box-shadow: 0 0 0 6px rgba(29, 91, 216, 0.04);
+}
+/* kabuk: font-size 18px; line-height 26px */
+.empty h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+/* kabuk: height 8px; background var(--surface-3) */
+.bar {
+  height: 6px;
+  background: var(--border-soft);
+}

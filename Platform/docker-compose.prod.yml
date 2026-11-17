@@ -1,0 +1,158 @@
+# Üretim katmanı: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# Parola veya anahtar eksikse compose başlamaz. Geliştirme parolaları (*_dev) postgres kurulumunda ve servis açılışında da reddedilir.
+# Dışa yalnız Caddy açılır (TCP 80 ve 443, caddy/Caddyfile): https'i o sonlandırır, gateway'e ve siteye iç ağdan aktarır.
+# Öteki bütün portlar (veritabanı, Hesap, görüntü servisi, gateway, site) burada sıfırlanır (gateway/test/compose-order.test.mjs).
+
+# Temel dosyadaki x-logging ile aynı (YAML çapası dosyalar arası geçmez; compose-order testi ikisini karşılaştırır).
+x-logging: &sod-logging
+  driver: json-file
+  options:
+    max-size: ${SOD_LOG_MAX_SIZE:-20m}
+    max-file: "${SOD_LOG_MAX_FILE:-5}"
+    compress: "true"
+
+services:
+  # ---------- TLS sonlandırıcı (yalnız üretim) ----------
+  # Vekil zinciri sabit: istemci → Caddy → gateway → uygulama. Caddy istemcinin X-Forwarded-* başlıklarını yok sayar, kendi
+  # gördüğünü yazar; gateway onlara yalnız Caddy'nin sabit adresinden gelirse güvenir (aşağıda GATEWAY_REAL_IP_FROM).
+  caddy:
+    image: caddy:2.11.9-alpine
+    restart: unless-stopped
+    logging: *sod-logging
+    # Süren isteği bitirir (yükleme), sonra kapanır.
+    stop_grace_period: 15s
+    mem_limit: ${CADDY_MEM:-256m}
+    environment:
+      APP_HOST: ${APP_HOST:?APP_HOST gerekli, ör. app.sellerondata.com (APP_BASE_URL=https://<APP_HOST>)}
+      SITE_HOST: ${SITE_HOST:?SITE_HOST gerekli, ör. sellerondata.com (SITE_BASE_URL=https://<SITE_HOST>; www bu adrese yönlenir)}
+      ACME_EMAIL: ${ACME_EMAIL:?ACME_EMAIL gerekli, Let's Encrypt hesabının e-postası}
+    # Yalnız IPv4: Docker IPv6'sız ağa IPv6 bağlantısını aktarırken istemcinin adresini köprünün adresiyle değiştirir,
+    # bütün IPv6 kullanıcıları tek IP sayılırdı. DNS'e AAAA kaydı yazılmaz (KURULUM "Üretim açılışı").
+    # Port değişkenleri yalnız yerel deneme içindir (canlı yığının yanında); sunucuda 80 ve 443 kalır (sertifika doğrulaması ister).
+    ports:
+      - "0.0.0.0:${CADDY_HTTP_PORT:-80}:80"
+      - "0.0.0.0:${CADDY_HTTPS_PORT:-443}:443"
+    volumes:
+      # Klasör bağlanır, dosya değil: düzenlenen Caddyfile kapta görünür (`caddy reload`).
+      - ./caddy:/etc/caddy:ro
+      # Sertifikalar ve ACME hesabı: silinirse yeniden alınır, Let's Encrypt haftalık sınırına takılabilir.
+      - sod_caddy_data:/data
+      - sod_caddy_config:/config
+    networks:
+      edge:
+        ipv4_address: ${SOD_CADDY_IP:-172.31.250.10}
+    healthcheck:
+      # Yönetim ucu yalnız kabın içinde (127.0.0.1:2019); dışa açık değil.
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:2019/reverse_proxy/upstreams || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+      start_interval: 2s
+    depends_on:
+      gateway:
+        condition: service_healthy
+      site:
+        condition: service_healthy
+
+  gateway:
+    ports: !reset []
+    environment:
+      # .env'deki değer ezilir: yanlış adres herkesi tek IP sayar (hız sınırı birlikte dolar) ve HSTS gitmez.
+      GATEWAY_REAL_IP_FROM: ${SOD_CADDY_IP:-172.31.250.10}
+    networks:
+      default: {}
+      edge: {}
+
+  postgres:
+    ports: !reset []
+    # 2 GB kap sınırına göre: tampon 512 MB, bağlantı üst sınırı 100 (API havuzu 20 + Hesap + yedek payı).
+    command: ["postgres", "-c", "shared_buffers=512MB", "-c", "max_connections=100"]
+    environment:
+      SOD_ENV: production
+      POSTGRES_PASSWORD: ${SOD_POSTGRES_PASSWORD:?SOD_POSTGRES_PASSWORD gerekli}
+      SOD_PLATFORM_ADMIN_DB_PASSWORD: ${SOD_PLATFORM_ADMIN_DB_PASSWORD:?SOD_PLATFORM_ADMIN_DB_PASSWORD gerekli}
+      SOD_DECISHIP_ADMIN_DB_PASSWORD: ${SOD_DECISHIP_ADMIN_DB_PASSWORD:?SOD_DECISHIP_ADMIN_DB_PASSWORD gerekli}
+      SOD_PLATFORM_DB_PASSWORD: ${SOD_PLATFORM_DB_PASSWORD:?SOD_PLATFORM_DB_PASSWORD gerekli}
+      SOD_DECISHIP_DB_PASSWORD: ${SOD_DECISHIP_DB_PASSWORD:?SOD_DECISHIP_DB_PASSWORD gerekli}
+
+  # Yeni rol yalnız gerçek parolayla açılır (upgrade.sql *_dev parolasını üretimde reddeder).
+  postgres-upgrade:
+    environment:
+      SOD_ENV: production
+      PGPASSWORD: ${SOD_POSTGRES_PASSWORD:?SOD_POSTGRES_PASSWORD gerekli}
+      SOD_PLATFORM_ADMIN_DB_PASSWORD: ${SOD_PLATFORM_ADMIN_DB_PASSWORD:?SOD_PLATFORM_ADMIN_DB_PASSWORD gerekli}
+      SOD_DECISHIP_ADMIN_DB_PASSWORD: ${SOD_DECISHIP_ADMIN_DB_PASSWORD:?SOD_DECISHIP_ADMIN_DB_PASSWORD gerekli}
+      SOD_PLATFORM_DB_PASSWORD: ${SOD_PLATFORM_DB_PASSWORD:?SOD_PLATFORM_DB_PASSWORD gerekli}
+      SOD_DECISHIP_DB_PASSWORD: ${SOD_DECISHIP_DB_PASSWORD:?SOD_DECISHIP_DB_PASSWORD gerekli}
+
+  vision:
+    ports: !reset []
+
+  account-api:
+    ports: !reset []
+    stop_grace_period: 20s
+    environment:
+      NODE_ENV: production
+      EMAIL_VERIFICATION_REQUIRED: "true"
+      DEV_MAILBOX: "false"
+      APP_BASE_URL: ${APP_BASE_URL:?APP_BASE_URL gerekli}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:?ALLOWED_ORIGINS gerekli}
+      SITE_ORIGINS: ${SITE_ORIGINS:?SITE_ORIGINS gerekli, tanıtım sitesinin https kökeni}
+      ACCOUNT_SIGNING_KEY: ${ACCOUNT_SIGNING_KEY:?ACCOUNT_SIGNING_KEY gerekli}
+      ACCOUNT_CODE_PEPPER: ${ACCOUNT_CODE_PEPPER:?ACCOUNT_CODE_PEPPER gerekli}
+      SMTP_URL: ${SMTP_URL:?SMTP_URL gerekli, şifre sıfırlama ve davet postası için}
+      PRODUCT_LAUNCH: ${PRODUCT_LAUNCH:-}
+      # Kapalı deneme (kullanıcı kararı 2026-11-12): yazılmazsa kayıt yalnız davetle. Herkese açmak için .env'de SIGNUP_MODE=open.
+      SIGNUP_MODE: ${SIGNUP_MODE:-invite}
+      PRODUCT_NOTIFY_SECRETS: deciship=${PRODUCT_NOTIFY_SECRET:?PRODUCT_NOTIFY_SECRET gerekli, en az 32 karakter (araç bildirimi)}
+      # Önünde tek vekil (gateway): X-Forwarded-For'u gateway tek adrese indirir. .env'den ezilmez (0 herkesi gateway'in IP'si sayardı).
+      TRUST_PROXY_HOPS: "1"
+
+  deciship-api:
+    # Süren arka plan işine 30 sn (JOB_SHUTDOWN_GRACE_MS), sonra kira bırakılır; kap bundan önce öldürülmesin.
+    stop_grace_period: 45s
+    environment:
+      NODE_ENV: production
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:?ALLOWED_ORIGINS gerekli}
+      FILE_TOKEN_SECRET: ${FILE_TOKEN_SECRET:?FILE_TOKEN_SECRET gerekli}
+      # Dosya bağlantılarının kökü: üretimde istek başlığından değil buradan kurulur (https, uygulamanın adı).
+      APP_BASE_URL: ${APP_BASE_URL:?APP_BASE_URL gerekli}
+      PRODUCT_NOTIFY_SECRET: ${PRODUCT_NOTIFY_SECRET:?PRODUCT_NOTIFY_SECRET gerekli, en az 32 karakter (araç bildirimi)}
+      # Deneme turunu üretimde kapatma anahtarı (off); varsayılan açık.
+      DEMO_TOUR: ${DEMO_TOUR:-on}
+      # Hesap servisiyle aynı: önünde yalnız gateway.
+      TRUST_PROXY_HOPS: "1"
+
+  # Hesap alanının site bağlantıları derlemede gömülür: boşken üretimde localhost'a giderdi.
+  hub-web:
+    build:
+      args:
+        VITE_SITE_URL: ${SITE_BASE_URL:?SITE_BASE_URL gerekli}
+
+  # Sitenin kanonik bağlantıları ve sitemap'i derlemede gömülür: boşken üretim sitesi localhost'u gösterirdi.
+  site:
+    build:
+      args:
+        SITE_URL: ${SITE_BASE_URL:?SITE_BASE_URL gerekli}
+        # Hesap servisiyle aynı varsayılan: kapalı denemede "Hesap aç" yerine "Erken erişim isteyin".
+        SIGNUP_MODE: ${SIGNUP_MODE:-invite}
+    ports: !reset []
+    # Yalnız Caddy'nin ağında: veritabanına ve iç servislere yolu yok.
+    networks:
+      edge: {}
+
+# Caddy ile gateway ve site arasındaki ağ. Aralık sabit: Caddy'nin adresi (SOD_CADDY_IP) bu aralıkta olmalı, gateway yalnız ona
+# güvenir. Sunucudaki başka bir Docker ağıyla çakışırsa compose açılmaz; o zaman ikisi birlikte değiştirilir (.env).
+networks:
+  edge:
+    ipam:
+      config:
+        - subnet: ${SOD_EDGE_SUBNET:-172.31.250.0/24}
+
+# Adlar temel dosyadaki gibi proje adından bağımsız; yan yana deneme kendi adını verir.
+volumes:
+  sod_caddy_data:
+    name: ${SOD_CADDY_DATA_VOLUME:-sod_caddy_data}
+  sod_caddy_config:
+    name: ${SOD_CADDY_CONFIG_VOLUME:-sod_caddy_config}

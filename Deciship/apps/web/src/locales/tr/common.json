@@ -1,0 +1,204 @@
+{
+  "actions": {
+    "close": "Kapat"
+  },
+  "error": {
+    "unexpected": "Beklenmeyen bir hata oluştu; sayfayı yenileyip yeniden deneyin."
+  },
+  "panel": {
+    "details": "Ayrıntılar",
+    "close": "Paneli kapat"
+  },
+  "photos": {
+    "none": "Fotoğraf yok.",
+    "photo": "Fotoğraf",
+    "enlarge": "{{kind}} fotoğrafını büyüt",
+    "prev": "Önceki",
+    "next": "Sonraki"
+  },
+  "returnBar": {
+    "title": "Kurulum sihirbazından açtınız.",
+    "hint": "Kaydettikten sonra sihirbaza dönüp kaldığınız yerden devam edin.",
+    "back": "Kuruluma dön"
+  },
+  "update": {
+    "message": "<b>DeciShip güncellendi.</b> Devam etmeden önce sayfayı yenileyin.",
+    "reload": "Yenile",
+    "dismiss": "Şimdilik kapat",
+    "unsaved": "Kaydedilmemiş değişiklikleriniz var. Sayfa yenilenirse silinir. Yine de yenilensin mi?"
+  },
+  "importHeadline": {
+    "error": "Bu haliyle yüklenemez",
+    "fixable": "Aşağıdaki düzeltmeyle çözülebilir.",
+    "warnings_one": "{{n}} uyarıya bakın",
+    "warnings_other": "{{n}} uyarıya bakın",
+    "ok": "Dosya uygun"
+  },
+  "apiError": {
+    "400": "İstek geçersiz; bilgileri kontrol edip yeniden deneyin.",
+    "401": "Oturumunuz sona erdi. Lütfen yeniden giriş yapın.",
+    "403": "Bu işlem için yetkiniz yok.",
+    "404": "Kayıt bulunamadı; silinmiş olabilir. Sayfayı yenileyin.",
+    "409": "Bu kayıt zaten var.",
+    "413": "Dosya çok büyük; daha küçük bir dosya seçin.",
+    "502": "Sunucuya ulaşılamıyor; biraz sonra yeniden deneyin.",
+    "503": "Hizmet şu an kullanılamıyor; biraz sonra yeniden deneyin.",
+    "504": "Sunucu yanıt vermedi; biraz sonra yeniden deneyin.",
+    "network": "Sunucuya bağlanılamadı. İnternet bağlantınızı kontrol edin.",
+    "other": "Beklenmeyen hata ({{status}}); yeniden deneyin."
+  },
+  "notFound": {
+    "eyebrow": "404 · SAYFA BULUNAMADI",
+    "invoices": "Faturalar",
+    "otherFirm": "Bir fatura ya da ölçüm bağlantısıysa kayıt başka bir firmanıza ait olabilir; üstteki firma seçiciden geçip bakın.",
+    "title": "Bu sayfa bulunamadı",
+    "text": "Bağlantı eskimiş ya da yanlış yazılmış olabilir. Panodan ya da menüden devam edebilirsiniz.",
+    "back": "Panoya dön"
+  },
+  "routeError": {
+    "docTitle": "Hata",
+    "home": "DeciShip ana sayfa",
+    "title": "Bir şeyler ters gitti",
+    "stale": "DeciShip güncellenmiş olabilir; bu sekme eski sürümle açık kalmış. Sayfayı yenileyince düzelir.",
+    "generic": "Bu sayfa beklenmedik bir hatayla karşılaştı. Kaydettiğiniz veriler etkilenmedi. Sayfayı yenileyin; düzelmezse panoya dönüp tekrar deneyin.",
+    "reload": "Sayfayı yenile",
+    "tech": "Teknik ayrıntı"
+  },
+  "status": {
+    "MATCH": "Uyumlu",
+    "DIFF": "Fark var",
+    "UNMATCHED": "Eşleşmedi",
+    "NO_TARIFF": "Tarife yok"
+  },
+  "diff": {
+    "DUPLICATE": "Mükerrer",
+    "DIMENSION": "Ölçü farkı",
+    "WEIGHT": "Ağırlık farkı",
+    "SURCHARGE": "Ek ücret",
+    "PRICE": "Fiyat farkı"
+  },
+  "diffHint": {
+    "DUPLICATE": "Aynı koli ya da aynı satır faturada iki kez yer alıyor; ikincisi fazla ödemedir."
+  },
+  "decision": {
+    "OPEN": "Karar bekliyor",
+    "VERIFIED": "İtiraz listesinde",
+    "ACCEPTED": "Uyumlu sayıldı"
+  },
+  "reviewCode": {
+    "MULTI_PARCEL": "Olası çok koli",
+    "SERVICE": "Hizmet tarifeden farklı",
+    "SERVICE_UNKNOWN": "Tarifenin hizmeti belirsiz",
+    "SERVICE_MISSING": "Satırda hizmet yok",
+    "DUPLICATE": "Olası mükerrer",
+    "TARIFF_ONLY": "Fiyat faturadan doğrulanamadı",
+    "ZONE_DISTANCE": "Mesafe bölgesi doğrulanamadı",
+    "EXTREME_RATE": "Fiyat tarifeden çok farklı",
+    "EXTREME_WEIGHT": "Ağırlık ölçümden çok farklı",
+    "FUEL_RATE": "Yakıt oranı olağandışı",
+    "FUEL_UNKNOWN": "Yakıt ayrı yazılmamış",
+    "FUEL_SURCHARGE": "Yakıt ek ücrete de uygulanmış",
+    "FX_STALE": "Eski tarihli kur"
+  },
+  "dimMethod": {
+    "LIDAR": "LiDAR",
+    "AR": "AR",
+    "REFERENCE": "Referans kartı",
+    "MANUAL": "Elle",
+    "PRESET": "Hazır koli"
+  },
+  "photoKind": {
+    "PHOTO_BOX": "Kutu",
+    "PHOTO_SCALE": "Tartı",
+    "PHOTO_LABEL": "Etiket",
+    "PHOTO_OTHER": "Diğer"
+  },
+  "surchargeKind": {
+    "FIXED": "Sabit tutar",
+    "PCT": "Yüzde (%)",
+    "PER_KG": "Kg başına"
+  },
+  "carrier": {
+    "generic": "Diğer (genel kalıp)"
+  },
+  "mapping": {
+    "trackingNo": "Takip no",
+    "netAmount": "Net tutar",
+    "shipDate": "Gönderi tarihi",
+    "service": "Hizmet",
+    "destCountry": "Varış ülkesi",
+    "actualKg": "Gerçek ağırlık (kg)",
+    "billedKg": "Ücretli ağırlık (kg ya da desi)",
+    "dimL": "Uzunluk (cm)",
+    "dimW": "Genişlik (cm)",
+    "dimH": "Yükseklik (cm)",
+    "dims": "Ölçü (tek hücre, 40x30x25)",
+    "billedDivisor": "Desi böleni",
+    "baseAmount": "Navlun / liste tutarı",
+    "discountAmount": "İndirim",
+    "fuelAmount": "Yakıt ek ücreti",
+    "currency": "Para birimi",
+    "reference": "Referans",
+    "dimUnit": "Ölçü birimi (cm/inç)",
+    "actualKgUnit": "Gerçek ağırlık birimi (kg/lb)",
+    "billedKgUnit": "Ücretli ağırlık birimi (kg/lb)"
+  },
+  "mappingHint": {
+    "netAmount": "Satırın ödenen tutarı"
+  },
+  "serviceInfo": {
+    "IP": "standart hızlı uluslararası gönderi",
+    "IPE": "IP'den hızlı, belirli saatte teslim; daha pahalı",
+    "IE": "IP'den yavaş, daha ucuz",
+    "IPF": "ağır yük (70 kg üstü, palet), hızlı",
+    "IEF": "ağır yük (70 kg üstü, palet), ekonomik",
+    "ICP": "e-ticaret gönderileri için uygun fiyatlı hizmet"
+  },
+  "paste": {
+    "title": "Bu sayı iki türlü okunabilir",
+    "body": "\"{{value}}\" {{asTr}} ya da {{asEn}} olabilir. Yanlış okunmasın diye hangisi olduğunu seçin.",
+    "readAs": "\"{{example}}\" = {{value}}",
+    "cancel": "Vazgeç"
+  },
+  "jobs": {
+    "queued": "Sırada bekliyor",
+    "running": "Sürüyor",
+    "elapsed": "{{time}} geçti",
+    "step": "{{done}} / {{total}}",
+    "stop": "Durdur",
+    "stopping": "Durduruluyor…",
+    "background": "Sayfayı kapatabilirsiniz; iş arka planda sürer.",
+    "resumed": "Kaldığı yerden sürüyor.",
+    "failed": "İş tamamlanamadı",
+    "stopped": "Durduruldu",
+    "stage": {
+      "pdfRead": "PDF okunuyor",
+      "pdfCheck": "Satırlar PDF metniyle karşılaştırılıyor",
+      "pdfPages": "Sayfa {{from}}–{{to}} / {{pages}}",
+      "tariffScan": "Tablolar aranıyor",
+      "tariffExtract": "Fiyatlar okunuyor",
+      "bulkCheck": "Faturalar kontrol ediliyor",
+      "bulkWrite": "Faturalar güncelleniyor",
+      "importRead": "Dosya okunuyor",
+      "importCompare": "Satırlar tarifeyle ve ölçümlerle karşılaştırılıyor",
+      "importWrite": "Fatura kaydediliyor",
+      "tariffReview": "Yapay zekâ dosyayı inceliyor"
+    }
+  },
+  "demo": {
+    "band": "Örnek verilerle deniyorsunuz. Buradaki faturalar ve ölçümler gerçek değil.",
+    "end": "Denemeyi bitir",
+    "endTitle": "Örnek veriler silinsin mi?",
+    "endBody": "Örnek taşıyıcılar, tarifeler, faturalar ve ölçümler silinir; kuruluma kendi verinizle başlarsınız. Çalışanlarınızın bu arada kaydettiği ölçümler kalır.",
+    "endChanges": "Örnek tarife ve taşıyıcılarda yaptığınız değişiklikler de silinir.",
+    "endConfirm": "Sil ve kuruluma başla",
+    "cancel": "Vazgeç",
+    "ended": "Örnek veriler silindi"
+  },
+  "weightChoice": {
+    "ask": "<a>{{decimal}}</a> mı, <b>{{thousands}}</b> mı?",
+    "aria": "“{{value}}” hangi ağırlık?",
+    "item": "“{{text}}” = {{value}}",
+    "which": "Hangisi doğru?"
+  }
+}

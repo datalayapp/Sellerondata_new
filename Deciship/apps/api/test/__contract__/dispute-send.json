@@ -1,0 +1,65 @@
+{
+  "endpoint": "POST /api/deciship/invoices/:id/disputes",
+  "status": 201,
+  "shape": {
+    "dispute": {
+      "active": {
+        "channel": "string",
+        "channelNote": "string",
+        "createdAt": "string",
+        "currency": "string",
+        "id": "string",
+        "lines": [
+          {
+            "claimedAmount": "number",
+            "id": "string",
+            "invoiceLineId": "string",
+            "lineNo": "number",
+            "outcome": "string",
+            "recoveredAmount": "null",
+            "resultId": "null",
+            "trackingNo": "string"
+          }
+        ],
+        "reference": "null",
+        "results": [],
+        "round": "number",
+        "sentBy": {
+          "id": "string",
+          "name": "string"
+        },
+        "sentOn": "string",
+        "sums": {
+          "claimedAmount": "number",
+          "pendingAmount": "number",
+          "recoveredAmount": "number",
+          "rejectedAmount": "number",
+          "shortfallAmount": "number"
+        },
+        "supersededAt": "null",
+        "supersededById": "null",
+        "ttk": "string",
+        "ttkSentOn": "string",
+        "version": "number",
+        "withdrawReason": "null",
+        "withdrawnAt": "null",
+        "withdrawnBy": "null"
+      },
+      "history": [],
+      "recalcPendingLines": "number",
+      "selectionDigest": "string",
+      "sendableAmount": "number",
+      "sendableLineCount": "number",
+      "status": "string",
+      "sums": {
+        "claimedAmount": "number",
+        "pendingAmount": "number",
+        "recoveredAmount": "number",
+        "rejectedAmount": "number",
+        "shortfallAmount": "number"
+      },
+      "unsentAmount": "number",
+      "unsentLineCount": "number"
+    }
+  }
+}

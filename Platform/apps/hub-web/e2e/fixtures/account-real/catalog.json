@@ -1,0 +1,178 @@
+{
+  "status": 200,
+  "body": {
+    "locale": "tr",
+    "registrationEnabled": true,
+    "signupMode": "open",
+    "mailEnabled": false,
+    "products": [
+      {
+        "key": "deciship",
+        "name": "DeciShip",
+        "tagline": "Kargo faturasındaki fazlayı bulun",
+        "basePath": "/deciship",
+        "color": "#1d5bd8",
+        "available": true,
+        "launch": "public",
+        "roles": [
+          {
+            "key": "ADMIN",
+            "label": "Yönetici",
+            "description": "Kurulum ve ayarlar dahil her şey.",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.settings.manage",
+              "deciship.tariffs.view",
+              "deciship.tariffs.edit",
+              "deciship.invoices.upload",
+              "deciship.lines.decide",
+              "deciship.disputes.manage",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.capture",
+              "deciship.measurements.view_all",
+              "deciship.measurements.manage",
+              "deciship.prices.view"
+            ]
+          },
+          {
+            "key": "AUDITOR",
+            "label": "Denetleyici",
+            "description": "Tarife, fatura ve fark kararları. Ayarlara giremez.",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.tariffs.view",
+              "deciship.tariffs.edit",
+              "deciship.invoices.upload",
+              "deciship.lines.decide",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.capture",
+              "deciship.measurements.view_all",
+              "deciship.measurements.manage",
+              "deciship.prices.view"
+            ]
+          },
+          {
+            "key": "ACCOUNTING",
+            "label": "Muhasebe",
+            "description": "Fatura yükler. Fatura, tarife ve raporları görür, dışa aktarır. İtirazı gönderir ve sonucunu girer.",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.tariffs.view",
+              "deciship.invoices.upload",
+              "deciship.disputes.manage",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.view_all",
+              "deciship.prices.view"
+            ]
+          },
+          {
+            "key": "MEASURE",
+            "label": "Ölçüm",
+            "description": "Mobil uygulamada ölçüm yapar. Fiyat görmez.",
+            "permissions": [
+              "deciship.measurements.capture"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "orderloom",
+        "name": "OrderLoom",
+        "tagline": "Siparişi ve ekibi tek yerden yönetin",
+        "basePath": "/orderloom",
+        "color": "#0e9384",
+        "available": false,
+        "launch": "off",
+        "roles": []
+      },
+      {
+        "key": "tagpress",
+        "name": "TagPress",
+        "tagline": "Etiketinizi yapay zekâyla hazırlayın",
+        "basePath": "/tagpress",
+        "color": "#7a5af8",
+        "available": false,
+        "launch": "off",
+        "roles": []
+      }
+    ],
+    "orgRoles": [
+      {
+        "key": "OWNER",
+        "label": "Firma sahibi"
+      },
+      {
+        "key": "ADMIN",
+        "label": "Firma yöneticisi"
+      },
+      {
+        "key": "MEMBER",
+        "label": "Çalışan"
+      }
+    ],
+    "permissions": [
+      {
+        "key": "deciship.web.access",
+        "label": "DeciShip web uygulamasına giriş"
+      },
+      {
+        "key": "deciship.settings.manage",
+        "label": "Ayarları yönetme"
+      },
+      {
+        "key": "deciship.tariffs.view",
+        "label": "Tarifeleri görme"
+      },
+      {
+        "key": "deciship.tariffs.edit",
+        "label": "Tarifeleri düzenleme"
+      },
+      {
+        "key": "deciship.invoices.upload",
+        "label": "Fatura yükleme, düzeltme ve silme"
+      },
+      {
+        "key": "deciship.lines.decide",
+        "label": "Fark kararı verme"
+      },
+      {
+        "key": "deciship.disputes.manage",
+        "label": "İtiraz gönderme ve sonucunu girme"
+      },
+      {
+        "key": "deciship.invoices.view",
+        "label": "Faturaları görme"
+      },
+      {
+        "key": "deciship.reports.view",
+        "label": "Raporları görme"
+      },
+      {
+        "key": "deciship.data.export",
+        "label": "Veriyi dışa aktarma"
+      },
+      {
+        "key": "deciship.measurements.capture",
+        "label": "Ölçüm yapma"
+      },
+      {
+        "key": "deciship.measurements.view_all",
+        "label": "Tüm ölçümleri görme"
+      },
+      {
+        "key": "deciship.measurements.manage",
+        "label": "Ölçümleri yönetme"
+      },
+      {
+        "key": "deciship.prices.view",
+        "label": "Fiyatları görme"
+      }
+    ]
+  }
+}

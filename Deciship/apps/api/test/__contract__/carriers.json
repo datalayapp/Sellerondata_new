@@ -1,0 +1,18 @@
+{
+  "endpoint": "GET /api/deciship/carriers",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "active": "boolean",
+        "code": "string",
+        "createdAt": "string",
+        "defaultMapping": "null",
+        "id": "string",
+        "invoiceCount": "number",
+        "name": "string",
+        "tariffCount": "number"
+      }
+    ]
+  }
+}

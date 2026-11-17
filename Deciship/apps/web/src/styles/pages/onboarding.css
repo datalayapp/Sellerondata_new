@@ -1,0 +1,699 @@
+/* İlk kurulum sihirbazı (pages/onboarding/*) + "Kuruluma dön" çubuğu (components/ReturnBar) + menüdeki Kurulum öğesi.
+   Yalnız sayfaya özel; ortak bileşenler ../app.css'te. */
+
+/* ---- düzen: masaüstünde solda adım listesi, sağda adım ---- */
+.ob {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 1023px) {
+  .ob {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ---- adım listesi ---- */
+.ob-steps {
+  position: sticky;
+  top: calc(var(--sod-sticky-top, 0px) + 24px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  padding: 8px;
+}
+.ob-steps ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ob-step {
+  /* .sr-only metin kayan şeridin içinde kalsın (yoksa sayfayı yana taşırır) */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 10px;
+  background: none;
+  border: 0;
+  border-radius: var(--r-ctl);
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+.ob-step:hover {
+  background: var(--surface-2);
+}
+.ob-step:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+.ob-step.on {
+  background: var(--primary-soft);
+}
+.ob-step.on b {
+  color: var(--primary);
+}
+.ob-step-t {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ob-step-t b {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+.ob-step-s {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+/* başlık + zorunlu/opsiyonel rozeti */
+.ob-step-tt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+/* Zorunlu ya da opsiyonel: sade metin, kutu ve rozet yok */
+.ob-req {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text-3);
+}
+.ob-req.is-req {
+  color: var(--text-2);
+}
+/* adımın başında: atlanırsa ne olur, tek cümle */
+.ob-need {
+  margin: -4px 0 16px;
+  font-size: 14px;
+  line-height: 21px;
+  max-width: 760px;
+  color: var(--text-2);
+}
+.ob-dot {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-2);
+}
+.ob-step.on .ob-dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.st-ok .ob-dot {
+  border-color: var(--success-line);
+  background: var(--success-bg);
+  color: var(--success);
+}
+.st-skipped .ob-dot {
+  border-color: var(--warning-line);
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+/* Firma onaylanmadıysa DeciShip adımları kapalı: gövde yalnız "Önce firma bilgileri" */
+.ob-step:disabled {
+  cursor: default;
+}
+.ob-step:disabled:hover {
+  background: none;
+}
+.ob-step:disabled b {
+  color: var(--text-2);
+}
+/* Listenin başında sayılmayan "Firma bilgileri" satırı: Merkez'de kurulur, burada yalnız durumu görünür */
+.ob-hub {
+  cursor: default;
+  border: 1px dashed var(--border-strong);
+  margin-bottom: 4px;
+}
+.ob-hub.st-wait .ob-dot {
+  border-color: var(--warning-line);
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+/* onaylı firmada adımın üstündeki şerit; onaysız firmada gövdedeki bilgi listesi ve düğme */
+.ob-main > .ob-hub-strip {
+  margin-bottom: 20px;
+}
+.ob-hub-strip b {
+  font-weight: 600;
+}
+.ob-hub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+.ob-hub-kvs {
+  margin: 0 0 20px;
+}
+.ob-hub-kvs dd {
+  margin: 0;
+}
+.ob-hub-acts {
+  display: flex;
+  gap: 12px;
+}
+
+/* tablet/telefon: yatay kayan şerit, yalnız numara + ad */
+@media (max-width: 1023px) {
+  .ob-steps {
+    position: relative;
+    top: auto;
+    padding: 6px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .ob-steps ol {
+    flex-direction: row;
+    gap: 4px;
+  }
+  .ob-step {
+    width: auto;
+    min-height: 44px;
+    padding: 6px 10px 6px 6px;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .ob-step-s {
+    display: none;
+  }
+  /* firma satırının durumu telefonda da ekran okuyucuya söylenir */
+  .ob-hub .ob-step-s {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* ---- adım içeriği ---- */
+.ob-main {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  padding: 24px;
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .ob-main {
+    padding: 16px;
+  }
+}
+.ob-head {
+  display: flex;
+  margin-bottom: 16px;
+}
+.ob-head .grow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* "ADIM 4/7": tasarımdaki Mono üst satır */
+.ob-eyebrow {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+}
+.ob-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.ob-title:focus {
+  outline: none;
+}
+.ob-title:focus-visible {
+  box-shadow: var(--focus-ring);
+  border-radius: 4px;
+}
+.ob-body {
+  display: flex;
+  flex-direction: column;
+}
+.ob-body > .form-stack,
+.ob-body > .form-grid {
+  margin-top: 4px;
+}
+.ob-why {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 21px;
+  max-width: 760px;
+}
+.ob-why svg.i {
+  flex: none;
+  margin-top: 2px;
+}
+.ob-sub {
+  margin: 8px 0 12px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.ob-sub-desc {
+  margin: -8px 0 12px;
+}
+.ob-grid {
+  margin-bottom: 16px;
+  max-width: 900px;
+}
+.ob-grid .affix {
+  max-width: 200px;
+}
+.ob-unit > .inp {
+  padding-right: 48px;
+}
+@media (max-width: 767px) {
+  .ob-grid .affix {
+    max-width: none;
+  }
+}
+.ob-check {
+  align-items: flex-start;
+  max-width: 760px;
+}
+.ob-check-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.ob-err {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0 0;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+/* ---- alt eylem çubuğu ---- */
+.ob-foot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.ob-foot-note {
+  font-size: 13px;
+  color: var(--text-3);
+}
+.ob-foot-acts {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+@media (max-width: 767px) {
+  .ob-foot {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .ob-foot-acts {
+    margin-left: 0;
+    flex-direction: column-reverse;
+  }
+  .ob-foot .btn {
+    width: 100%;
+  }
+  .ob-foot-note {
+    text-align: center;
+  }
+}
+
+/* ---- taşıyıcı kartları (çoklu seçim) ---- */
+.ob-carriers {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.ob-car {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 64px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--r-ctl);
+  cursor: pointer;
+}
+.ob-car input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  flex: none;
+}
+.ob-car:hover {
+  border-color: var(--primary);
+}
+.ob-car:focus-within {
+  box-shadow: var(--focus-ring);
+  border-color: var(--primary);
+}
+.ob-car.on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+.ob-car.added {
+  cursor: default;
+  border-color: var(--success-line);
+  background: var(--success-bg);
+  box-shadow: none;
+}
+.ob-car-t {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.ob-car-t b {
+  font-weight: 600;
+}
+.ob-car-t span {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+
+/* ---- tarifeler ---- */
+.ob-tariffs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ob-tr {
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px 16px;
+  align-items: center;
+}
+.ob-tr-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ob-tr-list {
+  grid-column: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+.ob-tr-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ob-tr-acts {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+@media (max-width: 767px) {
+  .ob-tr {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ob-tr-acts {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: stretch;
+  }
+  .ob-tr-acts .btn {
+    flex: 1 1 140px;
+  }
+}
+
+/* ---- örnek faturalar ---- */
+.ob-body > .notif {
+  margin-bottom: 16px;
+}
+.ob-cal-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.ob-invs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ob-inv {
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ob-inv-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ob-inv-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  font-size: 13px;
+}
+
+/* ---- özet kontrol listesi ---- */
+.ob-check-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+}
+.ob-check-list li + li {
+  border-top: 1px solid var(--border);
+}
+.ob-cl {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 0;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+.ob-cl:hover {
+  background: var(--surface-2);
+}
+.ob-cl:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+.ob-cl-ic {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+.ob-cl-t {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ob-cl-t > span:not(.ob-step-tt) {
+  font-size: 13px;
+  color: var(--text-3);
+  overflow-wrap: anywhere;
+}
+.ob-cl-st {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ob-cl.ok .ob-cl-ic {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-line);
+}
+.ob-cl.ok .ob-cl-st {
+  color: var(--success);
+}
+.ob-cl.bad .ob-cl-ic {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid var(--danger-line);
+}
+.ob-cl.bad .ob-cl-st {
+  color: var(--danger);
+}
+.ob-cl.skip .ob-cl-ic {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid var(--warning-line);
+}
+.ob-cl.skip .ob-cl-st {
+  color: var(--warning);
+}
+
+/* ---- Pano bandı ---- */
+.ob-banner {
+  margin-bottom: 24px;
+  align-items: center;
+}
+.ob-banner-acts {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none !important;
+  margin-left: auto;
+}
+@media (max-width: 767px) {
+  .ob-banner-acts {
+    flex: 1 1 100% !important;
+  }
+  .ob-banner-acts .btn {
+    flex: 1;
+  }
+}
+
+/* ---- "Kuruluma dön" çubuğu (tarife editörü, fatura yükleme) ---- */
+.return-bar {
+  margin-bottom: 16px;
+  align-items: center;
+}
+/* çubuk banda binen ilk öğe (.lift); sayfanın kendi binen kartı ayrıca binmez, yoksa çubuğu örter */
+.sod-main .content:has(> .return-bar) :is(.lift, .sod-lift):not(.return-bar) {
+  margin-top: 0;
+}
+
+/* örnek fatura: sade yükleme alanı ve taşıyıcı seçimi */
+.ob-drop {
+  min-height: 150px;
+  padding: 20px;
+}
+.ob-sample-car {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.ob-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.ob-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.ob-chip.on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.ob-chip:focus-within {
+  box-shadow: var(--focus-ring);
+}
+.ob-sample-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-3);
+}
+.ob-sample-note svg.i {
+  flex: none;
+  margin-top: 2px;
+}

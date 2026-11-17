@@ -1,0 +1,17 @@
+﻿Rechnungsnummer;Rechnungsdatum;Sendungsnummer;Versanddatum;Produkt;Empfänger Name;Empfänger PLZ;Zielland;Gewicht (kg);Abgerechnetes Gewicht (kg);Länge (cm);Breite (cm);Höhe (cm);Frachtkosten;Rabatt;Treibstoffzuschlag;Zuschlagsart;Zuschlagsbetrag;Nettobetrag;MwSt 19%;Bruttobetrag;Währung;Rechnungssumme netto
+RE-2026-55120;31.10.2026;JD014600040000DE;14.10.2026;Paket International;Jonas Test;86989;Dänemark;12,2;12,5;20;20;10;35,38;-5,31;5,41;Adresskorrektur;12,00;47,48;9,02;56,50;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040037DE;14.10.2026;Paket International;Lena Fiktiv;90472;Dänemark;2,9;3,0;30;20;15;13,05;-1,96;2,00;;;13,09;2,49;15,58;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040074DE;14.10.2026;Paket International;Max Mustermann;80607;Österreich;1,7;2,0;30;20;15;10,70;-1,60;1,64;Adresskorrektur;12,00;22,74;4,32;27,06;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040111DE;15.10.2026;Paket International;Lena Fiktiv;90683;Dänemark;8,5;8,5;40;30;25;25,98;-3,90;3,97;Adresskorrektur;12,00;38,05;7,23;45,28;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040148DE;15.10.2026;Paket International;Max Mustermann;14673;Niederlande;8,9;9,0;30;20;15;27,15;-4,07;4,15;;;27,23;5,17;32,40;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040185DE;15.10.2026;Paket International;Petra Probe;52767;Frankreich;12,4;12,5;30;20;15;35,38;-5,31;5,41;;;35,48;6,74;42,22;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040222DE;16.10.2026;Paket International;Lena Fiktiv;48555;Belgien;8,4;8,5;20;20;10;25,98;-3,90;3,97;Inselzuschlag;7,50;33,55;6,37;39,92;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040259DE;16.10.2026;Paket International;Lena Fiktiv;46459;Dänemark;0,5;1,0;20;20;10;8,35;-1,25;1,28;Inselzuschlag;7,50;15,88;3,02;18,90;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040296DE;16.10.2026;Paket International;Hans Beispiel;40102;Italien;14,0;14,0;20;20;10;38,90;-5,83;5,95;Inselzuschlag;7,50;46,52;8,84;55,36;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040333DE;17.10.2026;Paket International;Petra Probe;24129;Niederlande;4,3;19,5;60;40;40;51,83;-7,77;7,93;Inselzuschlag;7,50;59,49;11,30;70,79;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040370DE;17.10.2026;Paket International;Erika Musterfrau;37488;Frankreich;5,7;12,0;50;40;30;34,20;-5,13;5,23;Inselzuschlag;7,50;41,80;7,94;49,74;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040407DE;17.10.2026;Paket International;Petra Probe;19573;Polen;6,8;7,0;40;30;25;22,45;-3,37;3,43;;;22,51;4,28;26,79;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040444DE;18.10.2026;Paket International;Hans Beispiel;21422;Italien;9,0;19,5;60;40;40;51,83;-7,77;7,93;;;51,99;9,88;61,87;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040481DE;18.10.2026;Paket International;Erika Musterfrau;42294;Niederlande;4,9;12,0;50;40;30;34,20;-5,13;5,23;Adresskorrektur;12,00;46,30;8,80;55,10;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040518DE;18.10.2026;Paket International;Erika Musterfrau;99401;Dänemark;0,5;6,0;40;30;25;20,10;-3,02;3,07;Adresskorrektur;12,00;32,15;6,11;38,26;EUR;586,25
+RE-2026-55120;31.10.2026;JD014600040555DE;19.10.2026;Paket International;Lena Fiktiv;27166;Belgien;3,0;19,5;60;40;40;51,83;-7,77;7,93;;;51,99;9,88;61,87;EUR;586,25

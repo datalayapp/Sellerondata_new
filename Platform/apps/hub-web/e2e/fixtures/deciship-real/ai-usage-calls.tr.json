@@ -1,0 +1,90 @@
+{
+  "status": 200,
+  "body": {
+    "product": "deciship",
+    "period": "2026-11",
+    "currency": "TRY",
+    "page": 1,
+    "pageSize": 50,
+    "total": 3,
+    "items": [
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "memberId": "<id>",
+        "person": "Ayşe Yönetici",
+        "kind": "INVOICE_PDF",
+        "label": "PDF fatura okuma",
+        "record": "fedex-9-482-11735.csv",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "status": "refused",
+        "errorCode": "AI_REFUSED",
+        "estimated": false,
+        "tokens": {
+          "input": 5000,
+          "output": 20,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 5020
+        },
+        "durationMs": 3000,
+        "model": "claude-sonnet-5-5",
+        "servedModel": "claude-sonnet-5-5",
+        "amount": 0.02,
+        "deducted": false,
+        "priceVersion": "r42.5:fixture",
+        "priceUsdRate": 42.5
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "memberId": "<id>",
+        "person": "Ayşe Yönetici",
+        "kind": "SCALE_READ",
+        "label": "Tartı okuma",
+        "status": "ok",
+        "errorCode": null,
+        "estimated": false,
+        "tokens": {
+          "input": 1200,
+          "output": 80,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 1280
+        },
+        "durationMs": 900,
+        "model": "claude-sonnet-5-5",
+        "servedModel": null,
+        "amount": 0.01,
+        "deducted": true,
+        "priceVersion": "fixture",
+        "priceUsdRate": null
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "memberId": null,
+        "person": "Kişi bilinmiyor",
+        "kind": "INVOICE_MAPPING",
+        "label": "Sütun eşleme",
+        "status": "ok",
+        "errorCode": null,
+        "estimated": false,
+        "tokens": {
+          "input": 3000,
+          "output": 400,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 3400
+        },
+        "durationMs": 2100,
+        "model": "claude-sonnet-5-5",
+        "servedModel": null,
+        "amount": 0.03,
+        "deducted": true,
+        "priceVersion": "fixture",
+        "priceUsdRate": null
+      }
+    ]
+  }
+}

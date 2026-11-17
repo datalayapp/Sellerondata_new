@@ -1,0 +1,108 @@
+{
+  "endpoint": "GET /api/deciship/dashboard",
+  "status": 200,
+  "shape": {
+    "byCurrency": [
+      {
+        "billedTotal": "number",
+        "currency": "string",
+        "disputePendingTotal": "number",
+        "estimatedOverchargeTotal": "number",
+        "invoices": "number",
+        "lines": "number",
+        "overchargeTotal": "number",
+        "recoveredTotal": "number",
+        "topDiffTypes": [
+          {
+            "amount": "number",
+            "count": "number",
+            "type": "string"
+          }
+        ],
+        "verifiedTotal": "number"
+      }
+    ],
+    "coveragePct": "number",
+    "currency": "string",
+    "disputePendingTotal": "number",
+    "invoices": {
+      "count": "number",
+      "diff": "number",
+      "lines": "number",
+      "match": "number",
+      "noTariff": "number",
+      "unmatched": "number"
+    },
+    "measurements": {
+      "byMethod": {
+        "*": "number"
+      },
+      "count": "number",
+      "today": "number"
+    },
+    "month": "string",
+    "otherCurrencies": [],
+    "overchargeTotal": "number",
+    "recentInvoices": [
+      {
+        "carrier": {
+          "code": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "createdAt": "string",
+        "currency": "string",
+        "id": "string",
+        "invoiceDate": "string",
+        "invoiceNo": "string",
+        "totals": {
+          "acceptedLines": "number",
+          "billedTotal": "number",
+          "comparedBilledTotal": "number",
+          "diff": "number",
+          "estimatedLines": "number",
+          "estimatedOverchargeTotal": "number",
+          "expectedTotal": "number",
+          "flaggedLines": "number",
+          "fxMissing": "number",
+          "lines": "number",
+          "match": "number",
+          "noTariff": "number",
+          "overchargeByType": [
+            {
+              "amount": "number",
+              "lines": "number",
+              "type": "string"
+            }
+          ],
+          "overchargeTotal": "number",
+          "pakNoTariff": "number",
+          "pakUnmatched": "number",
+          "pendingLines": "number",
+          "reconciliation": {
+            "overchargeTotal": "number",
+            "steps": [
+              {
+                "amount": "number",
+                "key": "string",
+                "lines": "number"
+              }
+            ]
+          },
+          "uncheckedSurchargeTotal": "number",
+          "unmatched": "number",
+          "verifiedTotal": "number"
+        }
+      }
+    ],
+    "recoveredTotal": "number",
+    "topDiffTypes": [
+      {
+        "amount": "number",
+        "count": "number",
+        "type": "string"
+      }
+    ],
+    "verifiedTotal": "number"
+  }
+}

@@ -1,0 +1,34 @@
+/* ÜRETİLDİ: elle düzenlemeyin; kaynak Platform/packages/tokens/tokens.json (node Platform/packages/tokens/build.mjs). */
+/* DeciShip paneli: paket belirteçlerinden (shell tokens) farklı ya da pakette olmayan bildirimler. --brand-ink #0a1a3a burada yoktur; o değer --night adıyla pakettedir. */
+:root {
+  --border-soft: #e9e6df;
+  --placeholder: #98a2b3;
+  --primary-hover: #1546b8;
+  --primary-active: #123c9c;
+  --primary-on-dark: #b5cbff;
+  --ink-line: #22355e;
+  --ink-text-2: #c9d3e8;
+  --warning: #7a4100;
+  --warning-bg: #fff1d6;
+  --warning-line: #f6d79a;
+  --neutral-bg: #efede8;
+  --scrim: rgba(10, 26, 58, 0.45);
+  --sh-sm: none;
+  --sh-md: 0 4px 12px rgba(10, 26, 58, 0.08);
+  --topbar-h: 56px;
+  --yellow: #f79009;
+  --focus: var(--primary);
+}
+@media (max-width: 1023px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --gutter: 16px;
+    --ctl-h: 44px;
+    --ctl-h-sm: 44px;
+    --btn-h: 48px;
+  }
+}

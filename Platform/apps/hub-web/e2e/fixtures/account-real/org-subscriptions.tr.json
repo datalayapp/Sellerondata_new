@@ -1,0 +1,17 @@
+{
+  "status": 200,
+  "body": {
+    "subscriptions": [
+      {
+        "product": "deciship",
+        "name": "DeciShip",
+        "status": "ACTIVE",
+        "plan": "early_access",
+        "limits": {},
+        "currentPeriodEnd": null,
+        "canceledAt": null,
+        "deleteAfter": null
+      }
+    ]
+  }
+}

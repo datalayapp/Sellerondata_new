@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "measurements": "Measurements",
+    "invoices": "Invoices",
+    "disputes": "Disputes",
+    "tariffs": "Tariffs",
+    "settings": "Settings",
+    "setup": "Setup",
+    "setupPending": "Incomplete",
+    "notFound": "Page not found",
+    "invoiceUpload": "Upload invoice",
+    "newTariff": "New tariff"
+  },
+  "loading": "Loading",
+  "toast": {
+    "refreshFailed": "Data could not be refreshed",
+    "actionFailed": "Action failed"
+  },
+  "leave": {
+    "bodyUpload": "If you leave this page, the invoice upload starts over; the column mapping and invoice details will be lost."
+  },
+  "org": {
+    "switchFailed": "The company could not be changed. Try again.",
+    "unsavedConfirm": "You have unsaved changes. They will be lost if you switch company. Continue?"
+  },
+  "readOnly": {
+    "title": "The subscription is in read-only mode.",
+    "body": "You can view and export records but cannot make changes. Contact your company admin."
+  },
+  "offline": {
+    "title": "Could not reach the server",
+    "body": "You are still signed in. Check your internet connection and try again. If the problem continues, the server may be down.",
+    "retry": "Try again"
+  },
+  "access": {
+    "backHub": "Back to Hub",
+    "mobileTitle": "This role works in the mobile app",
+    "mobileBody": "Your {{tool}} role is {{role}}. You take measurements in the SellerOnData Android app.",
+    "mobileStep1": "Your admin will share the Android app. Install it on your phone.",
+    "mobileStep2": "Sign in with this account.",
+    "noAccessTitle": "You do not have access to {{tool}}",
+    "noAccessBody": "You have no tool role in this company, or the company has no active subscription. Ask your company admin to give you a role on the Team and permissions page in Hub.",
+    "orgTitle": "Select a company to continue",
+    "orgBody": "DeciShip data belongs to a company. Select the company you want to work in.",
+    "noOrgTitle": "You are not a member of a company yet",
+    "noOrgBody": "Ask your company admin for an invitation, or continue in Hub.",
+    "forbiddenTitle": "This page is not open to your role",
+    "forbiddenBody": "If you think this is a mistake, contact your company admin. Permissions are managed in Hub.",
+    "tariffEditTitle": "You can't add tariffs",
+    "tariffEditBody": "You can view tariffs and calculate prices. To add or import a tariff, contact your company admin.",
+    "tariffEditReadOnly": "The subscription is read-only: tariffs can't be added or imported. You can still view tariffs and calculate prices.",
+    "tariffEditBack": "Back to tariffs",
+    "mobileStep3": "Scan the parcel, measure it, save.",
+    "mobileAppSlot": "The app is not in the stores yet and there is no iOS version. Ask your admin for the install file.",
+    "suspendedTitle": "Your membership in this company is suspended",
+    "suspendedPickBody": "Contact your admin. Meanwhile you can continue with another company you belong to.",
+    "suspendedBody": "Contact your admin. You continue where you left off once it is resumed.",
+    "infoOrg": "Company",
+    "infoAccount": "Account",
+    "infoRole": "{{tool}} role",
+    "noRole": "No access",
+    "noAccessMobile": "If you will measure parcels in the warehouse, ask your administrator for the Measurement role; measurements are recorded in the SellerOnData Android app."
+  },
+  "company": {
+    "name": "Company name",
+    "managedInHub": "The company name is managed in Hub and looks the same in every tool.",
+    "changeInHub": "Change in Hub",
+    "askAdmin": "Contact your company admin to change it."
+  },
+  "team": {
+    "title": "Add your team in Hub",
+    "body": "Invite warehouse staff and other users on the Team and permissions page in Hub. Phone invitations create a one-time code.",
+    "link": "Team and permissions",
+    "askAdmin": "The company owner or an admin manages the team and permissions."
+  },
+  "lang": {
+    "unsavedConfirm": "You have unsaved changes. Changing the language reloads the page and these changes are lost. Continue?"
+  },
+  "sessionLost": {
+    "label": "Session",
+    "title": "Your session has ended",
+    "body": "What you typed was not saved. You can stay on this page and copy it. After signing in you return to this page, but unsaved text does not come back.",
+    "stay": "Stay on page",
+    "login": "Sign in",
+    "bar": "Your session has ended. What you typed was not saved; copy it, then sign in again."
+  },
+  "record": {
+    "title": "This record is not in this company",
+    "body": "The link may belong to another company, or the record may have been deleted.",
+    "otherOrgs": "It may be in another of your companies. Switch and check:"
+  }
+}

@@ -1,0 +1,481 @@
+{
+  "status": 200,
+  "body": {
+    "product": "deciship",
+    "datasets": [
+      {
+        "id": "invoices",
+        "label": "Faturalar",
+        "description": "Yüklenen kargo faturaları",
+        "filters": [
+          {
+            "id": "carrier",
+            "kind": "select",
+            "label": "Taşıyıcı",
+            "options": [
+              {
+                "value": "<id>",
+                "label": "Aras Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "DHL Express"
+              },
+              {
+                "value": "<id>",
+                "label": "FedEx"
+              },
+              {
+                "value": "<id>",
+                "label": "MNG Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "Sürat Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "UPS"
+              },
+              {
+                "value": "<id>",
+                "label": "Yurtiçi Kargo"
+              }
+            ],
+            "multiple": true
+          },
+          {
+            "id": "currency",
+            "kind": "select",
+            "label": "Para birimi",
+            "options": [
+              {
+                "value": "TRY",
+                "label": "TRY"
+              },
+              {
+                "value": "USD",
+                "label": "USD"
+              }
+            ]
+          },
+          {
+            "id": "deadline",
+            "kind": "select",
+            "label": "İtiraz süresi",
+            "options": [
+              {
+                "value": "soon",
+                "label": "Süresi yaklaşan"
+              }
+            ]
+          },
+          {
+            "id": "dispute",
+            "kind": "select",
+            "label": "İtiraz durumu",
+            "options": [
+              {
+                "value": "NONE",
+                "label": "İşlendi"
+              },
+              {
+                "value": "SENT",
+                "label": "İtiraz gönderildi"
+              },
+              {
+                "value": "CLOSED",
+                "label": "Kapandı"
+              }
+            ]
+          },
+          {
+            "id": "from",
+            "kind": "text",
+            "label": "Başlangıç"
+          },
+          {
+            "id": "to",
+            "kind": "text",
+            "label": "Bitiş"
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "invoice-lines",
+        "label": "Fatura satırları",
+        "description": "Her gönderi için karşılaştırma",
+        "filters": [
+          {
+            "id": "carrier",
+            "kind": "select",
+            "label": "Taşıyıcı",
+            "options": [
+              {
+                "value": "<id>",
+                "label": "Aras Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "DHL Express"
+              },
+              {
+                "value": "<id>",
+                "label": "FedEx"
+              },
+              {
+                "value": "<id>",
+                "label": "MNG Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "Sürat Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "UPS"
+              },
+              {
+                "value": "<id>",
+                "label": "Yurtiçi Kargo"
+              }
+            ],
+            "multiple": true
+          },
+          {
+            "id": "status",
+            "kind": "select",
+            "label": "Durum",
+            "options": [
+              {
+                "value": "MATCH",
+                "label": "Uyumlu"
+              },
+              {
+                "value": "DIFF",
+                "label": "Fark var"
+              },
+              {
+                "value": "UNMATCHED",
+                "label": "Eşleşmedi"
+              },
+              {
+                "value": "NO_TARIFF",
+                "label": "Tarife yok"
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "kind": "select",
+            "label": "Karar",
+            "options": [
+              {
+                "value": "OPEN",
+                "label": "Karar bekliyor"
+              },
+              {
+                "value": "VERIFIED",
+                "label": "İtiraz listesinde"
+              },
+              {
+                "value": "ACCEPTED",
+                "label": "Uyumlu sayıldı"
+              }
+            ],
+            "multiple": true
+          },
+          {
+            "id": "diff",
+            "kind": "select",
+            "label": "Fark türü",
+            "options": [
+              {
+                "value": "DUPLICATE",
+                "label": "Mükerrer"
+              },
+              {
+                "value": "DIMENSION",
+                "label": "Ölçü farkı"
+              },
+              {
+                "value": "WEIGHT",
+                "label": "Ağırlık farkı"
+              },
+              {
+                "value": "SURCHARGE",
+                "label": "Ek ücret"
+              },
+              {
+                "value": "PRICE",
+                "label": "Fiyat farkı"
+              }
+            ]
+          },
+          {
+            "id": "confidence",
+            "kind": "select",
+            "label": "Güven",
+            "options": [
+              {
+                "value": "HIGH",
+                "label": "Kesin"
+              },
+              {
+                "value": "LOW",
+                "label": "İncele"
+              }
+            ]
+          },
+          {
+            "id": "scope",
+            "kind": "select",
+            "label": "Kapsam",
+            "options": [
+              {
+                "value": "in",
+                "label": "Kapsam içi"
+              },
+              {
+                "value": "pak",
+                "label": "Pak/zarf"
+              }
+            ]
+          },
+          {
+            "id": "currency",
+            "kind": "select",
+            "label": "Para birimi",
+            "options": [
+              {
+                "value": "TRY",
+                "label": "TRY"
+              },
+              {
+                "value": "USD",
+                "label": "USD"
+              }
+            ]
+          },
+          {
+            "id": "country",
+            "kind": "text",
+            "label": "Ülke kodu"
+          },
+          {
+            "id": "service",
+            "kind": "text",
+            "label": "Hizmet"
+          },
+          {
+            "id": "from",
+            "kind": "text",
+            "label": "Başlangıç"
+          },
+          {
+            "id": "to",
+            "kind": "text",
+            "label": "Bitiş"
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "measurements",
+        "label": "Ölçümler",
+        "description": "Depoda ölçülen koliler, güncel sürümleriyle",
+        "filters": [
+          {
+            "id": "method",
+            "kind": "select",
+            "label": "Yöntem",
+            "options": [
+              {
+                "value": "LIDAR",
+                "label": "LiDAR"
+              },
+              {
+                "value": "AR",
+                "label": "AR"
+              },
+              {
+                "value": "REFERENCE",
+                "label": "Referans kartı"
+              },
+              {
+                "value": "MANUAL",
+                "label": "Elle"
+              },
+              {
+                "value": "PRESET",
+                "label": "Hazır koli"
+              }
+            ]
+          },
+          {
+            "id": "user",
+            "kind": "select",
+            "label": "Ölçen",
+            "options": [
+              {
+                "value": "<id>",
+                "label": "Mehmet Demir"
+              }
+            ]
+          },
+          {
+            "id": "photos",
+            "kind": "select",
+            "label": "Fotoğraf",
+            "options": [
+              {
+                "value": "none",
+                "label": "Fotoğrafsız"
+              },
+              {
+                "value": "some",
+                "label": "Fotoğraflı"
+              }
+            ]
+          },
+          {
+            "id": "from",
+            "kind": "text",
+            "label": "Başlangıç"
+          },
+          {
+            "id": "to",
+            "kind": "text",
+            "label": "Bitiş"
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "tariffs",
+        "label": "Tarifeler",
+        "description": "Taşıyıcı fiyat tabloları",
+        "filters": [
+          {
+            "id": "carrier",
+            "kind": "select",
+            "label": "Taşıyıcı",
+            "options": [
+              {
+                "value": "<id>",
+                "label": "Aras Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "DHL Express"
+              },
+              {
+                "value": "<id>",
+                "label": "FedEx"
+              },
+              {
+                "value": "<id>",
+                "label": "MNG Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "Sürat Kargo"
+              },
+              {
+                "value": "<id>",
+                "label": "UPS"
+              },
+              {
+                "value": "<id>",
+                "label": "Yurtiçi Kargo"
+              }
+            ],
+            "multiple": true
+          },
+          {
+            "id": "active",
+            "kind": "select",
+            "label": "Durum",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Etkin"
+              },
+              {
+                "value": "no",
+                "label": "Etkin değil"
+              }
+            ]
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "carriers",
+        "label": "Taşıyıcılar",
+        "description": "Tanımlı taşıyıcılar ve fatura sayıları",
+        "filters": [
+          {
+            "id": "active",
+            "kind": "select",
+            "label": "Durum",
+            "options": [
+              {
+                "value": "yes",
+                "label": "Etkin"
+              },
+              {
+                "value": "no",
+                "label": "Etkin değil"
+              }
+            ]
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "box-presets",
+        "label": "Hazır koliler",
+        "description": "Tanımlı koli ölçüleri ve ölçümlerde kullanımı",
+        "filters": [],
+        "exportable": true
+      },
+      {
+        "id": "audit-log",
+        "label": "Denetim kayıtları",
+        "description": "DeciShip içinde kim ne yaptı",
+        "filters": [
+          {
+            "id": "group",
+            "kind": "select",
+            "label": "Kayıt türü",
+            "options": [
+              {
+                "value": "invoice",
+                "label": "Fatura"
+              },
+              {
+                "value": "measurement",
+                "label": "Ölçüm"
+              },
+              {
+                "value": "tariff",
+                "label": "Tarife"
+              },
+              {
+                "value": "carrier",
+                "label": "Taşıyıcı"
+              },
+              {
+                "value": "export",
+                "label": "Dışa aktarma"
+              }
+            ]
+          }
+        ],
+        "exportable": true
+      }
+    ]
+  }
+}

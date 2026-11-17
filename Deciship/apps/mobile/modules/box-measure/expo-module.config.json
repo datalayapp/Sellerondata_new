@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["BoxMeasureModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.boxmeasure.BoxMeasureModule"]
+  }
+}

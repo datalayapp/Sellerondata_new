@@ -1,0 +1,171 @@
+/* Settings (Settings.tsx). Page-specific only — shared components live in ../app.css. */
+/* D09: solda bölüm dizini, sağda kartlar (deciship/project/Ayarlar) */
+.set-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+.set-idx {
+  flex: 0 0 220px;
+  position: sticky;
+  top: calc(var(--sod-sticky-top, 0px) + 24px);
+  display: grid;
+  gap: 2px;
+}
+.set-idx a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: var(--r-ctl);
+  color: var(--text-2);
+  font-size: 15px;
+}
+.set-idx a:hover {
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+.set-stack {
+  flex: 999 1 640px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 960px;
+}
+.set-stack > .card,
+.set-stack > section {
+  scroll-margin-top: calc(var(--sod-sticky-top, 0px) + 24px);
+}
+@media (max-width: 1023px) {
+  .set-idx {
+    display: none;
+  }
+}
+
+/* hazır koli tablosu kartın içine sığsın */
+@container dtw (min-width: 600px) and (max-width: 900px) {
+  .dt.set-presets th,
+  .dt.set-presets td {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+/* unit-suffixed inputs (shared .affix): fixed sensible width on desktop; room for 'adet' */
+.set-unit > .inp {
+  padding-right: 48px;
+}
+.set-grid .affix {
+  max-width: 200px;
+}
+@media (max-width: 767px) {
+  .set-grid .affix {
+    max-width: none;
+  }
+}
+.set-dims {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 479px) {
+  .set-dims {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* referans kartı: düz kart, indirme düğmesi sağda */
+.set-ref {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  align-items: flex-start;
+}
+.set-ref-body {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+.set-ref .section-title {
+  margin: 0;
+  font-size: 17px;
+  line-height: 22px;
+}
+.set-ref .section-desc {
+  margin: 4px 0 0;
+}
+.set-steps {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-2);
+}
+@media (max-width: 767px) {
+  .set-ref > .btn {
+    width: 100%;
+  }
+}
+
+/* box presets */
+.set-presets .check {
+  min-height: 0;
+}
+
+/* save bar: shared .savebar; .set-stack gap already separates it */
+.set-savebar {
+  margin-top: 0;
+}
+
+/* comparison card: "Tarifede olmayan ek ücretleri fark say" */
+.set-check {
+  align-items: flex-start;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-soft);
+  max-width: 720px;
+}
+.set-check input {
+  margin-top: 1px;
+}
+.set-check > span {
+  font-weight: 500;
+}
+.set-check-sub {
+  display: block;
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+/* GEÇİCİ: Veriler (deneme dönemi) kartı */
+.set-data {
+  display: flex;
+  flex-direction: column;
+}
+.set-data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.set-data-row + .set-data-row {
+  border-top: 1px solid var(--border-soft);
+}
+.set-data-row p {
+  margin: 2px 0 0;
+}
+.set-data-row .btn {
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .set-data-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

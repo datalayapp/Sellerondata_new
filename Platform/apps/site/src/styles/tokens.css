@@ -1,0 +1,68 @@
+/* ÜRETİLDİ: elle düzenlemeyin; kaynak Platform/packages/tokens/tokens.json (node Platform/packages/tokens/build.mjs). */
+:root {
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --paper: #f5f3ee;
+  --ink: #0f1a2e;
+  --ink-2: #475467;
+  --line: #d9d6cf;
+  --night: #0a1a3a;
+  --on-night: #c9d3e8;
+  --on-night-2: #8f9cb8;
+  --night-line: #22355e;
+  --sun: #fdb022;
+  --focus: #1d5bd8;
+}
+/* Ürün renkleri: hero zemini / ana / koyu zeminde açık ton / açık zemin / kâğıtta metin (KIT.md) */
+.pg-deciship {
+  --p-hero: #1546b8;
+  --p-main: #1d5bd8;
+  --p-on-dark: #b5cbff;
+  --p-soft: #e8eefc;
+  --p-text: #1546b8;
+}
+.pg-orderloom {
+  --p-hero: #075e55;
+  --p-main: #0e9384;
+  --p-on-dark: #7de8d9;
+  --p-soft: #e3f5f2;
+  --p-text: #0b6b60;
+}
+.pg-tagpress {
+  --p-hero: #3d2a99;
+  --p-main: #7a5af8;
+  --p-on-dark: #cfc3ff;
+  --p-soft: #efebff;
+  --p-text: #5b3fd6;
+}
+/* Başka sayfalarda da görünen ürün öğeleri (rozet, kart): aynı palet, öğenin kendi sınıfında */
+.nv-b-deciship,
+.pg-home-card-deciship,
+.pg-pricing-deciship,
+.pg-about-deciship {
+  --p-hero: #1546b8;
+  --p-main: #1d5bd8;
+  --p-on-dark: #b5cbff;
+  --p-soft: #e8eefc;
+  --p-text: #1546b8;
+}
+.nv-b-orderloom,
+.pg-home-card-orderloom,
+.pg-pricing-orderloom,
+.pg-about-orderloom {
+  --p-hero: #075e55;
+  --p-main: #0e9384;
+  --p-on-dark: #7de8d9;
+  --p-soft: #e3f5f2;
+  --p-text: #0b6b60;
+}
+.nv-b-tagpress,
+.pg-home-card-tagpress,
+.pg-pricing-tagpress,
+.pg-about-tagpress {
+  --p-hero: #3d2a99;
+  --p-main: #7a5af8;
+  --p-on-dark: #cfc3ff;
+  --p-soft: #efebff;
+  --p-text: #5b3fd6;
+}

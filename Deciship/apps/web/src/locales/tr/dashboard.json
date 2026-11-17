@@ -1,0 +1,71 @@
+{
+  "title": "Pano",
+  "period": "Dönem",
+  "uploadInvoice": "Fatura yükle",
+  "percent": "%{{value}}",
+  "kpi": {
+    "aria": "Özet göstergeler",
+    "measurementsThisMonth": "Bu ay ölçüm",
+    "measurements": "Ölçüm",
+    "today": "Bugün {{n}}",
+    "billedShipments": "Faturalanan gönderi",
+    "invoices_one": "{{n}} fatura",
+    "invoices_other": "{{n}} fatura",
+    "discrepancies": "Fark var",
+    "matchSplit": "{{match}} uyumlu · {{unmatched}} eşleşmedi",
+    "overpayment": "Fazla ödeme (KDV hariç)",
+    "verifiedLabel": "İtiraz listesinde",
+    "compared_one": "{{invoices}} faturanın {{lines}} satırı karşılaştırıldı",
+    "compared_other": "{{invoices}} faturanın {{lines}} satırı karşılaştırıldı",
+    "diffLines_one": "{{n}} satırda fark var",
+    "diffLines_other": "{{n}} satırda fark var",
+    "periodInvoices": "Dönemin faturaları",
+    "coverage": "Ölçüm kapsamı",
+    "coverageSub": "Ölçülmüş satır / toplam satır",
+    "disputes": "İtiraz sonuçları",
+    "recovered": "Geri alınan",
+    "disputePending": "İtirazda bekleyen",
+    "curDisputes": "geri alınan {{recovered}} · itirazda {{pending}}",
+    "otherCurrencies": "Diğer para birimleri",
+    "inCurrency_one": "{{currency}} · {{n}} fatura",
+    "inCurrency_other": "{{currency}} · {{n}} fatura"
+  },
+  "diffTypes": {
+    "title": "Fark türleri",
+    "desc": "Fazla ödeme tutarına göre sıralı, KDV hariç",
+    "noInvoices": "Bu dönemde fatura yok",
+    "noInvoicesText": "Fatura tarihi bu aya düşen fatura yüklenmemiş. Dönemi değiştirebilirsiniz.",
+    "none": "Fark yok",
+    "noneText": "Bu dönemdeki faturalarda fark bulunan satır yok.",
+    "colType": "Tür",
+    "colLines": "Satır",
+    "colOverpayment": "Fazla ödeme",
+    "total": "Toplam",
+    "lineUnit_one": "satır",
+    "lineUnit_other": "satır"
+  },
+  "methods": {
+    "title": "Ölçüm yöntemleri",
+    "desc_one": "{{month}} · {{n}} ölçüm",
+    "desc_other": "{{month}} · {{n}} ölçüm",
+    "descEmpty": "{{month}} · –",
+    "emptyTitle": "Ölçüm yok",
+    "emptyText": "Bu dönemde kaydedilmiş ölçüm bulunmuyor."
+  },
+  "recent": {
+    "title": "Son yüklenenler",
+    "viewAll": "Tümünü gör",
+    "emptyTitle": "Henüz fatura yüklenmedi",
+    "emptyText": "Taşıyıcı faturasını (CSV, XLSX ya da PDF) yükleyin; satırlar ölçümlerle ve tarifeyle karşılaştırılır.",
+    "colInvoice": "Fatura",
+    "colCarrier": "Taşıyıcı",
+    "colLines": "Satır",
+    "colDiscrepancies": "Fark",
+    "colBilled": "Faturalanan",
+    "colOverpayment": "Fazla ödeme"
+  },
+  "lastData": "Son veri: {{month}}",
+  "coverage": {
+    "periodNote": "bu dönemin faturalarında"
+  }
+}

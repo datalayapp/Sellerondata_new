@@ -1,0 +1,180 @@
+{
+  "title": "Merkez",
+  "customRole": "Özel rol",
+  "nav": {
+    "label": "Merkez bölümleri",
+    "overview": "Genel Bakış",
+    "activity": "Etkinlik",
+    "team": "Ekip"
+  },
+  "tools": {
+    "label": "Araç seçimi",
+    "soon": "Yakında"
+  },
+  "period": {
+    "label": "Dönem",
+    "7d": "7 gün",
+    "30d": "30 gün",
+    "mtd": "Bu ay",
+    "90d": "90 gün"
+  },
+  "overview": {
+    "previous": "önceki dönem {{value}}",
+    "details": "Ayrıntıları aç",
+    "sectionError": "{{name}} verisi alınamadı"
+  },
+  "webCard": {
+    "title": "Ayrıntılı analiz ve veriler web'de",
+    "body": "Grafikler, taşıyıcı karşılaştırması, tüm satırlar ve Excel indirme bilgisayarda daha rahat.",
+    "action": "Web'de aç"
+  },
+  "queue": {
+    "title": "Bekleyenler",
+    "open": "Aç",
+    "emptyTitle": "Bekleyen iş yok",
+    "emptyBody": "Yeni fark veya süre uyarısı çıkınca burada görünür."
+  },
+  "setup": {
+    "title": "{{name}} kurulumu bitmedi",
+    "action": "Kuruluma devam et",
+    "done": "{{name}} kurulumu tamam"
+  },
+  "noData": {
+    "title": "Bu dönemde veri yok",
+    "body": "Başka bir dönem seçin ya da araçta veri girin."
+  },
+  "noTool": {
+    "title": "Bu firmada aracınız yok",
+    "body": "Sayıları görmek için bir araçta rolünüz olmalı. Rolü firma sahibi veya yöneticisi verir.",
+    "action": "Ekip ve yetkilere git"
+  },
+  "denied": {
+    "title": "Bu bölüm rolünüzde açık değil",
+    "body": "Merkez yöneticilere ve rapor izni olanlara açıktır. Yetki için firma yöneticinize başvurun."
+  },
+  "boot": {
+    "title": "Merkez açılamadı",
+    "body": "İnternet bağlantınızı kontrol edip yeniden deneyin."
+  },
+  "stale": {
+    "offline": "Çevrimdışısınız. Son güncelleme: {{time}}",
+    "failed": "Güncellenemedi. Son güncelleme: {{time}}",
+    "retry": "Yenile"
+  },
+  "error": {
+    "network": "İnternet bağlantınızı kontrol edip yeniden deneyin.",
+    "server": "Sunucu şu anda yanıt vermiyor. Biraz sonra yeniden deneyin.",
+    "retry": "Yeniden dene",
+    "openLink": "Bağlantı açılamadı"
+  },
+  "link": {
+    "webHint": "Web'de açılır"
+  },
+  "delta": {
+    "up": "Önceki döneme göre {{amount}} arttı. Önceki: {{previous}}",
+    "down": "Önceki döneme göre {{amount}} azaldı. Önceki: {{previous}}",
+    "flat": "Önceki dönemle aynı. Önceki: {{previous}}",
+    "same": "Aynı"
+  },
+  "ago": {
+    "now": "az önce",
+    "minutes": "{{n}} dk önce",
+    "hours": "{{n}} sa önce",
+    "days": "{{n}} gün önce"
+  },
+  "unit": {
+    "days": "gün",
+    "points": "puan",
+    "thousand": "B",
+    "million": "Mn"
+  },
+  "chart": {
+    "last": "Son: {{date}}",
+    "omitted": "Grafikte ilk dört seri var, tümü tabloda.",
+    "a11y": "{{label}} grafiği. Değerleri okumak için kaydırın."
+  },
+  "activity": {
+    "platform": "Hesap",
+    "system": "Sistem",
+    "sourceError": "{{name}} etkinliği alınamadı. Diğerleri aşağıda.",
+    "emptyTitle": "Henüz etkinlik yok",
+    "emptyBody": "Araçlarda iş yapıldıkça burada görünür.",
+    "more": "Daha fazla göster",
+    "web": "Tüm etkinlik ve süzgeçler web'de",
+    "actions": {
+      "org.created": "firmayı açtı",
+      "org.updated": "firma bilgilerini değiştirdi",
+      "org.ownership_transferred": "sahipliği devretti",
+      "invitation.created": "davet oluşturdu",
+      "invitation.resent": "daveti yeniledi",
+      "invitation.revoked": "daveti iptal etti",
+      "member.joined": "firmaya katıldı",
+      "member.updated": "üyeliği değiştirdi",
+      "member.removed": "firmadan çıkardı",
+      "member.reset_code_issued": "şifre kodu üretti",
+      "member.left": "firmadan ayrıldı",
+      "unknown": "bir işlem yaptı",
+      "person.phone_linked": "telefonunu hesabına bağladı",
+      "person.password_changed": "şifresini değiştirdi",
+      "person.password_reset": "şifresini e-postayla yeniledi",
+      "person.password_reset_by_code": "şifresini kodla yeniledi",
+      "person.identity_changed": "iletişim bilgisini değiştirdi",
+      "session.revoked": "bir oturumu kapattı",
+      "session.reuse_detected": "şüpheli oturum kullanımı nedeniyle oturum kapatıldı",
+      "support.phone_released": "destek: telefon numarası serbest bırakıldı",
+      "support.phone_restored": "destek: telefon numarası geri verildi",
+      "outbox.dead_purged": "sistem: eski olay kayıtları temizlendi"
+    },
+    "member": {
+      "suspended": "üyeliği askıya aldı",
+      "resumed": "üyeliği yeniden açtı",
+      "orgRole": "firma rolünü {{role}} yaptı",
+      "toolRole": "{{tool}} rolünü {{role}} yaptı",
+      "noAccess": "{{tool}} erişimini kapattı"
+    }
+  },
+  "team": {
+    "summary": "{{active}} etkin, {{suspended}} askıda",
+    "suspended": "Askıda",
+    "noAccess": "Erişim yok",
+    "lastActive": "Son etkinlik: {{when}}",
+    "neverActive": "Henüz giriş yapmadı",
+    "emptyTitle": "Ekipte kimse yok",
+    "emptyBody": "Yukarıdaki düğmeyle çalışan ekleyin.",
+    "error": "Ekip listesi alınamadı",
+    "web": "Rol değiştirme ve davet yönetimi web'de",
+    "add": {
+      "action": "Çalışan ekle",
+      "title": "Çalışan ekle",
+      "help": "E-postası olmayan çalışan için. Uygulama bir kod üretir, kodu siz elden veya WhatsApp ile iletirsiniz.",
+      "name": "Ad soyad",
+      "phone": "Telefon",
+      "phonePlaceholder": "0532 000 00 00",
+      "toolRole": "{{tool}} rolü",
+      "orgRole": "Firma rolü: {{role}}. Yönetici yetkisi web'den verilir.",
+      "submit": "Kod üret",
+      "cancel": "Vazgeç",
+      "nameRequired": "Ad soyad yazın.",
+      "nameTooLong": "Ad en çok {{max}} karakter olabilir.",
+      "phoneRequired": "Telefon numarasını yazın.",
+      "phoneInvalid": "Telefon numarası geçersiz.",
+      "limit": "Firmanın davet hakkı şimdilik doldu. Yeni firmalarda saatlik sınır düşüktür. Biraz sonra yeniden deneyin; yazdıklarınız korunuyor.",
+      "limitIn": "Firmanın davet hakkı şimdilik doldu. Yeni firmalarda saatlik sınır düşüktür. Yaklaşık {{minutes}} dakika sonra yeniden deneyin; yazdıklarınız korunuyor.",
+      "alreadyMember": "Bu kişi zaten firmanın üyesi.",
+      "forbidden": "Çalışan eklemek için firma sahibi ya da yöneticisi olmalısınız.",
+      "failed": "Kod üretilemedi",
+      "codeTitle": "{{name}} için kod",
+      "codeA11y": "Tek seferlik kod",
+      "codeOnce": "Bu kod bir daha gösterilmez. 72 saat geçerlidir, 5 hatalı girişte iptal olur.",
+      "codeHow": "Kişi {{url}} adresine girer, telefonunu ve kodu yazar, şifresini kendi belirler.",
+      "share": "Mesajı paylaş",
+      "close": "Kapat",
+      "copyHint": "Yalnız kodu kopyalamak için koda basılı tutun.",
+      "shareFailed": "Paylaşma ekranı açılamadı",
+      "message": "{{org}} sizi SellerOnData'ya davet etti. {{url}} adresine girin, telefon numaranızı ve şu kodu yazın: {{code}}. Kod 72 saat geçerli. Ölçüm için Android uygulamasını yöneticiniz paylaşacak."
+    }
+  },
+  "sheet": {
+    "close": "Kapat"
+  }
+}

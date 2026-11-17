@@ -1,0 +1,11 @@
+{
+  "status": 200,
+  "body": {
+    "orgName": "Örnek Ticaret",
+    "name": "Can Öztürk",
+    "email": "can@ornek.test",
+    "orgRole": "MEMBER",
+    "personExists": false,
+    "expiresAt": "<zaman>"
+  }
+}

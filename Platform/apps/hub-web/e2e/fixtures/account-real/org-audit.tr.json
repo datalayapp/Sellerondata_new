@@ -1,0 +1,162 @@
+{
+  "status": 200,
+  "body": {
+    "page": 1,
+    "pageSize": 50,
+    "total": 6,
+    "items": [
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "invitation.created",
+        "label": "Davet gönderildi",
+        "target": "<id>",
+        "targetName": null,
+        "details": {
+          "kind": "PHONE_CODE",
+          "orgRole": "MEMBER"
+        },
+        "meta": {
+          "kind": "PHONE_CODE",
+          "orgRole": "MEMBER"
+        }
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "invitation.created",
+        "label": "Davet gönderildi",
+        "target": "<id>",
+        "targetName": null,
+        "details": {
+          "kind": "EMAIL",
+          "orgRole": "MEMBER"
+        },
+        "meta": {
+          "kind": "EMAIL",
+          "orgRole": "MEMBER"
+        }
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "member.updated",
+        "label": "Üyelik güncellendi",
+        "target": "<id>",
+        "targetName": "Zeynep Arslan",
+        "details": {
+          "name": "Zeynep Arslan",
+          "changed": [
+            "status"
+          ],
+          "changes": [
+            {
+              "to": "SUSPENDED",
+              "from": "ACTIVE",
+              "field": "status"
+            }
+          ]
+        },
+        "meta": {
+          "name": "Zeynep Arslan",
+          "changed": [
+            "status"
+          ],
+          "changes": [
+            {
+              "to": "SUSPENDED",
+              "from": "ACTIVE",
+              "field": "status"
+            }
+          ]
+        }
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "member.updated",
+        "label": "Üyelik güncellendi",
+        "target": "<id>",
+        "targetName": "Zeynep Arslan",
+        "details": {
+          "name": "Zeynep Arslan",
+          "changed": [
+            "productRoles"
+          ],
+          "changes": [
+            {
+              "to": "custom:<id>",
+              "from": "MEASURE",
+              "field": "productRole",
+              "product": "deciship",
+              "toLabel": "Depo şefi",
+              "fromLabel": "Ölçüm"
+            }
+          ]
+        },
+        "meta": {
+          "name": "Zeynep Arslan",
+          "changed": [
+            "productRoles"
+          ],
+          "changes": [
+            {
+              "to": "custom:<id>",
+              "from": "MEASURE",
+              "field": "productRole",
+              "product": "deciship",
+              "toLabel": "Depo şefi",
+              "fromLabel": "Ölçüm"
+            }
+          ]
+        }
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "role.created",
+        "label": "Rol oluşturuldu",
+        "target": "custom:<id>",
+        "targetName": "Depo şefi",
+        "details": {
+          "kind": "custom",
+          "name": "Depo şefi",
+          "role": "custom:<id>",
+          "basedOn": "MEASURE",
+          "product": "deciship",
+          "permissions": [
+            "deciship.measurements.capture",
+            "deciship.measurements.view_all"
+          ]
+        },
+        "meta": {
+          "kind": "custom",
+          "name": "Depo şefi",
+          "role": "custom:<id>",
+          "basedOn": "MEASURE",
+          "product": "deciship",
+          "permissions": [
+            "deciship.measurements.capture",
+            "deciship.measurements.view_all"
+          ]
+        }
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yılmaz",
+        "action": "org.created",
+        "label": "Firma açıldı",
+        "target": "<id>",
+        "targetName": null,
+        "details": null,
+        "meta": null
+      }
+    ]
+  }
+}

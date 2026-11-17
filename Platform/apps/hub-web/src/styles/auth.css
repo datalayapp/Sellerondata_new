@@ -1,0 +1,627 @@
+/* Giriş, kayıt, katılım, şifre ekranları (tasarım: Giris.dc.html, Kayit.dc.html). Sahibi: giriş ekranları.
+ * Sitenin görsel dili (apps/site/src/site.css): krem zemin, lacivert panel, güneş sarısı düğme.
+ * Kart içindeki kabuk bileşenleri (.fld, .inp, .btn-primary, .notif) burada sitenin diline çekilir;
+ * AuthFrame'i kullanan diğer ekranlar (CreateOrg) da aynı görünür. */
+.auth {
+  /* Pakette karşılığı olmayan --a-* değerleri (--a-line-soft, --a-rule, --a-on-night, --a-on-night-2, --a-night-line,
+   * --a-sun-hover) üretilen tokens.hub.css'tedir (kaynak tokens.json surfaces.hubAuth); burada yalnız bağlar. */
+  --a-paper: var(--bg);
+  --a-ink: var(--text);
+  --a-ink-2: var(--text-2);
+  --a-line: var(--line);
+  --a-night: var(--night);
+  --a-sun: var(--accent);
+  --a-bad: var(--danger); /* hata kırmızı (#c4271b); amber yalnız düğmede */
+  --a-field: var(--border-strong); /* alan çerçevesi, beyazda ≥ 3:1 (WCAG 1.4.11) */
+  --a-focus: var(--focus);
+  flex: 1;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--a-paper);
+  color: var(--a-ink);
+  font-family: var(--f);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.auth :focus-visible {
+  outline: 2px solid var(--a-focus);
+  outline-offset: 3px;
+}
+
+/* ---------- sol panel ---------- */
+.auth-side {
+  width: 42%;
+  flex: none;
+  background: var(--a-night);
+  color: #fff;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+.auth-side :focus-visible {
+  outline-color: var(--a-sun);
+}
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  min-height: 44px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #fff;
+}
+.auth-brand:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.auth-brand .sod-mark {
+  flex: none;
+}
+.auth-pitch {
+  margin: 0;
+  max-width: 440px;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.auth-prods {
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.auth-prods li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.auth-prods img {
+  flex: none;
+  display: block;
+  /* Koyu zeminde ince açık çerçeve (Giris.dc.html); işaret dosyası sitenin dosyasıyla aynı kalır. */
+  border-radius: 10px;
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.28);
+}
+.auth-copy {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--a-on-night-2);
+}
+
+/* ---------- sağ bölme ---------- */
+.auth-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.auth-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 24px 32px 0;
+}
+.auth-brand-m {
+  display: none;
+}
+/* Dil menüsü: dünya simgeli düğme + açılır liste (kullanıcı isteği 2026-11-13). */
+.auth-lang {
+  position: relative;
+}
+.auth-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px 0 14px;
+  border: 1px solid var(--a-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--a-ink);
+  font-family: var(--fm);
+  font-size: 13px;
+  cursor: pointer;
+}
+.auth-lang-btn:hover,
+.auth-lang-btn[aria-expanded="true"] {
+  border-color: var(--a-ink-2);
+}
+.auth-lang-btn svg {
+  flex: none;
+}
+.auth-lang-chev {
+  color: var(--a-ink-2);
+  transition: transform 0.15s;
+}
+.auth-lang-btn[aria-expanded="true"] .auth-lang-chev {
+  transform: rotate(180deg);
+}
+.auth-lang-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 20;
+  min-width: 180px;
+  max-width: calc(100vw - 32px);
+  padding: 4px;
+  border: 1px solid var(--a-line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(16, 24, 40, 0.14);
+}
+.auth-lang-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--a-ink);
+  font: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+.auth-lang-menu button:hover,
+.auth-lang-menu button:focus-visible {
+  background: #f4f3ef;
+}
+.auth-lang-menu button:focus-visible {
+  outline-offset: -2px;
+}
+.auth-lang-menu svg {
+  color: var(--a-night);
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-lang-chev {
+    transition: none;
+  }
+}
+.auth-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 32px 64px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid var(--a-line-soft);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 1px 2px #0a1a3a0f,
+    0 16px 40px #0a1a3a14;
+}
+.auth-card h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--a-ink);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.auth-sub {
+  margin: 8px 0 0;
+  color: var(--a-ink-2);
+  font-size: 17px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.auth-body {
+  margin-top: 32px;
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.auth-text {
+  margin: 0;
+}
+.auth-stack {
+  display: grid;
+  gap: 12px;
+}
+
+/* ---------- form ---------- */
+.auth-card .form-stack {
+  display: grid;
+  gap: 24px;
+  max-width: none;
+  min-width: 0;
+}
+.auth-grp {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+.auth-grp + .auth-grp {
+  padding-top: 24px;
+  border-top: 1px solid var(--a-rule);
+}
+.auth-lg {
+  margin: 0;
+  font-family: var(--fm);
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--a-ink-2);
+}
+.auth-card .fld {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.auth-card .fld > label {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--a-ink);
+}
+/* Bu formlarda bütün alanlar zorunlu (`required`); yıldız tasarımda yok. */
+.auth-card .fld.req > label::after {
+  content: none;
+}
+.auth-card .fld .help,
+.auth-card .hub-sheet-note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--a-ink-2);
+}
+.auth-card .fld .err {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--a-bad);
+}
+.auth-card .fld .err::before {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6.5' fill='none' stroke='%23c4271b' stroke-width='1.6'/%3E%3Cpath d='M8 4.5v4M8 11v.01' stroke='%23c4271b' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 16px;
+}
+.auth-card .inp,
+.auth-card .sel {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--a-field);
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 17px;
+  color: var(--a-ink);
+}
+.auth-card .inp.mono {
+  font-family: var(--fm);
+}
+.auth-card .inp:hover:not(:disabled):not(:focus),
+.auth-card .sel:hover:not(:disabled):not(:focus) {
+  border-color: var(--border-hover);
+}
+.auth-card .inp:focus,
+.auth-card .sel:focus {
+  outline: none;
+  /* Odak mavi (hata kırmızıdır, ikisi karışmaz): mavi çerçeve ve halka, beyazda 5,9:1. */
+  border-color: var(--a-focus);
+  box-shadow: 0 0 0 1px var(--a-focus), 0 0 0 4px rgba(29, 91, 216, 0.25);
+}
+.auth-card .inp[aria-invalid='true'],
+.auth-card .sel[aria-invalid='true'] {
+  border-color: var(--a-bad);
+  box-shadow: 0 0 0 1px var(--a-bad);
+}
+.auth-card .inp[aria-invalid='true']:focus,
+.auth-card .sel[aria-invalid='true']:focus {
+  box-shadow: 0 0 0 2px var(--a-bad);
+}
+.auth-card .sel {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%230f1a2e' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 48px;
+  text-overflow: ellipsis;
+}
+.auth-pw {
+  position: relative;
+  min-width: 0;
+}
+.auth-pw .inp {
+  padding-right: 56px;
+}
+.auth-eye {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--a-ink-2);
+  cursor: pointer;
+}
+.auth-eye:hover {
+  background: var(--a-paper);
+  color: var(--a-ink);
+}
+.auth-eye:focus-visible {
+  outline-offset: -2px;
+}
+
+/* ---------- düğmeler ---------- */
+.auth-card .btn {
+  height: auto;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 600;
+  box-shadow: none;
+}
+.auth-card .btn:focus-visible {
+  outline: 2px solid var(--a-focus);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+.auth-card .btn-primary {
+  background: var(--a-sun);
+  border-color: transparent;
+  color: var(--a-night);
+}
+.auth-card .btn-primary:hover:not(:disabled) {
+  background: var(--a-sun-hover);
+  color: var(--a-night);
+  text-decoration: none;
+}
+.auth-card .btn-primary:active:not(:disabled) {
+  background: #e99a00;
+}
+.auth-submit,
+.auth-card .hub-auth-submit {
+  width: 100%;
+}
+.auth-back.btn {
+  width: 100%;
+  font-size: 15px;
+  color: var(--a-ink);
+}
+.auth-back.btn:hover:not(:disabled) {
+  background: var(--a-paper);
+  color: var(--a-ink);
+}
+.auth-card .notif {
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- bağlantılar ---------- */
+.auth-links {
+  margin-top: 24px;
+  display: grid;
+  min-width: 0;
+}
+/* Kayıtta koşullar satırı formun içinde, altındaki bağlantı yakın durur. */
+.auth-body:has(.auth-terms) + .auth-links {
+  margin-top: 8px;
+}
+.auth-links p {
+  margin: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--a-ink-2);
+}
+.auth-links a,
+.auth-links .link-btn,
+.auth-terms-l a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--a-night);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auth-links a:hover,
+.auth-links .link-btn:hover,
+.auth-terms-l a:hover {
+  color: var(--a-night);
+  opacity: 0.85;
+}
+.auth-terms p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--a-ink-2);
+}
+.auth-terms-l {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 24px;
+}
+
+/* ---------- davet özeti ---------- */
+.auth-summary {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--a-line-soft);
+  border-radius: 12px;
+  font-size: 15px;
+}
+.auth-summary li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--a-rule);
+}
+.auth-summary li:last-child {
+  border-bottom: 0;
+}
+.auth-summary span {
+  color: var(--a-ink-2);
+}
+.auth-summary b {
+  font-weight: 500;
+}
+
+/* ---------- genişliğe göre ---------- */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .auth-side {
+    padding: 48px;
+  }
+  .auth-pitch {
+    font-size: 34px;
+  }
+}
+@media (max-width: 900px) {
+  .auth {
+    flex-direction: column;
+  }
+  .auth-side {
+    display: none;
+  }
+  .auth-top {
+    justify-content: space-between;
+    min-height: 64px;
+    padding: 0 20px;
+    background: var(--a-night);
+    color: #fff;
+  }
+  .auth-top :focus-visible {
+    outline-color: var(--a-sun);
+  }
+  .auth-brand-m {
+    display: flex;
+    font-size: 18px;
+  }
+  /* Lacivert üst bantta: düğme çerçeveli ve açık renk; açılan liste beyaz kalır. */
+  .auth-lang-btn {
+    border-color: var(--a-night-line);
+    background: none;
+    color: #fff;
+  }
+  .auth-lang-btn:hover,
+  .auth-lang-btn[aria-expanded="true"] {
+    border-color: var(--a-on-night);
+  }
+  .auth-lang-btn .auth-lang-chev {
+    color: var(--a-on-night);
+  }
+  .auth-lang-menu :focus-visible {
+    outline-color: var(--a-focus);
+  }
+  .auth-center {
+    display: block;
+    padding: 32px 20px 48px;
+  }
+  /* Tablette kart korunur (pano 390'da düz form gösterir; geniş ekranda alanlar aşırı uzamasın). */
+  .auth-card {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .auth-card {
+    max-width: none;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+@media (max-width: 360px) {
+  .auth-brand-m {
+    font-size: 16px;
+    gap: 8px;
+  }
+}
+
+/* Giriş ekranında açık oturum kartı (kullanıcı isteği 2026-11-13): kim olduğu + devam / başka hesap. */
+.auth-signed {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--a-line);
+  border-radius: 12px;
+  background: #fff;
+}
+.auth-signed-av {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--a-night);
+  color: #fff;
+  font-family: var(--fm);
+  font-size: 15px;
+  font-weight: 500;
+}
+.auth-signed-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.auth-signed-txt b {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.auth-signed-txt small {
+  color: var(--a-ink-2);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}

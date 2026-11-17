@@ -1,0 +1,77 @@
+{
+  "status": 200,
+  "body": {
+    "person": {
+      "id": "<id>",
+      "name": "Mehmet Demir",
+      "email": null,
+      "phone": "+905559871201",
+      "locale": "tr",
+      "emailVerified": false,
+      "pendingEmail": null
+    },
+    "orgs": [
+      {
+        "id": "<id>",
+        "name": "Örnek Ticaret",
+        "orgRole": "MEMBER",
+        "status": "ACTIVE"
+      }
+    ],
+    "activeOrg": {
+      "id": "<id>",
+      "name": "Örnek Ticaret",
+      "country": "TR",
+      "currency": "TRY",
+      "timeZone": "Europe/Istanbul",
+      "locale": "tr",
+      "companyConfirmedAt": null,
+      "orgRole": "MEMBER",
+      "membershipId": "<id>"
+    },
+    "account": {
+      "canCreateOrg": false,
+      "createOrgRequiresEmail": true,
+      "suspendedOrgCount": 0,
+      "mailEnabled": false,
+      "mailDelivers": false,
+      "canLeaveActiveOrg": true,
+      "leaveRequiresPassword": true,
+      "passwordRecovery": "org_admin",
+      "defaultCountry": "TR"
+    },
+    "products": [
+      {
+        "key": "deciship",
+        "available": true,
+        "launch": "public",
+        "subscription": {
+          "status": "ACTIVE",
+          "plan": "early_access"
+        },
+        "role": "MEASURE",
+        "roleLabel": "Ölçüm",
+        "roleKind": "builtin",
+        "permissions": [
+          "deciship.measurements.capture"
+        ]
+      },
+      {
+        "key": "orderloom",
+        "available": false,
+        "launch": "off",
+        "subscription": null,
+        "role": null,
+        "permissions": []
+      },
+      {
+        "key": "tagpress",
+        "available": false,
+        "launch": "off",
+        "subscription": null,
+        "role": null,
+        "permissions": []
+      }
+    ]
+  }
+}

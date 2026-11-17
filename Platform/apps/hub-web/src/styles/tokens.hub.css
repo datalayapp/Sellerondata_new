@@ -1,0 +1,10 @@
+/* ÜRETİLDİ: elle düzenlemeyin; kaynak Platform/packages/tokens/tokens.json (node Platform/packages/tokens/build.mjs). */
+/* Merkez giriş (.auth, auth.css): pakette karşılığı olmayan yerel değerler. Pakettekine eşit olanlar auth.css'te var() ile bağlı. */
+.auth {
+  --a-line-soft: #e9e6df;
+  --a-rule: #efece6;
+  --a-on-night: #c9d3e8;
+  --a-on-night-2: #8f9cb8;
+  --a-night-line: #2a3d66;
+  --a-sun-hover: #f4a50c;
+}

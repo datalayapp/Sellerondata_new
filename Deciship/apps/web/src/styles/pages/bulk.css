@@ -1,0 +1,107 @@
+/* Toplu karar: satır seçimi, seçim çubuğu (Mesaj 14 Parça D). */
+
+/* ---- seçim kutusu ---- */
+/* kutu hücresi: dar, satırın başında; tablo kipinde başlık ve satır aynı genişlikte */
+.lines-dt th.ln-c-sel,
+.lines-dt td.ln-c-sel {
+  width: 1%;
+  padding-left: 12px;
+  padding-right: 0;
+  white-space: nowrap;
+}
+.ln-sel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  cursor: pointer;
+}
+.ln-sel input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: inherit;
+}
+.ln-sel.off {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+/* kart kipi: kutu kartın sağ üst köşesinde, başlık altına girmez */
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.lines-dt tbody tr {
+    position: relative;
+  }
+  .dt.dt-cards.lines-dt td.ln-c-sel {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: auto;
+    padding: 0;
+    z-index: 1;
+  }
+  .dt.dt-cards.lines-dt td.ln-c-sel .ln-sel {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .dt.dt-cards.lines-dt.has-sel td.card-title {
+    padding-right: 40px;
+  }
+}
+
+/* ---- seçim çubuğu ---- */
+.bulk-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  background: var(--primary-soft);
+}
+.bulk-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 12px;
+  min-width: 0;
+}
+.bulk-count {
+  font-weight: 600;
+  color: var(--text);
+}
+.bulk-acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+/* telefonda çubuk alta yapışır; içerik altında kalmasın diye ana sütuna boşluk bırakılır */
+@media (max-width: 767px) {
+  .bulk-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: var(--sod-dock-h, 0px); /* alttaki uygulama çubuğunun üstünde (kabuk shell.css) */
+    z-index: 30;
+    margin: 0;
+    padding: 10px 16px calc(10px + var(--sod-safe-b, env(safe-area-inset-bottom, 0px)));
+    border-width: 1px 0 0;
+    border-radius: 0;
+    background: var(--surface);
+    box-shadow: 0 -4px 16px rgba(10, 26, 58, 0.12);
+  }
+  .bulk-acts {
+    width: 100%;
+  }
+  .bulk-acts > .btn:first-child {
+    flex: 1 1 0;
+  }
+  .inv-main.has-bulk {
+    padding-bottom: 132px;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "endpoint": "GET /api/deciship/settings",
+  "status": 200,
+  "shape": {
+    "amountTol": "number",
+    "country": "string",
+    "currency": "string",
+    "dataResetEnabled": "boolean",
+    "desiDivisor": "number",
+    "disputeReminders": "boolean",
+    "edgeTolCm": "number",
+    "fxSource": "string",
+    "fxTolerancePct": "number",
+    "name": "string",
+    "requiredBoxPhotos": "number",
+    "scaleAiRead": "boolean",
+    "timeZone": "string",
+    "unknownSurchargesAsDiff": "boolean",
+    "warnEdgeCm": "number",
+    "warnWeightKg": "number",
+    "weightTolKg": "number"
+  }
+}

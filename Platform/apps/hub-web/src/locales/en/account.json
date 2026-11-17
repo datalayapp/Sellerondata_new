@@ -1,0 +1,104 @@
+{
+  "accountArea": {
+    "head": {
+      "same": "These details are the same in all your companies"
+    },
+    "nav": {
+      "label": "My account",
+      "profile": "Profile",
+      "security": "Security",
+      "firms": "My companies"
+    },
+    "profile": {
+      "personal": "Personal details",
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "noEmail": "No email",
+      "noPhone": "No phone linked",
+      "phoneHelp": "A phone number is linked with an invite code.",
+      "edit": "Edit",
+      "add": "Add",
+      "remove": "Remove",
+      "saved": "Profile saved",
+      "currentPassword": "Your current password",
+      "currentPasswordHelp": "Changing your email or phone is confirmed with your password.",
+      "needContact": "You need an email or a phone number: you use it to sign in.",
+      "noRecovery": "If you forget your password, there is no way to recover it. Add an email.",
+      "removePhone": "Remove phone",
+      "removePhoneBody": "You can no longer sign in with your phone; you keep signing in with your email. Linking it again needs an invite code.",
+      "unverifiedHow": "Not verified. We sent a link to this address.",
+      "pending": "Waiting for confirmation: {{email}}. Your old address stays active until you confirm.",
+      "pendingNoCurrent": "Waiting for confirmation: {{email}}.",
+      "pendingSent": "We sent a confirmation link to {{email}}.",
+      "resend": "Resend",
+      "resent": "The link has been resent.",
+      "cancelPending": "Cancel change",
+      "pendingCanceled": "The email change was cancelled.",
+      "unverifiedMailOff": "Not verified. Email sending is off in this setup, contact your administrator.",
+      "preferences": "Preferences"
+    },
+    "security": {
+      "password": "Password",
+      "change": "Change",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "repeatPassword": "New password (again)",
+      "note": "Changing your password signs you out on your other devices.",
+      "submit": "Change password",
+      "changed": "Password changed",
+      "sessions": "Open sessions",
+      "noSessions": "No open sessions",
+      "web": "Web browser",
+      "mobile": "Mobile app",
+      "current": "This device",
+      "revoke": "Sign out",
+      "revoked": "Session signed out",
+      "revokeFailed": "Couldn't sign out the session",
+      "sessionsSub": "Devices signed in to this account. If you see a device you don't recognise, sign it out and change your password.",
+      "revokeOthers": "Sign out all other sessions",
+      "revokedOthers": "Other sessions signed out"
+    },
+    "language": {
+      "title": "Language",
+      "change": "Change"
+    },
+    "orgs": {
+      "title": "My companies",
+      "open": "Open in Hub",
+      "suspended": "Your membership is suspended",
+      "none": "You are not in a company yet.",
+      "create": "Create a company",
+      "ownerNote": "A company owner can't leave. Transfer ownership to someone else first.",
+      "ownerBody": "You own {{org}}. The owner can't leave the company. Transfer ownership to someone else first.",
+      "ownerAction": "Go to ownership transfer",
+      "sub": "Companies you're a member of. Company details and team are on each company's own pages.",
+      "active": "Active company",
+      "closed": "Closed",
+      "purgeOn": "Permanently deleted on {{date}}",
+      "reopen": "Reopen",
+      "createNew": "Create a new company"
+    },
+    "memberships": {
+      "status": {
+        "ACTIVE": "Open",
+        "READ_ONLY": "Read only",
+        "CANCELED": "Canceled"
+      }
+    }
+  },
+  "d9": {
+    "team": {
+      "filters": "Filters",
+      "inviteActionsFor": "Actions for the invitation to {{name}}"
+    },
+    "billing": {
+      "title": "Subscription and tools",
+      "plan": "Plan",
+      "payment": "Payment"
+    },
+    "company": {
+      "more": "More actions for the company"
+    }
+  }
+}

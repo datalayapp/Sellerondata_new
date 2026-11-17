@@ -1,0 +1,1681 @@
+{
+  "status": 200,
+  "body": {
+    "product": "deciship",
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "filters": [
+      {
+        "id": "currency",
+        "kind": "select",
+        "label": "Para birimi",
+        "options": [
+          {
+            "value": "TRY",
+            "label": "TRY"
+          },
+          {
+            "value": "USD",
+            "label": "USD"
+          }
+        ],
+        "default": "TRY"
+      },
+      {
+        "id": "carrier",
+        "kind": "select",
+        "multiple": true,
+        "label": "Taşıyıcı",
+        "options": [
+          {
+            "value": "<id>",
+            "label": "Aras Kargo"
+          },
+          {
+            "value": "<id>",
+            "label": "DHL Express"
+          },
+          {
+            "value": "<id>",
+            "label": "FedEx"
+          },
+          {
+            "value": "<id>",
+            "label": "MNG Kargo"
+          },
+          {
+            "value": "<id>",
+            "label": "Sürat Kargo"
+          },
+          {
+            "value": "<id>",
+            "label": "UPS"
+          },
+          {
+            "value": "<id>",
+            "label": "Yurtiçi Kargo"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "kind": "select",
+        "label": "Hizmet",
+        "options": [
+          {
+            "value": "Economy",
+            "label": "Economy"
+          },
+          {
+            "value": "Express",
+            "label": "Express"
+          },
+          {
+            "value": "FedEx International Economy",
+            "label": "FedEx International Economy"
+          },
+          {
+            "value": "Priority",
+            "label": "Priority"
+          }
+        ]
+      },
+      {
+        "id": "country",
+        "kind": "text",
+        "label": "Ülke kodu"
+      },
+      {
+        "id": "tracking",
+        "kind": "text",
+        "label": "Takip no içerir"
+      }
+    ],
+    "compare": {
+      "from": "2026-08-31",
+      "to": "2026-09-30"
+    },
+    "sections": [
+      {
+        "id": "overcharge",
+        "title": "Fazla ödeme",
+        "description": "Tutarlar yalnız TRY faturalardan, sayılar tüm faturalardan. Para birimleri toplanmaz; diğerleri için para birimi filtresini kullanın.",
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "overcharge-kpis",
+            "items": [
+              {
+                "id": "billed",
+                "label": "Faturalanan",
+                "value": 29588.33,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "none",
+                "previous": 500
+              },
+              {
+                "id": "overcharge",
+                "label": "Yakalanan fazla ödeme",
+                "hint": "Faturalanan tutar ile ölçüm ve tarifeye göre beklenen arasındaki kesin fark. Uyumlu sayılan ve \"İncele\" satırları dahil değil.",
+                "value": 762.2,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "down",
+                "tone": "bad",
+                "previous": 400
+              },
+              {
+                "id": "verified",
+                "label": "İtiraz listesinde",
+                "hint": "İtiraz listesindeki satırların tutarı. Taşıyıcının iadesi değildir.",
+                "value": 488.5,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "none",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=VERIFIED&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 0
+              },
+              {
+                "id": "recovered",
+                "label": "Geri alınan",
+                "hint": "Alacak dekontuyla taşıyıcıdan geri alınan tutar, fatura ayına göre.",
+                "value": 20,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "up",
+                "tone": "good",
+                "href": "/deciship/disputes",
+                "previous": 0
+              },
+              {
+                "id": "disputePending",
+                "label": "İtirazda bekleyen",
+                "hint": "Gönderilmiş itirazlarda sonucu henüz gelmemiş talep.",
+                "value": 458.5,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "none",
+                "tone": "warning",
+                "href": "/deciship/disputes?status=SENT",
+                "previous": 0
+              },
+              {
+                "id": "estimated",
+                "label": "İncelenecek tutar",
+                "hint": "Tutarından emin olunamayan satırlar: fiyat ya da ağırlık faturadan doğrulanamadı, hizmet tarifeden farklı ya da takip no başka faturada farklı tutarla var. Fazla ödemeye eklenmez.",
+                "value": 1130,
+                "format": "money",
+                "currency": "TRY",
+                "goodDirection": "down",
+                "tone": "warning",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.confidence=LOW&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 0
+              },
+              {
+                "id": "lines",
+                "label": "Faturalanan gönderi",
+                "value": 31,
+                "format": "number",
+                "goodDirection": "none",
+                "href": "/data/deciship/invoice-lines?filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 1
+              },
+              {
+                "id": "diffs",
+                "label": "Fark bulunan gönderi",
+                "hint": "Tüm fark satırları: karar bekleyen, itiraz listesinde ve uyumlu sayılan.",
+                "value": 12,
+                "format": "number",
+                "goodDirection": "down",
+                "tone": "warning",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 1
+              },
+              {
+                "id": "diff-rate",
+                "label": "Fark oranı",
+                "value": 38.7,
+                "format": "percent",
+                "goodDirection": "down",
+                "previous": 100
+              }
+            ]
+          },
+          {
+            "kind": "timeseries",
+            "id": "overcharge-trend",
+            "title": "Fazla ödeme",
+            "description": "Dönem içinde birikimli, fatura tarihine göre.",
+            "chart": "area",
+            "format": "money",
+            "currency": "TRY",
+            "series": [
+              {
+                "id": "current",
+                "label": "Bu dönem",
+                "role": "current",
+                "points": [
+                  {
+                    "x": "2026-10-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-10",
+                    "y": 130
+                  },
+                  {
+                    "x": "2026-10-11",
+                    "y": 130
+                  },
+                  {
+                    "x": "2026-10-12",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-13",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-14",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-15",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-16",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-17",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-18",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-19",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-20",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-21",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-22",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-23",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-24",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-25",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-26",
+                    "y": 151
+                  },
+                  {
+                    "x": "2026-10-27",
+                    "y": 762.2
+                  },
+                  {
+                    "x": "2026-10-28",
+                    "y": 762.2
+                  },
+                  {
+                    "x": "2026-10-29",
+                    "y": 762.2
+                  },
+                  {
+                    "x": "2026-10-30",
+                    "y": 762.2
+                  },
+                  {
+                    "x": "2026-10-31",
+                    "y": 762.2
+                  }
+                ]
+              },
+              {
+                "id": "previous",
+                "label": "Önceki dönem",
+                "role": "previous",
+                "points": [
+                  {
+                    "x": "2026-08-31",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-10",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-19",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-20",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-21",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-22",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-23",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-24",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-25",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-26",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-27",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-28",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-29",
+                    "y": 400
+                  },
+                  {
+                    "x": "2026-09-30",
+                    "y": 400
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "diff-types",
+            "title": "Fark türleri",
+            "description": "Fazla ödeme tutarına göre. Birden çok türü olan satır ilk türüne yazılır.",
+            "format": "money",
+            "currency": "TRY",
+            "items": [
+              {
+                "key": "DIMENSION",
+                "label": "Ölçü farkı",
+                "value": 558.5,
+                "share": 73.3,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=DIMENSION&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "WEIGHT",
+                "label": "Ağırlık farkı",
+                "value": 126.4,
+                "share": 16.6,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=WEIGHT&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "PRICE",
+                "label": "Fiyat farkı",
+                "value": 77.3,
+                "share": 10.1,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.diff=PRICE&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "by-carrier",
+            "title": "Taşıyıcıya göre fazla ödeme",
+            "format": "money",
+            "currency": "TRY",
+            "items": [
+              {
+                "key": "<id>",
+                "label": "FedEx",
+                "value": 611.2,
+                "share": 80.2,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.carrier=<id>&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "<id>",
+                "label": "Sürat Kargo",
+                "value": 151,
+                "share": 19.8,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.carrier=<id>&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "carrier-rates",
+            "title": "Taşıyıcı karşılaştırması",
+            "description": "Oranlar faturalanan satır ve tutar içinde.",
+            "columns": [
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "lines",
+                "label": "Satır",
+                "format": "number"
+              },
+              {
+                "id": "diff",
+                "label": "Fark satırı",
+                "format": "number"
+              },
+              {
+                "id": "diffRate",
+                "label": "Fark oranı",
+                "format": "percent"
+              },
+              {
+                "id": "billed",
+                "label": "Faturalanan",
+                "format": "money",
+                "currency": "TRY"
+              },
+              {
+                "id": "overcharge",
+                "label": "Fazla ödeme",
+                "format": "money",
+                "currency": "TRY"
+              },
+              {
+                "id": "overchargeRate",
+                "label": "Fazla ödeme oranı",
+                "format": "percent"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/data/deciship/invoice-lines?filter.carrier=<id>&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "carrier": "FedEx",
+                  "lines": 18,
+                  "diff": 4,
+                  "diffRate": 22.2,
+                  "billed": 28501.33,
+                  "overcharge": 611.2,
+                  "overchargeRate": 2.1
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/data/deciship/invoice-lines?filter.carrier=<id>&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "carrier": "Sürat Kargo",
+                  "lines": 13,
+                  "diff": 8,
+                  "diffRate": 61.5,
+                  "billed": 1087,
+                  "overcharge": 151,
+                  "overchargeRate": 13.9
+                }
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "by-country",
+            "title": "Varış ülkesine göre",
+            "format": "money",
+            "currency": "TRY",
+            "items": [
+              {
+                "key": "FR",
+                "label": "Fransa",
+                "value": 488.5,
+                "share": 64.1,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.country=FR&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "DE",
+                "label": "Almanya",
+                "value": 217.4,
+                "share": 28.5,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.country=DE&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "BE",
+                "label": "Belçika",
+                "value": 56.3,
+                "share": 7.4,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.country=BE&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "by-service",
+            "title": "Hizmete göre",
+            "format": "money",
+            "currency": "TRY",
+            "items": [
+              {
+                "key": "FedEx International Economy",
+                "label": "FedEx International Economy",
+                "value": 611.2,
+                "share": 80.2,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.service=FedEx+International+Economy&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "Economy",
+                "label": "Economy",
+                "value": 130,
+                "share": 17.1,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.service=Economy&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "Express",
+                "label": "Express",
+                "value": 21,
+                "share": 2.8,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.service=Express&filter.currency=TRY&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "top-shipments",
+            "title": "En çok fark çıkan gönderiler",
+            "columns": [
+              {
+                "id": "tracking",
+                "label": "Takip no",
+                "format": "text"
+              },
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "invoice",
+                "label": "Fatura",
+                "format": "text"
+              },
+              {
+                "id": "country",
+                "label": "Ülke",
+                "format": "text"
+              },
+              {
+                "id": "type",
+                "label": "Fark türü",
+                "format": "text"
+              },
+              {
+                "id": "billed",
+                "label": "Faturalanan",
+                "format": "money",
+                "currency": "TRY"
+              },
+              {
+                "id": "expected",
+                "label": "Beklenen",
+                "format": "money",
+                "currency": "TRY"
+              },
+              {
+                "id": "overcharge",
+                "label": "Fazla ödeme",
+                "format": "money",
+                "currency": "TRY"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "794812345305",
+                  "carrier": "FedEx",
+                  "invoice": "9-482-11735",
+                  "country": "FR",
+                  "type": "Ölçü farkı",
+                  "billed": 1642.5,
+                  "expected": 1184,
+                  "overcharge": 458.5
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "K-1X2",
+                  "carrier": "Sürat Kargo",
+                  "invoice": "K-1",
+                  "country": "DE",
+                  "type": "Ölçü farkı, Ek ücret",
+                  "billed": 300,
+                  "expected": 200,
+                  "overcharge": 100
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "794812345299",
+                  "carrier": "FedEx",
+                  "invoice": "9-482-11735",
+                  "country": "DE",
+                  "type": "Ağırlık farkı",
+                  "billed": 1120,
+                  "expected": 1023.6,
+                  "overcharge": 96.4
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "794812345290",
+                  "carrier": "FedEx",
+                  "invoice": "9-482-11735",
+                  "country": "BE",
+                  "type": "Fiyat farkı",
+                  "billed": 2871.3,
+                  "expected": 2815,
+                  "overcharge": 56.3
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "K-1X3",
+                  "carrier": "Sürat Kargo",
+                  "invoice": "K-1",
+                  "country": "FR",
+                  "type": "Ağırlık farkı",
+                  "billed": 150,
+                  "expected": 120,
+                  "overcharge": 30
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "K-3X3",
+                  "carrier": "Sürat Kargo",
+                  "invoice": "K-3",
+                  "country": "DE",
+                  "type": "Fiyat farkı",
+                  "billed": 108,
+                  "expected": 100,
+                  "overcharge": 8
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "K-3X2",
+                  "carrier": "Sürat Kargo",
+                  "invoice": "K-3",
+                  "country": "DE",
+                  "type": "Fiyat farkı",
+                  "billed": 107,
+                  "expected": 100,
+                  "overcharge": 7
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>",
+                "cells": {
+                  "tracking": "K-3X1",
+                  "carrier": "Sürat Kargo",
+                  "invoice": "K-3",
+                  "country": "DE",
+                  "type": "Fiyat farkı",
+                  "billed": 106,
+                  "expected": 100,
+                  "overcharge": 6
+                }
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "top-invoices",
+            "title": "En çok fark çıkan faturalar",
+            "columns": [
+              {
+                "id": "invoice",
+                "label": "Fatura",
+                "format": "text"
+              },
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "date",
+                "label": "Tarih",
+                "format": "date"
+              },
+              {
+                "id": "lines",
+                "label": "Satır",
+                "format": "number"
+              },
+              {
+                "id": "diff",
+                "label": "Fark satırı",
+                "format": "number"
+              },
+              {
+                "id": "overcharge",
+                "label": "Fazla ödeme",
+                "format": "money",
+                "currency": "TRY"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF",
+                "cells": {
+                  "invoice": "9-482-11735",
+                  "carrier": "FedEx",
+                  "date": "2026-10-27",
+                  "lines": 18,
+                  "diff": 4,
+                  "overcharge": 611.2
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF",
+                "cells": {
+                  "invoice": "K-1",
+                  "carrier": "Sürat Kargo",
+                  "date": "2026-10-10",
+                  "lines": 8,
+                  "diff": 4,
+                  "overcharge": 130
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF",
+                "cells": {
+                  "invoice": "K-3",
+                  "carrier": "Sürat Kargo",
+                  "date": "2026-10-12",
+                  "lines": 3,
+                  "diff": 3,
+                  "overcharge": 21
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "decisions",
+        "title": "Karar durumu",
+        "description": "Fark satırlarında verilen kararlar. Karar DeciShip içinde verilir.",
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "decision-kpis",
+            "items": [
+              {
+                "id": "open",
+                "label": "Karar bekleyen fark",
+                "value": 9,
+                "format": "number",
+                "goodDirection": "down",
+                "tone": "warning",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 1
+              },
+              {
+                "id": "decision-days",
+                "label": "Ortalama karar süresi",
+                "hint": "Faturanın yüklenmesinden karar verilene kadar.",
+                "value": 0,
+                "format": "duration_days",
+                "goodDirection": "down",
+                "previous": null
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "decision-lines",
+            "title": "Karara göre fark satırı",
+            "format": "number",
+            "items": [
+              {
+                "key": "OPEN",
+                "label": "Karar bekliyor",
+                "value": 9,
+                "share": 75,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "VERIFIED",
+                "label": "İtiraz listesinde",
+                "value": 2,
+                "share": 16.7,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=VERIFIED&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "ACCEPTED",
+                "label": "Uyumlu sayıldı",
+                "value": 1,
+                "share": 8.3,
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=ACCEPTED&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "decision-summary",
+            "title": "Karar özeti",
+            "description": "Fazla ödeme: Karar bekliyor + İtiraz listesinde. Uyumlu sayılan tutar ve \"İncele\" satırları buna eklenmez.",
+            "columns": [
+              {
+                "id": "decision",
+                "label": "Karar",
+                "format": "text"
+              },
+              {
+                "id": "lines",
+                "label": "Satır",
+                "format": "number"
+              },
+              {
+                "id": "overcharge",
+                "label": "Fazla ödeme",
+                "format": "money",
+                "currency": "TRY"
+              },
+              {
+                "id": "estimated",
+                "label": "İncele",
+                "format": "money",
+                "currency": "TRY"
+              }
+            ],
+            "rows": [
+              {
+                "id": "OPEN",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=OPEN&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "decision": "Karar bekliyor",
+                  "lines": 9,
+                  "overcharge": 273.7,
+                  "estimated": 1130
+                }
+              },
+              {
+                "id": "VERIFIED",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=VERIFIED&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "decision": "İtiraz listesinde",
+                  "lines": 2,
+                  "overcharge": 488.5,
+                  "estimated": 0
+                }
+              },
+              {
+                "id": "ACCEPTED",
+                "href": "/data/deciship/invoice-lines?filter.status=DIFF&filter.decision=ACCEPTED&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "decision": "Uyumlu sayıldı",
+                  "lines": 1,
+                  "overcharge": 0,
+                  "estimated": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "measure",
+        "title": "Ölçüm",
+        "description": "Koliyi kim, nasıl ölçtü. İtirazın dayanağı burası. Taşıyıcı ve hizmet filtresi ölçümlere uygulanmaz.",
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "measure-kpis",
+            "items": [
+              {
+                "id": "measured",
+                "label": "Ölçülen koli",
+                "value": 57,
+                "format": "number",
+                "goodDirection": "up",
+                "href": "/data/deciship/measurements?filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 0
+              },
+              {
+                "id": "coverage",
+                "label": "Ölçüm kapsamı",
+                "hint": "Ölçümü olan fatura satırlarının oranı.",
+                "value": 87.1,
+                "format": "percent",
+                "goodDirection": "up",
+                "href": "/data/deciship/invoice-lines?filter.status=UNMATCHED&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 100
+              },
+              {
+                "id": "no-photo",
+                "label": "Fotoğrafsız ölçüm",
+                "value": 57,
+                "format": "number",
+                "goodDirection": "down",
+                "href": "/data/deciship/measurements?filter.photos=none&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "timeseries",
+            "id": "measured-trend",
+            "title": "Ölçülen koli",
+            "chart": "bar",
+            "format": "number",
+            "series": [
+              {
+                "id": "current",
+                "label": "Bu dönem",
+                "role": "current",
+                "points": [
+                  {
+                    "x": "2026-10-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-10",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-19",
+                    "y": 7
+                  },
+                  {
+                    "x": "2026-10-20",
+                    "y": 9
+                  },
+                  {
+                    "x": "2026-10-21",
+                    "y": 11
+                  },
+                  {
+                    "x": "2026-10-22",
+                    "y": 12
+                  },
+                  {
+                    "x": "2026-10-23",
+                    "y": 11
+                  },
+                  {
+                    "x": "2026-10-24",
+                    "y": 5
+                  },
+                  {
+                    "x": "2026-10-25",
+                    "y": 2
+                  },
+                  {
+                    "x": "2026-10-26",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-27",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-28",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-29",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-30",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-31",
+                    "y": 0
+                  }
+                ]
+              },
+              {
+                "id": "previous",
+                "label": "Önceki dönem",
+                "role": "previous",
+                "points": [
+                  {
+                    "x": "2026-08-31",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-10",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-19",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-20",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-21",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-22",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-23",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-24",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-25",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-26",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-27",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-28",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-29",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-09-30",
+                    "y": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "methods",
+            "title": "Ölçüm yöntemi",
+            "format": "number",
+            "items": [
+              {
+                "key": "MANUAL",
+                "label": "Elle",
+                "value": 26,
+                "share": 45.6,
+                "href": "/data/deciship/measurements?filter.method=MANUAL&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "PRESET",
+                "label": "Hazır koli",
+                "value": 16,
+                "share": 28.1,
+                "href": "/data/deciship/measurements?filter.method=PRESET&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "LIDAR",
+                "label": "LiDAR",
+                "value": 8,
+                "share": 14,
+                "href": "/data/deciship/measurements?filter.method=LIDAR&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "AR",
+                "label": "AR",
+                "value": 4,
+                "share": 7,
+                "href": "/data/deciship/measurements?filter.method=AR&filter.from=2026-10-01&filter.to=2026-10-31"
+              },
+              {
+                "key": "REFERENCE",
+                "label": "Referans kartı",
+                "value": 3,
+                "share": 5.3,
+                "href": "/data/deciship/measurements?filter.method=REFERENCE&filter.from=2026-10-01&filter.to=2026-10-31"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "operators",
+            "title": "Ölçüm yapanlar",
+            "columns": [
+              {
+                "id": "name",
+                "label": "Kişi",
+                "format": "text"
+              },
+              {
+                "id": "count",
+                "label": "Koli",
+                "format": "number"
+              },
+              {
+                "id": "noPhoto",
+                "label": "Fotoğrafsız",
+                "format": "number"
+              },
+              {
+                "id": "corrected",
+                "label": "Düzeltilen",
+                "format": "number"
+              },
+              {
+                "id": "manualShare",
+                "label": "Elle oran",
+                "format": "percent"
+              },
+              {
+                "id": "last",
+                "label": "Son ölçüm",
+                "format": "datetime"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/deciship/measurements?userId=<id>&from=2026-10-01&to=2026-10-31",
+                "cells": {
+                  "name": "Mehmet Demir",
+                  "count": 57,
+                  "noPhoto": 57,
+                  "corrected": 0,
+                  "manualShare": 45.6,
+                  "last": "<zaman>"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tariffs",
+        "title": "Tarife sağlığı",
+        "description": "Taşıyıcının faturadaki fiyatı tarifeye uyuyor mu, tarife güncel mi.",
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "tariff-kpis",
+            "items": [
+              {
+                "id": "tariff-ok",
+                "label": "Tarifeye uyan satır",
+                "hint": "Taşıyıcının faturadaki fiyatı tarifeyle karşılaştırılabilen satırlar içinde.",
+                "value": 85,
+                "format": "percent",
+                "goodDirection": "up"
+              },
+              {
+                "id": "tariff-unchecked",
+                "label": "Fiyatı kontrol edilemeyen satır",
+                "value": 9,
+                "format": "number",
+                "goodDirection": "down"
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "tariff-deviations",
+            "title": "Tarifeden sapan gruplar",
+            "description": "Ülke, bölge ve hizmet gruplarında faturadaki fiyatın tarifeye göre ortanca sapması. Mükerrer ve pak/zarf satırları sayılmaz.",
+            "columns": [
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "country",
+                "label": "Ülke",
+                "format": "text"
+              },
+              {
+                "id": "zone",
+                "label": "Bölge",
+                "format": "text"
+              },
+              {
+                "id": "service",
+                "label": "Hizmet",
+                "format": "text"
+              },
+              {
+                "id": "lines",
+                "label": "Satır",
+                "format": "number"
+              },
+              {
+                "id": "deviation",
+                "label": "Tarifeye göre sapma",
+                "format": "percent"
+              },
+              {
+                "id": "status",
+                "label": "Durum",
+                "format": "text"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>|DE|3|Express",
+                "href": "/data/deciship/invoice-lines?filter.carrier=<id>&filter.country=DE&filter.service=Express&filter.from=2026-10-01&filter.to=2026-10-31",
+                "cells": {
+                  "carrier": "Sürat Kargo",
+                  "country": "Almanya",
+                  "zone": "3",
+                  "service": "Express",
+                  "lines": 3,
+                  "deviation": 7,
+                  "status": "Tarifeden pahalı"
+                }
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "tariff-suspects",
+            "title": "Tarifesi şüpheli faturalar",
+            "description": "Karşılaştırılan satırların %30’undan fazlasında fiyat farkı var. Tarife yanlış ya da eski olabilir.",
+            "columns": [
+              {
+                "id": "invoice",
+                "label": "Fatura",
+                "format": "text"
+              },
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "date",
+                "label": "Tarih",
+                "format": "date"
+              },
+              {
+                "id": "compared",
+                "label": "Karşılaştırılan",
+                "format": "number"
+              },
+              {
+                "id": "priceDiff",
+                "label": "Fiyat farkı",
+                "format": "number"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/deciship/invoices/<id>?tab=DIFF",
+                "cells": {
+                  "invoice": "K-1",
+                  "carrier": "Sürat Kargo",
+                  "date": "2026-10-10",
+                  "compared": 5,
+                  "priceDiff": 2
+                }
+              }
+            ]
+          },
+          {
+            "kind": "table",
+            "id": "tariff-status",
+            "title": "Taşıyıcı tarifeleri",
+            "description": "Karşılaştırmada kullanılan varsayılan tarife.",
+            "columns": [
+              {
+                "id": "carrier",
+                "label": "Taşıyıcı",
+                "format": "text"
+              },
+              {
+                "id": "tariff",
+                "label": "Tarife",
+                "format": "text"
+              },
+              {
+                "id": "to",
+                "label": "Bitiş",
+                "format": "date"
+              },
+              {
+                "id": "daysLeft",
+                "label": "Kalan gün",
+                "format": "number"
+              },
+              {
+                "id": "noTariff",
+                "label": "Tarife yok",
+                "format": "number"
+              }
+            ],
+            "rows": [
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "Aras Kargo",
+                  "tariff": "Aras Desi 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "DHL Express",
+                  "tariff": "DHL Express Worldwide 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "FedEx",
+                  "tariff": "FedEx International Economy 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "MNG Kargo",
+                  "tariff": "MNG Desi 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs?carrier=<id>",
+                "cells": {
+                  "carrier": "Sürat Kargo",
+                  "tariff": null,
+                  "to": null,
+                  "daysLeft": null,
+                  "noTariff": 1
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "UPS",
+                  "tariff": "UPS Express Saver 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              },
+              {
+                "id": "<id>",
+                "href": "/deciship/tariffs/<id>",
+                "cells": {
+                  "carrier": "Yurtiçi Kargo",
+                  "tariff": "Yurtiçi Desi 2026",
+                  "to": "2026-12-31",
+                  "daysLeft": 56,
+                  "noTariff": 0
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

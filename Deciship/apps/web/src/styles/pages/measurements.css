@@ -1,0 +1,232 @@
+/* Measurements (Measurements.tsx). Page-specific only — shared components live in ../app.css.
+ * The list + side panel use the shared .layout / .main / .panel pattern. */
+
+/* ---- filter bar: on phones the secondary filters collapse behind a toggle ---- */
+.m-more {
+  display: none;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+.m-more.open {
+  display: flex;
+}
+.m-toggle {
+  display: inline-flex;
+  align-self: flex-end;
+}
+@media (max-width: 767px) {
+  .m-toggle {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  .m-more.open {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 8px;
+  }
+  .m-more .fld {
+    min-width: 0;
+  }
+  .m-more .inp,
+  .m-more .sel {
+    width: 100%;
+  }
+}
+/* öncelik: takip no, ölçü, ağırlık, desi, yöntem, fatura. Sığmayan sütun kaydırma ardında değil, ayrıntı panelinde. */
+@container dtw (max-width: 1140px) {
+  .m-table .m-hide-sm {
+    display: none !important;
+  }
+  .dt.m-table th,
+  .dt.m-table td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+/* gizleme `.dt.` ile: 600–767 ekranda app.css'in `.dt.dt-cards td` geri alma kuralı ezmesin (başlık gizli, hücre görünür kalıyordu) */
+@container dtw (max-width: 800px) {
+  .dt.m-table .m-c-who {
+    display: none;
+  }
+}
+/* uzun takip no ve ölçüde Fatura sütunu yerini korusun; yöntem ayrıntı panelinde */
+@container dtw (max-width: 720px) {
+  .dt.m-table .m-c-how {
+    display: none;
+  }
+}
+@container dtw (max-width: 599px) {
+  .dt.m-table td.m-c-who,
+  .dt.m-table td.m-c-how {
+    display: flex;
+  }
+  .dt.m-table th,
+  .dt.m-table td {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ---- add / edit modal ---- */
+.m-dim-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+@media (max-width: 599px) {
+  .m-dim-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.m-calc {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+}
+.m-calc > div {
+  background: var(--surface-2);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.m-calc .k {
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 16px;
+}
+.m-calc b {
+  font-size: 16px;
+  line-height: 22px;
+}
+@media (max-width: 599px) {
+  .m-calc {
+    grid-template-columns: 1fr;
+  }
+  .m-calc > div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.m-photo-chip {
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  background: var(--surface);
+  padding: 0 4px 0 10px;
+  min-height: 36px;
+  max-width: 100%;
+}
+
+/* ---- detail panel ---- */
+.m-facts {
+  grid-template-columns: 1fr 1fr;
+}
+.m-facts > div:nth-child(n + 3) {
+  border-top: 1px solid var(--border);
+}
+.m-facts > div:nth-child(even) {
+  border-left: 1px solid var(--border);
+}
+.m-facts > div:nth-child(odd) {
+  border-left: 0;
+}
+.m-facts > div,
+.m-facts > div + div {
+  background: var(--surface);
+}
+.m-hist th {
+  font-weight: 500;
+}
+
+/* ---- "Silinenler" list (SPEC §10.4) ---- */
+.m-del {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+td.m-del-act {
+  text-align: right;
+  white-space: nowrap;
+}
+@container dtw (max-width: 599px) {
+  .dt-cards td.m-del-act {
+    text-align: left;
+  }
+  .dt-cards td.m-del-act .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---- edit modal: preset, resulting method, existing photos ---- */
+.m-presets {
+  margin-bottom: 16px;
+}
+.m-method {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 16px;
+  font-size: 13px;
+}
+.m-method .k {
+  color: var(--text-3);
+}
+.m-ephotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.m-ephoto {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+.m-ephoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.m-ephoto .cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2px 6px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #fff;
+  background: rgba(16, 24, 40, 0.6);
+}
+.m-ephoto.off {
+  border-color: var(--danger);
+  box-shadow: inset 0 0 0 1px var(--danger);
+}
+.m-ephoto.off img {
+  opacity: 0.35;
+}
+.m-ephoto.off .cap {
+  background: var(--danger);
+}
+.m-ephoto:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

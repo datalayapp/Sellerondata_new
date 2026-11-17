@@ -1,0 +1,11 @@
+{
+  "endpoint": "POST /api/deciship/invoices/:id/disputes",
+  "status": 409,
+  "code": "DISPUTE_ACTIVE",
+  "shape": {
+    "error": {
+      "code": "string",
+      "message": "string"
+    }
+  }
+}

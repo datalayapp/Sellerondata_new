@@ -1,0 +1,101 @@
+{
+  "status": 200,
+  "body": {
+    "id": "box-presets",
+    "columns": [
+      {
+        "id": "name",
+        "label": "Hazır koli",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "lengthCm",
+        "label": "Uzunluk (cm)",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "widthCm",
+        "label": "Genişlik (cm)",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "heightCm",
+        "label": "Yükseklik (cm)",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "desi",
+        "label": "Desi",
+        "format": "number"
+      },
+      {
+        "id": "active",
+        "label": "Etkin",
+        "format": "text"
+      },
+      {
+        "id": "measurements",
+        "label": "Kullanılan ölçüm",
+        "format": "number"
+      },
+      {
+        "id": "sortOrder",
+        "label": "Sıra",
+        "format": "number",
+        "sortable": true,
+        "hiddenByDefault": true
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/settings",
+        "cells": {
+          "name": "K1",
+          "lengthCm": 30,
+          "widthCm": 20,
+          "heightCm": 15,
+          "desi": 3,
+          "active": "Evet",
+          "measurements": 6,
+          "sortOrder": 1
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/settings",
+        "cells": {
+          "name": "K2",
+          "lengthCm": 40,
+          "widthCm": 30,
+          "heightCm": 25,
+          "desi": 10,
+          "active": "Evet",
+          "measurements": 9,
+          "sortOrder": 2
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/settings",
+        "cells": {
+          "name": "K3",
+          "lengthCm": 50,
+          "widthCm": 40,
+          "heightCm": 30,
+          "desi": 20,
+          "active": "Evet",
+          "measurements": 1,
+          "sortOrder": 3
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 3
+  }
+}

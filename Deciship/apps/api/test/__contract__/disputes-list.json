@@ -1,0 +1,158 @@
+{
+  "endpoint": "GET /api/deciship/disputes",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "carrier": {
+          "code": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "channel": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "currency": "string",
+        "deadlines": {
+          "carrier?": {
+            "days": "number",
+            "daysLeft": "number",
+            "expired": "boolean",
+            "lastDay": "string"
+          },
+          "ttk": {
+            "days": "number",
+            "daysLeft": "number",
+            "expired": "boolean",
+            "lastDay": "string"
+          }
+        },
+        "disputeId": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "invoiceDate": "string",
+        "invoiceId": "string",
+        "invoiceNo": "string",
+        "lineCount": "number",
+        "resolvedCount": "number",
+        "round": {
+          "$oneOf": [
+            "null",
+            "number"
+          ]
+        },
+        "sentBy": {
+          "$oneOf": [
+            "null",
+            {
+              "id": "string",
+              "name": "string"
+            }
+          ]
+        },
+        "sentOn": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "status": "string",
+        "sums": {
+          "claimedAmount": "number",
+          "pendingAmount": "number",
+          "recoveredAmount": "number",
+          "rejectedAmount": "number",
+          "shortfallAmount": "number"
+        },
+        "ttkSentOn": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "ttkStatus": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "unsentAmount": "number",
+        "unsentLineCount": "number"
+      }
+    ],
+    "page": "number",
+    "pageSize": "number",
+    "summary": {
+      "byCurrency": [
+        {
+          "claimedAmount": "number",
+          "currency": "string",
+          "pendingAmount": "number",
+          "recoveredAmount": "number",
+          "rejectedAmount": "number",
+          "shortfallAmount": "number",
+          "unsentAmount": "number"
+        }
+      ],
+      "counts": {
+        "ALL": "number",
+        "CLOSED": "number",
+        "SENT": "number",
+        "UNSENT": "number"
+      },
+      "dueSoon": [
+        {
+          "carrier": {
+            "code": "string",
+            "id": "string",
+            "name": "string"
+          },
+          "channel": "null",
+          "currency": "string",
+          "deadlines": {
+            "carrier?": {
+              "days": "number",
+              "daysLeft": "number",
+              "expired": "boolean",
+              "lastDay": "string"
+            },
+            "ttk": {
+              "days": "number",
+              "daysLeft": "number",
+              "expired": "boolean",
+              "lastDay": "string"
+            }
+          },
+          "disputeId": "null",
+          "invoiceDate": "string",
+          "invoiceId": "string",
+          "invoiceNo": "string",
+          "lineCount": "number",
+          "resolvedCount": "number",
+          "round": "null",
+          "sentBy": "null",
+          "sentOn": "null",
+          "status": "string",
+          "sums": {
+            "claimedAmount": "number",
+            "pendingAmount": "number",
+            "recoveredAmount": "number",
+            "rejectedAmount": "number",
+            "shortfallAmount": "number"
+          },
+          "ttkSentOn": "null",
+          "ttkStatus": "null",
+          "unsentAmount": "number",
+          "unsentLineCount": "number"
+        }
+      ]
+    },
+    "total": "number"
+  }
+}

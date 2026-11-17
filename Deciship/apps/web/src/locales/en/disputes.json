@@ -1,0 +1,232 @@
+{
+  "title": "Disputes",
+  "sub_one": "{{n}} dispute · {{unsent}} not sent",
+  "sub_other": "{{n}} disputes · {{unsent}} not sent",
+  "unit": "invoices",
+  "listStatus": {
+    "UNSENT": "Not sent",
+    "SENT": "Sent",
+    "CLOSED": "Closed",
+    "ALL": "All"
+  },
+  "invoiceStatus": {
+    "NONE": "Processed",
+    "SENT": "Dispute sent",
+    "CLOSED": "Closed"
+  },
+  "outcome": {
+    "PENDING": "Pending",
+    "RECOVERED": "Recovered",
+    "REJECTED": "Rejected"
+  },
+  "channel": {
+    "EMAIL": "Email",
+    "PORTAL": "Carrier portal",
+    "OTHER": "Other"
+  },
+  "tabs": {
+    "label": "Dispute status"
+  },
+  "filters": {
+    "search": "Invoice no",
+    "searchPh": "Search by invoice no",
+    "clear": "Clear search"
+  },
+  "sum": {
+    "aria": "Dispute totals",
+    "claimed": "Disputed",
+    "pending": "Pending",
+    "recovered": "Recovered",
+    "rejected": "Rejected",
+    "shortfall": "{{amount}} short",
+    "unsent": "{{amount}} not sent yet",
+    "period": "All time"
+  },
+  "due": {
+    "title": "Deadlines coming up"
+  },
+  "deadline": {
+    "ttk": "TTK",
+    "carrierFallback": "Carrier",
+    "daysLeft_one": "{{n}} day left",
+    "daysLeft_other": "{{n}} days left",
+    "today": "last day today",
+    "expired": "expired",
+    "onTime": "disputed in time",
+    "late": "sent after the deadline",
+    "ttkFull": "Turkish Commercial Code (TTK) deadline"
+  },
+  "cols": {
+    "invoice": "Invoice",
+    "claimed": "Claimed",
+    "recovered": "Recovered",
+    "status": "Status",
+    "deadlines": "Deadline"
+  },
+  "row": {
+    "notSent_one": "{{n}} line on the list",
+    "notSent_other": "{{n}} lines on the list",
+    "sentOn": "sent {{date}}",
+    "shortfall": "{{amount}} short",
+    "unsentAfterSend_one": "{{n}} line not sent",
+    "unsentAfterSend_other": "{{n}} lines not sent"
+  },
+  "empty": {
+    "none": {
+      "title": "No disputes yet",
+      "body": "Add the lines with discrepancies on an invoice to the dispute list; the disputes you send are tracked here.",
+      "action": "Go to invoices"
+    },
+    "filtered": {
+      "title": "No dispute with this invoice no"
+    },
+    "UNSENT": {
+      "title": "Nothing waiting to be sent"
+    },
+    "SENT": {
+      "title": "No disputes awaiting a reply"
+    },
+    "CLOSED": {
+      "title": "No closed disputes"
+    }
+  },
+  "card": {
+    "title": "Dispute",
+    "aria": "Dispute status",
+    "round": "Round {{n}}",
+    "unsent_one": "{{n}} line on the dispute list, claim <b>{{amount}}</b>. Mark it once you have sent it to the carrier.",
+    "unsent_other": "{{n}} lines on the dispute list, claim <b>{{amount}}</b>. Mark it once you have sent it to the carrier.",
+    "unsentNoPrice_one": "{{n}} line on the dispute list. Mark it once you have sent it to the carrier.",
+    "unsentNoPrice_other": "{{n}} lines on the dispute list. Mark it once you have sent it to the carrier.",
+    "nothingToSend": "No lines on the dispute list to send.",
+    "sentLine": "Sent {{date}} · {{channel}} · {{name}}",
+    "reference": "Case no {{ref}}",
+    "ttkLate": "After the TTK deadline",
+    "hintPrepare": "Accounting sends the dispute and records the outcome.",
+    "hintReadOnly": "Accounting and admins send disputes.",
+    "sums": {
+      "claimed": "Claimed",
+      "recovered": "Recovered",
+      "rejected": "Rejected",
+      "pending": "Pending",
+      "shortfall": "Short"
+    },
+    "lines": {
+      "line": "Line",
+      "claimed": "Claimed",
+      "outcome": "Outcome",
+      "recovered": "Recovered",
+      "lineNo": "Line {{n}}"
+    },
+    "markSent": "Mark as sent",
+    "addResult": "Record outcome",
+    "resend": "Resend",
+    "revert": "Cancel entry",
+    "withdraw": "Withdraw dispute",
+    "lockedLine": "This line is in a dispute that was sent. Withdraw the dispute first to change its decision.",
+    "lockedDecision": "In dispute",
+    "unsentAfterSend_one": "{{n}} line on the list, not sent yet · {{amount}}",
+    "unsentAfterSend_other": "{{n}} lines on the list, not sent yet · {{amount}}",
+    "unsentAfterSendNoPrice_one": "{{n}} line on the list, not sent yet",
+    "unsentAfterSendNoPrice_other": "{{n}} lines on the list, not sent yet"
+  },
+  "history": {
+    "title": "History",
+    "sentOnly": "Sent",
+    "sent": "Round {{n}} sent",
+    "recovered": "Recovered · credit note {{no}}",
+    "rejected": "Rejected",
+    "resultLines_one": "{{n}} line",
+    "resultLines_other": "{{n}} lines",
+    "reverted": "Entry cancelled: {{what}}",
+    "withdrawn": "Round {{n}} withdrawn",
+    "superseded": "Round {{next}} sent in place of round {{n}}",
+    "by": "{{name}} · {{at}}",
+    "reason": "Reason: {{reason}}"
+  },
+  "send": {
+    "title": "Mark as sent",
+    "resendTitle": "Resend",
+    "intro_one": "{{n}} line, claim <b>{{amount}}</b>.",
+    "intro_other": "{{n}} lines, claim <b>{{amount}}</b>.",
+    "introNoPrice_one": "{{n}} line.",
+    "introNoPrice_other": "{{n}} lines.",
+    "pendingLines_one": "{{n}} line has a changed measurement or status but was not recalculated. Check it before sending.",
+    "pendingLines_other": "{{n}} lines have a changed measurement or status but were not recalculated. Check them before sending.",
+    "resendIntro": "This round closes; every line on the list with no money back yet is claimed again.",
+    "sentOn": "Date sent",
+    "channel": "Channel",
+    "channelNote": "How it was sent",
+    "reference": "Carrier case no (optional)",
+    "save": "Save",
+    "resendSave": "Save",
+    "cancel": "Cancel",
+    "toast": "Dispute recorded as sent",
+    "resendToast": "New round recorded",
+    "reopenText": "Take the letter again"
+  },
+  "result": {
+    "title": "Record outcome",
+    "kind": "Outcome",
+    "recovered": "Recovered",
+    "rejected": "Rejected",
+    "pickLines": "Lines",
+    "amountFor": "{{line}} amount recovered (excl. VAT)",
+    "claim": "claimed {{amount}}, excl. VAT",
+    "creditNoteNo": "Credit note no",
+    "creditNoteDate": "Credit note date",
+    "rejectedOn": "Date rejected",
+    "reason": "Reason for rejection",
+    "shortfall": "Short {{amount}}",
+    "save": "Save",
+    "cancel": "Cancel",
+    "noPending": "Every line already has an outcome.",
+    "toastRecovered": "Credit note recorded",
+    "toastRejected": "Rejection recorded",
+    "errPick": "Select at least one line.",
+    "errCreditNote": "Enter the credit note number.",
+    "errAmount": "The amount must be above zero, no more than the claim and have at most two decimals.",
+    "errReason": "Enter the reason for rejection."
+  },
+  "revert": {
+    "title": "Cancel entry",
+    "intro": "The entry is not deleted; it stays in the history as cancelled. Its lines wait for an outcome again.",
+    "introOld": "The entry is not deleted; it stays in the history as cancelled. It belongs to an earlier round: its lines go back to the dispute list and are claimed again when you resend.",
+    "which": "Which entry",
+    "reason": "Reason",
+    "save": "Cancel entry",
+    "cancel": "Back",
+    "toast": "Entry cancelled"
+  },
+  "withdraw": {
+    "title": "Withdraw dispute",
+    "intro": "Its record stays in the history. The lines' decisions can be changed again.",
+    "blocked": "A credit note is recorded in this dispute. Cancel that entry first.",
+    "save": "Withdraw",
+    "toast": "Dispute withdrawn"
+  },
+  "field": {
+    "required": "This field is required.",
+    "future": "The date cannot be in the future.",
+    "beforeInvoice": "The date cannot be before the invoice date.",
+    "beforeSent": "The date cannot be before the dispute was sent."
+  },
+  "errors": {
+    "STALE": "This dispute changed while you were looking at it; the latest version is loaded. Try again.",
+    "DISPUTE_ACTIVE": "This invoice already has a dispute that was sent; the latest version is loaded.",
+    "NO_SENDABLE_LINES": "No lines on the dispute list to send.",
+    "LINE_NOT_PENDING": "One of the selected lines already has an outcome; the latest version is loaded.",
+    "AMOUNT_EXCEEDS_CLAIM": "The amount recovered cannot be more than the claim.",
+    "REASON_REQUIRED": "Enter a reason.",
+    "CREDIT_NOTE_REQUIRED": "Enter the credit note number.",
+    "HAS_RECOVERED_RESULTS": "A credit note is recorded in this dispute. Cancel that entry first.",
+    "SENT_ON_IN_FUTURE": "The date cannot be in the future.",
+    "RESULT_ON_IN_FUTURE": "The date cannot be in the future.",
+    "LINE_IN_DISPUTE": "This line is in a dispute that was sent. Withdraw the dispute first to change its decision.",
+    "INVOICE_HAS_DISPUTE": "This invoice has a dispute that was sent. Withdraw the dispute before deleting it or changing its currency.",
+    "RESULT_ON_BEFORE_SENT": "The date cannot be before the dispute was sent.",
+    "SELECTION_CHANGED": "The dispute list changed in the meantime, so nothing was saved. Take the current dispute letter and send that one to the carrier.",
+    "RESULT_LINES_RESENT": "The lines of this entry were claimed again in a later round, so the entry cannot be cancelled.",
+    "LINE_CHANGED": "The decision on this line changed while you were looking at it. The current state is loaded; decide again."
+  }
+}

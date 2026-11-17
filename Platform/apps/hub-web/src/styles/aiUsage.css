@@ -1,0 +1,285 @@
+/* ======================================================================
+ * Abonelik → Yapay zekâ kullanımı (`pages/account/AiUsage.tsx`): D09, hesap sayfaları gibi `.d9` altında.
+ * Ay seçici bantta (‹ ay ›, sabit genişlik), dört rakam kutusu, iki dağılım kartı, bütün işlemler tablosu, ayrıntı paneli.
+ * Abonelik kartındaki "Ayrıntılı döküm" bağlantısı da burada (`.aiu-card-link`).
+ * ====================================================================== */
+
+.aiu {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ---- bant: ay seçici ve Excel ---- */
+.aiu-month {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+/* Kaç ay olursa olsun, ay adı ne uzunlukta olursa olsun aynı yer: düğme sabit genişlikte, taşan ad kısalır. */
+.aiu-month-menu > .btn {
+  width: 208px;
+  justify-content: space-between;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.aiu-dl {
+  white-space: nowrap;
+}
+
+/* ---- rakam kutuları ---- */
+.aiu-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.aiu-kpi,
+.aiu-card {
+  background: var(--surface);
+  border: 1px solid var(--d9-card-line);
+  border-radius: var(--r-card);
+  min-width: 0;
+}
+.aiu-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+}
+.aiu-kpi-l {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--d9-ink-2);
+}
+.aiu-kpi-v {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aiu-kpi-s {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--d9-ink-2);
+}
+.aiu-meter {
+  display: block;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.aiu-meter > i {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+}
+.aiu-meter.is-warn > i {
+  background: var(--warning);
+}
+.aiu-meter.is-full > i {
+  background: var(--danger);
+}
+
+/* ---- dağılım kartları ---- */
+.aiu-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.aiu-card {
+  padding: 20px 24px;
+}
+.aiu-card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.aiu-card > .empty {
+  border: 0;
+  background: none;
+}
+.aiu-bar-amount {
+  margin-left: 12px;
+  font-weight: 600;
+}
+
+/* ---- işlemler tablosu ---- */
+.aiu-tbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+  margin-bottom: 12px;
+}
+.aiu-tbar h2 {
+  margin: 0 auto 10px 0;
+}
+.aiu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.aiu-filters .fld {
+  margin: 0;
+  min-width: 180px;
+}
+.aiu-total {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--d9-ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.aiu-calls .tbl-wrap {
+  margin: 0 -24px;
+}
+.aiu-table .num {
+  font-variant-numeric: tabular-nums;
+}
+.aiu-table .aiu-person,
+.aiu-table .aiu-record {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aiu-cell-note {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--d9-ink-2);
+}
+.aiu-rec {
+  font-weight: 500;
+}
+.aiu-muted {
+  color: var(--text-3);
+}
+.aiu-more {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+.aiu-hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--d9-ink-2);
+}
+
+/* ---- ayrıntı paneli ---- */
+.aiu-drawer {
+  display: grid;
+  gap: 14px;
+}
+.aiu-drawer-sub {
+  overflow-wrap: anywhere;
+}
+.aiu-kv {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.aiu-kv > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.aiu-kv dt {
+  color: var(--text-2);
+}
+.aiu-kv dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.aiu-hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+.aiu-drawer-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+.aiu-drawer .aiu-hint {
+  margin: 0;
+}
+
+/* ---- Abonelik kartındaki bağlantı ---- */
+.aiu-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  color: var(--d9-navy);
+}
+
+@media (max-width: 1023px) {
+  .aiu-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .aiu-cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .aiu-card {
+    padding: 16px;
+  }
+  .aiu-calls .tbl-wrap {
+    margin: 0 -16px;
+  }
+  .aiu-kpi {
+    padding: 14px 16px;
+  }
+  .aiu-kpi-v {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .aiu-tbar h2 {
+    flex: 1 1 100%;
+    margin-bottom: 0;
+  }
+  .aiu-filters,
+  .aiu-filters .fld {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
+  /* Telefonda bantta tek satır: ‹ ay › esner, Excel yalnız ikon. */
+  .aiu-month {
+    flex: 1 1 auto;
+  }
+  .aiu-month-menu {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .aiu-month-menu > .btn {
+    width: 100%;
+  }
+  .sod-band .phead.is-band:not(.is-hero) .pactions > .btn.aiu-dl {
+    flex: none;
+    width: 48px;
+    padding: 0;
+  }
+  .aiu-dl-text {
+    display: none;
+  }
+}

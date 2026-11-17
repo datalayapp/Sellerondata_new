@@ -1,0 +1,157 @@
+{
+  "roles": {
+    "tab": "Roles",
+    "newRole": "New role",
+    "summary": "{{builtin}} built-in, {{custom}} custom",
+    "col": {
+      "role": "Role",
+      "kind": "Type",
+      "people": "People",
+      "perms": "Permissions"
+    },
+    "kind": {
+      "builtin": "Built-in",
+      "edited": "Edited",
+      "custom": "Custom"
+    },
+    "kindLong": {
+      "builtin": "built-in role",
+      "edited": "edited built-in role",
+      "custom": "custom role"
+    },
+    "locked": "permissions locked",
+    "people_one": "{{count}} person",
+    "people_other": "{{count}} people",
+    "invites_one": "{{count}} invite",
+    "invites_other": "{{count}} invites",
+    "nobody": "No one",
+    "noPerms": "No permissions",
+    "morePerms": "+{{count}}",
+    "actionsFor": "Actions for the {{name}} role",
+    "loadError": "Roles could not be loaded.",
+    "menu": {
+      "edit": "Edit",
+      "copy": "Duplicate",
+      "people": "See people with this role",
+      "reset": "Reset to default",
+      "delete": "Delete"
+    },
+    "hint": {
+      "owner_only": "Only the company owner can change it.",
+      "unmanageable_holder": "Someone you cannot manage has this role.",
+      "limit": "You can create at most {{count}} custom roles.",
+      "nobody": "No one has this role."
+    },
+    "restoreLink": "Restore deleted built-in roles ({{count}})",
+    "restoreTitle": "Deleted built-in roles",
+    "restoreBody": "A restored role comes back with its default name and permissions.",
+    "restore": "Restore",
+    "restored": "The {{name}} role is back.",
+    "drawer": {
+      "newStep": "New {{tool}} role · {{step}} / 2",
+      "editStep": "{{tool}} role",
+      "fromTemplate": "from the {{name}} template",
+      "fromBlank": "from a blank role",
+      "pickTitle": "Where do you want to start?",
+      "pickBody": "Pick a template. In the next step you can review and change the permissions.",
+      "reviewTitle": "Review the permissions",
+      "editTitle": "Edit role",
+      "product": "Tool",
+      "templates": "Templates",
+      "blank": "Blank role",
+      "blankDesc": "Starts with no permissions; you choose.",
+      "permCount_one": "{{count}} permission",
+      "permCount_other": "{{count}} permissions",
+      "selected_one": "{{count}} permission selected",
+      "selected_other": "{{count}} permissions selected",
+      "continue": "Continue",
+      "back": "Back",
+      "create": "Create role",
+      "save": "Save",
+      "name": "Role name",
+      "description": "Short description (optional)",
+      "permissions": "Permissions",
+      "neededBy": "Needed for {{names}}",
+      "lockedBanner": "This is the company owner's role: its permissions are locked; only its name and description can change.",
+      "dropped_one": "{{count}} permission from the template was left out: only the company owner can give it, or you do not have it.",
+      "dropped_other": "{{count}} permissions from the template were left out: only the company owner can give them, or you do not have them.",
+      "autoLegend": "Faded tick: added automatically because another permission needs it.",
+      "limitReached": "This tool can have at most {{count}} custom roles. Delete a role you do not use to add a new one.",
+      "liveNote": "When you save, open sessions of people with this role refresh with the new permissions within seconds."
+    },
+    "block": {
+      "owner_only": "Only the company owner can give this permission.",
+      "escalation": "You cannot add a permission you do not have yourself.",
+      "dependency": "It needs “{{perm}}”, which you cannot give."
+    },
+    "issue": {
+      "required": "Enter a role name.",
+      "tooLong": "The role name can be at most {{max}} characters.",
+      "taken": "A role with this name already exists. Choose another name.",
+      "descriptionTooLong": "The description can be at most {{max}} characters."
+    },
+    "error": {
+      "version": "Someone else changed this role while you were editing it. Load the latest version and try again.",
+      "reload": "Load latest version",
+      "invalidPerms": "Some permissions need other permissions too: {{list}}.",
+      "forbidden": {
+        "escalation": "You cannot add a permission you do not have yourself.",
+        "owner_only": "Only the company owner can give this permission.",
+        "unmanageable_holder": "Someone you cannot manage uses this role (you, the company owner or a company admin).",
+        "other": "You do not have permission to change this role this way.",
+        "pending_admin_invites": "This role has pending invitations sent by a company admin. Cancel those invitations or resend them yourself first."
+      },
+      "forbiddenPerms": "{{message}} ({{list}})",
+      "pendingInvites": "This role has pending invitations sent by a company admin: {{list}}. Cancel them or resend them yourself from the invitations on the Team page, then try again.",
+      "limit": "This tool already has the maximum number of custom roles. Delete a role you do not use.",
+      "locked": "This role cannot be deleted and its permissions cannot be changed. Only its name can.",
+      "inUse": "Someone was given this role in the meantime. Choose the new role before deleting it."
+    },
+    "done": {
+      "created": "The {{name}} role was created.",
+      "saved": "The {{name}} role was saved.",
+      "reset": "The {{name}} role was reset to default.",
+      "deleted": "The {{name}} role was deleted.",
+      "moved": "{{count}} records moved to the {{to}} role."
+    },
+    "copyName": "Copy of {{name}}",
+    "reset": {
+      "title": "Reset “{{name}}” to default?",
+      "body": "The role's name and permissions go back to the built-in version. The change applies right away to everyone with this role.",
+      "action": "Reset to default"
+    },
+    "delete": {
+      "title": "Delete the “{{name}}” role?",
+      "inUseBoth": "This role is assigned to {{members}} and {{invites}}. Before deleting it, choose the role they will get instead.",
+      "inUseOne": "This role is assigned to {{what}}. Before deleting it, choose the role they will get instead.",
+      "membersIn_one": "{{count}} person",
+      "membersIn_other": "{{count}} people",
+      "invitesIn_one": "{{count}} pending invite",
+      "invitesIn_other": "{{count}} pending invites",
+      "newRole": "New role",
+      "ownerOnlySuffix": "(company owner only)",
+      "noTarget": "There is no other role to move them to. Create a new role first.",
+      "sessions": "The change applies right away; open sessions refresh with the new permissions within seconds.",
+      "unused": "No one has this role.",
+      "builtinNote": "The built-in role is removed from your company; you can bring it back with “Restore deleted built-in roles”.",
+      "move": "Move and delete",
+      "action": "Delete role"
+    },
+    "permShort": {
+      "deciship.web.access": "Web panel",
+      "deciship.settings.manage": "Settings",
+      "deciship.tariffs.view": "Tariffs",
+      "deciship.tariffs.edit": "Tariff editing",
+      "deciship.invoices.upload": "Invoice upload",
+      "deciship.lines.decide": "Discrepancy decisions",
+      "deciship.disputes.manage": "Disputes",
+      "deciship.invoices.view": "Invoices",
+      "deciship.reports.view": "Reports",
+      "deciship.data.export": "Export",
+      "deciship.measurements.capture": "Measuring",
+      "deciship.measurements.view_all": "All measurements",
+      "deciship.measurements.manage": "Measurement management",
+      "deciship.prices.view": "Prices"
+    }
+  }
+}

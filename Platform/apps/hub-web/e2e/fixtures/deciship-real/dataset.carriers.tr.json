@@ -1,0 +1,93 @@
+{
+  "status": 200,
+  "body": {
+    "id": "carriers",
+    "columns": [
+      {
+        "id": "name",
+        "label": "Taşıyıcı",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "code",
+        "label": "Kod",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "active",
+        "label": "Etkin",
+        "format": "text"
+      },
+      {
+        "id": "tariffs",
+        "label": "Tarife sayısı",
+        "format": "number"
+      },
+      {
+        "id": "invoices",
+        "label": "Fatura sayısı",
+        "format": "number"
+      },
+      {
+        "id": "lastInvoice",
+        "label": "Son fatura",
+        "format": "date"
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs?carrier=<id>",
+        "cells": {
+          "name": "Aras Kargo",
+          "code": "aras",
+          "active": "Evet",
+          "tariffs": 1,
+          "invoices": 0,
+          "lastInvoice": null
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs?carrier=<id>",
+        "cells": {
+          "name": "DHL Express",
+          "code": "dhl",
+          "active": "Evet",
+          "tariffs": 1,
+          "invoices": 0,
+          "lastInvoice": null
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs?carrier=<id>",
+        "cells": {
+          "name": "FedEx",
+          "code": "fedex",
+          "active": "Evet",
+          "tariffs": 1,
+          "invoices": 1,
+          "lastInvoice": "2026-10-27"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs?carrier=<id>",
+        "cells": {
+          "name": "MNG Kargo",
+          "code": "mng",
+          "active": "Evet",
+          "tariffs": 1,
+          "invoices": 0,
+          "lastInvoice": null
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 7
+  }
+}

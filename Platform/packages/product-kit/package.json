@@ -1,0 +1,39 @@
+{
+  "name": "@sellerondata/product-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Araç API'lerinin ortak işleri: kimlik ve üye izdüşümü (SQL), firma kaydı, parçalı kalıcı silme, Merkez uçlarının çatısı, dönem, CSV, firma başına sınır.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./pure": "./src/pure/index.ts"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:unit": "vitest run --exclude \"test/**/*.db.test.ts\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sellerondata/auth-kit": "file:../auth-kit",
+    "@sellerondata/contracts": "file:../contracts"
+  },
+  "peerDependencies": {
+    "fastify": "^5.0.0",
+    "pg": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "pg": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "fastify": "^5.12.7",
+    "pg": "^8.23.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

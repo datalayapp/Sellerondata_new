@@ -1,0 +1,14 @@
+/* Giriş stili. index.html'den <link> ile yüklenir, JS'ten değil: stil dosyası ilk kareyi bekletir,
+ * böylece `@view-transition` kuralı yeni belgede daha ilk karede vardır (geliştirmede de, üretimde de). */
+@import '@sellerondata/shell/tokens.css';
+@import '@sellerondata/shell/primitives.css';
+@import '@sellerondata/shell/shell.css';
+@import './hub.css';
+/* Üretilen (tokens.json surfaces.hubAuth / hubAccount): .auth ve .acc yerel renkleri; auth.css ile account.css'ten önce. */
+@import './tokens.hub.css';
+@import './auth.css';
+@import './account.css';
+/* Abonelik → Yapay zekâ kullanımı (ayrıntılı döküm). */
+@import './aiUsage.css';
+/* Yüksek karşıtlık kipi en sonda: araç stillerinin kenar ve odak kurallarını ezer (Mesaj 15 P). */
+@import '@sellerondata/shell/a11y.css';

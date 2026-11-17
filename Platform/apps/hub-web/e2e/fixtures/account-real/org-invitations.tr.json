@@ -1,0 +1,39 @@
+{
+  "status": 200,
+  "body": {
+    "invitations": [
+      {
+        "id": "<id>",
+        "kind": "PHONE_CODE",
+        "email": null,
+        "phone": "+905559871202",
+        "name": "Elif Şahin",
+        "orgRole": "MEMBER",
+        "productRoles": {
+          "deciship": "MEASURE"
+        },
+        "expiresAt": "<zaman>",
+        "expired": false,
+        "attempts": 0,
+        "createdAt": "<zaman>",
+        "invitedById": "<id>"
+      },
+      {
+        "id": "<id>",
+        "kind": "EMAIL",
+        "email": "can@ornek.test",
+        "phone": null,
+        "name": "Can Öztürk",
+        "orgRole": "MEMBER",
+        "productRoles": {
+          "deciship": "MEASURE"
+        },
+        "expiresAt": "<zaman>",
+        "expired": false,
+        "attempts": 0,
+        "createdAt": "<zaman>",
+        "invitedById": "<id>"
+      }
+    ]
+  }
+}

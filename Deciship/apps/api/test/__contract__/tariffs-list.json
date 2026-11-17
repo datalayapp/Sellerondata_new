@@ -1,0 +1,34 @@
+{
+  "endpoint": "GET /api/deciship/tariffs",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "active": "boolean",
+        "carrier": {
+          "code": "string",
+          "id": "string",
+          "name": "string"
+        },
+        "carrierId": "string",
+        "countryCount": "number",
+        "currency": "string",
+        "discountPct": "number",
+        "divisor": "number",
+        "edgeRounding": "string",
+        "fuelPct": "number",
+        "fuelVariable": "boolean",
+        "id": "string",
+        "isDefault": "boolean",
+        "name": "string",
+        "rateCount": "number",
+        "service": "null",
+        "surchargeCount": "number",
+        "updatedAt": "string",
+        "validFrom": "null",
+        "validTo": "null",
+        "zoneCount": "number"
+      }
+    ]
+  }
+}

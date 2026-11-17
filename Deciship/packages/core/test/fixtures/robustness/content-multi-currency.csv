@@ -1,0 +1,5 @@
+Waybill Number,Shipment Date,Destination Country,Weight (kg),Currency,Total amount (excl. VAT)
+4821900001,20261105,DE,2.5,EUR,84.30
+4821900002,20261105,US,4.0,USD,"1,120.75"
+4821900003,20261106,TR,1.0,TRY,"1,450.00"
+4821900004,20261106,GB,3.5,GBP,96.10

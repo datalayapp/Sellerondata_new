@@ -1,0 +1,126 @@
+{
+  "endpoint": "PATCH /api/deciship/invoice-lines/:id",
+  "status": 200,
+  "shape": {
+    "line": {
+      "actualKg": "null",
+      "baseAmount": "null",
+      "billedChargeableKg": "number",
+      "billedDivisor": "null",
+      "billedKg": "number",
+      "breakdown": [
+        {
+          "amount": "number",
+          "label": "string"
+        }
+      ],
+      "confidence": "string",
+      "confidenceReason": "null",
+      "currency": "null",
+      "decidedAt": "string",
+      "decision": "string",
+      "decisionReason": "null",
+      "destCountry": "null",
+      "diffAmount": "number",
+      "diffTypes": [
+        "string"
+      ],
+      "dimH": "null",
+      "dimL": "null",
+      "dimW": "null",
+      "dims": "null",
+      "discountAmount": "null",
+      "dispute": "null",
+      "expectedAmount": "number",
+      "fuelAmount": "null",
+      "fx": "null",
+      "id": "string",
+      "invoiceId": "string",
+      "measurement": {
+        "dimMethod": "string",
+        "heightCm": "number",
+        "id": "string",
+        "lengthCm": "number",
+        "measuredAt": "string",
+        "measuredByName": "string",
+        "photoCount": "number",
+        "photos": [
+          {
+            "id": "string",
+            "kind": "string",
+            "url": "string"
+          }
+        ],
+        "trackingNo": "string",
+        "version": "number",
+        "weightKg": "number",
+        "weightMethod": "string",
+        "widthCm": "number"
+      },
+      "measurementId": "string",
+      "measurementPinned": "boolean",
+      "netAmount": "number",
+      "note": "null",
+      "originalTrackingNo": "null",
+      "ourChargeableKg": "number",
+      "parseChecked": "boolean",
+      "parseFlags": [],
+      "prevResult": "null",
+      "pricingBasis": "string",
+      "rateDeviationPct": "number",
+      "recalcPending": "null",
+      "recalcPendingAt": "null",
+      "reference": "null",
+      "reviewCode": "null",
+      "rowIndex": "number",
+      "service": "null",
+      "shipDate": "null",
+      "status": "string",
+      "surcharges": [],
+      "tariff": {
+        "id": "string",
+        "name": "string"
+      },
+      "tariffId": "string",
+      "trackingNo": "string"
+    },
+    "totals": {
+      "acceptedLines": "number",
+      "billedTotal": "number",
+      "comparedBilledTotal": "number",
+      "diff": "number",
+      "estimatedLines": "number",
+      "estimatedOverchargeTotal": "number",
+      "expectedTotal": "number",
+      "flaggedLines": "number",
+      "fxMissing": "number",
+      "lines": "number",
+      "match": "number",
+      "noTariff": "number",
+      "overchargeByType": [
+        {
+          "amount": "number",
+          "lines": "number",
+          "type": "string"
+        }
+      ],
+      "overchargeTotal": "number",
+      "pakNoTariff": "number",
+      "pakUnmatched": "number",
+      "pendingLines": "number",
+      "reconciliation": {
+        "overchargeTotal": "number",
+        "steps": [
+          {
+            "amount": "number",
+            "key": "string",
+            "lines": "number"
+          }
+        ]
+      },
+      "uncheckedSurchargeTotal": "number",
+      "unmatched": "number",
+      "verifiedTotal": "number"
+    }
+  }
+}

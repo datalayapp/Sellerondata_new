@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-11-11T16:51:19.990Z",
+        "reason": "Orkestrator karari: e-posta HTML sablonu (account-api mailer.ts); e-posta istemcileri ozel yazi tipi yuklemez, guvenli sistem yazi tipi bilincli; mevcut postalarla ayni"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "endpoint": "GET /api/deciship/invoices/:id/dispute",
+  "status": 200,
+  "shape": {
+    "body": "string",
+    "lineCount": "number",
+    "linesWithoutPhoto": "number",
+    "photoCount": "number",
+    "selectionDigest": "string",
+    "subject": "string",
+    "total": "number"
+  }
+}

@@ -1,0 +1,146 @@
+/* Sayfa bölümü: yalnız sahibi olan ajan/sayfa yazar. build.mjs site.css'in ardına sabit sırayla ekler. Satır içi stil yok (CSP). */
+/* =============================================================== SAYFA: home (.pg-home-*) */
+/* Kaynak: Main.dc.html (.mn-* kuralları .pg-home-* olarak taşındı; panodaki style="..." değerleri buradaki sınıflarda). */
+
+/* --- Hero: solda metin, sağda ekosistem şeması */
+.pg-home-hero { background: var(--night); color: #fff; padding: 64px 0 96px; }
+.pg-home-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.pg-home-hero-text { min-width: 0; }
+/* "Ürünlere göz atın" (#urunler) bölümün tam kenarına değil, biraz üstüne insin (kullanıcı isteği: çok hafif). */
+.pg-home-products { scroll-margin-top: 24px; }
+/* Hedef kitle rozeti: 96px başlığın yanında ince eş aralıklı satır kayboluyordu (kullanıcı isteği). İnce amber çerçeve, nokta yok. */
+.pg-home-hero-eyebrow { display: inline-flex; align-items: center; padding: 8px 16px; border: 1px solid rgba(253, 176, 34, .45); border-radius: 999px; background: rgba(253, 176, 34, .08); color: var(--sun); font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: .08em; line-height: 1.2; }
+@media (max-width: 560px) { .pg-home-hero-eyebrow { font-size: 14px; padding: 7px 14px; } }
+.pg-home-hero h1 { margin-top: 24px; }
+.pg-home-h1-sun { display: block; color: var(--sun); }
+.pg-home-hero-lead { margin: 32px 0 0; color: var(--on-night); max-width: 544px; }
+.pg-home-hero-ctas { margin-top: 48px; display: flex; gap: 16px; flex-wrap: wrap; }
+.pg-home-btn-line { color: #fff; }
+.pg-home-eco-box { width: 100%; max-width: 560px; justify-self: end; }
+.pg-home-eco { display: block; width: 100%; height: auto; }
+.pg-home-eco-lbl { font-family: var(--sans); font-size: 17px; font-weight: 600; fill: #fff; }
+.pg-home-eco-sub { font-family: var(--sans); font-size: 14px; font-weight: 500; fill: var(--on-night); }
+
+/* --- Ortak küçük parçalar */
+.pg-home-h3 { font-size: 24px; line-height: 1.3; }
+.pg-home-p { margin: 8px 0 0; color: var(--ink-2); }
+
+/* --- "Bir hesap. İhtiyacınız kadar araç." */
+.pg-home-why { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+.pg-home-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 48px; }
+.pg-home-item { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 24px; align-items: start; }
+.pg-home-tile { width: 48px; height: 48px; border-radius: 12px; background: #fff; border: 1px solid var(--line); box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+.pg-home-tile svg { flex: none; }
+
+/* --- Ürünler: ≤900 kenardan kenara düz şeritler, 901–1100 alt alta kartlar, ≥1101 üç kart */
+.pg-home-products { position: relative; }
+.pg-home-prod-head { position: relative; z-index: 1; padding-bottom: 24px; }
+.pg-home-prod-title { color: var(--ink-2); font-weight: 500; }
+.pg-home-prod-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
+/* Kart zemini ve alt metni ürün paletinden: --p-* .pg-home-card-<ürün> sınıfında (üretilen styles/tokens.css). */
+.pg-home-card { position: relative; display: block; overflow: hidden; padding: 40px 0; color: #fff; cursor: pointer; border-radius: 0; background: var(--p-hero); }
+a.pg-home-card:hover { opacity: 1; }
+a.pg-home-card:focus-visible { outline: 3px solid var(--sun); outline-offset: -6px; border-radius: 0; }
+.pg-home-art { position: absolute; inset: 0; pointer-events: none; opacity: .62; transition: opacity .25s ease, transform .25s ease; -webkit-mask-image: linear-gradient(to left, #000 0, #000 15%, transparent 75%); mask-image: linear-gradient(to left, #000 0, #000 15%, transparent 75%); }
+.pg-home-art svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.pg-home-art-g { transform: translate(80px, 8px) scale(.74); }
+.pg-home-card-in { position: relative; z-index: 1; padding: 0 32px; }
+.pg-home-card-text { min-width: 0; max-width: 800px; display: flex; flex-direction: column; }
+.pg-home-card-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.pg-home-card-mark { display: block; flex: none; margin-right: -4px; }
+.pg-home-badge { display: inline-flex; align-items: center; gap: 8px; height: 28px; padding: 0 12px; border-radius: 999px; border: 1px solid currentColor; box-sizing: border-box; font-family: var(--mono); font-size: 13px; line-height: 1; color: #b5cbff; }
+.pg-home-card-foot { padding-top: 16px; }
+.pg-home-slogan { margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 600; text-wrap: balance; }
+.pg-home-card-sub { margin: 24px 0 0; max-width: 512px; }
+.pg-home-card .pg-home-card-sub { color: var(--p-soft); }
+.pg-home-card .tlink { margin-top: 24px; color: #fff; }
+.pg-home-ul { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+.pg-home-arrow { transition: transform .25s ease; }
+
+/* --- "Başlamak üç adım sürer." */
+.pg-home-steps-eyebrow { color: var(--ink-2); }
+.pg-home-steps-title { margin-top: 16px; max-width: 880px; }
+.pg-home-steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.pg-home-steps li { position: relative; padding-top: 64px; }
+.pg-home-step-n { position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--night); color: var(--sun); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 17px; font-weight: 500; }
+.pg-home-steps li:not(:last-child)::after { content: ''; position: absolute; top: 19px; left: 56px; right: -32px; height: 2px; background: var(--line); }
+
+/* --- Kenar kararması: içerik alanı dışında iki yana doğru hafif lacivert (yalnız >1100px) */
+.pg-home-vign { position: relative; --vg: .32; }
+.pg-home-vign-soft { --vg: .14; }
+.pg-home-vign-paper { --vg: .12; }
+.pg-home-vign::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to right, rgb(10 26 58 / var(--vg)) 0, rgb(10 26 58 / 0) max(64px, calc(50% - 640px)), rgb(10 26 58 / 0) min(calc(100% - 64px), calc(50% + 640px)), rgb(10 26 58 / var(--vg)) 100%); }
+
+/* --- Kırılımlar */
+@media (min-width: 1200px) {
+  .pg-home-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 560px); gap: 48px; }
+}
+@media (min-width: 901px) and (max-width: 1279px) {
+  .pg-home-eco-lbl { font-size: 19px; }
+  .pg-home-eco-sub { font-size: 16px; }
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  .pg-home-hero h1 { font-size: 64px; }
+}
+@media (min-width: 901px) {
+  .pg-home-prod-grid { max-width: 1216px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; gap: 16px; }
+  .pg-home-card { display: flex; flex-direction: column; min-height: 320px; padding: 40px; border-radius: 24px; box-sizing: border-box; transition: transform .25s ease, box-shadow .25s ease; }
+  a.pg-home-card:focus-visible { outline-offset: 4px; border-radius: 24px; }
+  .pg-home-card-in { flex: 1; display: flex; flex-direction: column; padding: 0; }
+  .pg-home-card-text { flex: 1; max-width: 640px; }
+  .pg-home-card-foot { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding-top: 24px; }
+  .pg-home-slogan { font-size: 40px; line-height: 1.1; }
+  /* site.css'te kutular border-box: 44 px dokunma alanı + 24 px üst dolgu = 68 (panodaki ölçü) */
+  .pg-home-card .tlink { margin-top: auto; padding-top: 24px; min-height: 68px; }
+  .pg-home-art { opacity: .55; }
+  .pg-home-art-g { transform: translate(48px, 24px) scale(.8); }
+}
+@media (min-width: 1101px) {
+  .pg-home-prod-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .pg-home-card { padding: 32px; }
+  .pg-home-card-text { max-width: none; }
+  .pg-home-slogan { font-size: 30px; line-height: 1.15; }
+  .pg-home-art { -webkit-mask-image: radial-gradient(150% 125% at 100% 100%, #000 35%, transparent 85%); mask-image: radial-gradient(150% 125% at 100% 100%, #000 35%, transparent 85%); }
+  .pg-home-art-g { transform: translate(56px, 72px) scale(.68); }
+}
+@media (max-width: 1100px) {
+  .pg-home-vign::after { display: none; }
+}
+@media (max-width: 900px) {
+  .pg-home-hero { padding: 64px 0 72px; }
+  .pg-home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .pg-home-eco-box { max-width: 360px; justify-self: start; }
+  .pg-home-eco-lbl { font-size: 23px; }
+  .pg-home-eco-sub { font-size: 22.4px; }
+  .pg-home-why { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .pg-home-list { gap: 32px; }
+  a.pg-home-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: #fff; opacity: 0; transition: opacity .25s ease; }
+  .pg-home-steps { grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 48px; }
+  .pg-home-steps li { padding: 0 0 0 64px; min-height: 40px; }
+  .pg-home-steps li:not(:last-child)::after { top: 48px; left: 19px; right: auto; bottom: -24px; width: 2px; height: auto; }
+}
+@media (max-width: 560px) {
+  .pg-home-art { -webkit-mask-image: radial-gradient(130% 100% at 100% 100%, #000 25%, transparent 80%); mask-image: radial-gradient(130% 100% at 100% 100%, #000 25%, transparent 80%); }
+  .pg-home-art-g { transform: translate(64px, 88px) scale(.66); }
+  .pg-home-card-in { padding: 0 20px; }
+}
+@media (max-width: 360px) {
+  .pg-home-eco-lbl { font-size: 22px; }
+}
+
+/* --- Üzerine gelme: mobilde hafif aydınlık + desen kayması, masaüstünde kart kalkar */
+@media (hover: hover) and (max-width: 900px) {
+  a.pg-home-card:hover::before { opacity: .025; }
+  a.pg-home-card:hover .pg-home-art { opacity: .7; transform: translateX(-6px); }
+  a.pg-home-card:hover .pg-home-arrow { transform: translateX(4px); }
+}
+@media (hover: hover) and (min-width: 901px) {
+  a.pg-home-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px #0a1a3a33; }
+  a.pg-home-card:hover .pg-home-art { opacity: .68; }
+  a.pg-home-card:hover .pg-home-arrow { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  a.pg-home-card, a.pg-home-card .pg-home-art, a.pg-home-card .pg-home-arrow { transition: opacity .25s ease, box-shadow .25s ease; }
+  a.pg-home-card:hover, a.pg-home-card:hover .pg-home-art, a.pg-home-card:hover .pg-home-arrow { transform: none; }
+}
+/* SON: home */

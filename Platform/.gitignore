@@ -1,0 +1,19 @@
+node_modules/
+dist/
+build/
+.env
+*.log
+coverage/
+playwright-report/
+test-results/
+keys/
+storage/
+.vite/
+e2e/.stack/
+e2e/node_modules/
+
+# Üretilen ekran görüntüleri (e2e, npm run screens), izlenmez
+apps/hub-web/screenshots/
+apps/site/screenshots/
+e2e/screenshots/
+.impeccable/

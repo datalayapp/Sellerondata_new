@@ -1,0 +1,1434 @@
+{
+  "generatedBy": "samples/tools/generate.mjs",
+  "tolerances": {
+    "edgeTolCm": 1,
+    "weightTolKg": 0.1,
+    "amountTol": 5
+  },
+  "uploadOrder": [
+    "fedex-9-482-11735",
+    "fedex-9-482-11736",
+    "ups-0000F4A71X",
+    "dhl-SIN-4471029",
+    "aras-ARS-2026-004871",
+    "yurtici-YK-2026-118833",
+    "mng-MNG-2026-77120"
+  ],
+  "currency": "TRY",
+  "invoices": [
+    {
+      "id": "fedex-9-482-11735",
+      "file": "invoices/fedex-9-482-11735.csv",
+      "carrierCode": "fedex",
+      "tariff": "FedEx International Economy 2026",
+      "invoiceNo": "9-482-11735",
+      "invoiceDate": "2026-10-27",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Tracking ID",
+        "netAmount": "Net Charge Amount",
+        "shipDate": "Shipment Date",
+        "service": "Service Type",
+        "destCountry": "Recipient Country/Territory",
+        "actualKg": "Actual Weight",
+        "billedKg": "Rated Weight",
+        "dimL": "Dim Length",
+        "dimW": "Dim Width",
+        "dimH": "Dim Height",
+        "billedDivisor": "Dim Divisor",
+        "baseAmount": "Transportation Charge Amount",
+        "discountAmount": "Discount",
+        "fuelAmount": "Fuel Surcharge",
+        "currency": "Currency",
+        "reference": "Customer Reference",
+        "surchargeColumns": [
+          {
+            "header": "Address Correction",
+            "code": "ADDRESS_CORRECTION"
+          },
+          {
+            "header": "Remote Area Surcharge",
+            "code": "REMOTE_AREA"
+          },
+          {
+            "header": "Additional Handling",
+            "code": "ADDITIONAL_HANDLING"
+          }
+        ]
+      },
+      "fileInfo": {
+        "delimiter": ",",
+        "encoding": "utf-8 (BOM)",
+        "numberFormat": "dot-decimal",
+        "dateFormat": "YYYY-MM-DD",
+        "piiColumns": [
+          "Recipient Name",
+          "Recipient Address",
+          "Recipient City",
+          "Recipient Postal Code"
+        ],
+        "notes": "Discount column is NEGATIVE (FedEx style)."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "794812345305",
+          "scenario": "DIMENSION",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 9.5,
+          "expectedAmount": 1184,
+          "billedAmount": 1642.5,
+          "diffAmount": 458.5,
+          "wiki": "#5305 ölçü farkı"
+        },
+        {
+          "row": 2,
+          "trackingNo": "794812345302",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 3.5,
+          "billedChargeableKg": 3.5,
+          "expectedAmount": 1003.38,
+          "billedAmount": 1003.38,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "794812345301",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 12,
+          "billedChargeableKg": 12,
+          "expectedAmount": 3371.95,
+          "billedAmount": 3371.95,
+          "diffAmount": 0
+        },
+        {
+          "row": 4,
+          "trackingNo": "794812345299",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 5.5,
+          "expectedAmount": 1023.6,
+          "billedAmount": 1120,
+          "diffAmount": 96.4,
+          "wiki": "#5299 ağırlık farkı"
+        },
+        {
+          "row": 5,
+          "trackingNo": "794812345300",
+          "scenario": "MATCH_TOL",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 3,
+          "billedChargeableKg": 3,
+          "expectedAmount": 935.21,
+          "billedAmount": 937.21,
+          "diffAmount": 2
+        },
+        {
+          "row": 6,
+          "trackingNo": "794812345297",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 9.5,
+          "billedChargeableKg": 9.5,
+          "expectedAmount": 1818.25,
+          "billedAmount": 1818.25,
+          "diffAmount": 0
+        },
+        {
+          "row": 7,
+          "trackingNo": "794812345293",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 4.5,
+          "billedChargeableKg": 4.5,
+          "expectedAmount": 965.84,
+          "billedAmount": 1377.84,
+          "diffAmount": 412,
+          "wiki": "#5293 ek ücret"
+        },
+        {
+          "row": 8,
+          "trackingNo": "794812345296",
+          "scenario": "MATCH_DIMS",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 4,
+          "billedChargeableKg": 4,
+          "expectedAmount": 908.08,
+          "billedAmount": 908.08,
+          "diffAmount": 0
+        },
+        {
+          "row": 9,
+          "trackingNo": "794812345295",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1184,
+          "billedAmount": 1184,
+          "diffAmount": 0
+        },
+        {
+          "row": 10,
+          "trackingNo": "794812345294",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 17.5,
+          "billedChargeableKg": 17.5,
+          "expectedAmount": 5248.73,
+          "billedAmount": 5248.73,
+          "diffAmount": 0
+        },
+        {
+          "row": 11,
+          "trackingNo": "794812345290",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 15,
+          "billedChargeableKg": 15,
+          "expectedAmount": 2815,
+          "billedAmount": 2871.3,
+          "diffAmount": 56.3,
+          "wiki": "#5290 fiyat farkı (yakıt %27,5)"
+        },
+        {
+          "row": 12,
+          "trackingNo": "794812345292",
+          "scenario": "MATCH_FAVOR",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 1.5,
+          "billedChargeableKg": 1.5,
+          "expectedAmount": 619.28,
+          "billedAmount": 607.28,
+          "diffAmount": -12,
+          "note": "Lehimize fark"
+        },
+        {
+          "row": 13,
+          "trackingNo": "794812345288",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 5.5,
+          "billedChargeableKg": 5.5,
+          "expectedAmount": 1120,
+          "billedAmount": 1120,
+          "diffAmount": 0,
+          "wiki": "#5288 (ilk görünüm)"
+        },
+        {
+          "row": 14,
+          "trackingNo": "794812345291",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 8,
+          "billedChargeableKg": 8,
+          "expectedAmount": 1446,
+          "billedAmount": 1446,
+          "diffAmount": 0
+        },
+        {
+          "row": 15,
+          "trackingNo": "794812345289",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 4.5,
+          "billedChargeableKg": 4.5,
+          "expectedAmount": 1139.69,
+          "billedAmount": 1139.69,
+          "diffAmount": 0
+        },
+        {
+          "row": 16,
+          "trackingNo": "794812345287",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 4,
+          "billedChargeableKg": 4,
+          "expectedAmount": 908.08,
+          "billedAmount": 908.08,
+          "diffAmount": 0
+        },
+        {
+          "row": 17,
+          "trackingNo": "794812345288",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 5.5,
+          "expectedAmount": null,
+          "billedAmount": 1120,
+          "diffAmount": 1120,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 13,
+          "wiki": "#5288 mükerrer (ikinci görünüm)"
+        },
+        {
+          "row": 18,
+          "trackingNo": "774012346105",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 2,
+          "expectedAmount": null,
+          "billedAmount": 677.04,
+          "diffAmount": null,
+          "wiki": "eşleşmeyen"
+        }
+      ],
+      "totals": {
+        "lines": 18,
+        "match": 12,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 28501.33,
+        "expectedTotal": 25691.09,
+        "overchargeTotal": 1023.2,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 1120,
+        "estimatedLines": 1
+      }
+    },
+    {
+      "id": "fedex-9-482-11736",
+      "file": "invoices/fedex-9-482-11736.xlsx",
+      "carrierCode": "fedex",
+      "tariff": "FedEx International Economy 2026",
+      "invoiceNo": "9-482-11736",
+      "invoiceDate": "2026-11-03",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Express or Ground Tracking ID",
+        "netAmount": "Net Charge Amount",
+        "shipDate": "Shipment Date",
+        "service": "Service Type",
+        "destCountry": "Recipient Country",
+        "actualKg": "Actual Weight",
+        "billedKg": "Rated Weight",
+        "dimL": "Dim Length",
+        "dimW": "Dim Width",
+        "dimH": "Dim Height",
+        "billedDivisor": "Dim Divisor",
+        "baseAmount": "Transportation Charge",
+        "discountAmount": "Discount",
+        "fuelAmount": "Fuel Surcharge",
+        "currency": "Currency",
+        "reference": "Customer Reference",
+        "surchargeColumns": [
+          {
+            "header": "Address Correction",
+            "code": "ADDRESS_CORRECTION"
+          },
+          {
+            "header": "Residential Surcharge",
+            "code": "RESIDENTIAL"
+          },
+          {
+            "header": "Remote Area Surcharge",
+            "code": "REMOTE_AREA"
+          },
+          {
+            "header": "Additional Handling",
+            "code": "ADDITIONAL_HANDLING"
+          }
+        ]
+      },
+      "fileInfo": {
+        "sheet": "Invoice Detail",
+        "numbers": "numeric cells",
+        "dates": "ISO text",
+        "piiColumns": [
+          "Recipient Name",
+          "Recipient Address",
+          "Recipient City",
+          "Recipient Postal Code"
+        ],
+        "notes": "Discount column is NEGATIVE. Empty surcharge cells are blank."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "794812345286",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 5,
+          "expectedAmount": 1023.6,
+          "billedAmount": 1023.6,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "794812345285",
+          "scenario": "COMBO",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION",
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 2.5,
+          "billedChargeableKg": 4.5,
+          "expectedAmount": 734.79,
+          "billedAmount": 1062.34,
+          "diffAmount": 327.55
+        },
+        {
+          "row": 3,
+          "trackingNo": "794812345284",
+          "scenario": "SURCH_EXCESS",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 9.5,
+          "billedChargeableKg": 9.5,
+          "expectedAmount": 2830.86,
+          "billedAmount": 2930.86,
+          "diffAmount": 100
+        },
+        {
+          "row": 4,
+          "trackingNo": "794812345283",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1397.13,
+          "billedAmount": 1464.74,
+          "diffAmount": 67.61
+        },
+        {
+          "row": 5,
+          "trackingNo": "794812345282",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 7.5,
+          "billedChargeableKg": 8.5,
+          "expectedAmount": 1628.99,
+          "billedAmount": 1783.58,
+          "diffAmount": 154.59
+        },
+        {
+          "row": 6,
+          "trackingNo": "794812345281",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1295,
+          "billedAmount": 1295,
+          "diffAmount": 0
+        },
+        {
+          "row": 7,
+          "trackingNo": "794812345287",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 4,
+          "expectedAmount": null,
+          "billedAmount": 908.08,
+          "diffAmount": 908.08,
+          "duplicateOfRow": null,
+          "crossInvoiceDuplicateOf": "9-482-11735",
+          "standaloneStatus": "MATCH",
+          "standaloneDiffTypes": [],
+          "standaloneExpectedAmount": 908.08,
+          "standaloneDiffAmount": 0,
+          "wiki": "önceki faturada (11735) zaten faturalanmış"
+        },
+        {
+          "row": 8,
+          "trackingNo": "794812346201",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 3,
+          "expectedAmount": null,
+          "billedAmount": 792.55,
+          "diffAmount": null
+        },
+        {
+          "row": 9,
+          "trackingNo": "794812345280",
+          "scenario": "MATCH_TOL",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 3.5,
+          "billedChargeableKg": 3.5,
+          "expectedAmount": 850.31,
+          "billedAmount": 853.81,
+          "diffAmount": 3.5
+        }
+      ],
+      "totals": {
+        "lines": 9,
+        "match": 3,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 12114.56,
+        "expectedTotal": 9760.68,
+        "overchargeTotal": 1557.83,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 0,
+        "estimatedLines": 0
+      }
+    },
+    {
+      "id": "ups-0000F4A71X",
+      "file": "invoices/ups-0000F4A71X.xlsx",
+      "carrierCode": "ups",
+      "tariff": "UPS Express Saver 2026",
+      "invoiceNo": "0000F4A71X",
+      "invoiceDate": "2026-10-30",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Tracking Number",
+        "netAmount": "Net Amount",
+        "shipDate": "Pickup Date",
+        "service": "Service",
+        "destCountry": "Receiver Country",
+        "actualKg": "Entered Weight",
+        "billedKg": "Billed Weight",
+        "dimL": "Length",
+        "dimW": "Width",
+        "dimH": "Height",
+        "baseAmount": "Published Charge",
+        "discountAmount": "Incentive Credit",
+        "fuelAmount": "Fuel Surcharge",
+        "currency": "Currency",
+        "reference": "Reference 1",
+        "surchargeColumns": [
+          {
+            "header": "Delivery Area Surcharge",
+            "code": "DELIVERY_AREA"
+          },
+          {
+            "header": "Large Package Surcharge",
+            "code": "LARGE_PACKAGE"
+          },
+          {
+            "header": "Address Correction",
+            "code": "ADDRESS_CORRECTION"
+          }
+        ]
+      },
+      "fileInfo": {
+        "sheet": "Charges",
+        "piiColumns": [
+          "Receiver Name",
+          "Receiver Address",
+          "Receiver City"
+        ],
+        "notes": "Incentive Credit is NEGATIVE. No Dim Divisor column (tariff divisor 5000 applies)."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "1Z9X4A710341007731",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 5,
+          "expectedAmount": 1019.02,
+          "billedAmount": 1019.02,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "1Z9X4A710341007742",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1280.7,
+          "billedAmount": 1280.7,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "1Z9X4A710341007753",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 28,
+          "billedChargeableKg": 28,
+          "expectedAmount": 8224.95,
+          "billedAmount": 8224.95,
+          "diffAmount": 0
+        },
+        {
+          "row": 4,
+          "trackingNo": "1Z9X4A710341007764",
+          "scenario": "DIMENSION",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION"
+          ],
+          "ourChargeableKg": 3.5,
+          "billedChargeableKg": 6.5,
+          "expectedAmount": 1019.44,
+          "billedAmount": 1498.04,
+          "diffAmount": 478.6
+        },
+        {
+          "row": 5,
+          "trackingNo": "1Z9X4A710341007775",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 7.5,
+          "billedChargeableKg": 8.5,
+          "expectedAmount": 1374.32,
+          "billedAmount": 1504.72,
+          "diffAmount": 130.4
+        },
+        {
+          "row": 6,
+          "trackingNo": "1Z9X4A710341007786",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1178.7,
+          "billedAmount": 1248.04,
+          "diffAmount": 69.34
+        },
+        {
+          "row": 7,
+          "trackingNo": "1Z9X4A710341007797",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 4,
+          "billedChargeableKg": 4,
+          "expectedAmount": 904.01,
+          "billedAmount": 1299.01,
+          "diffAmount": 395
+        },
+        {
+          "row": 8,
+          "trackingNo": "1Z9X4A710341007731",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 5,
+          "expectedAmount": null,
+          "billedAmount": 1019.02,
+          "diffAmount": 1019.02,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 1
+        },
+        {
+          "row": 9,
+          "trackingNo": "1Z9X4A710341007808",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 2.5,
+          "expectedAmount": null,
+          "billedAmount": 731.5,
+          "diffAmount": null
+        },
+        {
+          "row": 10,
+          "trackingNo": "1Z9X4A710341007819",
+          "scenario": "NO_TARIFF",
+          "status": "NO_TARIFF",
+          "diffTypes": [],
+          "ourChargeableKg": 3,
+          "billedChargeableKg": 3,
+          "expectedAmount": null,
+          "billedAmount": 1341.29,
+          "diffAmount": null,
+          "note": "Bölge yok"
+        }
+      ],
+      "totals": {
+        "lines": 10,
+        "match": 3,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 1,
+        "billedTotal": 19166.29,
+        "expectedTotal": 15001.14,
+        "overchargeTotal": 1073.34,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 1019.02,
+        "estimatedLines": 1
+      }
+    },
+    {
+      "id": "dhl-SIN-4471029",
+      "file": "invoices/dhl-SIN-4471029.csv",
+      "carrierCode": "dhl",
+      "tariff": "DHL Express Worldwide 2026",
+      "invoiceNo": "SIN-4471029",
+      "invoiceDate": "2026-10-28",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Waybill Number",
+        "netAmount": "Total Amount (excl. VAT)",
+        "shipDate": "Shipment Date",
+        "service": "Product",
+        "destCountry": "Destination Country",
+        "actualKg": "Actual Weight (kg)",
+        "billedKg": "Chargeable Weight (kg)",
+        "dimL": "Length (cm)",
+        "dimW": "Width (cm)",
+        "dimH": "Height (cm)",
+        "baseAmount": "Weight Charge",
+        "discountAmount": "Discount",
+        "fuelAmount": "Fuel Surcharge",
+        "currency": "Currency",
+        "reference": "Shipper Reference",
+        "surchargeColumns": [
+          {
+            "header": "Remote Area Delivery",
+            "code": "REMOTE_AREA"
+          },
+          {
+            "header": "Emergency Situation",
+            "code": "EMERGENCY_SITUATION"
+          }
+        ]
+      },
+      "fileInfo": {
+        "delimiter": ",",
+        "encoding": "utf-8",
+        "numberFormat": "dot-decimal",
+        "dateFormat": "YYYY-MM-DD",
+        "piiColumns": [
+          "Consignee Name",
+          "Consignee Address",
+          "Consignee City"
+        ],
+        "notes": "Discount is NEGATIVE."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "4821907315",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 3.5,
+          "billedChargeableKg": 3.5,
+          "expectedAmount": 857.79,
+          "billedAmount": 857.79,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "4821907326",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 9.5,
+          "billedChargeableKg": 9.5,
+          "expectedAmount": 2596.46,
+          "billedAmount": 2596.46,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "4821907337",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 4.5,
+          "billedChargeableKg": 4.5,
+          "expectedAmount": 1214.33,
+          "billedAmount": 1214.33,
+          "diffAmount": 0
+        },
+        {
+          "row": 4,
+          "trackingNo": "4821907348",
+          "scenario": "DIMENSION",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION"
+          ],
+          "ourChargeableKg": 2.5,
+          "billedChargeableKg": 4.5,
+          "expectedAmount": 741.26,
+          "billedAmount": 974.33,
+          "diffAmount": 233.07
+        },
+        {
+          "row": 5,
+          "trackingNo": "4821907359",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 6.5,
+          "billedChargeableKg": 7.5,
+          "expectedAmount": 1260.5,
+          "billedAmount": 1392.64,
+          "diffAmount": 132.14
+        },
+        {
+          "row": 6,
+          "trackingNo": "4821907360",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 1194.43,
+          "billedAmount": 1218.51,
+          "diffAmount": 24.08
+        },
+        {
+          "row": 7,
+          "trackingNo": "4821907371",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 7.5,
+          "billedChargeableKg": 7.5,
+          "expectedAmount": 1392.64,
+          "billedAmount": 1577.64,
+          "diffAmount": 185
+        },
+        {
+          "row": 8,
+          "trackingNo": "4821907326",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 9.5,
+          "expectedAmount": null,
+          "billedAmount": 2596.46,
+          "diffAmount": 2596.46,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 2
+        },
+        {
+          "row": 9,
+          "trackingNo": "4821907382",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 2,
+          "expectedAmount": null,
+          "billedAmount": 682.99,
+          "diffAmount": null
+        }
+      ],
+      "totals": {
+        "lines": 9,
+        "match": 3,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 13111.15,
+        "expectedTotal": 9257.41,
+        "overchargeTotal": 574.29,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 2596.46,
+        "estimatedLines": 1
+      }
+    },
+    {
+      "id": "aras-ARS-2026-004871",
+      "file": "invoices/aras-ARS-2026-004871.xlsx",
+      "carrierCode": "aras",
+      "tariff": "Aras Desi 2026",
+      "invoiceNo": "ARS-2026-004871",
+      "invoiceDate": "2026-10-27",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Gönderi No",
+        "netAmount": "Toplam",
+        "amountsIncludeVat": true,
+        "vatPct": 20,
+        "shipDate": "Çıkış Tarihi",
+        "actualKg": "Kg",
+        "billedKg": "Desi",
+        "desiAsWeight": true,
+        "dims": "Ölçü (cm)",
+        "reference": "Referans",
+        "surchargeColumns": [
+          {
+            "header": "Kapıda Ödeme Bedeli",
+            "code": "KAPIDA_ODEME"
+          },
+          {
+            "header": "Adres Düzeltme Bedeli",
+            "code": "ADRES_DUZELTME"
+          }
+        ]
+      },
+      "fileInfo": {
+        "sheet": "Fatura",
+        "headerRowIndex1Based": 6,
+        "preambleRows": 5,
+        "totalRow": true,
+        "numbers": "TEXT cells in Turkish format \"1.234,56\"",
+        "dates": "TEXT \"27.10.2026\"",
+        "amountsIncludeVat": true,
+        "piiColumns": [
+          "Alıcı",
+          "Alıcı İl"
+        ],
+        "notes": "netAmount mapped to \"Toplam\" (KDV dahil, 20%); core must divide by 1,2. Surcharge columns are KDV hariç. Dims in a single cell \"45x35x30\" (empty when not reported)."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "3412550010231",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 10,
+          "billedChargeableKg": 10,
+          "expectedAmount": 139.79,
+          "billedAmount": 139.79,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "3412550010242",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 3,
+          "billedChargeableKg": 3,
+          "expectedAmount": 93.05,
+          "billedAmount": 93.05,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "3412550010253",
+          "scenario": "DIMENSION",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 13,
+          "expectedAmount": 103.5,
+          "billedAmount": 169.27,
+          "diffAmount": 65.77
+        },
+        {
+          "row": 4,
+          "trackingNo": "3412550010264",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 7,
+          "expectedAmount": 94.97,
+          "billedAmount": 112.25,
+          "diffAmount": 17.28
+        },
+        {
+          "row": 5,
+          "trackingNo": "3412550010275",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 18,
+          "billedChargeableKg": 18,
+          "expectedAmount": 222.73,
+          "billedAmount": 235.11,
+          "diffAmount": 12.38
+        },
+        {
+          "row": 6,
+          "trackingNo": "3412550010286",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 5,
+          "expectedAmount": 94.97,
+          "billedAmount": 132.97,
+          "diffAmount": 38
+        },
+        {
+          "row": 7,
+          "trackingNo": "3412550010231",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 10,
+          "expectedAmount": null,
+          "billedAmount": 139.79,
+          "diffAmount": 139.79,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 1
+        },
+        {
+          "row": 8,
+          "trackingNo": "3412550010297",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 3,
+          "expectedAmount": null,
+          "billedAmount": 78.55,
+          "diffAmount": null
+        }
+      ],
+      "totals": {
+        "lines": 8,
+        "match": 2,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 1100.78,
+        "expectedTotal": 749.01,
+        "overchargeTotal": 133.43,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 139.79,
+        "estimatedLines": 1
+      }
+    },
+    {
+      "id": "yurtici-YK-2026-118833",
+      "file": "invoices/yurtici-YK-2026-118833.xlsx",
+      "carrierCode": "yurtici",
+      "tariff": "Yurtiçi Desi 2026",
+      "invoiceNo": "YK-2026-118833",
+      "invoiceDate": "2026-10-29",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Takip No",
+        "netAmount": "Tutar (KDV Hariç)",
+        "amountsIncludeVat": false,
+        "shipDate": "Gönderi Tarihi",
+        "actualKg": "Gerçek Ağırlık (kg)",
+        "billedKg": "Desi",
+        "desiAsWeight": true,
+        "dimL": "En",
+        "dimW": "Boy",
+        "dimH": "Yükseklik",
+        "reference": "Müşteri Referansı",
+        "surchargeColumns": [
+          {
+            "header": "Kapıda Ödeme Hizmeti",
+            "code": "KAPIDA_ODEME"
+          },
+          {
+            "header": "Adres Değişikliği",
+            "code": "ADRES_DEGISIKLIGI"
+          }
+        ]
+      },
+      "fileInfo": {
+        "sheet": "Fatura Detay",
+        "numbers": "real numeric cells",
+        "dates": "real Date cells formatted dd.mm.yyyy",
+        "amountsIncludeVat": false,
+        "totalRow": true,
+        "piiColumns": [
+          "Alıcı Adı",
+          "Varış Şehri"
+        ],
+        "notes": "Net = \"Tutar (KDV Hariç)\"; also has KDV and Genel Toplam. \"Taşıma Bedeli\" is freight excluding surcharges."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "620031840101",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 4,
+          "billedChargeableKg": 4,
+          "expectedAmount": 92.8,
+          "billedAmount": 92.8,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "620031840112",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 47,
+          "billedChargeableKg": 47,
+          "expectedAmount": 624.11,
+          "billedAmount": 624.11,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "620031840123",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 8,
+          "billedChargeableKg": 8,
+          "expectedAmount": 145.81,
+          "billedAmount": 145.81,
+          "diffAmount": 0
+        },
+        {
+          "row": 4,
+          "trackingNo": "620031840134",
+          "scenario": "DIMENSION",
+          "status": "DIFF",
+          "diffTypes": [
+            "DIMENSION"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 12,
+          "expectedAmount": 110.85,
+          "billedAmount": 170.53,
+          "diffAmount": 59.68
+        },
+        {
+          "row": 5,
+          "trackingNo": "620031840145",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 7,
+          "billedChargeableKg": 9,
+          "expectedAmount": 120.21,
+          "billedAmount": 139.65,
+          "diffAmount": 19.44
+        },
+        {
+          "row": 6,
+          "trackingNo": "620031840156",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 20,
+          "billedChargeableKg": 20,
+          "expectedAmount": 263.07,
+          "billedAmount": 275.59,
+          "diffAmount": 12.52
+        },
+        {
+          "row": 7,
+          "trackingNo": "620031840167",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 6,
+          "billedChargeableKg": 6,
+          "expectedAmount": 110.85,
+          "billedAmount": 145.85,
+          "diffAmount": 35
+        },
+        {
+          "row": 8,
+          "trackingNo": "620031840123",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 8,
+          "expectedAmount": null,
+          "billedAmount": 145.81,
+          "diffAmount": 145.81,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 3
+        },
+        {
+          "row": 9,
+          "trackingNo": "620031840178",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 4,
+          "expectedAmount": null,
+          "billedAmount": 92.8,
+          "diffAmount": null
+        }
+      ],
+      "totals": {
+        "lines": 9,
+        "match": 3,
+        "diff": 5,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 1832.95,
+        "expectedTotal": 1467.7,
+        "overchargeTotal": 126.64,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 145.81,
+        "estimatedLines": 1
+      }
+    },
+    {
+      "id": "mng-MNG-2026-77120",
+      "file": "invoices/mng-MNG-2026-77120.csv",
+      "carrierCode": "mng",
+      "tariff": "MNG Desi 2026",
+      "invoiceNo": "MNG-2026-77120",
+      "invoiceDate": "2026-10-30",
+      "currency": "TRY",
+      "suggestedMapping": {
+        "trackingNo": "Gönderi No",
+        "netAmount": "Tutar",
+        "amountsIncludeVat": false,
+        "shipDate": "Tarih",
+        "actualKg": "Gerçek Kg",
+        "billedKg": "Desi",
+        "desiAsWeight": true,
+        "reference": "Referans No",
+        "surchargeColumns": [
+          {
+            "header": "Kapıda Ödeme",
+            "code": "KAPIDA_ODEME"
+          },
+          {
+            "header": "Adres Düzeltme",
+            "code": "ADRES_DUZELTME"
+          }
+        ]
+      },
+      "fileInfo": {
+        "delimiter": ";",
+        "encoding": "utf-8 (BOM)",
+        "numberFormat": "Turkish \"1.234,56\"",
+        "dateFormat": "DD.MM.YYYY",
+        "amountsIncludeVat": false,
+        "totalRow": true,
+        "piiColumns": [
+          "Alıcı Adı",
+          "Alıcı Adresi"
+        ],
+        "notes": "Net = \"Tutar\" (KDV hariç); KDV and Toplam columns also present. No dimension columns."
+      },
+      "lines": [
+        {
+          "row": 1,
+          "trackingNo": "571088001201",
+          "scenario": "MATCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 10,
+          "billedChargeableKg": 10,
+          "expectedAmount": 141.3,
+          "billedAmount": 141.3,
+          "diffAmount": 0
+        },
+        {
+          "row": 2,
+          "trackingNo": "571088001212",
+          "scenario": "MATCH_SURCH",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 7,
+          "billedChargeableKg": 7,
+          "expectedAmount": 128.45,
+          "billedAmount": 128.45,
+          "diffAmount": 0
+        },
+        {
+          "row": 3,
+          "trackingNo": "571088001223",
+          "scenario": "WEIGHT",
+          "status": "DIFF",
+          "diffTypes": [
+            "WEIGHT"
+          ],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 6,
+          "expectedAmount": 96,
+          "billedAmount": 104.62,
+          "diffAmount": 8.62
+        },
+        {
+          "row": 4,
+          "trackingNo": "571088001234",
+          "scenario": "MATCH_MEASURE_TOL",
+          "status": "MATCH",
+          "diffTypes": [],
+          "ourChargeableKg": 9,
+          "billedChargeableKg": 10,
+          "expectedAmount": 141.3,
+          "billedAmount": 141.3,
+          "diffAmount": 0,
+          "note": "Ağırlık farkı ölçüm toleransı içinde"
+        },
+        {
+          "row": 5,
+          "trackingNo": "571088001245",
+          "scenario": "PRICE",
+          "status": "DIFF",
+          "diffTypes": [
+            "PRICE"
+          ],
+          "ourChargeableKg": 13,
+          "billedChargeableKg": 13,
+          "expectedAmount": 171.1,
+          "billedAmount": 185.98,
+          "diffAmount": 14.88
+        },
+        {
+          "row": 6,
+          "trackingNo": "571088001256",
+          "scenario": "SURCHARGE",
+          "status": "DIFF",
+          "diffTypes": [
+            "SURCHARGE"
+          ],
+          "ourChargeableKg": 5,
+          "billedChargeableKg": 5,
+          "expectedAmount": 96,
+          "billedAmount": 136,
+          "diffAmount": 40
+        },
+        {
+          "row": 7,
+          "trackingNo": "571088001201",
+          "scenario": "DUP",
+          "status": "DIFF",
+          "diffTypes": [
+            "DUPLICATE"
+          ],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 10,
+          "expectedAmount": null,
+          "billedAmount": 141.3,
+          "diffAmount": 141.3,
+          "confidence": "LOW",
+          "reviewCode": "DUPLICATE",
+          "duplicateOfRow": 1
+        },
+        {
+          "row": 8,
+          "trackingNo": "571088001267",
+          "scenario": "UNMATCHED",
+          "status": "UNMATCHED",
+          "diffTypes": [],
+          "ourChargeableKg": null,
+          "billedChargeableKg": 3,
+          "expectedAmount": null,
+          "billedAmount": 79.4,
+          "diffAmount": null
+        }
+      ],
+      "totals": {
+        "lines": 8,
+        "match": 3,
+        "diff": 4,
+        "unmatched": 1,
+        "noTariff": 0,
+        "billedTotal": 1058.35,
+        "expectedTotal": 774.15,
+        "overchargeTotal": 63.5,
+        "verifiedTotal": 0
+      },
+      "reviewTotals": {
+        "estimatedOverchargeTotal": 141.3,
+        "estimatedLines": 1
+      }
+    }
+  ]
+}

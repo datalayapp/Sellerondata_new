@@ -1,0 +1,159 @@
+{
+  "bulkBand": "Eski faturalar bugünkü ayara geçiriliyor · {{done}} / {{total}}",
+  "common": {
+    "cancel": "Vazgeç",
+    "delete": "Sil",
+    "save": "Kaydet"
+  },
+  "errors": {
+    "validValue": "Geçerli bir değer girin.",
+    "positive": "Pozitif bir sayı girin.",
+    "photosRange": "0–10 arası bir sayı girin.",
+    "pctRange": "0–20 arası bir yüzde girin.",
+    "warnEdgeRange": "10–400 arası bir tam sayı girin.",
+    "warnWeightRange": "1–999 arası bir tam sayı girin."
+  },
+  "toast": {
+    "saved": "Ayarlar kaydedildi",
+    "savedBody": "Toleranslar yeni karşılaştırmalara uygulanır."
+  },
+  "page": {
+    "title": "Ayarlar",
+    "openSetup": "Kurulum sihirbazını aç",
+    "more": "Diğer işlemler",
+    "dataSection": "Veriler",
+    "sections": "Bölümler"
+  },
+  "company": {
+    "title": "Firma",
+    "desc": "Fatura ve raporlarda görünen firma adı."
+  },
+  "tolerances": {
+    "title": "Karşılaştırma toleransları",
+    "desc": "Bu sınırların içindeki sapmalar fark sayılmaz. Ücretli kilogramı değiştirmeyen ölçü sapması hiçbir zaman fark sayılmaz.",
+    "edge": "Kenar toleransı",
+    "edgeHelp": "Ölçümünüzün her kenarına bu kadar pay eklenir. Taşıyıcının ağırlığı bu payın içindeyse satır uyumlu sayılır. 0 yazarsanız pay uygulanmaz.",
+    "weight": "Ağırlık toleransı",
+    "amount": "Tutar toleransı",
+    "amountHelp": "Beklenenden bu kadar fazlası fiyat farkı sayılır. Firmanızın para biriminde girilir; dövizli faturada kurla çevrilir.",
+    "unknownSurcharges": "Tarifede olmayan ek ücretleri fark say",
+    "unknownSurchargesHelp": "Kapalıyken (önerilen) tarifede olmayan ek ücretler Beklenen'e faturadaki tutarıyla eklenir. Açıkken tamamı fark sayılır. Mevcut faturalar eski ayarla kalır; kaydedince geçirmek isteyip istemediğiniz sorulur.",
+    "recompare": "Eski faturaları yeni ayara geçir",
+    "saveFirst": "Önce kaydedin"
+  },
+  "fx": {
+    "title": "Döviz kuru",
+    "desc": "Tarife faturadan farklı para birimindeyse (ör. USD tarife, TL fatura) beklenen tutar gönderi gününün kuruyla çevrilir.",
+    "tolerance": "Kur toleransı",
+    "source": "Kur kaynağı",
+    "sourceHelp": "Hafta sonu ve tatilde önceki iş gününün kuru kullanılır",
+    "sourceDefault": "TCMB döviz alış/satış ortalaması"
+  },
+  "mobile": {
+    "title": "Mobil ölçüm",
+    "desc": "Çalışanın telefonunda gösterilen desi, zorunlu fotoğraf ve ölçü uyarısı kuralları.",
+    "divisor": "Desi böleni",
+    "divisorHelp": "Çalışana gösterilir. 40×30×25 koli = {{desi}} desi",
+    "photos": "Zorunlu kutu fotoğrafı",
+    "photosHelp": "Bu sayıda kutu fotoğrafı olmadan ölçüm kaydedilemez (0–10)",
+    "unitPcs": "adet",
+    "warnEdge": "Uyarı: en uzun kenar",
+    "warnEdgeHelp": "Daha uzun kenarda telefon “Lütfen kontrol edin” der; kayıt engellenmez (10–400)",
+    "warnWeight": "Uyarı: en yüksek ağırlık",
+    "warnWeightHelp": "Daha ağır kolide aynı uyarı çıkar (1–999)",
+    "scaleAiRead": "Tartı fotoğrafını yapay zekâ okusun",
+    "scaleAiReadHelp": "Açıkken her okuma yapay zekâ hakkınızdan düşer. Kapalıyken fotoğraf kanıt olarak saklanır, ağırlık elle girilir."
+  },
+  "refCard": {
+    "title": "Referans kartı",
+    "desc": "Kartı yazdırıp kolinin yanına koyun; tek fotoğrafta kart ile ölçü alınır.",
+    "step1": "PDF'i A4 kağıda yazdırın; yazıcıda ölçek <b>%100</b> olmalı (\"Sığdır\" kapalı).",
+    "step2": "Kartın üzerindeki çizgiyi cetvelle ölçün: tam <b>100 mm</b> çıkmalı.",
+    "step3": "Kartı kesip masaya, kolinin hemen yanına düz koyun (üstüne değil) ve mobilde \"Referans kartı\" yöntemini seçin.",
+    "download": "Referans kartını indir (PDF)",
+    "downloadFailed": "Referans kartı indirilemedi"
+  },
+  "savebar": {
+    "label": "Kaydet",
+    "unsaved": "Kaydedilmemiş değişiklikler",
+    "unsavedHint": "çıkmadan önce kaydedin",
+    "save": "Ayarları kaydet"
+  },
+  "demo": {
+    "title": "Veri yönetimi",
+    "desc": "Sistemi boş hâline döndürün ya da örnek verileri yükleyin. Hesaplar, firma adı, ayarlar ve hazır koliler her iki durumda da korunur.",
+    "reset": {
+      "title": "Sistemi sıfırla",
+      "desc": "Tüm taşıyıcılar, tarifeler, ölçümler (fotoğraflarıyla) ve faturalar silinir."
+    },
+    "samples": {
+      "title": "Örnek verileri yükle",
+      "desc": "Mevcut veriler silinir; örnek taşıyıcılar (FedEx, Aras…), tarifeler ve ölçümler yüklenir."
+    },
+    "modal": {
+      "label": "Veriler",
+      "resetTitle": "Sistem sıfırlansın mı?",
+      "samplesTitle": "Örnek veriler yüklensin mi?",
+      "resetAction": "Sıfırla",
+      "samplesAction": "Sil ve örnekleri yükle",
+      "bodyReset": "Tüm taşıyıcılar, tarifeler, ölçümler ve faturalar <b>kalıcı olarak silinir</b>; geri alınamaz. Hesaplar ve ayarlar korunur.",
+      "bodySamples": "Tüm taşıyıcılar, tarifeler, ölçümler ve faturalar <b>kalıcı olarak silinir</b>; geri alınamaz. Ardından örnek veriler yüklenir. Hesaplar ve ayarlar korunur."
+    },
+    "toast": {
+      "loaded": "Örnek veriler yüklendi",
+      "loadedBody": "{{carriers}}, {{tariffs}}, {{measurements}} eklendi.",
+      "carriers_one": "{{count}} taşıyıcı",
+      "carriers_other": "{{count}} taşıyıcı",
+      "tariffs_one": "{{count}} tarife",
+      "tariffs_other": "{{count}} tarife",
+      "measurements_one": "{{count}} ölçüm",
+      "measurements_other": "{{count}} ölçüm",
+      "reset": "Sistem sıfırlandı",
+      "resetBody": "Taşıyıcı, tarife, ölçüm ve fatura kalmadı. Hesaplar ve ayarlar korundu. Kurulum sihirbazı baştan başlar.",
+      "startSetup": "Kurulumu başlat",
+      "failed": "İşlem yapılamadı"
+    }
+  },
+  "presets": {
+    "title": "Hazır koliler",
+    "desc": "Mobilde tek dokunuşla seçilir, ölçü otomatik dolar (K1, K2, K3...). Sırayı oklarla değiştirin.",
+    "add": "Hazır koli ekle",
+    "empty": "Hazır koli yok.",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "moveUp": "{{name}} yukarı taşı",
+    "moveDown": "{{name}} aşağı taşı",
+    "edit": "{{name}} düzenle",
+    "delete": "{{name}} sil",
+    "col": {
+      "order": "Sıra",
+      "name": "Ad",
+      "length": "Uzunluk",
+      "width": "Genişlik",
+      "height": "Yükseklik",
+      "desi": "Desi (3000)",
+      "status": "Durum",
+      "actions": "İşlemler"
+    },
+    "modal": {
+      "label": "Hazır koli",
+      "deleteTitle": "{{name}} silinsin mi?",
+      "deleteBody": "Geçmiş ölçümler etkilenmez. Yalnızca pasifleştirmek isterseniz \"Aktif\" kutusunu kaldırın.",
+      "editTitle": "{{name}} · düzenle"
+    },
+    "errors": {
+      "nameRequired": "Ad gerekli.",
+      "required": "Gerekli."
+    },
+    "toast": {
+      "deleted": "Hazır koli silindi",
+      "updated": "Hazır koli güncellendi",
+      "added": "Hazır koli eklendi"
+    }
+  },
+  "reminders": {
+    "title": "İtiraz süresi hatırlatması",
+    "on": "E-posta ile hatırlat",
+    "help": "Fark olan ve itirazı gönderilmemiş faturada, son güne 3 gün ve 1 gün kala Yönetici ve Muhasebe rolündeki kişilere e-posta gider."
+  }
+}

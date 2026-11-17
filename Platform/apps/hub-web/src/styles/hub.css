@@ -1,0 +1,3088 @@
+/* Merkez sayfaları. Bileşen dili primitives.css (DeciShip v2), kabuk shell.css.
+ * Dil: tek düz yüzey + cetvel çizgisi. Kart içinde kart yok; sayı sağa hizalı ve tabular.
+ * Kırılımlar kapsayıcıya bağlı: ikinci sütun içerik alanını daralttığı için ekran genişliği yanıltır. */
+
+::selection {
+  background: var(--primary-line);
+}
+.hub-page {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  container: hubpage / inline-size;
+}
+.hub-range {
+  font-variant-numeric: tabular-nums;
+}
+.hub-page > .phead {
+  padding-top: 24px;
+  max-width: none;
+}
+.hub-narrow {
+  /* Tek sütun form en fazla 640 (DESIGN.md), yanlarda sayfa boşluğu. */
+  max-width: calc(640px + 2 * var(--gutter));
+}
+.hub-pad {
+  padding: 16px 20px;
+}
+.hub-skel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hub-skel-stack.pad {
+  padding: 20px;
+}
+.is-busy {
+  opacity: 0.55;
+  transition: opacity 0.12s ease-out;
+}
+.hub-sample {
+  display: inline-flex;
+  flex: none;
+}
+
+/* ---------- yüzey ---------- */
+.hub-sheet {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  min-width: 0;
+}
+.hub-sheet-note {
+  padding: 14px 20px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.hub-sheet-note svg.i {
+  margin-top: 2px;
+  flex: none;
+}
+.hub-sheet-note.flush {
+  padding: 0;
+}
+.empty.good .ic {
+  background: var(--success-bg);
+  color: var(--success);
+}
+.hub-report-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+}
+.hub-lead {
+  padding: 16px 24px 14px;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hub-lead-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+/* Büyük KPI rakamı 28-32 aralığının üst sınırı */
+.hub-hero {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+a.hub-hero:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.hub-lead-delta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.hub-lead-prev {
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.hub-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--text-2);
+}
+.hub-delta.good {
+  color: var(--success);
+}
+.hub-delta.bad {
+  color: var(--danger);
+}
+.hub-ledger {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.hub-ledger-row {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr) auto 76px;
+  align-items: center;
+  gap: 4px 12px;
+  min-height: 42px;
+  padding: 6px 20px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.hub-ledger-row:last-child {
+  border-bottom: 0;
+}
+a.hub-ledger-row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-ledger-label {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  min-width: 0;
+}
+.hub-ledger-label small {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.hub-ledger-value {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.hub-ledger-delta {
+  text-align: right;
+}
+.hub-report-split {
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.hub-split-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.hub-split-title b {
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.hub-split-bar {
+  display: flex;
+  gap: 2px;
+  height: 28px;
+}
+.hub-split-bar .part {
+  min-width: 3px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 16px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.hub-split-bar .part b {
+  font-weight: 600;
+}
+/* Kaçmayan para sakin durur; göz fark ve eksiklere gider. */
+.part.good,
+.swatch.good {
+  background: var(--border);
+  color: var(--text-2);
+}
+.part.bad,
+.swatch.bad {
+  background: var(--danger);
+  color: #fff;
+}
+.part.warning,
+.swatch.warning {
+  background: #f79009;
+  color: var(--text);
+}
+.part.neutral,
+.swatch.neutral {
+  background: var(--border-hover);
+  color: var(--text);
+}
+.part.info,
+.swatch.info {
+  background: var(--primary-line);
+  color: var(--primary-active);
+}
+.hub-split-legend {
+  list-style: none;
+  margin: 8px -8px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+.hub-split-legend .row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+a.hub-split-legend .row:hover,
+.hub-split-legend a.row:hover {
+  background: var(--surface-2);
+  text-decoration: none;
+  color: var(--text);
+}
+.hub-split-legend .swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: none;
+}
+.hub-split-legend .name {
+  flex: 1;
+  min-width: 0;
+}
+.hub-split-legend .val {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.hub-split-legend .share {
+  min-width: 32px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.hub-split-legend svg.i {
+  color: var(--text-3);
+  flex: none;
+}
+.hub-report-error,
+.hub-report-empty {
+  padding: 16px 20px;
+}
+.hub-queue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-queue-list li + li .hub-queue-row {
+  border-top: 1px solid var(--border);
+}
+.hub-queue-list li:last-child .hub-queue-row {
+  border-radius: 0 0 var(--r-card) var(--r-card);
+}
+.hub-queue-row {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 4px 14px;
+  padding: 14px 20px;
+  color: var(--text);
+}
+a.hub-queue-row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-queue-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.hub-queue-main b {
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-queue-main > span:not(.hub-queue-meta) {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-queue-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.hub-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.hub-queue-amount {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.hub-queue-amount.is-bad {
+  color: var(--danger);
+}
+.hub-queue-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--primary);
+  white-space: nowrap;
+  grid-column: 4;
+}
+a.hub-queue-row:hover .hub-queue-action {
+  color: var(--primary-hover);
+}
+.hub-kv-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-kv-row:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+}
+.hub-kv-row b {
+  color: var(--text);
+  font-weight: 500;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+a.hub-kv-row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+a.hub-kv-row svg.i {
+  color: var(--text-3);
+}
+.hub-tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-tools li + li .hub-tool-row {
+  border-top: 1px solid var(--border);
+}
+.hub-tools li:last-child .hub-tool-row {
+  border-radius: 0 0 var(--r-card) var(--r-card);
+}
+.hub-tool-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 20px;
+  color: var(--text);
+}
+a.hub-tool-row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+a.hub-tool-row > svg.i {
+  color: var(--text-3);
+}
+.hub-tool-row.is-soon .sod-mark {
+  filter: grayscale(0.85);
+  opacity: 0.55;
+}
+.hub-tool-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.hub-tool-text b {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.hub-tool-text small {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.hub-tool-row.is-soon b {
+  color: var(--text-2);
+}
+.hub-mobile {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+}
+.hub-mobile h1,
+.hub-mobile h2 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.hub-mobile p {
+  margin-top: 4px;
+  color: var(--text-2);
+  max-width: 60ch;
+}
+.hub-mobile-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.hub-steps {
+  margin: 12px 0 16px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- tarih + süzgeç ---------- */
+.hub-period {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.hub-period .seg button {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.hub-period-custom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.hub-period-custom .inp {
+  width: 148px;
+}
+.hub-compare {
+  min-height: 36px;
+  align-self: flex-end;
+}
+.hub-filter-fields {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  min-width: 0;
+}
+.hub-filter-fields .fld label {
+  font-size: 12px;
+  line-height: 16px;
+}
+.hub-multi {
+  position: relative;
+}
+.hub-multi-btn {
+  width: 160px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.hub-multi-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 40;
+  min-width: 180px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  box-shadow: var(--sh-md);
+}
+.hub-clear {
+  align-self: flex-end;
+}
+.hub-tool-tabs {
+  margin: 12px 0 0;
+  padding: 0;
+  gap: 24px;
+}
+.ptabs .hub-tool-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.hub-tool-tab.is-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 44px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: var(--text-3);
+  cursor: default;
+}
+.hub-tool-tab.is-soon .sod-mark {
+  filter: grayscale(0.85);
+  opacity: 0.55;
+}
+.hub-tool-tab small {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+/* ---------- analiz bölümleri ---------- */
+.hub-sections {
+  gap: 32px;
+}
+.hub-section-head {
+  margin-bottom: 12px;
+}
+.hub-section-head h2 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.hub-section-head p {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-finding {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 12px;
+  margin-top: 6px;
+  color: var(--text) !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+.hub-finding b {
+  font-weight: 500;
+}
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 16px;
+}
+.hub-cell {
+  min-width: 0;
+  display: flex;
+}
+.hub-cell > * {
+  flex: 1;
+  min-width: 0;
+}
+.hub-cell.full {
+  grid-column: 1 / -1;
+}
+.hub-cell.wide {
+  grid-column: span 18;
+}
+.hub-cell.narrow {
+  grid-column: span 12;
+}
+.hub-cell.half {
+  grid-column: span 15;
+}
+.hub-cell.third {
+  grid-column: span 10;
+}
+.hub-widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  padding: 14px 20px 16px;
+}
+.hub-widget.flush {
+  padding: 0;
+}
+.hub-widget.flush .hub-widget-head {
+  padding: 14px 20px 12px;
+  margin: 0;
+}
+.hub-widget-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+.hub-widget-head h3 {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.hub-widget-head p {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-widget-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+}
+.hub-mini {
+  height: 30px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 500;
+}
+.hub-mini:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.hub-mini[aria-pressed='true'] {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+.hub-kpis {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 2.4fr);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  overflow: hidden;
+}
+.hub-kpis-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 20px;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+.hub-kpis-rows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  min-width: 0;
+  /* son satırın alt çizgisini kapsayıcı kırpar */
+  margin-bottom: -1px;
+}
+.hub-kpi-label {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-kpi-value {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.hub-kpi-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 8px;
+  min-height: 18px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.hub-kpi-hint {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+/* ---------- grafik ---------- */
+.hub-chart {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+}
+.hub-chart svg {
+  display: block;
+  overflow: visible;
+}
+.hub-chart svg:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.hub-chart .hub-grid {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+}
+.hub-chart .hub-axis {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+.hub-cross {
+  stroke: var(--border-hover);
+  stroke-width: 1;
+}
+.hub-tick {
+  font-size: 11px;
+  fill: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.hub-end {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.hub-tip {
+  position: absolute;
+  z-index: 10;
+  transform: translateX(12px);
+  pointer-events: none;
+  min-width: 160px;
+  max-width: 260px;
+  padding: 8px 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  box-shadow: var(--sh-md);
+  font-size: 12px;
+  line-height: 16px;
+}
+.hub-tip.flip {
+  transform: translateX(calc(-100% - 12px));
+}
+.hub-tip-x {
+  color: var(--text-3);
+  margin-bottom: 4px;
+}
+.hub-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hub-tip-row i {
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  flex: none;
+}
+.hub-tip-row b {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hub-tip-row span {
+  color: var(--text-2);
+}
+.hub-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hub-legend i.line {
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+.hub-legend i.box {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.hub-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-widget:has(> .hub-bars) {
+  display: flex;
+  flex-direction: column;
+}
+.hub-widget > .hub-bars {
+  display: flex;
+  flex-direction: column;
+}
+.hub-bars-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 8px;
+  margin: 0 -8px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 18px;
+}
+a.hub-bars-row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-bars-label {
+  min-width: 0;
+  color: var(--text-2);
+}
+.hub-bars-value {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.hub-bars-value small {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-3);
+  display: inline-block;
+  min-width: 30px;
+  text-align: right;
+}
+.hub-bars-track {
+  grid-column: 1 / -1;
+  display: block;
+}
+.hub-bars-track i {
+  display: block;
+  height: 8px;
+  background: var(--chart-1);
+  border-radius: 0 4px 4px 0;
+}
+.hub-twin {
+  max-height: 280px;
+  overflow: auto;
+}
+
+/* ---------- tablo ---------- */
+.hub-table.is-busy {
+  pointer-events: none;
+}
+.hub-sort {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.hub-sort:hover {
+  color: var(--text);
+}
+.hub-sort.on {
+  color: var(--text);
+  font-weight: 600;
+}
+.hub-sort svg.idle {
+  opacity: 0.35;
+}
+.hub-row-link {
+  cursor: pointer;
+}
+.hub-row-link:hover {
+  background: var(--surface-2);
+}
+.hub-row-main {
+  font-weight: 500;
+  color: var(--text);
+}
+.hub-row-link:hover .hub-row-main {
+  color: var(--primary);
+}
+.hub-open-col {
+  width: 44px;
+}
+.hub-table .link-btn {
+  display: inline-flex;
+  padding: 4px;
+}
+
+/* ---------- veriler ---------- */
+.hub-datasets {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.hub-datasets a {
+  flex: none;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: var(--r-ctl);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.hub-datasets a:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-datasets a.on {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+.hub-datasets a:focus-visible {
+  outline-offset: -2px;
+}
+.hub-dataset {
+  min-width: 0;
+  overflow: hidden;
+}
+.hub-dataset-tools {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.hub-dataset-tools .fld label {
+  font-size: 12px;
+  line-height: 16px;
+}
+.hub-search .inp {
+  width: 220px;
+}
+.hub-dataset-end {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hub-total {
+  font-size: 13px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- etkinlik ---------- */
+.hub-feed {
+  overflow: hidden;
+}
+.hub-feed-day h2 {
+  padding: 10px 20px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.hub-feed-day ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-feed-row {
+  display: grid;
+  grid-template-columns: 44px 18px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-feed-row time {
+  font-size: 13px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.hub-feed-src {
+  align-self: center;
+  display: flex;
+  color: var(--text-3);
+}
+.hub-feed-text b {
+  font-weight: 500;
+}
+.hub-feed-target {
+  color: var(--text-2);
+}
+.hub-feed-more {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+}
+.is-suspended .avatar {
+  background: var(--surface-2);
+  color: var(--text-3);
+}
+.is-suspended b {
+  color: var(--text-2);
+}
+.hub-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+}
+.hub-code output {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
+}
+.hub-code-how {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+.hub-code-input {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hub-seg-full {
+  display: flex;
+  width: 100%;
+}
+.hub-seg-full button {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Giriş ve kayıt ekranları styles/auth.css içinde. Firma açma (CreateOrg) düğmesi: */
+.hub-auth-submit {
+  width: 100%;
+  justify-content: center;
+}
+@container hubpage (max-width: 860px) {
+  .hub-report-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-lead {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  /* cetvel iki sütun: Bekleyenler ilk ekrandan düşmesin */
+  .hub-ledger {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+  .hub-ledger-row:nth-last-child(2):nth-child(odd) {
+    border-bottom: 0;
+  }
+  .hub-ledger-row:nth-child(odd) {
+    border-right: 1px solid var(--border);
+  }
+  .hub-ledger-row {
+    grid-template-columns: minmax(min-content, 1fr) auto;
+    padding: 8px 16px;
+  }
+  .hub-ledger-delta {
+    grid-column: 2;
+  }
+  .hub-split-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hub-kpis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-kpis-lead {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hub-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-cell.wide,
+  .hub-cell.narrow,
+  .hub-cell.half,
+  .hub-cell.third {
+    grid-column: 1 / -1;
+  }
+}
+@container hubpage (max-width: 620px) {
+  .hub-ledger {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-ledger-row:nth-child(odd) {
+    border-right: 0;
+  }
+  .hub-ledger-row:nth-last-child(2):nth-child(odd) {
+    border-bottom: 1px solid var(--border);
+  }
+  .hub-ledger-row {
+    grid-template-columns: minmax(min-content, 1fr) auto 68px;
+  }
+  .hub-ledger-delta {
+    grid-column: auto;
+  }
+  .hub-split-legend {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-queue-row {
+    grid-template-columns: 18px minmax(0, 1fr) auto;
+  }
+  .hub-queue-action {
+    grid-column: 2 / -1;
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 767px) {
+  .hub-page > .phead {
+    padding-top: 16px;
+  }
+  .hub-lead {
+    padding: 14px 16px 8px;
+  }
+  .hub-ledger-row {
+    padding: 8px 16px;
+    gap: 4px 8px;
+  }
+  .hub-split-legend {
+    margin: 6px 0 0;
+  }
+  .hub-split-legend .row {
+    padding: 4px 0;
+  }
+  .hub-queue-row {
+    padding: 12px 16px;
+  }
+  .hub-kv-row,
+  .hub-tool-row {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hub-period {
+    width: 100%;
+  }
+  .hub-period .seg {
+    display: flex;
+    width: 100%;
+  }
+  .hub-period .seg button {
+    flex: 1 1 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .hub-filter-fields {
+    width: 100%;
+  }
+  .hub-filter-fields .fld {
+    flex: 1 1 140px;
+  }
+  .hub-filter-fields .w-md,
+  .hub-multi-btn {
+    width: 100%;
+  }
+  .hub-multi {
+    width: 100%;
+  }
+  .hub-dataset-tools .fld {
+    flex: 1 1 140px;
+  }
+  .hub-search .inp,
+  .hub-dataset-tools .w-md {
+    width: 100%;
+  }
+  .hub-dataset-end {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+  .hub-mini {
+    height: 40px;
+  }
+  .hub-mobile {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .hub-feed-row {
+    padding: 10px 16px;
+  }
+  .hub-feed-day h2 {
+    padding: 8px 16px;
+  }
+}
+
+/* Yüzey içindeki tablo ve boş durum kendi çerçevesini taşımaz: kart içinde kart olmaz. */
+.hub-widget .table-wrap,
+.hub-sheet .table-wrap {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.hub-widget .tfoot,
+.hub-sheet .tfoot {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.hub-widget .empty,
+.hub-sheet .empty {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.hub-widget.flush {
+  overflow: hidden;
+}
+
+.hub-code-how.flush {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.hub-dataset-tools .w-md {
+  width: 164px;
+}
+@media (max-width: 767px) {
+  .hub-dataset-tools .w-md {
+    width: 100%;
+  }
+}
+
+/* Baş rakamın diğer para birimleri: aynı toplamın parçası değil, altında ayrı durur. */
+.hub-siblings {
+  list-style: none;
+  margin: 4px -8px 2px;
+  padding: 0;
+}
+.hub-siblings .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 10px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-siblings a.row:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-siblings .who {
+  color: var(--text-2);
+  font-size: 13px;
+}
+.hub-siblings b {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hub-section {
+  scroll-margin-top: calc(var(--sod-sticky-top, 0px) + 56px);
+}
+.hub-table-more {
+  padding: 8px 20px 12px;
+  border-top: 1px solid var(--border);
+}
+.hub-filter-fields .w-md,
+.hub-filter-fields .hub-multi-btn,
+.hub-dataset-tools .w-md {
+  width: 148px !important;
+}
+@media (max-width: 767px) {
+  .hub-filter-fields .w-md,
+  .hub-filter-fields .hub-multi-btn,
+  .hub-dataset-tools .w-md {
+    width: 100% !important;
+  }
+}
+/* Sayfa çocukları içerik kadar yer tutar. .ptabs'ın flex-basis:100%'ü sütun yerleşiminde yükseklik olur, burada iptal edilir. */
+.hub-page > * {
+  flex-shrink: 0;
+}
+.hub-page > .hub-tool-tabs {
+  flex: none;
+}
+
+/* ---------- Genel Bakış: üç rakam ---------- */
+.hub-figures {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+.hub-figure {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-left: 1px solid var(--border);
+}
+.hub-figure.is-lead {
+  border-left: 0;
+}
+.hub-figure .hub-lead-label {
+  font-size: 13px;
+  line-height: 18px;
+}
+.hub-figure-value {
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+.hub-figure-value.is-bad {
+  color: var(--danger);
+}
+.hub-figure-link {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-height: 44px;
+  padding: 16px 20px 18px;
+  color: inherit;
+  text-decoration: none;
+}
+a.hub-figure-link:hover {
+  background: var(--surface-2);
+  text-decoration: none;
+}
+a.hub-figure-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.hub-figure-link:hover .hub-hero,
+.hub-figure-link:hover .hub-figure-value {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.hub-figure .hub-lead-delta {
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-height: 20px;
+}
+.hub-figure .hub-siblings {
+  width: auto;
+  margin: -10px 12px 12px;
+}
+.hub-queue-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/* En çok kaçıran */
+.hub-topleak h3 {
+  margin: 0;
+  padding: 12px 20px 2px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.hub-topleak ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 6px;
+}
+.hub-topleak .row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 36px;
+  align-items: baseline;
+  gap: 2px 8px;
+  padding: 6px 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-topleak a.row:hover {
+  background: var(--surface-2);
+}
+.hub-topleak .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-topleak .amt {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hub-topleak .share {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.hub-topleak .bar {
+  grid-column: 1 / -1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.hub-topleak .bar i {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--chart-1);
+}
+
+/* Parça şeridi: "farklı satırlar" kaçan para değil, sakin renk */
+.part.attn,
+.swatch.attn {
+  background: #475467;
+  color: #fff;
+}
+.hub-split-legend .name small {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+/* Başlangıç */
+.hub-start-count {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hub-start-bar {
+  display: block;
+  height: 4px;
+  background: var(--border);
+}
+.hub-start-bar i {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+}
+.hub-start-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-start-list li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+}
+.hub-start-list li:first-child {
+  border-top: 0;
+}
+.hub-start-list .mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.hub-start-list .is-next .mark {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.hub-start-list .is-done .mark {
+  border-color: transparent;
+  background: var(--success-bg, #ecfdf3);
+  color: var(--success, #067647);
+}
+.hub-start-list .text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  min-width: 0;
+}
+.hub-start-list .text b {
+  font-weight: 500;
+}
+.hub-start-list .is-done .text b {
+  color: var(--text-2);
+}
+.hub-start-list .text small {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* Ölçüm rolü: uygulama yeri */
+.hub-app-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-ctl);
+}
+.hub-app-slot .qr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-ctl);
+  color: var(--text-3);
+}
+.hub-app-slot p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+}
+
+/* ---------- Tablo: yapışkan ilk sütun, kaydırma ipucu ---------- */
+.hub-table-frame {
+  position: relative;
+}
+.hub-table-frame .table-wrap:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.hub-table .dt th:first-child,
+.hub-table .dt td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--surface);
+}
+.hub-table .dt thead th:first-child {
+  z-index: 3;
+  background: var(--surface-2);
+}
+.hub-table .dt tbody tr:hover td:first-child {
+  background: var(--surface-2);
+}
+.hub-table-frame[data-left='true'] .dt th:first-child,
+.hub-table-frame[data-left='true'] .dt td:first-child {
+  box-shadow: 1px 0 0 var(--border), 8px 0 10px -8px rgba(16, 24, 40, 0.28);
+}
+.hub-table-frame[data-right='true']::after {
+  content: '';
+  position: absolute;
+  /* İpucu satırının altından başlar. */
+  top: 28px;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  pointer-events: none;
+  background: linear-gradient(to left, rgba(16, 24, 40, 0.1), transparent);
+}
+.hub-scroll-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 12px 4px;
+}
+.hub-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.hub-scroll-hint:hover {
+  color: var(--text);
+}
+.hub-columns {
+  position: relative;
+}
+.hub-columns-pop {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 240px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  background: var(--surface);
+  box-shadow: var(--sh-lg);
+}
+.hub-columns-pop .link-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.hub-dataset-note {
+  margin: 0;
+  padding: 0 16px 10px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.sel.hub-plain {
+  width: 100%;
+  padding-left: 8px;
+}
+.sel.hub-plain.is-none {
+  color: var(--text-3);
+}
+
+/* ---------- Analiz: yapışkan çubuk ---------- */
+.hub-analytics-bar {
+  position: sticky;
+  top: var(--sod-sticky-top, 0px);
+  z-index: 20;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 14px;
+  padding: 6px var(--gutter);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.hub-section-tabs {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hub-section-tabs::-webkit-scrollbar {
+  display: none;
+}
+.hub-section-tabs a {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 4px 12px;
+  border-radius: var(--r-ctl);
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.hub-section-tabs a:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.hub-section-tabs a.on {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 600;
+}
+.hub-analytics-bar-end {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 12px;
+}
+.hub-filter-btn.has-active {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.hub-filter-panel {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 20px;
+  padding: 12px var(--gutter);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.hub-filter-panel .hub-filter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px 12px;
+}
+.hub-sheet-dialog {
+  position: fixed;
+  inset: auto 0 0 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 85dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 16px 16px 0 0;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--sh-lg);
+}
+.hub-sheet-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.hub-sheet-dialog::backdrop {
+  background: var(--scrim);
+}
+.hub-sheet-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.hub-sheet-dialog-head h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.hub-sheet-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  overflow-y: auto;
+}
+/* Alt sayfa tek sütun: üst öğeden gelen sağa hizalama ve esnek boşluk sıfırlanır. */
+.hub-sheet-dialog-body > * {
+  flex: none;
+  width: 100%;
+  margin: 0;
+}
+.hub-sheet-dialog-body .hub-compare {
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: auto;
+}
+.hub-sheet-dialog-body .hub-filter-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: none;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+}
+.hub-sheet-dialog-body .hub-filter-fields > *,
+.hub-sheet-dialog-body > .fld {
+  flex: none;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+.hub-sheet-dialog-body .sel,
+.hub-sheet-dialog-body .inp,
+.hub-sheet-dialog-body .hub-multi,
+.hub-sheet-dialog-body .hub-multi-btn,
+.hub-sheet-dialog-body .w-sm,
+.hub-sheet-dialog-body .w-md {
+  width: 100% !important;
+  max-width: none;
+}
+.hub-sheet-dialog-foot {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+.hub-sheet-dialog-foot .btn {
+  width: 100%;
+}
+
+/* Metin içi bağlantı renk tek başına kalmasın */
+.hub-feed-text a,
+.hub-sheet-note a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 767px) {
+  .hub-figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hub-figure-link {
+    padding: 14px 16px;
+  }
+  .hub-figure.is-lead {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--border);
+  }
+  .hub-figure:nth-child(2) {
+    border-left: 0;
+  }
+  .hub-queue-row {
+    grid-template-columns: 18px minmax(0, 1fr) auto;
+  }
+  .hub-queue-action {
+    display: none;
+  }
+  .hub-table .dt-cards th:first-child,
+  .hub-table .dt-cards td:first-child {
+    position: static;
+    box-shadow: none;
+  }
+  .hub-start-list li {
+    padding: 12px 16px;
+  }
+  /* Dokunma hedefi 44 px */
+  .btn-sm,
+  .sel.sm,
+  .inp.sm,
+  .seg button,
+  .hub-mini,
+  .hub-section-tabs a,
+  .hub-datasets a,
+  .hub-table-more .link-btn,
+  .hub-tool-row,
+  .hub-scroll-hint {
+    min-height: 44px;
+  }
+  
+  .hub-table-more .link-btn {
+    display: inline-flex;
+    align-items: center;
+  }
+  .hub-table-frame .hub-open-col .link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* 1024'te de Bekleyenler ve En çok kaçıran yan yana: ilk ekranın sözü bu. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hub-queue-action-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .hub-queue-row {
+    padding: 12px 16px;
+  }
+  .hub-topleak .row,
+  .hub-topleak h3 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+.hub-dataset-end {
+  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .hub-dataset-end {
+    justify-content: flex-start;
+  }
+}
+
+/* Rakam hücresinin tamamı bağlantı. */
+
+/* Notlu parça tek satırda okunur. */
+.hub-split-legend li:has(small) {
+  grid-column: 1 / -1;
+}
+.hub-split-legend .name small {
+  white-space: nowrap;
+}
+/* Telefonda tek satıra sığmaz: belge taşar, tutarın üstüne biner. */
+@media (max-width: 640px) {
+  .hub-split-legend .name small {
+    white-space: normal;
+  }
+}
+
+/* Başlangıç: isteğe bağlılar ayrı */
+.hub-start-group {
+  margin: 0;
+  padding: 14px 20px 6px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.hub-start-group + .hub-start-list li:first-child {
+  border-top: 0;
+}
+
+/* Başlangıç: Merkez kurulumu ve araç kurulumları ayrı paneller (tuval "Merkez ve Araç Kurulumu" bölüm 1) */
+.hub-start + .hub-start {
+  margin-top: 16px;
+}
+.hub-start .hub-lift-h h2 {
+  margin-right: 0;
+}
+.hub-start-note {
+  margin-right: auto;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.hub-start-list .text small.hint {
+  flex-basis: 100%;
+}
+.hub-start-tools {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hub-start-tools li + li .hub-tool-row {
+  border-top: 1px solid var(--border);
+}
+.hub-start-tools .hub-tool-row {
+  padding: 14px 20px;
+}
+.hub-start-tools .hub-start-bar {
+  width: 100%;
+  max-width: 260px;
+  margin-top: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .hub-start .hub-lift-h {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hub-start-tools .hub-tool-row {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+  /* Düğme alt satırda, metnin hizasında */
+  .hub-start-tools .hub-tool-row > .btn {
+    margin-left: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Veriler araç çubuğu: Filtre ve ⋯ menüsü yan yana, kayıt sayısı üstte. */
+  .hub-dataset-end {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    width: 100%;
+  }
+  .hub-dataset-end .hub-total {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+  .hub-dataset-end .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hub-dataset-end > .btn:last-child {
+    grid-column: 1 / -1;
+  }
+  .hub-columns-pop {
+    left: 0;
+    right: auto;
+  }
+  .hub-start-group {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .toasts.is-bottom {
+    /* alttaki uygulama çubuğunun (kabuk `--sod-dock-h`) üstünde */
+    bottom: calc(12px + var(--sod-dock-h, 0px));
+    width: calc(100vw - 24px);
+  }
+}
+/* Bildirim sağ üstte bandın üst satırının (firma ve kullanıcı menüsü, 72px) üstüne biniyordu: kaydettikten ya da "Çıkış
+   yapılamadı"dan sonra birkaç saniye menüye basılamıyordu. Masaüstünde bandın altında durur; "Bağlantı yok" bandı (.sod-status,
+   ~64px) varsa onun kadar daha aşağıda. 1023px ve altında bandın üst satırı iki satıra çıkar. Telefonda bildirim altta. */
+@media (min-width: 769px) {
+  .toasts:not(.is-bottom) {
+    top: 84px;
+  }
+  body:has(.sod-status) .toasts:not(.is-bottom) {
+    top: 148px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1023px) {
+  .toasts:not(.is-bottom) {
+    top: 109px;
+  }
+  body:has(.sod-status) .toasts:not(.is-bottom) {
+    top: 173px;
+  }
+}
+.hub-activity-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* Notlu parça: etiket ve not tek satır, her genişlikte. */
+.hub-split-legend li:has(small) .name {
+  min-width: 0;
+}
+
+.hub-app-share {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 20px;
+}
+.hub-app-share h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.hub-app-share p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-app-share .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hub-suspended-orgs {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* =====================================================================
+ * D09 Renk bandı: Merkez analiz sayfaları (Genel Bakış, Analiz, Veriler, Etkinlik).
+ *
+ * Başlık bandın içinde (shell PageHeader); burada yalnız içerik. İlk kart `.lift` ile banda biner.
+ * Kâğıt zeminde bölüm başlığı + çizgi; rakam, grafik ve tablo beyaz panoda.
+ * ===================================================================== */
+.hub-wrap {
+  width: 100%;
+  padding: 0 var(--gutter) 72px;
+  gap: 0;
+}
+.hub-wrap.is-short {
+  padding-top: 40px;
+  gap: 24px;
+}
+.phead-tabs ~ .hub-wrap.is-short {
+  padding-top: 24px;
+}
+.hub-wrap.hub-narrow {
+  max-width: calc(760px + 2 * var(--gutter));
+}
+.hub-panel {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  min-width: 0;
+}
+.hub-panel .empty {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* Bölüm başlığı (GB-D09 .sec, .sec-h) */
+.hub-sec {
+  padding-top: 48px;
+  min-width: 0;
+}
+.hub-sec-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.hub-sec-h h2 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.hub-sec-h p {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-2);
+}
+.hub-sec > .hub-panel {
+  margin-top: 16px;
+}
+.hub-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.hub-arrow-link:hover {
+  color: var(--primary-hover);
+  text-decoration: none;
+}
+.hub-tag.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--surface-3, #ebe8e1);
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.hub-tag.tag.is-warn {
+  background: #fdb022;
+  color: #0f1a2e;
+}
+.hub-tag.tag.is-info {
+  background: #e8edf7;
+  color: #0f2a5c;
+}
+
+/* Bant üstündeki tarih aralığı: tek düğme + açılır kutu (beyaz, bant kurallarından arınık) */
+.hub-period {
+  position: relative;
+  z-index: 30;
+  width: auto;
+}
+.hub-period-btn .hub-range {
+  white-space: nowrap;
+}
+.hub-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 60;
+  width: max-content;
+  min-width: 232px;
+  max-width: calc(100vw - 2 * var(--gutter));
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--sh-lg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 22px;
+}
+.hub-pop-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+}
+.hub-pop-item:hover {
+  background: var(--surface-2);
+}
+.hub-pop-item[aria-pressed='true'] {
+  font-weight: 600;
+}
+.hub-pop-item svg.i {
+  color: var(--primary);
+}
+.hub-period-custom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px 6px 4px;
+  border-top: 1px solid var(--line-soft);
+  margin-top: 4px;
+}
+.hub-period-custom .btn {
+  grid-column: 1 / -1;
+}
+.hub-period-custom .inp {
+  width: 100%;
+}
+.sod-band .hub-pop :is(.inp, .sel) {
+  height: 44px;
+  border-radius: 10px;
+  background-color: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.sod-band .hub-pop .btn,
+.sod-band .hub-pop .btn:hover:not(:disabled) {
+  height: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text);
+  font-size: 15px;
+}
+.sod-band .hub-pop .fld label {
+  color: var(--text-2);
+}
+.sod-band .hub-pop :focus-visible {
+  outline: 2px solid #1d5bd8 !important;
+  outline-offset: 2px;
+}
+
+/* ---------- Genel Bakış: baş rakam panosu (GB-D09 .lift-h, .kpis) ---------- */
+.hub-lift-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 20px;
+  min-height: 52px;
+  padding: 4px 28px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 14px;
+  color: var(--text-2);
+}
+.hub-lift-h h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.hub-lift-h h2 b {
+  color: var(--text);
+  font-weight: 600;
+}
+.hub-lift-h .hub-arrow-link {
+  font-size: 14px;
+}
+.hub-report.hub-panel {
+  overflow: hidden;
+}
+.hub-panel .hub-figures {
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+}
+.hub-panel .hub-figure {
+  border-left: 0;
+  border-right: 1px solid var(--line-soft);
+}
+.hub-panel .hub-figure:last-child {
+  border-right: 0;
+}
+.hub-panel .hub-figure-link {
+  gap: 4px;
+  padding: 24px 28px;
+}
+.hub-panel .hub-figure .hub-lead-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--text-2);
+}
+.hub-panel .hub-figure :is(.hub-hero, .hub-figure-value) {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: #0f2a5c;
+  white-space: nowrap;
+}
+.hub-panel .hub-figure .hub-lead-delta {
+  gap: 2px 10px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.hub-panel .hub-figure .hub-lead-prev {
+  color: var(--text-2);
+}
+.hub-panel .hub-figure .hub-siblings {
+  margin: -12px 20px 16px;
+}
+.hub-report-error,
+.hub-report-empty {
+  padding: 16px 28px;
+}
+
+/* ---------- Bekleyenler (GB-D09 .q) ---------- */
+.hub-sec .hub-queue-list li + li .hub-queue-row {
+  border-top: 0;
+}
+.hub-sec .hub-queue-row {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 6px 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.hub-sec a.hub-queue-row:hover {
+  background: rgba(15, 26, 46, 0.03);
+}
+.hub-sec .hub-queue-main b {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.hub-sec .hub-queue-main > span:not(.hub-queue-meta) {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-2);
+}
+.hub-sec .hub-queue-side {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.hub-sec .hub-queue-amount {
+  font-size: 16px;
+  font-weight: 400;
+}
+.hub-sec .hub-queue-amount.is-bad {
+  color: var(--text);
+}
+.hub-sec .hub-queue-action {
+  grid-column: auto;
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.hub-sec .hub-table-more {
+  padding: 12px 0 0;
+  border-top: 0;
+}
+.hub-sec .hub-table-more .link-btn {
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.hub-queue-note {
+  padding: 16px 0;
+  font-size: 15px;
+  line-height: 22px;
+}
+.hub-sec > .empty {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* ---------- alt iki sütun: en çok kaçıran + araçlar (GB-D09 .cols) ---------- */
+.hub-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr));
+  gap: 0 56px;
+  align-items: start;
+}
+.hub-topleak .hub-topleak-tool > .hub-tool {
+  margin-top: 14px;
+}
+.hub-topleak h3 {
+  padding: 18px 0 2px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.hub-topleak ol {
+  padding: 0;
+}
+.hub-topleak .row {
+  grid-template-columns: 130px minmax(0, 1fr) 96px;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.hub-topleak a.row:hover {
+  background: rgba(15, 26, 46, 0.03);
+}
+.hub-topleak .name {
+  font-size: 16px;
+  line-height: 22px;
+}
+.hub-topleak .bar {
+  grid-column: auto;
+  position: relative;
+  height: 8px;
+  border-radius: 4px;
+  background: #e6e2da;
+}
+.hub-topleak .bar i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  border-radius: 4px;
+  background: #0f2a5c;
+}
+.hub-topleak .amt {
+  text-align: right;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.hub-sec.hub-tools ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hub-sec.hub-tools li + li .hub-tool-row {
+  border-top: 0;
+}
+.hub-sec .hub-tool-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 68px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.hub-sec a.hub-tool-row:hover {
+  background: rgba(15, 26, 46, 0.03);
+}
+.hub-sec .hub-tool-text b {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+.hub-sec .hub-tool-text small {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-sec .hub-tool-row.is-soon .sod-mark {
+  opacity: 0.5;
+  filter: grayscale(0.6);
+}
+.hub-sec .hub-tool-row.is-soon b {
+  color: var(--text);
+}
+.hub-team-sum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 24px;
+  padding-top: 8px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-2);
+}
+.hub-team-sum b {
+  color: var(--text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hub-team-sum-inv {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  color: inherit;
+}
+.hub-team-sum-inv:hover {
+  color: var(--text);
+}
+.hub-team-sum .hub-arrow-link {
+  margin-left: auto;
+}
+
+/* ---------- Dönem seyri ---------- */
+.hub-sec > .hub-report-grid {
+  margin-top: 16px;
+}
+.hub-panel .hub-lead {
+  padding: 20px 28px;
+  border-right: 1px solid var(--line-soft);
+}
+.hub-panel .hub-ledger-row {
+  padding: 8px 24px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+/* ---------- Başlangıç ---------- */
+.hub-start .hub-lift-h h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--text);
+}
+.hub-start .hub-start-count {
+  margin-left: 0;
+  font-size: 15px;
+  color: var(--text-2);
+}
+.hub-start .hub-start-bar {
+  height: 4px;
+  background: var(--surface-3, #ebe8e1);
+}
+.hub-start .hub-start-list li {
+  padding: 14px 28px;
+  border-top: 1px solid var(--line-soft);
+}
+.hub-start .hub-start-list li:first-child {
+  border-top: 0;
+}
+.hub-start .hub-start-group {
+  padding: 18px 28px 6px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+/* ---------- Ölçüm rolü ---------- */
+.hub-panel.hub-mobile {
+  padding: 28px;
+}
+.hub-mobile .hub-app-slot {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 4px;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-mobile .hub-app-slot svg.i {
+  margin-top: 2px;
+  flex: none;
+}
+.hub-sec.hub-kv .hub-kv-row {
+  min-height: 52px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 15px;
+}
+.hub-sec.hub-kv a.hub-kv-row:hover {
+  background: rgba(15, 26, 46, 0.03);
+}
+
+/* ---------- Analiz ---------- */
+.hub-wrap.hub-sections {
+  gap: 24px;
+}
+.hub-wrap .hub-analytics-bar {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+}
+.hub-section-tabs,
+.hub-datasets,
+.hub-tabs {
+  display: flex;
+  gap: 0 24px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hub-section-tabs::-webkit-scrollbar,
+.hub-datasets::-webkit-scrollbar,
+.hub-tabs::-webkit-scrollbar {
+  display: none;
+}
+.hub-section-tabs a,
+.hub-datasets a,
+.hub-tabs button {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.hub-section-tabs a:hover,
+.hub-datasets a:hover,
+.hub-tabs button:hover {
+  background: none;
+  color: var(--text);
+  text-decoration: none;
+}
+.hub-section-tabs a.on,
+.hub-datasets a.on,
+.hub-tabs button[aria-pressed='true'] {
+  background: none;
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 #0f2a5c;
+}
+.hub-section-tabs a:focus-visible,
+.hub-datasets a:focus-visible,
+.hub-tabs button:focus-visible {
+  outline-offset: -2px;
+}
+.hub-wrap .hub-filter-panel {
+  margin-top: -12px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+.hub-sections .hub-section-head {
+  margin-bottom: 16px;
+}
+.hub-sections .hub-section-head h2 {
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+}
+.hub-sections .hub-section-head p {
+  font-size: 15px;
+  line-height: 22px;
+}
+.hub-sections .hub-finding {
+  font-size: 15px !important;
+  line-height: 22px !important;
+}
+.hub-wrap .hub-widget,
+.hub-wrap .hub-kpis {
+  border-color: var(--border);
+  border-radius: var(--r-card);
+  box-shadow: none;
+}
+.hub-wrap .hub-widget {
+  padding: 20px 24px;
+}
+.hub-wrap .hub-widget.flush {
+  padding: 0;
+}
+.hub-wrap .hub-widget.flush .hub-widget-head {
+  padding: 20px 24px 12px;
+}
+.hub-wrap .hub-widget-head h3 {
+  font-size: 17px;
+  line-height: 24px;
+}
+.hub-wrap .hub-widget-head p {
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-wrap .hub-mini {
+  height: 36px;
+  font-size: 14px;
+}
+.hub-wrap .hub-kpis-lead {
+  padding: 24px 28px;
+  border-right-color: var(--line-soft);
+}
+.hub-wrap .hub-kpi-label {
+  font-size: 14px;
+  line-height: 20px;
+}
+.hub-wrap .hub-kpi-value {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  color: #0f2a5c;
+  font-variant-numeric: tabular-nums;
+}
+.hub-wrap .hub-kpis-rows .hub-ledger-row {
+  padding: 10px 24px;
+  border-bottom-color: var(--line-soft);
+}
+
+/* ---------- Veriler (EK-D09 .bar, .tbl) ---------- */
+.hub-dataset {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  overflow: visible;
+}
+.hub-dataset .hub-datasets {
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+}
+.hub-dataset-panel {
+  overflow: hidden;
+}
+.hub-dataset-panel .hub-dataset-tools {
+  padding: 16px 20px;
+  border-bottom-color: var(--line-soft);
+}
+.hub-dataset-panel .table-wrap {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.hub-dataset-panel .empty {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.hub-dataset-panel .hub-dataset-note {
+  padding: 10px 20px 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-wrap > .hub-dataset-note {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+}
+.hub-total {
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+/* ---------- Etkinlik ---------- */
+.hub-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.hub-bar-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-left: auto;
+  padding: 4px 0;
+}
+.hub-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-ctl);
+  background: var(--surface);
+  color: var(--text-2);
+}
+.hub-search-box:focus-within {
+  border-color: var(--primary);
+}
+.hub-search-box input {
+  width: 220px;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+}
+.hub-search-box input::placeholder {
+  color: var(--placeholder);
+}
+.hub-wrap .hub-feed {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: none;
+}
+.hub-wrap .hub-feed-day h2 {
+  padding: 10px 24px;
+  background: var(--surface-2);
+  border-bottom-color: var(--line-soft);
+  font-size: 14px;
+  font-weight: 600;
+}
+.hub-wrap .hub-feed-row {
+  padding: 12px 24px;
+  border-bottom-color: var(--line-soft);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+@media (max-width: 760px) {
+  .hub-wrap {
+    padding-bottom: 48px;
+  }
+  .hub-wrap.is-short {
+    padding-top: 24px;
+    gap: 16px;
+  }
+  .hub-sec {
+    padding-top: 36px;
+  }
+  .hub-sec-h h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .hub-lift-h {
+    padding: 4px 16px;
+  }
+  .hub-panel .hub-figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hub-panel .hub-figure {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .hub-panel .hub-figure:last-child {
+    border-bottom: 0;
+  }
+  .hub-panel .hub-figure-link {
+    padding: 18px 16px;
+  }
+  .hub-panel .hub-figure :is(.hub-hero, .hub-figure-value) {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .hub-sec .hub-queue-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 14px 0;
+  }
+  .hub-sec .hub-queue-action {
+    display: none;
+  }
+  .hub-sec .hub-queue-side {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  .hub-topleak .row {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    gap: 6px 12px;
+  }
+  .hub-topleak .bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .hub-cols {
+    gap: 0;
+  }
+  .hub-team-sum .hub-arrow-link {
+    margin-left: 0;
+  }
+  .hub-panel .hub-lead,
+  .hub-panel .hub-ledger-row {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hub-start .hub-start-list li,
+  .hub-start .hub-start-group {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hub-panel.hub-mobile {
+    padding: 20px 16px;
+  }
+  .hub-wrap .hub-widget {
+    padding: 16px;
+  }
+  .hub-wrap .hub-widget.flush .hub-widget-head {
+    padding: 16px 16px 8px;
+  }
+  .hub-wrap .hub-kpis-lead {
+    padding: 18px 16px;
+  }
+  .hub-wrap .hub-kpi-value {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .hub-wrap .hub-kpis-rows .hub-ledger-row {
+    padding: 8px 16px;
+  }
+  .hub-dataset-panel .hub-dataset-tools {
+    padding: 12px 16px;
+  }
+  .hub-bar-end {
+    width: 100%;
+    margin-left: 0;
+    padding: 8px 0 12px;
+  }
+  .hub-search-box {
+    flex: 1 1 160px;
+  }
+  .hub-search-box input {
+    width: 100%;
+  }
+  .hub-wrap .hub-feed-row,
+  .hub-wrap .hub-feed-day h2 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hub-pop {
+    right: auto;
+    left: 0;
+  }
+}
+.hub-tag.tag::before {
+  display: none;
+}
+.hub-period-btn > svg.i[data-i='chev'] {
+  order: 1;
+}
+.hub-sec .hub-queue-list li .hub-queue-row,
+.hub-sec.hub-tools li .hub-tool-row {
+  border-radius: 0;
+}
+
+/* Araç seçici: yakında araçlar soluk, seçilemez. Telefonda şerit yatay kayar (.ptabs). */
+.hub-tool-tab small {
+  margin-left: 2px;
+}
+.hub-summary-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hub-summary-kpis li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hub-summary-kpis span {
+  font-size: 13px;
+  color: var(--text-2);
+}
+.hub-summary-kpis b {
+  font-size: 24px;
+}
+
+/* Genel Bakış: seçici koyu bandın içinde, durum satırının altında. */
+.hub-tool-tabs.on-band {
+  margin: 8px 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: none;
+}
+.ptabs.on-band .hub-tool-tab,
+.ptabs.on-band a {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+}
+.ptabs.on-band a:hover {
+  color: #fff;
+}
+.ptabs.on-band a.on {
+  color: #fff;
+  border-bottom-color: #fdb022;
+}
+.ptabs.on-band .hub-tool-tab.is-soon {
+  color: rgba(255, 255, 255, 0.5);
+}
+.ptabs.on-band a:focus-visible {
+  outline-color: #b5cbff;
+}
+.ptabs.on-band .hub-tool-tab small {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ptabs.on-band a,
+.ptabs.on-band .hub-tool-tab.is-soon {
+  height: 40px;
+}

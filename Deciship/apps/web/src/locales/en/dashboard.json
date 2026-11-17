@@ -1,0 +1,71 @@
+{
+  "title": "Dashboard",
+  "period": "Period",
+  "uploadInvoice": "Upload invoice",
+  "percent": "{{value}}%",
+  "kpi": {
+    "aria": "Summary indicators",
+    "measurementsThisMonth": "Measurements this month",
+    "measurements": "Measurements",
+    "today": "Today {{n}}",
+    "billedShipments": "Billed shipments",
+    "invoices_one": "{{n}} invoice",
+    "invoices_other": "{{n}} invoices",
+    "discrepancies": "Discrepancies",
+    "matchSplit": "{{match}} matched · {{unmatched}} unmatched",
+    "overpayment": "Overcharge (excl. VAT)",
+    "verifiedLabel": "On dispute list",
+    "compared_one": "{{lines}} lines compared across {{invoices}} invoice",
+    "compared_other": "{{lines}} lines compared across {{invoices}} invoices",
+    "diffLines_one": "{{n}} line with discrepancies",
+    "diffLines_other": "{{n}} lines with discrepancies",
+    "periodInvoices": "Invoices in this period",
+    "coverage": "Measurement coverage",
+    "coverageSub": "Measured lines / total lines",
+    "disputes": "Dispute outcomes",
+    "recovered": "Recovered",
+    "disputePending": "Pending in disputes",
+    "curDisputes": "recovered {{recovered}} · pending {{pending}}",
+    "otherCurrencies": "Other currencies",
+    "inCurrency_one": "{{currency}} · {{n}} invoice",
+    "inCurrency_other": "{{currency}} · {{n}} invoices"
+  },
+  "diffTypes": {
+    "title": "Discrepancy types",
+    "desc": "Sorted by overcharge amount, excl. VAT",
+    "noInvoices": "No invoices in this period",
+    "noInvoicesText": "No invoices dated in this month have been uploaded. You can change the period.",
+    "none": "No discrepancies",
+    "noneText": "No lines with discrepancies in this period’s invoices.",
+    "colType": "Type",
+    "colLines": "Lines",
+    "colOverpayment": "Overcharge",
+    "total": "Total",
+    "lineUnit_one": "line",
+    "lineUnit_other": "lines"
+  },
+  "methods": {
+    "title": "Measurement methods",
+    "desc_one": "{{month}} · {{n}} measurement",
+    "desc_other": "{{month}} · {{n}} measurements",
+    "descEmpty": "{{month}} · –",
+    "emptyTitle": "No measurements",
+    "emptyText": "No measurements were recorded in this period."
+  },
+  "recent": {
+    "title": "Recently uploaded",
+    "viewAll": "View all",
+    "emptyTitle": "No invoices uploaded yet",
+    "emptyText": "Upload a carrier invoice (CSV, XLSX or PDF). Its lines are compared against your measurements and tariff.",
+    "colInvoice": "Invoice",
+    "colCarrier": "Carrier",
+    "colLines": "Lines",
+    "colDiscrepancies": "Discrepancies",
+    "colBilled": "Billed",
+    "colOverpayment": "Overcharge"
+  },
+  "lastData": "Latest data: {{month}}",
+  "coverage": {
+    "periodNote": "in this period's invoices"
+  }
+}

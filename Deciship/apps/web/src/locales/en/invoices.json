@@ -1,0 +1,74 @@
+{
+  "title": "Invoices",
+  "subCount_one": "{{n}} invoice",
+  "subCount_other": "{{n}} invoices",
+  "upload": "Upload invoice",
+  "unit": "invoices",
+  "filters": {
+    "carrier": "Carrier",
+    "allCarriers": "All carriers",
+    "dateFrom": "Start date",
+    "dateTo": "End date",
+    "clear": "Clear filters",
+    "search": "Search",
+    "searchPlaceholder": "Invoice or tracking no.",
+    "status": "Status",
+    "allStatuses": "All invoices",
+    "statusDiff": "Has discrepancies",
+    "statusUnmatched": "Missing measurements",
+    "statusToDispute": "Dispute not sent",
+    "dates": "Dates"
+  },
+  "empty": {
+    "filtered": {
+      "title": "No invoices match these filters",
+      "body": "Change the carrier or date range and try again."
+    },
+    "none": {
+      "title": "No invoices uploaded yet",
+      "body": "Upload FedEx, UPS, DHL, Aras, Yurtiçi, MNG or PTT invoices as CSV/XLSX, or have AI read a PDF. Columns are mapped automatically, and every line is checked against your measurements and tariff."
+    },
+    "search": {
+      "title": "No invoices match",
+      "body": "Check the invoice or tracking number."
+    }
+  },
+  "cols": {
+    "invoice": "Invoice",
+    "date": "Invoice date",
+    "status": "Status",
+    "lineStatus": "Line status",
+    "billed": "Billed",
+    "overpaid": "Overcharge",
+    "verified": "On dispute list",
+    "actions": "Actions"
+  },
+  "recovered": "Recovered {{amount}}",
+  "uploadedAt": "{{carrier}} · uploaded {{date}}",
+  "delete": "Delete",
+  "deleteDialog": {
+    "title": "Delete {{no}}?",
+    "cancel": "Cancel",
+    "body": "The invoice leaves the list; the invoice, its lines and your line decisions are permanently deleted after 30 days. Deleting cannot be undone. An invoice with a dispute record is kept. You can upload the same file again later."
+  },
+  "toast": {
+    "deleteFailed": "Invoice not deleted",
+    "deleted": "Invoice deleted"
+  },
+  "mix": {
+    "lines_one": "{{n}} line",
+    "lines_other": "{{n}} lines",
+    "diff_one": "{{n}} discrepancy",
+    "diff_other": "{{n}} discrepancies",
+    "unmatched_one": "{{n}} unmatched",
+    "unmatched_other": "{{n}} unmatched",
+    "noTariff_one": "{{n}} without tariff",
+    "noTariff_other": "{{n}} without tariff",
+    "allMatch": "all lines match"
+  },
+  "rejected": "Rejected {{amount}}",
+  "moreAria": "More actions for {{no}}",
+  "demo": {
+    "uploadBlocked": "The sample-data demo is on. End the demo before uploading your own invoice."
+  }
+}

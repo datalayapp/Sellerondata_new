@@ -1,0 +1,17 @@
+{
+  "endpoint": "GET /api/deciship/box-presets",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "active": "boolean",
+        "heightCm": "number",
+        "id": "string",
+        "lengthCm": "number",
+        "name": "string",
+        "sortOrder": "number",
+        "widthCm": "number"
+      }
+    ]
+  }
+}
