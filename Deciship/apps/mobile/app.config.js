@@ -19,6 +19,16 @@ function withCleartextPolicy(config, apiUrl) {
   return { ...config, plugins };
 }
 
+function withIosCleartextPolicy(config, apiUrl) {
+  if (!allowsCleartext(apiUrl)) return config;
+  const ios = config.ios ?? {};
+  const infoPlist = ios.infoPlist ?? {};
+  return {
+    ...config,
+    ios: { ...ios, infoPlist: { ...infoPlist, NSAppTransportSecurity: { NSAllowsArbitraryLoads: true } } },
+  };
+}
+
 function resolveBuildEnv(env = process.env) {
   const raw = String(env.APP_ENV ?? '').trim().toLowerCase();
   const appEnv = raw === '' ? 'development' : raw;
@@ -36,11 +46,13 @@ function buildConfig(config, env = process.env) {
   const { appEnv, apiUrl } = resolveBuildEnv(env);
   const versionCode = config.android?.versionCode ?? null;
   const withPolicy = withCleartextPolicy(config, appEnv === 'development' ? apiUrl : 'https://');
-  return { ...withPolicy, extra: { ...(config.extra ?? {}), sod: { appEnv, apiUrl, versionCode } } };
+  const withIos = withIosCleartextPolicy(withPolicy, appEnv === 'development' ? apiUrl : 'https://');
+  return { ...withIos, extra: { ...(config.extra ?? {}), sod: { appEnv, apiUrl, versionCode } } };
 }
 
 module.exports = ({ config }) => buildConfig(config);
 module.exports.allowsCleartext = allowsCleartext;
 module.exports.withCleartextPolicy = withCleartextPolicy;
+module.exports.withIosCleartextPolicy = withIosCleartextPolicy;
 module.exports.resolveBuildEnv = resolveBuildEnv;
 module.exports.buildConfig = buildConfig;

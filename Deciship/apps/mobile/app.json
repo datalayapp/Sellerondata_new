@@ -12,6 +12,7 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.sellerondata.app",
       "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
         "NSCameraUsageDescription": "Barkod okutmak, tartıyı ve koliyi fotoğraflamak için kamera kullanılır."
       }
     },
@@ -84,6 +85,11 @@
     ],
     "experiments": {
       "typedRoutes": false
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6e496a2-f05e-46fc-bf89-2b73fd15b440"
+      }
     }
   }
 }

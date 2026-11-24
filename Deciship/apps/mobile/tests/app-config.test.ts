@@ -7,6 +7,7 @@ const { allowsCleartext, withCleartextPolicy, buildConfig } = require('../app.co
   allowsCleartext: (url?: string) => boolean;
   buildConfig: (config: typeof appJson.expo, env?: Record<string, string | undefined>) => {
     plugins: unknown[];
+    ios?: { infoPlist?: { NSAppTransportSecurity?: { NSAllowsArbitraryLoads?: boolean } } };
     extra: { sod: { appEnv: string; apiUrl: string; versionCode: number | null } };
   };
   withCleartextPolicy: (config: typeof appJson.expo, url?: string) => { plugins: unknown[] };
@@ -77,5 +78,23 @@ describe('derleme profili (APP_ENV)', () => {
   it('sürüm 1.1.0, versionCode 2', () => {
     expect(appJson.expo.version).toBe('1.1.0');
     expect(vc).toBe(2);
+  });
+});
+
+describe('iOS açık metin HTTP (ATS)', () => {
+  const atsOf = (env: Record<string, string | undefined>) => buildConfig(appJson.expo, env).ios?.infoPlist?.NSAppTransportSecurity;
+
+  it('development http adresine derlenirse ATS istisnası açık', () => {
+    expect(atsOf({})).toEqual({ NSAllowsArbitraryLoads: true });
+  });
+
+  it('preview, production ve https development paketinde istisna yok', () => {
+    expect(atsOf({ APP_ENV: 'production', EXPO_PUBLIC_API_URL: 'https://app.sellerondata.com' })).toBeUndefined();
+    expect(atsOf({ APP_ENV: 'preview', EXPO_PUBLIC_API_URL: 'https://app.sellerondata.com' })).toBeUndefined();
+    expect(atsOf({ APP_ENV: 'development', EXPO_PUBLIC_API_URL: 'https://x.example' })).toBeUndefined();
+  });
+
+  it('şifreleme beyanı app.json içinde', () => {
+    expect(appJson.expo.ios.infoPlist.ITSAppUsesNonExemptEncryption).toBe(false);
   });
 });
