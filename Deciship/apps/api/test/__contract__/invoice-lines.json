@@ -1,0 +1,163 @@
+{
+  "endpoint": "GET /api/deciship/invoices/:id/lines",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "actualKg": "null",
+        "baseAmount": "null",
+        "billedChargeableKg": "number",
+        "billedDivisor": "null",
+        "billedKg": "number",
+        "breakdown": [
+          {
+            "amount": "number",
+            "currency?": "string",
+            "info?": "boolean",
+            "label": "string"
+          }
+        ],
+        "confidence": "string",
+        "confidenceReason": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "currency": "null",
+        "decidedAt": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "decision": "string",
+        "decisionReason": "null",
+        "destCountry": "null",
+        "diffAmount": {
+          "$oneOf": [
+            "null",
+            "number"
+          ]
+        },
+        "diffTypes": [
+          "string"
+        ],
+        "dimH": "null",
+        "dimL": "null",
+        "dimW": "null",
+        "dims": "null",
+        "discountAmount": "null",
+        "dispute": {
+          "$oneOf": [
+            "null",
+            {
+              "outcome": "string",
+              "recoveredAmount": {
+                "$oneOf": [
+                  "null",
+                  "number"
+                ]
+              }
+            }
+          ]
+        },
+        "expectedAmount": {
+          "$oneOf": [
+            "null",
+            "number"
+          ]
+        },
+        "fuelAmount": "null",
+        "fx": "null",
+        "id": "string",
+        "invoiceId": "string",
+        "measurement": {
+          "$oneOf": [
+            "null",
+            {
+              "dimMethod": "string",
+              "heightCm": "number",
+              "id": "string",
+              "lengthCm": "number",
+              "measuredAt": "string",
+              "measuredByName": "string",
+              "packaging": "string",
+              "photoCount": "number",
+              "photos": [
+                {
+                  "id": "string",
+                  "kind": "string",
+                  "url": "string"
+                }
+              ],
+              "trackingNo": "string",
+              "version": "number",
+              "weightKg": "number",
+              "weightMethod": "string",
+              "widthCm": "number"
+            }
+          ]
+        },
+        "measurementId": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "measurementPinned": "boolean",
+        "netAmount": "number",
+        "note": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "originalTrackingNo": "null",
+        "ourChargeableKg": {
+          "$oneOf": [
+            "null",
+            "number"
+          ]
+        },
+        "packaging": "null",
+        "parseChecked": "boolean",
+        "parseFlags": [],
+        "prevResult": "null",
+        "pricedPackaging": "null",
+        "pricingBasis": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "rateDeviationPct": "number",
+        "recalcPending": "null",
+        "recalcPendingAt": "null",
+        "reference": "null",
+        "reviewCode": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "rowIndex": "number",
+        "service": "null",
+        "shipDate": "null",
+        "status": "string",
+        "surcharges": [],
+        "tariff": {
+          "id": "string",
+          "name": "string"
+        },
+        "tariffId": "string",
+        "trackingNo": "string"
+      }
+    ],
+    "page": "number",
+    "pageSize": "number",
+    "selectionDigest": "string",
+    "selectionEligible": "number",
+    "total": "number"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "toast": {
+    "duplicated": "Tarife kopyalandı",
+    "defaultChanged": "Varsayılan tarife değişti",
+    "defaultChangedBody": "{{name}} yeni faturalarda önceden seçili gelir.",
+    "deleted": "Tarife silindi",
+    "carrierRemoved": "Taşıyıcı kaldırıldı",
+    "carrierRemovedBody": "Faturası olan taşıyıcılar silinmez, pasifleştirilir.",
+    "templateFailed": "Şablon indirilemedi"
+  },
+  "page": {
+    "title": "Tarifeler",
+    "sub": "Beklenen tutarlar bu tarifelerden hesaplanır. Fiyatlar KDV hariç.",
+    "downloadTemplate": "Excel şablonu indir",
+    "more": "Diğer işlemler"
+  },
+  "empty": {
+    "noCarriers": {
+      "title": "Henüz taşıyıcı yok",
+      "add": "Taşıyıcı ekle",
+      "body": "FedEx, UPS, DHL ya da yurt içi bir kargo firması ekleyin; ardından sözleşme tarifesini girin ya da Excel'den içe aktarın.",
+      "bodyView": "Taşıyıcı ve tarifeler eklendiğinde burada görünür."
+    },
+    "noTariffs": {
+      "title": "{{name}} için tarife yok",
+      "body": "Tarife olmadan fatura satırları \"Tarife yok\" olarak işaretlenir. Taşıyıcının fiyat listesini (Excel, CSV ya da PDF) yükleyin ya da fiyatları elle girin.",
+      "bodyView": "Tarife olmadan fatura satırları \"Tarife yok\" olarak işaretlenir. Tarife eklendiğinde burada görünür."
+    }
+  },
+  "carriers": {
+    "heading": "Taşıyıcılar",
+    "add": "Taşıyıcı ekle",
+    "inactiveLower": "pasif"
+  },
+  "main": {
+    "heading": "{{name}} tarifeleri",
+    "editCarrier": "Taşıyıcıyı düzenle",
+    "removeCarrier": "Kaldır",
+    "newTariff": "Yeni tarife",
+    "moreAria": "{{name}} için diğer işlemler"
+  },
+  "table": {
+    "tariff": "Tarife",
+    "divisor": "Desi böleni",
+    "discount": "İndirim",
+    "fuel": "Yakıt",
+    "validity": "Geçerlilik",
+    "status": "Durum",
+    "actions": "İşlemler"
+  },
+  "status": {
+    "default": "Varsayılan",
+    "active": "Aktif",
+    "inactive": "Pasif"
+  },
+  "row": {
+    "makeDefault": "Varsayılan yap",
+    "zones_one": "{{formatted}} bölge",
+    "zones_other": "{{formatted}} bölge",
+    "unlimited": "Süresiz",
+    "duplicate": "Kopyala",
+    "delete": "Sil",
+    "moreAria": "{{name}} için diğer işlemler"
+  },
+  "delTariff": {
+    "label": "Tarife",
+    "title": "{{name}} silinsin mi?",
+    "body": "Yeni faturalarda bu tarife kullanılmaz.",
+    "pastInvoices": "Geçmiş faturalar etkilenmez; hesaplandığı günkü fiyatlarla kalır."
+  },
+  "delCarrier": {
+    "label": "Taşıyıcı",
+    "title": "{{name}} kaldırılsın mı?",
+    "body": "Faturası olan taşıyıcı silinmez, pasifleştirilir. Faturası yoksa tarifeleriyle birlikte silinir."
+  },
+  "actions": {
+    "cancel": "Vazgeç",
+    "delete": "Sil",
+    "remove": "Kaldır",
+    "save": "Kaydet"
+  },
+  "carrierModal": {
+    "updated": "Taşıyıcı güncellendi",
+    "added": "Taşıyıcı eklendi",
+    "addTitle": "Taşıyıcı ekle",
+    "template": "Fatura kalıbı",
+    "templateHelp": "Fatura sütunları bu kalıba göre otomatik eşlenir.",
+    "name": "Görünen ad",
+    "nameRequired": "Ad gerekli.",
+    "active": "Aktif (fatura yüklemede listelenir)"
+  },
+  "select": {
+    "unlimited": "süresiz",
+    "defaultLower": "varsayılan",
+    "inactiveLower": "pasif",
+    "loadFailed": "Tarifeler yüklenemedi; varsayılan tarife kullanılır.",
+    "noneMarked": "Satırlar “Tarife yok” olarak işaretlenir.",
+    "addTariff": "Tarife ekle",
+    "dateSelected": "{{date}} tarihinde geçerli tarife seçili; farklı bir tarife kullanmak için değiştirin.",
+    "defaultSelected": "Varsayılan tarife seçili; farklı bir tarife kullanmak için değiştirin.",
+    "allLines": "Faturanın tüm satırları bu tarifeyle karşılaştırılır.",
+    "label": "Tarife",
+    "noTariffs": "Bu taşıyıcının tarifesi yok",
+    "loading": "Yükleniyor…",
+    "outOfRange": "Bu tarife {{date}} tarihinde geçerli değil ({{validity}}); yine de bu tarifeyle hesaplanır."
+  },
+  "packLimits": {
+    "title": "Poşet ve zarf sınırları",
+    "help": "Bu sınırlar içindeki poşet ve zarf gönderileri poşet/zarf fiyatıyla denetlenir. Boş alan taşıyıcının bilinen sınırını kullanır.",
+    "unknown": "bilinmiyor",
+    "pakKg": "{{pack}} en çok ağırlık",
+    "pakVolume": "{{pack}} en çok hacim",
+    "envKg": "{{pack}} en çok ağırlık",
+    "envEdges": "{{pack}} en çok ölçü (U × G × Y)",
+    "envEdgesHelp": "Üç kenarı birlikte girin ya da hepsini boş bırakın.",
+    "edgeAria": "Zarf {{n}}. kenar (cm)",
+    "error": {
+      "number": "Sınırlar sıfırdan büyük sayı olmalı.",
+      "pakKgRequired": "Bu taşıyıcının poşet sınırı bilinmiyor: önce en çok ağırlığı girin.",
+      "envKgRequired": "Bu taşıyıcının zarf sınırı bilinmiyor: önce en çok ağırlığı girin.",
+      "edgesPartial": "Zarfın üç kenarını birlikte girin."
+    }
+  }
+}

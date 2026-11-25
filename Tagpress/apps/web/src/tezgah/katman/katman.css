@@ -1,0 +1,355 @@
+/* Katmanlar: açılır kutu, menü, ipucu, pencere, bildirim. */
+
+@keyframes tz-layer-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--tz-layer-from, -4px));
+  }
+}
+
+@keyframes tz-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- açılır kutu ve menü */
+
+.tz-pop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  min-width: 180px;
+  max-width: calc(100vw - 16px);
+  max-height: min(480px, calc(100vh - 16px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-page);
+  box-shadow: var(--sh-lg);
+  padding: 6px;
+  font-size: var(--tz-fs-panel);
+  animation: tz-layer-in var(--tz-dur) var(--tz-ease);
+}
+
+.tz-pop[data-side="top"] {
+  --tz-layer-from: 4px;
+}
+
+.tz-pop:focus-visible {
+  outline: none;
+}
+
+.tz-menu {
+  display: grid;
+  gap: 1px;
+}
+
+.tz-menu-i {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: var(--tz-tool);
+  padding: 0 8px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+  text-align: left;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.tz-menu-i svg {
+  color: var(--text-2);
+}
+
+.tz-menu-i:hover:not(:disabled),
+.tz-menu-i:focus-visible,
+.tz-menu-i:focus {
+  background: var(--surface-3);
+  outline: none;
+}
+
+.tz-menu-i:disabled {
+  opacity: 0.45;
+}
+
+.tz-menu-i.is-danger,
+.tz-menu-i.is-danger svg {
+  color: var(--danger);
+}
+
+.tz-menu-i.is-danger:hover:not(:disabled),
+.tz-menu-i.is-danger:focus {
+  background: var(--danger-bg);
+}
+
+.tz-menu-l {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-menu-k {
+  margin-left: 16px;
+  font: var(--tz-fs-section) / 1 var(--fm);
+  color: var(--text-3);
+}
+
+.tz-menu-sep {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  margin: 4px 2px;
+}
+
+/* ---------------------------------------------------------------- ipucu (maket .ghost-tip) */
+
+.tz-tip {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 280px;
+  padding: 5px 8px;
+  border-radius: var(--tz-r-field);
+  background: var(--tz-tip-bg);
+  color: var(--tz-tip-ink);
+  font-size: var(--tz-fs-status);
+  line-height: 16px;
+  box-shadow: var(--sh-md);
+  animation: tz-layer-in var(--tz-dur) var(--tz-ease);
+  --tz-layer-from: 2px;
+}
+
+.tz-tip[data-side="bottom"] {
+  --tz-layer-from: -2px;
+}
+
+/* İpucu sarmalayıcısı: yerleşime girmez; çocuk devre dışıyken kutu olur ve fareyi o yakalar. */
+.tz-tip-host {
+  display: contents;
+}
+
+.tz-tip-host.is-off {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.tz-tip-host.is-off:has(> .tz-btn--wide) {
+  display: flex;
+  width: 100%;
+}
+
+.tz-tip-host.is-off > * {
+  pointer-events: none;
+}
+
+.tz-tip-k {
+  font: 500 var(--tz-fs-kbd) / 1 var(--fm);
+  color: var(--sod-band-accent);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- pencere */
+
+.tz-dlg {
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--sh-lg);
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* Yalnız saydamlık: dönüşüm, içine konan sabit konumlu panelleri ve bildirimleri pencereye göre konumlardı. */
+.tz-dlg[open] {
+  display: flex;
+  animation: tz-fade-in var(--tz-dur) var(--tz-ease);
+}
+
+.tz-dlg::backdrop {
+  background: var(--scrim);
+}
+
+.tz-dlg--sm {
+  width: min(440px, calc(100vw - 32px));
+}
+
+.tz-dlg--lg {
+  width: min(900px, calc(100vw - 32px));
+}
+
+.tz-dlg[aria-busy="true"] .tz-dlg-b {
+  cursor: progress;
+}
+
+.tz-dlg-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 14px 10px 20px;
+  flex: none;
+}
+
+.tz-dlg-h h2 {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--tz-fs-sub);
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.tz-dlg-b {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 20px 16px;
+  font-size: var(--tz-fs-body);
+  color: var(--text-2);
+}
+
+.tz-dlg-f {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--line-soft);
+  flex: none;
+}
+
+.tz-dlg-f--ask {
+  background: var(--warning-bg);
+  border-top-color: var(--warning-line);
+}
+
+.tz-dlg-ask-i {
+  color: var(--warning);
+  flex: none;
+}
+
+.tz-dlg-ask {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  font-size: var(--tz-fs-panel);
+  color: var(--text);
+}
+
+.tz-dlg-ask span {
+  color: var(--text-2);
+}
+
+/* ---------------------------------------------------------------- bildirim */
+
+.tz-toasts {
+  position: fixed;
+  z-index: 70;
+  top: calc(var(--tz-top-h) + 12px);
+  right: 16px;
+  display: grid;
+  gap: 8px;
+  width: min(440px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.tz-toasts-g {
+  display: grid;
+  gap: 8px;
+}
+
+.tz-toasts-g:empty {
+  display: none;
+}
+
+.tz-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--tz-r-page);
+  background: var(--tz-tip-bg);
+  color: var(--tz-tip-ink);
+  font-size: var(--tz-fs-panel);
+  box-shadow: var(--sh-lg);
+  animation: tz-layer-in var(--tz-dur) var(--tz-ease);
+}
+
+.tz-toast > svg:first-child {
+  flex: none;
+  color: var(--sod-band-on);
+}
+
+.tz-toast--error > svg:first-child {
+  color: var(--tz-band-error);
+}
+
+.tz-toast--success > svg:first-child {
+  color: var(--sod-band-accent);
+}
+
+.tz-toast-m {
+  flex: 1;
+  min-width: 0;
+}
+
+.tz-toast-a {
+  flex: none;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: var(--tz-r-field);
+  font-weight: 600;
+  color: var(--sod-band-accent);
+}
+
+.tz-toast-a:hover {
+  background: var(--tz-band-fill);
+}
+
+.tz-toast-x {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--tz-r-field);
+  opacity: 0.7;
+}
+
+.tz-toast-x:hover {
+  opacity: 1;
+  background: var(--tz-band-fill);
+}
+
+.tz-toast :focus-visible,
+.tz-tip :focus-visible {
+  outline-color: var(--focus-on-dark);
+}
+
+/* ---------------------------------------------------------------- erişilebilirlik asgarisi */
+
+@media (forced-colors: active) {
+  .tz-pop,
+  .tz-tip,
+  .tz-toast,
+  .tz-dlg {
+    border: 1px solid CanvasText;
+  }
+
+  .tz-menu-i:focus,
+  .tz-menu-i:hover:not(:disabled) {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}

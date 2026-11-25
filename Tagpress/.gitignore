@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+/data/
+# Eski tasarım ekran görüntüleri ve kanca önbelleği (diskte kalır, depoya girmez)
+.impeccable/review/
+.impeccable/review-2/
+.impeccable/hook.cache.json

@@ -1,0 +1,251 @@
+{
+  "common": {
+    "continue": "Devam et",
+    "skip": "Atla",
+    "inactive": "Pasif",
+    "saveFailed": "Kaydedilemedi"
+  },
+  "page": {
+    "tabTitle": "Kurulum",
+    "title": "İlk kurulum",
+    "sub": "Birkaç adımda kurulum; ilerlemeniz kaydedilir."
+  },
+  "progress": "ADIM {{current}}/{{total}}",
+  "progressSr": "adım {{current}}/{{total}}",
+  "req": {
+    "required": "Zorunlu",
+    "optional": "İsteğe bağlı"
+  },
+  "foot": {
+    "back": "Geri"
+  },
+  "stepper": {
+    "label": "Kurulum adımları",
+    "state": {
+      "ok": "tamamlandı",
+      "skipped": "atlandı",
+      "todo": "yapılmadı"
+    }
+  },
+  "steps": {
+    "tasiyicilar": {
+      "title": "Taşıyıcılar",
+      "short": "Çalıştığınız kargo firmaları",
+      "need": "En az bir taşıyıcı seçmeden devam edilemez; fatura ve tarife hep bir taşıyıcıya bağlıdır."
+    },
+    "faturalar": {
+      "title": "Örnek faturalar",
+      "short": "Tarife seçimine yardım eder",
+      "need": "Atlayabilirsiniz; yalnızca kurulumu kolaylaştırmak içindir."
+    },
+    "tarifeler": {
+      "title": "Tarifeler",
+      "short": "Anlaşmalı fiyat listeleri",
+      "need": "Zorunlu: tarifesi olmayan taşıyıcının faturaları karşılaştırılamaz. Atlarsanız özette uyarı kalır, o taşıyıcının faturaları denetlenemez."
+    },
+    "olcum": {
+      "title": "Ölçüm kuralları",
+      "short": "Desi, fotoğraf, toleranslar",
+      "need": "Değerler önerilenlerle dolu gelir; kontrol edip onaylamanız yeterli."
+    },
+    "koliler": {
+      "title": "Hazır koliler",
+      "short": "Standart koli ölçüleri",
+      "need": "Atlayabilirsiniz; sonra Ayarlar → Hazır koliler bölümünden eklenir."
+    },
+    "ozet": {
+      "title": "Özet",
+      "short": "Kontrol listesi"
+    }
+  },
+  "hub": {
+    "row": "Firma bilgileri",
+    "rowDone": "Merkez'de tamamlandı",
+    "rowWaiting": "Merkez'de bekliyor",
+    "doneStrip": "Firma bilgileri Merkez'de tamamlandı:",
+    "change": "Merkez'de değiştir",
+    "gateTitle": "Önce firma bilgileri",
+    "gateWarn": "Firmanızın para birimi ve saat dilimi Merkez'de onaylanmadı. DeciShip tarifeleri ve faturaları bu bilgilerle hesaplar.",
+    "name": "Firma",
+    "currency": "Para birimi",
+    "timeZone": "Saat dilimi",
+    "pending": "{{value}} (onay bekliyor)",
+    "confirm": "Merkez'de onayla",
+    "returnNote": "Onaylayınca buraya geri dönersiniz.",
+    "askAdmin": "Firma bilgilerini firma yöneticiniz Merkez'de onaylar. Onaylanınca DeciShip kurulumuna devam edebilirsiniz."
+  },
+  "banner": {
+    "region": "Kurulum",
+    "title": "Kurulumu tamamlayın.",
+    "body": "Taşıyıcılarınızı, tarifelerinizi ve ölçüm kurallarınızı birkaç adımda ayarlayın; faturalar ancak tarifeyle karşılaştırılabilir.",
+    "continue": "Kuruluma devam et",
+    "close": "Kapat",
+    "closeTitle": "Kapat (Ayarlar → Kurulum sihirbazından yine açılır)",
+    "closeFailed": "Kapatılamadı"
+  },
+  "sample": {
+    "badge": "Örnek",
+    "remove": "Kaldır",
+    "linesRead_one": "{{n}} satır okundu",
+    "linesRead_other": "{{n}} satır okundu",
+    "linesCount_one": "{{count}} satır",
+    "linesCount_other": "{{count}} satır",
+    "compared": "Tarifeyle karşılaştırıldı",
+    "willCompare": "Tarife eklenince karşılaştırılacak"
+  },
+  "carriers": {
+    "why": "Fatura yüklerken taşıyıcıyı seçersiniz; DeciShip faturayı o taşıyıcının kalıbıyla okur ve tarifesiyle karşılaştırır. Çalıştığınız tüm kargo firmalarını seçin; sonradan Tarifeler sayfasından da ekleyebilirsiniz.",
+    "legend": "Taşıyıcılar (birden fazla seçilebilir)",
+    "other": "Diğer taşıyıcı",
+    "hint": {
+      "express": "Yurt dışı ekspres",
+      "domestic": "Yurt içi kargo",
+      "other": "Listede yoksa: adını siz yazın"
+    },
+    "addedTag": "Eklendi",
+    "otherName": "Diğer taşıyıcının adı",
+    "otherNameHelp": "Ör. Sürat Kargo. Fatura sütunlarını ilk yüklemede siz eşlersiniz.",
+    "otherAdded": "Eklenen diğer taşıyıcılar: {{names}}",
+    "count_one": "{{count}} taşıyıcı",
+    "count_other": "{{count}} taşıyıcı",
+    "added_one": "Taşıyıcı eklendi",
+    "added_other": "{{count}} taşıyıcı eklendi",
+    "addFailed": "Taşıyıcı eklenemedi",
+    "addContinue": "Ekle ve devam et",
+    "errors": {
+      "none": "En az bir taşıyıcı seçin.",
+      "otherName": "Taşıyıcının adını yazın."
+    }
+  },
+  "rules": {
+    "why": "Değerler önerilen varsayılanlarla dolu; çoğu firma olduğu gibi onaylar. Hepsi sonradan <b>Ayarlar</b>'dan değiştirilebilir.",
+    "mobile": {
+      "title": "Depoda ölçüm (mobil uygulama)",
+      "divisor": "Desi böleni",
+      "divisorHelp": "Çalışanın ekranındaki desi bununla hesaplanır (yurt içi çoğunlukla 3000, ekspres 5000). Faturayı tarifedeki bölen karşılaştırır. 40×30×25 koli = {{desi}} desi",
+      "photos": "Zorunlu kutu fotoğrafı",
+      "photosHelp": "Her ölçümde en az bu kadar kutu fotoğrafı istenir. İtirazda kanıt olur; 1 önerilir, 0 fotoğrafı kapatır.",
+      "unitPcs": "adet"
+    },
+    "tol": {
+      "title": "Karşılaştırma toleransları",
+      "desc": "Bu sınırların içindeki küçük sapmalar fark sayılmaz; böylece yuvarlama ve tartı farkları listeyi doldurmaz.",
+      "edge": "Kenar toleransı",
+      "edgeHelp": "Ölçümünüzün her kenarına bu kadar pay eklenir. Taşıyıcının ağırlığı bu payın içindeyse satır uyumlu sayılır. 0 yazarsanız pay uygulanmaz.",
+      "weight": "Ağırlık toleransı",
+      "weightHelp": "Ücretli kg sizin ölçümünüzden bu kadar fazlaysa ağırlık farkı sayılır.",
+      "amount": "Tutar toleransı",
+      "amountHelp": "Beklenenden bu kadar fazlası fiyat farkı sayılır. Firmanızın para biriminde girilir; dövizli faturada kurla çevrilir.",
+      "fx": "Kur toleransı",
+      "fxHelp": "Tarife başka para birimindeyse, çevrilen tutardan bu orana kadar sapma kur farkıdır, fark sayılmaz.",
+      "unknownSurcharges": "Tarifede olmayan ek ücretleri fark say",
+      "unknownSurchargesHelp": "Kapalı (önerilen): tarifenizde tanımlı olmayan ek ücretler (ör. ithalat hizmet ücreti) faturadaki tutarıyla Beklenen'e eklenir, fark yalnız tarifenin tanımladığı kalemlerden doğar. Açık: bu ücretlerin tamamı fark sayılır."
+    },
+    "errors": {
+      "divisor": "1000–10000 arası tam sayı girin.",
+      "photos": "0–10 arası bir sayı girin.",
+      "range10": "0–10 arası bir değer girin.",
+      "range100": "0–100 arası bir değer girin.",
+      "amount": "Geçerli bir tutar girin.",
+      "pct": "0–20 arası bir yüzde girin."
+    },
+    "confirmContinue": "Onayla ve devam et"
+  },
+  "tariffs": {
+    "why": "Tarife, taşıyıcıyla anlaştığınız fiyat listesidir. DeciShip her fatura satırı için \"ne ödemeliydim\"i bu tarifeden hesaplar; tarifesi olmayan taşıyıcının faturası okunur ama <b>karşılaştırılamaz</b> (\"Tarife yok\"). Taşıyıcının gönderdiği PDF ya da Excel dosyasını yükleyin; dosya yoksa fiyatları elle girebilirsiniz.",
+    "hasSamples_one": "{{count}} örnek fatura yüklediniz: PDF'ten içe aktarırken faturalarınızdaki hizmete uygun tablolar önceden seçili gelir. Tarife eklenince faturalar aşağıda kendiliğinden karşılaştırılır.",
+    "hasSamples_other": "{{count}} örnek fatura yüklediniz: PDF'ten içe aktarırken faturalarınızdaki hizmete uygun tablolar önceden seçili gelir. Tarife eklenince faturalar aşağıda kendiliğinden karşılaştırılır.",
+    "tip": "İpucu: önce bir örnek fatura yüklerseniz PDF'teki doğru tablolar kendiliğinden seçilir ve tarifeniz gerçek fiyatlarla kontrol edilir.",
+    "uploadSample": "Örnek fatura yükle",
+    "needCarrier": "Önce taşıyıcı ekleyin",
+    "backToCarriers": "Taşıyıcılar adımına dön",
+    "tariffBound": "Tarife bir taşıyıcıya bağlıdır.",
+    "count_one": "{{count}} tarife",
+    "count_other": "{{count}} tarife",
+    "none": "Tarife yok",
+    "default": "Varsayılan",
+    "uploadFile": "PDF / Excel yükle",
+    "createManually": "Elle oluştur",
+    "templateLead": "Kendi listenizi hazırlayacaksanız",
+    "templateLink": "Excel şablonunu indirin",
+    "templateTail": ", doldurup \"PDF / Excel yükle\" ile içe aktarın.",
+    "templateFailed": "Şablon indirilemedi",
+    "check": {
+      "title": "Örnek faturalarınız tarifeyle",
+      "comparing": "Karşılaştırılıyor…",
+      "desc": "\"Tarife uyumu\" faturadaki fiyatların tarifenize uyup uymadığını gösterir. Uymayan bir ülke varsa (ör. ülkeye özel indirim) tek tıkla tarifeye işleyebilirsiniz."
+    },
+    "missing": "<b>{{names}}</b> için tarife yok. Bu taşıyıcıların faturaları karşılaştırılamaz. Şimdilik atlayıp sonra <b>Tarifeler</b> sayfasından ekleyebilirsiniz.",
+    "skipNotRecommended": "Tarifesiz devam et (önerilmez)"
+  },
+  "presets": {
+    "why": "Sık kullandığınız standart kolileri tanımlayın: çalışan mobilde tek dokunuşla seçer, ölçü kendiliğinden dolar ve ölçüm saniyeler sürer. Örnek olarak K1–K3 eklendi; kendi ölçülerinizle değiştirin, kullanmadıklarınızı silin ya da pasifleştirin."
+  },
+  "invoices": {
+    "pdfDisabled": "PDF okuma kapalı; CSV ya da Excel yükleyin.",
+    "why": "Taşıyıcınızdan gelmiş bir faturayı <b>yalnızca örnek olarak</b> bırakın. DeciShip bununla tarife PDF'inizdeki doğru tabloları seçer ve tarifenizi gerçek fiyatlarla kontrol eder.",
+    "needCarrier": "Örnek fatura için önce bir taşıyıcı ekleyin.",
+    "carriers": "Taşıyıcılar",
+    "carrierOf": "Faturanın taşıyıcısı",
+    "carrierOfLabel": "Faturanın taşıyıcısı:",
+    "reading": "{{file}} okunuyor…",
+    "readingPdf": "PDF yapay zekâ ile okunuyor, 10–30 saniye sürebilir.",
+    "readingShort": "Birkaç saniye sürer.",
+    "dropMore": "Bir örnek fatura daha ekleyin",
+    "drop": "Örnek faturayı buraya bırakın ya da tıklayıp seçin",
+    "dropHintCarrier": "{{name}} faturası · CSV, Excel ya da PDF · sütun eşleme gerekmez",
+    "dropHint": "CSV, Excel ya da PDF · sütun eşleme gerekmez",
+    "dropHintNoPdf": "CSV ya da Excel · sütun eşleme gerekmez",
+    "dropHintCarrierNoPdf": "{{name}} faturası · CSV ya da Excel · sütun eşleme gerekmez",
+    "note": "Örnek faturalar Faturalar listesinde, Pano'da ve raporlarda görünmez. Gerçek faturalarınızı kurulumdan sonra Faturalar sayfasından yüklersiniz.",
+    "continueTariffs": "Devam et: Tarifeler",
+    "continueWithout": "Örnek fatura olmadan devam et",
+    "errors": {
+      "pickCarrier": "Önce faturanın taşıyıcısını seçin.",
+      "tooLarge": "Dosya çok büyük (en fazla {{max}} MB)."
+    },
+    "toast": {
+      "read": "Örnek fatura okundu",
+      "removeFailed": "Kaldırılamadı"
+    }
+  },
+  "summary": {
+    "intro": "Yapılanları kontrol edin. Bir adıma dönmek için satıra tıklayın.",
+    "state": {
+      "ok": "Tamam",
+      "skipped": "Atlandı",
+      "todo": "Eksik",
+      "notDone": "Yapılmadı"
+    },
+    "detail": {
+      "noCarriers": "Taşıyıcı yok",
+      "withoutTariff": "Tarifesiz: {{names}}",
+      "allTariffs": "Her taşıyıcının tarifesi var",
+      "rules": "Desi böleni, fotoğraf ve toleranslar",
+      "presets_one": "{{count}} aktif hazır koli",
+      "presets_other": "{{count}} aktif hazır koli",
+      "presetsUnreviewed_one": "{{count}} örnek koli, henüz gözden geçirilmedi",
+      "presetsUnreviewed_other": "{{count}} örnek koli, henüz gözden geçirilmedi",
+      "invoices_one": "{{count}} örnek fatura",
+      "invoices_other": "{{count}} örnek fatura",
+      "noInvoices": "Fatura yüklenmedi"
+    },
+    "missingRequired": "Zorunlu adımlar eksik: {{steps}}.",
+    "noTariffNote": "Tarifesi olmayan taşıyıcıların faturaları karşılaştırılamaz.",
+    "finishAnyway": "Yine de bitirebilir, eksikleri sonra Ayarlar → Kurulum sihirbazından tamamlayabilirsiniz.",
+    "needCarrier": "Kurulumu bitirmek için en az bir taşıyıcı ekleyin.",
+    "finish": "Kurulumu bitir",
+    "toast": {
+      "done": "Kurulum tamamlandı",
+      "doneMissing": "Eksik adımları Ayarlar → Kurulum sihirbazından tamamlayabilirsiniz.",
+      "doneReady": "DeciShip kullanıma hazır.",
+      "failed": "Kurulum bitirilemedi"
+    }
+  },
+  "demo": {
+    "cardTitle": "Henüz veriniz yok mu?",
+    "start": "Önce örnek veriyle deneyin",
+    "startHelp": "Örnek tarifeler, ölçümler ve iki fatura yüklenir; DeciShip'in farkı nasıl bulduğunu görürsünüz. İstediğiniz an silinir.",
+    "loading": "Örnek veriler yükleniyor…"
+  }
+}

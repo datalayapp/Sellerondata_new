@@ -1,0 +1,40 @@
+{
+  "endpoint": "GET /api/deciship/me",
+  "status": 200,
+  "shape": {
+    "ai": {
+      "available": "boolean",
+      "quotaExhausted": "boolean"
+    },
+    "aiAvailable": "boolean",
+    "company": {
+      "id": "string",
+      "name": "string",
+      "settings": {
+        "amountTol": "number",
+        "country": "string",
+        "currency": "string",
+        "desiDivisor": "number",
+        "disputeReminders": "boolean",
+        "edgeTolCm": "number",
+        "fxTolerancePct": "number",
+        "requiredBoxPhotos": "number",
+        "scaleAiRead": "boolean",
+        "timeZone": "string",
+        "unknownSurchargesAsDiff": "boolean",
+        "warnEdgeCm": "number",
+        "warnWeightKg": "number",
+        "weightTolKg": "number"
+      }
+    },
+    "member": {
+      "id": "string",
+      "name": "string"
+    },
+    "onboarding": {
+      "completed": "boolean",
+      "required": "boolean",
+      "showBanner": "boolean"
+    }
+  }
+}

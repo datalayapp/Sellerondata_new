@@ -1,0 +1,11 @@
+<!-- Yalnızca debug: ölçüm ekranını adb ile doğrudan açıp test edebilmek için
+     (adb shell am start -n com.selleron.deciship/expo.modules.boxmeasure.ArMeasureActivity). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <application>
+    <activity
+      android:name="expo.modules.boxmeasure.ArMeasureActivity"
+      android:exported="true"
+      tools:replace="android:exported" />
+  </application>
+</manifest>

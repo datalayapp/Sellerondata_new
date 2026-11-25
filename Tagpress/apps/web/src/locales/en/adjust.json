@@ -1,0 +1,181 @@
+{
+  "format": {
+    "percent": "{{n}}%"
+  },
+  "summary": {
+    "right": "right {{v}} px",
+    "left": "left {{v}} px",
+    "down": "down {{v}} px",
+    "up": "up {{v}} px",
+    "scale": "size {{v}}",
+    "stroke": "weight {{v}}",
+    "none": "no changes",
+    "linesApart_one": "{{count}} line moved on its own",
+    "linesApart_other": "{{count}} lines moved on their own",
+    "textEdited_one": "text of {{count}} line edited by hand",
+    "textEdited_other": "text of {{count}} lines edited by hand",
+    "fontEdited_one": "font of {{count}} line changed by hand",
+    "fontEdited_other": "font of {{count}} lines changed by hand"
+  },
+  "selection": {
+    "all": "All text",
+    "line": "Line {{n}}: {{text}}",
+    "many_one": "{{count}} line: {{list}}",
+    "many_other": "{{count}} lines: {{list}}"
+  },
+  "font": {
+    "scope": {
+      "span": "Font (selected part)",
+      "all": "Font (all text)",
+      "lines": "Font ({{count}} lines)",
+      "line": "Font (line)"
+    },
+    "forSpan": "Pick a font for “{{text}}”",
+    "mixed": "Mixed",
+    "label": "Font",
+    "single": "Design language: one family (you may change it by hand; a warning appears if exceeded).",
+    "measuring": "Measuring"
+  },
+  "target": {
+    "heading": "Centering target",
+    "template": "Template's target center",
+    "area": "Center of the text area",
+    "cut": "Center of the cut"
+  },
+  "title": {
+    "withOrder": "№ {{order}} · Adjust V{{no}} text",
+    "variant": "Adjust V{{no}} text"
+  },
+  "loading": "Preparing the preview",
+  "error": {
+    "open": "Couldn't open the adjustment.",
+    "notAdjustable": "This variation can't be adjusted.",
+    "notAdjustableBody": "In variations made from an image the text is printed into the template, so it can't be moved.",
+    "noVariant": "There is no variation in the address.",
+    "back": "Go back"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "toast": {
+    "saved": "Adjustment saved",
+    "removed": "Adjustment removed",
+    "undo": "Undo"
+  },
+  "remove": {
+    "action": "Remove adjustment",
+    "title": "Remove the adjustment?",
+    "body": "The text goes back to where the engine placed it. You can undo from the notification.",
+    "confirm": "Remove"
+  },
+  "leave": {
+    "title": "You have unsaved changes",
+    "body": "If you leave without saving, this adjustment is lost.",
+    "confirm": "Leave without saving"
+  },
+  "strip": {
+    "label": "Adjustment tools"
+  },
+  "rail": {
+    "label": "Tools"
+  },
+  "canvas": {
+    "label": "Text position. Click a line to select it, add lines with Ctrl or Shift; drag or use the arrow keys to move, 10 times with Shift. Double-click or Enter edits the text. Ctrl + wheel zooms, Space + drag pans.",
+    "size": "{{w}} × {{h}} mm"
+  },
+  "status": {
+    "step": "arrow step {{v}} px"
+  },
+  "lines": {
+    "title": "Lines",
+    "all": "All text",
+    "own": "adjusted by hand"
+  },
+  "check": {
+    "ok": "The text is inside the cut and doesn't touch the decoration."
+  },
+  "text": {
+    "heading": "Text",
+    "field": "Line {{n}} text",
+    "pickLine": "To edit the text, select a single line or double-click it.",
+    "noEngine": "Text editing needs the engine, which isn't connected.",
+    "empty": "A line can't be empty; change the text instead of deleting it.",
+    "edited": "text edited by hand",
+    "spans": "Part fonts:",
+    "span": "“{{text}}” · {{font}}",
+    "removeSpan": "Remove part font"
+  },
+  "position": {
+    "heading": "Position",
+    "x": "Horizontal",
+    "y": "Vertical",
+    "xHint": "Plus moves right, minus left (design pixels)",
+    "yHint": "Plus moves down, minus up (design pixels)"
+  },
+  "size": {
+    "label": "Size",
+    "down": "Smaller (2%)",
+    "up": "Larger (2%)"
+  },
+  "stroke": {
+    "label": "Weight",
+    "value": "{{v}} px",
+    "down": "Thinner (0.2 px)",
+    "up": "Bolder (0.2 px)"
+  },
+  "shortcuts": {
+    "save": "Save",
+    "saveEnter": "Save",
+    "cancel": "Cancel",
+    "undo": "Undo",
+    "redo": "Redo",
+    "reset": "Reset the whole adjustment",
+    "editText": "Edit text",
+    "centerX": "Center horizontally",
+    "centerY": "Center vertically",
+    "centerBoth": "Center both ways",
+    "left": "Move left (10 times with Shift)",
+    "right": "Move right (10 times with Shift)",
+    "up": "Move up (10 times with Shift)",
+    "down": "Move down (10 times with Shift)",
+    "scaleDown": "Smaller",
+    "scaleUp": "Larger",
+    "strokeDown": "Thinner",
+    "strokeUp": "Bolder",
+    "nextLine": "Next line",
+    "prevLine": "Previous line",
+    "selectAll": "Select all text",
+    "toolSelect": "Select",
+    "toolMarquee": "Select with a box",
+    "toolZoom": "Zoom (click; Alt to zoom out)",
+    "groups": {
+      "edit": "Adjustment",
+      "move": "Move, size, weight",
+      "select": "Selection",
+      "tools": "Tools"
+    }
+  },
+  "zoom": {
+    "actual": "100%"
+  },
+  "quick": {
+    "canvas": "Text position. Click a line to select it, drag to move it; arrow keys move it too. Double-click edits the text.",
+    "hint": "Drag a line to move it",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "failed": "The change could not be saved.",
+    "retry": "Try again",
+    "line": "Line {{n}}",
+    "font": "Font",
+    "centerX": "Horizontal",
+    "centerY": "Vertical",
+    "centerBoth": "Center"
+  },
+  "window": {
+    "title": "Detailed edit",
+    "order": "№ {{order}}",
+    "variant": "V{{no}}",
+    "note": "Save stores the changes and closes this window."
+  }
+}

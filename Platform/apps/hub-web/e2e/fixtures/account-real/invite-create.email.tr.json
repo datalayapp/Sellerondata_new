@@ -1,0 +1,23 @@
+{
+  "status": 201,
+  "body": {
+    "invitation": {
+      "id": "<id>",
+      "kind": "EMAIL",
+      "email": "can@ornek.test",
+      "phone": null,
+      "name": "Can Öztürk",
+      "orgRole": "MEMBER",
+      "productRoles": {
+        "deciship": "MEASURE"
+      },
+      "expiresAt": "<zaman>",
+      "expired": false,
+      "attempts": 0,
+      "createdAt": "<zaman>",
+      "invitedById": "<id>"
+    },
+    "link": "http://localhost:8088/invite/<jeton>",
+    "mailSent": false
+  }
+}

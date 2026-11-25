@@ -1,0 +1,159 @@
+{
+  "status": 200,
+  "body": {
+    "product": "tagpress",
+    "datasets": [
+      {
+        "id": "jobs",
+        "label": "İşler",
+        "description": "Etiket işleri: dil, durum, ekleme ve onay. Etiket yazısı gösterilmez.",
+        "filters": [
+          {
+            "id": "language",
+            "kind": "select",
+            "label": "Tasarım dili",
+            "options": [
+              {
+                "value": "dil-zarif",
+                "label": "Zarif"
+              },
+              {
+                "value": "dil-cocuk",
+                "label": "Çocuk"
+              }
+            ]
+          },
+          {
+            "id": "status",
+            "kind": "select",
+            "label": "Durum",
+            "options": [
+              {
+                "value": "new",
+                "label": "Yeni"
+              },
+              {
+                "value": "queued",
+                "label": "Sırada"
+              },
+              {
+                "value": "generating",
+                "label": "Üretiliyor"
+              },
+              {
+                "value": "ready",
+                "label": "Onay bekliyor"
+              },
+              {
+                "value": "failed",
+                "label": "Başarısız"
+              },
+              {
+                "value": "approved",
+                "label": "Onaylandı"
+              }
+            ],
+            "multiple": true
+          },
+          {
+            "id": "kind",
+            "kind": "select",
+            "label": "Tür",
+            "options": [
+              {
+                "value": "label",
+                "label": "Etiket"
+              },
+              {
+                "value": "sticker",
+                "label": "Sticker"
+              }
+            ]
+          },
+          {
+            "id": "from",
+            "kind": "text",
+            "label": "Başlangıç"
+          },
+          {
+            "id": "to",
+            "kind": "text",
+            "label": "Bitiş"
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "prints",
+        "label": "Baskı oturumları",
+        "description": "Baskı masası oturumları: durum, sayfa ve basılma.",
+        "filters": [
+          {
+            "id": "language",
+            "kind": "select",
+            "label": "Tasarım dili",
+            "options": [
+              {
+                "value": "dil-zarif",
+                "label": "Zarif"
+              },
+              {
+                "value": "dil-cocuk",
+                "label": "Çocuk"
+              }
+            ]
+          },
+          {
+            "id": "status",
+            "kind": "select",
+            "label": "Durum",
+            "options": [
+              {
+                "value": "draft",
+                "label": "Taslak"
+              },
+              {
+                "value": "printed",
+                "label": "Basıldı"
+              }
+            ]
+          },
+          {
+            "id": "from",
+            "kind": "text",
+            "label": "Başlangıç"
+          },
+          {
+            "id": "to",
+            "kind": "text",
+            "label": "Bitiş"
+          }
+        ],
+        "exportable": true
+      },
+      {
+        "id": "templates",
+        "label": "Şablonlar",
+        "description": "Tasarım dillerinin etiket şablonları ve kesimleri.",
+        "filters": [
+          {
+            "id": "language",
+            "kind": "select",
+            "label": "Tasarım dili",
+            "options": [
+              {
+                "value": "dil-zarif",
+                "label": "Zarif"
+              },
+              {
+                "value": "dil-cocuk",
+                "label": "Çocuk"
+              }
+            ]
+          }
+        ],
+        "exportable": false
+      }
+    ]
+  }
+}

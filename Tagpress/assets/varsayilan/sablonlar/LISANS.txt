@@ -1,0 +1,18 @@
+Ürünle gelen varsayılan şablonlar (assets/varsayilan/sablonlar)
+
+Bu klasördeki şablonlar (kaynak/*.svg ve onlardan üretilen *.png) TagPress için sıfırdan çizildi; hiçbir
+firmanın şablonundan ya da dış bir kaynaktan alınmadı. Kamu malına bırakılmıştır:
+Creative Commons CC0 1.0 Evrensel (https://creativecommons.org/publicdomain/zero/1.0/).
+
+Üretim: scripts/varsayilan-sablonlar.mjs (SVG tanımları betikte; PNG'ler ve sablonlar.json betikle yazılır,
+elle düzenlenmez). Denetim: `pnpm exec tsx scripts/varsayilan-sablonlar.mjs --denetle`.
+
+Anahtar       Görünüm                                              Görsel                   Yazı alanı
+duz-daire     düz krem zemin, dekor yok                            880 × 880 (tam alan)     otomatik
+ince-kenar    kenarda tek ince çizgi                               840 × 840                otomatik
+cift-kenar    kenarda kalın + ince iki çizgi                       840 × 840                otomatik
+kurdele       ince kenar + üstte yatay kurdele bandı               840 × 840                otomatik, bant üstü kapalı
+kose-sus      ince kenar + çapraz dört köşede küçük yaprak süsü    840 × 840                otomatik
+
+Hepsi yuvarlak etikettir (profilin kesim şekli tek: varsayılan profilde daire). Dikdörtgen ve kare etiket ayrı bir
+kesim şekli, yani ayrı bir tasarım dili ister.

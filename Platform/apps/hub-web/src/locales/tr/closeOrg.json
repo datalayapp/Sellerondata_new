@@ -1,0 +1,38 @@
+{
+  "closeOrg": {
+    "sectionTitle": "Firmayı kapat",
+    "sectionBody": "Firma kapanır, ekip giremez. Veriler {{days}} gün saklanır; bu sürede firmayı geri açabilirsiniz. Sonra her şey kalıcı olarak silinir.",
+    "open": "Firmayı kapat…",
+    "title": "{{org}} kapatılsın mı?",
+    "listTeam_one": "Ekipteki {{count}} kişi firmaya ve araçlara giremez.",
+    "listTeam_other": "Ekipteki {{count}} kişi firmaya ve araçlara giremez.",
+    "listTeamAll": "Ekipteki herkes firmaya ve araçlara giremez.",
+    "listData": "Faturalar, ölçümler, itirazlar ve dosyalar {{days}} gün saklanır.",
+    "listReopen": "{{date}} tarihine kadar firmayı geri açabilirsiniz; sonra kalıcı olarak silinir.",
+    "listBilling": "Abonelik durur.",
+    "nameLabel": "Onaylamak için firma adını yazın:",
+    "password": "Şifreniz",
+    "confirm": "Firmayı kapat",
+    "closedTag": "Kapalı",
+    "pageTitle": "Kapalı firma",
+    "closedTitle": "{{org}} kapatıldı",
+    "closedBody": "{{closedAt}} tarihinde kapatıldı. Veriler {{purgeAfter}} tarihine kadar saklanıyor; bu tarihe kadar firmayı geri açabilirsiniz. Sonra her şey kalıcı olarak silinir.",
+    "reopen": "Firmayı geri aç",
+    "reopenTitle": "{{org}} geri açılsın mı?",
+    "reopenBody": "Firma yeniden açılır, ekibin erişimi kapatmadan önceki gibi döner.",
+    "reopenPasswordHelp": "Bu işlem şifrenizle onaylanır.",
+    "reopened": "{{org}} geri açıldı. Ekibin erişimi kapatmadan önceki gibi döndü.",
+    "goneTitle": "Bu firma geri açılamaz",
+    "goneBody": "Firma geri açılmış, saklama süresi dolmuş ya da sahibi siz değilsiniz.",
+    "noOrgHint": "Kapattığınız firma: {{org}}. {{date}} tarihine kadar geri açabilirsiniz.",
+    "err": {
+      "name": "Yazdığınız ad firma adıyla aynı değil.",
+      "password": "Şifre yanlış.",
+      "alreadyClosed": "Bu firma zaten kapatıldı.",
+      "ownerOnly": "Firmayı yalnız firma sahibi kapatabilir.",
+      "purged": "Saklama süresi doldu, veriler kalıcı olarak silindi. Firma geri açılamaz.",
+      "notFound": "Bu firma bulunamadı ya da geri açma yetkiniz yok.",
+      "notClosed": "Bu firma zaten açık."
+    }
+  }
+}

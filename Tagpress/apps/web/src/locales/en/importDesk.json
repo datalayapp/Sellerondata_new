@@ -1,0 +1,246 @@
+{
+  "issueShort": {
+    "text-missing": "No text",
+    "text-very-long": "Text too long",
+    "text-word-too-long": "Word too long",
+    "text-outer-quotes-removed": "Quotes removed",
+    "text-unicode-styled": "Fancy letters",
+    "text-unprintable": "Unprintable character",
+    "text-fallback-font": "Fallback font",
+    "text-suspicious": "Odd text",
+    "template-missing": "No template",
+    "template-unknown": "Template file missing",
+    "size-unknown": "Unknown size",
+    "quantity-missing": "No quantity",
+    "quantity-invalid": "Invalid quantity",
+    "order-missing": "No order no.",
+    "duplicate-in-file": "Duplicate in file",
+    "duplicate-existing": "Already exists",
+    "duplicate-similar": "Similar order",
+    "sticker-detected": "Sticker",
+    "sticker-sheet-missing": "No sticker sheet"
+  },
+  "filters": {
+    "all": "All",
+    "issues": "Issues only",
+    "duplicates": "Duplicates",
+    "excluded": "Excluded"
+  },
+  "fix": {
+    "dismiss": "Ignore",
+    "skip": "Exclude row"
+  },
+  "fields": {
+    "text": "Text",
+    "template": "Template",
+    "orderNo": "Order no.",
+    "quantity": "Quantity",
+    "product": "Product",
+    "size": "Size"
+  },
+  "formats": {
+    "array": "JSON array",
+    "wrapped": "JSON (wrapped list)",
+    "ndjson": "JSON lines",
+    "object": "Single object"
+  },
+  "work": {
+    "otherFile": "Other file"
+  },
+  "strip": {
+    "label": "Row tools",
+    "filters": "Row filter",
+    "addRow": "Add row",
+    "dismissedItem": "Row {{n}} · {{issue}}"
+  },
+  "selection": {
+    "count_one": "{{count}} row selected",
+    "count_other": "{{count}} rows selected",
+    "assignTemplate": "Assign template",
+    "include": "Include",
+    "exclude": "Exclude"
+  },
+  "table": {
+    "label": "Orders to import",
+    "selectAll": "Select all visible rows",
+    "emptyFile": "No rows in this file. Check the field mapping.",
+    "emptyFilter": "No rows in this filter",
+    "showAll": "Show all"
+  },
+  "cols": {
+    "orderNo": "Order no.",
+    "text": "Text",
+    "quantity": "Qty",
+    "size": "Size",
+    "template": "Template",
+    "issue": "Issue"
+  },
+  "row": {
+    "select": "Select row {{n}}",
+    "editText": "Edit text (Enter)",
+    "noText": "No text",
+    "quotes": "quotes",
+    "quotesTitle": "Outer quotes removed. Raw: {{raw}}",
+    "edited": "edited",
+    "editedTitle": "Edited. Raw: {{raw}}",
+    "sizeCm": "{{cm}} cm",
+    "pickTemplate": "Pick template",
+    "templateLabel": "Template: {{value}}",
+    "templateFileValue": "Value in file: {{value}}",
+    "excluded": "excluded",
+    "duplicateExcluded": "duplicate · excluded",
+    "more": "+{{n}}",
+    "sticker": "Sticker",
+    "dismissed_one": "{{count}} ignored",
+    "dismissed_other": "{{count}} ignored",
+    "restore": "Restore"
+  },
+  "edit": {
+    "save": "save",
+    "cancel": "cancel",
+    "newLine": "Enter for a new line",
+    "restoreRaw": "Back to raw text",
+    "raw": "Raw: {{text}}",
+    "rawEmpty": "(empty)",
+    "rawTitle": "Raw value in the file"
+  },
+  "panel": {
+    "title": "File",
+    "rows_one": "{{count}} row",
+    "rows_other": "{{count}} rows",
+    "batchName": "Batch name",
+    "batchPlaceholder": "File name",
+    "fileWarnings": "About this file",
+    "summary": "Summary",
+    "sumImportable": "orders to import",
+    "sumExcluded": "excluded",
+    "sumBlocked": "with errors, not produced",
+    "sumWarnings": "with warnings",
+    "sumDuplicates": "duplicates",
+    "sumStickers": "stickers",
+    "bulk": "Bulk",
+    "cancel": "Cancel",
+    "import": "Import",
+    "importGenerate": "Import and produce",
+    "blockedHint": "{{n}} orders go to production; rows with errors do not"
+  },
+  "bulk": {
+    "excludeErrors": "Exclude rows with errors ({{n}})",
+    "excludeProblems": "Exclude rows with errors or warnings ({{n}})",
+    "excludeDuplicates": "Exclude duplicates ({{n}})",
+    "includeAll": "Include all ({{n}})",
+    "plainLetters": "Turn fancy letters into plain ({{n}})"
+  },
+  "mapping": {
+    "title": "Field mapping",
+    "summary_one": "{{format}} · {{count}} field",
+    "summary_other": "{{format}} · {{count}} fields",
+    "textMissing": "Text field not set",
+    "format": "File format: {{format}}",
+    "none": "None",
+    "notSet": "not set",
+    "empty": "none",
+    "guess": "guess",
+    "pick": "{{field}}: {{value}}",
+    "source": {
+      "name": "Matched by field name",
+      "content": "Guessed from content",
+      "user": "Your choice",
+      "none": "No matching field"
+    }
+  },
+  "status": {
+    "checking": "Checking issues…",
+    "unsaved": "Changes not saved",
+    "toggleHint": "{{key}} include / exclude"
+  },
+  "intake": {
+    "title": "Drop the order file here",
+    "body": ".json, .ndjson, .txt · Paste with Ctrl V",
+    "bodyHint": "Columns (text, quantity, template…) are detected for you; before importing you see every row here, fix it and exclude what you don't want.",
+    "chooseFile": "Choose file",
+    "paste": "Paste text",
+    "pasteLabel": "Pasted JSON",
+    "pastePlaceholder": "[{\"text\": \"Anna & Tom\", \"quantity\": 30, \"template\": \"a15\"}]",
+    "preview": "Preview",
+    "loading": "Reading {{name}} and checking rows…",
+    "errorTitle": "The file could not be opened.",
+    "retry": "Try again",
+    "drop": "Drop: {{types}}"
+  },
+  "file": {
+    "type": "\"{{name}}\" can't be opened here. Choose a .json, .ndjson or .txt file.",
+    "unreadable": "\"{{name}}\" could not be read. It may be open in another program or not accessible.",
+    "empty": "\"{{name}}\" looks empty."
+  },
+  "confirm": {
+    "replace": {
+      "title": "Load new data?",
+      "body": "Your edits here (texts, templates, excluded rows) will be discarded.",
+      "ok": "Yes, load the new one"
+    },
+    "mapping": {
+      "title": "Change the field mapping?",
+      "body": "The preview is rebuilt with the new mapping; your edits here will be discarded.",
+      "ok": "Change mapping"
+    },
+    "close": {
+      "title": "Discard your edits?",
+      "body": "What you did here (texts, templates, excluded rows) is not saved yet. It will be lost if you close.",
+      "ok": "Yes, discard and close"
+    }
+  },
+  "toast": {
+    "undo": "Undo",
+    "fixApplied": "Applied: {{fix}}",
+    "noProblems": "No rows with issues left.",
+    "validateFailed": "Issues could not be checked again; what you see may be out of date. {{detail}}",
+    "excluded": {
+      "errors_one": "{{count}} row with errors excluded",
+      "errors_other": "{{count}} rows with errors excluded",
+      "problems_one": "{{count}} row with issues excluded",
+      "problems_other": "{{count}} rows with issues excluded",
+      "duplicates_one": "{{count}} duplicate row excluded",
+      "duplicates_other": "{{count}} duplicate rows excluded"
+    },
+    "includedAgain_one": "{{count}} row included again",
+    "includedAgain_other": "{{count}} rows included again",
+    "included_one": "{{count}} row included",
+    "included_other": "{{count}} rows included",
+    "excludedRows_one": "{{count}} row excluded",
+    "excludedRows_other": "{{count}} rows excluded",
+    "templateAssigned_one": "Template \"{{key}}\" set on {{count}} row",
+    "templateAssigned_other": "Template \"{{key}}\" set on {{count}} rows",
+    "templateCleared_one": "Template removed from {{count}} row",
+    "templateCleared_other": "Template removed from {{count}} rows",
+    "plainLetters_one": "Fancy letters turned plain in {{count}} row",
+    "plainLetters_other": "Fancy letters turned plain in {{count}} rows",
+    "imported_one": "{{count}} order imported",
+    "imported_other": "{{count}} orders imported",
+    "importedQueued_one": "{{count}} order imported · {{queued}} sent to production",
+    "importedQueued_other": "{{count}} orders imported · {{queued}} sent to production",
+    "importedNotQueued_one": "{{count}} order imported; production did not start: {{reason}}",
+    "importedNotQueued_other": "{{count}} orders imported; production did not start: {{reason}}",
+    "openBatch": "Open batch",
+    "importFailed": "Could not import. {{detail}}"
+  },
+  "shortcuts": {
+    "commitGenerate": "Import and produce",
+    "nextIssue": "Next issue",
+    "prevIssue": "Previous issue",
+    "down": "Next row",
+    "up": "Previous row",
+    "edit": "Edit text",
+    "toggle": "Include / exclude",
+    "close": "Clear selection, or back to Production",
+    "groups": {
+      "rows": "Rows",
+      "desk": "Import"
+    }
+  },
+  "styled": {
+    "plain": "Plain letters · label font",
+    "asIs": "As is · fallback font",
+    "alt": "Label preview: {{text}}"
+  }
+}

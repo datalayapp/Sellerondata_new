@@ -1,0 +1,149 @@
+{
+  "title": "Ölçümler",
+  "actions": {
+    "cancel": "Vazgeç",
+    "save": "Kaydet",
+    "delete": "Sil"
+  },
+  "sub": {
+    "deleted_one": "{{n}} silinmiş ölçüm · geri yüklenince ilgili faturalar yeniden karşılaştırılır",
+    "deleted_other": "{{n}} silinmiş ölçüm · geri yüklenince ilgili faturalar yeniden karşılaştırılır",
+    "deletedEmpty": "Silinmiş ölçümler · geri yüklenince ilgili faturalar yeniden karşılaştırılır",
+    "list_one": "{{n}} ölçüm",
+    "list_other": "{{n}} ölçüm",
+    "listEmpty": "Ölçümler"
+  },
+  "add": {
+    "title": "Elle ölçüm ekle",
+    "photos": "Fotoğraflar (isteğe bağlı, JPEG)"
+  },
+  "tabs": {
+    "aria": "Ölçüm listesi",
+    "saved": "Kayıtlı",
+    "deleted": "Silinenler"
+  },
+  "filter": {
+    "trackingSearch": "Takip no ara",
+    "toggle": "Filtreler",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "everyone": "Herkes",
+    "allMethods": "Tüm yöntemler",
+    "clear": "Filtreleri temizle"
+  },
+  "empty": {
+    "deletedTitle": "Silinmiş ölçüm yok",
+    "deletedText": "Silinen ölçümler burada listelenir ve geri yüklenebilir. Fotoğrafları 30 gün sonra kalıcı olarak silinir.",
+    "noMatchTitle": "Eşleşen ölçüm yok",
+    "noMatchText": "Filtreleri değiştirin ya da temizleyin.",
+    "noneTitle": "Henüz ölçüm yok",
+    "noneText": "Çalışanlar mobil uygulamada kolinin barkodunu okutup ölçü, ağırlık ve fotoğraf kaydeder. Ölçümler burada listelenir."
+  },
+  "pagerLabel": "ölçüm",
+  "col": {
+    "trackingNo": "Takip no",
+    "dims": "Ölçü (cm)",
+    "actualKg": "Gerçek kg",
+    "desi": "Desi",
+    "volKg": "Hacimsel ağırlık (kg)",
+    "method": "Yöntem",
+    "measuredBy": "Ölçen · zaman",
+    "measuredByOnly": "Ölçen",
+    "photos": "Foto",
+    "status": "Durum",
+    "invoice": "Fatura",
+    "action": "İşlem"
+  },
+  "row": {
+    "version": "Sürüm {{n}}",
+    "deleted": "Silindi",
+    "restore": "Geri yükle",
+    "restoreAria": "{{trackingNo}} ölçümünü geri yükle",
+    "notOnInvoice": "Faturada yok"
+  },
+  "toast": {
+    "restored": "Ölçüm geri yüklendi",
+    "recompare": "İlgili faturalar yeniden karşılaştırılır.",
+    "restoreFailed": "Geri yüklenemedi",
+    "newerExists": "Bu takip no için daha yeni bir ölçüm var. Güncel kaydı düzeltin ya da önce onu silin.",
+    "versionSaved": "Yeni sürüm kaydedildi",
+    "saved": "Ölçüm kaydedildi",
+    "deleted": "Ölçüm silindi",
+    "undo": "Geri al",
+    "purged": "Ölçüm kalıcı olarak silindi"
+  },
+  "form": {
+    "trackingRequired": "Takip no gerekli.",
+    "lengthInvalid": "Geçerli bir uzunluk girin (en çok 400 cm).",
+    "widthInvalid": "Geçerli bir genişlik girin (en çok 400 cm).",
+    "heightInvalid": "Geçerli bir yükseklik girin (en çok 400 cm).",
+    "weightInvalid": "Geçerli bir ağırlık girin (1000 kg altında).",
+    "trackingBarcode": "Takip no / barkod",
+    "length": "Uzunluk",
+    "width": "Genişlik",
+    "height": "Yükseklik",
+    "actualWeight": "Gerçek ağırlık",
+    "desi": "Desi ({{divisor}})",
+    "volumetric": "Hacimsel ağırlık (kg)",
+    "billable": "Ücretli ağırlık (büyük olan)",
+    "note": "Not (isteğe bağlı)",
+    "presetLabel": "Hazır koli (isteğe bağlı) · seçince ölçüler otomatik dolar",
+    "presetAria": "Hazır koli",
+    "photoType": "Fotoğraf türü",
+    "removePhoto": "Kaldır",
+    "addPhoto": "Fotoğraf ekle",
+    "packaging": "Ambalaj"
+  },
+  "edit": {
+    "title": "Ölçümü düzelt",
+    "saveVersion": "Yeni sürüm olarak kaydet",
+    "hint": "Eski kayıt silinmez; sürüm {{n}} olarak yeni kayıt yazılır ve sürüm geçmişinde görünür.",
+    "methodToSave": "Kaydedilecek ölçü yöntemi",
+    "previous": "önceki: {{method}}",
+    "existingPhotos": "Mevcut fotoğraflar · çıkarılacakları işaretleyin",
+    "keepPhotoAria": "{{kind}} fotoğrafını tut",
+    "removePhotoAria": "{{kind}} fotoğrafını çıkar",
+    "toRemove": "Çıkarılacak",
+    "newPhotos": "Yeni fotoğraf ekle (isteğe bağlı, JPEG)"
+  },
+  "panel": {
+    "meta": "{{method}} · sürüm {{n}}",
+    "metaFallback": "Ölçüm",
+    "edit": "Düzelt (yeni sürüm)",
+    "deletedAt": "<b>Silindi · {{when}}.</b> Kayıt salt okunur; geri yükleyince listeye döner ve faturalar yeniden karşılaştırılır.",
+    "deleted": "<b>Silindi.</b> Kayıt salt okunur; geri yükleyince listeye döner ve faturalar yeniden karşılaştırılır.",
+    "readOnly": "Bu kayıt eski bir sürüm; yerini düzeltilmiş yeni sürüme bıraktı, düzenlenemez.",
+    "noPermission": "Bu ölçümü düzenleme ve silme yetkiniz yok. Yönetici ya da ölçüm yönetimi izni olan biri yapabilir.",
+    "secDims": "Ölçü ve ağırlık",
+    "rawBarcode": "Ham barkod",
+    "dimMethod": "Ölçü yöntemi",
+    "confidence": "güven %{{n}}",
+    "weight": "Ağırlık",
+    "weightOcr": "Tartı fotoğrafından",
+    "weightManual": "Elle girildi",
+    "ocrRead": "okunan {{kg}}",
+    "time": "Zaman",
+    "note": "Not",
+    "secPhotos": "Fotoğraflar",
+    "secInvoiceLine": "Eşleşen fatura satırı",
+    "notSeen": "Bu takip no henüz bir faturada görülmedi.",
+    "secHistory": "Sürüm geçmişi",
+    "histVersion": "Sürüm",
+    "histKg": "Kg",
+    "current": "Güncel",
+    "noHistory": "Önceki sürüm yok.",
+    "deleteTitle": "Ölçüm silinsin mi?",
+    "deleteText": "Ölçüm listeden kaldırılır; bu takip no ile eşleşen fatura satırları \"Eşleşmedi\" durumuna düşebilir. Silinenler sekmesinden geri yükleyebilirsiniz. Fotoğrafları 30 gün sonra kalıcı olarak silinir (itirazdaki satırın ölçümü hariç).",
+    "deleteAria": "Ölçümü sil",
+    "purgeAria": "Kalıcı olarak sil",
+    "purgeBlocked": {
+      "DISPUTE": "Kalıcı olarak silinemez: bu ölçüm bir itirazın kanıtı.",
+      "DECIDED_LINE": "Kalıcı olarak silinemez: bağlı fatura satırında karar var."
+    }
+  },
+  "purge": {
+    "title": "Kalıcı olarak silinsin mi?",
+    "text": "<mono>{{trackingNo}}</mono> ölçümü, bütün eski sürümleri ve fotoğraflarıyla birlikte silinir. <b>Bu işlem geri alınamaz.</b> Bağlı fatura satırları ölçümsüz yeniden hesaplanır.",
+    "confirm": "Kalıcı olarak sil"
+  }
+}

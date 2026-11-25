@@ -1,0 +1,75 @@
+Uygulamayla gelen yedek fontlar (packages/typeset/fonts)
+
+Bu fontlar uygulamanın parçasıdır: tasarım dilinin fontunda olmayan emoji, sembol, süslü ("farklı stilde") yazı ve
+Arapça, kullanıcının ortak font klasörüne (data/ortak/fontlar) ve işletim sisteminin fontlarına bağlı olmadan, her
+platformda aynı çizimle basılsın diye. Yedek zinciri: ortak klasör → bu klasör (aşağıdaki sırayla) → sistem fontları
+(typeset/src/registry.ts, BUNDLED_FALLBACKS). Web'e salt okunur sunulur: GET /api/fallback-fonts (sunucu).
+Hepsi açık lisanslıdır, özgün kaynağından indirildi; tasarım dillerinin fontlarından ya da eski projeden kopyalanmadı.
+Toplam boyut: 5 391 120 bayt (yaklaşık 5,4 MB).
+
+Dosya                              Aile / sürüm                     Lisans                         Ne için                         Bayt
+Twemoji.ttf                        Twemoji 17.0.3 (COLRv0, derleme) CC BY 4.0 (çizimler)           renkli emoji (Unicode 17'ye     1 850 736
+                                                                                                   kadar: 🩷 🪿 🐦‍🔥 🫩 dahil)
+NotoSans-Regular.ttf               Noto Sans 2.015                  OFL 1.1                        Latin/Yunan/Kiril, küçük büyük    621 572
+                                                                                                   harf (ᴇʟɪꜰ), süs çizgileri (E̶)
+NotoNaskhArabic[wght].ttf          Noto Naskh Arabic 2.021 (değ.)   OFL 1.1                        Arapça                            307 592
+NotoSansSymbols2-Regular.ttf       Noto Sans Symbols 2 2.008        OFL 1.1                        ★ ✿ ♥ ✔ ♔ gibi semboller,       1 233 128
+                                                                                                   renkli fontta olmayan emojinin
+                                                                                                   tek renk hâli
+NotoSansSymbols[wght].ttf          Noto Sans Symbols 2.003 (değ.)   OFL 1.1                        ☾ ☺ ♪ → Ⓐ 🅐 gibi semboller        372 684
+NotoSansMath-Regular.ttf           Noto Sans Math 3.000 (alt küme)  OFL 1.1                        matematiksel harfler (𝓔𝓵𝓲𝓯,       963 924
+                                                                                                   𝐊𝐞𝐫𝐞𝐦), ∞ ≈ ⇒
+MPLUS1p-Regular-tamgenislik.ttf    M PLUS 1p 1.062 (alt küme)       OFL 1.1                        tam genişlik harfler (Ａｙｓｅ)     41 484
+
+Kaynaklar
+  Twemoji           https://github.com/jdecked/twemoji (sürüm v17.0.3, 2026-06-01; arşiv
+                    https://github.com/jdecked/twemoji/archive/refs/tags/v17.0.3.tar.gz,
+                    sha256 a0855654b633045ae2337537e77f1bb4361162f7fcd910e613eaab1d6d9c5fca; assets/svg, 4 009 SVG)
+  Noto Sans         https://github.com/notofonts/notofonts.github.io/raw/main/fonts/NotoSans/hinted/ttf/NotoSans-Regular.ttf
+  Noto Naskh Arabic https://github.com/google/fonts/tree/main/ofl/notonaskharabic
+  Noto Sans Symbols 2  https://github.com/google/fonts/tree/main/ofl/notosanssymbols2
+  Noto Sans Symbols    https://github.com/google/fonts/tree/main/ofl/notosanssymbols
+  Noto Sans Math       https://github.com/google/fonts/tree/main/ofl/notosansmath
+  M PLUS 1p            https://github.com/google/fonts/tree/main/ofl/mplus1p
+
+Lisans metinleri: lisanslar/ (OFL-<aile>.txt, her biri telif satırıyla; Twemoji-LICENSE-GRAPHICS.txt CC BY 4.0
+çizim lisansı, Twemoji-LICENSE-kod.txt MIT, jdecked/twemoji deposunun kod lisansı).
+Twemoji çizimleri: Copyright 2019 Twitter, Inc. ve katkıcıları; 2022 sonrası Jason Sofonia, Justine De Caires ve
+katkıcıları (https://github.com/jdecked/twemoji), CC BY 4.0. Font, bu çizimlerden TagPress için derlendi (CC BY 4.0
+"değişiklik belirtilir" şartı: çizimler SVG'den font glif katmanlarına çevrildi; şekil ve renk değiştirilmedi).
+
+Twemoji derlemesi (yeniden üretmek için; araçlar depoya girmez, geçici bir Python sanal ortamında):
+  1. Araçlar: nanoemoji 0.16.0, picosvg 0.23.0, fontTools 4.68.0 (pip install nanoemoji).
+  2. nanoemoji ayar dosyası: color_format = "glyf_colr_0", family = "Twemoji", upem = 2048, width = 2048,
+     ascender = 1792, descender = -256, clip_to_viewbox = true, keep_glyph_names = false,
+     srcs = assets/svg/*.svg (dosya adlarındaki kod noktaları; dizi emojileri GSUB ligatürü olur).
+  3. Son işlem (fontTools): (a) U+FE0E, U+FE0F, U+200D, U+20E3 ve etiket (U+E0020–E007F) kod noktaları cmap'te sıfır
+     genişlikli boş glife bağlandı (yoksa); boşluk (U+0020) cmap'ten çıkarıldı (nanoemoji'nin boşluğu 1 em genişliğindeydi;
+     emojiler arasındaki boşluk satırın tasarım fontundan gelir); (b) Twemoji dosya adları FE0F'yi çoğu dizide atar ("31-20e3",
+     "1f3f3-200d-1f308"), kullanıcı metni ise FE0F'li yazar ("1 FE0F 20E3", "1F3F3 FE0F 200D 1F308"): her ligatür
+     için varsayılanı metin olan bileşenlerin arkasına FE0F eklenmiş ve FE0F'leri atılmış bütün biçimler aynı glife
+     giden ligatür olarak eklendi (1 231 ligatür); (c) ad tablosu "Twemoji", sürüm "17.0.3 (jdecked/twemoji,
+     nanoemoji glyf_colr_0)", telif notu.
+  Sonuç: 26 879 glif, 1 539 kod noktası, COLR v0 + CPAL (1 141 renk).
+
+Değişiklikler (OFL: alt küme almak serbesttir; hiçbir fontta Reserved Font Name yok, adlar korunur):
+  NotoSansMath-Regular.ttf: özgünden (1 015 396 bayt, google/fonts) fontTools pyftsubset ile Arapça bloğu
+    (U+0600–06FF) çıkarıldı; geri kalan bütün kod noktaları korundu. Neden: matematik fontundaki bağlantısız Arapça
+    harfler, Arapça metin için Noto Naskh Arabic'ten önce seçilmesin.
+    Seçenekler: --layout-features='*' --name-IDs='*' --name-languages='*' --notdef-outline --glyph-names
+  MPLUS1p-Regular-tamgenislik.ttf: özgün MPLUS1p-Regular.ttf'den (1 758 688 bayt, sha256 2f294ad4...) yalnız
+    U+3000–303F, U+3040–30FF, U+FF01–FF60, U+FFE0–FFE6 alındı (tam genişlik harf ve noktalama, kana; ツ gibi).
+    Seçenekler: --layout-features='*' --name-IDs='*' --name-languages='*' --notdef-outline
+  NotoNaskhArabic[wght].ttf: değiştirilmedi (test-fonts/yedek ile aynı dosya).
+
+Font eklemek ya da değiştirmek test beklentilerini ve gerçek veriyle ölçümü etkileyebilir: önce `pnpm test` ve
+`pnpm test:olcum` koşun. Yeni yedek, registry.ts içindeki BUNDLED_FALLBACKS listesine sırasıyla eklenir.
+
+sha256
+8ab38355414f2a1f771805d8b833ae6e4e9830f6550f68786bb2458dfa4d96e6  Twemoji.ttf
+478c558ea716033cd60c03438f628dfa75694dcf6b5f6d505a2f05fd2b4f3823  NotoSans-Regular.ttf
+67b5a525a661b607971fbd3f96a81b89d3a768e74534fca84f18ac97e6fab72f  NotoNaskhArabic[wght].ttf
+7d5fb73b7ca67a6798101741f5d280a3d016a56a197afcd4199dbb57b4b82a21  NotoSansSymbols2-Regular.ttf
+f7e7e04b4a24b6c78893d50cbfd2b2f6cae49617ab047bfef668d252adb128f7  NotoSansSymbols[wght].ttf
+5fb4ba981a1e6db01785341bad0d17f915f07a80fda1192815c141dfb9ec6af5  NotoSansMath-Regular.ttf
+b75055f3e2c6ae96f261976edcff6362928671076046b8d686e9ab232a6d0c70  MPLUS1p-Regular-tamgenislik.ttf

@@ -1,0 +1,68 @@
+{
+  "endpoint": "GET /api/deciship/tariffs/:id",
+  "status": 200,
+  "shape": {
+    "pinnedInvoices": "number",
+    "tariff": {
+      "active": "boolean",
+      "carrier": {
+        "code": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "carrierId": "string",
+      "countryAdjustments": [],
+      "createdAt": "string",
+      "currency": "string",
+      "discountPct": "number",
+      "divisor": "number",
+      "edgeRounding": "string",
+      "envelopeDiscountPct": "null",
+      "fuelPct": "number",
+      "fuelVariable": "boolean",
+      "id": "string",
+      "isDefault": "boolean",
+      "name": "string",
+      "overflow": [
+        {
+          "perUnit": "number",
+          "zone": "string"
+        }
+      ],
+      "pakDiscountPct": "null",
+      "rates": [
+        {
+          "packaging": "string",
+          "perKg": "boolean",
+          "price": "number",
+          "weightUpto": "number",
+          "zone": "string"
+        }
+      ],
+      "service": "null",
+      "surcharges": [
+        {
+          "amount": "number",
+          "code": "string",
+          "kind": "string",
+          "name": "string"
+        }
+      ],
+      "updatedAt": "string",
+      "validFrom": "null",
+      "validTo": "null",
+      "weightSteps": [
+        {
+          "step": "number",
+          "upto": "null"
+        }
+      ],
+      "zones": [
+        {
+          "country": "string",
+          "zone": "string"
+        }
+      ]
+    }
+  }
+}

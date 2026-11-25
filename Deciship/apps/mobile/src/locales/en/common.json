@@ -1,0 +1,28 @@
+{
+  "crash": {
+    "title": "Something went wrong",
+    "text": "The app could not open this screen. The measurement you entered is saved on the phone; try again.",
+    "retry": "Try again",
+    "home": "Back to Today"
+  },
+  "update": {
+    "title": "Update the app",
+    "body": "This version is no longer supported. Install the new version to continue.",
+    "queued_one": "{{count}} measurement on this phone has not been sent yet. It is kept and can be sent after the update.",
+    "queued_other": "{{count}} measurements on this phone have not been sent yet. They are kept and can be sent after the update.",
+    "keep": "Do not uninstall the app; install the new version over it.",
+    "download": "Download the new version",
+    "noLink": "Ask your administrator for the new version.",
+    "recheck": "Check again",
+    "version": "Version on this phone: {{current}} · Required: {{min}}"
+  },
+  "queue": {
+    "blockedUpgrade": "Sending stopped: the app needs to be updated."
+  },
+  "support": {
+    "title": "Help and support",
+    "sub": "Email us your question",
+    "version": "Version {{version}}",
+    "device": "Device: {{device}}"
+  }
+}

@@ -1,0 +1,193 @@
+/* Ortak alan bileşenleri (or- öneki). */
+
+.or-thumb {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-kbd);
+  background: var(--tz-paper);
+  color: var(--text-3);
+}
+
+.or-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.or-tp {
+  display: grid;
+  gap: 6px;
+}
+
+.or-tp-list {
+  max-height: 320px;
+  overflow: auto;
+  display: grid;
+  gap: 1px;
+}
+
+.or-tp-list button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+  text-align: left;
+}
+
+.or-tp-list button:hover,
+.or-tp-list button[aria-selected="true"] {
+  background: var(--primary-soft);
+}
+
+.or-tp-list button span {
+  flex: 1;
+  min-width: 0;
+}
+
+.or-tp-empty {
+  padding: 8px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.or-label {
+  position: relative;
+  display: inline-block;
+  flex: none;
+}
+
+.or-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.or-label.is-dim img {
+  opacity: 0.45;
+}
+
+.or-dls {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--tz-top-ctl);
+  max-width: 260px;
+  padding: 0 14px 0 11px;
+  border: 1px solid var(--tz-band-line);
+  border-radius: var(--tz-r-guided);
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-nav);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.or-dls:hover {
+  background: var(--tz-band-kbd);
+}
+
+.or-dls-n {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.or-dls-m {
+  display: grid;
+  gap: 1px;
+  min-width: 220px;
+}
+
+.or-dls-m button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+  text-align: left;
+}
+
+.or-dls-m button:hover,
+.or-dls-m button:focus-visible {
+  background: var(--surface-3);
+  outline: none;
+}
+
+.or-thumb--none {
+  border-style: dashed;
+  background: transparent;
+}
+
+.or-tp-h {
+  padding: 8px 8px 2px;
+  font-size: var(--tz-fs-section);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.or-ea {
+  display: grid;
+  gap: 16px;
+}
+
+.or-ea-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.or-ea-pick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px 0 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+  font-size: var(--tz-fs-panel);
+  text-align: left;
+}
+
+.or-ea-pick:hover {
+  border-color: var(--border-hover);
+}
+
+.or-ea-pick span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.or-ea-pick span.is-empty {
+  color: var(--text-3);
+}
+
+.or-ea-hint {
+  margin-right: auto;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.or-ea-issues {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.or-ea-issues:empty {
+  display: none;
+}

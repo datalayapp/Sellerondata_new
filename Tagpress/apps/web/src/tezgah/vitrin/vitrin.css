@@ -1,0 +1,41 @@
+/* Vitrin sayfası (yalnız geliştirmede). */
+
+.tz-vitrin {
+  height: 100%;
+  overflow: auto;
+  padding: 24px;
+  display: grid;
+  align-content: start;
+  gap: 24px;
+}
+
+.tz-vitrin-sec {
+  display: grid;
+  gap: 12px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+
+.tz-vitrin-sec > h2 {
+  font: 500 var(--tz-fs-section) / 14px var(--fm);
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.tz-vitrin-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.tz-vitrin-frame {
+  height: 360px;
+  display: flex;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-page);
+  overflow: hidden;
+}

@@ -1,0 +1,106 @@
+{
+  "rail": {
+    "label": "Tools",
+    "hub": "Hub",
+    "soon": "Soon",
+    "soonHint": "{{name}} is not open yet."
+  },
+  "top": {
+    "menu": "Open menu",
+    "nav": "{{name}} menu",
+    "skip": "Skip to content"
+  },
+  "apps": {
+    "button": "Apps",
+    "label": "SellerOnData apps"
+  },
+  "org": {
+    "label": "Company",
+    "button": "Company: {{name}}",
+    "none": "No company",
+    "suspended": "Suspended",
+    "closed": "Closed",
+    "closedUntil": "Closed · until {{date}}",
+    "settings": "Company settings",
+    "create": "New company",
+    "tipCompany": "Company: {{name}}",
+    "roles": {
+      "OWNER": "Company owner",
+      "ADMIN": "Company admin",
+      "MEMBER": "Employee"
+    },
+    "switchFailed": "Could not switch company."
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "user": {
+    "button": "User menu: {{name}}",
+    "profile": "My account",
+    "security": "Security",
+    "firms": "My companies",
+    "logout": "Sign out",
+    "label": "Account",
+    "support": "Help and support"
+  },
+  "common": {
+    "close": "Close",
+    "retry": "Try again",
+    "loading": "Loading",
+    "loadFailed": "Could not load the data.",
+    "unexpected": "Something went wrong. Reload the page and try again.",
+    "more": "More",
+    "prevPage": "Previous page",
+    "nextPage": "Next page",
+    "pageOf": "Page {{page, number}} of {{pages, number}}",
+    "rangeOf": "{{from, number}}–{{to, number}} of {{total, number}} records",
+    "rangeOfUnit": "{{from, number}}–{{to, number}} of {{total, number}} {{label}}"
+  },
+  "modalGuard": {
+    "title": "Discard what you entered?",
+    "body": "If you close this window, the changes you made here will be lost.",
+    "keep": "Keep editing",
+    "discard": "Discard and close",
+    "busy": "Working…"
+  },
+  "leave": {
+    "label": "Unsaved changes",
+    "title": "Changes not saved",
+    "body": "If you leave this page, your changes will be lost.",
+    "stay": "Stay on page",
+    "leave": "Leave without saving"
+  },
+  "session": {
+    "offlineTitle": "No connection.",
+    "offlineBody": "The server cannot be reached. You are still signed in and what you typed is kept.",
+    "offlineError": "The server could not be reached. What you typed is kept, try again once the connection is back.",
+    "orgTitle": "Company changed.",
+    "orgBody": "This tab is open for {{tab}}, but your account moved to {{current}} in another tab. Nothing is saved from this tab and what you typed is kept.",
+    "orgBodyPlain": "Your account moved to another company in another tab. Nothing is saved from this tab and what you typed is kept.",
+    "reload": "Reload page",
+    "reloadAnyway": "Reload anyway",
+    "reloadConfirm": "Reloading clears what you typed on this page.",
+    "resume": "Continue with {{org}}",
+    "resumeFailed": "Could not return to this company. Reload the page.",
+    "busy": "The system is busy right now. It will retry automatically shortly.",
+    "endedTitle": "Your membership in this company has ended.",
+    "suspendedTitle": "Your membership in this company is suspended.",
+    "endedBody": "Nothing can be saved from this tab. Reload the page.",
+    "endedBodyOther": "Nothing can be saved from this tab. You can switch to another company you belong to.",
+    "switchTo": "Switch to {{org}}",
+    "logoutFailed": "Could not sign out.",
+    "logoutFailedBody": "You are still signed in. Check your connection and try again."
+  },
+  "boundary": {
+    "title": "This section could not be opened",
+    "pageTitle": "The page could not be opened",
+    "body": "Something unexpected went wrong. Reload the page; if it keeps happening, go back to the home page.",
+    "reload": "Reload page",
+    "homeHub": "Back to Overview",
+    "homeProduct": "Back to {{name}} home",
+    "tech": "Technical details"
+  },
+  "support": {
+    "subject": "Support request"
+  }
+}

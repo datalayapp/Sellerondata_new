@@ -1,0 +1,428 @@
+/* Dashboard (Dashboard.tsx) — reference implementation for page agents.
+ * Page-specific only — shared components (cards, KPI tiles, tables) live in ../app.css. */
+
+.dash {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+  align-items: stretch;
+}
+@media (max-width: 1279px) {
+  .dash-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .dash,
+  .dash-grid {
+    gap: 16px;
+  }
+}
+
+/* month picker with leading icon */
+.dash-month {
+  position: relative;
+  display: flex;
+}
+.dash-month svg.i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+.dash-month .sel {
+  width: 190px;
+  padding-left: 36px;
+}
+@media (max-width: 767px) {
+  /* uzun ay adı (EN "September 2026") kırpılmasın: tam satır */
+  .dash-month {
+    flex: 1 1 100%;
+  }
+  .dash-month .sel {
+    width: 100%;
+  }
+}
+
+/* Baş kart (gece) + gösterge kartı: Pano tasarımı (deciship/project/Main) */
+.dash-lead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.dash-hero {
+  flex: 999 1 640px;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 24px 40px;
+  padding: 24px;
+  border-radius: var(--r-card);
+  background: var(--night);
+  color: #fff;
+}
+.dash-hero-main {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dash-hero-l {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-text-2);
+}
+.dash-hero-v {
+  margin-top: 8px;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+/* gece zeminde kırmızı okunmaz: tutar beyaz kalır, sınıf anlam için durur */
+.dash-hero-v.red {
+  color: #fff;
+}
+.dash-hero-v small {
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+.dash-hero-s {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--ink-text-2);
+}
+.dash-hero-s b {
+  color: #fff;
+  font-weight: 500;
+}
+.dash-hero-side {
+  flex: 0 1 300px;
+  min-width: 0;
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+}
+.dash-hero-row,
+.dash-hero .dash-disp > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink-line);
+}
+/* disputes.css'teki eski satır içi .dash-disp düzeni gece kartında ezilir */
+.dash-hero .dash-disp > div {
+  flex-direction: row;
+}
+.dash-hero-row > span,
+.dash-hero .dash-disp dt {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-text-2);
+}
+.dash-hero-row b,
+.dash-hero .dash-disp dd {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dash-hero .dash-disp {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: 12px;
+}
+.dash-hero .dash-disp dt a,
+.dash-hero-go {
+  color: var(--primary-on-dark);
+}
+.dash-hero .dash-disp dt a:hover,
+.dash-hero-go:hover {
+  color: #fff;
+}
+.dash-hero .dash-disp dd.green {
+  color: #a6f4c5;
+}
+.dash-hero-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+}
+.dash-cur {
+  flex: 1 1 100%;
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--ink-line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ink-text-2);
+}
+.dash-hero .dash-cur li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+}
+.dash-cur b {
+  font-weight: 500;
+  color: #fff;
+}
+.dash-hero .dash-cur-d {
+  color: var(--ink-text-2);
+}
+.dash-rows {
+  flex: 1 1 300px;
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.dash-lead > .dash-rows:only-child {
+  flex-basis: 100%;
+}
+/* Satır boş yeri doldurur ama içeriğinden kısa olamaz (flex: 1 satırı 56 px'e kadar ezip "Ölçüm kapsamı" değerini
+   kartın overflow'unda kırpıyordu). Ad sütunu esner, değer hep aynı satırda sağda kalır. */
+.dash-row {
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 16px;
+  min-height: 56px;
+  padding: 10px 20px;
+  color: inherit;
+  border-top: 1px solid var(--border-soft);
+}
+.dash-row:first-child {
+  border-top: 0;
+}
+.dash-row:has(.dash-row-a) {
+  position: relative;
+}
+.dash-row:has(.dash-row-a):hover {
+  background: var(--surface-2);
+}
+.dash-row-a,
+.dash-row-a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+/* bağlantı adın üstünde, tıklama alanı satırın tamamı */
+.dash-row-a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.dash-row-a:focus-visible {
+  outline: none;
+}
+.dash-row-a:focus-visible::after {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+.dash-row dt {
+  flex: 1 1 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-2);
+  min-width: 0;
+}
+.dash-row-s {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.dash-row dd {
+  margin: 0;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dash-row-bar {
+  flex: 1 1 100%;
+  height: 6px;
+}
+.dash-lastdata {
+  font-family: var(--fm);
+  font-size: 13px;
+}
+@media (max-width: 767px) {
+  .dash-hero {
+    padding: 20px;
+    gap: 16px;
+  }
+  .dash-hero-v {
+    font-size: 40px;
+  }
+  .dash-hero-v small {
+    font-size: 20px;
+  }
+  .dash-hero-s {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+  .dash-hero-side {
+    flex-basis: 100%;
+  }
+  .dash-row {
+    padding: 10px 16px;
+  }
+}
+
+/* diff-type bars */
+.rr {
+  display: grid;
+  grid-template-columns: minmax(110px, 1.1fr) minmax(60px, 1fr) 56px minmax(110px, auto);
+  align-items: center;
+  column-gap: 16px;
+  min-height: 44px;
+  border-top: 1px solid var(--border-soft);
+}
+.rr.h {
+  min-height: 32px;
+  border-top: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-3);
+}
+.rr.tot {
+  font-weight: 600;
+  border-top: 1px solid var(--border-strong);
+}
+.rr .bar {
+  height: 6px;
+}
+@media (max-width: 599px) {
+  /* name + amount on one line, bar + count underneath */
+  .rr {
+    grid-template-columns: minmax(0, 1fr) 112px;
+    grid-template-areas:
+      'name amt'
+      'bar count';
+    row-gap: 6px;
+    padding: 10px 0;
+  }
+  .rr.h {
+    display: none;
+  }
+  .rr:nth-child(2) {
+    border-top: 0;
+  }
+  .rr-name {
+    grid-area: name;
+    font-weight: 500;
+  }
+  .rr-amt {
+    grid-area: amt;
+  }
+  .rr-bar {
+    grid-area: bar;
+  }
+  .rr-count {
+    grid-area: count;
+    font-size: 13px;
+    color: var(--text-3);
+  }
+  .rr-count[data-unit]::after {
+    content: ' ' attr(data-unit);
+  }
+  .rr.tot .rr-bar {
+    display: none;
+  }
+}
+
+/* measurement methods: stacked bar + legend list */
+.stack {
+  display: flex;
+  height: 12px;
+  gap: 2px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--border-soft);
+}
+.stack i {
+  display: block;
+  height: 12px;
+}
+.legend {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  border-top: 1px solid var(--border-soft);
+}
+.legend li:first-child {
+  border-top: 0;
+}
+.legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+  flex: none;
+}
+.legend .pct {
+  width: 44px;
+  text-align: right;
+  font-size: 13px;
+}
+
+/* dönem seçici bantta: simge beyaz */
+.sod-band .dash-month svg.i {
+  color: #fff;
+}
+.sod-band .dash-month .sel {
+  width: 200px;
+}
+/* telefon (Telefon-GenelBakis): Fatura yükle önde ve geniş, dönem yanında. Dönem adı (EN "November 2026")
+ * kırpılmaz: seçici yazısı kadar genişler, sığmazsa alt satıra iner. */
+@media (max-width: 760px) {
+  .sod-band .pactions:has(.dash-month) > .btn-primary {
+    order: -1;
+    flex: 1 1 auto;
+  }
+  .sod-band .pactions .dash-month {
+    flex: 0 1 auto;
+  }
+  .sod-band .pactions .dash-month .sel {
+    width: auto;
+    field-sizing: content;
+    min-width: 150px;
+  }
+}

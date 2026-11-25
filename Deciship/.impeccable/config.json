@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "apps/web/src/styles/app.css"
+        ],
+        "createdAt": "2026-10-31T17:11:38.625Z",
+        "reason": "Carbon inline notification/toast 3px status border copied from the user's own prototype, which the user asked to reuse"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Taklit curl (ayakta-mi.sh'in sağlık yoklaması): "adres kod" satırları $FAKE/curl-<HEAD kısa sha>.txt, yoksa $FAKE/curl.txt;
+# bilinmeyen adres bağlantı hatası (000).
+url="${@: -1}"
+read -r sha <"$FAKE_REPO/.git/HEAD" 2>/dev/null
+sha=${sha:0:7}
+f="$FAKE/curl-$sha.txt"
+[ -f "$f" ] || f="$FAKE/curl.txt"
+code=$(awk -v u="$url" '$1 == u { print $2; exit }' "$f" 2>/dev/null)
+printf '%s' "${code:-000}"
+[ -n "$code" ] || exit 7

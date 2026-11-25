@@ -1,0 +1,54 @@
+{
+  "actions": {
+    "close": "Kapat",
+    "cancel": "Vazgeç",
+    "ok": "Tamam",
+    "goToConnections": "Bağlantılar'a git",
+    "clearSelection": "Seçimi kaldır"
+  },
+  "status": {
+    "ok": "Tamam",
+    "warn": "Uyarı",
+    "error": "Hata",
+    "busy": "Sürüyor",
+    "ready": "Hazır",
+    "idle": "Bekliyor",
+    "info": "Bilgi"
+  },
+  "dialog": {
+    "dirtyTitle": "Değişiklikler kaydedilmedi",
+    "dirtyBody": "Kapatırsanız yaptığınız değişiklikler silinir.",
+    "keepEditing": "Düzenlemeye dön",
+    "discard": "Sil ve kapat",
+    "busy": "İşlem sürüyor"
+  },
+  "undo": {
+    "generic": "Tamamlandı. Geri alabilirsiniz.",
+    "jobs-deleted_one": "{{count}} iş silindi",
+    "jobs-deleted_other": "{{count}} iş silindi",
+    "batch-deleted_one": "Parti ve {{count}} işi silindi",
+    "batch-deleted_other": "Parti ve {{count}} işi silindi",
+    "variant-deleted": "Varyasyon silindi",
+    "adjust-saved": "Elle düzeltme kaydedildi",
+    "adjust-removed": "Elle düzeltme kaldırıldı",
+    "print-page-deleted": "Baskı sayfası silindi",
+    "print-pages-deleted_one": "{{count}} baskı sayfası silindi",
+    "print-pages-deleted_other": "{{count}} baskı sayfası silindi",
+    "print-session-deleted": "Baskı oturumu silindi",
+    "language-deleted": "Tasarım dili silindi"
+  },
+  "leave": {
+    "body": "Ayrılırsanız kaydedilmemiş değişiklikler silinir.",
+    "confirm": "Kaydetmeden çık"
+  },
+  "featureOff": {
+    "turnOn": "Aç",
+    "turnedOn": "«{{name}}» açıldı.",
+    "retry": "Yeniden dene",
+    "retried": "İstek yeniden gönderildi."
+  },
+  "network": {
+    "unreachable": "Sunucuya ulaşılamadı. TagPress çalışıyor mu?",
+    "httpStatus": "Sunucu hatası ({{status}})"
+  }
+}

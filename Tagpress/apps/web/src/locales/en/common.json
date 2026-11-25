@@ -1,0 +1,54 @@
+{
+  "actions": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "goToConnections": "Go to connections",
+    "clearSelection": "Clear selection"
+  },
+  "status": {
+    "ok": "OK",
+    "warn": "Warning",
+    "error": "Error",
+    "busy": "In progress",
+    "ready": "Ready",
+    "idle": "Waiting",
+    "info": "Info"
+  },
+  "dialog": {
+    "dirtyTitle": "Unsaved changes",
+    "dirtyBody": "If you close, your changes will be lost.",
+    "keepEditing": "Back to editing",
+    "discard": "Discard and close",
+    "busy": "In progress"
+  },
+  "undo": {
+    "generic": "Done. You can undo it.",
+    "jobs-deleted_one": "1 job deleted",
+    "jobs-deleted_other": "{{count}} jobs deleted",
+    "batch-deleted_one": "Batch and its job deleted",
+    "batch-deleted_other": "Batch and its {{count}} jobs deleted",
+    "variant-deleted": "Variant deleted",
+    "adjust-saved": "Manual adjustment saved",
+    "adjust-removed": "Manual adjustment removed",
+    "print-page-deleted": "Print page deleted",
+    "print-pages-deleted_one": "1 print page deleted",
+    "print-pages-deleted_other": "{{count}} print pages deleted",
+    "print-session-deleted": "Print session deleted",
+    "language-deleted": "Design language deleted"
+  },
+  "leave": {
+    "body": "If you leave, your unsaved changes will be lost.",
+    "confirm": "Leave without saving"
+  },
+  "featureOff": {
+    "turnOn": "Turn on",
+    "turnedOn": "“{{name}}” is on.",
+    "retry": "Try again",
+    "retried": "Request sent again."
+  },
+  "network": {
+    "unreachable": "Can't reach the server. Is TagPress running?",
+    "httpStatus": "Server error ({{status}})"
+  }
+}

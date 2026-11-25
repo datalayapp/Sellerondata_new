@@ -1,0 +1,511 @@
+{
+  "title": "Tasarım dili",
+  "loading": "Yükleniyor…",
+  "noPublished": "Bu tasarım dilinin yayınlanmış bir sürümü yok.",
+  "tabs": {
+    "ozet": "Özet",
+    "kurallar": "Kurallar",
+    "dene": "Dene",
+    "ornekler": "Örnekler",
+    "ogren": "Öğren",
+    "surumler": "Sürümler",
+    "olustur": "Oluştur"
+  },
+  "actions": {
+    "publish": "Yayınla"
+  },
+  "draft": {
+    "line": "Taslak · {{n}} alan değişti · {{state}}",
+    "state": {
+      "saving": "Kaydediliyor…",
+      "invalid": "Kaydedilemedi: işaretli alanları düzeltin",
+      "error": "Kaydedilemedi",
+      "saved": "Taslağa kaydedildi",
+      "pending": "Kaydedilecek…"
+    }
+  },
+  "publish": {
+    "title": "Taslak yayınlansın mı?",
+    "body": "Yayınlanınca yeni üretimler bu kuralları kullanır. Eski sürüme istediğiniz zaman dönebilirsiniz.",
+    "noteLabel": "Ne değişti? (kısa not)",
+    "notePlaceholder": "ör. İkincil satırlar biraz küçüldü",
+    "confirm": "Yayınla",
+    "done": "Sürüm {{version}} yayınlandı.",
+    "disabledHint": "Yayınlanmış sürümden farkı yok ya da hatalı alan var."
+  },
+  "discard": {
+    "title": "Taslak atılsın mı?",
+    "body": "Yayınlanmamış değişiklikler silinir. Yayınlanmış sürüm olduğu gibi kalır.",
+    "confirm": "Taslağı at",
+    "done": "Taslak atıldı."
+  },
+  "empty": {
+    "title": "Henüz bir tasarım dilin yok",
+    "body": "Tasarım dili, etiketlerinin nasıl yazılacağını anlatır: hangi fontlar, hangi satır büyük, & işareti nasıl durur, satırlar nerede bölünür. Her şey bu kurallardan üretilir; kendi tarzın kodda değil burada yaşar.",
+    "step1": "Boş bir tasarım dili oluştur.",
+    "step2": "Oluştur bölümünde bitmiş etiketlerini yükle; yapay zekâ ile kurallarını birlikte çıkarın.",
+    "step3": "Örnek siparişlerle dene, memnunsan yayınla.",
+    "create": "Yeni tasarım dili",
+    "dialogTitle": "Yeni tasarım dili",
+    "dialogBody": "Varsayılan değerlerle boş bir dil oluşturulur; kurallarını sonra düzenlersin.",
+    "nameLabel": "Adı",
+    "namePlaceholder": "ör. Düğün etiketleri",
+    "cancel": "Vazgeç",
+    "confirm": "Oluştur",
+    "created": "“{{name}}” oluşturuldu."
+  },
+  "date": {
+    "today": "Bugün {{time}}",
+    "yesterday": "Dün {{time}}"
+  },
+  "specimen": {
+    "none": "Örnek yok",
+    "noFile": "Dosya yok",
+    "alt": "{{file}} örneği: {{text}}"
+  },
+  "schema": {
+    "label": "Satır oranlarını gösteren örnek etiket şeması",
+    "caption": "Sağdaki sayı satırın ana satıra oranı; mor ölçü satırlar arası boşluk.",
+    "primary": "Ana satır",
+    "secondary": "İkincil satır",
+    "tertiary": "Tarih"
+  },
+  "summary": {
+    "sheetTitle": "Yazı örnek föyü",
+    "sampleLabel": "Örnek yazı",
+    "sampleText": "Aa Bb Cc Çç Şş 0123 &",
+    "noFonts": "Henüz font yok.",
+    "kind": {
+      "script": "el yazısı",
+      "serif": "tırnaklı",
+      "sans": "tırnaksız",
+      "display": "süslü başlık"
+    },
+    "role": {
+      "primary": "ana satır",
+      "secondary": "ikincil satır",
+      "accent": "vurgu"
+    },
+    "glyphOnly": "yalnızca özel karakterler",
+    "off": "kapalı",
+    "glyphs": "Özel karakterler",
+    "ratios": "Satır oranları",
+    "draftNote": "Aşağıdakiler yayınlanmamış taslağa göre yazıldı.",
+    "edit": "Düzenle",
+    "editFor": "Düzenle: {{group}}"
+  },
+  "rules": {
+    "groupsLabel": "Kural grupları",
+    "search": "Alan ara",
+    "searchPlaceholder": "ör. doluluk, bağlaç, kalın",
+    "searchLabel": "Alan ara",
+    "saveFailed": "Taslak kaydedilemedi. {{message}} Hatalı alanlar işaretli; düzeltince kendiliğinden kaydedilir.",
+    "noMatch": "Eşleşen alan yok",
+    "advanced": "İleri ayarlar",
+    "preview": {
+      "tools": "Önizleme araçları",
+      "sample": "Örnek",
+      "sampleLabel": "Önizlenen örnek",
+      "free": "Kısa örnek metin",
+      "sampleText": "Elif & Kerem 14.06.2027",
+      "refreshing": "Önizleme yenileniyor…",
+      "loading": "Önizleme hazırlanıyor…",
+      "withDraft": "Taslakla, ücretsiz motor",
+      "withPublished": "Yayınlanmış sürümle, ücretsiz motor",
+      "status": "Canlı önizleme · AI yok, ücret yok · Ø {{mm}} mm",
+      "name": "Önizleme",
+      "draft": "Taslak",
+      "published": "Yayında",
+      "lines_one": "{{count}} satır",
+      "lines_other": "{{count}} satır",
+      "issues_one": "{{count}} sorun",
+      "issues_other": "{{count}} sorun",
+      "alt": "Önizleme: {{text}}",
+      "schema": "Şema",
+      "schemaTip": "Motorun kendisi değil; satırların oranlarını gösterir."
+    },
+    "advancedCount": "{{n}} alan"
+  },
+  "field": {
+    "on": "Açık",
+    "off": "Kapalı",
+    "generalLimit": "Genel sınır",
+    "setLimit": "Sınır koy",
+    "clearLimit": "Sınırı kaldır",
+    "pickColor": "{{name}}: renk seç"
+  },
+  "editors": {
+    "remove": "Kaldır",
+    "fonts": {
+      "empty": "Henüz font yok. “Font ekle” ile yüklü fontlardan seçin.",
+      "missing": "Font dosyası bulunamadı.",
+      "kind": "Tür",
+      "kinds": {
+        "script": "El yazısı",
+        "serif": "Tırnaklı",
+        "sans": "Tırnaksız",
+        "display": "Süslü başlık"
+      },
+      "roles": "Hangi satırlarda",
+      "rolesOf": "{{font}} rolleri",
+      "role": {
+        "primary": "Ana",
+        "secondary": "İkincil",
+        "accent": "Vurgu"
+      },
+      "upperRun": "Büyük harf sınırı",
+      "upperRunOf": "{{font}} art arda en çok büyük harf",
+      "noLimit": "Sınır yok",
+      "setLimit": "Sınır koy",
+      "clearLimit": "Sınırı kaldır",
+      "note": "Not",
+      "notePlaceholder": "AI'a ve size gösterilecek kısa not",
+      "lockTracking": "Harf aralığı kilitli",
+      "inUse": "Kullanımda",
+      "inUseOf": "{{font}} kullanımda",
+      "remove": "{{font}} fontunu listeden çıkar",
+      "add": "Font ekle",
+      "loadFailed": "Yüklü fontlar okunamadı.",
+      "noneToAdd": "Eklenecek yeni font yok. Yeni font yüklemek için Ayarlar > Fontlar."
+    },
+    "glyphs": {
+      "empty": "Özel karakter kuralı yok. Örneğin “&” işaretini başka bir fontla, yarım boyutta bastırabilirsiniz.",
+      "enabled": "Kural açık",
+      "moveUp": "Yukarı taşı",
+      "moveDown": "Aşağı taşı",
+      "remove": "Kuralı sil",
+      "which": "Hangi karakter",
+      "match": {
+        "chars": "Şu karakterler",
+        "word-initial-upper": "Kelime başındaki büyük harf",
+        "line-initial-upper": "Satır başındaki büyük harf",
+        "digits": "Rakamlar"
+      },
+      "chars": "Karakterler",
+      "letters": "Yalnızca şu harfler (boş = hepsi)",
+      "font": "Hangi fontla",
+      "choose": "Seçin",
+      "scale": "Boyut (satır puntosunun katı)",
+      "shift": "Yukarı kayma (em)",
+      "onlyWith": "Yalnızca şu fontlarla birlikte (boş = her fontta)",
+      "needFonts": "Önce Fontlar grubundan font ekleyin.",
+      "add": "Kural ekle"
+    },
+    "chips": {
+      "remove": "{{item}} öğesini kaldır",
+      "placeholder": "Yazıp Enter'a basın; virgülle birden çok ekleyebilirsiniz"
+    },
+    "scales": {
+      "ratioOf": "{{word}} bağlacının oranı (ana satırın)",
+      "remove": "{{word}} için özel oranı kaldır",
+      "placeholder": "Bağlaç (ör. e)",
+      "wordLabel": "Özel oran eklenecek bağlaç",
+      "add": "Ekle"
+    },
+    "pair": {
+      "lines": "{{n}} satır",
+      "min": "En az satır",
+      "max": "En çok satır"
+    },
+    "examples": {
+      "empty": "Örnek yok. Bir metni nasıl bölmek istediğinizi göstermek kural yazmaktan daha güçlüdür.",
+      "text": "Müşterinin metni",
+      "lines": "Satırlar (her satır ayrı)",
+      "linesLabel": "Satırlar",
+      "linesPlaceholder": "Her satır ayrı yazılır",
+      "remove": "Örneği sil",
+      "add": "Örnek ekle"
+    },
+    "cut": {
+      "sub": {
+        "cx": "Merkez yatay",
+        "cy": "Merkez dikey",
+        "r": "Yarıçap",
+        "rx": "Yatay yarıçap",
+        "ry": "Dikey yarıçap",
+        "x": "Sol",
+        "y": "Üst",
+        "w": "Genişlik",
+        "h": "Yükseklik",
+        "radius": "Köşe yuvarlama"
+      },
+      "kinds": {
+        "circle": "Daire",
+        "ellipse": "Oval",
+        "rect": "Dikdörtgen",
+        "polygon": "Çokgen"
+      },
+      "points": "Köşe noktaları (her satır: yatay, dikey)"
+    },
+    "sizes": {
+      "id": "Adı (JSON'daki gibi)",
+      "cm": "Gerçek boyut",
+      "frame": "Çerçeve",
+      "remove": "Boyutu sil",
+      "add": "Boyut ekle"
+    },
+    "sheets": {
+      "empty": "Sticker sayfası yok.",
+      "name": "Sayfa adı",
+      "shape": "Şekil",
+      "rect": "Dikdörtgen",
+      "circle": "Yuvarlak",
+      "keywords": "Ürün adında şunlardan biri geçerse bu sayfa (boş = varsayılan sayfa)",
+      "keywordsLabel": "Ürün anahtar kelimeleri",
+      "diameter": "Yazı alanı çapı",
+      "maxW": "Yazı alanı genişliği",
+      "maxH": "Yazı alanı yüksekliği",
+      "slotW": "Yuva genişliği",
+      "slotH": "Yuva yüksekliği",
+      "gap": "Aralık",
+      "padding": "İç boşluk",
+      "remove": "Sayfayı sil",
+      "add": "Sayfa ekle"
+    }
+  },
+  "versions": {
+    "title": "Sürümler",
+    "other": "Diğer",
+    "loadFailed": "Sürümler okunamadı",
+    "retry": "Yeniden dene",
+    "empty": "Henüz sürüm yok. İlk kuralları yayınladığınızda geçmiş burada görünür.",
+    "listLabel": "Sürüm listesi",
+    "version": "Sürüm {{n}}",
+    "active": "Etkin",
+    "draft": "Taslak",
+    "draftLower": "taslak",
+    "previous": "Önceki",
+    "compared": "Karşılaştırılan sürüm",
+    "first": "Bu ilk sürüm; karşılaştırılacak önceki sürüm yok.",
+    "noDiff": "Bu iki sürüm arasında kural farkı yok.",
+    "changed": "{{n}} alan değişti.",
+    "revertTitle": "Sürüm {{version}}'e dönülsün mü?",
+    "revertBody": "Bu sürümün kuralları YENİ bir sürüm olarak yayınlanır ve hemen etkin olur. Aradaki sürümler silinmez; istediğiniz zaman yine dönebilirsiniz.",
+    "revert": "Bu sürüme dön",
+    "revertNote": "Sürüm {{version}}'e geri dönüldü",
+    "reverted": "Sürüm {{from}} kuralları yeni sürüm {{to}} olarak yayınlandı.",
+    "code": "S.{{n}}",
+    "compareTools": "Karşılaştırma",
+    "nextArrow": "→ Sonraki:",
+    "field": "Alan",
+    "revertHint": "Dönünce bu sürümün kuralları yeni bir sürüm olarak yayınlanır; aradaki sürümler silinmez."
+  },
+  "enums": {
+    "fonts": {
+      "mixing": {
+        "single": "Tek aile",
+        "two": "İki aile",
+        "free": "Serbest"
+      }
+    },
+    "spacing": {
+      "align": {
+        "center": "Ortala",
+        "left": "Sola",
+        "right": "Sağa"
+      }
+    },
+    "lineBreaking": {
+      "coupleStack": {
+        "always": "Her zaman",
+        "option": "Adaylardan biri",
+        "never": "Asla"
+      },
+      "customerBreaks": {
+        "hint": "İpucu",
+        "strict": "Kesin",
+        "ignore": "Yok say"
+      }
+    },
+    "weight": {
+      "mode": {
+        "stroke": "Kontur",
+        "real": "Gerçek kalın",
+        "none": "Yok"
+      },
+      "align": {
+        "outside": "Dışa",
+        "center": "Ortaya"
+      }
+    },
+    "stickers": {
+      "detect": {
+        "empty-template": "Şablonu boş olan",
+        "product-field": "Ürün alanı olan"
+      }
+    }
+  },
+  "enforcement": {
+    "motor": {
+      "label": "Kesin",
+      "hint": "Motor bunu her zaman aynen uygular."
+    },
+    "ai": {
+      "label": "AI'a yol gösterir",
+      "hint": "AI bunu okur ve ona göre karar verir; zorlanmaz."
+    },
+    "ikisi": {
+      "label": "İkisi",
+      "hint": "AI'a söylenir, motor da sonucu denetler."
+    },
+    "sistem": {
+      "label": "Sistem",
+      "hint": "Üretimi değil, uygulamanın davranışını etkiler."
+    }
+  },
+  "diff": {
+    "sub": {
+      "kind": "şekil",
+      "cx": "merkez yatay",
+      "cy": "merkez dikey",
+      "r": "yarıçap",
+      "rx": "yatay yarıçap",
+      "ry": "dikey yarıçap",
+      "x": "sol",
+      "y": "üst",
+      "w": "genişlik",
+      "h": "yükseklik",
+      "radius": "köşe",
+      "points": "noktalar"
+    },
+    "unit": {
+      "karakter": "karakter",
+      "satir": "satır"
+    },
+    "empty": "boş",
+    "none": "yok",
+    "on": "Açık",
+    "off": "Kapalı",
+    "lines": "{{min}}–{{max}} satır",
+    "examples": "{{n}} örnek",
+    "rules": "{{n}} kural: {{list}}",
+    "noRules": "kural yok"
+  },
+  "describe": {
+    "titles": {
+      "genel": "Genel",
+      "fontlar": "Fontlar",
+      "ozel-karakterler": "Özel karakterler",
+      "boyut": "Boyut ve doluluk",
+      "bosluk": "Satır aralığı",
+      "baglaclar": "Bağlaçlar",
+      "satir-bolme": "Satır bölme",
+      "kalinlik-renk": "Kalınlık ve renk",
+      "cikti": "Etiket ölçüleri",
+      "sticker": "Sticker",
+      "baski": "Baskı",
+      "kalite": "Kalite işaretleri"
+    },
+    "general": {
+      "name": "“{{name}}” tasarım dili.",
+      "styleNote": "Tarz notu: {{note}}"
+    },
+    "fonts": {
+      "none": "Henüz kullanılabilir font eklenmemiş.",
+      "available": "{{n}} font kullanılabilir: {{list}}.",
+      "mixing": {
+        "single": "Bir etikette tek font ailesi kullanılır (özel karakterler hariç).",
+        "two": "Bir etikette en çok iki font ailesi kullanılır.",
+        "free": "Bir etikette font ailesi serbesttir."
+      },
+      "upperRun": "{{font}}, art arda en fazla {{n}} büyük harf olan metinlerde kullanılır.",
+      "lockTracking": "{{font}} için harf aralığına dokunulmaz."
+    },
+    "glyphs": {
+      "none": "Özel karakter kuralı yok; bütün harfler satırın kendi fontuyla yazılır."
+    },
+    "glyph": {
+      "half": "yarım boyutta",
+      "scale": "{{pct}} boyutunda",
+      "wordInitialLetters": "Kelime başındaki büyük {{letters}}",
+      "wordInitial": "Kelime başındaki büyük harfler",
+      "lineInitialLetters": "Satır başındaki büyük {{letters}}",
+      "lineInitial": "Satır başındaki büyük harfler",
+      "digits": "Rakamlar",
+      "base": "{{match}} her zaman {{font}} ile",
+      "shiftUp": "taban çizgisi {{n}} em yukarıda",
+      "shiftDown": "taban çizgisi {{n}} em aşağıda",
+      "only": "(yalnızca {{list}} ile)"
+    },
+    "size": {
+      "fillLocked": "Yazı alanın {{fill}} kadarını doldurur; bu her tasarımda aynıdır.",
+      "fillFree": "Yazı alanın {{fill}} kadarını doldurur; AI gerekirse bunu değiştirebilir.",
+      "tiers": "İkincil satırlar ana satırın {{secondary}}, üçüncül satırlar {{tertiary}}, tek başına bağlaç {{connector}}.",
+      "tiersLocked": "Bu oranları motor uygular; AI yalnızca satırın hangi sınıfta olduğunu seçer.",
+      "tiersFree": "AI satır boyutlarını oranlardan farklı seçebilir.",
+      "limits": "Büyük harf yüksekliği kesim çapının en fazla {{cap}}; punto {{min}} ile {{max}} arasında kalır.",
+      "initialsOneLine": "Yalnızca baş harf olan metin asla alt alta dizilmez."
+    },
+    "spacing": {
+      "gaps": "Satırlar arası küçük satırın {{normal}}, son tarih satırından önce {{beforeLast}}, tek başına bağlacın çevresinde {{connector}}.",
+      "align": "Satırlar {{how}}.",
+      "alignHow": {
+        "center": "ortalanır",
+        "left": "sola yaslanır",
+        "right": "sağa yaslanır"
+      }
+    },
+    "connectors": {
+      "words": "Bağlaç sayılanlar: {{list}}.",
+      "none": "Bağlaç tanımlı değil.",
+      "dangling": "Satır başında ya da sonunda asılı kalan bağlaç kendi satırına alınır.",
+      "symbolSpacing": "“&” gibi sembollerin çevresine gerekirse nefes boşluğu eklenir.",
+      "shiftRight": "İki isim arasındaki bağlaç {{n}} em sağa kayar.",
+      "shiftLeft": "İki isim arasındaki bağlaç {{n}} em sola kayar.",
+      "scale": "“{{word}}” bağlacı ana satırın {{pct}} büyüklüğünde."
+    },
+    "lineBreaking": {
+      "nameOwnLine": "İsim kendi satırında ve en büyük satırdır.",
+      "couple": {
+        "always": "Çift isimleri her zaman isim / bağlaç / isim diye alt alta dizilir.",
+        "option": "Çift isimlerinde alt alta dizilim adaylardan biri olarak denenir.",
+        "never": "Çift isimleri asla alt alta dizilmez."
+      },
+      "dateOwnLine": "Tarih ayrı satırda durur.",
+      "keepGreetings": "Kısa selamlar bölünmez.",
+      "limits": "Bir satır en çok {{chars}} karakter, bir etiket en çok {{lines}} satır olur; çoğu etiket {{min}}–{{max}} satırdır.",
+      "customer": {
+        "hint": "Müşterinin verdiği satır sonları ipucu sayılır.",
+        "strict": "Müşterinin verdiği satır sonları aynen uygulanır.",
+        "ignore": "Müşterinin verdiği satır sonları yok sayılır."
+      },
+      "noLone": "Şunlar tek başına satır olmaz: {{list}}.",
+      "examples": "AI'a {{n}} örnek bölme gösterilir.",
+      "notes": "Not: {{note}}"
+    },
+    "weight": {
+      "stroke": "Yazı, kendi rengiyle ana satır puntosunun {{n}} em'i kadar ince bir konturla kalınlaştırılır.",
+      "real": "Kalınlık için fontun kalın stili kullanılır.",
+      "none": "Yazı kalınlaştırılmaz.",
+      "color": "Yazı rengi {{color}}.",
+      "colorAuto": "Yazı rengi {{color}}; zemin koyuysa kendiliğinden {{dark}}."
+    },
+    "output": {
+      "line": "{{cut}} kesim; boyutlar {{sizes}}, varsayılan {{def}} cm.",
+      "cut": {
+        "circle": "Daire",
+        "ellipse": "Oval",
+        "rect": "Dikdörtgen",
+        "polygon": "Çokgen"
+      }
+    },
+    "sticker": {
+      "on": "Sticker siparişleri açık ({{detect}}); {{n}} sayfa tanımlı.",
+      "off": "Sticker siparişleri kapalı.",
+      "detect": {
+        "product-field": "ürün alanı olan siparişler",
+        "empty-template": "şablonu boş olan siparişler"
+      }
+    },
+    "quality": {
+      "line": "Puanı {{score}} altında kalan varyasyon “kontrol et” diye işaretlenir; {{pt}} punto altı uyarı verir."
+    }
+  },
+  "shortcuts": {
+    "primary": "Sonraki adım ya da yayınla",
+    "send": "Gönder",
+    "focusComposer": "Yazı kutusuna geç",
+    "attach": "Örnek ekle",
+    "toggleRev": "Önceki sürümle karşılaştır"
+  }
+}

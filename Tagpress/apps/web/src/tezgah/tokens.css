@@ -1,0 +1,82 @@
+/*
+ * Tezgâh belirteçleri, iki dosya (sırası önemli; sonraki öncekini ezer):
+ *   1. tokens.css            (bu dosya) "platform:base": Platform/packages/tokens/tokens.json "base" kopyası (başvurular
+ *                            çözülmüş). Yalnız yerel kipte yüklenir (`yerel.tsx`); platform kipinde aynı değerler kabuğun
+ *                            `@sellerondata/shell/tokens.css`'inden gelir. Elle değiştirilmez; tokens.test.ts kaymayı denetler.
+ *   2. tokens.generated.css  "tagpress" (aracın rengi, bant) ve "tezgah" (--tz- önekli renk ve ölçüler). Üretilir:
+ *                            tokens.json `surfaces.tagpressWeb` (node Platform/packages/tokens/build.mjs); iki kipte de yüklenir.
+ * Ekranlar renk ve ölçüyü elle yazmaz, yalnız var(--…); yeni değer tokens.json'a yazılır.
+ */
+
+/* @blok platform:base */
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-2: #faf9f6;
+  --surface-3: #ebe8e1;
+  --border: #e4e1da;
+  --line: #d9d6cf;
+  --line-soft: #eeebe5;
+  --border-strong: #8f8a80;
+  --border-hover: #6b665d;
+  --text: #0f1a2e;
+  --text-2: #475467;
+  --text-3: #5f6b7f;
+  --placeholder: #8d93a0;
+  --primary: #1d5bd8;
+  --primary-hover: #174bb5;
+  --primary-active: #133f99;
+  --primary-soft: #e8eefc;
+  --primary-line: #c7d7f8;
+  --night: #0a1a3a;
+  --brand-ink: #0f2a5c;
+  --accent: #fdb022;
+  --success: #067647;
+  --success-bg: #ecfdf3;
+  --success-line: #abefc6;
+  --danger: #c4271b;
+  --danger-hover: #b42318;
+  --danger-bg: #fef3f2;
+  --danger-line: #fecdca;
+  --warning: #b54708;
+  --warning-bg: #fffaeb;
+  --warning-line: #fedf89;
+  --focus: #1d5bd8;
+  --focus-on-dark: #b5cbff;
+  --focus-ring: 0 0 0 3px rgba(29, 91, 216, 0.25);
+  --scrim: rgba(15, 26, 46, 0.45);
+  --r-ctl: 10px;
+  --r-btn: 12px;
+  --r-card: 16px;
+  --r-pill: 999px;
+  --sh-sm: 0 1px 2px rgba(15, 26, 46, 0.04);
+  --sh-md: 0 4px 12px rgba(15, 26, 46, 0.08);
+  --sh-lg: 0 12px 32px rgba(10, 26, 58, 0.12);
+  --f: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --fm: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+  --topbar-h: 0px;
+  --content-max: 1240px;
+  --gutter: 32px;
+  --ctl-h: 44px;
+  --ctl-h-sm: 40px;
+  --btn-h: 48px;
+  --panel-w: 420px;
+  --sod-ink: #0f2a5c;
+  --sod-wrap: 1240px;
+  --sod-top-h: 0px;
+  --sod-band: #2a2d34;
+  --sod-band-2: #363a43;
+  --sod-band-on: #d3d6dc;
+  --sod-band-accent: #fdb022;
+  --sod-band-cta: #fdb022;
+  --sod-band-cta-hover: #fec04d;
+  --sod-band-cta-ink: #2a2d34;
+  --sod-product: #0f2a5c;
+  --chart-1: #1d5bd8;
+  --chart-2: #dc6803;
+  --chart-3: #0e9384;
+  --chart-4: #7a5af8;
+  --chart-prev: #98a2b3;
+  --chart-grid: #eeebe5;
+}
+/* @son platform:base */

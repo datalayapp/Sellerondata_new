@@ -1,0 +1,10 @@
+{
+  "status": 200,
+  "body": {
+    "orgName": "Örnek Ticaret",
+    "name": "Elif Şahin",
+    "personExists": false,
+    "purpose": "JOIN",
+    "linksCurrentAccount": false
+  }
+}

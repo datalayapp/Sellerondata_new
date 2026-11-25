@@ -1,0 +1,61 @@
+{
+  "brand": {
+    "name": "TagPress",
+    "parent": "SellerOnData",
+    "home": "TagPress, Production"
+  },
+  "nav": {
+    "label": "Sections",
+    "production": "Production",
+    "designLanguage": "Design language",
+    "templates": "Templates",
+    "print": "Print",
+    "settings": "Settings",
+    "setup": "Setup",
+    "setupPending": "Incomplete"
+  },
+  "routes": {
+    "importDesk": "Import",
+    "adjust": "Adjust",
+    "printTemplates": "Page templates",
+    "printArchive": "Archive",
+    "showcase": "Showcase"
+  },
+  "top": {
+    "producing": "Producing {{running}}",
+    "queued": "{{queued}} queued",
+    "offline": "No connection",
+    "offlineHint": "No connection to the server; retrying."
+  },
+  "work": {
+    "back": "Back",
+    "location": "Location",
+    "flow": "Flow",
+    "tabs": "Section",
+    "rename": "Rename",
+    "leftPanel": "Left panel",
+    "rightPanel": "Right panel"
+  },
+  "steps": {
+    "label": "Steps"
+  },
+  "zoom": {
+    "percent": "{{n}}%",
+    "label": "Zoom",
+    "selection": "Selection"
+  },
+  "canvas": {
+    "label": "Canvas"
+  },
+  "form": {
+    "decrease": "Decrease",
+    "increase": "Increase"
+  },
+  "list": {
+    "select": "Select row"
+  },
+  "narrow": {
+    "title": "This screen needs a wider display",
+    "body": "Open this screen on a computer or tablet. Settings and Setup also work on a phone."
+  }
+}

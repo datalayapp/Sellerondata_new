@@ -1,0 +1,744 @@
+-- TagPress Postgres şeması, ilk göç (göç rolü sod_tagpress_admin ile; çalıştırıcı db/pg/migrate.ts). Şema ve roller kayıttan
+-- üretilen infra/postgres/init.sql ile gelir: burada CREATE SCHEMA yok. Uygulanmış göç değiştirilmez; yeni göç yeni dosyadır.
+-- Önce product-kit kimlik izdüşümü bloğu, aynen (memberProjectionSql; db/pg/schema.pg.test.ts eşliğini denetler).
+
+-- product-kit memberProjectionSql (schema tagpress, rol sod_tagpress)
+GRANT USAGE ON SCHEMA "tagpress" TO "sod_tagpress";
+
+CREATE TABLE "tagpress"."Company" (
+  "id" text PRIMARY KEY,
+  "name" text NOT NULL DEFAULT '',
+  "nameVersion" integer,
+  "currency" text,
+  "country" text,
+  "timeZone" text,
+  "companyConfirmed" boolean NOT NULL DEFAULT false,
+  "closedAt" timestamptz,
+  "closedVersion" integer,
+  "createdAt" timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE "tagpress"."Member" (
+  "id" text PRIMARY KEY,
+  "orgId" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "personId" text NOT NULL DEFAULT '',
+  "name" text NOT NULL DEFAULT '',
+  "role" text,
+  "permissions" text[],
+  "active" boolean NOT NULL DEFAULT true,
+  "epoch" integer NOT NULL DEFAULT 0,
+  "removedAt" timestamptz,
+  "lastSeenAt" timestamptz,
+  "createdAt" timestamptz NOT NULL DEFAULT now(),
+  CONSTRAINT "Member_id_orgId_key" UNIQUE ("id", "orgId")
+);
+CREATE INDEX "Member_orgId_idx" ON "tagpress"."Member"("orgId");
+
+CREATE TABLE "tagpress"."ProcessedEvent" (
+  "eventId" text PRIMARY KEY,
+  "processedAt" timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE "tagpress"."CompanyPurge" (
+  "orgId" text PRIMARY KEY,
+  "createdAt" timestamptz NOT NULL DEFAULT now(),
+  "completedAt" timestamptz
+);
+
+-- init.sql'in varsayılan hakları (tam veri hakkı) önce geri alınır: uygulama rolü yalnız aşağıdakileri alır.
+REVOKE ALL ON "tagpress"."Company", "tagpress"."Member", "tagpress"."ProcessedEvent", "tagpress"."CompanyPurge" FROM "sod_tagpress";
+GRANT SELECT, INSERT, UPDATE, DELETE ON "tagpress"."Company", "tagpress"."Member" TO "sod_tagpress";
+GRANT SELECT, INSERT, DELETE ON "tagpress"."ProcessedEvent" TO "sod_tagpress";
+GRANT SELECT, INSERT ON "tagpress"."CompanyPurge" TO "sod_tagpress";
+GRANT UPDATE ("completedAt") ON "tagpress"."CompanyPurge" TO "sod_tagpress";
+
+ALTER TABLE "tagpress"."Company" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "tagpress"."Company" FORCE ROW LEVEL SECURITY;
+CREATE POLICY org_isolation ON "tagpress"."Company"
+  USING ("id" = current_setting('app.org_id', true))
+  WITH CHECK ("id" = current_setting('app.org_id', true));
+
+ALTER TABLE "tagpress"."Member" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "tagpress"."Member" FORCE ROW LEVEL SECURITY;
+CREATE POLICY org_isolation ON "tagpress"."Member"
+  USING ("orgId" = current_setting('app.org_id', true))
+  WITH CHECK ("orgId" = current_setting('app.org_id', true));
+
+ALTER TABLE "tagpress"."CompanyPurge" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "tagpress"."CompanyPurge" FORCE ROW LEVEL SECURITY;
+CREATE POLICY org_read ON "tagpress"."CompanyPurge" FOR SELECT
+  USING ("orgId" = current_setting('app.org_id', true));
+CREATE POLICY event_insert ON "tagpress"."CompanyPurge" FOR INSERT
+  WITH CHECK ("orgId" = current_setting('app.org_id', true) AND current_setting('app.scope', true) = 'events' AND "completedAt" IS NULL);
+CREATE POLICY purge_complete ON "tagpress"."CompanyPurge" FOR UPDATE
+  USING ("orgId" = current_setting('app.org_id', true) AND "completedAt" IS NULL)
+  WITH CHECK ("orgId" = current_setting('app.org_id', true) AND "completedAt" IS NOT NULL);
+CREATE POLICY maintenance_purge_read ON "tagpress"."CompanyPurge" FOR SELECT
+  USING (current_setting('app.scope', true) = 'maintenance' AND "completedAt" IS NULL);
+
+ALTER TABLE "tagpress"."ProcessedEvent" ENABLE ROW LEVEL SECURITY;
+ALTER TABLE "tagpress"."ProcessedEvent" FORCE ROW LEVEL SECURITY;
+CREATE POLICY event_read ON "tagpress"."ProcessedEvent" FOR SELECT
+  USING (current_setting('app.scope', true) = 'events');
+CREATE POLICY event_insert ON "tagpress"."ProcessedEvent" FOR INSERT
+  WITH CHECK (current_setting('app.scope', true) = 'events');
+CREATE POLICY maintenance_expired_read ON "tagpress"."ProcessedEvent" FOR SELECT
+  USING (current_setting('app.scope', true) = 'maintenance' AND "processedAt" < now() - interval '30 days');
+CREATE POLICY maintenance_expired_delete ON "tagpress"."ProcessedEvent" FOR DELETE
+  USING (current_setting('app.scope', true) = 'maintenance' AND "processedAt" < now() - interval '30 days');
+-- product-kit memberProjectionSql sonu
+
+-- ============================================================================================================================
+-- TagPress tabloları (SQLite göç 1–14 sonrası şemanın Postgres karşılığı; sütun adları aynı, `db/pg/schema.pg.test.ts` denetler).
+-- Tipler servis kodu değişmeden çalışsın diye (plan §2.3): zaman ve JSON `text` (ISO / JSON metni), mantıksal `bigint` 0/1,
+-- SQLite INTEGER → `bigint`, REAL → `double precision`, BLOB → `bytea`, AUTOINCREMENT → `bigint GENERATED BY DEFAULT AS IDENTITY`
+-- (aktarım kimliği korur; sonra dizinin değeri ilerletilir).
+-- Postgres'e özgü tek sütun `ins_seq` (gen_tasks, learn_runs, print_pages, print_items, design_sessions): SQLite `rowid`'inin
+-- karşılığı, ekleme sırası (servislerde `ORDER BY …, rowid` → `ORDER BY …, ins_seq`; kimlikler sıralı değil, `ctid` güncellemede
+-- değişir). BY DEFAULT: aktarım SQLite rowid'ini taşır.
+-- Firma: her kiracı tablosunda `org_id text NOT NULL REFERENCES "Company"`; FORCE RLS `org_isolation`. Ebeveyne bağlı çocuk
+-- tablo ebeveynine firmayla birlikte bağlanır (`FOREIGN KEY (org_id, <ebeveyn>) REFERENCES <ebeveyn>(org_id, id)`): yabancı
+-- anahtar denetimi RLS'yi aşar, bileşik anahtar başka firmanın satırına bağlanmayı engeller. Üye izi (`member_id`) aynı
+-- biçimde `Member("id", "orgId")`'ye bağlıdır (boş olabilir: yerel kip, aktarım, arka plan).
+-- Dizinler firmayla başlar (kalıcı silme ve her sorgu `org_id = $org`); tek istisna kuyruk taraması `gen_tasks_status_org`.
+-- Kuyruk kapsamı (`app.scope = 'queue'`, firma bağlamı yok): açılış kurtarması ve adil seçim. Yalnız aşağıda listelenen
+-- tablolarda, yalnız yarım kalmış satırları görür ve yalnız "kesildi"/"çalışıyor" durumuna çevirir (`queue_*` ilkeleri).
+-- Firma değişmezliği: RLS firma bağlamında zaten engeller; kuyruk kapsamı için `org_id_immutable` tetikleyicisi (SQLite'taki
+-- `<tablo>_org_immutable` tetikleyicilerinin karşılığı).
+-- ============================================================================================================================
+
+CREATE FUNCTION "tagpress"."org_id_immutable"() RETURNS trigger LANGUAGE plpgsql AS $fn$
+BEGIN
+  IF NEW.org_id IS DISTINCT FROM OLD.org_id THEN
+    RAISE EXCEPTION 'org_id değiştirilemez (%)', TG_TABLE_NAME USING ERRCODE = 'check_violation';
+  END IF;
+  RETURN NEW;
+END
+$fn$;
+-- init.sql'in varsayılan hakkı (EXECUTE) geri alınır: tetikleyici işlevi elle çağrılmaz.
+REVOKE ALL ON FUNCTION "tagpress"."org_id_immutable"() FROM PUBLIC, "sod_tagpress";
+
+-- ---------------------------------------------------------------------------------------------------------------- kurulum
+-- rls-ok: kurulum tablosu, firma verisi yok (`install.*`, `files.*`; platform kipinde yapay zekâ anahtarı burada tutulmaz)
+CREATE TABLE "tagpress"."settings" (
+  "key" text PRIMARY KEY,
+  "value" text NOT NULL
+);
+
+-- ---------------------------------------------------------------------------------------------------------------- dil
+CREATE TABLE "tagpress"."languages" (
+  "id" text PRIMARY KEY,
+  "name" text NOT NULL,
+  "created_at" text NOT NULL,
+  "deleted_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "languages_org_id_id_key" UNIQUE ("org_id", "id")
+);
+CREATE INDEX "languages_org" ON "tagpress"."languages"("org_id", "created_at");
+
+CREATE TABLE "tagpress"."profile_versions" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "version" bigint NOT NULL,
+  "status" text NOT NULL CHECK ("status" IN ('draft', 'published')),
+  "data" text NOT NULL,
+  "note" text NOT NULL DEFAULT '',
+  "created_at" text NOT NULL,
+  "published_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "profile_versions_language_id_version_key" UNIQUE ("language_id", "version"),
+  CONSTRAINT "profile_versions_language_fkey" FOREIGN KEY ("org_id", "language_id") REFERENCES "tagpress"."languages"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "profile_versions_org" ON "tagpress"."profile_versions"("org_id", "language_id", "version");
+
+CREATE TABLE "tagpress"."templates" (
+  "language_id" text NOT NULL,
+  "key" text NOT NULL,
+  "data" text NOT NULL,
+  "file_missing" bigint NOT NULL DEFAULT 0,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  PRIMARY KEY ("language_id", "key"),
+  CONSTRAINT "templates_language_fkey" FOREIGN KEY ("org_id", "language_id") REFERENCES "tagpress"."languages"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "templates_org" ON "tagpress"."templates"("org_id", "language_id", "key");
+
+CREATE TABLE "tagpress"."org_settings" (
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "key" text NOT NULL,
+  "value" text NOT NULL,
+  PRIMARY KEY ("org_id", "key")
+);
+
+CREATE TABLE "tagpress"."undo" (
+  "token" text PRIMARY KEY,
+  "kind" text NOT NULL,
+  "label" text NOT NULL,
+  "payload" text NOT NULL,
+  "created_at" text NOT NULL,
+  "expires_at" text NOT NULL,
+  "used_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id")
+);
+CREATE INDEX "undo_org_expires" ON "tagpress"."undo"("org_id", "expires_at");
+
+-- ---------------------------------------------------------------------------------------------------------------- yapay zekâ
+CREATE TABLE "tagpress"."ai_calls" (
+  "id" text PRIMARY KEY,
+  "job_id" text,
+  "task_id" text,
+  "variant_id" text,
+  "language_id" text,
+  "purpose" text NOT NULL,
+  "model" text NOT NULL,
+  "summary" text NOT NULL,
+  "response" bytea,
+  "error" text,
+  "input_tokens" bigint NOT NULL DEFAULT 0,
+  "output_tokens" bigint NOT NULL DEFAULT 0,
+  "cache_read_tokens" bigint NOT NULL DEFAULT 0,
+  "cache_write_tokens" bigint NOT NULL DEFAULT 0,
+  "images" bigint NOT NULL DEFAULT 0,
+  "cost_usd" double precision,
+  "duration_ms" bigint NOT NULL DEFAULT 0,
+  "created_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "build_id" text,
+  "member_id" text,
+  "gateway_call_id" text,
+  CONSTRAINT "ai_calls_member_fkey" FOREIGN KEY ("member_id", "org_id") REFERENCES "tagpress"."Member"("id", "orgId")
+);
+CREATE INDEX "ai_calls_org_job" ON "tagpress"."ai_calls"("org_id", "job_id");
+CREATE INDEX "ai_calls_org_build" ON "tagpress"."ai_calls"("org_id", "build_id");
+CREATE INDEX "ai_calls_org_created" ON "tagpress"."ai_calls"("org_id", "created_at");
+
+CREATE TABLE "tagpress"."template_tasks" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "status" text NOT NULL,
+  "theme" text NOT NULL,
+  "template_key" text,
+  "error" text,
+  "cost_usd" double precision,
+  "sample_png" text,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id")
+);
+CREATE INDEX "template_tasks_org_language" ON "tagpress"."template_tasks"("org_id", "language_id", "created_at");
+
+-- ---------------------------------------------------------------------------------------------------------------- öğrenme
+CREATE TABLE "tagpress"."refs" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "data" text NOT NULL,
+  "split" text NOT NULL,
+  "created_at" text NOT NULL,
+  "deleted_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id")
+);
+CREATE INDEX "refs_org_lang" ON "tagpress"."refs"("org_id", "language_id", "created_at");
+
+CREATE TABLE "tagpress"."learn_proposals" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "status" text NOT NULL,
+  "title" text NOT NULL,
+  "summary" text NOT NULL DEFAULT '',
+  "patch" text,
+  "evidence" text,
+  "created_at" text NOT NULL,
+  "decided_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id")
+);
+CREATE INDEX "learn_proposals_org_lang" ON "tagpress"."learn_proposals"("org_id", "language_id", "created_at");
+
+CREATE TABLE "tagpress"."learn_runs" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "status" text NOT NULL,
+  "base" text NOT NULL,
+  "profile_version" bigint NOT NULL,
+  "step" text NOT NULL,
+  "done" double precision NOT NULL,
+  "total" double precision NOT NULL,
+  "message" text NOT NULL,
+  "started_at" text NOT NULL,
+  "finished_at" text,
+  "error" text,
+  "result" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "ins_seq" bigint GENERATED BY DEFAULT AS IDENTITY NOT NULL
+);
+CREATE INDEX "learn_runs_org_language" ON "tagpress"."learn_runs"("org_id", "language_id", "started_at");
+
+-- ---------------------------------------------------------------------------------------------------------------- tasarım oturumu
+CREATE TABLE "tagpress"."design_sessions" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "title" text NOT NULL DEFAULT '',
+  "status" text NOT NULL,
+  "started_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "mode" text NOT NULL DEFAULT 'mcp' CHECK ("mode" IN ('mcp', 'site')),
+  "state" text,
+  "resume_state" text,
+  "base" text,
+  "base_version" bigint,
+  "base_data" text,
+  "current_rev" bigint NOT NULL DEFAULT 0,
+  "cost_usd" double precision NOT NULL DEFAULT 0,
+  "budget_usd" double precision,
+  "budget_raised" bigint NOT NULL DEFAULT 0,
+  "from_setup" bigint NOT NULL DEFAULT 0,
+  "label_types" text,
+  "model" text,
+  "prompt_version" text,
+  "locale" text,
+  "turn_seq" bigint,
+  "turn_started_at" text,
+  "turn_input" text,
+  "next_seq" bigint NOT NULL DEFAULT 0,
+  "notices" text,
+  "error" text,
+  "measured_at" text,
+  "quality_ai" text,
+  "start_version" bigint,
+  "member_id" text,
+  "ins_seq" bigint GENERATED BY DEFAULT AS IDENTITY NOT NULL,
+  CONSTRAINT "design_sessions_org_id_id_key" UNIQUE ("org_id", "id"),
+  CONSTRAINT "design_sessions_member_fkey" FOREIGN KEY ("member_id", "org_id") REFERENCES "tagpress"."Member"("id", "orgId")
+);
+CREATE INDEX "design_sessions_org_lang" ON "tagpress"."design_sessions"("org_id", "language_id", "started_at");
+-- Bir dilde en çok bir etkin site oturumu (SQLite göç 13 ile aynı kısmi tekil dizin).
+CREATE UNIQUE INDEX "design_sessions_org_active" ON "tagpress"."design_sessions"("org_id", "language_id")
+  WHERE "mode" = 'site' AND "state" NOT IN ('published', 'closed');
+
+CREATE TABLE "tagpress"."design_session_entries" (
+  "id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  "session_id" text NOT NULL,
+  "at" text NOT NULL,
+  "kind" text NOT NULL,
+  "grp" text,
+  "text" text NOT NULL,
+  "paths" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "role" text,
+  "data" text,
+  "turn_seq" bigint,
+  CONSTRAINT "design_session_entries_session_fkey" FOREIGN KEY ("org_id", "session_id") REFERENCES "tagpress"."design_sessions"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "design_session_entries_org_session" ON "tagpress"."design_session_entries"("org_id", "session_id", "id");
+
+CREATE TABLE "tagpress"."design_samples" (
+  "id" text PRIMARY KEY,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "session_id" text NOT NULL,
+  "language_id" text NOT NULL,
+  "seq" bigint NOT NULL,
+  "name" text NOT NULL,
+  "w" bigint NOT NULL,
+  "h" bigint NOT NULL,
+  "status" text NOT NULL CHECK ("status" IN ('uploaded', 'measured', 'qualitative', 'failed')),
+  "measurement" text,
+  "template_key" text,
+  "font_file" text,
+  "split" text CHECK ("split" IN ('train', 'test')),
+  "excluded" bigint NOT NULL DEFAULT 0,
+  "reference_id" text,
+  "error" text,
+  "shown_at" text,
+  "created_at" text NOT NULL,
+  "deleted_at" text,
+  CONSTRAINT "design_samples_session_fkey" FOREIGN KEY ("org_id", "session_id") REFERENCES "tagpress"."design_sessions"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "design_samples_org" ON "tagpress"."design_samples"("org_id", "session_id", "seq");
+
+CREATE TABLE "tagpress"."profile_revisions" (
+  "id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "session_id" text NOT NULL,
+  "language_id" text NOT NULL,
+  "rev" bigint NOT NULL CHECK ("rev" > 0),
+  "data" text NOT NULL,
+  "changes" text NOT NULL,
+  "reason" text NOT NULL CHECK ("reason" IN ('initial', 'answer', 'correction', 'restore', 'manual')),
+  "summary" text NOT NULL DEFAULT '',
+  "entry_id" bigint,
+  "restored_from" bigint,
+  "cost_usd" double precision NOT NULL DEFAULT 0,
+  "created_at" text NOT NULL,
+  CONSTRAINT "profile_revisions_session_id_rev_key" UNIQUE ("session_id", "rev"),
+  CONSTRAINT "profile_revisions_session_fkey" FOREIGN KEY ("org_id", "session_id") REFERENCES "tagpress"."design_sessions"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "profile_revisions_org" ON "tagpress"."profile_revisions"("org_id", "session_id", "rev");
+
+CREATE TABLE "tagpress"."design_session_turns" (
+  "id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "session_id" text NOT NULL,
+  "seq" bigint NOT NULL,
+  "messages" bytea NOT NULL,
+  "usage" text,
+  "cost_usd" double precision NOT NULL DEFAULT 0,
+  "stop_reason" text NOT NULL,
+  "created_at" text NOT NULL,
+  CONSTRAINT "design_session_turns_session_id_seq_key" UNIQUE ("session_id", "seq"),
+  CONSTRAINT "design_session_turns_session_fkey" FOREIGN KEY ("org_id", "session_id") REFERENCES "tagpress"."design_sessions"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "design_session_turns_org" ON "tagpress"."design_session_turns"("org_id", "session_id", "seq");
+
+-- ---------------------------------------------------------------------------------------------------------------- üretim
+CREATE TABLE "tagpress"."batches" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "name" text NOT NULL,
+  "source_file" text,
+  "mapping" text,
+  "created_at" text NOT NULL,
+  "deleted_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "batches_org_id_id_key" UNIQUE ("org_id", "id")
+);
+CREATE INDEX "batches_org_lang" ON "tagpress"."batches"("org_id", "language_id", "created_at");
+
+CREATE TABLE "tagpress"."jobs" (
+  "id" text PRIMARY KEY,
+  "batch_id" text NOT NULL,
+  "seq" bigint NOT NULL,
+  "raw" text NOT NULL,
+  "order_no" text,
+  "quantity" bigint,
+  "template_key" text,
+  "label_size" text,
+  "product" text,
+  "text_raw" text NOT NULL,
+  "text" text NOT NULL,
+  "segments" text NOT NULL DEFAULT '[]',
+  "ai_note" text NOT NULL DEFAULT '',
+  "kind" text NOT NULL DEFAULT 'label',
+  "status" text NOT NULL,
+  "gen_state" text,
+  "error" text,
+  "approved_variant_id" text,
+  "issues" text NOT NULL DEFAULT '[]',
+  "run_issues" text NOT NULL DEFAULT '[]',
+  "dismissed" text NOT NULL DEFAULT '[]',
+  "issue_level" text,
+  "dedupe_key" text NOT NULL,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "deleted_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "jobs_org_id_id_key" UNIQUE ("org_id", "id"),
+  CONSTRAINT "jobs_batch_fkey" FOREIGN KEY ("org_id", "batch_id") REFERENCES "tagpress"."batches"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "jobs_org_batch" ON "tagpress"."jobs"("org_id", "batch_id", "seq");
+CREATE INDEX "jobs_org_created" ON "tagpress"."jobs"("org_id", "created_at");
+CREATE INDEX "jobs_org_dedupe" ON "tagpress"."jobs"("org_id", "dedupe_key");
+
+CREATE TABLE "tagpress"."variants" (
+  "id" text PRIMARY KEY,
+  "job_id" text NOT NULL,
+  "no" bigint NOT NULL,
+  "kind" text NOT NULL,
+  "intent" text,
+  "layout" text,
+  "snapshot" text NOT NULL,
+  "preview_file" text NOT NULL,
+  "image" text,
+  "score" double precision,
+  "ai_rank" bigint,
+  "suspect" bigint NOT NULL DEFAULT 0,
+  "issues" text NOT NULL DEFAULT '[]',
+  "rationale" text NOT NULL DEFAULT '',
+  "created_at" text NOT NULL,
+  "deleted_at" text,
+  "adjust" text,
+  "adjust_rev" bigint NOT NULL DEFAULT 0,
+  "base_issues" text,
+  "base_preview_file" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "variants_job_id_no_key" UNIQUE ("job_id", "no"),
+  CONSTRAINT "variants_job_fkey" FOREIGN KEY ("org_id", "job_id") REFERENCES "tagpress"."jobs"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "variants_org_job" ON "tagpress"."variants"("org_id", "job_id");
+
+CREATE TABLE "tagpress"."gen_tasks" (
+  "id" text PRIMARY KEY,
+  "job_id" text NOT NULL,
+  "mode" text NOT NULL,
+  "params" text NOT NULL DEFAULT '{}',
+  "status" text NOT NULL,
+  "error" text,
+  "attempts" bigint NOT NULL DEFAULT 0,
+  "created_at" text NOT NULL,
+  "started_at" text,
+  "finished_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "ins_seq" bigint GENERATED BY DEFAULT AS IDENTITY NOT NULL
+);
+-- Kuyruk taraması (bütün firmalar, durum önce) ve firma sorguları.
+CREATE INDEX "gen_tasks_status_org" ON "tagpress"."gen_tasks"("status", "org_id", "created_at");
+CREATE INDEX "gen_tasks_org_job" ON "tagpress"."gen_tasks"("org_id", "job_id", "status");
+
+CREATE TABLE "tagpress"."job_log" (
+  "id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  "job_id" text NOT NULL,
+  "task_id" text,
+  "step" text NOT NULL,
+  "message" text NOT NULL,
+  "at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "member_id" text,
+  CONSTRAINT "job_log_member_fkey" FOREIGN KEY ("member_id", "org_id") REFERENCES "tagpress"."Member"("id", "orgId")
+);
+CREATE INDEX "job_log_org_job" ON "tagpress"."job_log"("org_id", "job_id", "id");
+CREATE INDEX "job_log_org_at" ON "tagpress"."job_log"("org_id", "at");
+
+CREATE TABLE "tagpress"."adjust_log" (
+  "id" bigint GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "template_key" text,
+  "job_id" text NOT NULL,
+  "variant_id" text NOT NULL,
+  "rev" bigint NOT NULL,
+  "profile_version" bigint,
+  "frame_px" double precision NOT NULL,
+  "adjust" text NOT NULL,
+  "target_x" double precision NOT NULL,
+  "target_y" double precision NOT NULL,
+  "target_source" text NOT NULL,
+  "ink_before" text NOT NULL,
+  "ink_after" text NOT NULL,
+  "created_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  CONSTRAINT "adjust_log_variant_id_rev_key" UNIQUE ("variant_id", "rev")
+);
+CREATE INDEX "adjust_log_org_template" ON "tagpress"."adjust_log"("org_id", "language_id", "template_key");
+
+-- ---------------------------------------------------------------------------------------------------------------- baskı
+CREATE TABLE "tagpress"."print_templates" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "name" text NOT NULL,
+  "kind" text NOT NULL,
+  "data" text NOT NULL,
+  "archived" bigint NOT NULL DEFAULT 0,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id")
+);
+CREATE INDEX "print_templates_org_language" ON "tagpress"."print_templates"("org_id", "language_id", "archived", "name");
+
+CREATE TABLE "tagpress"."print_sessions" (
+  "id" text PRIMARY KEY,
+  "language_id" text NOT NULL,
+  "name" text NOT NULL,
+  "status" text NOT NULL CHECK ("status" IN ('draft', 'printed')),
+  "version" bigint NOT NULL DEFAULT 0,
+  "template_id" text,
+  "job_ids" text NOT NULL DEFAULT '[]',
+  "source_session_id" text,
+  "created_at" text NOT NULL,
+  "updated_at" text NOT NULL,
+  "printed_at" text,
+  "deleted_at" text,
+  "template_snapshots" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "plan_version" bigint NOT NULL DEFAULT 1,
+  CONSTRAINT "print_sessions_org_id_id_key" UNIQUE ("org_id", "id")
+);
+CREATE INDEX "print_sessions_org_lang" ON "tagpress"."print_sessions"("org_id", "language_id", "status", "updated_at");
+
+CREATE TABLE "tagpress"."print_exports" (
+  "id" text PRIMARY KEY,
+  "session_id" text NOT NULL,
+  "format" text NOT NULL,
+  "params" text NOT NULL DEFAULT '{}',
+  "status" text NOT NULL,
+  "done" bigint NOT NULL DEFAULT 0,
+  "total" bigint NOT NULL DEFAULT 0,
+  "files" text NOT NULL DEFAULT '[]',
+  "error" text,
+  "created_at" text NOT NULL,
+  "finished_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "member_id" text,
+  CONSTRAINT "print_exports_member_fkey" FOREIGN KEY ("member_id", "org_id") REFERENCES "tagpress"."Member"("id", "orgId")
+);
+CREATE INDEX "print_exports_org_session" ON "tagpress"."print_exports"("org_id", "session_id", "created_at");
+
+CREATE TABLE "tagpress"."print_pages" (
+  "id" text PRIMARY KEY,
+  "session_id" text NOT NULL,
+  "template_id" text NOT NULL,
+  "idx" bigint NOT NULL,
+  "name" text NOT NULL DEFAULT '',
+  "copies" bigint NOT NULL DEFAULT 1,
+  "kind" text NOT NULL DEFAULT 'manual',
+  "show_cell_labels" bigint NOT NULL DEFAULT 1,
+  "locked" bigint NOT NULL DEFAULT 0,
+  "deleted_at" text,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "ins_seq" bigint GENERATED BY DEFAULT AS IDENTITY NOT NULL,
+  CONSTRAINT "print_pages_org_id_id_key" UNIQUE ("org_id", "id"),
+  CONSTRAINT "print_pages_session_fkey" FOREIGN KEY ("org_id", "session_id") REFERENCES "tagpress"."print_sessions"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "print_pages_org_session" ON "tagpress"."print_pages"("org_id", "session_id", "idx");
+
+CREATE TABLE "tagpress"."print_items" (
+  "id" text PRIMARY KEY,
+  "page_id" text NOT NULL,
+  "job_id" text NOT NULL,
+  "variant_id" text NOT NULL,
+  "slot_id" text,
+  "x_mm" double precision NOT NULL,
+  "y_mm" double precision NOT NULL,
+  "rotation" double precision NOT NULL DEFAULT 0,
+  "scale" double precision NOT NULL DEFAULT 1,
+  "extra" bigint NOT NULL DEFAULT 0,
+  "manual" bigint NOT NULL DEFAULT 0,
+  "z" bigint NOT NULL DEFAULT 0,
+  "org_id" text NOT NULL REFERENCES "tagpress"."Company"("id"),
+  "ins_seq" bigint GENERATED BY DEFAULT AS IDENTITY NOT NULL,
+  CONSTRAINT "print_items_page_fkey" FOREIGN KEY ("org_id", "page_id") REFERENCES "tagpress"."print_pages"("org_id", "id") ON DELETE CASCADE
+);
+CREATE INDEX "print_items_org_page" ON "tagpress"."print_items"("org_id", "page_id");
+CREATE INDEX "print_items_org_job" ON "tagpress"."print_items"("org_id", "job_id");
+
+-- ---------------------------------------------------------------------------------------------------------------- haklar
+-- init.sql'in varsayılan hakları (tam veri hakkı) önce geri alınır, sonra tablo tablo yalnız gereken verilir. Yalnız eklenen
+-- günlükler (job_log, adjust_log, design_session_turns) güncellenmez; silme yalnız kalıcı firma silmesi ve servislerin kendi
+-- temizliği içindir. TRUNCATE, REFERENCES, TRIGGER hiçbir tabloda yok. Beklenen tablo `db/pg/grants.ts` (test karşılaştırır).
+REVOKE ALL ON
+  "tagpress"."settings", "tagpress"."languages", "tagpress"."profile_versions", "tagpress"."templates", "tagpress"."org_settings",
+  "tagpress"."undo", "tagpress"."ai_calls", "tagpress"."template_tasks", "tagpress"."refs", "tagpress"."learn_proposals",
+  "tagpress"."learn_runs", "tagpress"."design_sessions", "tagpress"."design_session_entries", "tagpress"."design_samples",
+  "tagpress"."profile_revisions", "tagpress"."design_session_turns", "tagpress"."batches", "tagpress"."jobs", "tagpress"."variants",
+  "tagpress"."gen_tasks", "tagpress"."job_log", "tagpress"."adjust_log", "tagpress"."print_templates", "tagpress"."print_sessions",
+  "tagpress"."print_exports", "tagpress"."print_pages", "tagpress"."print_items"
+  FROM "sod_tagpress";
+GRANT SELECT, INSERT, UPDATE, DELETE ON
+  "tagpress"."settings", "tagpress"."languages", "tagpress"."profile_versions", "tagpress"."templates", "tagpress"."org_settings",
+  "tagpress"."undo", "tagpress"."ai_calls", "tagpress"."template_tasks", "tagpress"."refs", "tagpress"."learn_proposals",
+  "tagpress"."learn_runs", "tagpress"."design_sessions", "tagpress"."design_session_entries", "tagpress"."design_samples",
+  "tagpress"."profile_revisions", "tagpress"."batches", "tagpress"."jobs", "tagpress"."variants", "tagpress"."gen_tasks",
+  "tagpress"."print_templates", "tagpress"."print_sessions", "tagpress"."print_exports", "tagpress"."print_pages", "tagpress"."print_items"
+  TO "sod_tagpress";
+GRANT SELECT, INSERT, DELETE ON "tagpress"."job_log", "tagpress"."adjust_log", "tagpress"."design_session_turns" TO "sod_tagpress";
+-- Dizilerin (kimlik sütunları: SQLite AUTOINCREMENT kimlikleri ve `ins_seq`) hakkı: yalnız değer alma (eklemede). setval ve
+-- okuma yok (aktarım dizileri göç rolüyle ilerletir).
+REVOKE ALL ON SEQUENCE
+  "tagpress"."design_session_entries_id_seq", "tagpress"."profile_revisions_id_seq", "tagpress"."design_session_turns_id_seq",
+  "tagpress"."job_log_id_seq", "tagpress"."adjust_log_id_seq",
+  "tagpress"."gen_tasks_ins_seq_seq", "tagpress"."learn_runs_ins_seq_seq", "tagpress"."print_pages_ins_seq_seq",
+  "tagpress"."print_items_ins_seq_seq", "tagpress"."design_sessions_ins_seq_seq"
+  FROM "sod_tagpress";
+GRANT USAGE ON SEQUENCE
+  "tagpress"."design_session_entries_id_seq", "tagpress"."profile_revisions_id_seq", "tagpress"."design_session_turns_id_seq",
+  "tagpress"."job_log_id_seq", "tagpress"."adjust_log_id_seq",
+  "tagpress"."gen_tasks_ins_seq_seq", "tagpress"."learn_runs_ins_seq_seq", "tagpress"."print_pages_ins_seq_seq",
+  "tagpress"."print_items_ins_seq_seq", "tagpress"."design_sessions_ins_seq_seq"
+  TO "sod_tagpress";
+
+
+-- ---------------------------------------------------------------------------------------------------------------- RLS
+-- Her kiracı tablosu: ENABLE + FORCE, `org_isolation` (okuma ve yazma yalnız `app.org_id` firmasında) ve firma değişmezliği.
+DO $rls$
+DECLARE
+  t text;
+BEGIN
+  FOREACH t IN ARRAY ARRAY[
+    'print_items', 'print_pages', 'print_exports', 'print_sessions', 'print_templates', 'adjust_log', 'job_log', 'gen_tasks',
+    'variants', 'jobs', 'batches', 'design_session_turns', 'profile_revisions', 'design_samples', 'design_session_entries',
+    'design_sessions', 'learn_runs', 'learn_proposals', 'refs', 'template_tasks', 'ai_calls', 'undo', 'templates',
+    'profile_versions', 'languages', 'org_settings'
+  ] LOOP
+    EXECUTE format('ALTER TABLE "tagpress".%I ENABLE ROW LEVEL SECURITY', t);
+    EXECUTE format('ALTER TABLE "tagpress".%I FORCE ROW LEVEL SECURITY', t);
+    EXECUTE format(
+      'CREATE POLICY org_isolation ON "tagpress".%I USING (org_id = current_setting(''app.org_id'', true)) WITH CHECK (org_id = current_setting(''app.org_id'', true))',
+      t
+    );
+    EXECUTE format('CREATE TRIGGER %I BEFORE UPDATE OF org_id ON "tagpress".%I FOR EACH ROW EXECUTE FUNCTION "tagpress"."org_id_immutable"()', t || '_org_immutable', t);
+  END LOOP;
+END
+$rls$;
+
+
+-- ---------------------------------------------------------------------------------------------------------------- kuyruk kapsamı
+-- `app.scope = 'queue'` (TagPress bakım bağlantısı; firma bağlamı yok, `app.org_id` boş). Yalnız şu işler (servislerdeki
+-- `maintenance(…)`):
+-- - adil seçim ve kuyruk kurtarma: bekleyen/çalışan üretim görevleri okunur, bekleyen görev "çalışıyor"a alınır; açık firma
+--   sayısı okunur (`Company`); görevi kalmamış işlerin üretim durumu `queue_clear_orphan_gen_state()` ile firma firma boşalır
+--   (işler tablosu kuyruk kapsamında hiç görünmez: güncellemede yeni satır da okuma ilkesinden geçmeli, boşalan satırı görmek
+--   bütün işleri görmek olurdu).
+-- - açılış kurtarması: yarım kalan baskı çıktısı, öğrenme koşusu, şablon görevi ve site oturumu "kesildi" yapılır; kesilen
+--   site oturumuna sistem hatası satırı eklenir.
+-- Okuma ilkesi yarım satırlarla birlikte "kesildi" satırlarını da gösterir: Postgres güncellemede yeni satırı da okuma ilkesine
+-- sokar (WHERE sütun okur). Güncelleme yalnız yarım satırdan izinli yeni duruma; başka tablo görünmez, silme yok.
+CREATE POLICY queue_read ON "tagpress"."Company" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue');
+
+CREATE POLICY queue_read ON "tagpress"."gen_tasks" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('queued', 'running'));
+CREATE POLICY queue_claim ON "tagpress"."gen_tasks" FOR UPDATE
+  USING (current_setting('app.scope', true) = 'queue' AND "status" = 'queued')
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "status" = 'running');
+
+CREATE POLICY queue_read ON "tagpress"."print_exports" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('queued', 'running', 'interrupted'));
+CREATE POLICY queue_interrupt ON "tagpress"."print_exports" FOR UPDATE
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('queued', 'running'))
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "status" = 'interrupted');
+
+CREATE POLICY queue_read ON "tagpress"."learn_runs" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('running', 'interrupted'));
+CREATE POLICY queue_interrupt ON "tagpress"."learn_runs" FOR UPDATE
+  USING (current_setting('app.scope', true) = 'queue' AND "status" = 'running')
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "status" = 'interrupted');
+
+CREATE POLICY queue_read ON "tagpress"."template_tasks" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('queued', 'running', 'interrupted'));
+CREATE POLICY queue_interrupt ON "tagpress"."template_tasks" FOR UPDATE
+  USING (current_setting('app.scope', true) = 'queue' AND "status" IN ('queued', 'running'))
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "status" = 'interrupted');
+
+CREATE POLICY queue_read ON "tagpress"."design_sessions" FOR SELECT
+  USING (current_setting('app.scope', true) = 'queue' AND "mode" = 'site' AND "state" IN ('analyzing', 'drafting', 'revising', 'interrupted'));
+CREATE POLICY queue_interrupt ON "tagpress"."design_sessions" FOR UPDATE
+  USING (current_setting('app.scope', true) = 'queue' AND "mode" = 'site' AND "state" IN ('analyzing', 'drafting', 'revising'))
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "mode" = 'site' AND "state" = 'interrupted');
+CREATE POLICY queue_interrupt_entry ON "tagpress"."design_session_entries" FOR INSERT
+  WITH CHECK (current_setting('app.scope', true) = 'queue' AND "kind" = 'error' AND "role" = 'system');
+
+-- Görevi kalmamış işlerin üretim durumu (queue.ts `recover`): kuyruk kapsamında, firma firma kendi bağlamında (org_isolation).
+-- Çağıranın hakkıyla çalışır (SECURITY INVOKER); firma bağlamı işlev sonunda eski değerine döner. Boşaltılan iş sayısını döner.
+CREATE FUNCTION "tagpress"."queue_clear_orphan_gen_state"() RETURNS bigint LANGUAGE plpgsql SECURITY INVOKER
+  SET search_path = pg_catalog, pg_temp AS $fn$
+DECLARE
+  prev text := current_setting('app.org_id', true);
+  org text;
+  n bigint := 0;
+  c bigint;
+BEGIN
+  IF current_setting('app.scope', true) IS DISTINCT FROM 'queue' THEN
+    RAISE EXCEPTION 'queue_clear_orphan_gen_state yalnız kuyruk kapsamında' USING ERRCODE = 'insufficient_privilege';
+  END IF;
+  FOR org IN SELECT "id" FROM "tagpress"."Company" ORDER BY "id" LOOP
+    PERFORM set_config('app.org_id', org, true);
+    UPDATE "tagpress"."jobs" SET "gen_state" = NULL
+     WHERE "org_id" = org AND "gen_state" IS NOT NULL
+       AND "id" NOT IN (SELECT "job_id" FROM "tagpress"."gen_tasks" WHERE "org_id" = org AND "status" IN ('queued', 'running'));
+    GET DIAGNOSTICS c = ROW_COUNT;
+    n := n + c;
+  END LOOP;
+  PERFORM set_config('app.org_id', COALESCE(prev, ''), true);
+  RETURN n;
+END
+$fn$;
+REVOKE ALL ON FUNCTION "tagpress"."queue_clear_orphan_gen_state"() FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION "tagpress"."queue_clear_orphan_gen_state"() TO "sod_tagpress";

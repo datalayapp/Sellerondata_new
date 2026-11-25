@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "dashboard": "Pano",
+    "measurements": "Ölçümler",
+    "invoices": "Faturalar",
+    "disputes": "İtirazlar",
+    "tariffs": "Tarifeler",
+    "settings": "Ayarlar",
+    "setup": "Kurulum",
+    "setupPending": "Eksik",
+    "notFound": "Sayfa bulunamadı",
+    "invoiceUpload": "Fatura yükle",
+    "newTariff": "Yeni tarife"
+  },
+  "loading": "Yükleniyor",
+  "toast": {
+    "refreshFailed": "Veriler yenilenemedi",
+    "actionFailed": "İşlem başarısız"
+  },
+  "leave": {
+    "bodyUpload": "Bu sayfadan çıkarsanız fatura yükleme baştan başlar; sütun eşlemesi ve fatura bilgileri kaybolur."
+  },
+  "org": {
+    "switchFailed": "Firma değiştirilemedi. Yeniden deneyin.",
+    "unsavedConfirm": "Kaydedilmemiş değişiklikleriniz var. Firma değişirse bu değişiklikler silinir. Devam edilsin mi?"
+  },
+  "readOnly": {
+    "title": "Abonelik salt okunur modda.",
+    "body": "Kayıtlara bakabilir ve dışa aktarabilirsiniz; değişiklik yapamazsınız. Firma yöneticinize başvurun."
+  },
+  "offline": {
+    "title": "Sunucuya bağlanılamadı",
+    "body": "Oturumunuz açık kaldı. İnternet bağlantınızı kontrol edip tekrar deneyin; sorun sürerse sunucu kapalı olabilir.",
+    "retry": "Tekrar dene"
+  },
+  "access": {
+    "backHub": "Merkez'e dön",
+    "mobileTitle": "Bu rol mobil uygulamada çalışır",
+    "mobileBody": "{{tool}} rolünüz {{role}}. Ölçümleri SellerOnData Android uygulamasından yaparsınız.",
+    "mobileStep1": "Android uygulamasını yöneticiniz paylaşacak. Telefonunuza kurun.",
+    "mobileStep2": "Bu hesapla giriş yapın.",
+    "noAccessTitle": "{{tool}} erişiminiz yok",
+    "noAccessBody": "Bu firmada size araç rolü verilmemiş ya da firmanın aboneliği açık değil. Firma yöneticinizden Merkez'deki Ekip ve yetkiler sayfasından rol vermesini isteyin.",
+    "orgTitle": "Devam etmek için bir firma seçin",
+    "orgBody": "DeciShip verileri firmaya aittir. Çalışacağınız firmayı seçin.",
+    "noOrgTitle": "Henüz bir firmaya üye değilsiniz",
+    "noOrgBody": "Firma yöneticinizden davet isteyin ya da Merkez'den devam edin.",
+    "forbiddenTitle": "Bu sayfa rolünüze açık değil",
+    "forbiddenBody": "Bir yanlışlık olduğunu düşünüyorsanız firma yöneticinize başvurun. Yetkiler Merkez'den yönetilir.",
+    "tariffEditTitle": "Tarife ekleme izniniz yok",
+    "tariffEditBody": "Tarifeleri görebilir ve fiyat hesaplayabilirsiniz. Yeni tarife ekleme ve içe aktarma için firma yöneticinize başvurun.",
+    "tariffEditReadOnly": "Abonelik salt okunur modda: yeni tarife eklenemez, içe aktarma yapılamaz. Mevcut tarifeleri görebilir ve fiyat hesaplayabilirsiniz.",
+    "tariffEditBack": "Tarifelere dön",
+    "mobileStep3": "Koliyi okutun, ölçün, kaydedin.",
+    "mobileAppSlot": "Uygulama henüz mağazada yok, iOS sürümü de yok. Kurulum dosyasını yöneticinizden isteyin.",
+    "suspendedTitle": "Bu firmadaki üyeliğiniz askıda",
+    "suspendedPickBody": "Yöneticinize başvurun. Bu arada üyesi olduğunuz başka bir firmayla devam edebilirsiniz.",
+    "suspendedBody": "Yöneticinize başvurun. Askı kalkınca kaldığınız yerden devam edersiniz.",
+    "infoOrg": "Firma",
+    "infoAccount": "Hesap",
+    "infoRole": "{{tool}} rolü",
+    "noRole": "Erişim yok",
+    "noAccessMobile": "Depoda ölçüm yapacaksanız yöneticinizden Ölçüm rolü isteyin; ölçümler SellerOnData Android uygulamasından kaydedilir."
+  },
+  "company": {
+    "name": "Firma adı",
+    "managedInHub": "Firma adı Merkez'den yönetilir ve tüm araçlarda aynı görünür.",
+    "changeInHub": "Merkez'de değiştir",
+    "askAdmin": "Değiştirmek için firma yöneticinize başvurun."
+  },
+  "team": {
+    "title": "Ekibinizi Merkez'den ekleyin",
+    "body": "Depo çalışanlarını ve diğer kullanıcıları Merkez'deki Ekip ve yetkiler sayfasından davet edersiniz. Telefonla davette tek seferlik kod üretilir.",
+    "link": "Ekip ve yetkiler",
+    "askAdmin": "Ekip ve yetkileri firma sahibi veya yöneticisi yönetir."
+  },
+  "lang": {
+    "unsavedConfirm": "Kaydedilmemiş değişiklikleriniz var. Dil değişince sayfa yeniden yüklenir ve bu değişiklikler silinir. Devam edilsin mi?"
+  },
+  "sessionLost": {
+    "label": "Oturum",
+    "title": "Oturumunuz sona erdi",
+    "body": "Yazdıklarınız kaydedilmedi. Sayfada kalıp metni kopyalayabilirsiniz. Giriş yapınca bu sayfaya dönersiniz, ama kaydedilmemiş yazılar gelmez.",
+    "stay": "Sayfada kal",
+    "login": "Giriş yap",
+    "bar": "Oturumunuz sona erdi. Yazdıklarınız kaydedilmedi; kopyaladıktan sonra yeniden giriş yapın."
+  },
+  "record": {
+    "title": "Bu kayıt bu firmada yok",
+    "body": "Bağlantı başka bir firmaya ait olabilir ya da kayıt silinmiş olabilir.",
+    "otherOrgs": "Başka firmanızda olabilir, geçip bakın:"
+  }
+}

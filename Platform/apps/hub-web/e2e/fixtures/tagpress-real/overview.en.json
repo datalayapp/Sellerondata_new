@@ -1,0 +1,396 @@
+{
+  "status": 200,
+  "body": {
+    "product": "tagpress",
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "kpis": [
+      {
+        "id": "approved",
+        "label": "Approved labels",
+        "hint": "Label jobs approved in the selected period.",
+        "value": 2,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "up",
+        "tone": "good",
+        "href": "/analytics/tagpress",
+        "trend": [
+          {
+            "id": "current",
+            "label": "This period",
+            "points": [
+              {
+                "x": "2026-10-01",
+                "y": 0
+              },
+              {
+                "x": "2026-10-02",
+                "y": 0
+              },
+              {
+                "x": "2026-10-03",
+                "y": 0
+              },
+              {
+                "x": "2026-10-04",
+                "y": 1
+              },
+              {
+                "x": "2026-10-05",
+                "y": 0
+              },
+              {
+                "x": "2026-10-06",
+                "y": 0
+              },
+              {
+                "x": "2026-10-07",
+                "y": 0
+              },
+              {
+                "x": "2026-10-08",
+                "y": 0
+              },
+              {
+                "x": "2026-10-09",
+                "y": 0
+              },
+              {
+                "x": "2026-10-10",
+                "y": 0
+              },
+              {
+                "x": "2026-10-11",
+                "y": 0
+              },
+              {
+                "x": "2026-10-12",
+                "y": 0
+              },
+              {
+                "x": "2026-10-13",
+                "y": 0
+              },
+              {
+                "x": "2026-10-14",
+                "y": 0
+              },
+              {
+                "x": "2026-10-15",
+                "y": 0
+              },
+              {
+                "x": "2026-10-16",
+                "y": 0
+              },
+              {
+                "x": "2026-10-17",
+                "y": 0
+              },
+              {
+                "x": "2026-10-18",
+                "y": 0
+              },
+              {
+                "x": "2026-10-19",
+                "y": 0
+              },
+              {
+                "x": "2026-10-20",
+                "y": 0
+              },
+              {
+                "x": "2026-10-21",
+                "y": 0
+              },
+              {
+                "x": "2026-10-22",
+                "y": 1
+              },
+              {
+                "x": "2026-10-23",
+                "y": 0
+              },
+              {
+                "x": "2026-10-24",
+                "y": 0
+              },
+              {
+                "x": "2026-10-25",
+                "y": 0
+              },
+              {
+                "x": "2026-10-26",
+                "y": 0
+              },
+              {
+                "x": "2026-10-27",
+                "y": 0
+              },
+              {
+                "x": "2026-10-28",
+                "y": 0
+              },
+              {
+                "x": "2026-10-29",
+                "y": 0
+              },
+              {
+                "x": "2026-10-30",
+                "y": 0
+              },
+              {
+                "x": "2026-10-31",
+                "y": 0
+              }
+            ],
+            "role": "current"
+          },
+          {
+            "id": "previous",
+            "label": "Previous period",
+            "points": [
+              {
+                "x": "2026-08-31",
+                "y": 0
+              },
+              {
+                "x": "2026-09-01",
+                "y": 0
+              },
+              {
+                "x": "2026-09-02",
+                "y": 0
+              },
+              {
+                "x": "2026-09-03",
+                "y": 0
+              },
+              {
+                "x": "2026-09-04",
+                "y": 0
+              },
+              {
+                "x": "2026-09-05",
+                "y": 0
+              },
+              {
+                "x": "2026-09-06",
+                "y": 0
+              },
+              {
+                "x": "2026-09-07",
+                "y": 0
+              },
+              {
+                "x": "2026-09-08",
+                "y": 0
+              },
+              {
+                "x": "2026-09-09",
+                "y": 0
+              },
+              {
+                "x": "2026-09-10",
+                "y": 0
+              },
+              {
+                "x": "2026-09-11",
+                "y": 0
+              },
+              {
+                "x": "2026-09-12",
+                "y": 0
+              },
+              {
+                "x": "2026-09-13",
+                "y": 0
+              },
+              {
+                "x": "2026-09-14",
+                "y": 0
+              },
+              {
+                "x": "2026-09-15",
+                "y": 0
+              },
+              {
+                "x": "2026-09-16",
+                "y": 1
+              },
+              {
+                "x": "2026-09-17",
+                "y": 0
+              },
+              {
+                "x": "2026-09-18",
+                "y": 0
+              },
+              {
+                "x": "2026-09-19",
+                "y": 0
+              },
+              {
+                "x": "2026-09-20",
+                "y": 0
+              },
+              {
+                "x": "2026-09-21",
+                "y": 0
+              },
+              {
+                "x": "2026-09-22",
+                "y": 0
+              },
+              {
+                "x": "2026-09-23",
+                "y": 0
+              },
+              {
+                "x": "2026-09-24",
+                "y": 0
+              },
+              {
+                "x": "2026-09-25",
+                "y": 0
+              },
+              {
+                "x": "2026-09-26",
+                "y": 0
+              },
+              {
+                "x": "2026-09-27",
+                "y": 0
+              },
+              {
+                "x": "2026-09-28",
+                "y": 0
+              },
+              {
+                "x": "2026-09-29",
+                "y": 0
+              },
+              {
+                "x": "2026-09-30",
+                "y": 0
+              }
+            ],
+            "role": "previous"
+          }
+        ]
+      },
+      {
+        "id": "pending",
+        "label": "Awaiting approval",
+        "hint": "Right now: jobs with designs ready, awaiting approval. Not tied to the selected period.",
+        "value": 2,
+        "format": "number",
+        "goodDirection": "none",
+        "tone": "warning",
+        "href": "/data/tagpress/jobs?filter.status=ready"
+      },
+      {
+        "id": "printed",
+        "label": "Printed sheets",
+        "hint": "Sheets of sessions marked printed in the selected period, copies included.",
+        "value": 3,
+        "format": "number",
+        "previous": 0,
+        "goodDirection": "up",
+        "href": "/data/tagpress/prints?filter.status=printed&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "jobs",
+        "label": "Incoming jobs",
+        "hint": "Label jobs added in the selected period.",
+        "value": 6,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "none",
+        "href": "/data/tagpress/jobs?filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "queue",
+        "label": "In production",
+        "hint": "Jobs being generated or waiting in the queue right now. Not tied to the selected period.",
+        "value": 2,
+        "format": "number",
+        "goodDirection": "none",
+        "tone": "info",
+        "href": "/tagpress/#/uretim"
+      },
+      {
+        "id": "ai_calls",
+        "label": "AI calls",
+        "hint": "Number of AI calls in the selected period.",
+        "value": 4,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "none",
+        "href": "/analytics/tagpress"
+      }
+    ],
+    "alerts": [
+      {
+        "id": "failed-jobs",
+        "tone": "bad",
+        "title": "1 jobs failed to generate",
+        "body": "Open the job to generate again or fix it.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Open production"
+      },
+      {
+        "id": "approval-dropped",
+        "tone": "warning",
+        "title": "Cut changed: 1 jobs lost their approval",
+        "body": "The template's cut changed, so approve these jobs again.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Open production"
+      },
+      {
+        "id": "stuck-task",
+        "tone": "warning",
+        "title": "1 tasks running for over 15 minutes",
+        "body": "Generation or a print export may be stuck.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Open production"
+      }
+    ],
+    "setup": {
+      "completed": true,
+      "href": "/tagpress/#/kurulum",
+      "label": "TagPress setup",
+      "steps": [
+        {
+          "id": "setup",
+          "label": "Answer the setup questions",
+          "done": true,
+          "href": "/tagpress/#/kurulum",
+          "required": true
+        },
+        {
+          "id": "language",
+          "label": "Publish a design language",
+          "done": true,
+          "href": "/tagpress/#/tasarim-dili",
+          "required": true
+        },
+        {
+          "id": "first-job",
+          "label": "Add the first job",
+          "done": true,
+          "href": "/tagpress/#/uretim/ice-aktar",
+          "required": true
+        },
+        {
+          "id": "first-print",
+          "label": "Make the first print",
+          "done": true,
+          "href": "/tagpress/#/baski/masa",
+          "required": false
+        }
+      ]
+    }
+  }
+}

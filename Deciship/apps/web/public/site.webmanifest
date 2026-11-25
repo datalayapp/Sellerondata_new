@@ -1,0 +1,13 @@
+{
+  "name": "DeciShip",
+  "short_name": "DeciShip",
+  "description": "DeciShip · SellerOnData",
+  "start_url": "/deciship/",
+  "display": "standalone",
+  "background_color": "#f5f3ee",
+  "theme_color": "#1d5bd8",
+  "icons": [
+    { "src": "/deciship/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/deciship/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,329 @@
+{
+  "sort": {
+    "createdDesc": "Eklenme: yeniden eskiye",
+    "createdAsc": "Eklenme: eskiden yeniye",
+    "orderAsc": "Sipariş no: küçükten büyüğe",
+    "orderDesc": "Sipariş no: büyükten küçüğe",
+    "statusAsc": "Durum: sorunlular önce",
+    "templateAsc": "Şablon: A'dan Z'ye",
+    "templateDesc": "Şablon: Z'den A'ya"
+  },
+  "day": {
+    "today": "Bugün",
+    "yesterday": "Dün"
+  },
+  "size": {
+    "cm": "{{v}} cm"
+  },
+  "toast": {
+    "undo": "Geri al",
+    "undone": "Geri alındı.",
+    "queued_one": "{{count}} iş üretime alındı.",
+    "queued_other": "{{count}} iş üretime alındı.",
+    "noneQueued": "Hiçbir iş üretime alınamadı.",
+    "approved_one": "{{count}} iş onaylandı.",
+    "approved_other": "{{count}} iş onaylandı.",
+    "noneApproved": "Onaylanacak uygun varyasyon bulunamadı.",
+    "noteAdded_one": "AI notu {{count}} işe eklendi.",
+    "noteAdded_other": "AI notu {{count}} işe eklendi.",
+    "noteCleared": "AI notu temizlendi.",
+    "reviseQueued": "Değişiklik isteği üretime alındı.",
+    "reviseFailed": "Üretime alınamadı.",
+    "skipped_one": "{{count}} iş atlandı: {{reason}}",
+    "skipped_other": "{{count}} iş atlandı: {{reason}}"
+  },
+  "title": "Üretim",
+  "aiNote": {
+    "title": "AI notu",
+    "titleMany_one": "{{count}} işe AI notu",
+    "titleMany_other": "{{count}} işe AI notu",
+    "placeholder": "Örn. isim daha büyük olsun, çiçeklere dokunmasın",
+    "hint": "Yapay zekâ bir sonraki üretimde bu notu dikkate alır. Seçili işlerin mevcut notunun yerine geçer; boş bırakırsanız not temizlenir.",
+    "clear": "Temizle",
+    "apply": "Notu uygula"
+  },
+  "image": {
+    "mode": "Üretim biçimi",
+    "onTemplate": "Şablona yaz",
+    "onTemplateBody": "Şablon hiç değişmez; yazı şablonun üstüne işlenir.",
+    "generated": "Temadan yeni şablon",
+    "generatedBody": "Anlattığınız temadan yeni bir şablon çizilir ve yazı onun üstüne yerleşir.",
+    "theme": "Tema",
+    "themePlaceholder": "Örn. pastel çiçek çelengi, iç alan yuvarlak",
+    "keep": "Şablonu kütüphanede tut",
+    "keepHint": "Kapalıysa şablon yalnızca bu iş için kullanılır.",
+    "run": "Görselle üret",
+    "runMany_one": "{{count}} işi görselle üret",
+    "runMany_other": "{{count}} işi görselle üret"
+  },
+  "kind": {
+    "text": "Metin",
+    "imageOnTemplate": "Şablona yazılmış görsel",
+    "generatedTemplate": "Temadan yeni şablon"
+  },
+  "empty": {
+    "noLanguage": "Tasarım dili yok. Ayarlar bölümünden bir tasarım dili oluşturun.",
+    "toSettings": "Ayarlar'a git"
+  },
+  "status": {
+    "today": "Bugün {{cost}}",
+    "month": "Bu ay {{cost}}"
+  },
+  "panel": {
+    "label": "Sipariş paneli",
+    "title": "Sipariş",
+    "position": "{{section}} · {{n}} / {{total}}",
+    "more": "Daha fazla",
+    "revise": "Şunu değiştir (yapay zekâ)",
+    "revisePlaceholder": "V{{no}} için, örn. tarih biraz daha küçük",
+    "reviseSubmit": "Değiştir",
+    "image": "Görselle üret",
+    "newVariant": "Yeni seçenek üret",
+    "new": "Yeni",
+    "flag": "V{{no}} için kontrol işareti koy",
+    "unflag": "Kontrol işaretini kaldır",
+    "deleteVariant": "V{{no}} seçeneğini sil",
+    "deleteJob": "Siparişi sil",
+    "generate": "Üret",
+    "toPrint": "Baskı masasına git",
+    "unapprove": "Onayı kaldır",
+    "adjust": "Ayrıntılı düzenle",
+    "design": "Tasarım",
+    "approve": "V{{no}} onayla",
+    "approveNone": "Onayla",
+    "nextHint": "Onaylayınca sıradakine geçer",
+    "variants": "Seçenekler",
+    "pickHint": "1–{{n}} ile seç",
+    "info": "Sipariş bilgileri",
+    "text": "Müşteri metni",
+    "edited": "Düzenlendi",
+    "editedHint": "Dosyadaki metin: {{raw}}",
+    "restore": "Dosyadaki metne dön",
+    "textHint": "Metin yalnızca siz düzenlerseniz değişir.",
+    "textKeys": "Ctrl Enter kaydeder · Esc vazgeçer · değişince varyasyonlar eski sayılır",
+    "emptyText": "Metin boş olamaz.",
+    "stale": "Metin değişti: bazı varyasyonlar eski metinle üretildi.",
+    "regenerate": "Yeniden üret",
+    "orderNo": "Sipariş no",
+    "quantity": "Adet",
+    "size": "Boyut",
+    "sizeCm": "{{v}} cm",
+    "defaultSize": "Varsayılan",
+    "template": "Şablon",
+    "noTemplate": "Seçilmedi",
+    "changeTemplate": "Şablonu değiştir",
+    "openTemplate": "Şablon düzenleyicide aç",
+    "issues": "Sorunlar",
+    "issuesOf": "Sorunlar · V{{no}}",
+    "failed": "Üretilemedi:"
+  },
+  "approve": {
+    "staleTitle": "Eski metinle üretilmiş varyasyon onaylansın mı?",
+    "staleBody": "Bu varyasyon, işin metni değişmeden önce üretildi. Önizlemedeki yazı güncel metinle aynı olmayabilir.",
+    "staleConfirm": "Yine de onayla",
+    "done": "Onaylandı (V{{no}}). Baskı masasında sırada.",
+    "doneOrder": "№ {{order}} onaylandı (V{{no}}). Baskı masasında sırada.",
+    "undo": "Geri al"
+  },
+  "fix": {
+    "converted": "Metin düz harfe çevrildi.",
+    "refused": "Hatalar yok sayılamaz; önce düzeltin."
+  },
+  "details": {
+    "title": "Ayrıntılar",
+    "summary": "satırlar, maliyet, günlük",
+    "rows": "Satırlar",
+    "rowsOf": "Satırlar (V{{no}})",
+    "colText": "Metin",
+    "colFont": "Font",
+    "colSize": "Punto",
+    "colRole": "Sınıf",
+    "px": "{{v}} px",
+    "imageRows": "Görselle üretilmiş: yazı bir görüntü modeliyle işlendi, satır ölçüsü yok.",
+    "readText": "Görselden okunan metin: “{{text}}”",
+    "noRows": "Seçili varyasyonun satır ölçüsü yok.",
+    "cost": "Maliyet",
+    "thisVariant": "Bu varyasyon",
+    "jobTotal": "İşin toplamı",
+    "model": "Model",
+    "profileVersion": "Tasarım dili sürümü",
+    "rationale": "AI gerekçesi",
+    "noRationale": "Bu varyasyon için gerekçe yok.",
+    "imageIssues": "Görsel sorunları",
+    "noImageIssues": "Görselde sorun yok.",
+    "score": "Teknik puan",
+    "total": "Toplam {{v}}",
+    "fill": "doluluk %{{v}}",
+    "engine": "Motor: {{notes}}",
+    "noScore": "Puan yok.",
+    "log": "Üretim günlüğü",
+    "noLog": "Bu iş için günlük kaydı yok.",
+    "colPurpose": "Amaç",
+    "colTokens": "Giriş / çıkış",
+    "colTime": "Süre",
+    "seconds": "{{v}} sn",
+    "versions": "Sürümler",
+    "noVersions": "Henüz varyasyon yok.",
+    "staleV": "eski metinle",
+    "approvedV": "onaylı",
+    "scoreV": "puan {{v}}",
+    "select": "Seç",
+    "selected": "Seçili",
+    "role": {
+      "name": "İsim",
+      "connector": "Bağlaç",
+      "greeting": "Selam",
+      "message": "Mesaj",
+      "date": "Tarih",
+      "place": "Yer",
+      "title": "Başlık",
+      "other": "Diğer"
+    },
+    "tier": {
+      "primary": "Ana",
+      "secondary": "İkincil",
+      "tertiary": "Üçüncül",
+      "connector": "Bağlaç"
+    }
+  },
+  "drop": {
+    "title": "Sipariş dosyasını bırakın",
+    "body": "Siparişler “Üretilmeyi bekleyenler” listesine düşer; üretim başlamaz."
+  },
+  "shortcuts": {
+    "groups": {
+      "panel": "Sağ panel",
+      "list": "Liste"
+    },
+    "approve": "Seçili seçeneği onayla ve sıradakine geç",
+    "pick": "Seçeneği seç",
+    "adjust": "Ayrıntılı düzenle",
+    "next": "Sonraki sipariş",
+    "prev": "Önceki sipariş",
+    "editText": "Müşteri metnini düzenle",
+    "revise": "Şunu değiştir",
+    "regenerate": "Yeni seçenek üret",
+    "delete": "Siparişi sil (geri alınabilir)",
+    "close": "Paneli kapat",
+    "search": "Ara",
+    "upload": "Dosya yükle",
+    "generate": "Seçilenleri üret",
+    "approveBest": "En iyilerini onayla"
+  },
+  "type": {
+    "sticker": "Sticker"
+  },
+  "sections": {
+    "pending": {
+      "title": "Üretilmeyi bekleyenler",
+      "short": "Bekleyen",
+      "body": "Dosyadan ya da elle gelen siparişler. İstediklerinizi seçip üretin.",
+      "hint_one": "{{count}} sipariş üretilmeyi bekliyor",
+      "hint_other": "{{count}} sipariş üretilmeyi bekliyor"
+    },
+    "edit": {
+      "title": "Düzenle",
+      "short": "Düzenle",
+      "body": "Üretildi, onayınızı bekliyor. Karta tıklayın: sağda düzenleyip onaylarsınız.",
+      "hint_one": "{{count}} sipariş onayınızı bekliyor",
+      "hint_other": "{{count}} sipariş onayınızı bekliyor"
+    },
+    "approved": {
+      "title": "Onaylandı",
+      "short": "Onaylı",
+      "body": "Baskı masasında sırada.",
+      "hint_one": "{{count}} sipariş onaylı",
+      "hint_other": "{{count}} sipariş onaylı"
+    }
+  },
+  "strip": {
+    "print": "Baskı masası",
+    "more": "Daha fazla",
+    "detailedImport": "Ayrıntılı içe aktar"
+  },
+  "tools": {
+    "label": "Liste araçları",
+    "search": "Sipariş no ya da metin ara",
+    "searchLabel": "Sipariş no, metin ya da şablon ara",
+    "problems": "Sorunlu",
+    "type": "Tip",
+    "allTypes": "Hepsi",
+    "noMatch": "Bu süzgeçle eşleşen sipariş yok",
+    "noMatchQuery": "“{{q}}” aramasıyla eşleşen sipariş yok",
+    "clearFilter": "Süzgeci temizle",
+    "sort": "Sırala"
+  },
+  "pending": {
+    "selectAll": "Hepsini seç",
+    "generate_one": "Seçilenleri üret ({{count}})",
+    "generate_other": "Seçilenleri üret ({{count}})"
+  },
+  "edit": {
+    "approveBest": "En iyilerini onayla",
+    "approveBestHint": "Her siparişte yapay zekânın ilk sıraya koyduğu seçeneği onaylar; kontrol işaretliler seçilmez"
+  },
+  "approvedSec": {
+    "toPrint": "Baskı masasını aç"
+  },
+  "card": {
+    "order": "№ {{v}}",
+    "quantity_one": "{{count}} adet",
+    "quantity_other": "{{count}} adet",
+    "select": "Seç: {{v}}",
+    "delete": "Sil: {{v}} (geri alınabilir)",
+    "new": "Bekliyor",
+    "queued": "Sırada",
+    "generating": "Üretiliyor…",
+    "failed": "Üretilemedi",
+    "retry": "Yeniden dene",
+    "approved": "Onaylı",
+    "approvedV": "Onaylı · V{{no}}",
+    "variant": "V{{no}}",
+    "variants_one": "{{count}} seçenek",
+    "variants_other": "{{count}} seçenek",
+    "warnings_one": "{{count}} uyarı",
+    "warnings_other": "{{count}} uyarı",
+    "errors_one": "{{count}} hata",
+    "errors_other": "{{count}} hata"
+  },
+  "intake": {
+    "emptyTitle": "Siparişleri ekleyin",
+    "emptyBody": "Dosyadaki siparişler “Üretilmeyi bekleyenler” listesine düşer. Üretim siz seçip başlatınca başlar.",
+    "dropTitle": "Sipariş dosyasını buraya sürükleyin",
+    "or": "ya da",
+    "upload": "Dosya yükle",
+    "formats": ".json, .ndjson ya da .txt · Ctrl V ile yapıştırabilirsiniz",
+    "manual": "Elle ekle",
+    "manualBody": "Tek bir siparişi kendiniz yazın.",
+    "addToList": "Listeye ekle",
+    "stripTitle": "Sipariş dosyasını buraya bırakın",
+    "last_one": "Son yükleme: {{file}} · {{count}} sipariş · {{when}}",
+    "last_other": "Son yükleme: {{file}} · {{count}} sipariş · {{when}}",
+    "steps": {
+      "upload": {
+        "title": "Yükleyin",
+        "body": "Siparişler “Üretilmeyi bekleyenler” bölümüne kart olarak düşer. Sorunlu kartta uyarı çıkar."
+      },
+      "generate": {
+        "title": "Seçip üretin",
+        "body": "İstediklerinizi işaretleyip “Seçilenleri üret” deyin. Gerekmeyeni çöp kutusuyla silin."
+      },
+      "approve": {
+        "title": "Düzenleyip onaylayın",
+        "body": "Karta tıklayınca sağda düzenleme paneli açılır. Onaylılar baskı masasına geçer."
+      }
+    }
+  },
+  "upload": {
+    "added_one": "{{count}} sipariş listeye eklendi.",
+    "added_other": "{{count}} sipariş listeye eklendi.",
+    "skipped_one": "{{count}} satır alınmadı (tekrar ya da metni boş).",
+    "skipped_other": "{{count}} satır alınmadı (tekrar ya da metni boş).",
+    "nothing": "Yeni sipariş yok: dosyadaki satırlar zaten listede ya da metni boş.",
+    "noText": "Dosyada müşteri metni alanı bulunamadı.",
+    "detailed": "Ayrıntılı içe aktar",
+    "fileType": "“{{name}}” açılamadı: yalnız .json, .ndjson ya da .txt.",
+    "fileUnreadable": "“{{name}}” okunamadı.",
+    "fileEmpty": "“{{name}}” boş."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/deciship/invoices",
+  "status": 403,
+  "code": "FORBIDDEN",
+  "shape": {
+    "error": {
+      "code": "string",
+      "message": "string"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+/* Öğren (önek td-og-): solda öneriler, ortada önce/sonra ve ölçüler, sağda öneri ayrıntısı. Yalnız var(--…) belirteçleri. */
+
+.td-og-sekme {
+  padding: 8px 10px 6px;
+}
+
+.td-og-not {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-og-kosu {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-og-bos {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding: 24px;
+}
+
+/* Boş tuvalde ileti üst yarıda (alttaki ölçüm kutusuyla çakışmasın). */
+.td-cv-msg--ust {
+  bottom: 40%;
+}
+
+/* Tuvalin altında yüzen ölçüm kutusu. */
+.td-og-olcu {
+  display: grid;
+  gap: 6px;
+  min-width: 420px;
+}
+
+.td-og-olcu h3 {
+  margin: 0;
+  font-size: var(--tz-fs-section);
+  font-weight: 600;
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.td-og-tablo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tz-fs-panel);
+}
+
+.td-og-tablo th,
+.td-og-tablo td {
+  padding: 4px 8px 4px 0;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.td-og-tablo thead th {
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.td-og-tablo tbody th {
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.td-og-tablo td.td-mono {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Sağ panel */
+.td-og-ozet,
+.td-og-metin,
+.td-og-metin p {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  line-height: var(--tz-lh-body);
+  color: var(--text);
+}
+
+.td-og-metin {
+  display: grid;
+  gap: 6px;
+}
+
+.td-og-alanlar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.td-og-alanlar li {
+  display: grid;
+  gap: 2px;
+  padding: 6px 8px;
+  border-radius: var(--tz-r-field);
+  background: var(--surface-2);
+  font-size: var(--tz-fs-panel);
+}
+
+.td-og-deger {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
+}
+
+.td-og-deger s {
+  color: var(--text-3);
+}
+
+.td-og-deger b {
+  color: var(--text);
+}
+
+.td-og-kucuk {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.td-og-grup {
+  padding: 0 14px 10px;
+}
+
+.td-og-alt {
+  display: grid;
+  gap: 8px;
+}
+
+.td-og-dugmeler {
+  display: flex;
+  gap: 8px;
+}
+
+.td-og-uygula {
+  flex: 1;
+}

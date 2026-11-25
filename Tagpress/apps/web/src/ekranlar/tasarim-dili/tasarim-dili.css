@@ -1,0 +1,161 @@
+/* Tasarım dili (önek td-): yalnız var(--…) belirteçleri. Çerçeve ve bölümler için ortak parçalar. */
+
+.td-bos {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+}
+
+.td-bos-not {
+  max-width: 460px;
+  display: grid;
+  gap: 8px;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.td-bos-not p {
+  margin: 0;
+}
+
+.td-bos-not ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 4px;
+}
+
+/* Taslak durumu: bantta kalem ikonlu soluk metin (nokta ya da rozet değil). */
+.td-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sod-band-on);
+}
+
+/* Yayınla: BandButton'da pasif durum yok; pasiflik bir fieldset ile verilir (içindeki düğme gerçekten pasifleşir). */
+.td-act {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.td-yayin {
+  display: grid;
+  gap: 12px;
+}
+
+.td-yayin p {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+/* Bölüm sayfası: orta sütunda kaydırılan okuma alanı. */
+.td-sayfa {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.td-sayfa-ic {
+  max-width: 760px;
+  padding: 20px 28px 48px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.td-baslik {
+  margin: 0;
+  font-size: var(--tz-fs-sub);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.td-lead {
+  margin: 0;
+  max-width: 62ch;
+  font-size: var(--tz-fs-body);
+  color: var(--text-2);
+}
+
+.td-bilgi {
+  margin: 0;
+  max-width: 62ch;
+  padding: 10px 12px;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+  background: var(--tz-info-bg);
+  border: 1px solid var(--tz-info-line);
+  border-radius: var(--tz-r-field);
+}
+
+.td-ton {
+  margin: 0;
+  max-width: 62ch;
+  font-size: var(--tz-fs-body);
+  color: var(--text);
+}
+
+.td-cumle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.td-cumle li {
+  max-width: 62ch;
+  font-size: var(--tz-fs-body);
+  color: var(--text);
+}
+
+.td-soluk {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.td-mono {
+  font-family: var(--fm);
+}
+
+.td-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Font örneği: kâğıt zeminde fontun kendi yazısı. */
+.td-yazi {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--tz-paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-field);
+}
+
+.td-yazi img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+.td-yazi.is-yok {
+  padding: 0 10px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}

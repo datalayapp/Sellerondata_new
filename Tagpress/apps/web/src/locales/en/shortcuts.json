@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "production": "Production",
+    "designLanguage": "Design language",
+    "templates": "Templates",
+    "print": "Print",
+    "settings": "Settings"
+  },
+  "help": "Show shortcuts",
+  "canvas": {
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fit": "Fit",
+    "actual": "Actual size",
+    "selection": "Zoom to selection",
+    "pan": "Pan (hold)"
+  },
+  "groups": {
+    "navigation": "Navigation",
+    "general": "General",
+    "canvas": "Canvas"
+  },
+  "keys": {
+    "space": "Space",
+    "enter": "Enter",
+    "escape": "Esc",
+    "delete": "Del",
+    "backspace": "Backspace",
+    "tab": "Tab",
+    "ctrl": "Ctrl",
+    "shift": "Shift",
+    "alt": "Alt"
+  },
+  "panel": {
+    "title": "Keyboard shortcuts"
+  }
+}

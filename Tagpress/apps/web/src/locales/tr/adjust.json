@@ -1,0 +1,181 @@
+{
+  "format": {
+    "percent": "%{{n}}"
+  },
+  "summary": {
+    "right": "sağa {{v}} px",
+    "left": "sola {{v}} px",
+    "down": "aşağı {{v}} px",
+    "up": "yukarı {{v}} px",
+    "scale": "boyut {{v}}",
+    "stroke": "kalınlık {{v}}",
+    "none": "değişiklik yok",
+    "linesApart_one": "{{count}} satır ayrı",
+    "linesApart_other": "{{count}} satır ayrı",
+    "textEdited_one": "{{count}} satırın metni elle",
+    "textEdited_other": "{{count}} satırın metni elle",
+    "fontEdited_one": "{{count}} satırın fontu elle",
+    "fontEdited_other": "{{count}} satırın fontu elle"
+  },
+  "selection": {
+    "all": "Bütün yazı",
+    "line": "Satır {{n}}: {{text}}",
+    "many_one": "{{count}} satır: {{list}}",
+    "many_other": "{{count}} satır: {{list}}"
+  },
+  "font": {
+    "scope": {
+      "span": "Font (seçili parça)",
+      "all": "Font (bütün yazı)",
+      "lines": "Font ({{count}} satır)",
+      "line": "Font (satır)"
+    },
+    "forSpan": "“{{text}}” için font seç",
+    "mixed": "Karışık",
+    "label": "Font",
+    "single": "Tasarım dili: tek aile (elle değiştirmek serbest; aşılırsa uyarı çıkar).",
+    "measuring": "Ölçülüyor"
+  },
+  "target": {
+    "heading": "Ortalama hedefi",
+    "template": "Şablondaki hedef merkez",
+    "area": "Yazı alanının merkezi",
+    "cut": "Kesim merkezi"
+  },
+  "title": {
+    "withOrder": "№ {{order}} · V{{no}} yazısını düzelt",
+    "variant": "V{{no}} yazısını düzelt"
+  },
+  "loading": "Önizleme hazırlanıyor",
+  "error": {
+    "open": "Düzeltme açılamadı.",
+    "notAdjustable": "Bu varyasyon düzeltilemez.",
+    "notAdjustableBody": "Görüntü ile üretilen varyasyonlarda yazı şablona basılı olduğu için yerinden oynatılamaz.",
+    "noVariant": "Adreste varyasyon yok.",
+    "back": "Geri dön"
+  },
+  "actions": {
+    "save": "Kaydet",
+    "cancel": "Vazgeç"
+  },
+  "toast": {
+    "saved": "Düzeltme kaydedildi",
+    "removed": "Düzeltme kaldırıldı",
+    "undo": "Geri al"
+  },
+  "remove": {
+    "action": "Düzeltmeyi kaldır",
+    "title": "Düzeltme kaldırılsın mı?",
+    "body": "Yazı motorun yerleştirdiği hâline döner. Bildirimden geri alabilirsiniz.",
+    "confirm": "Kaldır"
+  },
+  "leave": {
+    "title": "Kaydedilmemiş değişiklik var",
+    "body": "Kaydetmeden çıkarsanız bu düzeltme kaybolur.",
+    "confirm": "Kaydetmeden çık"
+  },
+  "strip": {
+    "label": "Düzeltme araçları"
+  },
+  "rail": {
+    "label": "Araçlar"
+  },
+  "canvas": {
+    "label": "Yazının konumu. Satıra tıklayarak seçin, Ctrl ya da Shift ile satır ekleyin; sürükleyin ya da ok tuşlarıyla taşıyın, Shift ile 10 kat. Çift tık ya da Enter metni düzenler. Ctrl + tekerlek yakınlaştırır, Boşluk + sürükle kaydırır.",
+    "size": "{{w}} × {{h}} mm"
+  },
+  "status": {
+    "step": "ok adımı {{v}} px"
+  },
+  "lines": {
+    "title": "Satırlar",
+    "all": "Bütün yazı",
+    "own": "elle ayarlı"
+  },
+  "check": {
+    "ok": "Yazı kesimin içinde ve süslemeye değmiyor."
+  },
+  "text": {
+    "heading": "Metin",
+    "field": "Satır {{n}} metni",
+    "pickLine": "Metni düzenlemek için tek bir satır seçin ya da satıra çift tıklayın.",
+    "noEngine": "Metin düzenleme için motor bağlı değil.",
+    "empty": "Satır boş olamaz; metni silmek yerine değiştirin.",
+    "edited": "metin elle düzenlendi",
+    "spans": "Parça fontları:",
+    "span": "“{{text}}” · {{font}}",
+    "removeSpan": "Parça fontunu kaldır"
+  },
+  "position": {
+    "heading": "Konum",
+    "x": "Yatay",
+    "y": "Dikey",
+    "xHint": "Artı sağa, eksi sola (tasarım pikseli)",
+    "yHint": "Artı aşağı, eksi yukarı (tasarım pikseli)"
+  },
+  "size": {
+    "label": "Boyut",
+    "down": "Küçült (%2)",
+    "up": "Büyüt (%2)"
+  },
+  "stroke": {
+    "label": "Kalınlık",
+    "value": "{{v}} px",
+    "down": "İncelt (0,2 px)",
+    "up": "Kalınlaştır (0,2 px)"
+  },
+  "shortcuts": {
+    "save": "Kaydet",
+    "saveEnter": "Kaydet",
+    "cancel": "Vazgeç",
+    "undo": "Geri al",
+    "redo": "İleri al",
+    "reset": "Bütün düzeltmeyi sıfırla",
+    "editText": "Metni düzenle",
+    "centerX": "Yatay ortala",
+    "centerY": "Dikey ortala",
+    "centerBoth": "Tam ortala",
+    "left": "Sola taşı (Shift ile 10 kat)",
+    "right": "Sağa taşı (Shift ile 10 kat)",
+    "up": "Yukarı taşı (Shift ile 10 kat)",
+    "down": "Aşağı taşı (Shift ile 10 kat)",
+    "scaleDown": "Küçült",
+    "scaleUp": "Büyüt",
+    "strokeDown": "İncelt",
+    "strokeUp": "Kalınlaştır",
+    "nextLine": "Sonraki satır",
+    "prevLine": "Önceki satır",
+    "selectAll": "Bütün yazıyı seç",
+    "toolSelect": "Seç",
+    "toolMarquee": "Kutuyla seç",
+    "toolZoom": "Yakınlaştır (tıkla; Alt ile uzaklaştır)",
+    "groups": {
+      "edit": "Düzeltme",
+      "move": "Taşıma, boyut, kalınlık",
+      "select": "Seçim",
+      "tools": "Araçlar"
+    }
+  },
+  "zoom": {
+    "actual": "%100"
+  },
+  "quick": {
+    "canvas": "Yazının konumu. Satıra tıklayıp seçin, tutup sürükleyerek taşıyın; ok tuşları da taşır. Çift tık metni düzenler.",
+    "hint": "Satırı tutup sürükleyin",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi",
+    "failed": "Değişiklik kaydedilemedi.",
+    "retry": "Yeniden dene",
+    "line": "Satır {{n}}",
+    "font": "Yazı tipi",
+    "centerX": "Yatay",
+    "centerY": "Dikey",
+    "centerBoth": "Tam ortala"
+  },
+  "window": {
+    "title": "Ayrıntılı düzenle",
+    "order": "№ {{order}}",
+    "variant": "V{{no}}",
+    "note": "Kaydet'e basınca değişiklikler kaydedilir ve pencere kapanır."
+  }
+}

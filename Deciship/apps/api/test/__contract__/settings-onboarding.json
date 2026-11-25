@@ -1,0 +1,49 @@
+{
+  "endpoint": "GET /api/deciship/settings/onboarding",
+  "status": 200,
+  "shape": {
+    "boxPresets": "number",
+    "boxPresetsReady": "boolean",
+    "carriers": [
+      {
+        "active": "boolean",
+        "activeTariffCount": "number",
+        "code": "string",
+        "id": "string",
+        "name": "string",
+        "tariffs": [
+          {
+            "active": "boolean",
+            "id": "string",
+            "isDefault": "boolean",
+            "name": "string"
+          }
+        ]
+      }
+    ],
+    "company": {
+      "confirmed": "boolean",
+      "country": "string",
+      "currency": "string",
+      "name": "string",
+      "timeZone": "string"
+    },
+    "completed": "boolean",
+    "demo": {
+      "active": "boolean",
+      "available": "boolean"
+    },
+    "invoices": [],
+    "required": "boolean",
+    "requiredSteps": [
+      "string"
+    ],
+    "showBanner": "boolean",
+    "state": {
+      "bannerDismissedAt": "null",
+      "completedAt": "null",
+      "done": [],
+      "skipped": []
+    }
+  }
+}

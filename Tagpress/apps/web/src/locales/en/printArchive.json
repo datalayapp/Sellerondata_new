@@ -1,0 +1,49 @@
+{
+  "strip": {
+    "label": "Archive tools"
+  },
+  "search": {
+    "placeholder": "Order no, session or page name",
+    "label": "Search the archive",
+    "busy": "Searching…",
+    "count_one": "{{count}} session",
+    "count_other": "{{count}} sessions"
+  },
+  "loadFailed": "The archive could not be loaded. {{detail}}",
+  "empty": {
+    "title": "No printed sessions yet",
+    "noMatch": "No printed session matches the search",
+    "body": "Sessions you mark as “Printed” on the desk come here; none are deleted. Search by order number and print again in one click.",
+    "noLanguage": "A design language is needed first",
+    "noLanguageBody": "The print archive belongs to a design language. Create one in Settings under Design languages.",
+    "toLanguages": "Go to design languages"
+  },
+  "col": {
+    "session": "Session",
+    "printed": "Printed",
+    "orders": "Orders",
+    "actions": "Actions"
+  },
+  "orderNo": "№ {{no}}",
+  "more_one": "+{{count}}",
+  "more_other": "+{{count}}",
+  "reprintTag": "reprint",
+  "counts": "{{pages}} · {{sheets}} · {{labels}}",
+  "pages_one": "{{count}} page",
+  "pages_other": "{{count}} pages",
+  "sheets_one": "{{count}} sheet",
+  "sheets_other": "{{count}} sheets",
+  "labels_one": "{{count}} label",
+  "labels_other": "{{count}} labels",
+  "actions": {
+    "open": "Open",
+    "unprint": "Not printed",
+    "unprintHint": "Back to draft if it was marked by mistake",
+    "reprint": "Print again"
+  },
+  "toast": {
+    "reprinted": "New draft: “{{name}}”. Opened on the desk.",
+    "reprintFailed": "Could not print again. {{detail}}",
+    "unprinted": "The session is a draft again; it can be edited on the desk."
+  }
+}

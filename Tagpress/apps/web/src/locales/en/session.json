@@ -1,0 +1,17 @@
+{
+  "gate": {
+    "noOrgTitle": "No active company",
+    "noOrgBody": "TagPress works inside a company. Choose or create a company in Hub.",
+    "backHub": "Back to Hub"
+  },
+  "readOnly": {
+    "label": "View only",
+    "hint": "You cannot make changes in this company. Your company admin can grant this in Hub › Team."
+  },
+  "access": {
+    "denied": "You do not have permission to do this."
+  },
+  "switchOrg": {
+    "confirm": "Switch without saving"
+  }
+}

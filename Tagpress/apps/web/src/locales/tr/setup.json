@@ -1,0 +1,165 @@
+{
+  "kicker": "Kurulum",
+  "stepOf": "Adım {{n}} / {{total}}",
+  "steps": {
+    "type": "Etiket türü",
+    "language": "Tasarım dili",
+    "print": "Baskı"
+  },
+  "type": {
+    "title": "Ne tür etiketler yapıyorsunuz?",
+    "sub": "Seçtiklerinize göre araçları açarız."
+  },
+  "types": {
+    "wedding": "Düğün ve nişan",
+    "baptism": "Vaftiz ve doğum",
+    "birthday": "Doğum günü",
+    "thanks": "Teşekkür ve hatıra",
+    "product": "Ürün etiketi",
+    "sticker": "Sticker"
+  },
+  "typeHints": {
+    "wedding": "İsimler ve tarih",
+    "baptism": "Bebek adı, tarih",
+    "birthday": "İsim, yaş, tarih",
+    "thanks": "Tek satır teşekkür",
+    "product": "Ürün adı, gramaj",
+    "sticker": "Zeminsiz yazı"
+  },
+  "features": {
+    "title": "Açılacak özellikler",
+    "paid": "Ücretli",
+    "more": "Diğer özellikler",
+    "moreSummary_one": "{{count}} açık",
+    "moreSummary_other": "{{count}} açık",
+    "note": "Kapalı olanlar Ayarlar'dan açılır."
+  },
+  "feat": {
+    "core_production": {
+      "name": "Üretim ve karşılaştırma",
+      "desc": "Siparişten etiket üretir, adayları karşılaştırır."
+    },
+    "import_json": {
+      "name": "Toplu içe aktarma",
+      "desc": "Siparişleri JSON dosyasıyla toplu ekler."
+    },
+    "jobs_manual": {
+      "name": "Elle iş ekleme",
+      "desc": "Tek siparişi elle yazarak ekler."
+    },
+    "adjust": {
+      "name": "Düzelt",
+      "desc": "Yazıyı, fontu ve yerleşimi elle düzeltir."
+    },
+    "revise": {
+      "name": "Şunu değiştir",
+      "desc": "Etiketi tek cümleyle değiştirir."
+    },
+    "image_onTemplate": {
+      "name": "Görselle üret: şablona yaz",
+      "desc": "Yazıyı şablon görselinin üstüne yapay zekâyla yazar."
+    },
+    "image_themeTemplate": {
+      "name": "Temadan şablon üret",
+      "desc": "Bir temadan yeni şablon görseli üretir."
+    },
+    "learn": {
+      "name": "Düzeltmelerden öğren",
+      "desc": "Düzeltmelerinizden tasarım diline öneri çıkarır."
+    },
+    "print": {
+      "name": "Baskı masası, kesim işaretleri",
+      "desc": "Sayfa düzeni, sayfa şablonları, kesim ve arşiv."
+    },
+    "print_stickers": {
+      "name": "Sticker sayfaları",
+      "desc": "Zeminsiz yazıyı sticker olarak dizer."
+    },
+    "templates_editor": {
+      "name": "Şablon düzenleyici",
+      "desc": "Şablonda yazı alanını çizer ve dener."
+    },
+    "language_builder": {
+      "name": "Tasarım dili oluşturma",
+      "desc": "Sorular ve örneklerle yapay zekâ dili kurar."
+    },
+    "language_rules": {
+      "name": "Kuralları elle düzenleme",
+      "desc": "Kurallar, sürümler ve eski sürüme dönüş."
+    },
+    "language_multi": {
+      "name": "Birden çok tasarım dili",
+      "desc": "Farklı tarzlar için ayrı diller."
+    },
+    "language_package": {
+      "name": "Dil paketi",
+      "desc": "Tasarım dilini dışa ve içe aktarır."
+    },
+    "text_languages": {
+      "name": "Birden çok metin dili",
+      "desc": "Müşteri metninde İngilizce, İtalyanca gibi diller."
+    }
+  },
+  "language": {
+    "title": "Tasarım diliniz nasıl kurulsun?",
+    "sub": "Örneklerinizle oluşturabilir ya da hazır dille başlayabilirsiniz.",
+    "build": "Örneklerimle oluştur",
+    "buildHint": "Sorular ve örnek etiketlerle; yapay zekâ kullanır, maliyet başlamadan gösterilir.",
+    "buildOff": "Tasarım dili oluşturma kapalı; 1. adımdan açabilirsiniz.",
+    "default": "Varsayılanla başla",
+    "defaultHint": "Hazır ayarlarla başlar; sonra değiştirebilirsiniz.",
+    "defaultHintName": "{{name}} ile başlar; sonra değiştirebilirsiniz.",
+    "note": "Oluşturma, kurulum bitince açılır."
+  },
+  "print": {
+    "title": "Nasıl basıyorsunuz?",
+    "sub": "Sayfa şablonu bu cevaplarla hazırlanır.",
+    "paper": "Kağıt",
+    "paperType": "Kağıt türü",
+    "paperTypes": {
+      "plain": "Düz yapışkanlı",
+      "precut": "Hazır kesimli"
+    },
+    "paperTypeHint": {
+      "plain": "Kesim çizgisi basılır, siz kesersiniz.",
+      "precut": "Kesim çizgisi basılmaz, yalnız ekranda görünür."
+    },
+    "who": "Kesimi kim yapıyor?",
+    "whoMachine": "Kesim makinesi",
+    "whoHand": "Elle",
+    "cutter": "Makine",
+    "cutters": {
+      "silhouette": "Silhouette",
+      "cricut": "Cricut",
+      "scanncut": "Brother ScanNCut",
+      "plotter": "Optik gözlü plotter (Graphtec vb.)",
+      "other": "Diğer"
+    },
+    "cutterHint": {
+      "silhouette": "İşareti makinenin yazılımı ekler; kesim dosyası verilir.",
+      "cricut": "İşareti makinenin yazılımı ekler; kesim dosyası verilir.",
+      "scanncut": "Kesim çizgisi basılır, işaret basılmaz.",
+      "plotter": "Dört köşeye L işareti basılır; kesim dosyası verilir.",
+      "other": "Kesim çizgisi basılır, işaret basılmaz."
+    },
+    "sticker": "Sticker ölçüsü",
+    "stickerHint": "En büyük genişlik; yuvarlakta çap.",
+    "smaller": "Küçült",
+    "larger": "Büyüt",
+    "mm": "{{value}} mm",
+    "note": "Bunlar başlangıç değerleri; Baskı → Sayfa şablonları'ndan değiştirebilirsiniz."
+  },
+  "skip": "Atla, varsayılanla başla",
+  "cancel": "Vazgeç",
+  "back": "Geri",
+  "next": "Devam et",
+  "finish": "Bitir",
+  "retry": "Tekrar dene",
+  "done": "Kurulum tamamlandı.",
+  "shortcuts": {
+    "next": "Devam et",
+    "groups": {
+      "flow": "Kurulum"
+    }
+  }
+}

@@ -1,0 +1,170 @@
+/* Dene (önek td-dn-): sol panelde deneme kümesi ve yöntem, ortada sonuç tuvali. Yalnız var(--…) belirteçleri. */
+
+.td-dn-bos {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-dn-liste {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  display: grid;
+  gap: 2px;
+}
+
+.td-dn-ornek {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: var(--tz-r-tool);
+}
+
+.td-dn-ornek:hover {
+  background: var(--surface-2);
+}
+
+/* Serbest metnin küçük resmi yok: boş kâğıt yeri. */
+.td-dn-yer {
+  width: 36px;
+  height: 36px;
+  border: 1px dashed var(--line);
+  border-radius: var(--tz-r-field);
+}
+
+.td-dn-ad {
+  display: grid;
+  min-width: 0;
+}
+
+.td-dn-ad b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-panel);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.td-dn-ad small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-dn-ekle {
+  display: grid;
+  gap: 8px;
+}
+
+.td-dn-satir {
+  display: flex;
+  gap: 8px;
+}
+
+.td-dn-sablon {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Panel altı: yöntem, maliyet, birincil düğme. */
+.td-dn-alt {
+  display: grid;
+  gap: 8px;
+}
+
+.td-dn-alt .tz-seg {
+  width: 100%;
+}
+
+.td-dn-alt .tz-seg > * {
+  flex: 1;
+  justify-content: center;
+}
+
+.td-dn-maliyet {
+  font-variant-numeric: tabular-nums;
+}
+
+.td-dn-onay {
+  display: grid;
+  gap: 6px;
+}
+
+.td-dn-onay p {
+  margin: 0;
+}
+
+/* Örnek seçici (açılır kutu). */
+.td-dn-sec {
+  display: grid;
+  gap: 8px;
+}
+
+.td-dn-sec ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow: auto;
+  display: grid;
+  gap: 2px;
+}
+
+.td-dn-sec li {
+  display: grid;
+  gap: 1px;
+  padding: 5px 4px;
+  border-radius: var(--tz-r-field);
+}
+
+.td-dn-sec li:hover {
+  background: var(--surface-2);
+}
+
+.td-dn-sec li small {
+  padding-left: 26px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Tuvalde: sonucun altındaki satır, sorun ve fark bilgisi (ters ölçekli `below` içinde). */
+.td-dn-alti {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  font-size: var(--tz-fs-small);
+  color: var(--tz-artboard-ink);
+}
+
+.td-dn-fark {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.td-dn-fark small {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Üretilemeyen yan: kâğıt yerine soluk boş kutu; nedeni altında (`below`). */
+.td-dn-hata {
+  display: block;
+  background: var(--surface-2);
+  box-shadow: 0 0 0 calc(1px / var(--tz-zoom)) var(--line);
+}
+
+.td-dn-neden {
+  max-width: 260px;
+  white-space: normal;
+  font-size: var(--tz-fs-small);
+  color: var(--danger);
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Tuval ve katmanlar",
+  "sections": {
+    "proposals": "Tuval: öneriler",
+    "print": "Tuval: baskı önizlemesi",
+    "layers": "Katmanlar"
+  },
+  "sample": {
+    "name": "Kerem & Elif",
+    "date": "21.11.2026",
+    "order": "Sipariş {{n}}"
+  },
+  "sizeLabel": "{{w}} × {{h}} mm",
+  "status": {
+    "proposals": "{{n}} öneri · {{size}}",
+    "pages_one": "{{count}} sayfa",
+    "pages_other": "{{count}} sayfa"
+  },
+  "proposals": {
+    "v1": "V1 Ortada",
+    "v2": "V2 Alt alta",
+    "v3": "V3 Tek satır",
+    "best": "Önerilen",
+    "approve": "Onayla",
+    "approved": "{{name}} onaylandı",
+    "edit": "Düzelt",
+    "note": "Etikete tıklayın: seçilir, cetvelde vurgulanır. Boş zemine tıklamak seçimi kaldırır. Boşluk basılıyken sürükleyin ya da orta tuşla kaydırın; Ctrl ve tekerlekle yakınlaştırın."
+  },
+  "dock": {
+    "label": "Şunu değiştir",
+    "placeholder": "Şunu değiştir: yazıyı biraz büyüt",
+    "send": "Gönder",
+    "sent": "İstek gönderildi"
+  },
+  "print": {
+    "many": "40 sayfa",
+    "preview": "Baskı önizlemesi",
+    "fitAll": "Hepsini sığdır",
+    "page": "Sayfa {{n}}",
+    "note": "Pembe kesim çizgisi ve köşe işaretleri yalnız baskı önizlemesinde görünür. Görünür alanın dışındaki sayfalar çizilmez; kaydırdıkça çizilir."
+  },
+  "layers": {
+    "sessionName": "Cuma baskısı",
+    "rename": "Oturumun adı",
+    "cancel": "Vazgeç",
+    "save": "Kaydet",
+    "saved": "Kaydedildi",
+    "view": "Görünüm",
+    "more": "Diğer işlemler",
+    "duplicate": "Çoğalt",
+    "duplicated": "Oturum çoğaltıldı",
+    "archive": "Arşive taşı",
+    "delete": "Sil",
+    "confirmTitle": "Oturum silinsin mi?",
+    "confirmBody": "Oturumdaki 3 sayfa silinir. Siparişler kuyrukta kalır.",
+    "deleted": "Oturum silindi",
+    "undo": "Geri al",
+    "restored": "Oturum geri geldi",
+    "openDialog": "Pencere (düzenleme)",
+    "openBusy": "Pencere (işlem sürüyor)",
+    "toastUndo": "Geri alınabilir bildirim",
+    "toastError": "Hata bildirimi",
+    "errorMessage": "Dosya üretilemedi: şablon bulunamadı.",
+    "tipCut": "Kesim çizgisini göster",
+    "cut": "Kesim çizgisi",
+    "marks": "Kesim işaretleri",
+    "tipLong": "Köşelerde, kenardan 2 mm açıkta 5 mm çizgi",
+    "dialogTitle": "AI notu",
+    "noteLabel": "Not",
+    "notePlaceholder": "Ör. isimleri büyük harfle yaz",
+    "dirtyHint": "Bir şey yazıp Esc'e basın: önce sarı onay şeridi açılır.",
+    "inDialogMenu": "Hazır notlar",
+    "templateA": "İsimleri büyük harfle yaz",
+    "templateB": "Tarihi alta al",
+    "busyTitle": "Dosyayı üret",
+    "busyBody": "Kaydet'e basınca işlem sürerken pencere kapanmaz.",
+    "disabled": "Pasif (ipucu yine görünür)"
+  }
+}

@@ -1,0 +1,13 @@
+# Yapay zekâ geçidi imajı için derleme bağlamı (SellerOnData kökü): yalnız gerekenler gönderilir
+*
+!Platform/packages/contracts/package.json
+!Platform/packages/contracts/src
+!Platform/packages/auth-kit/package.json
+!Platform/packages/auth-kit/src
+!Platform/apps/ai-api
+Platform/apps/ai-api/node_modules
+Platform/apps/ai-api/dist
+Platform/apps/ai-api/test
+Platform/apps/ai-api/src/generated
+**/.env
+**/*.log

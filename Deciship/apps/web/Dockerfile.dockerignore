@@ -1,0 +1,19 @@
+# Web imajı için derleme bağlamı (SellerOnData/ kökü): yalnız gerekenler gönderilir
+*
+!Deciship/packages/core/package.json
+!Deciship/packages/core/package-lock.json
+!Deciship/packages/core/src
+!Deciship/apps/web
+!Platform/packages/contracts
+!Platform/packages/format
+!Platform/packages/shell
+!Platform/gateway/conf/access-log.conf
+Deciship/apps/web/node_modules
+Deciship/apps/web/dist
+Deciship/apps/web/e2e
+Deciship/apps/web/screenshots
+Deciship/apps/web/test-results
+Deciship/apps/web/playwright-report
+Platform/packages/*/node_modules
+**/.env
+**/*.log

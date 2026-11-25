@@ -1,0 +1,770 @@
+/* Oluştur (ol- öneki; maket 5 "Tasarım dili oluşturma"). Renk ve köşe yalnız var(--…) belirteçleri. */
+
+.ol-bos-sayfa {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+}
+
+.ol-sp {
+  flex: 1;
+}
+
+.ol-mut {
+  color: var(--text-3);
+  font-size: var(--tz-fs-small);
+}
+
+.ol-not {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  line-height: 17px;
+  color: var(--text-3);
+}
+
+.ol-mono {
+  font-family: var(--fm);
+  font-variant-numeric: tabular-nums;
+}
+
+.ol-pad {
+  padding: 12px 14px;
+}
+
+.ol-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.ol-meta {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------------------------------------------------------------- sol: sohbet */
+
+.ol-akis {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.ol-bos {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  line-height: 19px;
+  color: var(--text-3);
+}
+
+.ol-msg {
+  display: grid;
+  gap: 6px;
+  max-width: 92%;
+  font-size: var(--tz-fs-panel);
+  line-height: 19px;
+  color: var(--text);
+}
+
+.ol-msg p {
+  margin: 0;
+  padding: 8px 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ol-msg--ai p {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-kbd) var(--r-btn) var(--r-btn) var(--r-btn);
+}
+
+.ol-msg--ai.is-bekliyor p {
+  border-color: var(--primary-line);
+}
+
+.ol-msg--ai.is-canli p {
+  border-style: dashed;
+}
+
+.ol-msg--me {
+  align-self: flex-end;
+}
+
+.ol-msg--me p {
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-line);
+  border-radius: var(--r-btn) var(--tz-r-kbd) var(--r-btn) var(--r-btn);
+}
+
+.ol-etiket,
+.ol-olcu {
+  display: block;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ol-etiket {
+  margin-bottom: 2px;
+}
+
+.ol-olcu {
+  margin-top: 4px;
+  font-family: var(--fm);
+}
+
+.ol-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ol-chip {
+  position: relative;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font: inherit;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.ol-chip:hover:not(:disabled) {
+  border-color: var(--border-hover);
+}
+
+.ol-chip:disabled {
+  cursor: default;
+}
+
+.ol-chip.is-on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+  font-weight: 500;
+}
+
+/* Önerilen seçenek: küçük mor nokta (adı ekran okuyucuda). */
+.ol-chip.is-oneri::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.ol-sistem {
+  margin: 0;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: var(--tz-fs-small);
+  line-height: 17px;
+  color: var(--text-3);
+}
+
+.ol-sistem.is-hata {
+  color: var(--danger);
+}
+
+.ol-adim {
+  font-size: var(--tz-fs-small);
+}
+
+.ol-ornekler {
+  display: grid;
+  gap: 8px;
+}
+
+.ol-sh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--fm);
+  font-size: var(--tz-fs-section);
+  font-weight: 500;
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.ol-sh > span:first-child {
+  flex: 1;
+}
+
+.ol-ups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.ol-up {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-field);
+  background: var(--tz-paper);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ol-up img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ol-up.is-disi {
+  opacity: 0.45;
+}
+
+.ol-up.is-hata {
+  border-color: var(--danger-line);
+}
+
+.ol-up-add.tz-ib {
+  width: 40px;
+  height: 40px;
+  border: 1.5px dashed var(--primary-line);
+  border-radius: var(--tz-r-tool);
+  color: var(--primary-text);
+}
+
+.ol-uyari {
+  display: grid;
+  gap: 8px;
+}
+
+.ol-composer {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  margin: 0 -14px -12px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.ol-kutu {
+  flex: 1;
+  min-width: 0;
+}
+
+.ol-kutu textarea,
+textarea.ol-kutu {
+  min-height: 34px;
+  max-height: 160px;
+  resize: none;
+}
+
+.ol-gonder.is-hazir {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+/* ---------------------------------------------------------------- orta: kılavuz sayfaları */
+
+/* Tasarım dilinin öbür bölümleri gibi beyaz zemin. */
+.ol-sayfa {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface);
+}
+
+.ol-sayfa-ic {
+  max-width: 760px;
+  padding: 22px 28px 48px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+/* 17 px: 36 px yalnız kılavuzlu akışın (Kurulum) başlığıdır. */
+.ol-baslik {
+  margin: 0;
+  font-size: var(--tz-fs-sub);
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ol-lead {
+  margin: 0;
+  max-width: 62ch;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-3);
+}
+
+.ol-alt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.ol-adimlar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ol-adimlar li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.ol-adimlar li > span:last-child {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+}
+
+.ol-adimlar b {
+  display: block;
+  font-weight: 600;
+}
+
+.ol-adimlar small {
+  display: block;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+/* Adım numarası nötr: mor yalnız seçim ve birincil eylem. */
+.ol-adim-no {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-3);
+  color: var(--text-2);
+  font-family: var(--fm);
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+}
+
+.ol-satir {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ol-tahmin {
+  display: grid;
+  gap: 6px;
+}
+
+.ol-tahmin p {
+  margin: 0;
+}
+
+.ol-turler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ol-tur {
+  height: var(--tz-btn-page);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  font: inherit;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.ol-tur:hover {
+  border-color: var(--border-hover);
+}
+
+.ol-tur.is-on {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+  font-weight: 500;
+}
+
+.ol-birak {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 24px;
+  border: 1.5px dashed var(--primary-line);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+  color: var(--text-2);
+  text-align: center;
+}
+
+.ol-birak p {
+  margin: 0;
+}
+
+.ol-birak.is-uzerinde {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.ol-kartlar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 10px;
+}
+
+.ol-kart {
+  width: 100%;
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ol-kart:hover {
+  border-color: var(--border-hover);
+}
+
+.ol-kart img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: var(--tz-r-field);
+  background: var(--tz-paper);
+}
+
+.ol-kart.is-disi img {
+  opacity: 0.45;
+}
+
+.ol-kart-ad {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-small);
+}
+
+.ol-cv-msg {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.ol-cv-msg > * {
+  pointer-events: auto;
+}
+
+.ol-calisiyor {
+  position: relative;
+  flex: 1;
+}
+
+.ol-cv-durum {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  box-shadow: var(--tz-sh-dock);
+}
+
+/* ---------------------------------------------------------------- orta: örnek etiketler */
+
+.ol-dene {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ol-dene .tz-fi {
+  width: 220px;
+}
+
+.ol-dene-hata {
+  margin: 0;
+  padding: 6px 14px;
+  font-size: var(--tz-fs-small);
+  color: var(--danger);
+  background: var(--danger-bg);
+  border-bottom: 1px solid var(--danger-line);
+}
+
+.ol-sb-ara {
+  color: var(--text-3);
+}
+
+.ol-alti,
+.ol-chg-t {
+  display: flex;
+  gap: 6px;
+  max-width: 170px;
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  color: var(--text-2);
+}
+
+.ol-alti.is-hata {
+  color: var(--danger);
+}
+
+.ol-chg-t {
+  color: var(--primary-text);
+  font-weight: 500;
+}
+
+.ol-chg-t::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.ol-yok {
+  display: block;
+  border: 1px dashed var(--danger-line);
+  background: var(--danger-bg);
+}
+
+/* ---------------------------------------------------------------- sağ: özet */
+
+.ol-ozet {
+  display: grid;
+}
+
+.ol-sg {
+  display: grid;
+  gap: 4px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ol-kv {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 8px;
+  margin: 0 -6px;
+  padding: 3px 6px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+  line-height: 18px;
+}
+
+.ol-kv > span {
+  color: var(--text-3);
+}
+
+.ol-kv b {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.ol-kv.is-chg {
+  background: var(--primary-soft);
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+
+.ol-kv.is-chg s {
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.ol-kv em {
+  display: block;
+  font-style: normal;
+  font-size: var(--tz-fs-small);
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.ol-kv em.is-uyari {
+  color: var(--warning);
+}
+
+.ol-kalite {
+  display: grid;
+  gap: 6px;
+}
+
+.ol-pfoot {
+  display: flex;
+  gap: 8px;
+}
+
+.ol-pfoot > .tz-btn,
+.ol-pfoot > * {
+  flex: 1;
+}
+
+/* ---------------------------------------------------------------- pencereler */
+
+.ol-pencere {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.ol-pencere-gorsel {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-page);
+  background: var(--tz-paper);
+}
+
+.ol-pencere-sag {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.ol-pencere-sag > p {
+  margin: 0;
+}
+
+.ol-satirlar {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ol-satirlar legend {
+  margin-bottom: 4px;
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+}
+
+.ol-yayin {
+  display: grid;
+  gap: 10px;
+}
+
+.ol-yayin p {
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------- Claude Code ile oluşturma (⋯ menüsünden pencere) */
+
+.ol-cc {
+  display: grid;
+  gap: 14px;
+}
+
+.ol-cc-lead {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.ol-kopya {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-field);
+  background: var(--surface-2);
+}
+
+.ol-kopya code {
+  font-family: var(--fm);
+  font-size: var(--tz-fs-panel);
+  color: var(--text);
+  white-space: pre;
+}
+
+/* Claude Code oturumunun canlı durumu (pencerenin altında) */
+.ol-cc-oturum {
+  display: grid;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.ol-cc-oturum header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ol-cc-oturum h3 {
+  margin: 0;
+  font-size: var(--tz-fs-head);
+  font-weight: 600;
+}
+
+.ol-cc-oturum p {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.ol-cc-oturum ol {
+  display: grid;
+  gap: 10px;
+  max-height: 240px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.ol-cc-oturum li {
+  display: grid;
+  gap: 2px;
+  font-size: var(--tz-fs-panel);
+  white-space: pre-line;
+}
+
+.ol-cc-oturum small {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ol-cc-oturum small b {
+  color: var(--text);
+  font-weight: 600;
+}

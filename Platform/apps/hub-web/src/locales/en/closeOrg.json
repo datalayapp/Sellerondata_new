@@ -1,0 +1,38 @@
+{
+  "closeOrg": {
+    "sectionTitle": "Close company",
+    "sectionBody": "The company closes and the team can no longer sign in to it. Data is kept for {{days}} days; during that time you can reopen the company. After that, everything is permanently deleted.",
+    "open": "Close company…",
+    "title": "Close {{org}}?",
+    "listTeam_one": "{{count}} person on the team loses access to the company and its tools.",
+    "listTeam_other": "{{count}} people on the team lose access to the company and its tools.",
+    "listTeamAll": "Everyone on the team loses access to the company and its tools.",
+    "listData": "Invoices, measurements, disputes and files are kept for {{days}} days.",
+    "listReopen": "You can reopen the company until {{date}}; after that it is permanently deleted.",
+    "listBilling": "The subscription stops.",
+    "nameLabel": "To confirm, type the company name:",
+    "password": "Your password",
+    "confirm": "Close company",
+    "closedTag": "Closed",
+    "pageTitle": "Closed company",
+    "closedTitle": "{{org}} has been closed",
+    "closedBody": "Closed on {{closedAt}}. Data is kept until {{purgeAfter}}; you can reopen the company until then. After that, everything is permanently deleted.",
+    "reopen": "Reopen company",
+    "reopenTitle": "Reopen {{org}}?",
+    "reopenBody": "The company opens again and the team gets back the same access it had before it was closed.",
+    "reopenPasswordHelp": "This action is confirmed with your password.",
+    "reopened": "{{org}} has been reopened. Your team has the same access as before it was closed.",
+    "goneTitle": "This company cannot be reopened",
+    "goneBody": "The company was reopened, its retention period ended, or you are not its owner.",
+    "noOrgHint": "Company you closed: {{org}}. You can reopen it until {{date}}.",
+    "err": {
+      "name": "The name you typed does not match the company name.",
+      "password": "The password is incorrect.",
+      "alreadyClosed": "This company is already closed.",
+      "ownerOnly": "Only the company owner can close the company.",
+      "purged": "The retention period has ended and the data was permanently deleted. The company cannot be reopened.",
+      "notFound": "This company was not found, or you cannot reopen it.",
+      "notClosed": "This company is already open."
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "colors": {
+    "bg": "#f7f6f3",
+    "surface": "#ffffff",
+    "surface2": "#faf9f6",
+    "border": "#e4e2dc",
+    "borderSoft": "#efede8",
+    "borderStrong": "#c9c5bc",
+    "borderHover": "#98a2b3",
+    "text": "#0f1a2e",
+    "text2": "#475467",
+    "text3": "#5f6b7f",
+    "placeholder": "#98a2b3",
+    "primary": "#1d5bd8",
+    "primaryHover": "#1546b8",
+    "primarySoft": "#e8eefc",
+    "primaryLine": "#c3d4f7",
+    "success": "#0b6b3a",
+    "successBg": "#e7f4ec",
+    "successLine": "#b7dfc6",
+    "danger": "#c4271b",
+    "dangerBg": "#fdecea",
+    "dangerLine": "#f6c4bf",
+    "warning": "#7a4f00",
+    "warningBg": "#fdf0d5",
+    "warningInk": "#5c3b00",
+    "disabledBg": "#f2f1ee",
+    "disabledText": "#98a2b3",
+    "camera": "#0b1430",
+    "scrim": "rgba(10,26,58,0.85)",
+    "night": "#0a1a3a",
+    "nightLine": "#22355e",
+    "onNight": "#ffffff",
+    "onNight2": "#8f9cb8",
+    "onNightAccent": "#b5cbff"
+  },
+  "bands": {
+    "site": {
+      "bg": "#0a1a3a",
+      "pressed": "#16284f",
+      "on": "#ffffff",
+      "on2": "#8f9cb8",
+      "track": "#22355e",
+      "trackOn": "#b5cbff"
+    },
+    "hub": {
+      "bg": "#2a2d34",
+      "pressed": "#363a43",
+      "on": "#ffffff",
+      "on2": "#d3d6dc",
+      "track": "#4a4f5a",
+      "trackOn": "#fdb022"
+    },
+    "deciship": {
+      "bg": "#1d5bd8",
+      "pressed": "#1546b8",
+      "on": "#ffffff",
+      "on2": "#e8eefc",
+      "track": "rgba(255,255,255,0.3)",
+      "trackOn": "#ffffff"
+    }
+  },
+  "radius": {
+    "control": 6,
+    "card": 6,
+    "pill": 999
+  },
+  "space": {
+    "sm": 6,
+    "md": 10,
+    "lg": 12
+  },
+  "touch": {
+    "min": 48,
+    "key": 52,
+    "primary": 48,
+    "row": 48
+  },
+  "shadow": {
+    "sm": "0 0 0 rgba(0,0,0,0)",
+    "md": "0 4px 12px rgba(15,26,46,0.08)",
+    "lg": "0 12px 32px rgba(15,26,46,0.14)",
+    "focus": "0 0 0 2px #1d5bd8"
+  },
+  "hubColors": {
+    "ink": "#0f2a5c",
+    "inkSoft": "#e8edf7",
+    "inkLine": "#c5d0e6",
+    "sun": "#fdb022"
+  },
+  "nightChip": {
+    "ok": {
+      "bg": "rgba(255,255,255,0.16)",
+      "fg": "#ffffff"
+    },
+    "info": {
+      "bg": "rgba(255,255,255,0.16)",
+      "fg": "#ffffff"
+    },
+    "warn": {
+      "bg": "#fdf0d5",
+      "fg": "#5c3b00"
+    },
+    "danger": {
+      "bg": "#fdecea",
+      "fg": "#a8231a"
+    }
+  }
+}

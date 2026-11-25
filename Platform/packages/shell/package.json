@@ -1,0 +1,67 @@
+{
+  "name": "@sellerondata/shell",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SellerOnData ortak kabuğu: D09 renk bandı, ürün menüsü, uygulama/firma/hesap menüleri, sayfa başlığı portalı, oturum istemcisi, i18n, ürün işaretleri, belirteçler ve temel bileşenler.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./mock-seed": "./src/mock/seed.ts",
+    "./leave-rules": "./src/leaveRules.ts",
+    "./time-zone": "./src/timeZone.ts",
+    "./menu-placement": "./src/menuPlacement.ts",
+    "./tokens.css": "./src/styles/tokens.css",
+    "./shell.css": "./src/styles/shell.css",
+    "./primitives.css": "./src/styles/primitives.css",
+    "./a11y.css": "./src/styles/a11y.css"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "check:i18n": "node ../../scripts/check-i18n.mjs --root . --locales src/locales --src src --strict"
+  },
+  "peerDependencies": {
+    "@sellerondata/contracts": "*",
+    "@sellerondata/format": "*",
+    "@tanstack/react-query": "^5",
+    "i18next": ">=25",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-i18next": ">=15",
+    "react-router": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "@sellerondata/contracts": {
+      "optional": true
+    },
+    "@sellerondata/format": {
+      "optional": true
+    },
+    "@tanstack/react-query": {
+      "optional": true
+    },
+    "i18next": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    },
+    "react-i18next": {
+      "optional": true
+    },
+    "react-router": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "happy-dom": "^21.0.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "a4-37-35",
+    "name": "A4 · Ø37 mm · 35'li",
+    "kind": "label",
+    "grid": { "paper": { "wMm": 210, "hMm": 297 }, "columns": 5, "rows": 7, "shape": "circle", "diameterMm": 37, "center": true },
+    "note": "Başlangıç değeri: kenar payı ve aralık ölçülmedi, yuvalar kağıda eşit dağıtılır. Kendi kağıdınıza göre düzeltin."
+  },
+  {
+    "id": "a4-25",
+    "name": "A4 · Ø25 mm",
+    "kind": "label",
+    "grid": { "paper": { "wMm": 210, "hMm": 297 }, "columns": 7, "rows": 10, "shape": "circle", "diameterMm": 25, "center": true },
+    "note": "Başlangıç değeri: sütun/satır sayısı, kenar payı ve aralık ölçülmedi. Kendi kağıdınıza göre düzeltin."
+  },
+  {
+    "id": "a4-50",
+    "name": "A4 · Ø50 mm",
+    "kind": "label",
+    "grid": { "paper": { "wMm": 210, "hMm": 297 }, "columns": 4, "rows": 5, "shape": "circle", "diameterMm": 50, "center": true },
+    "note": "Başlangıç değeri: sütun/satır sayısı, kenar payı ve aralık ölçülmedi. Kendi kağıdınıza göre düzeltin."
+  },
+  {
+    "id": "a4-635x381-21",
+    "name": "A4 · 63,5 × 38,1 mm · 21'li",
+    "kind": "label",
+    "sizeId": "63.5x38.1",
+    "grid": { "paper": { "wMm": 210, "hMm": 297 }, "columns": 3, "rows": 7, "shape": "rect", "wMm": 63.5, "hMm": 38.1, "pitchXMm": 66.04, "pitchYMm": 38.1, "marginLeftMm": 7.21, "marginTopMm": 15.15 },
+    "note": "Yaygın 21'li ürün etiketi kağıdının (63,5 × 38,1 mm) üretici ölçüleri. Kendi kağıdınızı cetvelle doğrulayın."
+  },
+  {
+    "id": "a4-40x40-24",
+    "name": "A4 · 40 × 40 mm kare · 24'lü",
+    "kind": "label",
+    "sizeId": "40x40",
+    "grid": { "paper": { "wMm": 210, "hMm": 297 }, "columns": 4, "rows": 6, "shape": "rect", "wMm": 40, "hMm": 40, "center": true },
+    "note": "Başlangıç değeri: kenar payı ve aralık ölçülmedi, yuvalar kağıda eşit dağıtılır. Kendi kağıdınıza göre düzeltin."
+  }
+]

@@ -1,0 +1,507 @@
+/* Ayarlar (önek ay-): yalnız var(--…) belirteçleri. */
+
+.ay-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.ay-col {
+  width: 100%;
+  max-width: 720px;
+  padding: 24px 32px 40px;
+  display: grid;
+  gap: 28px;
+  align-content: start;
+}
+
+.ay-col > .tz-sec {
+  padding: 0;
+}
+
+/* Bölüm başlığı (16/600) ve altında tek satır soluk açıklama: ikisi bir arada, gruplar 28 px arayla. */
+.ay-h {
+  font-size: var(--tz-fs-guided);
+  line-height: 22px;
+  font-weight: 600;
+  margin-bottom: -18px;
+}
+
+.ay-intro {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Bölüm listesi (maketteki .glist): başlıksız, 34 px, çizgisiz; seçili satır içeriden yuvarlak açık mor. */
+.ay-gl {
+  display: grid;
+  gap: 2px;
+  padding: 6px;
+}
+
+.ay-gl-b {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: var(--tz-r-tool);
+  color: var(--text-2);
+  font-size: var(--tz-fs-panel);
+  font-weight: 400;
+  text-align: left;
+}
+
+.ay-gl-b:hover {
+  background: var(--surface-2);
+}
+
+.ay-gl-b[aria-current="page"] {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+  font-weight: 600;
+}
+
+/* Hizmet satırı (maketteki .prov): harf kutusu, ad ve alt satır, sağda eylemler; satırlar arası ince çizgi. */
+.ay-provs {
+  max-width: 640px;
+}
+
+.ay-prov {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ay-prov:last-child {
+  border-bottom: 0;
+}
+
+.ay-prov-l {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--tz-r-tool);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.ay-prov-t {
+  display: grid;
+  min-width: 0;
+}
+
+.ay-prov-t b {
+  font-size: var(--tz-fs-body);
+  font-weight: 500;
+}
+
+.ay-prov-t small {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-prov-f {
+  grid-column: 2 / -1;
+}
+
+.ay-del {
+  color: var(--danger);
+}
+
+.ay-note {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-form {
+  display: grid;
+  gap: 14px;
+}
+
+.ay-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ay-card {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+}
+
+.ay-key {
+  width: 100%;
+}
+
+
+
+.ay-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.ay-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ay-li-t {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+
+.ay-li-n {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tz-fs-body);
+  font-weight: 500;
+  min-width: 0;
+}
+
+.ay-li-n > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ay-li-s {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-li-a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ay-rename {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.ay-drop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--tz-r-page);
+  background: var(--surface-2);
+}
+
+.ay-drop.is-over {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.ay-drop-t {
+  display: grid;
+  gap: 2px;
+}
+
+.ay-drop-t b {
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+}
+
+.ay-font {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 8px 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ay-font-n {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.ay-font-n b {
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ay-font-n small {
+  font-family: var(--fm);
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ay-spec {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 6px 12px;
+  overflow: hidden;
+  background: var(--tz-paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-field);
+}
+
+.ay-spec img {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
+.ay-miss {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ay-totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ay-totals > div {
+  padding: 12px 14px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.ay-totals > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ay-totals dt {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-totals dd {
+  margin: 4px 0 0;
+  font-size: var(--tz-fs-sub);
+  font-weight: 600;
+}
+
+.ay-days-h {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ay-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 140px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ay-bar {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.ay-bar i {
+  display: block;
+  width: 100%;
+  background: var(--chart-1);
+  opacity: 0.75;
+}
+
+.ay-bar.is-hot i {
+  opacity: 1;
+}
+
+.ay-bar.is-zero i {
+  background: transparent;
+}
+
+.ay-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-hover {
+  min-height: 20px;
+  margin-bottom: 4px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.ay-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tz-fs-panel);
+}
+
+.ay-table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  padding: 6px 12px 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ay-table td {
+  padding: 6px 12px 6px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ay-table .is-n {
+  text-align: right;
+}
+
+.ay-tablewrap {
+  max-height: 320px;
+  overflow: auto;
+}
+
+.ay-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ay-brk {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line-soft);
+  display: grid;
+  gap: 6px;
+}
+
+.ay-brk-h {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: var(--tz-fs-panel);
+}
+
+.ay-brk-b {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ay-brk-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+
+.ay-brk-bar i {
+  display: block;
+  height: 100%;
+  background: var(--chart-1);
+}
+
+.ay-brk-c {
+  flex: none;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ay-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Telefon (≤ 760 px): bölüm listesi formun üstünde yatay kayan alt çizgili sekmeler; form ve iki sütunlu gruplar tek
+ * sütun. Liste ve form 260 + 720 px düzeni geniş ekranda olduğu gibi. */
+@media (max-width: 760px) {
+  .ay-gl {
+    display: flex;
+    gap: 2px;
+    padding: 4px 10px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .ay-gl-b {
+    flex: none;
+    gap: 6px;
+    padding: 0 9px;
+    margin-bottom: -1px;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .ay-gl-b:hover {
+    background: none;
+    color: var(--text);
+  }
+
+  .ay-gl-b[aria-current="page"] {
+    background: none;
+    color: var(--text);
+    border-bottom-color: var(--primary);
+  }
+
+  .ay-col {
+    padding: 20px 16px 32px;
+    gap: 24px;
+  }
+
+  .ay-two,
+  .ay-split,
+  .ay-font {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Hizmet satırı: ayraç ve anahtar durumu birlikte satır kırar ("·" satır sonunda yalnız kalmaz). */
+.ay-nw {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}

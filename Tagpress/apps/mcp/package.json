@@ -1,0 +1,16 @@
+{
+  "name": "@tagpress/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tagpress/ai": "workspace:*",
+    "@tagpress/domain": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^4.6.7"
+  }
+}

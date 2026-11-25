@@ -1,0 +1,665 @@
+/* Çerçeve: bant, üst satır, iş satırı, tam bant (maket .bd, .bd-top, .ctx, .hd, .kcard, .steps3). */
+
+.tz-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.tz-bd {
+  flex: none;
+  background: var(--sod-band);
+  color: var(--sod-band-on);
+  padding: 0 var(--tz-band-pad);
+}
+
+/* kılavuzlu akış: bant 240 px, kart banda 24 px biner. Kart negatif kenar boşluğuyla çıktığı için kaydıran kap
+   bütün uygulamadır (iç kap olsaydı kartın üst 24 px'i kırpılırdı). */
+.tz-app--full {
+  overflow-y: auto;
+}
+
+.tz-app--full .tz-bd {
+  min-height: var(--tz-band-full);
+  padding-bottom: 40px;
+}
+
+.tz-main {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.tz-app--full .tz-main {
+  flex: none;
+  padding: 0 var(--tz-band-pad) 32px;
+}
+
+/* Tam bantta başlık ve içerik yalnız bandın 24 px kenar boşluğuyla, tam genişlik (maket T1 "Kurulum · ilk adım"). */
+.tz-app--full .tz-hd,
+.tz-app--full .tz-main > * {
+  width: 100%;
+}
+
+/* üst satır */
+.tz-top {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: var(--tz-top-h);
+  border-bottom: 1px solid var(--tz-band-rule);
+}
+
+.tz-br {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: var(--tz-brand-min);
+  color: var(--tz-on-band);
+}
+
+.tz-br img {
+  border-radius: var(--tz-r-field);
+  box-shadow: 0 0 0 1px var(--tz-band-mark-ring);
+}
+
+.tz-br-t {
+  display: flex;
+  flex-direction: column;
+}
+
+.tz-br-t b {
+  font-size: var(--tz-fs-sub);
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.tz-br-t small {
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  color: var(--sod-band-on);
+}
+
+.tz-nv {
+  display: flex;
+  gap: var(--tz-nav-gap);
+  font-size: var(--tz-fs-nav);
+  line-height: 20px;
+}
+
+.tz-nv-i {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tz-top-ctl);
+  color: var(--sod-band-on);
+  white-space: nowrap;
+}
+
+.tz-nv-i:hover {
+  color: var(--tz-on-band);
+}
+
+.tz-nv-i.is-on {
+  color: var(--tz-on-band);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--sod-band-accent);
+}
+
+.tz-nv-i:focus-visible,
+.tz-bd :focus-visible {
+  outline-color: var(--tz-on-band);
+}
+
+.tz-tr {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--tz-top-ctl);
+}
+
+.tz-tr-st {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* "Üretiliyor 2 · sırada 3" (maket .bstat): beyaz 14 px, bant üstünde açık mavi nokta */
+.tz-tr-st .tz-dot-w {
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-body);
+}
+
+.tz-bd .tz-dot--busy {
+  background: var(--tz-band-dot-busy);
+}
+
+.tz-tr-off .tz-dot-w {
+  color: var(--tz-on-band);
+  font-weight: 500;
+}
+
+/* iş satırı */
+.tz-ctx {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: var(--tz-work-h);
+  font-size: var(--tz-fs-panel);
+  white-space: nowrap;
+}
+
+.tz-ctx-vl {
+  width: 1px;
+  height: 22px;
+  background: var(--tz-band-sep);
+}
+
+.tz-cr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sod-band-on);
+  min-width: 0;
+}
+
+.tz-cr-p {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tz-cr-sep {
+  opacity: 0.55;
+}
+
+.tz-cr b {
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-nav);
+  font-weight: 600;
+}
+
+.tz-cr-b {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  border-radius: var(--tz-r-field);
+  padding: 2px 4px;
+  margin: -2px -4px;
+}
+
+.tz-cr-b:hover {
+  background: var(--tz-band-kbd);
+}
+
+/* menülü yer adı (parti seçimi): bant düğmesi görünümünde (maket .cb, hafif beyaz zemin) */
+.tz-cr-b.tz-cr-m {
+  gap: 7px;
+  height: var(--tz-band-btn);
+  padding: 0 11px;
+  margin: 0;
+  border: 1px solid var(--tz-band-btn-line);
+  border-radius: var(--tz-r-tool);
+  background: var(--tz-band-fill);
+  color: var(--tz-on-band);
+}
+
+.tz-cr .tz-cr-m b {
+  font-size: var(--tz-fs-panel);
+}
+
+.tz-cr-b.tz-cr-m:hover {
+  background: var(--tz-band-sep);
+}
+
+.tz-cr-in {
+  height: var(--tz-band-tab);
+  min-width: 200px;
+  padding: 0 8px;
+  border: 1px solid var(--tz-band-btn-line);
+  border-radius: var(--tz-r-field);
+  background: var(--tz-band-fill);
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-nav);
+  font-weight: 600;
+}
+
+.tz-cb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: var(--tz-band-btn);
+  padding: 0 11px;
+  border-radius: var(--tz-r-tool);
+  border: 1px solid var(--tz-band-btn-line);
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+}
+
+.tz-cb:hover {
+  background: var(--tz-band-kbd);
+}
+
+.tz-cb:disabled {
+  opacity: 0.5;
+}
+
+.tz-cb.is-cta {
+  background: var(--sod-band-cta);
+  color: var(--sod-band-cta-ink);
+  border-color: var(--sod-band-cta);
+  font-weight: 600;
+}
+
+.tz-cb.is-cta:hover {
+  background: var(--sod-band-cta-hover);
+}
+
+.tz-cb.is-cta .tz-kbd {
+  background: var(--primary-soft);
+  border-color: var(--primary-line);
+  color: var(--primary-text);
+}
+
+.tz-cb.is-q {
+  border-color: transparent;
+}
+
+.tz-flow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tz-flow li {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tz-flow i {
+  width: 10px;
+  height: 1px;
+  background: var(--tz-band-btn-line);
+}
+
+.tz-flow button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--tz-band-tab);
+  padding: 0 10px;
+  border-radius: var(--tz-r-tool);
+  color: var(--sod-band-on);
+}
+
+.tz-flow button b {
+  font-weight: 500;
+  color: var(--tz-on-band);
+}
+
+.tz-flow button:hover:not(.is-on) {
+  background: var(--tz-band-kbd);
+}
+
+.tz-flow button.is-on {
+  background: var(--tz-band-fill);
+  color: var(--tz-on-band);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--sod-band-accent);
+}
+
+.tz-flow button.is-err b {
+  color: var(--tz-band-error);
+}
+
+.tz-btabs {
+  display: flex;
+  gap: 2px;
+}
+
+.tz-btabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--tz-band-tab);
+  padding: 0 12px;
+  border-radius: var(--tz-r-tool);
+  color: var(--sod-band-on);
+}
+
+.tz-btabs button b {
+  font-weight: 500;
+  color: inherit;
+}
+
+.tz-btabs button:hover:not(.is-on) {
+  background: var(--tz-band-kbd);
+}
+
+.tz-btabs button.is-on {
+  background: var(--sod-band-cta);
+  color: var(--sod-band);
+  font-weight: 600;
+}
+
+/* tam bant */
+.tz-hd {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 128px;
+  padding-top: 28px;
+}
+
+.tz-kick {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 6px;
+  font-size: var(--tz-fs-body);
+}
+
+.tz-kick .tz-cr,
+.tz-kick .tz-cr-p {
+  gap: 8px;
+}
+
+.tz-kick .tz-cr {
+  line-height: 20px;
+}
+
+.tz-kick .tz-cr-sep {
+  opacity: 0.6;
+}
+
+/* kılavuzlu akışta ilk parça beyaz 500, son parça (adım) soluk 400 (maket .kick: <b>Kurulum</b> / Adım 1 / 3) */
+.tz-kick .tz-cr-p:first-child > * {
+  color: var(--tz-on-band);
+  font-weight: 500;
+}
+
+.tz-kick .tz-cr b {
+  font-size: var(--tz-fs-body);
+  font-weight: 500;
+}
+
+.tz-kick .tz-cr-p:last-child:not(:first-child) b {
+  color: var(--sod-band-on);
+  font-weight: 400;
+}
+
+.tz-ttl {
+  white-space: nowrap;
+  font-size: var(--tz-fs-title);
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: var(--tz-on-band);
+}
+
+.tz-sub {
+  margin-top: 2px;
+  font-size: var(--tz-fs-sub);
+  line-height: 24px;
+  color: var(--sod-band-on);
+}
+
+.tz-steps {
+  display: flex;
+  gap: 6px;
+}
+
+.tz-steps {
+  flex: none;
+}
+
+.tz-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--tz-band-line);
+  color: var(--sod-band-on);
+  font-size: var(--tz-fs-body);
+}
+
+.tz-steps li.is-on {
+  background: var(--sod-band-cta);
+  color: var(--sod-band);
+  font-weight: 600;
+  border-color: var(--sod-band-cta);
+}
+
+.tz-steps i {
+  font-style: normal;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: var(--tz-fs-small);
+  font-weight: 600;
+  background: var(--tz-band-fill);
+}
+
+.tz-steps li.is-on i {
+  background: var(--primary);
+  color: var(--tz-on-band);
+}
+
+.tz-kcard {
+  position: relative;
+  margin-top: -24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+
+.tz-kcard-f {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.tz-kcard-b {
+  min-width: 0;
+}
+
+/* İş satırındaki durum noktası metni (meta: "Yayında v1", taslak durumu) bant üstünde okunur. */
+.tz-ctx .tz-dot-w {
+  color: var(--sod-band-on);
+}
+
+/* ---------------------------------------------------------------- yerleşim (ARAYUZ-PLANI "Yerleşim")
+ * Form ve liste ekranı (`tz-app--col`): içerik Merkez/DeciShip sütununda, ortada (`--sod-wrap` 1240 px, `--gutter` 32,
+ * telefonda 16; Merkez'in `.content` deseni). Platformda kabuk (`AppShell column`) bandın baş yuvasını aynı sütuna
+ * hizalar ve `.sod-main` içinde iki değeri kök değerine döndürür; yerelde bant içeriği burada hizalanır. Üst satır her
+ * ekranda kenardan kenara. Çalışma ekranı (`tz-app--work`) bugünkü gibi kenardan kenara. */
+.tz-app--col .tz-main {
+  width: 100%;
+  max-width: var(--sod-wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Sütundaki çalışma alanı (Ayarlar, Arşiv, Sayfa şablonları …) beyaz yaprak; yanlarda zemin. */
+.tz-app--col .tz-ws {
+  border-inline: 1px solid var(--line-soft);
+}
+
+/* Yerel kip: iş satırı ve tam bant başlığı sütunun içerik kenarına (bandın kendi 24 px kenarı düşülür). */
+.tz-app--col:not(.tz-app--shell) .tz-bd > :not(.tz-top) {
+  width: 100%;
+  max-width: calc(var(--sod-wrap) - 2 * var(--tz-band-pad));
+  margin-inline: auto;
+  padding-inline: max(0px, calc(var(--gutter) - var(--tz-band-pad)));
+}
+
+/* Menüdeki "Kurulum · Eksik" rozeti (DeciShip `ds-setup-tag`): ölçü sarısı, bant üstünde okunur. */
+.tz-setup-tag {
+  flex: none;
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--tz-r-field);
+  background: var(--accent);
+  color: var(--text);
+}
+
+/* Tablet çekmecesinin iş satırı düğmeleri: yalnız tablette görünür. */
+.tz-cb.tz-ctx-dr {
+  display: none;
+  padding: 0 8px;
+}
+
+.tz-cb.tz-ctx-dr.is-on {
+  background: var(--tz-band-fill);
+}
+
+/* Telefon notu (çalışma ekranı yerine) */
+.tz-narrow {
+  height: 100%;
+  overflow: auto;
+  padding: 40px 16px;
+  background: var(--bg);
+}
+
+.tz-narrow-c {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 28px 22px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+}
+
+.tz-narrow-ic {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--tz-r-guided);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+.tz-narrow-c h2 {
+  font-size: var(--tz-fs-sub);
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tz-narrow-c p {
+  max-width: 28ch;
+  font-size: var(--tz-fs-body);
+  color: var(--text-2);
+}
+
+/* Tablet ve telefon (≤ 1023 px): üst satırda TagPress'in üretim durumu ve tasarım dili seçici gizlenir (salt okunur
+ * uyarısı kalır); yerel menü sığmazsa yana kayar. Tam bant başlığında adım çipleri alta iner. */
+@media (max-width: 1023px) {
+  .tz-tr--shell > :not(.tz-tr-ro),
+  .tz-top > .tz-tr {
+    display: none;
+  }
+
+  .tz-nv {
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 4px;
+    margin: -4px;
+  }
+
+  .tz-hd {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1023px) {
+  .tz-cb.tz-ctx-dr {
+    display: inline-flex;
+  }
+}
+
+/* Telefon (≤ 760 px): başlık iki satıra kadar kırılır, adım çiplerinde yalnız etkin adımın adı; kartın altında
+ * birincil eylem tam genişlik ve üstte, ikincil altında. */
+@media (max-width: 760px) {
+  .tz-app--col:not(.tz-app--shell) {
+    --gutter: 16px;
+  }
+
+  /* Çalışma alanlı sütun ekranı (Ayarlar, listeler) telefonda kenardan kenara beyaz yaprak; içerik kendi 16 px kenarıyla. */
+  .tz-app--col:not(.tz-app--full) .tz-main {
+    padding-inline: 0;
+  }
+
+  .tz-app--col .tz-ws {
+    border-inline: 0;
+  }
+
+  .tz-app--full:not(.tz-app--shell) .tz-bd {
+    min-height: 0;
+    padding-bottom: 28px;
+  }
+
+  .tz-hd {
+    min-height: 0;
+    padding-top: 16px;
+  }
+
+  .tz-ttl {
+    white-space: normal;
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .tz-sub {
+    font-size: var(--tz-fs-nav);
+    line-height: 20px;
+  }
+
+  .tz-steps li:not(.is-on) .tz-steps-l {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .tz-kcard {
+    margin-top: -16px;
+  }
+
+  .tz-kcard-f {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px;
+  }
+
+  .tz-kcard-f > .tz-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

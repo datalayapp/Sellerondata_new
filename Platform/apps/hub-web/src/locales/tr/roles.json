@@ -1,0 +1,157 @@
+{
+  "roles": {
+    "tab": "Roller",
+    "newRole": "Yeni rol",
+    "summary": "{{builtin}} hazır, {{custom}} özel rol",
+    "col": {
+      "role": "Rol",
+      "kind": "Tür",
+      "people": "Kişi",
+      "perms": "Yetkiler"
+    },
+    "kind": {
+      "builtin": "Hazır",
+      "edited": "Düzenlendi",
+      "custom": "Özel"
+    },
+    "kindLong": {
+      "builtin": "hazır rol",
+      "edited": "düzenlenmiş hazır rol",
+      "custom": "özel rol"
+    },
+    "locked": "yetkiler kilitli",
+    "people_one": "{{count}} kişi",
+    "people_other": "{{count}} kişi",
+    "invites_one": "{{count}} davet",
+    "invites_other": "{{count}} davet",
+    "nobody": "Kimsede yok",
+    "noPerms": "Yetki yok",
+    "morePerms": "+{{count}}",
+    "actionsFor": "{{name}} rolü için işlemler",
+    "loadError": "Roller yüklenemedi.",
+    "menu": {
+      "edit": "Düzenle",
+      "copy": "Kopyala",
+      "people": "Bu roldekileri gör",
+      "reset": "Varsayılana dön",
+      "delete": "Sil"
+    },
+    "hint": {
+      "owner_only": "Yalnız firma sahibi değiştirebilir.",
+      "unmanageable_holder": "Bu rolde yönetemediğiniz biri var.",
+      "limit": "En çok {{count}} özel rol oluşturulabilir.",
+      "nobody": "Bu rol kimsede yok."
+    },
+    "restoreLink": "Silinen hazır rolleri geri getir ({{count}})",
+    "restoreTitle": "Silinen hazır roller",
+    "restoreBody": "Geri getirilen rol hazır ad ve yetkileriyle döner.",
+    "restore": "Geri getir",
+    "restored": "{{name}} rolü geri geldi.",
+    "drawer": {
+      "newStep": "Yeni {{tool}} rolü · {{step}} / 2",
+      "editStep": "{{tool}} rolü",
+      "fromTemplate": "{{name}} şablonundan",
+      "fromBlank": "Boş rolden",
+      "pickTitle": "Nereden başlayalım?",
+      "pickBody": "Bir şablon seçin; sonraki adımda yetkileri görüp değiştirebilirsiniz.",
+      "reviewTitle": "Yetkileri gözden geçirin",
+      "editTitle": "Rolü düzenle",
+      "product": "Araç",
+      "templates": "Şablonlar",
+      "blank": "Boş rol",
+      "blankDesc": "Hiç yetkiyle başlamaz; siz seçersiniz.",
+      "permCount_one": "{{count}} yetki",
+      "permCount_other": "{{count}} yetki",
+      "selected_one": "{{count}} yetki seçili",
+      "selected_other": "{{count}} yetki seçili",
+      "continue": "Devam",
+      "back": "Geri",
+      "create": "Rolü oluştur",
+      "save": "Kaydet",
+      "name": "Rol adı",
+      "description": "Kısa açıklama (isteğe bağlı)",
+      "permissions": "Yetkiler",
+      "neededBy": "{{names}} için gerekli",
+      "lockedBanner": "Bu, firma sahibinin rolüdür: yetkileri kilitli, yalnız adı ve açıklaması değişebilir.",
+      "dropped_one": "Şablondaki {{count}} yetki eklenmedi: yalnız firma sahibi verebilir ya da sizde yok.",
+      "dropped_other": "Şablondaki {{count}} yetki eklenmedi: yalnız firma sahibi verebilir ya da sizde yok.",
+      "autoLegend": "Soluk işaret: başka bir yetki için gerekli olduğundan kendiliğinden eklendi.",
+      "limitReached": "Bu araçta en çok {{count}} özel rol olabilir. Yeni rol için kullanmadığınız bir rolü silin.",
+      "liveNote": "Kaydedince bu roldeki kişilerin açık oturumları birkaç saniye içinde yeni yetkiyle yenilenir."
+    },
+    "block": {
+      "owner_only": "Bu yetkiyi yalnız firma sahibi verebilir.",
+      "escalation": "Sizde olmayan bir yetkiyi role ekleyemezsiniz.",
+      "dependency": "Gerektirdiği “{{perm}}” yetkisini veremezsiniz."
+    },
+    "issue": {
+      "required": "Rol adını yazın.",
+      "tooLong": "Rol adı en çok {{max}} karakter olabilir.",
+      "taken": "Bu adda bir rol zaten var. Başka bir ad seçin.",
+      "descriptionTooLong": "Açıklama en çok {{max}} karakter olabilir."
+    },
+    "error": {
+      "version": "Bu rol siz düzenlerken başka biri tarafından değiştirildi. Son halini yükleyip yeniden deneyin.",
+      "reload": "Son halini yükle",
+      "invalidPerms": "Bazı yetkiler başka yetkileri de gerektiriyor: {{list}}.",
+      "forbidden": {
+        "escalation": "Kendinizde olmayan bir yetkiyi role ekleyemezsiniz.",
+        "owner_only": "Bu yetkiyi yalnız firma sahibi verebilir.",
+        "unmanageable_holder": "Bu rolü yönetemediğiniz biri kullanıyor (siz, firma sahibi ya da bir firma yöneticisi).",
+        "other": "Bu rolü bu şekilde değiştirme yetkiniz yok.",
+        "pending_admin_invites": "Bu rolde bir firma yöneticisinin açtığı bekleyen davetler var. Önce o davetleri iptal edin ya da kendiniz yeniden gönderin."
+      },
+      "forbiddenPerms": "{{message}} ({{list}})",
+      "pendingInvites": "Bu rolde bir firma yöneticisinin açtığı bekleyen davetler var: {{list}}. Önce Ekip sayfasındaki davetlerden bunları iptal edin ya da kendiniz yeniden gönderin, sonra yeniden deneyin.",
+      "limit": "Bu araç için en fazla sayıda özel rol oluşturuldu. Kullanılmayan bir rolü silin.",
+      "locked": "Bu rol silinemez ve yetkileri değiştirilemez; yalnız adı değişebilir.",
+      "inUse": "Bu rol bu arada birine verildi. Silmeden önce yeni rolü seçin."
+    },
+    "done": {
+      "created": "{{name}} rolü oluşturuldu.",
+      "saved": "{{name}} rolü kaydedildi.",
+      "reset": "{{name}} rolü varsayılana döndü.",
+      "deleted": "{{name}} rolü silindi.",
+      "moved": "{{count}} kayıt {{to}} rolüne geçti."
+    },
+    "copyName": "{{name}} kopyası",
+    "reset": {
+      "title": "“{{name}}” varsayılana dönsün mü?",
+      "body": "Rolün adı ve yetkileri hazır haline döner. Değişiklik bu roldeki herkes için hemen geçerli olur.",
+      "action": "Varsayılana dön"
+    },
+    "delete": {
+      "title": "“{{name}}” rolü silinsin mi?",
+      "inUseBoth": "Bu rol {{members}} ve {{invites}} kayıtlı. Silmeden önce onlara verilecek rolü seçin.",
+      "inUseOne": "Bu rol {{what}} kayıtlı. Silmeden önce onlara verilecek rolü seçin.",
+      "membersIn_one": "{{count}} kişide",
+      "membersIn_other": "{{count}} kişide",
+      "invitesIn_one": "{{count}} bekleyen davette",
+      "invitesIn_other": "{{count}} bekleyen davette",
+      "newRole": "Yeni rol",
+      "ownerOnlySuffix": "(yalnız firma sahibi)",
+      "noTarget": "Taşınabilecek başka rol yok. Önce yeni bir rol oluşturun.",
+      "sessions": "Değişiklik hemen geçerli olur; kişilerin açık oturumları birkaç saniye içinde yeni yetkiyle yenilenir.",
+      "unused": "Bu rol kimsede kayıtlı değil.",
+      "builtinNote": "Hazır rol firmanızdan kaldırılır; “Silinen hazır rolleri geri getir” ile geri getirebilirsiniz.",
+      "move": "Rolü taşı ve sil",
+      "action": "Rolü sil"
+    },
+    "permShort": {
+      "deciship.web.access": "Web paneli",
+      "deciship.settings.manage": "Ayarlar",
+      "deciship.tariffs.view": "Tarifeler",
+      "deciship.tariffs.edit": "Tarife düzenleme",
+      "deciship.invoices.upload": "Fatura yükleme",
+      "deciship.lines.decide": "Fark kararı",
+      "deciship.disputes.manage": "İtiraz",
+      "deciship.invoices.view": "Faturalar",
+      "deciship.reports.view": "Raporlar",
+      "deciship.data.export": "Dışa aktarma",
+      "deciship.measurements.capture": "Ölçüm yapma",
+      "deciship.measurements.view_all": "Tüm ölçümler",
+      "deciship.measurements.manage": "Ölçüm yönetimi",
+      "deciship.prices.view": "Fiyatlar"
+    }
+  }
+}

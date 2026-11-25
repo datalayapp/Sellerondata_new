@@ -1,0 +1,17 @@
+{
+  "name": "@tagpress/domain",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@sellerondata/contracts": "link:../../../Platform/packages/contracts",
+    "zod": "^4.6.7"
+  }
+}

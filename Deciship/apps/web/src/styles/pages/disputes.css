@@ -1,0 +1,632 @@
+/* İtiraz takibi: İtirazlar sayfası (Disputes.tsx), fatura detayındaki itiraz kartı ve iletişim kutuları (invoice-detail/Dispute*.tsx).
+ * Yalnız sayfaya özel; ortak bileşenler ../app.css'te. */
+
+.dsp {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.dsp > .filters {
+  margin: 0;
+}
+/* tablo ile sayfalayıcı bitişik (Faturalar listesindeki gibi): sütunun 16 px aralığı aralarına girmez */
+.dsp > .table-wrap + .tfoot {
+  margin-top: -16px;
+}
+
+/* ---------- toplamlar: para birimi başına cetvelli satır ---------- */
+.dsp-sum {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-sm);
+  overflow: hidden;
+}
+/* "Tüm zamanlar": kartın üst şeridi; yazı rakamlarla aynı iç boşlukta, satırlar gibi çizgiyle ayrılır */
+.dsp-period {
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.dsp-sum-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+.dsp-sum-row:has(.dsp-cur) {
+  grid-template-columns: 64px repeat(4, minmax(0, 1fr));
+}
+.dsp-sum-row + .dsp-sum-row {
+  border-top: 1px solid var(--border);
+}
+.dsp-cur {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border-right: 1px solid var(--border);
+}
+.dsp-k {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 16px 20px;
+}
+.dsp-k + .dsp-k {
+  border-left: 1px solid var(--border);
+}
+.dsp-k dt {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+.dsp-k dd {
+  margin: 0;
+}
+.dsp-k dd.num {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.dsp-k.good dd.num {
+  color: var(--success);
+}
+.dsp-k.bad dd.num {
+  color: var(--danger);
+}
+.dsp-k-s {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+@media (max-width: 1279px) {
+  .dsp-sum-row:has(.dsp-cur) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .dsp-cur {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding: 6px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .dsp-k,
+  .dsp-period {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .dsp-k {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .dsp-k dd.num {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+@media (max-width: 767px) {
+  .dsp-sum-row,
+  .dsp-sum-row:has(.dsp-cur) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .dsp-k:nth-child(odd of .dsp-k) {
+    border-left: 0;
+  }
+  .dsp-k:nth-child(n + 3 of .dsp-k) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* ---------- süresi yaklaşanlar ---------- */
+.dsp-due .card-h {
+  margin-bottom: 8px;
+}
+.dsp-due-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dsp-due-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.dsp-due-list li:first-child {
+  border-top: 0;
+}
+.dsp-due-a {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--text);
+}
+.dsp-due-a .id {
+  color: var(--primary);
+}
+.dsp-due-a:hover {
+  text-decoration: none;
+}
+.dsp-due-a:hover .id {
+  text-decoration: underline;
+}
+
+/* ---------- süre satırı (TTK, taşıyıcı) ---------- */
+.dsp-dl {
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.dsp-dl-k {
+  font-weight: 500;
+}
+.dsp-dl-s::before {
+  content: " · ";
+  color: var(--text-3);
+}
+.dsp-dl.soon .dsp-dl-s {
+  color: var(--warning);
+  font-weight: 600;
+}
+.dsp-dl.over .dsp-dl-s {
+  color: var(--danger);
+  font-weight: 600;
+}
+.dsp-dl.ok .dsp-dl-s {
+  color: var(--success);
+}
+.dsp-dl.late .dsp-dl-s {
+  color: var(--warning);
+}
+
+/* ---------- liste ---------- */
+.dsp-id {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dsp-cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.dsp-cell.r {
+  align-items: flex-end;
+}
+.dsp-list td.card-title .sub {
+  margin-left: 0;
+}
+/* süre durumu sığmazsa tarihin altına iner: sütun tabloyu taşırmaz */
+@container dtw (max-width: 1099px) {
+  .dsp-list .dsp-dl-s {
+    display: block;
+  }
+  .dsp-list .dsp-dl-s::before {
+    content: none;
+  }
+}
+/* orta genişlik: hücre dolgusu daralır */
+@container dtw (max-width: 899px) {
+  .dt.dsp-list th,
+  .dt.dsp-list td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@container dtw (max-width: 599px) {
+  .dsp-list .dsp-dl-s {
+    display: inline;
+  }
+  .dsp-list .dsp-dl-s::before {
+    content: " · ";
+  }
+  .dt.dt-cards.dsp-list td.card-title {
+    flex-direction: column;
+  }
+  .dt.dt-cards.dsp-list td.card-title .sub {
+    display: block;
+    margin-left: 0;
+  }
+  .dsp-list .dsp-cell {
+    align-items: flex-end;
+    text-align: right;
+  }
+  .dsp-list .dsp-dl {
+    white-space: normal;
+  }
+}
+
+/* =====================================================================
+ * Fatura detayı: itiraz kartı
+ * ===================================================================== */
+.dsp-card {
+  margin-top: 16px;
+}
+.dsp-card .card-h {
+  margin-bottom: 12px;
+  gap: 8px 16px;
+}
+.dsp-card .card-h .tt {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dsp-card .card-h .tt .t3 {
+  font-size: 13px;
+  font-weight: 400;
+}
+.dsp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dsp-lead {
+  margin: 0;
+  color: var(--text-2);
+  max-width: 760px;
+}
+.dsp-sentline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  color: var(--text-2);
+}
+.dsp-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-3);
+}
+.dsp-hint .i {
+  flex: none;
+  margin-top: 1px;
+}
+.dsp-sums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 16px 0 0;
+}
+.dsp-sums div {
+  display: flex;
+  flex-direction: column;
+}
+.dsp-sums dt {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.dsp-sums dd {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+.dsp-sums .good dd {
+  color: var(--success);
+}
+.dsp-sums .bad dd {
+  color: var(--danger);
+}
+.dsp-sums .short dd {
+  color: var(--warning);
+}
+.dsp-card .table-wrap {
+  box-shadow: none;
+}
+.dsp-lines td .sub {
+  white-space: normal;
+}
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.dsp-lines td.card-title .sub {
+    display: block;
+    margin-left: 0;
+  }
+  .dt.dt-cards.dsp-lines td.card-title {
+    flex-direction: column;
+  }
+}
+/* tek satır: satır paneli açıkken */
+.dsp-card.compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+  padding: 12px 16px;
+}
+.dsp-card.compact .tt {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------- geçmiş (denetim izi) ---------- */
+.dsp-tl {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 4px;
+}
+.dsp-tl li {
+  position: relative;
+  padding: 0 0 14px 20px;
+  border-left: 2px solid var(--border);
+}
+.dsp-tl li:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+.dsp-tl li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border-hover);
+}
+.dsp-tl li.sent::before {
+  border-color: var(--primary);
+}
+.dsp-tl li.recovered::before {
+  border-color: var(--success);
+  background: var(--success);
+}
+.dsp-tl li.rejected::before {
+  border-color: var(--danger);
+  background: var(--danger);
+}
+.dsp-tl li.undone::before,
+.dsp-tl li.withdrawn::before {
+  border-color: var(--text-3);
+}
+.dsp-ev {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+}
+.dsp-ev-t {
+  font-weight: 500;
+  color: var(--text);
+}
+.dsp-ev-t .num {
+  font-weight: 600;
+}
+li.voided .dsp-ev-t {
+  color: var(--text-3);
+  text-decoration: line-through;
+  text-decoration-color: var(--border-hover);
+}
+li.voided .dsp-ev-t .tag {
+  text-decoration: none;
+}
+.dsp-ev-d {
+  display: block;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+.dsp-ev-w {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-3);
+}
+.dsp-tl .link-btn {
+  display: inline-flex;
+  margin-top: 4px;
+  font-size: 13px;
+}
+.dsp-history {
+  margin-top: 16px;
+}
+.dsp-history > .dsp-tl {
+  margin-top: 12px;
+}
+.dsp-history > summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 4px 0;
+}
+
+/* ---------- iletişim kutuları ---------- */
+.dsp-dlg .notif {
+  margin-bottom: 12px;
+}
+.dsp-dlg-intro {
+  margin: 0 0 16px;
+  color: var(--text-2);
+}
+.dsp-pick {
+  border: 1px solid var(--border);
+  border-radius: var(--r-ctl);
+  overflow: hidden;
+}
+.dsp-pick-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+}
+.dsp-pick-row:first-child {
+  border-top: 0;
+}
+.dsp-pick-row.head {
+  background: var(--surface-2);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.dsp-pick-row .check {
+  min-width: 0;
+}
+.dsp-pick-row .check .sub {
+  display: block;
+  font-size: 12px;
+  color: var(--text-3);
+}
+.dsp-pick-row .affix {
+  width: 160px;
+}
+.dsp-pick-row .err {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  color: var(--danger);
+}
+.dsp-tot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 24px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.dsp-tot b {
+  color: var(--text);
+}
+.dsp-tot .short b {
+  color: var(--warning);
+}
+@media (max-width: 767px) {
+  .dsp-pick-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dsp-pick-row .affix {
+    width: 100%;
+  }
+}
+
+/* fatura özetindeki süre satırı: gönderilmiş itirazda sayaç durdu */
+.inv-sum-due.ok {
+  color: var(--success);
+}
+.dsp-locked {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-basis: 100%;
+}
+
+/* faturalar listesi: itiraz durumu */
+.inv-st {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+@container dtw (max-width: 599px) {
+  .inv-list .inv-st {
+    align-items: flex-end;
+  }
+}
+
+/* pano: geri alınan ve itirazda bekleyen (baş rakamın altında, para birimi başına) */
+.dash-cur li {
+  flex-wrap: wrap;
+}
+.dash-cur-d {
+  flex-basis: 100%;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.dsp-which {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dsp-acts .amenu .btn {
+  height: var(--ctl-h-sm);
+}
+.inv-list .inv-st-inline {
+  display: none;
+}
+/* orta genişlik: durum sütunu fatura adının altına iner (para sütunları kalsın) */
+@container dtw (max-width: 979px) {
+  .dt.inv-list .inv-c-st {
+    display: none;
+  }
+  .inv-list .inv-st-inline {
+    display: block;
+    margin-top: 4px;
+  }
+}
+@container dtw (max-width: 599px) {
+  .dt.dt-cards.inv-list td.inv-c-st {
+    display: flex;
+  }
+  .inv-list .inv-st-inline {
+    display: none;
+  }
+}
+
+/* arama kutusu: etiket yalnız ekran okuyucuya (kutunun yer tutucusu zaten söylüyor) */
+.fld.sr-label > label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- itiraz metni penceresi (invoice-detail/DisputeDialog.tsx) ---------- */
+.dispute-head {
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dispute-lang {
+  flex: none;
+}
+.dispute-form {
+  gap: 12px;
+}
+.dispute-langask {
+  margin-bottom: 12px;
+}
+.dispute-langask-btns {
+  display: flex;
+  flex: none;
+  gap: 16px;
+  margin-left: auto;
+}
+.dispute-attach {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+}
+/* "E-posta ile aç" bağlantısı düğme gibi durur; adres yoksa soluk */
+.dispute-mail:hover {
+  text-decoration: none;
+}
+.dispute-mail.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

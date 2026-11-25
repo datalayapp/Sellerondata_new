@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": "design:oturum-1",
+        "at": "<zaman>",
+        "action": "Tasarım dili oluşturucu oturumu yayınlanarak bitti",
+        "target": "Çocuk",
+        "href": "/tagpress/#/tasarim-dili",
+        "actor": "Can Kaya"
+      },
+      {
+        "id": "publish:dil-cocuk-v1",
+        "at": "<zaman>",
+        "action": "Tasarım dili yayınlandı (sürüm 1)",
+        "target": "Çocuk",
+        "href": "/tagpress/#/tasarim-dili",
+        "actor": null
+      },
+      {
+        "id": "export:cikti-2",
+        "at": "<zaman>",
+        "action": "Baskı çıktısı alınamadı (PNG)",
+        "target": "Ekim baskısı",
+        "href": "/tagpress/#/baski/masa/baski-1",
+        "actor": null
+      },
+      {
+        "id": "export:cikti-1",
+        "at": "<zaman>",
+        "action": "Baskı çıktısı alındı (PDF)",
+        "target": "Ekim baskısı",
+        "href": "/tagpress/#/baski/masa/baski-1",
+        "actor": "Elif Demir"
+      },
+      {
+        "id": "job-log:3",
+        "at": "<zaman>",
+        "action": "Üretim başarısız oldu",
+        "target": "İş #3",
+        "href": "/tagpress/#/uretim?is=j-hata",
+        "actor": null
+      }
+    ],
+    "page": 1,
+    "pageSize": 5,
+    "total": 10
+  }
+}

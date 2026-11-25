@@ -1,0 +1,397 @@
+{
+  "loading": "Yükleniyor…",
+  "more": "Diğer",
+  "noLanguage": {
+    "title": "Önce bir tasarım dili açın",
+    "body": "Oluşturucu bir tasarım dilinin içinde çalışır.",
+    "go": "Tasarım diline git"
+  },
+  "meta": {
+    "line": "{{state}} · harcanan {{cost}}",
+    "state": {
+      "intake": "Etiket türleri",
+      "samples": "Örnekler",
+      "analyzing": "Örnekler ölçülüyor",
+      "drafting": "Dil kuruluyor",
+      "revising": "Dil güncelleniyor",
+      "awaiting-user": "Cevabınız bekleniyor",
+      "review": "İnceleme",
+      "published": "Yayında",
+      "closed": "Kapatıldı",
+      "interrupted": "Yarıda kaldı",
+      "failed": "Durdu"
+    }
+  },
+  "start": {
+    "title": "Tasarım dilinizi yapay zekâ ile kurun",
+    "lead": "Birkaç soru sorar, bitmiş etiketlerinize bakar, dili kurar ve örnek etiketlerle gösterir. Beğenmediğinizi yazarsınız, dil güncellenir. Siz yayınlayana kadar üretimde hiçbir şey değişmez.",
+    "steps": {
+      "questions": {
+        "title": "Sorular",
+        "body": "Hangi etiketleri yaptığınızı ve alışkanlıklarınızı sorar."
+      },
+      "samples": {
+        "title": "Örnekler",
+        "body": "Bitmiş etiketlerinizi yüklersiniz; ölçüler görselden çıkarılır. Örneğiniz yoksa sorularla kurulur."
+      },
+      "review": {
+        "title": "Gösterim ve düzeltme",
+        "body": "Dil örnek etiketlerle gösterilir; \"tarihi küçült\" gibi yazarsınız, yeni sürüm gelir."
+      },
+      "publish": {
+        "title": "Yayın",
+        "body": "Beğenince yayınlarsınız; önceki sürüm geçmişte kalır."
+      }
+    },
+    "baseLabel": "Başlangıç",
+    "basePublished": "Yayındaki dilden (sürüm {{version}})",
+    "baseDefault": "Varsayılan ayarlardan",
+    "go": "Başla",
+    "fromSetup": "Kurulumdan geldiniz: seçtiğiniz etiket türleri kullanılacak.",
+    "fromSetupTypes": "Kurulumdan geldiniz. Etiket türleri: {{list}}.",
+    "privacy": "Yüklediğiniz örnekler ve cevaplarınız dili kurmak için yapay zekâya gönderilir."
+  },
+  "estimate": {
+    "loading": "Maliyet hesaplanıyor…",
+    "unavailable": "Maliyet tahmini alınamadı.",
+    "range": "Tahmini maliyet {{low}}–{{high}}",
+    "cap": "oturum sınırı {{cap}}",
+    "month": "Bu ayın yapay zekâ harcaması {{used}} / {{limit}}",
+    "monthWarn": "Aylık sınıra yaklaştınız.",
+    "noKey": "Yapay zekâ anahtarı yok. Anahtar girilmeden oturum başlamaz."
+  },
+  "intake": {
+    "title": "Ne tür etiketler yapıyorsunuz?",
+    "lead": "Seçtiğiniz türlere göre sorular sorulur ve örnek etiketler hazırlanır.",
+    "next": "Devam et"
+  },
+  "labelType": {
+    "wedding": "Düğün ve nişan",
+    "baptism": "Vaftiz",
+    "birthday": "Doğum günü",
+    "thanks": "Teşekkür",
+    "product": "Ürün etiketi",
+    "sticker": "Sticker"
+  },
+  "samples": {
+    "title": "Bitmiş etiketlerinizden örnek yükleyin",
+    "lead": "PNG, JPG ya da PDF (ilk sayfa); en çok {{max}} dosya. Aynı şablondan birkaç örnek, ölçümü güçlendirir.",
+    "drop": "Dosyaları buraya bırakın",
+    "choose": "Dosya seç",
+    "skip": "Örneğim yok, sorularla kur",
+    "analyze": "Ölç ve başla",
+    "yours_one": "Örnekleriniz · {{count}}",
+    "yours_other": "Örnekleriniz · {{count}}",
+    "add": "Örnek ekle",
+    "open": "Örneği aç: {{name}}",
+    "measureNew_one": "{{count}} yeni örneği ölç",
+    "measureNew_other": "{{count}} yeni örneği ölç",
+    "added_one": "{{count}} örnek eklendi.",
+    "added_other": "{{count}} örnek eklendi.",
+    "rejected": "{{name}} eklenmedi: {{reason}}"
+  },
+  "sampleReject": {
+    "sample-type": "yalnız PNG, JPG ya da PDF",
+    "sample-too-large": "dosya çok büyük",
+    "sample-limit": "örnek sınırı doldu",
+    "sample-unreadable": "dosya okunamadı",
+    "unknown": "kabul edilmedi"
+  },
+  "sample": {
+    "status": {
+      "uploaded": "Ölçülmedi",
+      "measured": "Ölçüldü",
+      "qualitative": "Yalnız görünüşü",
+      "failed": "Ölçülemedi"
+    },
+    "quality": {
+      "exact": "şablon ayrıldı, satırlar eşleşti",
+      "ink": "düz zemin, yalnız oranlar",
+      "none": "fotoğraf, yalnız görünüş"
+    },
+    "error": {
+      "sample-unreadable": "Görsel okunamadı.",
+      "no-template": "Şablon bulunamadı; şablonu seçin."
+    },
+    "errorUnknown": "Bu örnek ölçülemedi.",
+    "excluded": "Dışarıda",
+    "approx": "satır sayısı yaklaşık",
+    "holdout": "denetim için ayrıldı",
+    "imageAlt": "Örnek etiket: {{name}}",
+    "template": "Şablon",
+    "noTemplate": "Şablon yok",
+    "lines": "Satırlar",
+    "line": "{{n}}. satır",
+    "noLines": "Satır okunmadı.",
+    "linesHint": "Okunan metni düzeltirseniz cevap sayılır ve dil buna göre kurulur.",
+    "exclude": "Dışarıda bırak",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "deleteTitle": "Örnek silinsin mi?",
+    "deleteBody": "{{name}} bu oturumdan silinir."
+  },
+  "chat": {
+    "title": "Sorular",
+    "empty": {
+      "intake": "Önce etiket türlerini seçin; sorular burada görünür.",
+      "other": "Sorular, cevaplarınız ve yeni sürümler burada görünür."
+    },
+    "revision": "Sürüm {{n}} hazır.",
+    "measured_one": "Ölçülen: {{value}} · {{count}} örnek",
+    "measured_other": "Ölçülen: {{value}} · {{count}} örnek",
+    "suggested": "önerilen",
+    "note": "Not",
+    "sampleEdit_one": "Örnek düzeltildi ({{count}} alan).",
+    "sampleEdit_other": "Örnek düzeltildi ({{count}} alan)."
+  },
+  "composer": {
+    "label": "Cevap ya da düzeltme",
+    "placeholder": {
+      "answer": "Cevabınızı yazın…",
+      "correction": "Düzeltme yazın: \"tarihi küçült\"…",
+      "note": "Not yazın; bir sonraki adımda okunur…"
+    },
+    "running": "Yapay zekâ çalışıyor…",
+    "closed": "Bu aşamada yazılamaz.",
+    "stop": "Durdur"
+  },
+  "step": {
+    "working": "Çalışıyor…",
+    "read_profile": "Dil okunuyor",
+    "profile_schema": "Kurallar okunuyor",
+    "get_samples": "Örneklere bakılıyor",
+    "get_measurements": "Ölçümler okunuyor",
+    "get_templates": "Şablonlara bakılıyor",
+    "propose_changes": "Kurallar yazılıyor",
+    "engine_trial": "Motorla deneniyor",
+    "ask_user": "Soru hazırlanıyor",
+    "transcribe": "Satırlar okunuyor",
+    "measure": "Örnekler ölçülüyor",
+    "showcase": "Örnek etiketler çiziliyor",
+    "retry-wait": "Bağlantı bekleniyor; {{s}} sn sonra yeniden denenecek ({{attempt}}. deneme)"
+  },
+  "wait": {
+    "analyzing": "Örnekleriniz ölçülüyor",
+    "drafting": "Diliniz kuruluyor",
+    "answerTitle": "Soruları cevaplayın",
+    "answerBody": "Soldaki soruları cevapladığınızda dilin ilk sürümü hazırlanır.",
+    "interrupted": "Oturum yarıda kaldı",
+    "failed": "Oturum durdu",
+    "resumeHint": "Kaldığı yerden devam edebilirsiniz.",
+    "cancel": "Durdur"
+  },
+  "resume": {
+    "interrupted": "Yarıda kaldı.",
+    "failed": "Durdu.",
+    "go": "Devam et"
+  },
+  "rev": {
+    "base": "Başlangıç",
+    "n": "Sürüm {{n}}",
+    "draft": "Sürüm {{n}} · taslak"
+  },
+  "showcase": {
+    "tools": "Örnek etiketler",
+    "compare": "Sürüm",
+    "tryLabel": "Kendi metninizle deneyin",
+    "tryPlaceholder": "Ayşe & Can 12.10.2026",
+    "try": "Dene",
+    "yourText": "Kendi metniniz",
+    "fromSample": "Sizin örneğiniz",
+    "example": "Örnek",
+    "changed": "Değişti",
+    "itemFailed": "Bu örnek yerleşemedi.",
+    "alt": "Örnek etiket: {{text}}",
+    "loading": "Örnek etiketler hazırlanıyor…",
+    "failed": "Örnek etiketler alınamadı",
+    "empty": "Gösterilecek örnek yok"
+  },
+  "note": {
+    "up": "{{label}} büyüdü",
+    "down": "{{label}} küçüldü",
+    "changed": "{{label}} değişti"
+  },
+  "size": {
+    "circle": "Ø {{d}} mm",
+    "rect": "{{w}} × {{h}} mm"
+  },
+  "status": {
+    "base": "Başlangıç: dilin önceki hâli",
+    "changes_one": "{{from}} → {{to}}: {{count}} kural değişti",
+    "changes_other": "{{from}} → {{to}}: {{count}} kural değişti",
+    "free": "Deneme ücretsiz",
+    "cost": "Harcanan {{cost}} / {{budget}}"
+  },
+  "summary": {
+    "title": "Dilin özeti",
+    "outside": "ölçülen aralığın dışında"
+  },
+  "source": {
+    "measurement": "ölçüm",
+    "measurementN_one": "ölçüm · {{count}} örnek",
+    "measurementN_other": "ölçüm · {{count}} örnek",
+    "answer": "cevabınız",
+    "correction": "düzeltmeniz",
+    "default": "varsayılan",
+    "restore": "önceki sürümden",
+    "manual": "elle"
+  },
+  "quality": {
+    "title": "Kalite",
+    "none": "Kalite bilgisi yok.",
+    "within10": "Boyutu tutan",
+    "ofN": "{{k}} / {{n}}",
+    "failed": "Yerleşemeyen",
+    "position": "Konum farkı",
+    "px": "{{v}} px",
+    "reason": {
+      "too-few-samples": "Denetim için en az 8 ölçülebilir örnek gerekir.",
+      "not-replayable": "Ayrılmış örneklerin şablonu seçilmeli; şablonsuz örnek motorla yeniden çizilemez.",
+      "no-measurable": "Ölçülebilir örnek yok."
+    },
+    "invariantsOk": "Müşteri metni ve kurallar sağlam",
+    "invariantsBad_one": "{{count}} denetim düştü",
+    "invariantsBad_other": "{{count}} denetim düştü"
+  },
+  "restore": {
+    "prev": "Önceki sürüme dön",
+    "this": "Bu sürüme dön",
+    "done": "Sürüm {{n}} yazıldı."
+  },
+  "publish": {
+    "go": "Yayınla",
+    "title": "Tasarım dili yayınlansın mı?",
+    "body": "Son sürüm yayınlanır ve bundan sonraki üretimlerde kullanılır. Önceki sürüm geçmişte kalır.",
+    "noteLabel": "Not (isteğe bağlı)",
+    "notePlaceholder": "Ne değişti?",
+    "confirm": "Yayınla",
+    "done": "Sürüm {{version}} yayında.",
+    "changedTitle": "Tasarım dili bu arada değişti",
+    "changedPublished": "Oturum sürerken başka bir sürüm yayınlandı (sürüm {{version}}). Yayınlarsanız o sürümdeki değişiklikler bu yayında olmaz.",
+    "changedDraft": "Taslak bu oturumun dışında değiştirildi. Yayınlarsanız o değişiklik kaybolur.",
+    "changedConfirm": "Yine de yayınla"
+  },
+  "done": {
+    "title": "Sürüm {{version}} yayında",
+    "body": "Yeni tasarım dili bundan sonraki üretimlerde kullanılır. Yüklediğiniz örnekler referans olarak kaldı.",
+    "summary": "Özete git",
+    "back": "Kuruluma dön",
+    "again": "Yeni oturum"
+  },
+  "close": {
+    "menu": "Oturumu kapat",
+    "title": "Oturum kapatılsın mı?",
+    "body": "Taslak yayınlanmaz; harcanan tutar geri gelmez.",
+    "confirm": "Oturumu kapat"
+  },
+  "budget": {
+    "sessionTitle": "Oturum sınırı doldu.",
+    "monthTitle": "Aylık sınır doldu.",
+    "body": "Harcanan {{used}} / {{limit}}; bu adım {{estimate}}.",
+    "raise": "Sınırı artır ve devam et",
+    "raiseMenu": "Oturum sınırını artır",
+    "raised": "Oturum sınırı {{limit}} oldu."
+  },
+  "error": {
+    "refusal": "Yapay zekâ bu isteği yanıtlamadı.",
+    "provider-unavailable": "Yapay zekâ hizmetine ulaşılamadı.",
+    "rate-limited": "Yapay zekâ hizmeti şu an yoğun.",
+    "quota-exceeded": "Yapay zekâ hesabının kotası ya da bakiyesi bitti.",
+    "key-invalid": "Yapay zekâ anahtarı geçersiz.",
+    "missing-key": "Yapay zekâ anahtarı yok.",
+    "max-tokens": "Yanıt çok uzun olduğu için kesildi.",
+    "interrupted": "Sunucu çalışırken kapandı.",
+    "analysis-failed": "Örnekler ölçülemedi.",
+    "internal": "Beklenmeyen bir hata oldu.",
+    "unknown": "Bir hata oldu."
+  },
+  "notice": {
+    "samples-added_one": "{{count}} örnek eklendi.",
+    "samples-added_other": "{{count}} örnek eklendi.",
+    "analysis-done": "Ölçüm bitti: {{measured}} ölçüldü, {{qualitative}} yalnız görünüş, {{failed}} ölçülemedi.",
+    "proposal-failed": "Şu alanlar yazılamadı: {{paths}}. Taslak bozulmadı.",
+    "restored": "Sürüm {{from}} geri getirildi (sürüm {{rev}}).",
+    "published": "Sürüm {{version}} yayınlandı.",
+    "budget-raised": "Oturum sınırı {{limitUsd}} oldu.",
+    "budget-warning": "Bu ayın harcaması {{monthUsd}}; sınır {{limitUsd}}.",
+    "cancelled": "Durduruldu.",
+    "resumed": "Kaldığı yerden devam ediyor.",
+    "retrying": "Bağlantı bekleniyor; {{s}} sn sonra yeniden denenecek.",
+    "base-default": "Varsayılan ayarlardan başlandı.",
+    "budget-stopped": "Harcama sınırına ulaşıldı ({{usedUsd}} / {{limitUsd}}); bu tur durdu.",
+    "draft-replaced": "Taslak bu oturumun dışında değiştirilmişti; o hâli sürüm {{rev}} olarak saklandı.",
+    "unknown": "Bilgi."
+  },
+  "httpError": {
+    "build-active": "Bu dilde açık bir oturum var.",
+    "build-state": "Oturum bu adıma uygun değil; ekran yenilendi.",
+    "build-busy": "Yapay zekâ hâlâ çalışıyor; bitmesini bekleyin.",
+    "build-no-revision": "Henüz bir sürüm yok.",
+    "budget-exceeded": "Harcama sınırı doldu.",
+    "budget-raise-used": "Oturum sınırı zaten bir kez artırıldı.",
+    "build-base-changed": "Tasarım dili bu arada başka bir yerden değişti.",
+    "sample-limit": "Örnek sınırı doldu.",
+    "sample-too-large": "Dosya çok büyük.",
+    "sample-type": "Yalnız PNG, JPG ya da PDF yüklenebilir.",
+    "question-unknown": "Bu soru artık beklemiyor; ekran yenilendi.",
+    "message-kind": "Bu aşamada bu ileti gönderilemez."
+  },
+  "shortcuts": {
+    "groups": {
+      "flow": "Oluştur",
+      "chat": "Sohbet"
+    }
+  },
+  "claudeCode": {
+    "menu": "Claude Code ile oluştur",
+    "title": "Claude Code ile oluşturma",
+    "lead": "Tasarım dilinizi sıfırdan kural kural yazmak yerine, bitmiş etiketlerinize bakan Claude Code size sorular sorar ve taslağı sizin için yazar. Siz yalnızca cevap verir, denersiniz ve yayınlarsınız.",
+    "close": "Kapat",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı.",
+    "copyFailed": "Kopyalanamadı; metni elle seçip kopyalayın.",
+    "commandLabel": "Claude Code komutu",
+    "step1": {
+      "title": "Bitmiş etiketlerinizi yükleyin",
+      "body": "Daha önce aktarılmış bitmiş etiketleriniz Claude Code ile tasarım dilini oluştururken yüklenebilir. Ne kadar çok ve çeşitli örnek olursa taslak o kadar isabetli olur.",
+      "loaded": "Şu an {{n}} örnek yüklü.",
+      "none": "Henüz örnek yüklenmedi.",
+      "action": "Örnekleri gör"
+    },
+    "step2": {
+      "title": "Claude Code'da komutu çalıştırın",
+      "body": "TagPress'in proje klasöründe bir terminal açın, claude yazıp Claude Code'u başlatın, sonra şu komutu yazın:",
+      "note": "TagPress uygulaması açık ve çalışır durumda olmalı; Claude Code örneklere ve taslağa onun üzerinden ulaşır."
+    },
+    "step3": {
+      "title": "Soruları cevaplayın, taslağı izleyin",
+      "body": "Claude Code, örneklerinize bakıp kuralları gruplar hâlinde sorar (fontlar, boyutlar, satır bölme…). Cevapladıkça taslak yazılır; Kurallar bölümünde canlı görürsünüz.",
+      "hasDraft": "Şu an bir taslak var.",
+      "action": "Kuralları aç"
+    },
+    "step4": {
+      "title": "Dene ve yayınla",
+      "body": "Taslağı örnek siparişlerle deneyin, yayınlanmış sürümle karşılaştırın. Memnunsanız sayfanın üstündeki “Yayınla”ya basın. Beğenmezseniz taslağı atabilirsiniz; hiçbir şey sizden habersiz yayınlanmaz.",
+      "action": "Denemeye git"
+    },
+    "session": {
+      "title": "Oturum durumu",
+      "status": {
+        "idle": "Bekliyor",
+        "asking": "Soru soruyor",
+        "drafting": "Taslak yazıyor",
+        "trying": "Deniyor",
+        "done": "Bitti"
+      },
+      "kind": {
+        "question": "Claude sordu",
+        "answer": "Cevabınız",
+        "draftWrite": "Taslağa yazıldı",
+        "tryRun": "Deneme yapıldı",
+        "note": "Not"
+      },
+      "empty": "Henüz bir oturum başlamadı. 2. adımdaki komutu Claude Code'da çalıştırınca burada görünür.",
+      "notConnected": "Oturum izleme ucu sunucuda yok; Claude Code'un soruları ve taslağa yazdıkları bağlanınca burada görünür."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@tagpress/typeset",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tagpress/domain": "workspace:*",
+    "fontkit": "^2.0.4",
+    "harfbuzzjs": "^1.6.1",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@types/fontkit": "^2.0.9"
+  }
+}

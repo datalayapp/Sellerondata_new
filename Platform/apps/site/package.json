@@ -1,0 +1,13 @@
+{
+  "name": "@sellerondata/site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SellerOnData tanıtım sitesi: statik HTML/CSS, TR ve EN.",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

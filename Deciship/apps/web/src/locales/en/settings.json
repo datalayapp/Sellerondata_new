@@ -1,0 +1,159 @@
+{
+  "bulkBand": "Older invoices are moving to the current settings · {{done}} of {{total}}",
+  "common": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save"
+  },
+  "errors": {
+    "validValue": "Enter a valid value.",
+    "positive": "Enter a positive number.",
+    "photosRange": "Enter a number between 0 and 10.",
+    "pctRange": "Enter a percentage between 0 and 20.",
+    "warnEdgeRange": "Enter a whole number between 10 and 400.",
+    "warnWeightRange": "Enter a whole number between 1 and 999."
+  },
+  "toast": {
+    "saved": "Settings saved",
+    "savedBody": "Tolerances apply to new comparisons."
+  },
+  "page": {
+    "title": "Settings",
+    "openSetup": "Open setup wizard",
+    "more": "More actions",
+    "dataSection": "Data",
+    "sections": "Sections"
+  },
+  "company": {
+    "title": "Company",
+    "desc": "The company name shown on invoices and reports."
+  },
+  "tolerances": {
+    "title": "Comparison tolerances",
+    "desc": "Deviations within these limits are not counted as differences. A measurement deviation that does not change the billed weight is never counted as a difference.",
+    "edge": "Edge tolerance",
+    "edgeHelp": "This margin is added to every edge of your measurement. If the carrier's weight falls within it, the line counts as compliant. Enter 0 to apply no margin.",
+    "weight": "Weight tolerance",
+    "amount": "Amount tolerance",
+    "amountHelp": "Anything above the expected amount by this much counts as a price difference. Entered in your company's currency; converted at the exchange rate on foreign-currency invoices.",
+    "unknownSurcharges": "Count surcharges not in the tariff as differences",
+    "unknownSurchargesHelp": "When off (recommended), surcharges your tariff does not define are added to Expected at the invoiced amount. When on, they count entirely as differences. Existing invoices keep the old setting; after saving you are asked whether to move them.",
+    "recompare": "Move old invoices to the new settings",
+    "saveFirst": "Save first"
+  },
+  "fx": {
+    "title": "Exchange rate",
+    "desc": "If the tariff is in a different currency than the invoice (e.g. USD tariff, EUR invoice), the expected amount is converted at the shipment-day rate.",
+    "tolerance": "Rate tolerance",
+    "source": "Rate source",
+    "sourceHelp": "On weekends and holidays, the previous business day's rate is used",
+    "sourceDefault": "CBRT average of buying/selling rates"
+  },
+  "mobile": {
+    "title": "Mobile measurement",
+    "desc": "Dimensional weight, mandatory photo and measurement warning rules shown on the employee's phone.",
+    "divisor": "Dimensional weight divisor",
+    "divisorHelp": "Shown to the employee. A 40×30×25 box = {{desi}} dimensional weight",
+    "photos": "Required box photos",
+    "photosHelp": "A measurement cannot be saved without this many box photos (0–10)",
+    "unitPcs": "pcs",
+    "warnEdge": "Warning: longest side",
+    "warnEdgeHelp": "A longer side makes the phone ask “Please check”; saving is not blocked (10–400)",
+    "warnWeight": "Warning: highest weight",
+    "warnWeightHelp": "A heavier box shows the same warning (1–999)",
+    "scaleAiRead": "Read scale photos with AI",
+    "scaleAiReadHelp": "When on, each reading uses your AI allowance. When off, the photo is kept as evidence and the weight is entered manually."
+  },
+  "refCard": {
+    "title": "Reference card",
+    "desc": "Print the card and place it next to the box; the box is measured from a single photo with the card in it.",
+    "step1": "Print the PDF on A4 paper; the printer scale must be <b>100%</b> (\"Fit to page\" off).",
+    "step2": "Measure the line on the card with a ruler: it must be exactly <b>100 mm</b>.",
+    "step3": "Cut out the card, lay it flat on the table right next to the box (not on top) and select the \"Reference card\" method on mobile.",
+    "download": "Download reference card (PDF)",
+    "downloadFailed": "Could not download the reference card"
+  },
+  "savebar": {
+    "label": "Save",
+    "unsaved": "Unsaved changes",
+    "unsavedHint": "save before leaving",
+    "save": "Save settings"
+  },
+  "demo": {
+    "title": "Data management",
+    "desc": "Reset the system to empty, or load sample data. Accounts, company name, settings and box presets are kept either way.",
+    "reset": {
+      "title": "Reset system",
+      "desc": "All carriers, tariffs, measurements (with their photos) and invoices are deleted."
+    },
+    "samples": {
+      "title": "Load sample data",
+      "desc": "Existing data is deleted; sample carriers (FedEx, Aras…), tariffs and measurements are loaded."
+    },
+    "modal": {
+      "label": "Data",
+      "resetTitle": "Reset the system?",
+      "samplesTitle": "Load sample data?",
+      "resetAction": "Reset",
+      "samplesAction": "Delete and load samples",
+      "bodyReset": "All carriers, tariffs, measurements and invoices will be <b>permanently deleted</b>; this cannot be undone. Accounts and settings are kept.",
+      "bodySamples": "All carriers, tariffs, measurements and invoices will be <b>permanently deleted</b>; this cannot be undone. Sample data is then loaded. Accounts and settings are kept."
+    },
+    "toast": {
+      "loaded": "Sample data loaded",
+      "loadedBody": "Added {{carriers}}, {{tariffs}} and {{measurements}}.",
+      "carriers_one": "{{count}} carrier",
+      "carriers_other": "{{count}} carriers",
+      "tariffs_one": "{{count}} tariff",
+      "tariffs_other": "{{count}} tariffs",
+      "measurements_one": "{{count}} measurement",
+      "measurements_other": "{{count}} measurements",
+      "reset": "System reset",
+      "resetBody": "No carriers, tariffs, measurements or invoices remain. Accounts and settings were kept. The setup wizard starts over.",
+      "startSetup": "Start setup",
+      "failed": "Action failed"
+    }
+  },
+  "presets": {
+    "title": "Box presets",
+    "desc": "Selected with one tap on mobile, and the dimensions fill in automatically (K1, K2, K3...). Change the order with the arrows.",
+    "add": "Add box preset",
+    "empty": "No box presets.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "moveUp": "Move {{name}} up",
+    "moveDown": "Move {{name}} down",
+    "edit": "Edit {{name}}",
+    "delete": "Delete {{name}}",
+    "col": {
+      "order": "Order",
+      "name": "Name",
+      "length": "Length",
+      "width": "Width",
+      "height": "Height",
+      "desi": "Dim. weight (3000)",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "modal": {
+      "label": "Box preset",
+      "deleteTitle": "Delete {{name}}?",
+      "deleteBody": "Past measurements are not affected. To only deactivate it, clear the \"Active\" checkbox.",
+      "editTitle": "{{name}} · edit"
+    },
+    "errors": {
+      "nameRequired": "Name is required.",
+      "required": "Required."
+    },
+    "toast": {
+      "deleted": "Box preset deleted",
+      "updated": "Box preset updated",
+      "added": "Box preset added"
+    }
+  },
+  "reminders": {
+    "title": "Dispute deadline reminder",
+    "on": "Remind by email",
+    "help": "For invoices with discrepancies and no dispute sent, people with the Admin or Accounting role get an email 3 days and 1 day before the last day."
+  }
+}

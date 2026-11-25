@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yönetici",
+        "action": "itiraz gönderdi",
+        "target": "FedEx 9-482-11735",
+        "href": "/deciship/invoices/<id>?tab=ALL"
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yönetici",
+        "action": "bir farkı itiraz listesine aldı",
+        "target": "794812345305",
+        "href": "/deciship/invoices/<id>?tab=DIFF&line=<id>"
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yönetici",
+        "action": "alacak dekontu girdi",
+        "target": "Sürat Kargo K-1",
+        "href": "/deciship/invoices/<id>?tab=ALL"
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yönetici",
+        "action": "itiraz gönderdi",
+        "target": "Sürat Kargo K-1",
+        "href": "/deciship/invoices/<id>?tab=ALL"
+      },
+      {
+        "id": "<id>",
+        "at": "<zaman>",
+        "actor": "Ayşe Yönetici",
+        "action": "fatura yükledi",
+        "target": "FedEx 9-482-11735",
+        "href": "/deciship/invoices/<id>?tab=ALL"
+      }
+    ],
+    "page": 1,
+    "pageSize": 5,
+    "total": 5
+  }
+}

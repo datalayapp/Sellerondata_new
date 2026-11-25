@@ -1,0 +1,14 @@
+# Kök düzeyinde yok sayılanlar. Platform/ ve Deciship/ kendi .gitignore dosyalarını kullanır.
+.claude/*
+!.claude/skills/
+node_modules/
+*.log
+.env
+
+.test-logs/
+
+# Görsel karşılaştırma raporları
+playwright-report-visual/
+
+# Yerel yedekler (gerçek veri; asla commit edilmez)
+Platform/yedekler/

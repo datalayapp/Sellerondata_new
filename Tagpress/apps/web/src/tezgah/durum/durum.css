@@ -1,0 +1,200 @@
+/* Durum: nokta, etiket, sorun kutusu, ilerleme, boş durum (maket .dot, .tg, .iss, .prog). */
+
+.tz-dot-w {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.tz-dot {
+  width: var(--tz-dot);
+  height: var(--tz-dot);
+  border-radius: 50%;
+  flex: none;
+  background: var(--line);
+}
+
+.tz-dot--ok {
+  background: var(--success);
+}
+
+.tz-dot--warn {
+  background: var(--tz-dot-warn);
+}
+
+.tz-dot--error {
+  background: var(--danger);
+}
+
+.tz-dot--idle {
+  background: var(--line);
+}
+
+.tz-dot--busy {
+  background: var(--tz-dot-busy);
+}
+
+.tz-dot--ready {
+  background: var(--tz-dot-ready);
+}
+
+.tz-dot--info {
+  background: var(--tz-info);
+}
+
+.tz-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: none;
+}
+
+.tz-tag--accent {
+  background: var(--primary-soft);
+  border-color: var(--primary-line);
+  color: var(--primary-text);
+}
+
+.tz-tag--info {
+  background: var(--tz-info-bg);
+  border-color: var(--tz-info-line);
+  color: var(--tz-info);
+}
+
+.tz-tag--warn {
+  background: var(--warning-bg);
+  border-color: var(--warning-line);
+  color: var(--warning);
+}
+
+.tz-tag--error {
+  background: var(--danger-bg);
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+.tz-issue {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 4px 8px;
+  padding: 8px 10px;
+  border-radius: var(--tz-r-tool);
+  font-size: var(--tz-fs-panel);
+  line-height: 18px;
+  border: 1px solid transparent;
+}
+
+.tz-issue--warn {
+  background: var(--warning-bg);
+  border-color: var(--warning-line);
+}
+
+.tz-issue--warn .tz-issue-i {
+  color: var(--warning);
+}
+
+.tz-issue--error {
+  background: var(--danger-bg);
+  border-color: var(--danger-line);
+}
+
+.tz-issue--error .tz-issue-i {
+  color: var(--danger);
+}
+
+.tz-issue--ok {
+  background: var(--success-bg);
+  border-color: var(--success-line);
+}
+
+.tz-issue--ok .tz-issue-i {
+  color: var(--success);
+}
+
+.tz-issue--info {
+  background: var(--tz-info-bg);
+  border-color: var(--tz-info-line);
+}
+
+.tz-issue--info .tz-issue-i {
+  color: var(--tz-info);
+}
+
+.tz-issue-i {
+  margin-top: 1px;
+}
+
+.tz-issue-fx {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tz-issue-fx .tz-btn {
+  height: var(--tz-btn-mini);
+  padding: 0 8px;
+  font-size: var(--tz-fs-small);
+}
+
+.tz-prog {
+  display: block;
+  width: 90px;
+  height: 6px;
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.tz-prog i {
+  display: block;
+  height: 100%;
+  background: var(--success);
+}
+
+.tz-empty {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-3);
+  height: 100%;
+}
+
+.tz-empty-t {
+  font-size: var(--tz-fs-head);
+  font-weight: 600;
+  color: var(--text);
+  max-width: 46ch;
+}
+
+.tz-empty-a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tz-empty-b {
+  max-width: 52ch;
+  font-size: var(--tz-fs-panel);
+  line-height: 1.5;
+  color: var(--text-2);
+}

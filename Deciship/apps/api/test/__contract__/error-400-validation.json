@@ -1,0 +1,17 @@
+{
+  "endpoint": "POST /api/deciship/tariffs",
+  "status": 400,
+  "code": "VALIDATION",
+  "shape": {
+    "error": {
+      "code": "string",
+      "details": [
+        {
+          "message": "string",
+          "path": "string"
+        }
+      ],
+      "message": "string"
+    }
+  }
+}

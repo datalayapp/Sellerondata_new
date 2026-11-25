@@ -1,0 +1,325 @@
+import { describe, expect, it } from 'vitest';
+import {
+  detectDimDivisor,
+  detectFuel,
+  detectValidFrom,
+  scanPdfLayout,
+  serviceMatchScore,
+  suggestPdfSectionChoice,
+  suggestPdfSections,
+  type PdfPageLayout,
+  type PdfTextItem,
+} from '../src/index';
+
+/** Kodla PDF taraması: sentetik konumlu metin (tüm sayılar uydurma). */
+
+const H = 7;
+/** Bir satır: [x, metin] çiftleri; genişlik karakter sayısından. */
+const line = (y: number, cells: [number, string][]): PdfTextItem[] => cells.map(([x, str]) => ({ str, x, y, w: str.length * 3.6, h: H }));
+const ZX = [200, 240, 280];
+const row = (y: number, label: string, vals: string[]) => line(y, [[150, label], ...vals.map((v, i) => [ZX[i]! + 4, v] as [number, string])]);
+
+function pricePage(opts: { service: string; region: string; dir: string; net: boolean }): PdfPageLayout {
+  let y = 760;
+  const items: PdfTextItem[] = [];
+  const add = (its: PdfTextItem[]) => {
+    items.push(...its);
+    y -= 9;
+  };
+  add(line(y, [[140, `${opts.region} / ${opts.dir}`], [240, 'ÜCRETLERİ'], [360, "Türkiye'de 1 Mart 2026'dan itibaren geçerlidir."]]));
+  add(line(y, [[140, 'Hızlı teslimat için:']]));
+  add(line(y, [[140, opts.service]]));
+  add(line(y, [[140, opts.net ? '- Net Ücretler' : '- Liste Fiyatı']]));
+  add(line(y, [[140, 'Daha fazla bilgi için genel koşullara bakın.']]));
+  add(line(y, [[145, 'AĞIRLIK (KG)'], [ZX[0]! - 8, 'A BÖLGESİ'], [ZX[1]! - 8, 'B BÖLGESİ'], [ZX[2]! - 6, 'ZONE C']]));
+  add(line(y, ZX.map((x) => [x + 6, 'USD'] as [number, string])));
+  add(line(y, [[140, 'Zarf/Pak (0,5 - 2,5kg) kullanıldığında ücretler']]));
+  add(line(y, [[140, 'Envelope']]));
+  add(row(y, '0.5', ['9.10', '9.90', '10.40']));
+  add(line(y, [[140, 'Pak']]));
+  add(row(y, '0.5', ['9.20', '9.95', '10.45']));
+  add(line(y, [[140, 'Diğer ambalaj malzemeleri kullanıldığında ücretler (0,5 - 70,5kg)']]));
+  add(row(y, '0.5', ['11.10', '15.30', '#REF!']));
+  add(row(y, '1', ['12.40', '16.80', '#REF!']));
+  add(row(y, '10.5', ['31.50', '27.20', '#REF!']));
+  add(row(y, 'İlave 0,5kg', ['3.10', '3.40', '#REF!']));
+  add(row(y, '21', ['96.60', '98.60', '#REF!']));
+  add(line(y, [[140, 'Kg başına ücret (toplam gönderi ağırlığıyla çarpınız)']]));
+  add(row(y, '71-99', ['5.20', '5.10', '#REF!']));
+  add([...row(y, '1000 +', ['5.20', '5.10', '#REF!']), ...line(y, [[330, 'TR © Örnek Kargo A.Ş.']])]);
+  y -= 10;
+  add(line(y, [[140, `${opts.service.replace(/\s*\(\w+\)$/, '')} Freight (XF)`]]));
+  add(line(y, [[145, 'AĞIRLIK (KG)'], [ZX[0]! - 8, 'A BÖLGESİ'], [ZX[1]! - 8, 'B BÖLGESİ'], [ZX[2]! - 6, 'ZONE C']]));
+  add(line(y, ZX.map((x) => [x + 6, 'USD'] as [number, string])));
+  add(line(y, [[140, 'Kg başına ücret (toplam gönderi ağırlığıyla çarpınız)']]));
+  add(row(y, '68-70', ['5.00', '4.90', '6.00']));
+  add(row(y, '1000 +', ['5.00', '4.90', '6.00']));
+  add(line(y, [[140, 'Freight gönderileri için rezervasyon gerekir.']]));
+  add(line(30, [[290, 'Page 2']]));
+  return { items };
+}
+
+function discountPage(): PdfPageLayout {
+  return {
+    items: [
+      ...line(700, [[70, 'İHRACAT İndirimi']]),
+      ...line(680, [[100, 'Minimum Ağırlık'], [140, 'Maksimum Ağırlık']]),
+      ...line(672, [[110, '(KG)'], [146, '(KG)'], [180, 'A'], [205, 'B'], [230, 'C']]),
+      ...Array.from({ length: 6 }, (_, i) => line(660 - i * 9, [[70, 'XP'], [110, '0.50'], [146, '2.50'], [176, '41.00%'], [200, '41.50%'], [225, '42.00%']])).flat(),
+    ],
+  };
+}
+
+function countryPage(): PdfPageLayout {
+  const items: PdfTextItem[] = [
+    ...line(700, [[100, 'Örnek Kargo İhracat Bölgeleri']]),
+    ...line(605, [[107, 'ÜLKE'], [144, 'BÖLGE'], [195, 'ÜLKE'], [231, 'BÖLGE']]),
+    // sütun 1
+    ...line(589, [[100, 'ALMANYA'], [150, 'A']]),
+    ...line(580, [[100, 'AMERİKA']]),
+    ...line(573, [[100, 'BİRLEŞİK'], [150, 'B']]),
+    ...line(567, [[100, 'DEVLETLERİ']]),
+    ...line(555, [[100, 'AMERİKAN']]),
+    ...line(552, [[150, 'C']]),
+    ...line(549, [[100, 'SAMOASI']]),
+    ...line(540, [[100, 'İTALYA'], [150, 'A']]),
+    ...line(531, [[100, 'ATLANTİS'], [150, 'B']]),
+    // sütun 2
+    ...line(589, [[190, 'KANADA'], [238, 'B']]),
+    ...line(580, [[190, 'KONGO'], [238, 'C']]),
+    ...line(573, [[190, 'KOSOVA - ISO']]),
+    ...line(566, [[190, 'KODSUZ -'], [238, 'C']]),
+    ...line(559, [[190, 'YALNIZCA TNT']]),
+    ...line(550, [[190, 'FRANSA'], [238, 'A']]),
+    ...line(18, [[200, 'Page 3']]),
+  ];
+  return { items };
+}
+
+const termsPage: PdfPageLayout = {
+  items: [
+    ...line(700, [[70, 'Genel Şartlar']]),
+    ...line(690, [[70, '3. Tüm fiyatlar USD cinsinden verilmiştir (KDV hariçtir).']]),
+    ...line(680, [[70, '5. Boyutsal Ağırlık oranı 1:5, DIM 5000 (cm) şeklindedir.']]),
+    ...line(670, [[70, 'Yakıt tanımı']]),
+    ...line(660, [[70, 'FIXED 7%']]),
+  ],
+};
+
+describe('kodla PDF taraması', () => {
+  const pages = [
+    termsPage,
+    pricePage({ service: 'Örnek International Priority® (XP)', region: 'DÜNYA GENELİ', dir: 'İHRACAT', net: true }),
+    pricePage({ service: 'Örnek International Priority® Express (XPE)', region: 'DÜNYA GENELİ', dir: 'İHRACAT', net: true }),
+    pricePage({ service: 'Örnek International Priority® (XP)', region: 'AVRUPA', dir: 'İHRACAT', net: false }),
+    pricePage({ service: 'Örnek International Priority® (XP)', region: 'DÜNYA GENELİ', dir: 'İTHALAT', net: true }),
+    discountPage(),
+    countryPage(),
+  ];
+  const scan = scanPdfLayout(pages);
+
+  it('belge bilgileri', () => {
+    expect(scan.document).toMatchObject({
+      validFrom: '2026-03-01',
+      currency: 'USD',
+      weightUnit: 'kg',
+      dimDivisor: 5000,
+      fuel: { kind: 'FIXED_PCT', pct: 7 },
+      countryZonePages: [7],
+      discountPages: [],
+    });
+    expect(scan.document.notes).toContain('Fiyatlara KDV dahil değil');
+  });
+
+  it('bölümler: kutu + ilave + kg başı; aynı sayfadaki freight ayrı bölüm; zarf / pak ayrı bölüm (en sonda); indirim tablosu yok', () => {
+    expect(scan.sections.map((s) => [s.id, s.pages[0], s.service, s.packaging, s.priceType, s.direction])).toEqual([
+      ['c1', 2, 'Örnek International Priority® (XP)', 'box', 'net', 'export'],
+      ['c2', 2, 'Örnek International Priority® Freight (XF)', 'all', 'net', 'export'],
+      ['c3', 3, 'Örnek International Priority® Express (XPE)', 'box', 'net', 'export'],
+      ['c4', 3, 'Örnek International Priority® Express Freight (XF)', 'all', 'net', 'export'],
+      ['c5', 4, 'Örnek International Priority® (XP)', 'box', 'list', 'export'],
+      ['c6', 4, 'Örnek International Priority® Freight (XF)', 'all', 'list', 'export'],
+      ['c7', 5, 'Örnek International Priority® (XP)', 'box', 'net', 'import'],
+      ['c8', 5, 'Örnek International Priority® Freight (XF)', 'all', 'net', 'import'],
+      // Zarf / Pak bölümleri koli bölümlerinden sonra numaralanır (koli bölümlerinin kimlikleri değişmez)
+      ['c9', 2, 'Örnek International Priority® (XP)', 'envelope', 'net', 'export'],
+      ['c10', 2, 'Örnek International Priority® (XP)', 'pak', 'net', 'export'],
+      ['c11', 3, 'Örnek International Priority® Express (XPE)', 'envelope', 'net', 'export'],
+      ['c12', 3, 'Örnek International Priority® Express (XPE)', 'pak', 'net', 'export'],
+      ['c13', 4, 'Örnek International Priority® (XP)', 'envelope', 'list', 'export'],
+      ['c14', 4, 'Örnek International Priority® (XP)', 'pak', 'list', 'export'],
+      ['c15', 5, 'Örnek International Priority® (XP)', 'envelope', 'net', 'import'],
+      ['c16', 5, 'Örnek International Priority® (XP)', 'pak', 'net', 'import'],
+    ]);
+    const env = scan.sections[8]!;
+    const pak = scan.sections[9]!;
+    expect(env).toMatchObject({ zones: ['A', 'B', 'C'], weightMin: 0.5, weightMax: 0.5, currency: 'USD', hasAdditionalStep: false, hasPerKgBands: false });
+    expect(env.title).toBe('XP ihracat · Dünya (A–C) · zarf 0,5–0,5 kg · net');
+    expect(env.table).toMatchObject({ sectionId: 'c9', zones: ['A', 'B', 'C'], packaging: 'envelope' });
+    expect(env.table.rows.map((r) => [r.kind, r.weight, r.cells.join(' ')])).toEqual([['weight', 0.5, '9.10 9.90 10.40']]);
+    expect(pak.table.packaging).toBe('pak');
+    expect(pak.table.rows.map((r) => [r.kind, r.weight, r.cells.join(' ')])).toEqual([['weight', 0.5, '9.20 9.95 10.45']]);
+    // koli tablosuna zarf / pak satırı girmez
+    expect(scan.sections[0]!.table.rows.some((r) => r.cells[0] === '9.10' || r.cells[0] === '9.20')).toBe(false);
+    const s = scan.sections[0]!;
+    expect(s).toMatchObject({ zones: ['A', 'B', 'C'], weightMin: 0.5, weightMax: 1000, currency: 'USD', hasAdditionalStep: true, hasPerKgBands: true });
+    expect(s.title).toBe('XP ihracat · Dünya (A–C) · kutu 0,5–1.000 kg · net');
+    expect(s.table.rows.map((r) => [r.kind, r.label, r.weight, r.from, r.step, r.cells.join(' ')])).toEqual([
+      ['weight', '0.5', 0.5, null, null, '11.10 15.30 #REF!'],
+      ['weight', '1', 1, null, null, '12.40 16.80 #REF!'],
+      ['weight', '10.5', 10.5, null, null, '31.50 27.20 #REF!'],
+      ['additional', 'İlave 0,5kg', null, null, 0.5, '3.10 3.40 #REF!'],
+      ['weight', '21', 21, null, null, '96.60 98.60 #REF!'],
+      ['perKg', '71-99', 99, 71, null, '5.20 5.10 #REF!'],
+      ['perKg', '1000 +', null, 1000, null, '5.20 5.10 #REF!'],
+    ]);
+    expect(scan.sections[1]!.table.rows.map((r) => r.kind)).toEqual(['perKg', 'perKg']);
+  });
+
+  it('ülke listesi: çok satırlı adlar, bölge kodu iki satır arasında', () => {
+    expect(scan.countries.map((c) => `${c.name}=${c.zone}`)).toEqual([
+      'ALMANYA=A',
+      'AMERİKA BİRLEŞİK DEVLETLERİ=B',
+      'AMERİKAN SAMOASI=C',
+      'İTALYA=A',
+      'ATLANTİS=B',
+      'KANADA=B',
+      'KONGO=C',
+      'KOSOVA - ISO KODSUZ - YALNIZCA TNT=C',
+      'FRANSA=A',
+    ]);
+  });
+
+  it('önerilen bölümler: fatura hizmeti tam eşleşen hizmet (Express değil), net + ihracat, tüm bölge grupları', () => {
+    expect(serviceMatchScore('Örnek Intl Priority', { service: 'Örnek International Priority® (XP)' })).toBeGreaterThan(
+      serviceMatchScore('Örnek Intl Priority', { service: 'Örnek International Priority® Express (XPE)' }),
+    );
+    // aynı hizmet / yön / fiyat türü / bölgelerdeki zarf ve pak bölümleri koli bölümünden sonra
+    expect(suggestPdfSections(scan.sections, ['Örnek Intl Priority'])).toEqual(['c1', 'c9', 'c10']);
+    expect(suggestPdfSections(scan.sections, ['Örnek International Priority Express'])).toEqual(['c3', 'c11', 'c12']);
+    expect(suggestPdfSections(scan.sections, ['XPE'])).toEqual(['c3', 'c11', 'c12']);
+    // Avrupa grubu yalnız liste fiyatıyla varsa net olan alınır; dünya + avrupa netse ikisi birlikte
+    const both = scan.sections.map((s) => (s.id === 'c5' ? { ...s, priceType: 'net' as const, zones: ['R', 'S'] } : s));
+    expect(suggestPdfSections(both, ['Örnek Intl Priority'])).toEqual(['c1', 'c5', 'c9', 'c10']);
+    // zarf / pak bölümü tek başına önerilmez
+    expect(suggestPdfSections(scan.sections.filter((s) => s.packaging === 'envelope' || s.packaging === 'pak'), ['Örnek Intl Priority'])).toEqual([]);
+    expect(suggestPdfSections([], ['x'])).toEqual([]);
+  });
+
+  it('öneri önce faturalardan; tarifenin hizmeti yalnız fatura yoksa; kaynak etiketi için source', () => {
+    const tariffService = 'Örnek Intl Priority';
+    expect(suggestPdfSectionChoice(scan.sections, { invoiceServices: ['Örnek International Priority Express'], tariffService })).toEqual({
+      ids: ['c3', 'c11', 'c12'],
+      source: 'invoices',
+      pricing: 'table',
+    });
+    expect(suggestPdfSectionChoice(scan.sections, { invoiceServices: [], tariffService })).toEqual({ ids: ['c1', 'c9', 'c10'], source: 'tariff', pricing: 'table' });
+    // faturalar var ama eşleşmiyor: tarifenin hizmeti kullanılmaz, ilk koli tablosu "önerilen"
+    expect(suggestPdfSectionChoice(scan.sections, { invoiceServices: ['Bilinmeyen Kargo'], tariffService: 'Örnek International Priority Express' }).source).toBe(
+      'default',
+    );
+    expect(suggestPdfSectionChoice([], { invoiceServices: ['x'] })).toEqual({ ids: [], source: null, pricing: 'table' });
+  });
+
+  it('etiketli zarf / pak satırları (ABD listesi, lb): ayrı bölüm, oz → lb; altındaki kendi ambalajı satırları kolide kalır', () => {
+    // uzun etiketler sol sütunda (bölge sütunlarına taşmaz)
+    const wide = (y: number, label: string, vals: string[]) => line(y, [[60, label], ...vals.map((v, i) => [ZX[i]! + 4, v] as [number, string])]);
+    const items: PdfTextItem[] = [
+      ...line(760, [[140, 'FedEx International Priority® Express (IPE)']]),
+      ...line(751, [[140, 'U.S. export - list rates']]),
+      ...line(742, [[145, 'Weight (lbs)'], [ZX[0]! - 8, 'Zone A'], [ZX[1]! - 8, 'Zone B'], [ZX[2]! - 6, 'Zone C']]),
+      ...wide(733, 'FedEx Envelope up to 8 oz.', ['65.50', '72.75', '76.25']),
+      ...wide(724, 'FedEx Pak 1 lb.', ['109.75', '114.25', '92.00']),
+      ...wide(715, 'FedEx Pak 2 lbs.', ['121.25', '136.00', '97.25']),
+      ...row(706, '1 lb.', ['132.61', '146.38', '136.33']),
+      ...row(697, '2 lbs.', ['145.83', '157.55', '153.09']),
+      ...row(688, '3', ['164.73', '174.74', '170.16']),
+    ];
+    const us = scanPdfLayout([{ items }]);
+    expect(us.document.weightUnit).toBe('lb');
+    expect(us.sections.map((s) => [s.id, s.packaging, s.weightMin, s.weightMax])).toEqual([
+      ['c1', 'all', 1, 3],
+      ['c2', 'envelope', 0.5, 0.5],
+      ['c3', 'pak', 1, 2],
+    ]);
+    expect(us.sections[0]!.table.rows.map((r) => r.weight)).toEqual([1, 2, 3]);
+    expect(us.sections[1]!.table.rows.map((r) => [r.label, r.weight, r.cells[0]])).toEqual([['FedEx Envelope up to 8 oz.', 0.5, '65.50']]);
+    expect(us.sections[2]!.table.rows.map((r) => [r.weight, r.cells[2]])).toEqual([
+      [1, '92.00'],
+      [2, '97.25'],
+    ]);
+  });
+
+  it('"Zarf/Pak" ortak başlığının altındaki satır alınmaz (hangisi belli değil), notta söylenir', () => {
+    const items: PdfTextItem[] = [
+      ...line(760, [[140, 'Örnek International Priority® (XP)']]),
+      ...line(751, [[140, '- Net Ücretler']]),
+      ...line(742, [[145, 'AĞIRLIK (KG)'], [ZX[0]! - 8, 'A BÖLGESİ'], [ZX[1]! - 8, 'B BÖLGESİ'], [ZX[2]! - 6, 'ZONE C']]),
+      ...line(733, [[140, 'Zarf/Pak (0,5 - 2,5kg) kullanıldığında ücretler']]),
+      ...row(724, '0.5', ['9.10', '9.90', '10.40']),
+      ...line(715, [[140, 'Diğer ambalaj malzemeleri kullanıldığında ücretler (0,5 - 70,5kg)']]),
+      ...row(706, '0.5', ['11.10', '15.30', '16.00']),
+      ...row(697, '1', ['12.40', '16.80', '17.00']),
+    ];
+    const s = scanPdfLayout([{ items }]);
+    expect(s.sections.map((x) => [x.packaging, x.table.rows.map((r) => r.cells[0])])).toEqual([['box', ['11.10', '12.40']]]);
+    expect(s.sections[0]!.notes).toEqual(['1 satır alınmadı (Zarf mı Pak mı belli değil)']);
+  });
+
+  it('dışlayan başlık kendi ambalajıdır; DHL "Documents" bölümü ve satırı zarf değil (alınmaz, notta)', () => {
+    const head = (y: number) => line(y, [[145, 'WEIGHT (KG)'], [ZX[0]! - 8, 'ZONE A'], [ZX[1]! - 8, 'ZONE B'], [ZX[2]! - 6, 'ZONE C']]);
+    const fedex = scanPdfLayout([
+      {
+        items: [
+          ...line(760, [[140, 'Örnek International Priority® (XP)']]),
+          ...line(751, [[140, '- Net Ücretler']]),
+          ...head(742),
+          ...line(733, [[140, 'Envelope']]),
+          ...row(724, '0.5', ['9.10', '9.90', '10.40']),
+          ...line(715, [[140, 'Diğer ambalaj malzemeleri (Zarf/Pak dışında) kullanıldığında']]),
+          ...row(706, '0.5', ['11.10', '15.30', '16.00']),
+          ...row(697, '1', ['12.40', '16.80', '17.00']),
+        ],
+      },
+    ]);
+    expect(fedex.sections.map((x) => [x.packaging, x.table.rows.map((r) => r.cells[0])])).toEqual([
+      ['box', ['11.10', '12.40']],
+      ['envelope', ['9.10']],
+    ]);
+    const dhl = scanPdfLayout([
+      {
+        items: [
+          ...line(760, [[140, 'DHL Express Worldwide']]),
+          ...line(751, [[140, 'Export - list rates']]),
+          ...head(742),
+          ...line(733, [[140, 'Documents']]),
+          ...row(724, '0.5', ['30.00', '32.00', '34.00']),
+          ...row(715, '1', ['35.00', '37.00', '39.00']),
+          ...line(706, [[140, 'Non-documents']]),
+          ...row(697, '0.5', ['40.00', '42.00', '44.00']),
+          ...row(688, '1', ['45.00', '47.00', '49.00']),
+        ],
+      },
+    ]);
+    expect(dhl.sections.map((x) => [x.packaging, x.table.rows.map((r) => r.cells[0])])).toEqual([['box', ['40.00', '45.00']]]);
+    expect(dhl.sections[0]!.notes).toEqual(['2 belge (Documents) satırı alınmadı (zarf değil)']);
+  });
+
+  it('boş / metinsiz sayfa → bölüm yok', () => {
+    expect(scanPdfLayout([{ items: [] }]).sections).toEqual([]);
+  });
+});
+
+describe('belge bilgisi kalıpları', () => {
+  it('geçerlilik, bölen, yakıt', () => {
+    expect(detectValidFrom("Türkiye'de 2 Haziran 2026'dan itibaren geçerlidir.")).toBe('2026-06-02');
+    expect(detectValidFrom('Rates effective 15 January 2026')).toBe('2026-01-15');
+    expect(detectValidFrom('01.04.2026 tarihinden itibaren')).toBe('2026-04-01');
+    expect(detectDimDivisor('Hacim böleni: 6000')).toBe(6000);
+    expect(detectDimDivisor('Boyutsal ağırlık oranı 1:4')).toBe(4000);
+    expect(detectDimDivisor('Sayfa 1:5')).toBeNull();
+    expect(detectFuel('Yakıt tanımı FIXED 5%')).toEqual({ kind: 'FIXED_PCT', pct: 5 });
+    expect(detectFuel('Yakıt ek ücreti haftalık endekse göre')).toEqual({ kind: 'INDEXED', pct: null });
+    expect(detectFuel('yok')).toEqual({ kind: 'UNKNOWN', pct: null });
+  });
+});

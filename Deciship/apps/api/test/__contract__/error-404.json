@@ -1,0 +1,11 @@
+{
+  "endpoint": "GET /api/deciship/invoices/:id",
+  "status": 404,
+  "code": "NOT_FOUND",
+  "shape": {
+    "error": {
+      "code": "string",
+      "message": "string"
+    }
+  }
+}

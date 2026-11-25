@@ -1,0 +1,370 @@
+{
+  "filters": {
+    "all": "Hepsi",
+    "manual": "Elle alan",
+    "auto": "Otomatik",
+    "missing": "Dosya eksik",
+    "generated": "Üretilmiş",
+    "sticker": "Sticker"
+  },
+  "sorts": {
+    "key": "Anahtar (1, 2 … a1, a2)",
+    "keyDesc": "Anahtar, tersten",
+    "updated": "Son değiştirilen"
+  },
+  "fields": {
+    "kind": "Tür",
+    "area": "Yazı alanı",
+    "ribbonTop": "Kurdele",
+    "textCenter": "Hedef merkez",
+    "ignoreDecorationInArea": "Alanın tamamına yaz",
+    "decoration": "Dekor ayarları",
+    "printedText": "Basılı yazı",
+    "notes": "Notlar",
+    "tags": "Etiketler",
+    "imageBox": "Görsel konumu",
+    "cut": "Kesim"
+  },
+  "sources": {
+    "user": "elle",
+    "measured": "ölçülmüş",
+    "learned": "öğrenilmiş",
+    "migrated": "eski sistemden",
+    "auto": "otomatik"
+  },
+  "center": {
+    "label": "Hedef merkez",
+    "reset": "Alan merkezine döndür",
+    "source": "Kaynak",
+    "editedSource": "elle (kaydedilmedi)",
+    "sourceSamples": "{{label}}, {{n}} örnek",
+    "unknown": "bilinmiyor",
+    "xy": "x %{{x}} · y %{{y}}",
+    "learnedNote": "Bu merkez gerçek yerleşimlerden öğrenildi. Tuvalde taşırsanız kaydedince kaynağı \"elle\" olur.",
+    "measuredNote": "Bu merkez gerçek yerleşimlerden ölçüldü. Tuvalde taşırsanız kaydedince kaynağı \"elle\" olur.",
+    "unset": "Ayarlı değil: yazı, alanın merkezine oturur (tuvalde soluk işaret). İşareti sürükleyerek yazının tipik yerini belirleyin.",
+    "unsetValue": "ayarlı değil",
+    "unknownSource": "kaynağı bilinmiyor"
+  },
+  "unsupported": {
+    "body": "Sunucu bu özelliği henüz sunmuyor. Sunucu tarafı eklendiğinde bu düğme çalışacak."
+  },
+  "kinds": {
+    "label": "Etiket",
+    "sticker": "Sticker",
+    "generated": "Üretilmiş"
+  },
+  "cut": {
+    "shapes": {
+      "inherit": "Tasarım dilindeki",
+      "circle": "Daire",
+      "rect": "Dikdörtgen",
+      "roundRect": "Köşesi yuvarlak",
+      "ellipse": "Oval"
+    },
+    "sizeCircle": "Ø{{d}} mm",
+    "size": "{{w}} × {{h}} mm",
+    "heading": "Kesim",
+    "shape": "Kesim şekli",
+    "diameter": "Çap",
+    "width": "Genişlik",
+    "height": "Yükseklik",
+    "radius": "Köşe yarıçapı",
+    "aspectTitle": "Görselin en/boy oranı kesimle uyuşmuyor.",
+    "aspectBody": "Görsel {{image}}, kesim {{cut}}; görsel kesime gerilerek basılır. Görseli kesimin oranında yükleyin.",
+    "hint": "Kesim bu şablona özeldir; baskıda etiket bu ölçüde basılır. Görseli kesimin en/boy oranında yükleyin."
+  },
+  "noLanguage": {
+    "title": "Önce bir tasarım dili gerekli",
+    "body": "Şablonlar tasarım diline bağlıdır. Ayarlar'dan Tasarım dilleri bölümüne giderek bir tane oluşturun.",
+    "action": "Tasarım dillerine git"
+  },
+  "library": {
+    "title": "Kütüphane",
+    "count_one": "{{count}} şablon",
+    "count_other": "{{count}} şablon",
+    "scan": "Klasörü tara",
+    "scanHint": "Şablon klasörünü tarar: yeni PNG'leri ekler, kaybolanları \"dosya eksik\" işaretler",
+    "generate": "Temadan şablon üret",
+    "generateShort": "Temadan üret",
+    "upload": "Şablon yükle",
+    "gridView": "Izgara görünümü",
+    "editorView": "Düzenleyici görünümü",
+    "search": "Anahtar, not, etiket",
+    "searchLabel": "Şablon ara",
+    "sortLabel": "Sırala: {{sort}}",
+    "filterLabel": "Şablon süzgeci",
+    "other": "Diğer",
+    "otherItem": "{{label}} · {{count}}",
+    "list": "Şablonlar",
+    "open": "{{key}} şablonunu aç",
+    "empty": "Bu tasarım dilinde henüz şablon yok",
+    "emptyBody": "Şablon PNG'lerini bu ekrana sürükleyip bırakın, ya da şablon klasörüne koyup Klasörü tara'ya basın. Şablonu tema anlatarak yapay zekâya da çizdirebilirsiniz.",
+    "noMatch": "Eşleşen şablon yok",
+    "noMatchQuery": "\"{{q}}\" aramasıyla ve seçili süzgeçle eşleşen şablon bulunamadı.",
+    "noMatchFilter": "Bu süzgeçte şablon yok.",
+    "clearFilters": "Süzgeçleri temizle",
+    "loadFailed": "Şablonlar yüklenemedi.",
+    "retry": "Yeniden dene"
+  },
+  "flags": {
+    "missing": "Dosya eksik",
+    "manualArea": "Alan elle",
+    "centerMeasured": "Merkez ölçülmüş",
+    "ribbon": "Kurdele %{{pct}}"
+  },
+  "sync": {
+    "title": "Klasör tarandı:",
+    "added_one": "{{count}} eklendi",
+    "added_other": "{{count}} eklendi",
+    "updated_one": "{{count}} dosyası değişti",
+    "updated_other": "{{count}} dosyası değişti",
+    "missing_one": "{{count}} dosyası yok",
+    "missing_other": "{{count}} dosyası yok",
+    "group": {
+      "added": "Eklendi",
+      "updated": "Dosyası değişti",
+      "missing": "Dosyası yok (kayıt silinmedi, \"dosya eksik\" işaretlendi)"
+    },
+    "close": "Raporu kapat",
+    "upToDate": "Klasör tarandı: her şey güncel.",
+    "failed": "Klasör taranamadı. {{error}}"
+  },
+  "editor": {
+    "prev": "Önceki şablon",
+    "next": "Sonraki şablon",
+    "unsaved": "Kaydedilmedi: {{fields}}",
+    "notFound": "\"{{key}}\" şablonu bulunamadı",
+    "notFoundBody": "Anahtar yanlış yazılmış ya da bu tasarım dilinde böyle bir şablon yok. Kütüphaneden seçebilirsiniz.",
+    "backToLibrary": "Şablonlara dön"
+  },
+  "leave": {
+    "body": "{{fields}} henüz kaydedilmedi. Bu tarayıcı oturumunda taslak olarak saklanır ama sunucuya yazılmaz. Kaydetmek için Vazgeç'e basıp Kaydet'i kullanın."
+  },
+  "rail": {
+    "label": "Alan araçları"
+  },
+  "tools": {
+    "hint": {
+      "ellipse": "Tuvalde sürükleyerek çizin. Shift: daire. Esc iptal eder.",
+      "rect": "Tuvalde sürükleyerek çizin. Shift: kare. Esc iptal eder.",
+      "polygon": "Tıklayarak nokta koyun; ilk noktaya tıklayın ya da Enter ile kapatın. Esc iptal eder."
+    }
+  },
+  "strip": {
+    "label": "Tuval araçları",
+    "zoomTarget": "Hedefe yakınlaş"
+  },
+  "layers": {
+    "title": "Katmanlar",
+    "area": "Yazı alanı",
+    "decoration": "Dekor",
+    "ribbon": "Kurdele bandı",
+    "target": "Hedef merkez",
+    "cut": "Kesim çizgisi",
+    "server": "Sunucu bindirmesi",
+    "decorationHint": "Tarayıcıda yaklaşık hesaplanır",
+    "serverHint": "Sunucunun kayıtlı hâl için kesin hesabı",
+    "serverFailed": "Sunucu bindirmesi şu an üretilemiyor; tarayıcıdaki yaklaşık katmanlar çalışmaya devam ediyor.",
+    "serverStale": "Sunucu bindirmesi kayıtlı hâli gösterir; kaydedilmemiş değişiklikleriniz yansımaz."
+  },
+  "canvas": {
+    "label": "Şablon tuvali: şablon görseli, yazı alanı ve kesim çizgisi"
+  },
+  "status": {
+    "areaAuto": "Alan: otomatik",
+    "areaManual": "Alan: {{shape}}, elle",
+    "ribbon": "Kurdele %{{pct}}",
+    "shapes": {
+      "circle": "daire",
+      "ellipse": "oval",
+      "rect": "dikdörtgen",
+      "polygon": "çokgen"
+    }
+  },
+  "panel": {
+    "more": "Diğer işlemler",
+    "revertAll": "Bütün değişiklikleri geri al",
+    "undo": "Geri al",
+    "save": "Kaydet"
+  },
+  "notice": {
+    "restoredTitle": "Kaydedilmemiş taslağınız geri yüklendi.",
+    "restoredBody": "Bu şablonda daha önce yaptığınız ama kaydetmediğiniz değişiklikler: {{fields}}.",
+    "missingTitle": "Şablon dosyası klasörde yok.",
+    "missingBody": "Kayıt ve ayarlar duruyor. Aynı anahtarla PNG yüklediğinizde yeniden bağlanır."
+  },
+  "area": {
+    "heading": "Yazı alanı",
+    "mode": "Yazı alanı modu",
+    "auto": "Otomatik",
+    "manual": "Elle",
+    "autoHint": "Program dekora bakarak yazı alanını kendisi bulur. Sonucu görmek için Sunucu bindirmesi katmanını açın; beğenmezseniz Elle'ye geçip çizin.",
+    "manualHint": "Şekli sürükleyin, tutamaklarla boyutlandırın. Oklar 1 px (Shift ile 10 px) kaydırır. Rayda Oval, Dikdörtgen ya da Çokgen ile yeniden çizin.",
+    "suggest": "Otomatik öneri",
+    "toPoints": "Noktalarla düzenle",
+    "addPoint": "Nokta ekle",
+    "removePoint": "Noktayı sil",
+    "pointsHint": "Kenara çift tıklayarak nokta ekleyebilirsiniz; bir noktayı seçip Del ile silebilirsiniz.",
+    "suggestMissing": "Otomatik öneri sunucuda henüz yok.",
+    "suggestFailed": "Öneri alınamadı.",
+    "ghostTitle": "Önerilen alan kesikli çizgiyle gösteriliyor.",
+    "ghostBody": "Uygularsanız alan Elle moduna geçer; sonra düzenleyebilirsiniz.",
+    "apply": "Uygula",
+    "dismiss": "Vazgeç",
+    "fullArea": "Alanın tamamına yazılabilsin",
+    "fullAreaHint": "Alanın içindeki dekor engel sayılmaz.",
+    "fullAreaManualOnly": "Yalnızca elle çizilen alanda geçerli."
+  },
+  "ribbon": {
+    "label": "Kurdele",
+    "aria": "Kurdele bandı yüksekliği (kesim çapının yüzdesi)",
+    "closed": "{{mm}} mm kapalı",
+    "hint": "Kesimin üstünden bu kadarı yazıya kapalıdır. Tuvalde sarı bant canlı görünür."
+  },
+  "info": {
+    "heading": "Şablon bilgisi",
+    "printed": "Şablonda basılı yazı var",
+    "printedHint": "Yapay zekâ ve denetçi bilsin; basılı yazının üstüne yazı bindirilmez.",
+    "printedYes": "basılı yazı var",
+    "printedNo": "basılı yazı yok",
+    "tagCount_one": "{{count}} etiket",
+    "tagCount_other": "{{count}} etiket",
+    "notes": "Notlar",
+    "notesHint": "Yapay zekâya gidecek kısa tarif. Örnek: çiçek çelengi, iç alan dairesel.",
+    "tags": "Etiketler",
+    "tagsHint": "Aramada bulunmak için. Enter ya da virgülle ekleyin.",
+    "addTag": "Etiket ekle",
+    "removeTag": "{{tag}} etiketini kaldır"
+  },
+  "decor": {
+    "heading": "Dekor ayarları",
+    "hint": "Programın neyi dekor sayacağını belirler. Tuvaldeki tarama değişiklikleri anında gösterir.",
+    "source": "Dekor kaynağı",
+    "sourceHint": "Otomatik: saydam bölge varsa saydamlığa, yoksa renge bakar.",
+    "sources": {
+      "auto": "otomatik",
+      "alpha": "saydamlık",
+      "color": "renk"
+    },
+    "sourceOptions": {
+      "auto": "Otomatik",
+      "alpha": "Saydamlık (dolu pikseller)",
+      "color": "Renk (zeminden farklı pikseller)"
+    },
+    "threshold": "Renk farkı eşiği",
+    "thresholdHint": "Düşük eşik silik ayrıntıları da dekor sayar.",
+    "dilate": "Genişletme",
+    "dilateHint": "Dekorun çevresine pay.",
+    "px": "{{n}} px",
+    "kind": "Tür"
+  },
+  "history": {
+    "heading": "Değişiklik geçmişi",
+    "empty": "Henüz kayıtlı değişiklik yok.",
+    "samples": "{{n}} örnek",
+    "generated": "Görüntü modeliyle üretildi ({{date}}): \"{{prompt}}\""
+  },
+  "try": {
+    "defaultSample": "Sevgiyle\nAyşe & Ali",
+    "sample": "Örnek metin",
+    "placeholder": "Örnek metin (satır sonu = satır bölmesi)",
+    "free": "ücretsiz",
+    "run": "Bu şablonla dene",
+    "beforeAfter": "Önce ve sonra dene",
+    "missing": "Önizleme sunucuda henüz yok.",
+    "failed": "Önizleme alınamadı.",
+    "result": "Sonuç",
+    "saved": "Kayıtlı hâl",
+    "draft": "Değişiklikli hâl",
+    "alt": "{{label}} önizlemesi",
+    "pt": "{{n}} pt",
+    "close": "Deneme sonucunu kapat"
+  },
+  "cutConfirm": {
+    "title": "Kesim değişikliği kaydedilsin mi?",
+    "body_one": "{{count}} onaylı iş yeniden kontrol isteyecek: bu şablonla onaylanmış, henüz basılmamış işin onayı kalkar; Üretim'de yeni kesimle kontrol edip yeniden onaylayın. Basılmış işlere dokunulmaz.",
+    "body_other": "{{count}} onaylı iş yeniden kontrol isteyecek: bu şablonla onaylanmış, henüz basılmamış işlerin onayı kalkar; Üretim'de yeni kesimle kontrol edip yeniden onaylayın. Basılmış işlere dokunulmaz.",
+    "unknown": "Etkilenecek iş sayısı alınamadı. Kesim değişince bu şablonla onaylanmış, henüz basılmamış işlerin onayı kalkar ve yeniden kontrol ister. Basılmış işlere dokunulmaz.",
+    "save": "Kaydet"
+  },
+  "toast": {
+    "saved": "Kaydedildi: {{fields}}. Ölçülmüş değerler ve geçmiş korundu.",
+    "saveFailed": "Kaydedilemedi. {{error}} Değişiklikleriniz ekranda duruyor.",
+    "reverted": "Değişiklikler geri alındı.",
+    "restore": "Geri getir"
+  },
+  "upload": {
+    "titleOne": "Şablon yükle",
+    "titleMany_one": "{{count}} şablon yükle",
+    "titleMany_other": "{{count}} şablon yükle",
+    "cancel": "Vazgeç",
+    "submit": "Yükle",
+    "submitMany_one": "{{count}} dosyayı yükle",
+    "submitMany_other": "{{count}} dosyayı yükle",
+    "overwriteTitle": "{{keys}} zaten var.",
+    "overwriteBody": "Yüklerseniz yeni dosya eskisinin yerine geçer. Sunucu eski dosyayı yüklemeden önce yedekler, yani geri dönülebilir.",
+    "key": "Anahtar",
+    "kind": "Tür",
+    "uploaded": "Yüklendi",
+    "uploading": "Yükleniyor",
+    "failed": "Yüklenemedi",
+    "overwrites": "Üzerine yazılır",
+    "remove": "Listeden çıkar",
+    "hint": "PNG önerilir; şablon kutusunun 2 katı çözünürlük en iyisidir. Saydam zeminli PNG'de dekor kendiliğinden bulunur.",
+    "problem": {
+      "invalidKey": "Anahtar boş olamaz ve / \\ ? # % : * \" < > | içeremez.",
+      "duplicate": "Aynı anahtar iki dosyada kullanılıyor."
+    },
+    "doneOne": "\"{{key}}\" yüklendi.",
+    "doneMany_one": "{{count}} şablon yüklendi.",
+    "doneMany_other": "{{count}} şablon yüklendi.",
+    "onlyPng": "Yalnızca PNG yüklenebilir. Atlanan: {{names}}",
+    "drop": "PNG'leri bırakın, şablon olarak yükleyelim",
+    "readFailed": "Dosya okunamadı."
+  },
+  "generate": {
+    "title": "Temadan şablon üret",
+    "cancel": "Vazgeç",
+    "submit": "Şablonu üret",
+    "theme": "Tema",
+    "themeHint": "Şablonun nasıl görüneceğini anlatın. Örnek: pastel çiçek çelengi, ortası boş ve dairesel.",
+    "sample": "Örnek metin (isteğe bağlı)",
+    "sampleHint": "Yazının nereye gireceğini modele göstermek için.",
+    "key": "Anahtar (isteğe bağlı)",
+    "keyHint": "Boş bırakırsanız sunucu bir anahtar seçer.",
+    "keyError": {
+      "exists": "Bu anahtar zaten var.",
+      "invalid": "Geçersiz anahtar."
+    },
+    "cost": "Görüntü modeli kullanır; her üretim ücretlidir ve şablon motoru çıktıyı otomatik analiz eder.",
+    "missing": "Şablon üretme sunucuda henüz yok.",
+    "failed": "Şablon üretilemedi.",
+    "queued": "Şablon üretiliyor. Hazır olunca listede \"Üretilmiş\" olarak görünür."
+  },
+  "shortcuts": {
+    "save": "Kaydet",
+    "undo": "Geri al",
+    "toolSelect": "Seç",
+    "toolEllipse": "Oval",
+    "toolRect": "Dikdörtgen",
+    "toolPolygon": "Çokgen",
+    "cancel": "Çizimi iptal et, aracı bırak",
+    "finish": "Çokgeni kapat",
+    "deleteVertex": "Noktayı sil",
+    "left": "Sola kaydır",
+    "right": "Sağa kaydır",
+    "up": "Yukarı kaydır",
+    "down": "Aşağı kaydır",
+    "prev": "Önceki şablon",
+    "next": "Sonraki şablon",
+    "search": "Şablon ara",
+    "toggleView": "Izgara ya da düzenleyici görünümü",
+    "groups": {
+      "edit": "Düzenleme",
+      "tools": "Araçlar",
+      "area": "Yazı alanı",
+      "library": "Kütüphane"
+    }
+  }
+}

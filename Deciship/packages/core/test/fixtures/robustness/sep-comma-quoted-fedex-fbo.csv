@@ -1,0 +1,11 @@
+"Bill to Account Number","Invoice Date","Invoice Number","Express or Ground Tracking ID","Shipment Date","Service Type","Recipient Name","Recipient Company","Recipient Address Line 1","Recipient Country/Territory","Actual Weight Amount","Actual Weight Units","Rated Weight Amount","Rated Weight Units","Dim Length","Dim Width","Dim Height","Dim Unit","Dim Divisor","Transportation Charge Amount","Net Charge Amount","Currency","Tracking ID Charge Description","Tracking ID Charge Amount","Tracking ID Charge Description","Tracking ID Charge Amount"
+"000000000","20261106","9-000-00001","794800000011","20261105","International Economy","Alıcı 1","Atelier ""Lumière"", Paris","Örnek Sokak 1,
+Kat 2","DE","4.0","K","6.0","K","40","30","25","C","5000","1,527.75","1,184.00","TRY","Discount","-580.55","Fuel Surcharge","236.80"
+"000000000","20261106","9-000-00001","794800000022","20261103","International Economy","Alıcı 2","Muster GmbH","Örnek Sokak 2,
+Kat 3","FR","12.5","K","12.5","K","50","40","30","C","5000","1,650.40","1,234.56","TRY","Discount","-627.15","Fuel Surcharge","211.31"
+"000000000","20261106","9-000-00001","794800000033","20261028","International Economy","Alıcı 3","Van Dijk & Zn","Örnek Sokak 3,
+Kat 4","NL","2.0","K","2.5","K","30","25","20","C","5000","1,108.20","987.65","TRY","Discount","-421.12","Fuel Surcharge","300.57"
+"000000000","20261106","9-000-00001","794800000044","20261013","International Economy","Alıcı 4","Acme, Inc.","Örnek Sokak 4,
+Kat 5","US","28.0","K","30.0","K","80","60","50","C","5000","15,420.00","12,345.67","TRY","Discount","-5,859.60","Fuel Surcharge","2,785.27"
+"000000000","20261106","9-000-00001","794800000055","20261112","International Economy","Alıcı 5","Example Ltd","Örnek Sokak 5,
+Kat 6","GB","0.5","K","0.5","K","20","15","5","C","5000","61.90","45.10","TRY","Discount","-23.52","Fuel Surcharge","6.72"

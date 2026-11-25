@@ -1,0 +1,246 @@
+{
+  "issueShort": {
+    "text-missing": "Metin yok",
+    "text-very-long": "Çok uzun metin",
+    "text-word-too-long": "Çok uzun sözcük",
+    "text-outer-quotes-removed": "Tırnak kaldırıldı",
+    "text-unicode-styled": "Özel harf",
+    "text-unprintable": "Basılamayan karakter",
+    "text-fallback-font": "Yedek font",
+    "text-suspicious": "Şüpheli metin",
+    "template-missing": "Şablon yok",
+    "template-unknown": "Şablon dosyası yok",
+    "size-unknown": "Boyut bilinmiyor",
+    "quantity-missing": "Adet yok",
+    "quantity-invalid": "Adet geçersiz",
+    "order-missing": "Sipariş no yok",
+    "duplicate-in-file": "Dosyada tekrar",
+    "duplicate-existing": "Zaten var",
+    "duplicate-similar": "Benzer sipariş",
+    "sticker-detected": "Sticker",
+    "sticker-sheet-missing": "Sticker sayfası yok"
+  },
+  "filters": {
+    "all": "Hepsi",
+    "issues": "Yalnızca sorunlu",
+    "duplicates": "Tekrarlar",
+    "excluded": "Hariç tutulanlar"
+  },
+  "fix": {
+    "dismiss": "Yok say",
+    "skip": "Satırı hariç tut"
+  },
+  "fields": {
+    "text": "Metin",
+    "template": "Şablon",
+    "orderNo": "Sipariş no",
+    "quantity": "Adet",
+    "product": "Ürün",
+    "size": "Boyut"
+  },
+  "formats": {
+    "array": "JSON dizisi",
+    "wrapped": "JSON (sarılı liste)",
+    "ndjson": "Satır satır JSON",
+    "object": "Tek nesne"
+  },
+  "work": {
+    "otherFile": "Başka dosya"
+  },
+  "strip": {
+    "label": "Satır araçları",
+    "filters": "Satır süzgeci",
+    "addRow": "Satır ekle",
+    "dismissedItem": "{{n}}. satır · {{issue}}"
+  },
+  "selection": {
+    "count_one": "{{count}} satır seçili",
+    "count_other": "{{count}} satır seçili",
+    "assignTemplate": "Şablon ata",
+    "include": "Dahil et",
+    "exclude": "Hariç tut"
+  },
+  "table": {
+    "label": "İçe aktarılacak siparişler",
+    "selectAll": "Görünen satırların hepsini seç",
+    "emptyFile": "Dosyada satır yok. Alan eşlemesini kontrol edin.",
+    "emptyFilter": "Bu süzgeçte satır yok",
+    "showAll": "Hepsini göster"
+  },
+  "cols": {
+    "orderNo": "Sipariş no",
+    "text": "Metin",
+    "quantity": "Adet",
+    "size": "Boyut",
+    "template": "Şablon",
+    "issue": "Sorun"
+  },
+  "row": {
+    "select": "{{n}}. satırı seç",
+    "editText": "Metni düzenle (Enter)",
+    "noText": "Metin yok",
+    "quotes": "tırnak",
+    "quotesTitle": "Dış tırnak kaldırıldı. Ham: {{raw}}",
+    "edited": "düzenlendi",
+    "editedTitle": "Düzenlendi. Ham: {{raw}}",
+    "sizeCm": "{{cm}} cm",
+    "pickTemplate": "Şablon seç",
+    "templateLabel": "Şablon: {{value}}",
+    "templateFileValue": "Dosyadaki değer: {{value}}",
+    "excluded": "hariç",
+    "duplicateExcluded": "tekrar · hariç",
+    "more": "+{{n}}",
+    "sticker": "Sticker",
+    "dismissed_one": "{{count}} yok sayıldı",
+    "dismissed_other": "{{count}} yok sayıldı",
+    "restore": "Geri getir"
+  },
+  "edit": {
+    "save": "kaydet",
+    "cancel": "vazgeç",
+    "newLine": "Enter yeni satır",
+    "restoreRaw": "Ham metne dön",
+    "raw": "Ham: {{text}}",
+    "rawEmpty": "(boş)",
+    "rawTitle": "Dosyadaki ham değer"
+  },
+  "panel": {
+    "title": "Dosya",
+    "rows_one": "{{count}} satır",
+    "rows_other": "{{count}} satır",
+    "batchName": "Parti adı",
+    "batchPlaceholder": "Dosya adı",
+    "fileWarnings": "Dosya hakkında",
+    "summary": "Özet",
+    "sumImportable": "sipariş içe aktarılacak",
+    "sumExcluded": "hariç",
+    "sumBlocked": "hatalı, üretime girmez",
+    "sumWarnings": "uyarılı",
+    "sumDuplicates": "tekrar",
+    "sumStickers": "sticker",
+    "bulk": "Toplu",
+    "cancel": "Vazgeç",
+    "import": "İçe aktar",
+    "importGenerate": "İçe aktar ve üret",
+    "blockedHint": "{{n}} sipariş üretime alınır; hatalı olanlar alınmaz"
+  },
+  "bulk": {
+    "excludeErrors": "Hatalı satırları hariç tut ({{n}})",
+    "excludeProblems": "Hatalı ve uyarılı satırları hariç tut ({{n}})",
+    "excludeDuplicates": "Tekrarları hariç tut ({{n}})",
+    "includeAll": "Hepsini dahil et ({{n}})",
+    "plainLetters": "Özel harfleri düz harfe çevir ({{n}})"
+  },
+  "mapping": {
+    "title": "Alan eşlemesi",
+    "summary_one": "{{format}} · {{count}} alan",
+    "summary_other": "{{format}} · {{count}} alan",
+    "textMissing": "Metin alanı seçilmedi",
+    "format": "Dosya biçimi: {{format}}",
+    "none": "Yok",
+    "notSet": "seçilmedi",
+    "empty": "yok",
+    "guess": "tahmin",
+    "pick": "{{field}}: {{value}}",
+    "source": {
+      "name": "Alan adından tanındı",
+      "content": "İçeriğinden tahmin edildi",
+      "user": "Sizin seçiminiz",
+      "none": "Eşleşen alan bulunamadı"
+    }
+  },
+  "status": {
+    "checking": "Sorunlar denetleniyor…",
+    "unsaved": "Değişiklikler kaydedilmedi",
+    "toggleHint": "{{key}} dahil et / çıkar"
+  },
+  "intake": {
+    "title": "Sipariş dosyasını buraya bırakın",
+    "body": ".json, .ndjson, .txt · Ctrl V ile yapıştırın",
+    "bodyHint": "Sütunları (metin, adet, şablon…) kendim tanırım; yüklemeden önce hepsini bu masada görür, düzeltir ve istemediğinizi hariç tutarsınız.",
+    "chooseFile": "Dosya seç",
+    "paste": "Metni yapıştır",
+    "pasteLabel": "Yapıştırılan JSON",
+    "pastePlaceholder": "[{\"text\": \"Ayşe & Can\", \"quantity\": 30, \"template\": \"a15\"}]",
+    "preview": "Önizle",
+    "loading": "{{name}} okunuyor, satırlar denetleniyor…",
+    "errorTitle": "Dosya açılamadı.",
+    "retry": "Yeniden dene",
+    "drop": "Bırakın: {{types}}"
+  },
+  "file": {
+    "type": "\"{{name}}\" bu masada açılamaz. .json, .ndjson ya da .txt dosyası seçin.",
+    "unreadable": "\"{{name}}\" okunamadı. Dosya başka bir programda açık ya da erişilemez olabilir.",
+    "empty": "\"{{name}}\" boş görünüyor."
+  },
+  "confirm": {
+    "replace": {
+      "title": "Yeni veri yüklensin mi?",
+      "body": "Bu masadaki düzenlemeleriniz (metinler, şablonlar, hariç tutulanlar) atılır.",
+      "ok": "Evet, yenisini yükle"
+    },
+    "mapping": {
+      "title": "Alan eşlemesi değişsin mi?",
+      "body": "Önizleme yeni eşlemeyle baştan oluşturulur; bu masadaki düzenlemeleriniz atılır.",
+      "ok": "Eşlemeyi değiştir"
+    },
+    "close": {
+      "title": "Düzenlemeler atılsın mı?",
+      "body": "Bu masada yaptıklarınız (metinler, şablonlar, hariç tutulanlar) henüz kaydedilmedi. Kapatırsanız kaybolur.",
+      "ok": "Evet, at ve kapat"
+    }
+  },
+  "toast": {
+    "undo": "Geri al",
+    "fixApplied": "Uygulandı: {{fix}}",
+    "noProblems": "Sorunlu satır kalmadı.",
+    "validateFailed": "Sorunlar yeniden denetlenemedi, görünenler eski olabilir. {{detail}}",
+    "excluded": {
+      "errors_one": "{{count}} hatalı satır hariç tutuldu",
+      "errors_other": "{{count}} hatalı satır hariç tutuldu",
+      "problems_one": "{{count}} sorunlu satır hariç tutuldu",
+      "problems_other": "{{count}} sorunlu satır hariç tutuldu",
+      "duplicates_one": "{{count}} tekrar satır hariç tutuldu",
+      "duplicates_other": "{{count}} tekrar satır hariç tutuldu"
+    },
+    "includedAgain_one": "{{count}} satır yeniden dahil edildi",
+    "includedAgain_other": "{{count}} satır yeniden dahil edildi",
+    "included_one": "{{count}} satır dahil edildi",
+    "included_other": "{{count}} satır dahil edildi",
+    "excludedRows_one": "{{count}} satır hariç tutuldu",
+    "excludedRows_other": "{{count}} satır hariç tutuldu",
+    "templateAssigned_one": "{{count}} satıra \"{{key}}\" şablonu atandı",
+    "templateAssigned_other": "{{count}} satıra \"{{key}}\" şablonu atandı",
+    "templateCleared_one": "{{count}} satırdan şablon kaldırıldı",
+    "templateCleared_other": "{{count}} satırdan şablon kaldırıldı",
+    "plainLetters_one": "{{count}} satırdaki özel harfler düz harfe çevrildi",
+    "plainLetters_other": "{{count}} satırdaki özel harfler düz harfe çevrildi",
+    "imported_one": "{{count}} sipariş içe aktarıldı",
+    "imported_other": "{{count}} sipariş içe aktarıldı",
+    "importedQueued_one": "{{count}} sipariş içe aktarıldı · {{queued}} iş üretime alındı",
+    "importedQueued_other": "{{count}} sipariş içe aktarıldı · {{queued}} iş üretime alındı",
+    "importedNotQueued_one": "{{count}} sipariş içe aktarıldı; üretim başlamadı: {{reason}}",
+    "importedNotQueued_other": "{{count}} sipariş içe aktarıldı; üretim başlamadı: {{reason}}",
+    "openBatch": "Partiyi aç",
+    "importFailed": "İçe aktarılamadı. {{detail}}"
+  },
+  "shortcuts": {
+    "commitGenerate": "İçe aktar ve üret",
+    "nextIssue": "Sonraki sorun",
+    "prevIssue": "Önceki sorun",
+    "down": "Sonraki satır",
+    "up": "Önceki satır",
+    "edit": "Metni düzenle",
+    "toggle": "Dahil et / hariç tut",
+    "close": "Seçimi kaldır, yoksa Üretim'e dön",
+    "groups": {
+      "rows": "Satırlar",
+      "desk": "İçe aktarma"
+    }
+  },
+  "styled": {
+    "plain": "Düz harf · etiketin fontu",
+    "asIs": "Olduğu gibi · yedek font",
+    "alt": "Etiket önizlemesi: {{text}}"
+  }
+}

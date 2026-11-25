@@ -1,0 +1,89 @@
+{
+  "status": 200,
+  "body": {
+    "id": "prints",
+    "columns": [
+      {
+        "id": "name",
+        "label": "Ad",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "language",
+        "label": "Tasarım dili",
+        "format": "text"
+      },
+      {
+        "id": "status",
+        "label": "Durum",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "pages",
+        "label": "Sayfa",
+        "format": "number",
+        "align": "right"
+      },
+      {
+        "id": "sheets",
+        "label": "Basılan sayfa",
+        "format": "number",
+        "align": "right"
+      },
+      {
+        "id": "jobs",
+        "label": "İş",
+        "format": "number",
+        "align": "right",
+        "hiddenByDefault": true
+      },
+      {
+        "id": "updatedAt",
+        "label": "Güncellendi",
+        "format": "datetime",
+        "sortable": true
+      },
+      {
+        "id": "printedAt",
+        "label": "Basıldı",
+        "format": "datetime",
+        "sortable": true
+      }
+    ],
+    "rows": [
+      {
+        "id": "baski-taslak",
+        "href": "/tagpress/#/baski/masa/baski-taslak",
+        "cells": {
+          "name": "Kasım taslağı",
+          "language": "Çocuk",
+          "status": "Taslak",
+          "pages": 1,
+          "sheets": 1,
+          "jobs": 1,
+          "updatedAt": "<zaman>",
+          "printedAt": null
+        }
+      },
+      {
+        "id": "baski-1",
+        "href": "/tagpress/#/baski/masa/baski-1",
+        "cells": {
+          "name": "Ekim baskısı",
+          "language": "Zarif",
+          "status": "Basıldı",
+          "pages": 2,
+          "sheets": 3,
+          "jobs": 1,
+          "updatedAt": "<zaman>",
+          "printedAt": "<zaman>"
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 2
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "groups": {
+    "genel": {
+      "label": "General",
+      "help": "The design language's name and a style note for what settings cannot express."
+    },
+    "fontlar": {
+      "label": "Fonts",
+      "help": "Which fonts are used, on which lines and within which limits."
+    },
+    "ozel-karakterler": {
+      "label": "Special characters",
+      "help": "Rules for printing certain characters in another font or size."
+    },
+    "boyut": {
+      "label": "Size and fill",
+      "help": "How large the text is and how the lines relate to each other."
+    },
+    "bosluk": {
+      "label": "Line spacing and alignment",
+      "help": "The visible gap between lines and how they are aligned."
+    },
+    "baglaclar": {
+      "label": "Connectors",
+      "help": "How connectors like &, and, e, y are set."
+    },
+    "satir-bolme": {
+      "label": "Line breaking",
+      "help": "How the text is split into lines."
+    },
+    "kalinlik-renk": {
+      "label": "Weight and color",
+      "help": "Letter weight and text color."
+    },
+    "cikti": {
+      "label": "Label sizes",
+      "help": "Cut shape, label sizes and the template position."
+    },
+    "sticker": {
+      "label": "Stickers",
+      "help": "How sticker orders are detected, and their sheets."
+    },
+    "baski": {
+      "label": "Printing",
+      "help": "Extra-label and resolution rules for print sheets."
+    },
+    "kalite": {
+      "label": "Quality flags",
+      "help": "Check and legibility flags for variations."
+    }
+  },
+  "fields": {
+    "name": {
+      "label": "Name",
+      "help": "The name of the design language."
+    },
+    "description": {
+      "label": "Description",
+      "help": "A short description: whose it is and which jobs it is for."
+    },
+    "ai": {
+      "instructions": {
+        "label": "Style note",
+        "help": "Style that settings cannot express (e.g. 'elegant, airy, romantic'). Hard rules go to the matching setting, not here."
+      }
+    },
+    "fonts": {
+      "list": {
+        "label": "Font list",
+        "help": "The available fonts, their kinds, roles and limits."
+      },
+      "mixing": {
+        "label": "Font families per label",
+        "help": "One family: every line uses the same font (except special-character rules). Two families or free."
+      }
+    },
+    "glyphRules": {
+      "label": "Special character rules",
+      "help": "E.g. '&' always in IM FELL at half size; a capital A at the start of a word from another font. Applies on every line."
+    },
+    "sizing": {
+      "fill": {
+        "label": "Fill",
+        "help": "Text is this fraction of the largest size that fits the area. 1 = completely full."
+      },
+      "fillLocked": {
+        "label": "Fill is fixed",
+        "help": "When on, every design uses the same fill; when off, the AI may suggest one."
+      },
+      "tiers": {
+        "primary": {
+          "label": "Main line",
+          "help": "The largest line (usually the name). The other ratios are relative to it."
+        },
+        "secondary": {
+          "label": "Secondary line",
+          "help": "Supporting lines smaller than the main line."
+        },
+        "tertiary": {
+          "label": "Tertiary line",
+          "help": "The smallest lines (date, place, long message)."
+        },
+        "connector": {
+          "label": "Lone connector",
+          "help": "Ratio of a connector on its own line to the main line."
+        }
+      },
+      "tiersLocked": {
+        "label": "Engine applies the ratios",
+        "help": "When on, the AI only picks a line's class and these ratios set the size."
+      },
+      "connectorScales": {
+        "label": "Connector-specific ratio",
+        "help": "A different ratio for a specific connector (e.g. 'e' 0.45)."
+      },
+      "maxCapHeight": {
+        "label": "Letter height limit",
+        "help": "Keeps short texts from growing too large: capital height is at most this fraction of the cut diameter."
+      },
+      "minPt": {
+        "label": "Smallest point size",
+        "help": "No line goes below this."
+      },
+      "maxPt": {
+        "label": "Largest point size",
+        "help": "No line goes above this."
+      },
+      "breathing": {
+        "label": "Breathing room",
+        "help": "Space left between the text and the decoration (as a fraction of the cut diameter)."
+      },
+      "edgeMargin": {
+        "label": "Cut margin",
+        "help": "Space left between the text and the cut line (as a fraction of the cut diameter)."
+      },
+      "initials": {
+        "oneLine": {
+          "label": "Initials on one line",
+          "help": "Text that is only initials ('A & M') is never stacked."
+        },
+        "maxCapHeight": {
+          "label": "Initials height",
+          "help": "Letter height limit for labels that are only initials. Empty = general limit."
+        }
+      }
+    },
+    "spacing": {
+      "align": {
+        "label": "Alignment",
+        "help": "Lines are centered on the ink box (or aligned left or right)."
+      },
+      "inkGaps": {
+        "normal": {
+          "label": "Line gap",
+          "help": "Visible gap between lines, as a fraction of the small line's point size."
+        },
+        "beforeLast": {
+          "label": "Before the last small line",
+          "help": "Gap before the last small line such as a date or place."
+        },
+        "connector": {
+          "label": "Around a connector",
+          "help": "Gap above and below a connector on its own line."
+        }
+      },
+      "beforeLastRatio": {
+        "label": "Last line threshold",
+        "help": "A last line smaller than this fraction of the one above counts as the 'last small line'."
+      }
+    },
+    "connectors": {
+      "words": {
+        "label": "Connectors",
+        "help": "Words and symbols that count as connectors (&, and, e, y…)."
+      },
+      "shiftEm": {
+        "label": "Connector shift to the right",
+        "help": "A lone connector between two script names moves this far right of the names' center (in name point size)."
+      },
+      "separateDangling": {
+        "label": "No dangling connectors",
+        "help": "A connector left at the start or end of a line ('Elena' / 'e Martina') goes on its own line."
+      },
+      "allowSymbolSpacing": {
+        "label": "Space around &",
+        "help": "In 'Mina&Ali' breathing space may be added around the & (the text does not count as changed)."
+      }
+    },
+    "lineBreaking": {
+      "maxLineChars": {
+        "label": "Line length limit",
+        "help": "No line exceeds this many characters."
+      },
+      "typicalLines": {
+        "label": "Typical line count",
+        "help": "The line range of most labels (fewest – most)."
+      },
+      "maxLines": {
+        "label": "Most lines",
+        "help": "No label has more lines than this."
+      },
+      "nameOwnLine": {
+        "label": "Name on its own line",
+        "help": "The person's name is on its own line and is the largest line."
+      },
+      "coupleStack": {
+        "label": "Couples stacked",
+        "help": "For couple names, the name / & / name layout: always, one of the candidates, or never."
+      },
+      "keepShortGreetings": {
+        "label": "Keep short greetings together",
+        "help": "When on, greetings and thanks of up to three words ('Thank You', 'Merry Christmas') are never split; the engine and the AI check this. If you do split some greetings (e.g. a holiday greeting over two lines), turn it off and write the distinction in the line-breaking notes and examples."
+      },
+      "dateOwnLine": {
+        "label": "Date on its own line",
+        "help": "The date stays on a separate line."
+      },
+      "customerBreaks": {
+        "label": "Customer's line breaks",
+        "help": "If the customer gave lines with a double space: treat as a hint, apply strictly or ignore."
+      },
+      "noLoneWords": {
+        "label": "Words that cannot stand alone",
+        "help": "Prepositions and articles (di, de, of, la…) stay with the phrase they belong to."
+      },
+      "notes": {
+        "label": "Line-breaking notes",
+        "help": "Breaking habits that rules cannot express (the AI reads them)."
+      },
+      "examples": {
+        "label": "Example breaks",
+        "help": "Text → lines examples. Shown to the AI; stronger than a rule."
+      }
+    },
+    "weight": {
+      "mode": {
+        "label": "Thickening",
+        "help": "Stroke: a thin outline in the text's own color (when the font has no Bold). Real: the font's bold style."
+      },
+      "widthEm": {
+        "label": "Stroke thickness",
+        "help": "Fraction of the main line's point size. One value per label."
+      },
+      "minPx": {
+        "label": "Thinnest stroke",
+        "help": "The stroke is at least this many px. 0 = no limit."
+      },
+      "maxPx": {
+        "label": "Thickest stroke",
+        "help": "The stroke is at most this many px. 0 = no limit."
+      },
+      "align": {
+        "label": "Stroke alignment",
+        "help": "Outside: the spaces inside letters do not close."
+      }
+    },
+    "color": {
+      "text": {
+        "label": "Text color",
+        "help": "The default text color."
+      },
+      "onDark": {
+        "label": "Text color on dark",
+        "help": "The color used when the background is dark."
+      },
+      "autoContrast": {
+        "label": "Automatic contrast",
+        "help": "Switch to a light color on its own when the background is dark."
+      }
+    },
+    "output": {
+      "designFramePx": {
+        "label": "Design area",
+        "help": "The square area (px) where all calculations are made."
+      },
+      "cut": {
+        "label": "Cut shape",
+        "help": "The label's cut line (circle, oval, rectangle…)."
+      },
+      "templateBox": {
+        "label": "Template position",
+        "help": "The position and size of the template image within the design area."
+      },
+      "sizes": {
+        "label": "Label sizes",
+        "help": "Size name in the JSON → cm and frame size (px). The design is made at the default size; at other sizes the template and text scale proportionally (content scale, otherwise frame / design area)."
+      },
+      "defaultSize": {
+        "label": "Default size",
+        "help": "Used when the order does not state a size."
+      }
+    },
+    "stickers": {
+      "enabled": {
+        "label": "Sticker orders",
+        "help": "When on, some orders are prepared as stickers instead of labels."
+      },
+      "detect": {
+        "label": "How stickers are detected",
+        "help": "Orders that have a product field, or orders with an empty template."
+      },
+      "sheets": {
+        "label": "Sticker sheets",
+        "help": "Sticker sheets: product keywords and sizes. Sizes are in pt (1 pt = 1/72 inch ≈ 0.35 mm; 108 pt = 38.1 mm)."
+      }
+    },
+    "printing": {
+      "labelExtraMin": {
+        "label": "Extra labels (fewest)",
+        "help": "The fewest extra labels printed above the order quantity."
+      },
+      "labelExtraMax": {
+        "label": "Extra labels (most)",
+        "help": "The most extra labels printed on large orders."
+      },
+      "labelRoundUpMaxExtra": {
+        "label": "Complete the sheet",
+        "help": "If the remaining labels are at most this many short of a full sheet, the sheet is completed with the same order."
+      },
+      "labelExtraScaleLow": {
+        "label": "Extra scale (low quantity)",
+        "help": "At this quantity and below, the fewest extras are printed."
+      },
+      "labelExtraScaleHigh": {
+        "label": "Extra scale (high quantity)",
+        "help": "At this quantity and above, the most extras are printed; in between it is proportional."
+      },
+      "separateSameDesign": {
+        "label": "Separate the same design",
+        "help": "Orders with the same design number are not put on the same mixed sheet (so they do not get mixed up)."
+      },
+      "stickerExtraMin": {
+        "label": "Sticker extras (fewest)",
+        "help": "The fewest extras above the quantity on sticker orders."
+      },
+      "stickerExtraMax": {
+        "label": "Sticker extras (most)",
+        "help": "The most extras above the quantity on sticker orders."
+      },
+      "stickerDpi": {
+        "label": "Sticker resolution",
+        "help": "PNG and raster PDF resolution (dpi) of sticker sheets. The sticker's size does not change (mm); 300 is enough for printers."
+      },
+      "dpi": {
+        "label": "Print resolution",
+        "help": "Resolution (dpi) of PNG output and raster PDF. 300 is enough for printers."
+      },
+      "orderNamePattern": {
+        "label": "Order name pattern",
+        "help": "The order name on the print sheet (cell label). {orderNo}, {quantity}, {template}, {size}, {seq} and the field names in the order file can be used; if empty, no order name is printed."
+      }
+    },
+    "quality": {
+      "suspectScore": {
+        "label": "Check threshold",
+        "help": "A variation scoring below this is flagged 'check'."
+      },
+      "readableMinPt": {
+        "label": "Legibility limit",
+        "help": "A warning is given if the smallest line is below this."
+      }
+    }
+  }
+}

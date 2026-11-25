@@ -1,0 +1,1077 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["deciship"]
+}
+
+// Veritabanı ile şema arasındaki fark (init migration, bilinçli):
+//  - Firma tablosu dışındaki yabancı anahtarlar bileşiktir: (x, companyId) -> (id, companyId). İlişkiler burada tek
+//    sütunlu görünür; Prisma'da bileşik anahtar iç içe yazmayı ve SET NULL'u kırar (firma sütunu NOT NULL).
+//  - Measurement_current_tracking_key, Invoice_current_no_key, Dispute_active_invoice_key ve Job_active_key kısmi tekil
+//    dizindir; Prisma kısmi dizini gösteremez.
+//  - TariffRevision_tariffId_fkey yalnız "tariffId"yi boşaltır (ON DELETE SET NULL ("tariffId")); Tariff, Invoice ve
+//    InvoiceLine'ın sürüm anahtarları NO ACTION'dır (sürüm silinmez; firma silinirken onlar sürümden önce gider).
+//  `migrate dev` bunları silmeyi önerir: üretilen göçten çıkarın. test/reviewFindings.test.ts (O5) ve rls testleri korur.
+
+enum DimMethod {
+  LIDAR
+  AR
+  REFERENCE
+  MANUAL
+  PRESET
+
+  @@schema("deciship")
+}
+
+enum WeightMethod {
+  OCR
+  MANUAL
+
+  @@schema("deciship")
+}
+
+enum FileKind {
+  PHOTO_BOX
+  PHOTO_SCALE
+  PHOTO_LABEL
+  PHOTO_OTHER
+  INVOICE_SOURCE
+
+  @@schema("deciship")
+}
+
+/// Gönderinin ambalajı: OWN kendi ambalajı (varsayılan), PAK taşıyıcı poşeti (FedEx Pak, UPS Express Pak, DHL Flyer …),
+/// ENVELOPE taşıyıcı zarfı. Sınırlar taşıyıcı başına (core `packagingLimitsFor`, `Carrier.packagingLimits`).
+enum Packaging {
+  OWN
+  PAK
+  ENVELOPE
+
+  @@schema("deciship")
+}
+
+enum EdgeRounding {
+  CEIL_CM
+  NONE
+
+  @@schema("deciship")
+}
+
+enum SurchargeKind {
+  FIXED
+  PCT
+  PER_KG
+
+  @@schema("deciship")
+}
+
+enum InvoiceStatus {
+  PROCESSED
+  FAILED
+
+  @@schema("deciship")
+}
+
+enum LineStatus {
+  MATCH
+  DIFF
+  UNMATCHED
+  NO_TARIFF
+
+  @@schema("deciship")
+}
+
+enum Decision {
+  OPEN
+  VERIFIED
+  ACCEPTED
+
+  @@schema("deciship")
+}
+
+enum DisputeChannel {
+  EMAIL
+  PORTAL
+  OTHER
+
+  @@schema("deciship")
+}
+
+enum DisputeLineOutcome {
+  PENDING
+  RECOVERED
+  REJECTED
+
+  @@schema("deciship")
+}
+
+enum DisputeResultKind {
+  RECOVERED
+  REJECTED
+
+  @@schema("deciship")
+}
+
+/// Yapay zekâ çağrısının türü (sayaç, önbellek ve Merkez dökümü). Etiketler services/hub/i18n.ts `aiUsage.kind.*`.
+enum AiKind {
+  SCALE_READ
+  INVOICE_PDF
+  INVOICE_MAPPING
+  TARIFF_PDF_DISCOVER
+  TARIFF_PDF_EXTRACT
+  TARIFF_REVIEW
+
+  @@schema("deciship")
+}
+
+/// OK: ücretlendi; CACHED: önceki sonuçtan, ücretsiz; FAILED: hata kodlu (ret ve kesilme token taşır, ücretlenir).
+enum AiCallStatus {
+  OK
+  CACHED
+  FAILED
+
+  @@schema("deciship")
+}
+
+/// GRANT: destek komutuyla verilen hak; PURCHASE: satın alma (ödeme gelince); ADJUST: düzeltme (eksi olabilir).
+enum AiCreditKind {
+  GRANT
+  PURCHASE
+  ADJUST
+
+  @@schema("deciship")
+}
+
+/// Arka plan işinin türü (Mesaj 7). Grup, izin ve işleyici: src/services/jobs/registry.ts.
+enum JobKind {
+  INVOICE_PDF_READ
+  TARIFF_PDF_SCAN
+  TARIFF_PDF_EXTRACT
+  BULK_RECOMPARE_PREVIEW
+  BULK_RECOMPARE_APPLY
+  INVOICE_IMPORT
+  TARIFF_IMPORT_REVIEW
+
+  @@schema("deciship")
+}
+
+/// SUCCEEDED, FAILED ve CANCELLED bitmiş durumdur, değişmez.
+enum JobStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+
+  @@schema("deciship")
+}
+
+/// Hesap'taki Organization'ın izdüşümü: id == Organization.id. Ad Merkez'den gelir (org.updated, JIT), burada yazılmaz.
+model Company {
+  id        String   @id
+  name      String
+  /// Adı yazan son org.updated olayının sürümü (Organization.version). Olaylar sırasız gelebilir: eskisi yeni adı ezmez.
+  nameVersion Int?
+  /// Firma kapatıldı (`org.closed`): doluysa uçlar 409 ORG_CLOSED, arka plan işleri atlar. Geri açılınca (`org.reopened`) boşalır.
+  closedAt      DateTime?
+  /// Kapalılığı yazan son olayın sürümü (Organization.version). Eşit ya da küçük sürümlü kapatma/geri açma uygulanmaz.
+  closedVersion Int?
+  settings  Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  members            Member[]
+  tariffZones        TariffZone[]
+  tariffRates        TariffRate[]
+  tariffOverflows    TariffOverflow[]
+  tariffSurcharges   TariffSurcharge[]
+  boxPresets         BoxPreset[]
+  measurements       Measurement[]
+  files              File[]
+  carriers           Carrier[]
+  tariffs            Tariff[]
+  invoices           Invoice[]
+  invoiceLines       InvoiceLine[]
+  auditLogs          AuditLog[]
+  tariffImportDrafts TariffImportDraft[]
+  tariffVersions     TariffVersion[]
+  tariffRevisions    TariffRevision[]
+  tariffDocuments    TariffDocument[]
+  disputes           Dispute[]
+  disputeLines       DisputeLine[]
+  disputeResults     DisputeResult[]
+  disputeResultLines DisputeResultLine[]
+  aiUsages           AiUsage[]
+  aiCreditEntries    AiCreditEntry[]
+  aiResultCaches     AiResultCache[]
+  jobs               Job[]
+  invoiceRechecks    InvoiceRecheck[]
+
+  @@schema("deciship")
+}
+
+/// Hesap'taki Membership'in yerel izdüşümü: id == Membership.id. Kimlik ve yetki Hesap'tadır (ARCHITECTURE §4, §5).
+model Member {
+  id         String    @id
+  companyId  String
+  company    Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  personId   String
+  name       String
+  /// Rol anahtarı: hazır rol (contracts kataloğu) ya da `custom:<uuid>`. null: üye var, DeciShip erişimi yok.
+  role       String?
+  /// Rolün firmadaki geçerli izinleri (katalogla kesişmiş). Sütun boş bırakılabilir (TEXT[] NULL): NULL = rolden katalogla
+  /// türet (eski olay ya da jeton). Prisma liste alanında NULL ile boş listeyi ayırmaz: okuma ve yazma ham SQL ile
+  /// (lib/access.ts `loadMemberAccess`, identity.ts); Prisma ile bu alan okunmaz, yazılmaz.
+  permissions String[]
+  active     Boolean   @default(true)
+  /// Membership.epoch. Jetondaki ep bundan küçükse 401 TOKEN_STALE.
+  epoch      Int       @default(0)
+  /// Üyelik Hesap'ta silindi (`member.removed`): jetonla eşitleme bu kaydı açmaz (`identity.ts` `syncMember`).
+  removedAt  DateTime?
+  lastSeenAt DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  measurements       Measurement[]
+  files              File[]
+  decidedLines       InvoiceLine[]
+  auditLogs          AuditLog[]
+  tariffImportDrafts TariffImportDraft[]
+  tariffVersions     TariffVersion[]
+  tariffDocuments    TariffDocument[]
+  disputesSent       Dispute[]         @relation("DisputeSentBy")
+  disputesWithdrawn  Dispute[]         @relation("DisputeWithdrawnBy")
+  disputeResults     DisputeResult[]   @relation("DisputeResultEnteredBy")
+  disputeReverts     DisputeResult[]   @relation("DisputeResultRevertedBy")
+  aiUsages           AiUsage[]
+  jobs               Job[]
+
+  @@index([companyId])
+  @@index([personId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model BoxPreset {
+  id        String   @id @default(uuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  name      String
+  lengthCm  Decimal  @db.Decimal(8, 1)
+  widthCm   Decimal  @db.Decimal(8, 1)
+  heightCm  Decimal  @db.Decimal(8, 1)
+  sortOrder Int      @default(0)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  measurements Measurement[]
+
+  @@index([companyId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model Measurement {
+  id             String       @id @default(uuid())
+  companyId      String
+  company        Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  clientId       String
+  trackingRaw    String
+  trackingNo     String
+  lengthCm       Decimal      @db.Decimal(8, 1)
+  widthCm        Decimal      @db.Decimal(8, 1)
+  heightCm       Decimal      @db.Decimal(8, 1)
+  weightKg       Decimal      @db.Decimal(10, 3)
+  dimMethod      DimMethod
+  weightMethod   WeightMethod
+  ocrWeightKg    Decimal?     @db.Decimal(10, 3)
+  dimConfidence  Float?
+  boxPresetId    String?
+  boxPreset      BoxPreset?   @relation(fields: [boxPresetId], references: [id], onDelete: SetNull)
+  measuredById   String
+  measuredBy     Member       @relation(fields: [measuredById], references: [id])
+  measuredAt     DateTime
+  /// KALANLAR 6.7: cihazın bildirdiği ham ölçüm anı; yalnız sunucu cihaz saati farkını düzelttiyse dolu (`measuredAt` düzeltilmiş).
+  deviceMeasuredAt DateTime?
+  /// KALANLAR 6.7: geldiğinde daha yeni güncel ölçüm vardı; zincire eski sürüm olarak girdi (`services/measurementOrder.ts`).
+  arrivedLate    Boolean      @default(false)
+  /// Gönderinin ambalajı (ölçü ekranında seçilir; eski uygulama göndermez → OWN). Ölçü Pak/Zarf'ta da alınır.
+  packaging      Packaging    @default(OWN)
+  note           String?
+  version        Int          @default(1)
+  supersededById String?      @unique
+  supersededBy   Measurement? @relation("MeasurementVersions", fields: [supersededById], references: [id], onDelete: SetNull)
+  supersedes     Measurement? @relation("MeasurementVersions")
+  deletedAt      DateTime?
+  /// Ölçüm değişikliği kaydedildi, faturalarla yeniden karşılaştırması henüz bitmedi (03-B4). Karşılaştırma bitince boşalır;
+  /// dolu kalırsa tekrar gönderim ya da bakım işi tamamlar.
+  recomparePendingAt DateTime?
+  /// 07-B7 (Mesaj 4): bekleyen işaretin tarama ya da bakımda düşen deneme sayısı; işaret boşalınca ya da yeniden yazılınca 0.
+  /// Sayıya göre geri çekilir (2 dk, 8 dk, 32 dk …), 5 denemeden sonra taramaya girmez (günlükte uyarı).
+  recompareAttempts Int       @default(0)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  files        File[]
+  invoiceLines InvoiceLine[]
+
+  @@index([companyId, trackingNo])
+  @@index([companyId, measuredAt])
+  @@index([recomparePendingAt])
+  @@unique([companyId, measuredById, clientId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model File {
+  id            String       @id @default(uuid())
+  companyId     String
+  company       Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  kind          FileKind
+  mime          String
+  size          Int
+  path          String
+  sha256        String
+  originalName  String?
+  measurementId String?
+  measurement   Measurement? @relation(fields: [measurementId], references: [id], onDelete: SetNull)
+  invoiceId     String?
+  createdById   String
+  createdBy     Member       @relation(fields: [createdById], references: [id])
+  /// Silinen faturanın kaynak dosyası diskten silindi (satır kalır: Invoice.sourceFileId RESTRICT). null = dosya diskte.
+  purgedAt      DateTime?
+  /// Yalnız PDF fatura önizlemesi, sunucu üretir: { v: 1, pageTexts?: string[] (≤ 1 MB), skipped: SkippedInvoiceRow[], method?: PdfCheckMethod }
+  preview       Json?
+  /// Y91: aynı PDF okumasına bağlanan üyeler önizlemeyi paylaşır. Boş = yalnız yükleyen tutar (paylaşılmıyor). Doluysa
+  /// önizlemeyi hâlâ tutan üyeler (yükleyen dahil); vazgeçen listeden çıkar, son kişi vazgeçince dosya silinir
+  /// (services/fileCleanup.ts sharePreviewFile, discardPreviewFile releasedBy). Bakım ve iş temizliği listeye bakmaz.
+  holders       String[]     @default([])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  invoicesAsSource Invoice[]
+
+  @@index([companyId])
+  @@index([measurementId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model Carrier {
+  id             String   @id @default(uuid())
+  companyId      String
+  company        Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  code           String
+  name           String
+  active         Boolean  @default(true)
+  defaultMapping Json?
+  /// Taşıyıcı poşeti / zarfı sınırlarının firma ayarı (core `PackagingLimits`); null = taşıyıcı kodunun varsayılanı
+  /// (core `packagingLimitsFor`).
+  packagingLimits Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  tariffs            Tariff[]
+  invoices           Invoice[]
+  tariffImportDrafts TariffImportDraft[]
+  tariffDocuments    TariffDocument[]
+
+  @@index([companyId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model Tariff {
+  id                 String       @id @default(uuid())
+  companyId          String
+  company            Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  carrierId          String
+  carrier            Carrier      @relation(fields: [carrierId], references: [id], onDelete: Cascade)
+  name               String
+  service            String?
+  currency           String
+  divisor            Int
+  edgeRounding       EdgeRounding @default(CEIL_CM)
+  weightSteps        Json
+  discountPct        Decimal      @default(0) @db.Decimal(6, 2)
+  fuelPct            Decimal      @default(0) @db.Decimal(6, 2)
+  /// Yakıt oranı taşıyıcının güncel oranına bağlı (değişken): faturadaki oran kabul edilir. false = sözleşmede sabit.
+  fuelVariable       Boolean      @default(false)
+  /// Poşet (PAK) / zarf (ENVELOPE) fiyatlarının indirimi; null = `discountPct` kullanılır.
+  pakDiscountPct      Decimal?    @db.Decimal(6, 2)
+  envelopeDiscountPct Decimal?    @db.Decimal(6, 2)
+  validFrom          DateTime?
+  validTo            DateTime?
+  active             Boolean      @default(true)
+  isDefault          Boolean      @default(false)
+  /// SPEC §3.8: ülke istisnaları [{ country, pct, note?, source: 'manual'|'invoice', invoiceId? }]
+  countryAdjustments Json         @default("[]")
+  /// Tarifenin bugünkü fiyat içeriğinin dondurulmuş sürümü (TariffRevision). Fiyatı etkileyen bir alan değişince yeni sürüm
+  /// doğar ve burası ona döner; null yalnız sürümü henüz yazılmamış tarifede olur.
+  currentRevisionId  String?
+  currentRevision    TariffRevision? @relation("TariffCurrentRevision", fields: [currentRevisionId], references: [id], onDelete: NoAction)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  zones        TariffZone[]
+  rates        TariffRate[]
+  overflow     TariffOverflow[]
+  surcharges   TariffSurcharge[]
+  invoiceLines InvoiceLine[]
+  invoices     Invoice[]
+  importDrafts TariffImportDraft[]
+  versions     TariffVersion[]
+  revisions    TariffRevision[]  @relation("TariffRevisions")
+  documents    TariffDocument[]
+
+  @@index([companyId, carrierId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+model TariffZone {
+  id        String   @id @default(uuid())
+  /// Tarifeyle aynı firma. RLS ilkesi her tabloda aynı sütuna bakar.
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tariffId  String
+  tariff    Tariff   @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  country   String
+  zone      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tariffId, country])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model TariffRate {
+  id         String   @id @default(uuid())
+  /// Tarifeyle aynı firma. RLS ilkesi her tabloda aynı sütuna bakar.
+  companyId  String
+  company    Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tariffId   String
+  tariff     Tariff   @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  zone       String
+  weightUpto Decimal  @db.Decimal(10, 3)
+  price      Decimal  @db.Decimal(14, 2)
+  /// true: kg başı fiyat bandı (beklenen = fiyat × ücretli kg)
+  perKg      Boolean  @default(false)
+  /// Fiyatın ambalajı: OWN kendi ambalajı (koli) tablosu, PAK / ENVELOPE taşıyıcının poşet ve zarf fiyatları.
+  packaging  Packaging @default(OWN)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([tariffId, zone])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model TariffOverflow {
+  id        String   @id @default(uuid())
+  /// Tarifeyle aynı firma. RLS ilkesi her tabloda aynı sütuna bakar.
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tariffId  String
+  tariff    Tariff   @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  zone      String
+  perUnit   Decimal  @db.Decimal(14, 2)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tariffId, zone])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model TariffSurcharge {
+  id        String        @id @default(uuid())
+  /// Tarifeyle aynı firma. RLS ilkesi her tabloda aynı sütuna bakar.
+  companyId String
+  company   Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tariffId  String
+  tariff    Tariff        @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  code      String
+  name      String
+  kind      SurchargeKind
+  amount    Decimal       @db.Decimal(14, 2)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([tariffId])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model Invoice {
+  id           String        @id @default(uuid())
+  companyId    String
+  company      Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  carrierId    String
+  carrier      Carrier       @relation(fields: [carrierId], references: [id])
+  /// Faturanın tarifesi (yüklemede varsayılan tarife önseçili); tüm satırlar bu tarifeyle. null = taşıyıcının varsayılanı
+  tariffId     String?
+  tariff       Tariff?       @relation(fields: [tariffId], references: [id], onDelete: SetNull)
+  /// Hesabın dayanağı (yetkili alan): faturanın hesaplandığı tarife sürümü. Tarife değişse de silinse de durur.
+  /// null = dayanaksız fatura (hesaplandığında taşıyıcının hiç etkin tarifesi yoktu).
+  tariffRevisionId String?
+  tariffRevision   TariffRevision? @relation(fields: [tariffRevisionId], references: [id], onDelete: NoAction)
+  /// Hesaplandığı günkü firma ayarı: { edgeTolCm, weightTolKg, amountTol, fxTolerancePct, unknownSurchargesAsDiff, companyCurrency }
+  compareSettings  Json?
+  invoiceNo    String
+  invoiceDate  DateTime
+  periodFrom   DateTime?
+  periodTo     DateTime?
+  currency     String
+  sourceFileId String
+  sourceFile   File          @relation(fields: [sourceFileId], references: [id])
+  mapping      Json
+  status       InvoiceStatus @default(PROCESSED)
+  totals       Json
+  /// Yükleme özeti (core ImportReport, version 1): faturaya alınmayan ve takip no'suz satırlar, PDF metin denetimi. null = Mesaj 5 öncesi fatura
+  importReport Json?
+  /// Hesap motorunun bu faturayı son koştuğu an (oluşturma, yeniden karşılaştırma). Karar, not ve yalnız toplam yazan yollar değiştirmez.
+  /// null olmaz sayılır (göç "updatedAt" ile doldurur); okuyan yine de null'da "updatedAt"e düşer.
+  calculatedAt DateTime?
+  /// Kurulum sihirbazındaki örnek fatura: yalnız tarife kontrolü ve tablo önerisi için; listede, Pano'da, ölçümlerde ve mükerrer kontrolünde yok sayılır
+  isSample     Boolean       @default(false)
+  deletedAt    DateTime?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  lines    InvoiceLine[]
+  disputes Dispute[]
+  recheck  InvoiceRecheck?
+
+  @@index([companyId, carrierId, invoiceNo])
+  /// Analiz ve liste: firmanın faturaları tarih aralığıyla (Y145; migration 20261116090000)
+  @@index([companyId, invoiceDate])
+  /// "bu sürümle hesaplı faturalar" sorgusu ve sürüm anahtarının denetimi için
+  @@index([tariffRevisionId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+/// 07-B1 (Mesaj 4): faturanın "Mükerrer" yeniden hesabı bekliyor (aynı takip numarasını taşıyan önceki fatura silindi ya da
+/// başlığı düzeltildi). Ölçümdeki `recomparePendingAt` deseni: değişikliği yazan işlem satırı yazar, hesap başarıyla bitince
+/// satır yalnız aynı `pendingAt` ile silinir; kalırsa sık tarama ve saatlik bakım tamamlar (services/measurementQueue.ts).
+/// Ayrı tablo: bakım kapsamının dar okuması "Invoice"u genişletmesin (dosya temizliğinin ilkesi "Invoice" görünürlüğüne dayanır).
+model InvoiceRecheck {
+  invoiceId String   @id
+  invoice   Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  pendingAt DateTime
+  /// tarama ya da bakımda düşen deneme; ölçümdeki `recompareAttempts` ile aynı kural
+  attempts  Int      @default(0)
+
+  @@index([pendingAt])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model InvoiceLine {
+  id                 String       @id @default(uuid())
+  invoiceId          String
+  invoice            Invoice      @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  companyId          String
+  company            Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  rowIndex           Int
+  trackingNo         String
+  shipDate           DateTime?
+  service            String?
+  destCountry        String?
+  actualKg           Decimal?     @db.Decimal(10, 3)
+  billedKg           Decimal?     @db.Decimal(10, 3)
+  dimL               Decimal?     @db.Decimal(8, 1)
+  dimW               Decimal?     @db.Decimal(8, 1)
+  dimH               Decimal?     @db.Decimal(8, 1)
+  billedDivisor      Int?
+  baseAmount         Decimal?     @db.Decimal(14, 2)
+  discountAmount     Decimal?     @db.Decimal(14, 2)
+  fuelAmount         Decimal?     @db.Decimal(14, 2)
+  surcharges         Json
+  netAmount          Decimal      @db.Decimal(14, 2)
+  currency           String?
+  reference          String?
+  /// Faturadaki ambalaj (ambalaj sütunu ya da hizmet adı); null = faturada bilgi yok.
+  packaging          Packaging?
+  rawHash            String
+  /// SPEC §11: okuma kontrolü bayrakları (TRACKING_FORMAT, CHARGES_MISMATCH, …); içe aktarmada ve yeniden karşılaştırmada yazılır
+  parseFlags         String[]     @default([])
+  /// SPEC §11: "Kontrol ettim" — bayraklar saklanır ama satır artık "Kontrol edilecek" sayılmaz
+  parseChecked       Boolean      @default(false)
+  measurementId      String?
+  measurement        Measurement? @relation(fields: [measurementId], references: [id], onDelete: SetNull)
+  /// SPEC 10.2: manual match — recompare follows this measurement's version chain instead of the tracking no
+  measurementPinned  Boolean      @default(false)
+  /// SPEC 10.2: tracking no as printed on the invoice, stored on the first correction
+  originalTrackingNo String?
+  tariffId           String?
+  tariff             Tariff?      @relation(fields: [tariffId], references: [id], onDelete: SetNull)
+  /// Bu satırın kayıtlı sonucu hangi tarife sürümüyle hesaplandı; null = tarifesiz sonuç (NO_TARIFF) ya da bilinmiyor
+  tariffRevisionId   String?
+  tariffRevision     TariffRevision? @relation(fields: [tariffRevisionId], references: [id], onDelete: NoAction)
+  status             LineStatus
+  diffTypes          String[]
+  ourChargeableKg    Decimal?     @db.Decimal(10, 3)
+  billedChargeableKg Decimal?     @db.Decimal(10, 3)
+  expectedAmount     Decimal?     @db.Decimal(14, 2)
+  diffAmount         Decimal?     @db.Decimal(14, 2)
+  breakdown          Json
+  /// SPEC §3.8: fiyat dayanağı ve güven { basis, rateDeviationPct, confidence, confidenceReason, zone, rateKg, mode, adjustmentPct }; eski satırlarda null
+  pricing            Json?
+  note               String?
+  /// true once an admin wrote the note; recompare then keeps it instead of the comparison note
+  noteManual         Boolean      @default(false)
+  decision           Decision     @default(OPEN)
+  decisionReason     String?
+  decidedById        String?
+  decidedBy          Member?      @relation(fields: [decidedById], references: [id])
+  decidedAt          DateTime?
+  /// Bir adım geri: sonuç değişmeden önceki hâl { status, diffTypes, expectedAmount, diffAmount, ourChargeableKg,
+  /// measurementId, tariffRevisionId, at, cause }. cause: MEASUREMENT | DUPLICATE | TRACKING | MATCH | TARIFF | RULES | OTHER.
+  prevResult         Json?
+  /// Donmuş satırda (karar verilmiş ya da itirazda) bekleyen değişiklik; yalnız üç sınıf: MEASUREMENT | DUPLICATE | OTHER
+  /// (prevResult.cause'un öbür değerleri OTHER yazılır). Sonuç yazılmadı.
+  recalcPending      String?
+  recalcPendingAt    DateTime?
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  disputeLines DisputeLine[]
+
+  @@index([invoiceId, rowIndex])
+  /// invoiceId sonda: önceki fatura / mükerrer satır sorguları yalnız indeksten okunur (silinmiş faturaların satırlarına gidilmez)
+  @@index([companyId, trackingNo, invoiceId])
+  @@index([companyId, rawHash, invoiceId])
+  /// ölçüm listesi/ayrıntısı ve ölçüm düzeltmesindeki yeniden karşılaştırma bu sütunla arar
+  @@index([measurementId])
+  /// tarife silinince (SET NULL) taranmasın
+  @@index([tariffId])
+  /// sürüm anahtarının denetimi taramasın
+  @@index([tariffRevisionId])
+  /// itiraz satırının bileşik yabancı anahtarı için
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+/// Faturanın itiraz paketi, bir "tur". Silinmez: geri çekilir ya da yerini yeni tura bırakır. Faturada aynı anda tek etkin
+/// tur vardır (Dispute_active_invoice_key, kısmi tekil dizin: geri çekilmemiş ve yerini bırakmamış).
+model Dispute {
+  id             String         @id @default(uuid())
+  companyId      String
+  company        Company        @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  invoiceId      String
+  invoice        Invoice        @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  /// faturadaki sıra: 1, 2, … (geri çekilenler dahil)
+  round          Int
+  /// gönderim günü (UTC gece yarısı, fatura tarihi gibi)
+  sentOn         DateTime
+  channel        DisputeChannel
+  channelNote    String?
+  /// taşıyıcının vaka / talep numarası
+  reference      String?
+  sentById       String
+  sentBy         Member         @relation("DisputeSentBy", fields: [sentById], references: [id])
+  /// faturanın para birimi, gönderim anında
+  currency       String
+  /// gönderim anındaki talep toplamı (satırların toplamı), değişmez
+  claimedTotal   Decimal        @db.Decimal(14, 2)
+  withdrawnAt    DateTime?
+  withdrawnById  String?
+  withdrawnBy    Member?        @relation("DisputeWithdrawnBy", fields: [withdrawnById], references: [id], onDelete: SetNull)
+  withdrawReason String?
+  /// yeniden gönderilince: önce bu an yazılır (tur etkinlikten çıkar), sonra yeni tur açılıp kimliği bağlanır
+  supersededAt   DateTime?
+  supersededById String?        @unique
+  supersededBy   Dispute?       @relation("DisputeRounds", fields: [supersededById], references: [id], onDelete: SetNull)
+  supersedes     Dispute?       @relation("DisputeRounds")
+  /// iyimser kilit: her değişiklikte artar, istek eski sürümle gelirse 409 STALE
+  version        Int            @default(1)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  lines   DisputeLine[]
+  results DisputeResult[]
+
+  @@index([companyId, invoiceId])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+/// Paketteki satır. Talep gönderim anında yazılır ve değişmez: yeniden karşılaştırma buna dokunmaz.
+model DisputeLine {
+  id              String             @id @default(uuid())
+  companyId       String
+  company         Company            @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  disputeId       String
+  dispute         Dispute            @relation(fields: [disputeId], references: [id], onDelete: Cascade)
+  invoiceLineId   String
+  invoiceLine     InvoiceLine        @relation(fields: [invoiceLineId], references: [id], onDelete: Cascade)
+  /// gönderim anındaki takip no
+  trackingNo      String
+  /// Gönderim anında satırın bağlı olduğu ölçüm sürümü (kanıt); değişmez. Yabancı anahtar yok (ölçüm kaydı silinmez, bağ
+  /// kopmasın): kalıcı silme bu sürümün zincirinin fotoğraflarına dokunmaz (services/deletedPurge.ts). null = ölçümsüz satır
+  /// ya da göçteki doldurmada bağ yoktu (o zaman takip no eşleşmesi korur).
+  measurementId   String?
+  claimedAmount   Decimal            @db.Decimal(14, 2)
+  outcome         DisputeLineOutcome @default(PENDING)
+  /// RECOVERED: canlı dekonttaki pay (0 < tutar ≤ talep)
+  recoveredAmount Decimal?           @db.Decimal(14, 2)
+  /// satırı sonuçlandıran canlı giriş; geri alınınca null
+  resultId        String?
+  result          DisputeResult?     @relation(fields: [resultId], references: [id], onDelete: SetNull)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  resultLines DisputeResultLine[]
+
+  @@unique([disputeId, invoiceLineId])
+  @@index([invoiceLineId])
+  @@index([measurementId])
+  @@index([companyId, trackingNo])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+/// Sonuç girişi: alacak dekontu (RECOVERED) ya da ret (REJECTED). Bir dekont birden çok satırı kapsar. Silinmez, geri alınır.
+model DisputeResult {
+  id           String            @id @default(uuid())
+  companyId    String
+  company      Company           @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  disputeId    String
+  dispute      Dispute           @relation(fields: [disputeId], references: [id], onDelete: Cascade)
+  kind         DisputeResultKind
+  creditNoteNo String?
+  /// dekont ya da ret günü
+  resultOn     DateTime
+  reason       String?
+  enteredById  String
+  enteredBy    Member            @relation("DisputeResultEnteredBy", fields: [enteredById], references: [id])
+  revertedAt   DateTime?
+  revertedById String?
+  revertedBy   Member?           @relation("DisputeResultRevertedBy", fields: [revertedById], references: [id], onDelete: SetNull)
+  revertReason String?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  lines        DisputeResultLine[]
+  disputeLines DisputeLine[]
+
+  @@index([disputeId])
+  @@unique([id, companyId])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+/// Girişin satır payları. Değişmez: geri alınan girişin geçmişi burada kalır.
+model DisputeResultLine {
+  id            String        @id @default(uuid())
+  companyId     String
+  company       Company       @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  resultId      String
+  result        DisputeResult @relation(fields: [resultId], references: [id], onDelete: Cascade)
+  disputeLineId String
+  disputeLine   DisputeLine   @relation(fields: [disputeLineId], references: [id], onDelete: Cascade)
+  /// RECOVERED: geri alınan pay; REJECTED: reddedilen talep
+  amount        Decimal       @db.Decimal(14, 2)
+  createdAt     DateTime      @default(now())
+
+  @@unique([resultId, disputeLineId])
+  @@index([disputeLineId])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      Member?  @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  data      Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([companyId, createdAt])
+  @@schema("deciship")
+}
+
+/// Tarife içe aktarma önizlemesi: ham dosya + yapay zekâ incelemesi; 24 saatte silinir.
+/// tariffId boşsa (ya da data.target yeni tarife ise) uygulama yeni tarife oluşturur.
+model TariffImportDraft {
+  id        String   @id @default(uuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  carrierId String
+  carrier   Carrier  @relation(fields: [carrierId], references: [id], onDelete: Cascade)
+  tariffId  String?
+  tariff    Tariff?  @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      Member?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  fileName  String
+  data      Json
+  aiReview  Json?
+  createdAt DateTime @default(now())
+
+  @@index([companyId, tariffId])
+  @@index([createdAt])
+  @@schema("deciship")
+}
+
+/// Tarifenin değişiklikten önceki tam hâli (tariffBody biçiminde); geri yükleme = replaceTariff(snapshot)
+model TariffVersion {
+  id           String   @id @default(uuid())
+  companyId    String
+  company      Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  tariffId     String
+  tariff       Tariff   @relation(fields: [tariffId], references: [id], onDelete: Cascade)
+  userId       String?
+  user         Member?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  reason       String
+  label        String
+  snapshot     Json
+  rateCount    Int
+  zoneCount    Int
+  countryCount Int
+  currency     String
+  createdAt    DateTime @default(now())
+
+  @@index([tariffId, createdAt])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+/// Tarifenin fiyat içeriğinin değişmez sürümü: fatura hesabının dayanağı. Güncellenmez, silinmez (yalnız firmayla birlikte);
+/// tek istisna backfill'de boş kalan "contentHash"in ilk doldurulması. TariffVersion'dan ayrıdır (o geri alma içindir).
+model TariffRevision {
+  id          String   @id @default(uuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  /// Tarife silinince yalnız bu sütun boşalır; sürüm ve ona bağlı faturalar durur.
+  tariffId    String?
+  tariff      Tariff?  @relation("TariffRevisions", fields: [tariffId], references: [id], onDelete: SetNull)
+  /// tarife silinince gösterilecek ad
+  tariffName  String
+  /// fiyatı etkileyen alanların kanonik özeti; backfill'de null (ilk ensureTariffRevision doldurur, yeni sürüm açmaz)
+  contentHash String?
+  /// tariffSnapshot biçimi (tariffBody): hesap canlı tarifeden değil buradan yapılır
+  snapshot    Json
+  currency    String
+  createdAt   DateTime @default(now())
+
+  currentOf    Tariff[]      @relation("TariffCurrentRevision")
+  invoices     Invoice[]
+  invoiceLines InvoiceLine[]
+
+  @@index([tariffId, createdAt])
+  @@unique([id, companyId])
+  @@index([companyId])
+  @@schema("deciship")
+}
+
+/// Yüklenen tarife PDF'i: metin katmanı + yapay zekâ keşfi (bölümler); 7 gün sonra dosyasıyla silinir
+model TariffDocument {
+  id        String   @id @default(uuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  carrierId String
+  carrier   Carrier  @relation(fields: [carrierId], references: [id], onDelete: Cascade)
+  /// yüklemenin başladığı tarife; null = "Yeni tarife" ekranından yüklendi
+  tariffId  String?
+  tariff    Tariff?  @relation(fields: [tariffId], references: [id], onDelete: SetNull)
+  userId    String?
+  user      Member?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  fileName  String
+  path      String
+  size      Int
+  sha256    String
+  pages     Int
+  /// en az bir sayfada okunabilir metin katmanı var mı
+  textLayer Boolean
+  /// sayfa başına metin (string[]), doğrulama için
+  pageTexts Json
+  discovery Json
+  createdAt DateTime @default(now())
+
+  @@index([companyId, createdAt])
+  @@index([createdAt])
+  @@schema("deciship")
+}
+
+/// Yapay zekâ çağrısı başına bir satır (Mesaj 6 sayaç). Silinmez: veri sıfırlama kotayı sıfırlamaz (services/companyData.ts),
+/// yalnız firmayla birlikte gider. Ücret satır yazılırken o anki fiyat tablosu ve kurla hesaplanır, sonradan yeniden fiyatlanmaz.
+model AiUsage {
+  id               String       @id @default(uuid())
+  companyId        String
+  company          Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  /// çağrıyı başlatan üye; arka plan işinde de isteği yapan. Üye silinince boşalır (bileşik anahtar, yalnız bu sütun).
+  memberId         String?
+  member           Member?      @relation(fields: [memberId], references: [id], onDelete: SetNull)
+  kind             AiKind
+  status           AiCallStatus
+  /// AI_REFUSED, AI_TRUNCATED, AI_FAILED… (ret ve kesilmede token yine faturalanmış olabilir)
+  errorCode        String?
+  /// 'YYYY-MM', çağrı anında firmanın saat diliminde (sonradan değişmez)
+  period           String
+  /// istenen model
+  model            String
+  /// yanıttaki message.model (sunucu tarafı yedek modele düşmüş olabilir)
+  servedModel      String?
+  inputTokens      Int          @default(0)
+  outputTokens     Int          @default(0)
+  cacheReadTokens  Int          @default(0)
+  cacheWriteTokens Int          @default(0)
+  /// TL; mikro TL tamsayı / 1e6 (contracts aiCostMicros)
+  cost             Decimal      @db.Decimal(14, 6)
+  currency         String       @default("TRY")
+  /// etkin fiyat tablosu + kurun kısa özeti
+  priceVersion     String
+  durationMs       Int
+  /// Y60: çıktı tokeni akan metinden tahmin edildi (bağlantı koptu ya da süre doldu; alt sınır). Satır aynen sayılır, yalnız işaret.
+  estimated        Boolean      @default(false)
+  cacheKey         String?
+  /// 'File' | 'TariffDocument' | 'TariffImportDraft'
+  refType          String?
+  refId            String?
+  /// yapay zekâ geçidinin defter satırı (`x-sod-ai-call-id`, UUIDv7); geçit yolunda sağlayıcıya giden çağrıda. Doğrudan yolda,
+  /// önbellekte ve geçide hiç ulaşmayan çağrıda boş. İki defterin uzlaştırması (`ai:reconcile`) bununla eşler.
+  gatewayCallId    String?
+  createdAt        DateTime     @default(now())
+
+  @@index([companyId, period])
+  @@index([period])
+  @@schema("deciship")
+}
+
+/// Yapay zekâ kredi defteri. Bugün yalnız GRANT/ADJUST (destek komutu `npm run ai:grant`); PURCHASE ödeme gelince.
+model AiCreditEntry {
+  id          String       @id @default(uuid())
+  companyId   String
+  company     Company      @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  kind        AiCreditKind
+  /// TL; ADJUST eksi olabilir
+  amount      Decimal      @db.Decimal(14, 2)
+  currency    String       @default("TRY")
+  /// 'YYYY-MM' = yalnız o ay; null = devreden bakiye (PURCHASE için ayrıldı, bugün yazılmaz)
+  period      String?
+  note        String?
+  /// komutu çalıştıran kişi (CLI zorunlu tutar)
+  operator    String?
+  /// ödeme ya da olay kimliği; aynı firmada bir kez uygulanır
+  externalRef String?
+  createdAt   DateTime     @default(now())
+
+  @@unique([companyId, externalRef])
+  @@index([companyId, period])
+  @@schema("deciship")
+}
+
+/// Aynı girdide yapay zekânın önceki ham çıktısı (yalnız firma içi). Süresi dolanı bakım işi siler; veri sıfırlama da siler.
+model AiResultCache {
+  id        String   @id @default(uuid())
+  companyId String
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  kind      AiKind
+  /// sha256 hex (services/aiMeter.ts aiCacheKey)
+  cacheKey  String
+  model     String
+  /// yapay zekânın şemadan geçmiş ham çıktısı; sonradan yapılan işlemler değil
+  result    Json
+  /// sonucu üreten AiUsage (anahtar yok: kullanım satırı silinmez)
+  usageId   String?
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+
+  @@unique([companyId, kind, cacheKey])
+  @@index([expiresAt])
+  @@schema("deciship")
+}
+
+/// Arka plan işi (Mesaj 7). Firma bağlamında yazılır. Çalıştırıcı `app.scope = 'jobs'` ile yalnız QUEUED/RUNNING
+/// satırları görür ve günceller. Tekillik: (companyId, kind, dedupeKey) yalnız QUEUED/RUNNING arasında tekildir
+/// (kısmi dizin "Job_active_key", göçte). Biten iş 7 gün sonra bakım işiyle silinir.
+model Job {
+  id                String    @id @default(uuid())
+  companyId         String
+  company           Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  kind              JobKind
+  status            JobStatus @default(QUEUED)
+  /// aynı iş iki kez başlamasın: türe göre (Mesaj 7 planı §4.2)
+  dedupeKey         String
+  /// listeleme ve bant için konu: 'File' | 'TariffDocument' | 'Tariff' | 'Company'
+  refType           String?
+  refId             String?
+  /// ekranda gösterilecek kısa ad (dosya adı, tarife adı)
+  label             String?
+  /// { v: 1, locale, aiLimits?, fresh?, ...türe özgü }. Dışarı verilmez; yanıttaki `params` türün beyaz listesinden.
+  input             Json
+  /// toplu işlerin planı, dışarı verilmez. BULK_RECOMPARE_APPLY: kaldığı yer (planlanan faturalar + doğrulama anı +
+  /// atlananlar); BULK_RECOMPARE_PREVIEW (K4): önizlemenin tam planı, uygulama onu yazar. Seyrek yazılır.
+  checkpoint        Json?
+  progressDone      Int       @default(0)
+  /// null = toplam bilinmiyor (tek yapay zekâ çağrısı)
+  progressTotal     Int?
+  /// ekran anahtarı: pdfRead | pdfCheck | tariffScan | tariffExtract | bulkCheck | bulkWrite
+  stage             String?
+  /// küçük sayaçlar, her adımda yazılır: { invoices, lines, inDispute, stale }
+  counters          Json?
+  result            Json?
+  /// { statusCode, code, message, messageKey?, details? }
+  error             Json?
+  /// her sahiplenmede +1
+  attempts          Int       @default(0)
+  maxAttempts       Int       @default(5)
+  /// Y89: düzgün kapanışta kaç kez bırakıldı (deneme hakkı en çok MAX_SHUTDOWN_REFUNDS kez geri sayılır; runner.ts). Hata
+  /// yazımları sıfırlamaz. Geçiş: eski sürüm sayacı `error` (JOB_RELEASED) içinde tutuyordu; okuma ikisinin büyüğü, yazım ikisine.
+  releases          Int       @default(0)
+  runAfter          DateTime  @default(now())
+  lockedBy          String?
+  lockedUntil       DateTime?
+  heartbeatAt       DateTime?
+  cancelRequestedAt DateTime?
+  /// işi başlatan üye; üye silinince boşalır (bileşik anahtar, yalnız bu sütun: ON DELETE SET NULL ("createdById"))
+  createdById       String?
+  createdBy         Member?   @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt         DateTime  @default(now())
+  startedAt         DateTime?
+  finishedAt        DateTime?
+  updatedAt         DateTime  @updatedAt
+
+  @@index([status, runAfter])
+  @@index([companyId, refType, refId])
+  @@index([finishedAt])
+  @@unique([id, companyId])
+  @@schema("deciship")
+}
+
+/// Kalıcı silinen firma (`org.purged`, services/companyPurge.ts). Firma satırı ve bütün verisi silinir; bu kayıt kalır: gecikmiş
+/// olay ya da JIT firmayı yeniden kurmaz. `completedAt` boşsa silme yarıda kaldı, saatlik bakım yeniden dener. Firmaya ilişki yok.
+model CompanyPurge {
+  companyId   String    @id
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+  /// Son deneme anı: bakım önce hiç denenmemiş, sonra en uzun süredir denenmemiş silmeyi alır (`companyPurgeQueue`).
+  attemptedAt DateTime?
+
+  @@schema("deciship")
+}
+
+/// İşlenmiş Hesap olayı. Olay tekrarına karşı. Firma bağlamı dışında, yalnız olay alıcısı görür (db.ts withEventScope).
+model ProcessedEvent {
+  eventId   String   @id
+  createdAt DateTime @default(now())
+
+  @@schema("deciship")
+}

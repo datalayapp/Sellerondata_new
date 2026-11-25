@@ -1,0 +1,397 @@
+{
+  "loading": "Loading…",
+  "more": "More",
+  "noLanguage": {
+    "title": "Open a design language first",
+    "body": "The builder works inside a design language.",
+    "go": "Go to design language"
+  },
+  "meta": {
+    "line": "{{state}} · spent {{cost}}",
+    "state": {
+      "intake": "Label types",
+      "samples": "Samples",
+      "analyzing": "Measuring samples",
+      "drafting": "Building the language",
+      "revising": "Updating the language",
+      "awaiting-user": "Waiting for your answer",
+      "review": "Review",
+      "published": "Published",
+      "closed": "Closed",
+      "interrupted": "Interrupted",
+      "failed": "Stopped"
+    }
+  },
+  "start": {
+    "title": "Build your design language with AI",
+    "lead": "It asks a few questions, looks at your finished labels, builds the language and shows it on sample labels. Write what you don't like and the language is updated. Nothing changes in production until you publish.",
+    "steps": {
+      "questions": {
+        "title": "Questions",
+        "body": "It asks which labels you make and how you usually set them."
+      },
+      "samples": {
+        "title": "Samples",
+        "body": "Upload finished labels; measurements are taken from the images. No samples? It is built from your answers."
+      },
+      "review": {
+        "title": "Preview and corrections",
+        "body": "The language is shown on sample labels; write things like \"make the date smaller\" and a new version follows."
+      },
+      "publish": {
+        "title": "Publish",
+        "body": "Publish when you like it; the previous version stays in the history."
+      }
+    },
+    "baseLabel": "Start from",
+    "basePublished": "Published language (version {{version}})",
+    "baseDefault": "Default settings",
+    "go": "Start",
+    "fromSetup": "You came from setup: the label types you chose will be used.",
+    "fromSetupTypes": "You came from setup. Label types: {{list}}.",
+    "privacy": "The samples you upload and your answers are sent to the AI to build the language."
+  },
+  "estimate": {
+    "loading": "Estimating cost…",
+    "unavailable": "Could not get a cost estimate.",
+    "range": "Estimated cost {{low}}–{{high}}",
+    "cap": "session limit {{cap}}",
+    "month": "AI spending this month {{used}} / {{limit}}",
+    "monthWarn": "You are close to the monthly limit.",
+    "noKey": "No AI key. A session cannot start without a key."
+  },
+  "intake": {
+    "title": "What kind of labels do you make?",
+    "lead": "Questions and sample labels follow the types you choose.",
+    "next": "Continue"
+  },
+  "labelType": {
+    "wedding": "Wedding and engagement",
+    "baptism": "Baptism",
+    "birthday": "Birthday",
+    "thanks": "Thank you",
+    "product": "Product label",
+    "sticker": "Sticker"
+  },
+  "samples": {
+    "title": "Upload samples of your finished labels",
+    "lead": "PNG, JPG or PDF (first page); up to {{max}} files. A few samples from the same template make the measurements stronger.",
+    "drop": "Drop files here",
+    "choose": "Choose files",
+    "skip": "I have no samples, build from questions",
+    "analyze": "Measure and start",
+    "yours_one": "Your samples · {{count}}",
+    "yours_other": "Your samples · {{count}}",
+    "add": "Add sample",
+    "open": "Open sample: {{name}}",
+    "measureNew_one": "Measure {{count}} new sample",
+    "measureNew_other": "Measure {{count}} new samples",
+    "added_one": "{{count}} sample added.",
+    "added_other": "{{count}} samples added.",
+    "rejected": "{{name}} was not added: {{reason}}"
+  },
+  "sampleReject": {
+    "sample-type": "only PNG, JPG or PDF",
+    "sample-too-large": "file too large",
+    "sample-limit": "sample limit reached",
+    "sample-unreadable": "file could not be read",
+    "unknown": "not accepted"
+  },
+  "sample": {
+    "status": {
+      "uploaded": "Not measured",
+      "measured": "Measured",
+      "qualitative": "Look only",
+      "failed": "Could not measure"
+    },
+    "quality": {
+      "exact": "template separated, lines matched",
+      "ink": "plain background, ratios only",
+      "none": "photo, look only"
+    },
+    "error": {
+      "sample-unreadable": "The image could not be read.",
+      "no-template": "No template found; choose the template."
+    },
+    "errorUnknown": "This sample could not be measured.",
+    "excluded": "Excluded",
+    "approx": "line count approximate",
+    "holdout": "kept aside for checking",
+    "imageAlt": "Sample label: {{name}}",
+    "template": "Template",
+    "noTemplate": "No template",
+    "lines": "Lines",
+    "line": "Line {{n}}",
+    "noLines": "No lines were read.",
+    "linesHint": "If you correct the text that was read, it counts as an answer and the language follows it.",
+    "exclude": "Leave out",
+    "save": "Save",
+    "delete": "Delete",
+    "deleteTitle": "Delete this sample?",
+    "deleteBody": "{{name}} will be removed from this session."
+  },
+  "chat": {
+    "title": "Questions",
+    "empty": {
+      "intake": "Choose the label types first; questions appear here.",
+      "other": "Questions, your answers and new versions appear here."
+    },
+    "revision": "Version {{n}} is ready.",
+    "measured_one": "Measured: {{value}} · {{count}} sample",
+    "measured_other": "Measured: {{value}} · {{count}} samples",
+    "suggested": "suggested",
+    "note": "Note",
+    "sampleEdit_one": "Sample corrected ({{count}} field).",
+    "sampleEdit_other": "Sample corrected ({{count}} fields)."
+  },
+  "composer": {
+    "label": "Answer or correction",
+    "placeholder": {
+      "answer": "Type your answer…",
+      "correction": "Type a correction: \"make the date smaller\"…",
+      "note": "Write a note; it is read in the next step…"
+    },
+    "running": "The AI is working…",
+    "closed": "You cannot write at this stage.",
+    "stop": "Stop"
+  },
+  "step": {
+    "working": "Working…",
+    "read_profile": "Reading the language",
+    "profile_schema": "Reading the rules",
+    "get_samples": "Looking at the samples",
+    "get_measurements": "Reading the measurements",
+    "get_templates": "Looking at the templates",
+    "propose_changes": "Writing the rules",
+    "engine_trial": "Trying with the engine",
+    "ask_user": "Preparing a question",
+    "transcribe": "Reading the lines",
+    "measure": "Measuring the samples",
+    "showcase": "Drawing sample labels",
+    "retry-wait": "Waiting for the connection; retrying in {{s}} s (attempt {{attempt}})"
+  },
+  "wait": {
+    "analyzing": "Measuring your samples",
+    "drafting": "Building your language",
+    "answerTitle": "Answer the questions",
+    "answerBody": "The first version is prepared once you answer the questions on the left.",
+    "interrupted": "The session was interrupted",
+    "failed": "The session stopped",
+    "resumeHint": "You can continue where it left off.",
+    "cancel": "Stop"
+  },
+  "resume": {
+    "interrupted": "Interrupted.",
+    "failed": "Stopped.",
+    "go": "Continue"
+  },
+  "rev": {
+    "base": "Starting point",
+    "n": "Version {{n}}",
+    "draft": "Version {{n}} · draft"
+  },
+  "showcase": {
+    "tools": "Sample labels",
+    "compare": "Version",
+    "tryLabel": "Try with your own text",
+    "tryPlaceholder": "Emma & Noah 12.10.2026",
+    "try": "Try",
+    "yourText": "Your text",
+    "fromSample": "Your sample",
+    "example": "Example",
+    "changed": "Changed",
+    "itemFailed": "This sample could not be laid out.",
+    "alt": "Sample label: {{text}}",
+    "loading": "Preparing sample labels…",
+    "failed": "Could not get the sample labels",
+    "empty": "No samples to show"
+  },
+  "note": {
+    "up": "{{label}} larger",
+    "down": "{{label}} smaller",
+    "changed": "{{label}} changed"
+  },
+  "size": {
+    "circle": "Ø {{d}} mm",
+    "rect": "{{w}} × {{h}} mm"
+  },
+  "status": {
+    "base": "Starting point: the language before this session",
+    "changes_one": "{{from}} → {{to}}: {{count}} rule changed",
+    "changes_other": "{{from}} → {{to}}: {{count}} rules changed",
+    "free": "Trying is free",
+    "cost": "Spent {{cost}} / {{budget}}"
+  },
+  "summary": {
+    "title": "Language summary",
+    "outside": "outside the measured range"
+  },
+  "source": {
+    "measurement": "measurement",
+    "measurementN_one": "measurement · {{count}} sample",
+    "measurementN_other": "measurement · {{count}} samples",
+    "answer": "your answer",
+    "correction": "your correction",
+    "default": "default",
+    "restore": "from an earlier version",
+    "manual": "edited by hand"
+  },
+  "quality": {
+    "title": "Quality",
+    "none": "No quality data.",
+    "within10": "Size on target",
+    "ofN": "{{k}} / {{n}}",
+    "failed": "Not laid out",
+    "position": "Position offset",
+    "px": "{{v}} px",
+    "reason": {
+      "too-few-samples": "Checking needs at least 8 measurable samples.",
+      "not-replayable": "Held-out samples need a template; without one the engine can't redraw them.",
+      "no-measurable": "No measurable samples."
+    },
+    "invariantsOk": "Customer text and rules intact",
+    "invariantsBad_one": "{{count}} check failed",
+    "invariantsBad_other": "{{count}} checks failed"
+  },
+  "restore": {
+    "prev": "Back to the previous version",
+    "this": "Back to this version",
+    "done": "Version {{n}} written."
+  },
+  "publish": {
+    "go": "Publish",
+    "title": "Publish the design language?",
+    "body": "The latest version is published and used from the next production on. The previous version stays in the history.",
+    "noteLabel": "Note (optional)",
+    "notePlaceholder": "What changed?",
+    "confirm": "Publish",
+    "done": "Version {{version}} is live.",
+    "changedTitle": "The design language changed meanwhile",
+    "changedPublished": "Another version was published during this session (version {{version}}). If you publish, the changes in that version will not be in this one.",
+    "changedDraft": "The draft was changed outside this session. If you publish, that change is lost.",
+    "changedConfirm": "Publish anyway"
+  },
+  "done": {
+    "title": "Version {{version}} is live",
+    "body": "The new design language is used from the next production on. Your uploaded samples are kept as references.",
+    "summary": "Go to summary",
+    "back": "Back to setup",
+    "again": "New session"
+  },
+  "close": {
+    "menu": "Close session",
+    "title": "Close the session?",
+    "body": "The draft is not published; the amount spent is not refunded.",
+    "confirm": "Close session"
+  },
+  "budget": {
+    "sessionTitle": "Session limit reached.",
+    "monthTitle": "Monthly limit reached.",
+    "body": "Spent {{used}} / {{limit}}; this step {{estimate}}.",
+    "raise": "Raise the limit and continue",
+    "raiseMenu": "Raise the session limit",
+    "raised": "The session limit is now {{limit}}."
+  },
+  "error": {
+    "refusal": "The AI did not answer this request.",
+    "provider-unavailable": "The AI service could not be reached.",
+    "rate-limited": "The AI service is busy right now.",
+    "quota-exceeded": "The AI account is out of quota or credit.",
+    "key-invalid": "The AI key is invalid.",
+    "missing-key": "There is no AI key.",
+    "max-tokens": "The answer was cut off because it was too long.",
+    "interrupted": "The server stopped while working.",
+    "analysis-failed": "The samples could not be measured.",
+    "internal": "Something unexpected went wrong.",
+    "unknown": "Something went wrong."
+  },
+  "notice": {
+    "samples-added_one": "{{count}} sample added.",
+    "samples-added_other": "{{count}} samples added.",
+    "analysis-done": "Measuring done: {{measured}} measured, {{qualitative}} look only, {{failed}} could not be measured.",
+    "proposal-failed": "These fields could not be written: {{paths}}. The draft is intact.",
+    "restored": "Version {{from}} brought back (version {{rev}}).",
+    "published": "Version {{version}} published.",
+    "budget-raised": "The session limit is now {{limitUsd}}.",
+    "budget-warning": "This month's spending is {{monthUsd}}; the limit is {{limitUsd}}.",
+    "cancelled": "Stopped.",
+    "resumed": "Continuing where it left off.",
+    "retrying": "Waiting for the connection; retrying in {{s}} s.",
+    "base-default": "Started from the default settings.",
+    "budget-stopped": "The spending limit was reached ({{usedUsd}} / {{limitUsd}}); this turn stopped.",
+    "draft-replaced": "The draft had been changed outside this session; that version was kept as version {{rev}}.",
+    "unknown": "Notice."
+  },
+  "httpError": {
+    "build-active": "There is already an open session in this language.",
+    "build-state": "The session is not at this step; the screen was refreshed.",
+    "build-busy": "The AI is still working; wait for it to finish.",
+    "build-no-revision": "There is no version yet.",
+    "budget-exceeded": "The spending limit has been reached.",
+    "budget-raise-used": "The session limit was already raised once.",
+    "build-base-changed": "The design language was changed elsewhere meanwhile.",
+    "sample-limit": "Sample limit reached.",
+    "sample-too-large": "The file is too large.",
+    "sample-type": "Only PNG, JPG or PDF can be uploaded.",
+    "question-unknown": "This question is no longer waiting; the screen was refreshed.",
+    "message-kind": "This message cannot be sent at this stage."
+  },
+  "shortcuts": {
+    "groups": {
+      "flow": "Build",
+      "chat": "Chat"
+    }
+  },
+  "claudeCode": {
+    "menu": "Create with Claude Code",
+    "title": "Creating with Claude Code",
+    "lead": "Instead of writing your design language rule by rule from scratch, Claude Code looks at your finished labels, asks you questions and writes the draft for you. You only answer, try it and publish.",
+    "close": "Close",
+    "copy": "Copy",
+    "copied": "Copied.",
+    "copyFailed": "Could not copy; select the text and copy it by hand.",
+    "commandLabel": "Claude Code command",
+    "step1": {
+      "title": "Upload your finished labels",
+      "body": "Finished labels you imported earlier can be loaded while Claude Code builds the design language. The more numerous and varied the examples, the more accurate the draft.",
+      "loaded": "{{n}} examples are loaded right now.",
+      "none": "No examples have been loaded yet.",
+      "action": "See the examples"
+    },
+    "step2": {
+      "title": "Run the command in Claude Code",
+      "body": "Open a terminal in the TagPress project folder, type claude to start Claude Code, then type this command:",
+      "note": "The TagPress app must be open and running; Claude Code reaches the examples and the draft through it."
+    },
+    "step3": {
+      "title": "Answer the questions, follow the draft",
+      "body": "Claude Code looks at your examples and asks about the rules group by group (fonts, sizes, line breaking…). The draft is written as you answer; you see it live in the Rules section.",
+      "hasDraft": "There is a draft right now.",
+      "action": "Open the rules"
+    },
+    "step4": {
+      "title": "Try and publish",
+      "body": "Try the draft with sample orders and compare it with the published version. If you are happy, press “Publish” at the top of the page. If not, you can discard the draft; nothing is published without your knowledge.",
+      "action": "Go to Try"
+    },
+    "session": {
+      "title": "Session status",
+      "status": {
+        "idle": "Waiting",
+        "asking": "Asking",
+        "drafting": "Writing the draft",
+        "trying": "Trying",
+        "done": "Done"
+      },
+      "kind": {
+        "question": "Claude asked",
+        "answer": "Your answer",
+        "draftWrite": "Written to draft",
+        "tryRun": "Test run",
+        "note": "Note"
+      },
+      "empty": "No session yet. It shows up here once you run the command from step 2 in Claude Code.",
+      "notConnected": "The server has no session endpoint; Claude Code's questions and draft edits will show up here once it does."
+    }
+  }
+}

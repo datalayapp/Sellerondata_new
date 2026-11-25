@@ -1,0 +1,74 @@
+{
+  "title": "Faturalar",
+  "subCount_one": "{{n}} fatura",
+  "subCount_other": "{{n}} fatura",
+  "upload": "Fatura yükle",
+  "unit": "fatura",
+  "filters": {
+    "carrier": "Taşıyıcı",
+    "allCarriers": "Tüm taşıyıcılar",
+    "dateFrom": "Başlangıç tarihi",
+    "dateTo": "Bitiş tarihi",
+    "clear": "Filtreleri temizle",
+    "search": "Ara",
+    "searchPlaceholder": "Fatura no ya da takip no",
+    "status": "Durum",
+    "allStatuses": "Tüm faturalar",
+    "statusDiff": "Fark var",
+    "statusUnmatched": "Ölçümü eksik",
+    "statusToDispute": "İtiraz bekliyor",
+    "dates": "Tarih"
+  },
+  "empty": {
+    "filtered": {
+      "title": "Bu filtrelerle fatura yok",
+      "body": "Taşıyıcıyı ya da tarih aralığını değiştirerek yeniden deneyin."
+    },
+    "none": {
+      "title": "Henüz fatura yüklenmedi",
+      "body": "FedEx, UPS, DHL, Aras, Yurtiçi, MNG, PTT faturalarını CSV/XLSX olarak — ya da PDF'i yapay zekâ ile okutarak — yükleyin. Sütunlar otomatik eşlenir, her satır ölçümünüz ve tarifenizle karşılaştırılır."
+    },
+    "search": {
+      "title": "Bu aramayla fatura yok",
+      "body": "Fatura numarasını ya da takip numarasını kontrol edin."
+    }
+  },
+  "cols": {
+    "invoice": "Fatura",
+    "date": "Fatura tarihi",
+    "status": "Durum",
+    "lineStatus": "Satır durumu",
+    "billed": "Faturalanan",
+    "overpaid": "Fazla ödeme",
+    "verified": "İtiraz listesinde",
+    "actions": "İşlemler"
+  },
+  "recovered": "Geri alınan {{amount}}",
+  "uploadedAt": "{{carrier}} · yüklendi {{date}}",
+  "delete": "Sil",
+  "deleteDialog": {
+    "title": "{{no}} silinsin mi?",
+    "cancel": "Vazgeç",
+    "body": "Fatura listeden kalkar; fatura, satırları ve satır kararları 30 gün sonra kalıcı olarak silinir. Silme geri alınamaz. İtiraz kaydı olan fatura saklanır. Aynı dosyayı daha sonra yeniden yükleyebilirsiniz."
+  },
+  "toast": {
+    "deleteFailed": "Fatura silinemedi",
+    "deleted": "Fatura silindi"
+  },
+  "mix": {
+    "lines_one": "{{n}} satır",
+    "lines_other": "{{n}} satır",
+    "diff_one": "{{n}} fark",
+    "diff_other": "{{n}} fark",
+    "unmatched_one": "{{n}} eşleşmedi",
+    "unmatched_other": "{{n}} eşleşmedi",
+    "noTariff_one": "{{n}} tarife yok",
+    "noTariff_other": "{{n}} tarife yok",
+    "allMatch": "tümü uyumlu"
+  },
+  "rejected": "Reddedildi {{amount}}",
+  "moreAria": "{{no}} için diğer işlemler",
+  "demo": {
+    "uploadBlocked": "Örnek veriyle deneme açık. Kendi faturanızı yüklemek için önce denemeyi bitirin."
+  }
+}

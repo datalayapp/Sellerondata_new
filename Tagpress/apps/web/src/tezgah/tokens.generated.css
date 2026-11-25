@@ -1,0 +1,141 @@
+/* ÜRETİLDİ: elle düzenlemeyin; kaynak Platform/packages/tokens/tokens.json (node Platform/packages/tokens/build.mjs). */
+/* TagPress web (Tezgâh). Kabuğun tokens.css'inden SONRA yüklenir: "tagpress" bloğu aracın rengini (birincil, odak, bant) yazar,
+ * "tezgah" bloğu yalnız Tezgâh'a özgü --tz- önekli renk ve ölçüleri. Ekranlar renk ve ölçüyü elle yazmaz, yalnız var(--…). */
+/* @blok tagpress */
+:root {
+  --primary: #7a5af8;
+  --primary-text: #5b3fd6;
+  --primary-soft: #efebff;
+  --primary-line: #d6ccfb;
+  --primary-hover: color-mix(in srgb, var(--primary) 88%, #000);
+  --primary-active: color-mix(in srgb, var(--primary) 78%, #000);
+  --focus: #7a5af8;
+  --focus-ring: 0 0 0 3px rgba(122, 90, 248, 0.18);
+  --sod-band: #644acb;
+  --sod-band-2: #533da9;
+  --sod-band-on: #f2effe;
+  --sod-band-accent: #d0c5fd;
+  --sod-band-cta: #ffffff;
+  --sod-band-cta-hover: #f2effe;
+  --sod-band-cta-ink: #644acb;
+  --sod-product: #7a5af8;
+}
+/* @son tagpress */
+/* @blok tezgah */
+:root {
+  /* tuval */
+  --tz-canvas: #e8e6ee;
+  --tz-canvas-grid: rgba(84, 74, 120, 0.08);
+  --tz-grid-mm: 5;
+  --tz-ruler: 22px;
+  --tz-ruler-bg: #fbfafc;
+  --tz-ruler-line: #dcd8e5;
+  --tz-ruler-major: #6e6782;
+  --tz-ruler-minor: #a8a1b8;
+  --tz-ruler-hi: rgba(122, 90, 248, 0.2);
+  --tz-cut: #e0218a;
+  --tz-crop: #9a92b3;
+  --tz-artboard-ink: #5f5a70;
+  --tz-paper: #ffffff;
+  --tz-sh-paper: 0 1px 2px rgba(15, 26, 46, 0.1), 0 6px 16px rgba(15, 26, 46, 0.1);
+  --tz-sh-dock: 0 6px 18px rgba(10, 26, 58, 0.08);
+
+  /* durum noktaları ve bilgi etiketi */
+  --tz-dot-warn: #f79009;
+  --tz-dot-busy: #1d5bd8;
+  --tz-band-dot-busy: #b5cbff;
+  --tz-dot-ready: #475467;
+  --tz-info: #174bb5;
+  --tz-info-bg: #e8eefc;
+  --tz-info-line: #c7d7f8;
+
+  /* satır ve seçim zeminleri */
+  --tz-row-multi: #f8f6ff;
+  --tz-row-active: #fbfaff;
+  --tz-card-selected: #fcfbff;
+  --tz-check-line: #a9a39a;
+  --tz-tip-bg: #1a1726;
+  --tz-tip-ink: #ffffff;
+  --tz-ws-line: rgba(0, 0, 0, 0.08);
+
+  /* bant üstü (beyazın saydam tonları) */
+  --tz-on-band: #ffffff;
+  --tz-band-rule: rgba(255, 255, 255, 0.12);
+  --tz-band-line: rgba(255, 255, 255, 0.25);
+  --tz-band-btn-line: rgba(255, 255, 255, 0.3);
+  --tz-band-sep: rgba(255, 255, 255, 0.2);
+  --tz-band-fill: rgba(255, 255, 255, 0.14);
+  --tz-band-kbd: rgba(255, 255, 255, 0.1);
+  --tz-band-mark-ring: rgba(255, 255, 255, 0.22);
+  --tz-band-error: #ffb4ab;
+  --tz-kbd-on-primary: rgba(255, 255, 255, 0.16);
+  --tz-kbd-on-primary-line: rgba(255, 255, 255, 0.4);
+
+  /* bant ve iskelet ölçüleri */
+  --tz-top-h: 72px;
+  --tz-work-h: 44px;
+  --tz-band-full: 240px;
+  --tz-band-pad: 24px;
+  --tz-brand-min: 160px;
+  --tz-nav-gap: 24px;
+  --tz-top-ctl: 44px;
+  --tz-rail-w: 48px;
+  --tz-rail-btn: 38px;
+  --tz-panel-l: 280px;
+  --tz-panel-r: 300px;
+  --tz-panel-head: 40px;
+  --tz-strip-h: 44px;
+  --tz-status-h: 28px;
+  --tz-selbar-h: 42px;
+  --tz-group-h: 36px;
+  --tz-prop-label: 96px;
+
+  /* denetim ölçüleri */
+  --tz-ctl-h: 30px;
+  --tz-tool: 32px;
+  --tz-btn-mini: 28px;
+  --tz-btn-page: 40px;
+  --tz-btn-guided: 48px;
+  --tz-band-btn: 32px;
+  --tz-band-tab: 30px;
+  --tz-row-list: 46px;
+  --tz-row-table: 38px;
+  --tz-row-head: 34px;
+  --tz-kbd-h: 18px;
+  --tz-icon: 18px;
+  --tz-icon-sm: 15px;
+  --tz-icon-xs: 12px;
+  --tz-dot: 8px;
+
+  /* köşeler */
+  --tz-r-kbd: 4px;
+  --tz-r-field: 6px;
+  --tz-r-tool: 8px;
+  --tz-r-rail: 9px;
+  --tz-r-page: 10px;
+  --tz-r-guided: 12px;
+
+  /* yazı */
+  --tz-fs-body: 14px;
+  --tz-lh-body: 1.45;
+  --tz-fs-panel: 13px;
+  --tz-fs-head: 14px;
+  --tz-fs-section: 11px;
+  --tz-fs-small: 12px;
+  --tz-fs-status: 11.5px;
+  --tz-fs-kbd: 10.5px;
+  --tz-fs-nav: 15px;
+  --tz-fs-guided: 16px;
+  --tz-fs-title: 36px;
+  --tz-fs-sub: 17px;
+  --tz-track-section: 0.06em;
+
+  /* hareket */
+  --tz-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --tz-dur: 150ms;
+
+  /* tuval içi birim: dünya katmanında 1 birim = 1 mm (CanvasViewport yerelde 1px yapar) */
+  --tz-mm: 1mm;
+  --tz-zoom: 1;
+}
+/* @son tezgah */

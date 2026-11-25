@@ -1,0 +1,1509 @@
+<title>TagPress Tezgâh Ekranlar 2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Düzen: okuma sütunu (en çok 1360 px); başta dilin kuralları, sonra altı ekran alt alta (her biri kendi yatay kaydırma kutusunda, altında "ne nerede" notu), sonda karar bekleyenler. */
+:root {
+  --bg: #f4f2f7;
+  --card: #ffffff;
+  --fg: #1a1726;
+  --fg-2: #4b4660;
+  --fg-3: #69647e;
+  --line: #e2deea;
+  --accent: #5b3fd6;
+  --accent-soft: #efebff;
+  --accent-line: #d5cbfb;
+  --mat: #e9e6ef;
+  --f: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --fm: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14121b; --card: #1c1926; --fg: #eceaf3; --fg-2: #bcb6cf; --fg-3: #9993ad;
+    --line: #302b3e; --accent: #cfc3ff; --accent-soft: #272043; --accent-line: #463a72; --mat: #221e2e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14121b; --card: #1c1926; --fg: #eceaf3; --fg-2: #bcb6cf; --fg-3: #9993ad;
+  --line: #302b3e; --accent: #cfc3ff; --accent-soft: #272043; --accent-line: #463a72; --mat: #221e2e;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font: 16px/1.6 var(--f); }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.page { max-width: 1360px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 72px; }
+.eb { font-family: var(--fm); font-size: 13px; line-height: 18px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.1; letter-spacing: -.025em; font-weight: 600; margin: 0 0 14px; text-wrap: balance; }
+h2 { font-size: clamp(24px, 3.4vw, 30px); line-height: 1.15; letter-spacing: -.02em; font-weight: 600; margin: 0 0 10px; text-wrap: balance; }
+h3 { font-size: 15px; line-height: 22px; font-weight: 600; margin: 0 0 8px; }
+p { margin: 0; }
+.intro { max-width: 72ch; color: var(--fg-2); font-size: 17px; }
+.band-note { margin-top: 18px; max-width: 80ch; border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; color: var(--fg); }
+.band-note b { color: var(--accent); font-weight: 600; }
+.jumps { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+.jumps a { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--fg); text-decoration: none; font-size: 14px; }
+.jumps a span { font-family: var(--fm); font-size: 12px; color: var(--accent); }
+.jumps a:hover { border-color: var(--accent-line); }
+.jumps a:focus-visible, .mk-scroll:focus-visible, .rules-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+section.blk { margin-top: 56px; scroll-margin-top: 16px; }
+.rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; min-width: 0; }
+.box p, .box li { color: var(--fg-2); font-size: 14px; line-height: 1.55; }
+.box ul { margin: 0; padding-left: 18px; display: grid; gap: 5px; }
+.box h3 { display: flex; align-items: center; gap: 8px; }
+.box h3 i { font-style: normal; font-family: var(--fm); font-size: 12px; color: var(--accent); }
+.wide { grid-column: span 2; }
+.roles { display: grid; gap: 8px; margin-top: 4px; }
+.roles div { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13px; line-height: 17px; color: var(--fg-2); }
+.roles i { width: 26px; height: 26px; border-radius: 7px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.roles b { color: var(--fg); font-weight: 500; }
+.roles code { font-family: var(--fm); font-size: 11.5px; }
+.dens { width: 100%; border-collapse: collapse; font-size: 13px; }
+.dens td { padding: 5px 0; border-top: 1px solid var(--line); color: var(--fg-2); vertical-align: top; }
+.dens td:last-child { text-align: right; color: var(--fg); font-family: var(--fm); font-size: 12px; white-space: nowrap; padding-left: 10px; }
+.dens tr:first-child td { border-top: 0; }
+.rules-scroll { overflow-x: auto; margin-top: 4px; }
+.grid-dia { display: grid; grid-template-columns: 48px 200px minmax(180px, 1fr) 220px; grid-template-rows: 40px 150px 28px; min-width: 560px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font: 11px/14px var(--fm); }
+.grid-dia > div { display: flex; align-items: center; justify-content: center; text-align: center; padding: 4px; border: 1px solid var(--line); margin: -1px 0 0 -1px; color: var(--fg-2); background: var(--card); }
+.grid-dia .g-rail { grid-row: 1 / 4; background: var(--accent-soft); color: var(--accent); }
+.grid-dia .g-l { grid-row: 1 / 4; }
+.grid-dia .g-r { grid-row: 1 / 4; grid-column: 4; }
+.grid-dia .g-cv { background: var(--mat); background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 14px 14px; }
+.kbd-demo { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+.kbd-demo kbd { font-family: var(--fm); font-size: 11px; line-height: 16px; padding: 1px 5px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; color: var(--fg); background: var(--bg); }
+.kbd-demo span { font-size: 13px; color: var(--fg-2); display: inline-flex; gap: 6px; align-items: center; }
+
+.scr-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; }
+.scr-h h2 { margin: 0; }
+.scr-h .n { font-family: var(--fm); font-size: 13px; color: var(--accent); }
+.scr-h .new { font-family: var(--fm); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-line); border-radius: 999px; padding: 2px 8px; }
+.scr-h p { flex-basis: 100%; color: var(--fg-2); max-width: 80ch; }
+.mk { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.mk-scroll { overflow-x: auto; background: var(--mat); padding: 16px; }
+.hint { display: none; font-size: 13px; color: var(--fg-3); padding: 8px 16px; border-bottom: 1px solid var(--line); }
+.where { margin: 0; padding: 14px 20px 16px 38px; display: grid; gap: 6px; font-size: 14px; line-height: 1.5; color: var(--fg-2); border-top: 1px solid var(--line); }
+.where b { color: var(--fg); font-weight: 600; }
+.wait { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 10px; counter-reset: w; }
+.wait li { counter-increment: w; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; font-size: 15px; }
+.wait li::before { content: counter(w); grid-row: 1 / 3; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 600 13px/28px var(--fm); text-align: center; }
+.wait li b { font-weight: 600; }
+.wait li span { color: var(--fg-2); font-size: 14px; }
+.foot { margin-top: 28px; font-size: 14px; color: var(--fg-3); max-width: 80ch; }
+@media (max-width: 980px) {
+  .rules { grid-template-columns: minmax(0, 1fr); }
+  .wide { grid-column: auto; }
+  .hint { display: block; }
+}
+
+/* ===================== MAKET: ürünün açık teması (sabit renkler) ===================== */
+.app { --bg: #f5f3ee; --sf: #fff; --sf2: #faf9f6; --sf3: #ebe8e1; --bd: #e4e1da; --ln: #d9d6cf; --ls: #eeebe5;
+  --tx: #0f1a2e; --tx2: #475467; --tx3: #5f6b7f; --p: #7a5af8; --pt: #5b3fd6; --ps: #efebff; --pl: #d6ccfb;
+  --band: #644acb; --band2: #533da9; --bon: #f2effe; --bac: #d0c5fd; --cv: #e8e6ee;
+  --err: #c4271b; --err-bg: #fef3f2; --err-ln: #fecdca; --wr: #b54708; --wr-bg: #fffaeb; --wr-ln: #fedf89; --ok: #067647; --ok-bg: #ecfdf3; --ok-ln: #abefc6;
+  width: 1320px; background: var(--bg); color: var(--tx); font: 14px/1.45 var(--f); position: relative; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 12px 32px rgba(10, 26, 58, .12); }
+.app * { box-sizing: border-box; }
+.app svg.i { width: 18px; height: 18px; flex: none; }
+.app svg.is { width: 15px; height: 15px; flex: none; }
+.app .mono { font-family: var(--fm); font-variant-numeric: tabular-nums; }
+.app .k { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 4px; border: 1px solid var(--ln); border-bottom-width: 2px; border-radius: 4px; background: var(--sf2); font: 500 10.5px/1 var(--fm); color: var(--tx2); white-space: nowrap; flex: none; }
+.app .on-p .k, .app .bt-p .k { background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.4); color: #fff; }
+
+/* bant: üst satır her yerde aynı; çalışma ekranlarında altında yalnız 44 px iş satırı */
+.bd { background: var(--band); color: var(--bon); padding: 0 24px; }
+.bd-top { display: flex; align-items: center; gap: 28px; height: 72px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.br { display: flex; align-items: center; gap: 10px; min-width: 160px; color: #fff; }
+.br svg { border-radius: 6px; box-shadow: 0 0 0 1px rgba(255,255,255,.22); display: block; }
+.br-t { display: flex; flex-direction: column; }
+.br-t b { font-size: 17px; line-height: 20px; font-weight: 600; }
+.br-t small { font-size: 12px; line-height: 16px; color: var(--bon); }
+.nv { display: flex; gap: 24px; font-size: 15px; line-height: 20px; }
+.nv > span { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--bon); white-space: nowrap; }
+.nv .on { color: #fff; font-weight: 600; box-shadow: inset 0 -2px 0 var(--bac); }
+.nv .k { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); color: var(--bon); font-weight: 400; }
+.tr { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.apps { width: 44px; height: 44px; border-radius: 12px; background: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.18); display: grid; place-items: center; }
+.firm { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px 0 11px; border: 1px solid rgba(255,255,255,.25); border-radius: 12px; color: #fff; font-size: 15px; font-weight: 600; white-space: nowrap; }
+.av { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.12); display: grid; place-items: center; color: #fff; font-size: 13px; font-weight: 600; }
+.ctx { display: flex; align-items: center; gap: 14px; height: 44px; font-size: 13px; white-space: nowrap; }
+.ctx .cr { color: var(--bon); display: flex; align-items: center; gap: 6px; }
+.ctx .cr .sep { opacity: .55; }
+.ctx .cr b { color: #fff; font-size: 15px; font-weight: 600; }
+.ctx .vl { width: 1px; height: 22px; background: rgba(255,255,255,.2); }
+.ctx .sp { flex: 1; }
+.cb { display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 11px; border-radius: 8px; border: 1px solid rgba(255,255,255,.3); color: #fff; font-size: 13px; font-weight: 500; }
+.cb .k { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.3); color: #fff; }
+.cb.cta { background: #fff; color: var(--band); border-color: #fff; font-weight: 600; }
+.cb.cta .k { background: var(--ps); border-color: var(--pl); color: var(--pt); }
+.cb.q { border-color: transparent; }
+.flow { display: flex; align-items: center; gap: 2px; }
+.flow span { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 8px; color: var(--bon); }
+.flow span b { font-family: var(--fm); font-weight: 500; color: #fff; }
+.flow span.on { background: rgba(255,255,255,.14); color: #fff; font-weight: 600; box-shadow: inset 0 -2px 0 var(--bac); }
+.flow i { width: 10px; height: 1px; background: rgba(255,255,255,.3); }
+.flow .er b { color: #ffb4ab; }
+.btabs { display: flex; gap: 2px; }
+.btabs span { height: 30px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 8px; color: var(--bon); }
+.btabs span.on { background: #fff; color: var(--band); font-weight: 600; }
+
+/* çalışma alanı */
+.ws { display: grid; background: var(--sf); border-top: 1px solid rgba(0,0,0,.08); }
+.pnl { background: var(--sf); display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.pnl.l { border-right: 1px solid var(--ls); }
+.pnl.r { border-left: 1px solid var(--ls); }
+.ph { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px 0 14px; border-bottom: 1px solid var(--ls); flex: none; }
+.ph .t { font-size: 14px; font-weight: 600; }
+.ph .c { font-size: 12px; color: var(--tx3); }
+.ph .sp, .row .sp, .tb .sp, .sb .sp { flex: 1; }
+.sec { padding: 12px 14px; border-bottom: 1px solid var(--ls); display: grid; gap: 8px; }
+.sh { font: 500 11px/14px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--tx3); display: flex; align-items: center; gap: 6px; }
+.sh .sp { flex: 1; }
+.sh a, .lnk { color: var(--pt); font: 500 12px/16px var(--f); letter-spacing: 0; text-transform: none; text-decoration: none; }
+.pr { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 8px; min-height: 30px; font-size: 13px; }
+.pr > span:first-child { color: var(--tx3); }
+.fi { display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 8px; border: 1px solid var(--ln); border-radius: 6px; background: #fff; font-size: 13px; color: var(--tx); min-width: 0; white-space: nowrap; overflow: hidden; }
+.fi.sel::after { content: ""; margin-left: auto; width: 7px; height: 7px; border-right: 1.5px solid var(--tx3); border-bottom: 1.5px solid var(--tx3); transform: rotate(45deg) translate(-2px, -2px); flex: none; }
+.fi .u { margin-left: auto; color: var(--tx3); font-family: var(--fm); font-size: 11px; }
+.fi.ta { height: auto; min-height: 30px; white-space: normal; padding: 6px 8px; line-height: 18px; }
+.fi.ph-t { color: #8d93a0; }
+.fi.foc { border-color: var(--p); box-shadow: 0 0 0 3px rgba(122,90,248,.18); }
+.row { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.st { display: inline-flex; align-items: center; height: 30px; border: 1px solid var(--ln); border-radius: 6px; overflow: hidden; background: #fff; }
+.st > span { display: grid; place-items: center; width: 28px; height: 28px; color: var(--tx2); }
+.st > b { font: 500 12px/28px var(--fm); white-space: nowrap; padding: 0 6px; border-left: 1px solid var(--ls); border-right: 1px solid var(--ls); min-width: 52px; text-align: center; }
+.seg { display: inline-flex; height: 30px; border: 1px solid var(--ln); border-radius: 6px; overflow: hidden; background: #fff; }
+.seg span { display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; font-size: 13px; color: var(--tx2); border-left: 1px solid var(--ls); white-space: nowrap; }
+.seg span:first-child { border-left: 0; }
+.seg span.on { background: var(--ps); color: var(--pt); font-weight: 600; }
+.sw { display: inline-block; vertical-align: middle; width: 30px; height: 18px; border-radius: 999px; background: var(--ln); position: relative; flex: none; }
+.sw::after { content: ""; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.2); }
+.sw.on { background: var(--p); }
+.sw.on::after { left: 14px; }
+.cbx { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid #a9a39a; background: #fff; flex: none; display: grid; place-items: center; color: #fff; }
+.cbx.on { background: var(--p); border-color: var(--p); }
+
+/* düğmeler: sayfa düzeyi 40 px (platform küçük düğmesi), araç 32 px */
+.bt { display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 32px; padding: 0 10px; border-radius: 8px; font-size: 13px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; color: var(--tx); }
+.bt-s { background: #fff; border-color: var(--ln); }
+.bt-p { background: var(--p); color: #fff; font-weight: 600; }
+.bt-q { color: var(--tx2); }
+.bt-d { color: var(--err); }
+.bt-l { height: 40px; padding: 0 14px; border-radius: 10px; font-size: 14px; }
+.bt-w { width: 100%; }
+.ib { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--tx2); flex: none; }
+.ib.on { background: var(--ps); color: var(--pt); }
+.ib.dis { opacity: .4; }
+
+/* araç şeridi, ray, tuval, durum satırı */
+.tb { display: flex; align-items: center; gap: 4px; height: 44px; padding: 0 10px; border-bottom: 1px solid var(--ls); background: #fff; white-space: nowrap; flex: none; }
+.tb .g { display: flex; align-items: center; gap: 2px; }
+.tb .vl { width: 1px; height: 22px; background: var(--ls); margin: 0 6px; }
+.tb .lb { font-size: 12px; color: var(--tx3); margin-right: 2px; }
+.rail { background: #fff; border-right: 1px solid var(--ls); display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0; }
+.rail .rb { position: relative; width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; color: var(--tx2); }
+.rail .rb.on { background: var(--ps); color: var(--pt); }
+.rail .rb small { position: absolute; right: 1px; bottom: 0; font: 500 9px/1 var(--fm); color: var(--tx3); }
+.rail .rb.on small { color: var(--pt); }
+.rail hr { width: 26px; border: 0; border-top: 1px solid var(--ls); margin: 4px 0; }
+.cvw { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.cv { position: relative; flex: 1; overflow: hidden; background-color: var(--cv); background-image: linear-gradient(rgba(84,74,120,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(84,74,120,.08) 1px, transparent 1px); background-size: 20px 20px; }
+.rl-c { position: absolute; left: 0; top: 0; width: 22px; height: 22px; background: #fbfafc; border-right: 1px solid #dcd8e5; border-bottom: 1px solid #dcd8e5; z-index: 3; }
+.rl-t, .rl-l { position: absolute; background: #fbfafc; font: 10px/1 var(--fm); color: #6e6782; z-index: 2; background-repeat: no-repeat; }
+.rl-t { left: 22px; right: 0; top: 0; height: 22px; border-bottom: 1px solid #dcd8e5; display: flex;
+  background-image: repeating-linear-gradient(90deg, #6e6782 0 1px, transparent 1px var(--maj)), repeating-linear-gradient(90deg, #a8a1b8 0 1px, transparent 1px var(--min));
+  background-size: 100% 9px, 100% 4px; background-position: var(--o, 0px) bottom, var(--o, 0px) bottom; }
+.rl-t span { flex: none; width: var(--maj); padding: 3px 0 0 3px; }
+.rl-t span:first-child { margin-left: var(--o, 0px); }
+.rl-l { top: 22px; bottom: 0; left: 0; width: 22px; border-right: 1px solid #dcd8e5;
+  background-image: repeating-linear-gradient(180deg, #6e6782 0 1px, transparent 1px var(--maj)), repeating-linear-gradient(180deg, #a8a1b8 0 1px, transparent 1px var(--min));
+  background-size: 9px 100%, 4px 100%; background-position: right var(--ol, 0px), right var(--ol, 0px); }
+.rl-l span { display: block; height: var(--maj); padding: 3px 0 0 2px; }
+.rl-l span:first-child { margin-top: var(--ol, 0px); }
+.rl-hi { position: absolute; background: rgba(122,90,248,.2); border: 0 solid var(--p); }
+.rl-t .rl-hi { top: 0; bottom: 0; border-left-width: 1px; border-right-width: 1px; }
+.rl-l .rl-hi { left: 0; right: 0; border-top-width: 1px; border-bottom-width: 1px; }
+.ab { position: absolute; }
+.ab .nm { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px; color: #5f5a70; margin-bottom: 6px; white-space: nowrap; }
+.ab .nm b { font-family: var(--fm); font-weight: 500; color: var(--tx); }
+.ab.sel .nm, .ab.sel .nm b { color: var(--pt); }
+.sb { display: flex; align-items: center; gap: 14px; height: 28px; padding: 0 12px; border-top: 1px solid var(--ls); background: #fff; font: 11.5px/1 var(--fm); color: var(--tx3); white-space: nowrap; overflow: hidden; flex: none; }
+.sb b { color: var(--tx); font-weight: 500; }
+.zm { display: inline-flex; align-items: center; gap: 2px; }
+.zb { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 6px; border-radius: 5px; color: var(--tx2); }
+.zm b { min-width: 40px; text-align: center; }
+.zm .k { height: 16px; min-width: 16px; font-size: 10px; }
+.sb .ok-t { color: var(--ok); }
+.tg { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 999px; font-size: 12px; line-height: 16px; font-weight: 500; border: 1px solid var(--ln); background: var(--sf2); color: var(--tx2); white-space: nowrap; flex: none; }
+.tg.pu { background: var(--ps); border-color: var(--pl); color: var(--pt); }
+.tg.ok { background: var(--ok-bg); border-color: var(--ok-ln); color: var(--ok); }
+.tg.wr { background: var(--wr-bg); border-color: var(--wr-ln); color: var(--wr); }
+.tg.er { background: var(--err-bg); border-color: var(--err-ln); color: var(--err); }
+.tg.bl { background: #e8eefc; border-color: #c7d7f8; color: #174bb5; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--ln); }
+.dot.ok { background: var(--ok); } .dot.wr { background: #f79009; } .dot.er { background: var(--err); } .dot.bl { background: #1d5bd8; } .dot.pu { background: var(--p); }
+.iss { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 4px 8px; padding: 8px 10px; border-radius: 8px; font-size: 13px; line-height: 18px; }
+.iss.wr { background: var(--wr-bg); border: 1px solid var(--wr-ln); }
+.iss.er { background: var(--err-bg); border: 1px solid var(--err-ln); }
+.iss.ok { background: var(--ok-bg); border: 1px solid var(--ok-ln); }
+.iss .fx { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.iss .fx .bt { height: 26px; padding: 0 8px; font-size: 12px; }
+.wr-i { color: var(--wr); } .er-i { color: var(--err); } .ok-i { color: var(--ok); }
+.pfoot { margin-top: auto; padding: 12px 14px; border-top: 1px solid var(--ls); display: grid; gap: 8px; background: #fff; }
+.lab { font-size: 12px; color: var(--tx3); font-weight: 500; }
+
+/* 1 Üretim */
+.qr { display: grid; grid-template-columns: 16px 30px minmax(0, 1fr) 8px; align-items: center; gap: 9px; height: 46px; padding: 0 12px; border-bottom: 1px solid var(--ls); }
+.qr.cur { background: var(--ps); box-shadow: inset 3px 0 0 var(--p); }
+.qr.msel { background: #f8f6ff; }
+.qt { min-width: 0; display: flex; flex-direction: column; }
+.qt b { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 18px; }
+.qt b .mono { color: var(--tx3); font-size: 12px; margin-right: 4px; }
+.qt small { font-size: 12px; color: var(--tx3); line-height: 16px; }
+.qph { width: 30px; height: 30px; border-radius: 50%; border: 1px dashed var(--ln); }
+.bulk { flex: none; display: grid; gap: 8px; padding: 10px 12px; background: var(--ps); border-top: 1px solid var(--pl); font-size: 13px; }
+.bulk .bt { height: 28px; padding: 0 8px; font-size: 12px; }
+.prog { width: 90px; height: 6px; border-radius: 3px; background: var(--sf3); overflow: hidden; display: block; }
+.prog i { display: block; height: 100%; background: var(--ok); }
+.va { display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+.va .bt { height: 28px; padding: 0 8px; font-size: 12px; }
+.va .ib { width: 28px; height: 28px; }
+.hd8 { position: relative; width: 210px; height: 210px; outline: 1.5px solid var(--p); }
+.hd8 > span { position: absolute; width: 9px; height: 9px; background: #fff; border: 1.5px solid var(--p); }
+.hd8 > span:nth-of-type(1) { left: -5px; top: -5px; } .hd8 > span:nth-of-type(2) { left: 100px; top: -5px; } .hd8 > span:nth-of-type(3) { right: -5px; top: -5px; }
+.hd8 > span:nth-of-type(4) { left: -5px; top: 100px; } .hd8 > span:nth-of-type(5) { right: -5px; top: 100px; }
+.hd8 > span:nth-of-type(6) { left: -5px; bottom: -5px; } .hd8 > span:nth-of-type(7) { left: 100px; bottom: -5px; } .hd8 > span:nth-of-type(8) { right: -5px; bottom: -5px; }
+.szb { position: absolute; left: 50%; bottom: -30px; transform: translateX(-50%); background: var(--p); color: #fff; font: 500 11px/20px var(--fm); padding: 0 7px; border-radius: 5px; font-style: normal; white-space: nowrap; }
+.dock { position: absolute; left: 36px; right: 14px; bottom: 14px; background: #fff; border: 1px solid var(--bd); border-radius: 12px; box-shadow: 0 6px 18px rgba(10,26,58,.08); padding: 10px 12px; display: grid; gap: 8px; }
+.tab { height: 26px; display: inline-flex; align-items: center; padding: 0 8px; border-radius: 6px; font-size: 12px; color: var(--tx2); }
+.tab.on { background: var(--sf3); color: var(--tx); font-weight: 600; }
+.lines { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 4px 8px; font-size: 12px; align-items: baseline; }
+.lines span { color: var(--tx3); } .lines b { font-weight: 500; } .lines em { font-style: normal; color: var(--tx2); font-family: var(--fm); font-size: 11px; }
+/* 2 Düzelt */
+.ln { display: grid; grid-template-columns: 22px minmax(0, 1fr) 8px; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 8px; }
+.ln.on { background: var(--ps); box-shadow: inset 0 0 0 1px var(--pl); }
+.ln i { font: 500 11px/20px var(--fm); font-style: normal; text-align: center; border-radius: 5px; background: var(--sf3); color: var(--tx2); }
+.ln.on i { background: var(--p); color: #fff; }
+.ln b { display: block; font-size: 14px; font-weight: 500; }
+.ln small { display: block; font-size: 12px; color: var(--tx3); }
+/* 3 İçe aktarma */
+.selbar { display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 12px; background: var(--ps); border-bottom: 1px solid var(--pl); font-size: 13px; white-space: nowrap; flex: none; }
+.selbar .bt { height: 28px; font-size: 12px; }
+.selbar .sp { flex: 1; }
+.selbar .ib { width: 28px; height: 28px; }
+.selbar { gap: 6px; }
+.vl2 { width: 1px; height: 20px; background: var(--pl); margin: 0 4px; }
+.tbl { flex: 1; overflow: hidden; font-size: 13px; }
+.tr-h, .trw { display: grid; grid-template-columns: 40px 52px 72px minmax(0, 1fr) 64px 70px 150px 132px; align-items: center; gap: 0 8px; padding: 0 10px; border-bottom: 1px solid var(--ls); }
+.tr-h { height: 34px; background: var(--sf2); font-size: 12px; font-weight: 500; color: var(--tx3); }
+.trw { min-height: 38px; }
+.trw > span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trw.ms { background: #f8f6ff; }
+.trw.er { box-shadow: inset 3px 0 0 var(--err); }
+.trw.wr { box-shadow: inset 3px 0 0 #f79009; }
+.trw.act { background: #fbfaff; outline: 1.5px solid var(--p); outline-offset: -1.5px; }
+.trw.edit { padding-block: 6px; align-items: start; }
+.trw.edit > span:nth-child(4) { white-space: normal; overflow: visible; }
+.trw.exc { color: var(--tx3); background: repeating-linear-gradient(135deg, transparent 0 8px, rgba(0,0,0,.025) 8px 16px); }
+.trw.exc > span:nth-child(4) { text-decoration: line-through; }
+.fixrow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; padding: 6px 10px 8px 182px; border-bottom: 1px solid var(--ls); font-size: 13px; }
+.fixrow.er { background: var(--err-bg); box-shadow: inset 3px 0 0 var(--err); }
+.fixrow.wr { background: var(--wr-bg); box-shadow: inset 3px 0 0 #f79009; }
+.fixrow .fx { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-left: 8px; }
+.fixrow .bt { height: 26px; padding: 0 8px; font-size: 12px; }
+.hint2 { font-size: 11px; color: var(--tx3); }
+.okt { color: var(--tx3); font-size: 12px; }
+.edh { display: flex; gap: 6px; align-items: center; margin-top: 4px; font-size: 11px; color: var(--tx3); }
+.map { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 2px 8px; align-items: center; font-size: 13px; }
+.map > span { color: var(--tx3); }
+.map b { font-weight: 400; font-size: 12px; }
+.map small { grid-column: 2; font-size: 11px; color: var(--tx3); margin-top: -1px; }
+.pt-t { color: var(--pt) !important; }
+.sum { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 2px 8px; font-size: 13px; align-items: baseline; }
+.sum b { font-weight: 600; text-align: right; font-size: 15px; }
+/* 4 Baskı */
+.grp-h { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 10px 12px 6px; }
+.grp-h > span:first-child { flex: 1 1 100%; min-width: 0; }
+.grp-h b { display: block; font-size: 13px; font-weight: 600; }
+.grp-h small { display: block; font-size: 11.5px; color: var(--tx3); }
+.grp-h .bt { font-size: 12px; padding: 0 8px; }
+.shi { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 9px; margin: 2px 8px; padding: 6px 8px; border: 1px solid var(--bd); border-radius: 10px; background: #fff; }
+.shi.on { border-color: var(--p); box-shadow: 0 0 0 3px rgba(122,90,248,.15); }
+.shi.done { background: var(--sf2); }
+.shi.done b { color: var(--tx2); }
+.shi b { display: block; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.shi b .mono { color: var(--tx3); font-size: 11.5px; margin-right: 3px; }
+.shi small { display: block; font-size: 11.5px; color: var(--tx3); }
+.shi small b { display: inline; color: var(--pt); }
+.stk { width: 34px; height: 34px; display: grid; place-items: center; font: 11px/1 'Great Vibes', 'Segoe Script', cursive; color: #2b1d10; text-align: center; border: 1px dashed var(--ln); border-radius: 4px; }
+.drag-hint { flex: none; padding: 10px 12px; border-top: 1px solid var(--ls); font-size: 12px; color: var(--tx3); display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.pg { position: absolute; top: 40px; width: 210px; }
+.pgh { display: flex; align-items: center; gap: 6px; height: 24px; font-size: 12px; color: var(--tx2); }
+.pgh b { font-weight: 600; color: var(--tx); }
+.pgh .sp { flex: 1; }
+.pg.act .pgh b { color: var(--pt); }
+.paper { display: block; background: #fff; box-shadow: 0 1px 2px rgba(15,26,46,.1), 0 6px 16px rgba(15,26,46,.1); }
+.pg.act .paper { outline: 2px solid var(--p); outline-offset: 2px; }
+.ghost-tip { position: absolute; left: 52px; top: 132px; background: #1a1726; color: #fff; font-size: 11.5px; line-height: 16px; padding: 6px 8px; border-radius: 6px; width: 176px; box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+.ghost-tip b { color: var(--bac); }
+/* 5 Tasarım dili */
+.chat { flex: 1; overflow: hidden; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.msg { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 4px 8px; font-size: 13px; line-height: 19px; max-width: 92%; }
+.msg.ai { color: var(--tx); }
+.msg.ai svg { color: var(--p); margin-top: 2px; }
+.msg.ai p { background: var(--sf2); border: 1px solid var(--bd); border-radius: 4px 12px 12px 12px; padding: 8px 10px; }
+.msg.me { align-self: flex-end; grid-template-columns: minmax(0, 1fr); }
+.msg.me p { background: var(--ps); color: var(--tx); border: 1px solid var(--pl); border-radius: 12px 4px 12px 12px; padding: 8px 10px; }
+.msg .chips { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; }
+.msg .chips span { height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 999px; border: 1px solid var(--ln); background: #fff; font-size: 12px; color: var(--tx2); }
+.msg .chips span.on { border-color: var(--p); background: var(--ps); color: var(--pt); font-weight: 500; }
+.ups { display: flex; gap: 6px; align-items: center; }
+.ups svg { border-radius: 6px; }
+.up-add { width: 40px; height: 40px; border: 1.5px dashed var(--pl); border-radius: 8px; display: grid; place-items: center; color: var(--pt); }
+.composer { flex: none; display: flex; gap: 6px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--ls); }
+.composer .fi { height: 34px; }
+.chg-ring { border-radius: 50%; outline: 2px dashed var(--p); outline-offset: 4px; width: 150px; height: 150px; }
+.chg-t, .same-t { margin-top: 12px; font-size: 12px; line-height: 16px; max-width: 170px; }
+.chg-t { color: var(--pt); font-weight: 500; display: flex; gap: 6px; }
+.chg-t::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--p); margin-top: 4px; flex: none; }
+.same-t { color: var(--tx3); }
+.pin { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: var(--p); color: #fff; font: 600 12px/22px var(--f); text-align: center; box-shadow: 0 0 0 3px rgba(122,90,248,.25); }
+.sumv { flex: 1; overflow: hidden; }
+.sg { padding: 10px 14px; border-bottom: 1px solid var(--ls); display: grid; gap: 4px; }
+.kv { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; font-size: 13px; line-height: 18px; padding: 3px 6px; margin: 0 -6px; border-radius: 6px; }
+.kv > span { color: var(--tx3); display: flex; align-items: center; gap: 6px; }
+.kv b { font-weight: 500; }
+.kv.chg { background: var(--ps); box-shadow: inset 3px 0 0 var(--p); }
+.kv.chg s { color: var(--tx3); font-weight: 400; margin-right: 4px; }
+.kv.chg em { font-style: normal; font-size: 11px; color: var(--pt); margin-left: 6px; }
+.pin-s { font-style: normal; width: 16px; height: 16px; border-radius: 50%; background: var(--p); color: #fff; font: 600 10px/16px var(--f); text-align: center; flex: none; }
+/* 6 Kurulum */
+.hd { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; min-height: 128px; padding-top: 28px; }
+.kick { display: flex; align-items: center; gap: 8px; height: 20px; margin-bottom: 6px; font-size: 14px; line-height: 20px; color: var(--bon); }
+.kick b { color: #fff; font-weight: 500; } .kick .sep { opacity: .6; }
+.app h3.ttl { font-size: 36px; line-height: 44px; letter-spacing: -.02em; font-weight: 600; color: #fff; margin: 0; white-space: nowrap; }
+.sub { font-size: 17px; line-height: 24px; color: var(--bon); margin-top: 2px; }
+.steps3 { display: flex; gap: 6px; }
+.steps3 span { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); color: var(--bon); font-size: 14px; }
+.steps3 span.on { background: #fff; color: var(--band); font-weight: 600; border-color: #fff; }
+.steps3 i { font-style: normal; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 600; background: rgba(255,255,255,.15); }
+.steps3 .on i { background: var(--p); color: #fff; }
+.ct { padding: 0 24px 32px; }
+.kcard { position: relative; margin-top: -24px; background: #fff; border: 1px solid var(--bd); border-radius: 16px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; }
+.types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 24px 28px; }
+.ty { position: relative; display: grid; justify-items: start; align-content: start; gap: 6px; padding: 16px; border: 1px solid var(--bd); border-radius: 12px; }
+.ty.on { border-color: var(--p); box-shadow: 0 0 0 1px var(--p); background: #fcfbff; }
+.ty .cbx { position: absolute; top: 14px; right: 14px; width: 20px; height: 20px; border-radius: 6px; }
+.ty b { font-size: 16px; font-weight: 600; margin-top: 4px; }
+.ty small { font-size: 13px; color: var(--tx3); line-height: 18px; }
+.stk-big { width: 96px; height: 64px; display: grid; place-items: center; font: 24px/1 'Great Vibes', 'Segoe Script', cursive; color: #2b1d10; border: 1px dashed var(--ln); border-radius: 6px; }
+.feats { border-left: 1px solid var(--ls); padding: 24px 24px 16px; display: grid; gap: 4px; align-content: start; }
+.feats .sh { margin-bottom: 8px; }
+.ft { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--ls); }
+.ft > span:first-child { flex: 1; min-width: 0; }
+.ft b { display: block; font-size: 14px; font-weight: 500; }
+.ft small { display: block; font-size: 12px; color: var(--tx3); }
+.ft.off b { color: var(--tx2); }
+.ft-note { font-size: 12px; color: var(--tx3); margin-top: 8px; }
+.kfoot { grid-column: 1 / -1; display: flex; align-items: center; padding: 16px 28px; border-top: 1px solid var(--ls); }
+.kfoot .sp { flex: 1; }
+.b48 { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 22px; border-radius: 12px; font-size: 16px; font-weight: 500; }
+.b48.p { background: var(--p); color: #fff; font-weight: 600; }
+.b48.q { color: var(--pt); padding: 0 12px; }
+
+/* ===== sadeleştirme: panel içinde çizgi yok, gruplar boşlukla; nadir ayarlar daraltılmış grupta ===== */
+.pnl .sec { border-bottom: 0; padding: 10px 14px; }
+.pnl .ph + .sec { padding-top: 14px; }
+.gc { display: flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px; font-size: 13px; color: var(--tx2); border-top: 1px solid var(--ls); }
+.gc::before { content: ""; width: 6px; height: 6px; border-right: 1.5px solid var(--tx3); border-bottom: 1.5px solid var(--tx3); transform: rotate(-45deg); margin: 0 2px; flex: none; }
+.gc b { font-weight: 600; color: var(--tx); }
+.gc .v { margin-left: auto; color: var(--tx3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ttabs { display: flex; align-items: center; gap: 2px; }
+.ttabs span { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 8px; border-radius: 6px; font-size: 13px; color: var(--tx2); white-space: nowrap; }
+.ttabs span i { font-style: normal; color: var(--tx3); font-family: var(--fm); font-size: 11.5px; }
+.ttabs span.on { background: var(--sf3); color: var(--tx); font-weight: 600; }
+.pr2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pr2 > label { display: grid; gap: 3px; font-size: 12px; color: var(--tx3); }
+.mut { font-size: 12px; color: var(--tx3); }
+.qr .qt small { color: var(--tx3); }
+.ab .nm .tg { height: 20px; }
+.va2 { display: flex; align-items: center; gap: 4px; margin-top: 10px; min-height: 28px; }
+.va2 .bt { height: 28px; padding: 0 8px; font-size: 12px; }
+.va2 .ib { width: 28px; height: 28px; }
+.tr-h, .trw { grid-template-columns: 40px 72px minmax(0, 1fr) 64px 70px 150px 132px; }
+.fixrow { padding-left: 138px; }
+.exc-t { font-size: 12px; color: var(--tx3); }
+.shi.min { grid-template-columns: 22px minmax(0, 1fr) auto; padding: 4px 8px; border-color: transparent; background: transparent; }
+.links { display: grid; gap: 2px; }
+.links span { display: flex; align-items: center; height: 28px; font-size: 13px; color: var(--pt); }
+.msg.ai { grid-template-columns: minmax(0, 1fr); }
+.sh .k { text-transform: none; letter-spacing: 0; }
+.ttabs span { padding: 0 7px; }
+</style>
+
+<style>
+/* Ekranlar 2: yalnız ilk tuvalin parçalarından türetilmiş küçük eklemeler */
+.dot.rd { background: #475467; }
+.bstat { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 6px; color: #fff; font-size: 14px; white-space: nowrap; }
+.bstat .dot { background: #b5cbff; }
+.pop { position: absolute; z-index: 20; background: #fff; border: 1px solid var(--bd); border-radius: 12px; box-shadow: 0 12px 32px rgba(10,26,58,.16); padding: 6px; display: grid; gap: 1px; color: var(--tx); font-size: 13px; }
+.pop .mh { font: 500 11px/14px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--tx3); padding: 8px 10px 4px; }
+.pop .mi { display: flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 10px; border-radius: 8px; }
+.pop .mi.on { background: var(--ps); }
+.pop .mi .sp { flex: 1; }
+.pop .mi small { color: var(--tx3); font-size: 12px; }
+.pop .mi .ib { width: 26px; height: 26px; }
+.pop hr { border: 0; border-top: 1px solid var(--ls); margin: 4px 0; }
+.fld { display: grid; gap: 5px; font-size: 13px; }
+.fld > b { font-weight: 500; color: var(--tx2); font-size: 13px; }
+.fld > small { color: var(--tx3); font-size: 12px; }
+.fld .fi { height: 34px; }
+.ayc { padding: 24px 32px; overflow: hidden; }
+.ayc .in { max-width: 720px; display: grid; gap: 28px; }
+.ayc h3.t2 { font-size: 16px; font-weight: 600; margin: 0 0 4px; color: var(--tx); }
+.ayc .grp { display: grid; gap: 12px; }
+.prov { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0; border-top: 1px solid var(--ls); }
+.prov:first-of-type { border-top: 0; }
+.prov .lg { width: 32px; height: 32px; border-radius: 8px; background: var(--sf3); display: grid; place-items: center; font: 600 13px/1 var(--fm); color: var(--tx2); }
+.prov b { display: block; font-size: 14px; font-weight: 500; }
+.prov small { display: block; font-size: 12px; color: var(--tx3); }
+.gcards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; padding: 16px 20px; }
+.gcard { background: #fff; border: 1px solid var(--bd); border-radius: 12px; padding: 12px; display: grid; gap: 8px; justify-items: center; position: relative; }
+.gcard.cur { border-color: var(--p); box-shadow: 0 0 0 1px var(--p); }
+.gcard .cbx { position: absolute; top: 10px; left: 10px; }
+.gcard .m { justify-self: stretch; display: grid; gap: 2px; font-size: 12px; color: var(--tx3); }
+.gcard .m b { font-size: 13px; font-weight: 500; color: var(--tx); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gcard .m span { display: flex; align-items: center; gap: 6px; }
+.note { background: var(--sf2); border: 1px solid var(--bd); border-radius: 8px; padding: 8px 10px; font-size: 13px; line-height: 18px; color: var(--tx2); }
+.note b { color: var(--tx); font-weight: 600; }
+.meas { display: grid; grid-template-columns: 136px minmax(0, 1fr) 54px; gap: 4px 8px; align-items: center; font-size: 12px; color: var(--tx3); }
+.meas .bar { height: 6px; border-radius: 3px; background: var(--sf3); overflow: hidden; }
+.meas .bar i { display: block; height: 100%; background: #98a2b3; }
+.meas .bar.n i { background: var(--p); }
+.meas b { font: 500 12px/1 var(--fm); color: var(--tx); text-align: right; }
+.vrow { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 12px; border-bottom: 1px solid var(--ls); font-size: 13px; }
+.vrow.cur { background: var(--ps); box-shadow: inset 3px 0 0 var(--p); }
+.vrow b { font-weight: 500; }
+.vrow small { display: block; color: var(--tx3); font-size: 12px; }
+.vrow .mono { font-size: 12px; color: var(--tx2); }
+.dfg { display: grid; grid-template-columns: 240px minmax(0, 1fr) minmax(0, 1fr); gap: 0; font-size: 13px; }
+.dfg > span { padding: 8px 10px; border-bottom: 1px solid var(--ls); }
+.dfg .hh { font: 500 11px/14px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--tx3); }
+.dfg .k2 { color: var(--tx3); }
+.dfg .o { color: var(--tx3); text-decoration: line-through; }
+.dfg .n2 { background: var(--ps); font-weight: 500; }
+.lib { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding: 4px 12px 12px; }
+.lib .t { display: grid; justify-items: center; gap: 4px; padding: 8px 4px 6px; border-radius: 10px; border: 1px solid transparent; font-size: 11.5px; color: var(--tx2); }
+.lib .t.on { border-color: var(--p); background: var(--ps); color: var(--pt); font-weight: 500; }
+.lib .t .mono { font-size: 11px; }
+.ftabs { display: flex; gap: 2px; padding: 8px 10px 0; border-bottom: 1px solid var(--ls); }
+.ftabs span { height: 32px; display: inline-flex; align-items: center; padding: 0 9px; font-size: 13px; color: var(--tx2); border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+.ftabs span.on { color: var(--tx); font-weight: 600; border-bottom-color: var(--p); }
+.glist { padding: 6px; display: grid; gap: 1px; }
+.glist span { display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 10px; border-radius: 8px; font-size: 13px; color: var(--tx2); }
+.glist span.on { background: var(--ps); color: var(--pt); font-weight: 600; }
+.glist span i { font-style: normal; margin-left: auto; font: 11px var(--fm); color: var(--tx3); }
+.rule-sum { padding: 20px 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 40px; overflow: hidden; }
+.rule-sum .sg { border-bottom: 0; padding: 8px 0; }
+.mini-prev { display: grid; justify-items: center; gap: 6px; font-size: 12px; color: var(--tx3); }
+.arrow-r { font-size: 20px; color: var(--tx3); align-self: center; }
+.fx-demo { display: flex; align-items: center; gap: 14px; padding: 10px 0 2px; }
+.fx-demo .pv { display: grid; justify-items: center; gap: 4px; padding: 8px 12px; border: 1px solid var(--bd); border-radius: 10px; background: #fff; font-size: 11.5px; color: var(--tx3); }
+.fx-demo .pv.on { border-color: var(--p); box-shadow: 0 0 0 1px var(--p); color: var(--pt); }
+.wide-note { display: none; }
+</style>
+<style>
+.btabs span b { font-weight: 400; font-family: var(--fm); font-size: 11.5px; opacity: .85; margin-left: 5px; }
+</style>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a8782a"/><stop offset=".45" stop-color="#ecd38f"/><stop offset=".7" stop-color="#c39a45"/><stop offset="1" stop-color="#9a6d22"/>
+    </linearGradient>
+    <path id="leaf" d="M0 0C5-6 15-7 22 0C15 7 5 6 0 0Z"/>
+    <g id="lfa"><use href="#leaf" transform="translate(100 18) rotate(-28)" fill="#5e8f5b"/><use href="#leaf" transform="translate(104 19) rotate(32) scale(.8)" fill="#93bb86"/></g>
+    <g id="lfb"><use href="#leaf" transform="translate(100 18) rotate(-24)" fill="#3f7346"/><use href="#leaf" transform="translate(104 19) rotate(30) scale(.78)" fill="#7aa96f"/></g>
+    <g id="flw"><circle cx="0" cy="-5" r="4.2"/><circle cx="4.8" cy="-1.6" r="4.2"/><circle cx="3" cy="4" r="4.2"/><circle cx="-3" cy="4" r="4.2"/><circle cx="-4.8" cy="-1.6" r="4.2"/><circle r="2.4" fill="#d9738f"/></g>
+    <g id="crop" fill="none" stroke="#9a92b3" stroke-width="1"><path d="M-22 0h14M0-22v14M222 0h-14M200-22v14M-22 200h14M0 222v-14M222 200h-14M200 222v-14"/></g>
+    <g id="dim38"><path d="M0 238h200M0 232v12M200 232v12" stroke="#7a5af8" stroke-width="1.2" fill="none"/><text x="100" y="262" text-anchor="middle" font-family="IBM Plex Mono, Consolas, monospace" font-size="14" fill="#5b3fd6">Ø 38 mm</text></g>
+    <circle id="cut38" cx="100" cy="100" r="101.5" fill="none" stroke="#7a5af8" stroke-width="1.2" stroke-dasharray="5 4"/>
+  </defs>
+
+  <!-- ikonlar -->
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></g></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 15V4M7 9l5-5 5 5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-move" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V4h10v5M7 17H5a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-2M7 14h10v6H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M6 3l13 7-6 1.8L10.5 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V6a1.5 1.5 0 0 1 3 0v5M11 10V4.5a1.5 1.5 0 0 1 3 0V11M14 10.5V6a1.5 1.5 0 0 1 3 0v8a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.5 14a1.5 1.5 0 0 1 2.4-1.8L8 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-zin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3M11 8v6M8 11h6"/></g></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-type" viewBox="0 0 24 24"><path d="M5 7V4h14v3M12 4v16M9 20h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-align" viewBox="0 0 24 24"><path d="M4 4v16M8 7h11v4H8zM8 14h7v4H8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9.3h16M4 14.7h16M9.3 4v16M14.7 4v16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-bldg" viewBox="0 0 24 24"><path d="M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M15 9h3a1 1 0 0 1 1 1v11M3 21h18M8.5 8h2M8.5 12h2M8.5 16h2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM18.5 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" fill="currentColor"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cut" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.6"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 17L17 3l4 4L7 21zM7.5 12.5l2 2M10.5 9.5l2 2M13.5 6.5l2 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-reg" viewBox="0 0 24 24"><path d="M4 4h5v5H4zM15 4h5M20 4v5M4 20v-5M4 20h5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5M4 9h10a6 6 0 0 1 0 12h-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+
+  <!-- marka işaretleri (kabuk marks.tsx ile aynı çizim) -->
+  <symbol id="tp-mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#7a5af8"/><circle cx="32" cy="32" r="14" fill="#fff"/><path d="M26 34c2-5 4-7 6-7 1.5 0 1.5 2-.5 4s-1.5 4 .5 4c2.5 0 4-2 6-4" fill="none" stroke="#7a5af8" stroke-width="2.4" stroke-linecap="round"/><path d="M12 19v-7h7M52 19v-7h-7M12 45v7h7M52 45v7h-7" fill="none" stroke="#fdb022" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="apps" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2" fill="#1d5bd8"/><rect x="13" y="4" width="7" height="7" rx="2" fill="#0e9384"/><rect x="4" y="13" width="7" height="7" rx="2" fill="#7a5af8"/><rect x="13" y="13" width="7" height="7" rx="2" fill="#0f2a5c"/></symbol>
+
+  <!-- etiket zeminleri -->
+  <symbol id="art-wreath" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="99" fill="#ffffff"/>
+    <path d="M147 32.8A82 82 0 1 1 53 32.8" fill="none" stroke="#7e9c6c" stroke-width=".9"/>
+    <use href="#lfa" transform="rotate(35 100 100)"/><use href="#lfb" transform="rotate(48 100 100)"/><use href="#lfa" transform="rotate(61 100 100)"/><use href="#lfb" transform="rotate(74 100 100)"/><use href="#lfa" transform="rotate(87 100 100)"/><use href="#lfb" transform="rotate(100 100 100)"/><use href="#lfa" transform="rotate(113 100 100)"/><use href="#lfb" transform="rotate(126 100 100)"/><use href="#lfa" transform="rotate(139 100 100)"/><use href="#lfb" transform="rotate(152 100 100)"/><use href="#lfa" transform="rotate(165 100 100)"/><use href="#lfb" transform="rotate(178 100 100)"/><use href="#lfa" transform="rotate(191 100 100)"/><use href="#lfb" transform="rotate(204 100 100)"/><use href="#lfa" transform="rotate(217 100 100)"/><use href="#lfb" transform="rotate(230 100 100)"/><use href="#lfa" transform="rotate(243 100 100)"/><use href="#lfb" transform="rotate(256 100 100)"/><use href="#lfa" transform="rotate(269 100 100)"/><use href="#lfb" transform="rotate(282 100 100)"/><use href="#lfa" transform="rotate(295 100 100)"/><use href="#lfb" transform="rotate(308 100 100)"/><use href="#lfa" transform="rotate(321 100 100)"/>
+    <g fill="#c9a54e"><circle cx="177.9" cy="55" r="2"/><circle cx="180" cy="122" r="1.8"/><circle cx="100" cy="190" r="2"/><circle cx="20" cy="122" r="1.8"/><circle cx="22.1" cy="55" r="2"/><circle cx="141" cy="171" r="1.6"/><circle cx="59" cy="171" r="1.6"/></g>
+  </symbol>
+  <symbol id="art-gold" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="99" fill="#fffaf0"/>
+    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <circle cx="100" cy="100" r="84" fill="none" stroke="url(#gold)" stroke-width=".8"/>
+    <g fill="url(#gold)"><use href="#leaf" transform="translate(100 168) rotate(-150) scale(.7)"/><use href="#leaf" transform="translate(100 168) rotate(-30) scale(.7)"/><use href="#leaf" transform="translate(100 168) rotate(-90) scale(.55)"/><circle cx="100" cy="171" r="2.2"/></g>
+  </symbol>
+  <symbol id="art-kraft" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="99" fill="#c69c6d"/>
+    <g fill="#8a6440" opacity=".25"><circle cx="52" cy="60" r="1.2"/><circle cx="140" cy="48" r="1"/><circle cx="160" cy="120" r="1.3"/><circle cx="70" cy="150" r="1"/><circle cx="120" cy="165" r="1.1"/><circle cx="38" cy="110" r="1"/></g>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="#5b3d22" stroke-width="1" stroke-dasharray="2 4"/>
+    <path d="M100 164c-5-4-9-7-9-11a4.5 4.5 0 0 1 9-1 4.5 4.5 0 0 1 9 1c0 4-4 7-9 11z" fill="#7d2f2f"/>
+  </symbol>
+  <symbol id="art-pastel" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="99" fill="#fdf0f3"/>
+    <g fill="#f4b6c5"><use href="#flw" transform="translate(48 50)"/><use href="#flw" transform="translate(62 38) scale(.7)"/><use href="#flw" transform="translate(152 150)"/><use href="#flw" transform="translate(140 164) scale(.7)"/></g>
+    <g fill="#9cc08f"><use href="#leaf" transform="translate(56 58) rotate(40) scale(.6)"/><use href="#leaf" transform="translate(40 44) rotate(200) scale(.55)"/><use href="#leaf" transform="translate(144 142) rotate(220) scale(.6)"/><use href="#leaf" transform="translate(160 158) rotate(20) scale(.55)"/></g>
+  </symbol>
+  <symbol id="art-lav" viewBox="0 0 254 152">
+    <rect width="254" height="152" rx="6" fill="#fbf9f4"/>
+    <rect x="8" y="8" width="238" height="136" rx="4" fill="none" stroke="#8c7bb3" stroke-width=".9"/>
+    <path d="M42 132C43 104 45 74 49 34M49 96C40 86 34 84 28 86" fill="none" stroke="#6d8a5c" stroke-width="1.6" stroke-linecap="round"/>
+    <g fill="#9d86d6"><ellipse cx="45" cy="40" rx="3" ry="5" transform="rotate(-20 45 40)"/><ellipse cx="53" cy="44" rx="3" ry="5" transform="rotate(20 53 44)"/><ellipse cx="44" cy="52" rx="3" ry="5" transform="rotate(-20 44 52)"/><ellipse cx="52" cy="56" rx="3" ry="5" transform="rotate(20 52 56)"/></g>
+    <g fill="#7d64c4"><ellipse cx="49" cy="30" rx="2.6" ry="4.5"/><ellipse cx="43" cy="64" rx="3" ry="5" transform="rotate(-20 43 64)"/><ellipse cx="51" cy="68" rx="3" ry="5" transform="rotate(20 51 68)"/><ellipse cx="43" cy="77" rx="2.6" ry="4.4" transform="rotate(-20 43 77)"/></g>
+    <use href="#leaf" transform="translate(28 86) rotate(-160) scale(.6)" fill="#86a874"/>
+  </symbol>
+
+  <!-- yazılı etiketler -->
+  <symbol id="ek1" viewBox="0 0 200 200"><use href="#art-wreath"/><text x="100" y="104" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="30" textLength="126" lengthAdjust="spacingAndGlyphs" fill="#22301f">Elif &amp; Kerem</text><text x="100" y="130" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="15" letter-spacing="1" fill="#3c4a3a">14.06.2027</text></symbol>
+  <symbol id="ek2" viewBox="0 0 200 200"><use href="#art-wreath"/><text x="100" y="82" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="36" fill="#22301f">Elif</text><text x="100" y="101" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="20" fill="#5e7a52">&amp;</text><text x="100" y="130" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="36" fill="#22301f">Kerem</text><text x="100" y="151" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="13" letter-spacing="1" fill="#3c4a3a">14.06.2027</text></symbol>
+  <symbol id="ek3" viewBox="0 0 200 200"><defs><path id="arc3" d="M44 106A56 56 0 0 1 156 106"/></defs><use href="#art-wreath"/><text text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="28" fill="#22301f"><textPath href="#arc3" startOffset="50%">Elif &amp; Kerem</textPath></text><text x="100" y="124" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="19" fill="#3c4a3a">14.06.2027</text><path d="M84 136h32" stroke="#a6b99a" stroke-width=".8"/></symbol>
+  <symbol id="df" viewBox="0 0 200 200"><use href="#art-gold"/><text x="100" y="102" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="44" fill="#6b4f1d">Defne</text><text x="100" y="126" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="11" letter-spacing="2.4" fill="#7a5d26">VAFTİZ HATIRASI</text><text x="100" y="145" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="13" fill="#7a5d26">02.05.2027</text></symbol>
+  <symbol id="sm" viewBox="0 0 200 200"><use href="#art-gold"/><text x="100" y="104" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="30" textLength="124" lengthAdjust="spacingAndGlyphs" fill="#6b4f1d">Selin &amp; Mert</text><text x="100" y="130" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="14" fill="#7a5d26">21.09.2026</text></symbol>
+  <symbol id="ac" viewBox="0 0 200 200"><use href="#art-kraft"/><text x="100" y="72" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="11" letter-spacing="3" fill="#3b2a1a">TEŞEKKÜRLER</text><text x="100" y="110" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="34" textLength="128" lengthAdjust="spacingAndGlyphs" fill="#2b1d10">Ayşe &amp; Can</text><text x="100" y="134" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="13" fill="#3b2a1a">12.10.2026</text></symbol>
+  <symbol id="ml" viewBox="0 0 200 200"><use href="#art-pastel"/><text x="100" y="106" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="52" fill="#7a3e55">Mila</text><text x="100" y="131" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="15" fill="#7a3e55">1 yaşında</text><text x="100" y="148" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="12" fill="#8d5a6c">18.01.2027</text></symbol>
+  <symbol id="lav" viewBox="0 0 254 152"><use href="#art-lav"/><text x="78" y="44" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="11" letter-spacing="2.4" fill="#5b4a7e">LAVANDA ATÖLYE</text><text x="78" y="78" font-family="Great Vibes, Segoe Script, cursive" font-size="27" fill="#3d3157">El yapımı</text><text x="78" y="103" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="21" fill="#2e2640">lavanta sabunu</text><text x="78" y="124" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="13" fill="#5b4a7e">120 g · zeytinyağı bazlı</text></symbol>
+
+  <!-- baskı sayfaları (mm ölçeğinde; A4 210 × 297) -->
+  <symbol id="row-ek" viewBox="0 0 198 38"><use href="#ek2" x="0" width="38" height="38"/><use href="#ek2" x="40" width="38" height="38"/><use href="#ek2" x="80" width="38" height="38"/><use href="#ek2" x="120" width="38" height="38"/><use href="#ek2" x="160" width="38" height="38"/></symbol>
+  <symbol id="row-df" viewBox="0 0 198 38"><use href="#df" x="0" width="38" height="38"/><use href="#df" x="40" width="38" height="38"/><use href="#df" x="80" width="38" height="38"/><use href="#df" x="120" width="38" height="38"/><use href="#df" x="160" width="38" height="38"/></symbol>
+  <symbol id="row-lav" viewBox="0 0 195.5 38.1"><use href="#lav" x="0" width="63.5" height="38.1"/><use href="#lav" x="66" width="63.5" height="38.1"/><use href="#lav" x="132" width="63.5" height="38.1"/></symbol>
+  <symbol id="sheet1" viewBox="0 0 210 297">
+    <rect width="210" height="297" fill="#fff"/>
+    <use href="#row-ek" x="6" y="9.5" width="198" height="38"/><use href="#row-ek" x="6" y="49.5" width="198" height="38"/><use href="#row-ek" x="6" y="89.5" width="198" height="38"/><use href="#row-ek" x="6" y="129.5" width="198" height="38"/>
+    <use href="#row-df" x="6" y="169.5" width="198" height="38"/><use href="#row-df" x="6" y="209.5" width="198" height="38"/>
+    <use href="#df" x="6" y="249.5" width="38" height="38"/><use href="#df" x="46" y="249.5" width="38" height="38"/>
+    <g fill="none" stroke="#b9b2cc" stroke-width=".5" stroke-dasharray="1.5 1.2"><circle cx="105" cy="268.5" r="19"/><circle cx="145" cy="268.5" r="19"/><circle cx="185" cy="268.5" r="19"/></g>
+  </symbol>
+  <symbol id="sheet2" viewBox="0 0 210 297">
+    <rect width="210" height="297" fill="#fff"/>
+    <use href="#row-lav" x="7.25" y="15.15" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="53.25" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="91.35" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="129.45" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="167.55" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="205.65" width="195.5" height="38.1"/><use href="#row-lav" x="7.25" y="243.75" width="195.5" height="38.1"/>
+  </symbol>
+  <symbol id="regm" viewBox="0 0 210 297"><g fill="#111"><rect x="1.5" y="1.5" width="5" height="5"/></g><g fill="none" stroke="#111" stroke-width=".8"><path d="M203.5 1.5h5v5M1.5 290.5v5h5M208.5 290.5v5h-5"/></g></symbol>
+</svg>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-redo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14l5-5-5-5M20 9H10a6 6 0 0 0 0 12h3"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></symbol>
+  <symbol id="i-ah" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M7 7h10v4H7zM9 14h6v4H9z"/></symbol>
+  <symbol id="i-av" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h18M7 7v10h4V7zM14 9v6h4V9z"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+  <symbol id="i-unlink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 7H7a5 5 0 0 0 0 10h2M15 7h2a5 5 0 0 1 2.5 9.3M8 12h3M3 3l18 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></symbol>
+  <symbol id="i-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7zM14 3v4h4M12 11v6M9 14l3 3 3-3"/></symbol>
+  <symbol id="i-filep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6v18h12V7zM14 3v4h4M12 11v6M9 14h6"/></symbol>
+  <symbol id="i-stamp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 13V9.5a3 3 0 1 1 6 0V13M5 13h14v4H5zM6 21h12"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14.5 4.5L20 16M20 20v-4h-4"/></symbol>
+  <symbol id="i-kbd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h1M11 10h1M15 10h2M7 14h10"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11l-8.5 8.5a5 5 0 0 1-7-7L13 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L14 7"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2zM12 10v5M12 18h.01"/></symbol>
+  <symbol id="i-err" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l5 5v8l-5 5H8l-5-5V8zM12 8v5M12 16h.01"/></symbol>
+  <symbol id="i-okc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 10"/></symbol>
+  <symbol id="i-marq" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2.4"><rect x="4" y="4" width="16" height="16" rx="1"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4v16M8 7h12v4H8zM8 14h7v4H8z"/></symbol>
+  <symbol id="i-dr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 4v16M4 7h12v4H4zM9 14h7v4H9z"/></symbol>
+  <symbol id="i-dt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16M7 8v12h4V8zM14 8v7h4V8z"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h16M7 4v12h4V4zM14 9v7h4V9z"/></symbol>
+  <symbol id="i-dx" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4v16M20 4v16M9 8h6v8H9z"/></symbol>
+  <symbol id="i-dy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16M4 20h16M8 9h8v6H8z"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+
+  <symbol id="row-ml" viewBox="0 0 198 38"><use href="#ml" x="0" width="38" height="38"/><use href="#ml" x="40" width="38" height="38"/><use href="#ml" x="80" width="38" height="38"/><use href="#ml" x="120" width="38" height="38"/><use href="#ml" x="160" width="38" height="38"/></symbol>
+  <symbol id="row-slot" viewBox="0 0 198 38"><g fill="none" stroke="#b9b2cc" stroke-width=".5" stroke-dasharray="1.5 1.2"><circle cx="19" cy="19" r="19"/><circle cx="59" cy="19" r="19"/><circle cx="99" cy="19" r="19"/><circle cx="139" cy="19" r="19"/><circle cx="179" cy="19" r="19"/></g></symbol>
+  <symbol id="cutlines35" viewBox="0 0 210 297"><g fill="none" stroke="#e0218a" stroke-width=".35"><use href="#row-cut" x="6" y="9.5" width="198" height="38"/><use href="#row-cut" x="6" y="49.5" width="198" height="38"/><use href="#row-cut" x="6" y="89.5" width="198" height="38"/><use href="#row-cut" x="6" y="129.5" width="198" height="38"/><use href="#row-cut" x="6" y="169.5" width="198" height="38"/><use href="#row-cut" x="6" y="209.5" width="198" height="38"/><use href="#row-cut" x="6" y="249.5" width="198" height="38"/></g></symbol>
+  <symbol id="row-cut" viewBox="0 0 198 38"><circle cx="19" cy="19" r="19"/><circle cx="59" cy="19" r="19"/><circle cx="99" cy="19" r="19"/><circle cx="139" cy="19" r="19"/><circle cx="179" cy="19" r="19"/></symbol>
+  <symbol id="sheet3" viewBox="0 0 210 297">
+    <rect width="210" height="297" fill="#fff"/>
+    <use href="#row-ml" x="6" y="9.5" width="198" height="38"/><use href="#row-ml" x="6" y="49.5" width="198" height="38"/>
+    <use href="#row-slot" x="6" y="89.5" width="198" height="38"/><use href="#row-slot" x="6" y="129.5" width="198" height="38"/><use href="#row-slot" x="6" y="169.5" width="198" height="38"/><use href="#row-slot" x="6" y="209.5" width="198" height="38"/><use href="#row-slot" x="6" y="249.5" width="198" height="38"/>
+  </symbol>
+</svg>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="j-archive" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18v4H3zM5 8v12h14V8M10 12h4"/></symbol>
+  <symbol id="j-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></symbol>
+  <symbol id="j-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="j-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/></symbol>
+  <symbol id="j-ellipse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="12" rx="9" ry="6"/></symbol>
+  <symbol id="j-rect" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="1.5"/></symbol>
+  <symbol id="j-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="j-font" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L10 4l6 16M6.5 14h7M17 20v-6a2.5 2.5 0 0 1 5 0v6"/></symbol>
+  <symbol id="j-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="j-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2.5l2 2.6 3.2-.6.6 3.2 2.7 1.9-1.5 2.9 1.5 2.9-2.7 1.9-.6 3.2-3.2-.6-2 2.6-2-2.6-3.2.6-.6-3.2L3.5 15l1.5-2.9L3.5 9.2l2.7-1.9.6-3.2 3.2.6z"/></symbol>
+  <symbol id="j-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3s6-1.3 6-3V7M9 15v2c0 1.7 2.7 3 6 3s6-1.3 6-3v-5c0-1.6-2.4-2.9-5.5-3"/></symbol>
+  <symbol id="j-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+  <symbol id="j-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM4 5v16"/></symbol>
+  <symbol id="j-node" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="6" rx="1"/><path d="M12 9v4M6 17v-2h12v2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+  <symbol id="j-reg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h5v5H4zM15 4h5M20 4v5M4 20v-5M4 20h5"/></symbol>
+  <symbol id="j-label" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h10"/></symbol>
+  <symbol id="j-wand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l11-11M14 4v2M18 8h2M16.5 5.5l1.5-1.5M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5z"/></symbol>
+  <symbol id="j-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+  <symbol id="j-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="2.5"/><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/></symbol>
+  <!-- şablon sayfası (yuva düzenleyici): 5 × 7 Ø 38 yuva, mm ölçeğinde -->
+  <symbol id="slots35" viewBox="0 0 210 297"><rect width="210" height="297" fill="#fff"/><use href="#row-slot" x="6" y="9.5" width="198" height="38"/><use href="#row-slot" x="6" y="49.5" width="198" height="38"/><use href="#row-slot" x="6" y="89.5" width="198" height="38"/><use href="#row-slot" x="6" y="129.5" width="198" height="38"/><use href="#row-slot" x="6" y="169.5" width="198" height="38"/><use href="#row-slot" x="6" y="209.5" width="198" height="38"/><use href="#row-slot" x="6" y="249.5" width="198" height="38"/></symbol>
+</svg>
+
+
+<div class="page">
+  <header>
+    <p class="eb">TagPress · Tezgâh · ikinci tuval</p>
+    <h1>TagPress Tezgâh Ekranlar 2</h1>
+    <p class="intro">İlk tuvalde maketi olmayan ekranlar, onaylı Tezgâh diliyle ve aynı parçalarla kuruldu. Bugün bu ekranlarda olan her eylem yeni yerinde; yeni araç eklenmedi.</p>
+    <p class="band-note"><b>Bu sayfada uygulanan kararlar:</b> yalnız açık tema; "Hazır" koyu nötr nokta, mor durum göstermez; parti adı iş satırında açılır menü; yalnız masaüstü (1280 px ve üstü). Sağ üstte firma düğmesinin yerinde tasarım dili seçici, üretim sürerken yanında mavi nokta (uygulama planı §3.3).</p>
+    <nav class="jumps" aria-label="Ekranlar">
+      <a href="#sablonlar"><span>1</span>Şablonlar</a>
+      <a href="#td-ozet"><span>2</span>Tasarım dili · Özet</a>
+      <a href="#td-kurallar"><span>3</span>Kurallar</a>
+      <a href="#td-dene"><span>4</span>Dene</a>
+      <a href="#td-ornekler"><span>5</span>Örnekler</a>
+      <a href="#td-ogren"><span>5b</span>Öğren</a>
+      <a href="#td-surumler"><span>6</span>Sürümler</a>
+      <a href="#sayfa-sablonlari"><span>7</span>Sayfa şablonları</a>
+      <a href="#izgara"><span>8</span>Üretim · ızgara</a>
+      <a href="#ayarlar"><span>9</span>Ayarlar, Arşiv</a>
+      <a href="#susli"><span>10</span>Süslü yazı</a>
+      <a href="#bekleyen"><span>·</span>Karar bekleyenler</a>
+    </nav>
+  </header>
+
+  <!-- ===================================================== 1 ŞABLONLAR ===================================================== -->
+  <section class="blk" id="sablonlar" aria-labelledby="h-sb">
+    <div class="scr-h"><span class="n">1</span><h2 id="h-sb">Şablonlar</h2><p>Solda kütüphane, ortada şablon görseli ve yazı alanı, sağda alanın ayarları. Şablon pikseline dokunulmaz; çizilen yalnız yazının oturacağı alan.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Şablonlar maketi">
+        <div class="app" role="img" aria-label="Şablonlar: solda şablon kütüphanesi, ortada cetvelli tuvalde yeşil çelenk şablonu ve elle çizilmiş oval yazı alanı, altta deneme kutusu, sağda yazı alanı, kurdele ve hedef merkez ayarları ile Kaydet.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span>Tasarım dili</span><span class="on">Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx">
+              <span class="cr">Şablonlar<span class="sep">/</span><b>A15 · Yeşil çelenk</b></span>
+              <span class="cb q" style="padding:0 6px" title="Önceki şablon ([)"><svg class="is"><use href="#i-left"/></svg></span><span class="cb q" style="padding:0 6px" title="Sonraki şablon (])"><svg class="is"><use href="#i-right"/></svg></span>
+              <span class="cr" style="opacity:.85">Kaydedilmedi: kurdele</span>
+              <span class="sp"></span>
+              <span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span>
+            </div>
+          </div>
+          <div class="ws" style="grid-template-columns:48px 290px minmax(0,1fr) 320px;height:700px">
+            <div class="rail">
+              <span class="rb" title="Seç (V)"><svg class="i"><use href="#i-cursor"/></svg></span>
+              <span class="rb on" title="Oval (O)"><svg class="i"><use href="#j-ellipse"/></svg></span>
+              <span class="rb" title="Dikdörtgen (R)"><svg class="i"><use href="#j-rect"/></svg></span>
+              <span class="rb" title="Çokgen (P)"><svg class="i"><use href="#j-node"/></svg></span>
+              <hr>
+              <span class="rb" title="Kaydır (Boşluk)"><svg class="i"><use href="#i-hand"/></svg></span>
+            </div>
+            <div class="pnl l">
+              <div class="ph"><span class="t">Kütüphane</span><span class="c">54</span><span class="sp"></span><span class="ib" title="Klasörü tara"><svg class="i"><use href="#i-refresh"/></svg></span><span class="ib" title="Temadan şablon üret"><svg class="i"><use href="#j-wand"/></svg></span><span class="ib" title="Şablon yükle"><svg class="i"><use href="#i-up"/></svg></span></div>
+              <div class="sec" style="gap:8px">
+                <div class="row"><span class="fi" style="flex:1"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Anahtar, not, etiket</span><span class="k" style="margin-left:auto">/</span></span><span class="ib" title="Sırala"><svg class="i"><use href="#i-sort"/></svg></span></div>
+                <div class="ttabs"><span class="on">Hepsi <i>54</i></span><span>Elle alan <i>12</i></span><span>Diğer <svg class="is" style="width:12px;height:12px"><use href="#i-chev"/></svg></span></div>
+                <div class="note" style="display:flex;gap:8px;align-items:center"><span style="flex:1">Klasör tarandı: <b>2</b> eklendi, <b>1</b> dosyası yok</span><span class="ib" style="width:24px;height:24px" title="Raporu kapat"><svg class="is"><use href="#i-x"/></svg></span></div>
+              </div>
+              <div class="lib">
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-kraft"/></svg><span class="mono">A12</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-wreath"/></svg><span class="mono">A14</span></span>
+                <span class="t on"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-wreath"/></svg><span class="mono">A15</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-gold"/></svg><span class="mono">B02</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-pastel"/></svg><span class="mono">B03</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-gold"/></svg><span class="mono">B21</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-gold"/></svg><span class="mono">C07</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="none" stroke="#c4271b" stroke-width="3" stroke-dasharray="8 6"/><use href="#i-img" x="70" y="70" width="60" height="60" style="color:#c4271b"/></svg><span class="mono er-i" title="Dosya eksik">C09</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-pastel"/></svg><span class="mono">D04</span></span>
+                <span class="t"><svg width="70" height="42" viewBox="0 0 254 152" style="margin:9px 0"><use href="#art-lav"/></svg><span class="mono">U01</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-kraft"/></svg><span class="mono" title="Üretilmiş">U02</span></span>
+                <span class="t"><svg width="60" height="60" viewBox="0 0 200 200"><use href="#art-wreath"/></svg><span class="mono">A16</span></span>
+              </div>
+            </div>
+            <div class="cvw">
+              <div class="tb">
+                <span class="bt"><svg class="is"><use href="#i-eye"/></svg>Katmanlar<svg class="is"><use href="#i-chev"/></svg></span>
+                <span class="mut">yazı alanı, dekor, kurdele, hedef merkez, kesim</span>
+                <span class="sp"></span>
+                <span class="row" style="font-size:13px;gap:8px;white-space:nowrap"><span class="sw"></span>Hedefe yakınlaş</span>
+              </div>
+              <div class="cv" style="--maj:48.25px;--min:9.65px;--o:114.7px;--ol:54.7px">
+                <div class="rl-c"></div>
+                <div class="rl-t"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span class="rl-hi" style="left:200px;width:224px"></span></div>
+                <div class="rl-l"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span class="rl-hi" style="top:150px;height:170px"></span></div>
+                <svg style="position:absolute;left:100px;top:40px" width="440" height="440" viewBox="-20 -20 240 240">
+                  <defs><clipPath id="sb-clip"><circle cx="100" cy="100" r="99"/></clipPath></defs>
+                  <g fill="none" stroke="#9a92b3" stroke-width=".5"><path d="M-18 0h10M0-18v10M218 0h-10M200-18v10M-18 200h10M0 218v-10M218 200h-10M200 218v-10"/></g>
+                  <use href="#art-wreath" width="200" height="200"/>
+                  <rect x="0" y="0" width="200" height="34" fill="rgba(253,176,34,.22)" clip-path="url(#sb-clip)"/>
+                  <path d="M17 34h166" stroke="#d99a1e" stroke-width=".6" stroke-dasharray="2 1.5"/>
+                  <circle cx="100" cy="100" r="99.5" fill="none" stroke="#9a92b3" stroke-width=".6" stroke-dasharray="2.4 1.8"/>
+                  <ellipse cx="100" cy="106" rx="57" ry="44" fill="rgba(122,90,248,.07)" stroke="#7a5af8" stroke-width=".9"/>
+                  <g fill="#fff" stroke="#7a5af8" stroke-width=".7"><rect x="41.2" y="60.2" width="3.6" height="3.6"/><rect x="98.2" y="60.2" width="3.6" height="3.6"/><rect x="155.2" y="60.2" width="3.6" height="3.6"/><rect x="41.2" y="104.2" width="3.6" height="3.6"/><rect x="155.2" y="104.2" width="3.6" height="3.6"/><rect x="41.2" y="148.2" width="3.6" height="3.6"/><rect x="98.2" y="148.2" width="3.6" height="3.6"/><rect x="155.2" y="148.2" width="3.6" height="3.6"/></g>
+                  <g stroke="#7a5af8" stroke-width=".6" fill="none"><circle cx="100" cy="103" r="3.2"/><path d="M100 95v5M100 106v5M92 103h5M103 103h5"/></g>
+                </svg>
+                <div class="dock" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;left:60px;right:40px">
+                  <span class="fi"><span style="color:var(--tx)">Sevgiyle ⏎ Ayşe &amp; Ali</span><span class="mut" style="margin-left:auto">ücretsiz</span></span><span class="bt bt-s">Bu şablonla dene</span>
+                </div>
+              </div>
+              <div class="sb"><span>Alan: <b>oval</b>, elle</span><span>Kurdele <b>%17</b></span><span class="sp"></span><span class="zm"><span class="zb">−</span><b>%160</b><span class="zb">+</span><span class="zb">Sığdır</span><span class="zb">%100</span></span></div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t"><span class="mono">A15</span> · Etiket</span></div>
+              <div class="sec">
+                <div class="sh">Yazı alanı</div>
+                <span class="seg"><span>Otomatik</span><span class="on">Elle</span></span>
+                <div class="row"><span class="bt bt-s">Otomatik öneri</span><span class="lnk">Noktalarla düzenle</span></div>
+                <div class="row" style="font-size:13px"><span class="sw"></span>Alanın tamamına yazılabilsin</div>
+              </div>
+              <div class="sec">
+                <div class="pr"><span>Kurdele</span><span class="row"><span class="st"><span><svg class="is"><use href="#i-minus"/></svg></span><b>%17</b><span><svg class="is"><use href="#i-plus"/></svg></span></span><span class="mut">12 px kapalı</span></span></div>
+                <div class="pr"><span>Hedef merkez</span><span class="mono" style="font-size:12px;white-space:nowrap">x %50 · y %51</span></div>
+                <div class="pr"><span></span><span class="lnk">Alan merkezine döndür</span></div>
+              </div>
+              <div class="gc"><b>Şablon bilgisi</b><span class="v">basılı yazı yok · 3 etiket</span></div>
+              <div class="gc"><b>Dekor ayarları</b><span class="v">otomatik</span></div>
+              <div class="gc"><b>Değişiklik geçmişi</b><span class="v">4</span></div>
+              <div class="pfoot">
+                <div class="row"><span class="bt bt-q bt-l">Geri al</span><span class="bt bt-p bt-l" style="flex:1">Kaydet <span class="k">Ctrl S</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> kütüphane: başlıkta Klasörü tara, Temadan şablon üret, Şablon yükle (iki pencere bugünküyle aynı); arama (/), sıralama, süzgeçler (Hepsi, Elle alan; Otomatik, Dosya eksik, Üretilmiş, Sticker "Diğer"de); tarama raporu kapatılabilir not.</li>
+        <li><b>Ortada</b> rayda Seç (V), Oval (O), Dikdörtgen (R), Çokgen (P), Kaydır; tuvalde yazı alanı tutamaklı, kurdele bandı sarı, hedef merkez artı işareti. Katmanlar şeritte, Hedefe yakınlaş sağda; deneme kutusu tuvalin altında. Önceki ve sonraki şablon iş satırında ([ ]).</li>
+        <li><b>Sağda</b> alan modu, Otomatik öneri, noktalarla düzenleme, kurdele, hedef merkez; Şablon bilgisi (basılı yazı, notlar, etiketler), Dekor ayarları ve Değişiklik geçmişi kapalı grupta; altta Geri al ve Kaydet (Ctrl S).</li>
+      </ul>
+    </figure>
+  </section>
+
+
+  <!-- ===================================================== 2 TASARIM DİLİ · ÖZET ===================================================== -->
+  <section class="blk" id="td-ozet" aria-labelledby="h-tdo">
+    <div class="scr-h"><span class="n">2</span><h2 id="h-tdo">Tasarım dili · Özet</h2><p>Dilin kuralları düz cümlelerle; yanda yazı örnek föyü. İş satırında yedi bölüm ve taslak durumu (bugünkü sarı taslak şeridinin yerine).</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Özet maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Özet: iş satırında yedi sekme, taslak durumu, Taslağı at ve Yayınla; ortada gruplara ayrılmış kural cümleleri ve Düzenle bağlantıları; sağda font örnekleri, özel karakter ve satır oranları şeması.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span class="on">Özet</span><span>Kurallar</span><span>Dene</span><span>Örnekler <b>220</b></span><span>Öğren <b>2</b></span><span>Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:minmax(0,1fr) 340px;height:640px">
+            <div class="cvw" style="background:#fff">
+              <div style="padding:22px 28px 6px;display:grid;gap:6px">
+                <div style="font-size:18px;font-weight:600">GiftUpStore tarzı</div>
+                <div class="mut" style="font-size:13px">Düğün, vaftiz ve teşekkür etiketleri. Zarif, ferah, romantik. · Aşağıdakiler yayınlanmamış taslağa göre yazıldı.</div>
+              </div>
+              <div class="rule-sum">
+                <div class="sg"><div class="sh">Fontlar<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">İsimler Great Vibes ile, tarih ve ikincil satırlar Cormorant Garamond ile yazılır. Bir etikette en çok iki font ailesi.</p></div>
+                <div class="sg"><div class="sh">Boyut ve doluluk<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">Yazı alanın %94'ünü doldurur. İkincil satır ana satırın %45'i, tarih %38'i.</p></div>
+                <div class="sg"><div class="sh">Satır aralığı ve hizalama<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">Satırlar ortalanır. Satırlar arası görünen boşluk küçük satırın %12'si.</p></div>
+                <div class="sg"><div class="sh">Bağlaçlar<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">&amp;, and, e ve y ayrı satırda, ana satırın %55'i boyunda.</p></div>
+                <div class="sg"><div class="sh">Satır bölme<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">İki isim alt alta. Teşekkür tek satır, bayram selamı iki satır. Bir satır en çok 42 karakter.</p></div>
+                <div class="sg"><div class="sh">Kalınlık ve renk<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">Harfler 0,3 px konturla kalınlaşır. Renk şablondan gelir.</p></div>
+                <div class="sg"><div class="sh">Etiket ölçüleri<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">Yuvarlak kesim. Boyutlar 2,5, 3,8 ve 5,2 cm; varsayılan 3,8 cm.</p></div>
+                <div class="sg"><div class="sh">Sticker<span class="sp"></span><a>Düzenle</a></div><p style="margin:0;font-size:13px;line-height:20px">Şablonu boş olan siparişler sticker sayılır ve A4 sticker sayfasına dizilir.</p></div>
+              </div>
+              <div class="mut" style="padding:0 28px">Diğer gruplar: Genel, Özel karakterler, Baskı, Kalite işaretleri.</div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t">Yazı örnek föyü</span></div>
+              <div class="sec">
+                <span class="fi">Aa Bb Cc Çç Şş 0123 &amp;</span>
+                <div style="display:grid;gap:2px;margin-top:6px"><span style="font:32px/1.1 'Great Vibes','Segoe Script',cursive">Aa Bb Cc Çç Şş 0123 &amp;</span><span class="mut">Great Vibes · el yazısı · ana satır</span></div>
+                <div style="display:grid;gap:2px;margin-top:6px"><span style="font:italic 500 22px/1.2 'Cormorant Garamond',Georgia,serif">Aa Bb Cc Çç Şş 0123 &amp;</span><span class="mut">Cormorant Garamond · tırnaklı · ikincil satır</span></div>
+              </div>
+              <div class="sec">
+                <div class="sh">Özel karakterler</div>
+                <div class="row"><span style="font:34px/1 'Great Vibes','Segoe Script',cursive;width:40px;text-align:center">&amp;</span><span style="font-size:13px">"&amp;" Great Vibes ile, satırın ×0,55'i</span></div>
+              </div>
+              <div class="sec">
+                <div class="sh">Satır oranları</div>
+                <svg width="270" height="200" viewBox="0 0 270 200">
+                  <circle cx="100" cy="100" r="92" fill="none" stroke="#9a92b3" stroke-dasharray="4 3"/>
+                  <g fill="#d9d6cf"><rect x="52" y="38" width="96" height="22" rx="3"/><rect x="88" y="66" width="24" height="12" rx="2"/><rect x="48" y="84" width="104" height="22" rx="3"/><rect x="60" y="114" width="80" height="10" rx="2"/><rect x="68" y="132" width="64" height="8" rx="2"/></g>
+                  <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#5f6b7f"><text x="200" y="53">%100</text><text x="200" y="76">%55</text><text x="200" y="99">%100</text><text x="200" y="122">%45</text><text x="200" y="140">%38</text></g>
+                  <g stroke="#7a5af8" stroke-width="1"><path d="M160 106v8M157 106h6M157 114h6"/></g>
+                  <text x="166" y="113" font-family="IBM Plex Mono, monospace" font-size="9" fill="#5b3fd6">%12</text>
+                </svg>
+                <div class="mut">Sağdaki sayı satırın ana satıra oranı; mor ölçü satırlar arası boşluk.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>İş satırında</b> dilin adı, yedi bölüm (Örnekler ve Öğren sayılarıyla), taslak durumu, Taslağı at ve Yayınla. Yayınla kısa not isteyen pencereyi açar; Taslağı at onay ister. Taslak yoksa bu üçü görünmez.</li>
+        <li><b>Ortada</b> her grubun kuralı düz cümleyle; "Düzenle" o grubu Kurallar'da açar. Tarz notu ve açıklama başlıkta.</li>
+        <li><b>Sağda</b> örnek yazı alanı, her fontun kendi yazısıyla örneği, özel karakterler ve satır oranları şeması.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 3 TASARIM DİLİ · KURALLAR ===================================================== -->
+  <section class="blk" id="td-kurallar" aria-labelledby="h-tdk">
+    <div class="scr-h"><span class="n">3</span><h2 id="h-tdk">Tasarım dili · Kurallar</h2><p>Solda 12 grup, ortada seçili grubun şema önizlemesi, sağda alanlar. Değişiklik taslağa kendiliğinden kaydedilir.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Kurallar maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Kurallar: solda alan arama ve 12 grup, Boyut ve doluluk seçili; ortada cetvelli tuvalde satır oranları şeması, değişen ikincil satır mor; sağda doluluk ve satır oranı alanları.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span>Özet</span><span class="on">Kurallar</span><span>Dene</span><span>Örnekler <b>220</b></span><span>Öğren <b>2</b></span><span>Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:260px minmax(0,1fr) 330px;height:640px">
+            <div class="pnl l">
+              <div class="sec" style="padding-top:12px"><span class="fi"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Alan ara (doluluk, bağlaç…)</span></span></div>
+              <div class="glist">
+                <span>Genel</span><span>Fontlar</span><span>Özel karakterler</span><span class="on">Boyut ve doluluk<i>1</i></span><span>Satır aralığı ve hizalama</span><span>Bağlaçlar</span><span>Satır bölme</span><span>Kalınlık ve renk<i>2</i></span><span>Etiket ölçüleri</span><span>Sticker</span><span>Baskı</span><span>Kalite işaretleri</span>
+              </div>
+            </div>
+            <div class="cvw">
+              <div class="cv" style="--maj:48px;--min:9.6px;--o:170px;--ol:46px">
+                <div class="rl-c"></div>
+                <div class="rl-t"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span></div>
+                <div class="rl-l"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span><span>35</span><span>40</span><span>45</span></div>
+                <div class="ab" style="left:192px;top:44px"><div class="nm"><b>Şema</b> · Ø 38 mm · motorun kendisi değil, oranlar</div>
+                  <svg width="364" height="364" viewBox="0 0 200 200" style="background:#fff;border-radius:50%">
+                    <circle cx="100" cy="100" r="99" fill="none" stroke="#9a92b3" stroke-dasharray="3 2.4"/>
+                    <g font-family="Great Vibes, Segoe Script, cursive" fill="#2b2b33" text-anchor="middle"><text x="100" y="64" font-size="30">Elif</text><text x="100" y="82" font-size="17">&amp;</text><text x="100" y="112" font-size="30">Kerem</text></g>
+                    <text x="100" y="131" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="13.5" fill="#5b3fd6">Sevgiyle</text>
+                    <text x="100" y="148" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="11.4" fill="#2b2b33">14.06.2027</text>
+                    <g stroke="#a8a1b8" stroke-width=".4"><path d="M50 64h100M50 112h100M60 148h80"/></g>
+                    <rect x="62" y="119" width="76" height="16" fill="none" stroke="#7a5af8" stroke-width=".7"/>
+                    <g font-family="IBM Plex Mono, monospace" font-size="6.5" fill="#5f6b7f"><text x="160" y="62">%100</text><text x="160" y="80">%55</text><text x="160" y="110">%100</text><text x="160" y="146">%38</text></g>
+                    <text x="142" y="131" font-family="IBM Plex Mono, monospace" font-size="6.5" fill="#5b3fd6">%45</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="sb"><span>Satır oranları, ana satıra göre</span><span class="sp"></span><span class="zm"><span class="zb">−</span><b>%100</b><span class="zb">+</span><span class="zb">Sığdır</span></span></div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t">Boyut ve doluluk</span></div>
+              <div class="sec">
+                <div class="pr"><span title="Kesin: motor uygular">Doluluk <svg class="is" style="width:12px;height:12px;vertical-align:-1px"><use href="#i-lock"/></svg></span><span class="st"><span><svg class="is"><use href="#i-minus"/></svg></span><b>0,94</b><span><svg class="is"><use href="#i-plus"/></svg></span></span></div>
+                <div class="pr"><span>Doluluk sabit</span><span><span class="sw on"></span></span></div>
+              </div>
+              <div class="sec">
+                <div class="sh">Satır sınıfları</div>
+                <div class="pr"><span>Ana satır</span><span class="fi mono">100 <span class="u">%</span></span></div>
+                <div class="pr" style="background:var(--ps);margin:0 -8px;padding:0 8px;border-radius:6px"><span>İkincil satır</span><span class="fi mono foc">45 <span class="u">%</span></span></div>
+                <div class="pr"><span>Üçüncül satır</span><span class="fi mono">35 <span class="u">%</span></span></div>
+                <div class="pr"><span>Tek başına bağlaç</span><span class="fi mono">55 <span class="u">%</span></span></div>
+                <div class="pr"><span>En küçük punto</span><span class="fi mono">7 <span class="u">pt</span></span></div>
+              </div>
+              <div class="sec">
+                <div class="pr"><span title="AI'a yol gösterir">Oranları motor uygulasın</span><span><span class="sw on"></span></span></div>
+              </div>
+              <div class="gc"><b>İleri ayarlar</b><span class="v">3 alan</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> alan arama (bütün gruplarda arar) ve 12 grup; değişen alan sayısı grubun yanında.</li>
+        <li><b>Ortada</b> seçili grubun şeması; düzenlenen alan şemada mor. Yazı yalnız örnektir, motorun gerçek yerleşimi değildir.</li>
+        <li><b>Sağda</b> grubun alanları; kilit simgesi "kesin, motor uygular", diğerleri yapay zekâya yol gösterir (ipucunda). İleri ayarlar kapalı grupta. Font, özel karakter, kesim ve boyut gibi liste alanları aynı panelde kendi düzenleyicileriyle açılır.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 4 TASARIM DİLİ · DENE ===================================================== -->
+  <section class="blk" id="td-dene" aria-labelledby="h-tdd">
+    <div class="scr-h"><span class="n">4</span><h2 id="h-tdd">Tasarım dili · Dene</h2><p>Taslağı kendi örneklerinizle dener. Motor denemesi ücretsiz; AI denemesinde tahmini maliyet düğmenin üstünde yazar ve tıklayınca bir kez onay istenir.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Dene maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Dene: solda deneme kümesi ve serbest metin ekleme, altta Motor ya da AI seçimi, tahmini maliyet ve onay kutusu; ortada her örnek için yayınlanmış, taslak ve son hâl yan yana.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span>Özet</span><span>Kurallar</span><span class="on">Dene</span><span>Örnekler <b>220</b></span><span>Öğren <b>2</b></span><span>Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:300px minmax(0,1fr);height:680px">
+            <div class="pnl l">
+              <div class="ph"><span class="t">Deneme kümesi</span><span class="c">3</span><span class="sp"></span><span class="bt bt-s" style="height:28px">Örnek seç</span></div>
+              <div style="padding:6px">
+                <div class="vrow" style="grid-template-columns:36px minmax(0,1fr) auto;padding:8px"><svg width="36" height="36" viewBox="0 0 200 200"><use href="#ek2"/></svg><span><b>Elif &amp; Kerem 14.06.2027</b><small>örnek, son hâliyle · A15</small></span><span class="ib" style="width:26px;height:26px" title="Kümeden çıkar"><svg class="is"><use href="#i-x"/></svg></span></div>
+                <div class="vrow" style="grid-template-columns:36px minmax(0,1fr) auto;padding:8px"><svg width="36" height="36" viewBox="0 0 200 200"><use href="#df"/></svg><span><b>Defne · Vaftiz hatırası</b><small>örnek, son hâliyle · C07</small></span><span class="ib" style="width:26px;height:26px" title="Kümeden çıkar"><svg class="is"><use href="#i-x"/></svg></span></div>
+                <div class="vrow" style="grid-template-columns:36px minmax(0,1fr) auto;padding:8px"><span class="qph" style="width:36px;height:36px"></span><span><b>Grazie! Giulia &amp; Luca</b><small>serbest metin · B21</small></span><span class="ib" style="width:26px;height:26px" title="Kümeden çıkar"><svg class="is"><use href="#i-x"/></svg></span></div>
+              </div>
+              <div class="sec">
+                <div class="sh">Serbest metin ekle</div>
+                <span class="fi ph-t">Müşterinin yazdığı metin</span>
+                <div class="row"><span class="bt bt-s" style="flex:1"><svg class="is"><use href="#i-tag"/></svg>Şablon seç</span><span class="bt bt-s">Ekle</span></div>
+              </div>
+              <div class="pfoot" style="position:relative">
+                <span class="seg" style="width:100%"><span style="flex:1;justify-content:center">Motor · ücretsiz</span><span class="on" style="flex:1;justify-content:center">AI · ücretli</span></span>
+                <div class="mut">Tahmini maliyet <b style="color:var(--tx)">≈ $0,09</b> · 3 örnek, iki profille</div>
+                <span class="bt bt-p bt-l bt-w">Taslağı AI ile dene</span>
+                <div class="pop" style="left:12px;right:12px;bottom:118px;padding:12px;gap:10px"><b style="font-size:14px">AI ile denensin mi?</b><span style="font-size:13px;color:var(--tx2)">3 örnek iki profille üretilir. Tahmini maliyet ≈ $0,09.</span><div class="row" style="justify-content:flex-end"><span class="bt bt-q">Vazgeç</span><span class="bt bt-p">Dene</span></div></div>
+              </div>
+            </div>
+            <div class="cvw">
+              <div class="tb"><span style="font-size:13px;font-weight:600">Sonuçlar</span><span class="mut">Motorla üretildi (ücretsiz) · 2 dk önce</span><span class="sp"></span><span class="mut">Kurallar değişirse sonuçlar eskir; yeniden deneyin.</span></div>
+              <div class="cv">
+                <div class="ab" style="left:30px;top:22px"><div class="nm"><b>Elif &amp; Kerem</b> · A15</div></div>
+                <div class="ab" style="left:30px;top:52px"><div class="nm">Yayınlanmış · sürüm 3</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ek1"/></svg><div class="mut" style="margin-top:6px">2 satır · sorun yok</div></div>
+                <div class="ab sel" style="left:210px;top:52px"><div class="nm">Taslak</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ek2"/></svg><div class="row" style="margin-top:6px;gap:4px;flex-wrap:wrap;width:160px"><span class="tg">Satır bölmesi farklı</span><span class="tg">Boyut %4</span></div></div>
+                <div class="ab" style="left:390px;top:52px"><div class="nm">Son hâl · örnek</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ek2"/></svg><div class="mut" style="margin-top:6px">3 satır</div></div>
+                <div class="ab" style="left:30px;top:296px"><div class="nm"><b>Defne · Vaftiz hatırası</b> · C07</div></div>
+                <div class="ab" style="left:30px;top:326px"><div class="nm">Yayınlanmış · sürüm 3</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#df"/></svg><div class="mut" style="margin-top:6px">3 satır · sorun yok</div></div>
+                <div class="ab sel" style="left:210px;top:326px"><div class="nm">Taslak</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#df"/></svg><div class="row" style="margin-top:6px;gap:4px;flex-wrap:wrap;width:160px"><span class="tg">Satır bölmesi aynı</span><span class="tg">Boyut aynı</span></div></div>
+                <div class="ab" style="left:390px;top:326px"><div class="nm">Son hâl · örnek</div><svg width="150" height="150" viewBox="0 0 200 200"><use href="#df"/></svg><div class="mut" style="margin-top:6px">3 satır</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> deneme kümesi: "Örnek seç" (bitmiş etiketlerden, aramalı liste), serbest metin ve şablon ekleme, kümeden çıkarma.</li>
+        <li><b>Solda altta</b> yöntem (Motor ücretsiz / AI ücretli), tahmini maliyet ve "Taslağı AI ile dene"; AI'da tıklayınca maliyeti yineleyen onay kutusu açılır.</li>
+        <li><b>Ortada</b> her örnek için yayınlanmış sürüm, taslak ve örneğin son hâli yan yana; taslağın altında farklar (satır bölmesi, boyut).</li>
+      </ul>
+    </figure>
+  </section>
+
+
+  <!-- ===================================================== 5 ÖRNEKLER ===================================================== -->
+  <section class="blk" id="td-ornekler" aria-labelledby="h-tdr">
+    <div class="scr-h"><span class="n">5</span><h2 id="h-tdr">Tasarım dili · Örnekler</h2><p>Bitmiş etiketleriniz: dilin öğrendiği ve ölçüldüğü örnekler. Bugünkü ayrıntı penceresi sağ panele geçti.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Örnekler maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Örnekler: ortada küme süzgeci, arama ve örnek etiket kartları; sağda seçili örneğin son hâli, programın önerisi, satır tablosu ve Öğrenme ya da Test seçimi.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span>Özet</span><span>Kurallar</span><span>Dene</span><span class="on">Örnekler <b>220</b></span><span>Öğren <b>2</b></span><span>Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:minmax(0,1fr) 330px;height:640px">
+            <div class="cvw" style="background:var(--sf2)">
+              <div class="tb">
+                <span class="ttabs"><span class="on">Hepsi <i>220</i></span><span>Öğrenme <i>176</i></span><span>Test <i>44</i></span></span>
+                <span class="vl"></span>
+                <span class="fi" style="width:300px"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Metin, sipariş no ya da şablon</span></span>
+                <span class="sp"></span><span class="mut">220 örnek</span>
+              </div>
+              <div class="gcards" style="grid-template-columns:repeat(5,minmax(0,1fr));overflow:hidden">
+                <div class="gcard cur"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ek2"/></svg><div class="m"><b>Elif &amp; Kerem</b><span>№ 8812 · A15 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#df"/></svg><div class="m"><b>Defne · Vaftiz</b><span>№ 8790 · C07 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ac"/></svg><div class="m"><b>Ayşe &amp; Can</b><span>№ 8741 · A12 · test</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ml"/></svg><div class="m"><b>Mila 1 yaşında</b><span>№ 8733 · B03 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#sm"/></svg><div class="m"><b>Selin &amp; Mert</b><span>№ 8702 · B21 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ek1"/></svg><div class="m"><b>Zeynep &amp; Arda</b><span>№ 8688 · A15 · test</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ek3"/></svg><div class="m"><b>Anna &amp; Luca</b><span>№ 8650 · A14 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ac"/></svg><div class="m"><b>Teşekkürler · Ece</b><span>№ 8631 · A12 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#df"/></svg><div class="m"><b>Can'ın Sünneti</b><span>№ 8622 · C07 · öğrenme</span></div></div>
+                <div class="gcard"><svg width="110" height="110" viewBox="0 0 200 200"><use href="#ml"/></svg><div class="m"><b>Happy Birthday Mila</b><span>№ 8601 · B03 · test</span></div></div>
+              </div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t">Elif &amp; Kerem</span><span class="sp"></span><span class="mut">№ 8812 · 60 adet</span></div>
+              <div class="sec">
+                <div class="row" style="justify-content:space-around;align-items:flex-start">
+                  <div class="mini-prev"><svg width="120" height="120" viewBox="0 0 200 200"><use href="#ek2"/></svg>Son hâl</div>
+                  <div class="mini-prev"><svg width="120" height="120" viewBox="0 0 200 200"><use href="#ek1"/></svg>Programın önerisi · s.3</div>
+                </div>
+                <div class="mut">Kaynak: Figma'dan aktarıldı (eski)</div>
+              </div>
+              <div class="sec">
+                <div class="sh">Sizin satırlarınız</div>
+                <div class="lines" style="grid-template-columns:minmax(0,1fr) auto auto"><b>Elif</b><em>Great Vibes</em><em>36</em><b>&amp;</b><em>Great Vibes</em><em>20</em><b>Kerem</b><em>Great Vibes</em><em>36</em><b>14.06.2027</b><em>Cormorant İt.</em><em>13</em></div>
+                <div class="mut">Punto, varsayılan boyuta göre yaklaşık.</div>
+              </div>
+              <div class="sec">
+                <div class="pr"><span>Bu örnek</span><span class="seg"><span class="on">Öğrenme</span><span>Test</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Üstte</b> küme süzgeci (Hepsi, Öğrenme, Test), arama ve sayı; örnek eklemek bugünkü gibi Oluştur akışından.</li>
+        <li><b>Ortada</b> örnek kartları: bitmiş etiket, sipariş no, şablon, küme.</li>
+        <li><b>Sağda</b> seçili örneğin son hâli ve programın önerisi, satır tablosu, kaynağı; "Öğrenme / Test" seçimi hemen kaydedilir.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 5b ÖĞREN ===================================================== -->
+  <section class="blk" id="td-ogren" aria-labelledby="h-tdg">
+    <div class="scr-h"><span class="n">5b</span><h2 id="h-tdg">Tasarım dili · Öğren</h2><p>Düzeltmelerinizden çıkan öneriler. Önce ve sonra ölçülür; uygulanırsa yalnız taslağa yazılır, geri alınabilir.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Öğren maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Öğren: solda bekleyen öneriler, ortada aynı örneğin önce ve sonra hâli ile ölçüm tablosu, sağda değişecek alan, dayanağı ve Reddet ile Taslağa uygula.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span>Özet</span><span>Kurallar</span><span>Dene</span><span>Örnekler <b>220</b></span><span class="on">Öğren <b>2</b></span><span>Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:280px minmax(0,1fr) 330px;height:640px">
+            <div class="pnl l">
+              <div class="ph"><span class="t">Öneriler</span><span class="sp"></span><span class="ib" title="Önerileri yeniden hesapla (ücretsiz)"><svg class="i"><use href="#i-refresh"/></svg></span></div>
+              <div class="sec"><div class="ttabs"><span class="on">Bekleyen <i>2</i></span><span>Uygulanan <i>5</i></span><span>Reddedilen <i>1</i></span></div></div>
+              <div style="padding:0 6px">
+                <div class="vrow cur" style="grid-template-columns:minmax(0,1fr);border-radius:8px"><span><b>İkincil satır biraz küçülsün</b><small>14 düzeltmenizde aynı örüntü</small></span></div>
+                <div class="vrow" style="grid-template-columns:minmax(0,1fr)"><span><b>A15'te yazı merkezi 1,5 px yukarı</b><small>şablon · 9 elle kaydırma</small></span></div>
+              </div>
+              <div class="mut" style="margin-top:auto;padding:12px 14px">Örneklerinizi yayınlanan kurallarla karşılaştırır; ücretsizdir ve hiçbir şeyi değiştirmez.</div>
+            </div>
+            <div class="cvw">
+              <div class="cv">
+                <div class="ab" style="left:70px;top:28px"><div class="nm"><b>Önce</b> · yayınlanmış sürüm 3</div><svg width="180" height="180" viewBox="0 0 200 200"><use href="#ek2"/></svg></div>
+                <div class="ab sel" style="left:330px;top:28px"><div class="nm"><b>Sonra</b> · öneriyle</div><svg width="180" height="180" viewBox="0 0 200 200"><use href="#ek2"/></svg></div>
+                <div class="dock" style="left:24px;right:24px;bottom:18px;gap:10px">
+                  <div class="sh">Ayrılmış test kümesinde, önce ve sonra</div>
+                  <div class="meas"><span>Satır bölmesi tutma</span><span class="bar"><i style="width:82%"></i></span><b>%82</b><span></span><span class="bar n"><i style="width:86%"></i></span><b>%86</b></div>
+                  <div class="meas"><span>Boyut sapması</span><span class="bar"><i style="width:61%"></i></span><b>%6,1</b><span></span><span class="bar n"><i style="width:38%"></i></span><b>%3,8</b></div>
+                  <div class="meas"><span>Genel uyum</span><span class="bar"><i style="width:74%"></i></span><b>0,74</b><span></span><span class="bar n"><i style="width:79%"></i></span><b>0,79</b></div>
+                  <div class="mut">Gri: önce · mor: sonra. Üçü de daha iyi.</div>
+                </div>
+              </div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t">İkincil satır biraz küçülsün</span></div>
+              <div class="sec">
+                <div class="sh">Değişecek alanlar</div>
+                <div class="kv chg"><span>İkincil satır</span><b><s>%48</s> %45</b></div>
+              </div>
+              <div class="sec">
+                <div class="sh">Neye dayanıyor</div>
+                <p style="margin:0;font-size:13px;line-height:19px">14 düzeltmenizde ikincil satırı küçülttünüz; ortanca %3.</p>
+                <div class="row" style="gap:6px"><svg width="48" height="48" viewBox="0 0 200 200"><use href="#ek2"/></svg><svg width="48" height="48" viewBox="0 0 200 200"><use href="#df"/></svg><svg width="48" height="48" viewBox="0 0 200 200"><use href="#ac"/></svg><svg width="48" height="48" viewBox="0 0 200 200"><use href="#sm"/></svg></div>
+              </div>
+              <div class="gc"><b>Öğrenme örneklerinde</b><span class="v">3 ölçü</span></div>
+              <div class="pfoot">
+                <div class="mut">Yalnız taslağa yazılır; yayınlayana kadar üretim değişmez.</div>
+                <div class="row"><span class="bt bt-s bt-l">Reddet</span><span class="bt bt-p bt-l" style="flex:1">Taslağa uygula</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> öneriler (Bekleyen, Uygulanan, Reddedilen) ve başlıkta "Önerileri yeniden hesapla" (ücretsiz).</li>
+        <li><b>Ortada</b> aynı örneğin önce ve sonra hâli; altta test kümesinde önce/sonra ölçüleri (satır bölmesi tutma, boyut sapması, genel uyum). Öğrenme örneklerindeki ölçü sağda kapalı grupta.</li>
+        <li><b>Sağda</b> değişecek alan (eski değer üstü çizili), dayanağı ve düzelttiğiniz etiketler; Reddet ve "Taslağa uygula". Uygulanan ya da reddedilen öneride burada "Geri al" durur; bildirimde de "Geri al" var.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 6 SÜRÜMLER ===================================================== -->
+  <section class="blk" id="td-surumler" aria-labelledby="h-tds">
+    <div class="scr-h"><span class="n">6</span><h2 id="h-tds">Tasarım dili · Sürümler</h2><p>Yayınlanmış sürümler, iki sürüm arasındaki fark ve eski sürüme dönüş.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Tasarım dili Sürümler maketi">
+        <div class="app" role="img" aria-label="Tasarım dili Sürümler: solda sürüm listesi, Sürüm 2 seçili; ortada Sürüm 1 ile Sürüm 2 arasındaki dört alan farkı ve Bu sürüme dön düğmesi.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span class="on">Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr"><b>GiftUpStore tarzı</b></span><span class="btabs"><span>Özet</span><span>Kurallar</span><span>Dene</span><span>Örnekler <b>220</b></span><span>Öğren <b>2</b></span><span class="on">Sürümler</span><span>Oluştur</span></span><span class="sp"></span><span class="cr"><svg class="is"><use href="#i-pen"/></svg>Taslak · 3 alan değişti · kaydedildi</span><span class="cb q">Taslağı at</span><span class="cb cta">Yayınla</span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:300px minmax(0,1fr);height:520px">
+            <div class="pnl l">
+              <div class="ph"><span class="t">Sürümler</span><span class="c">4</span></div>
+              <div class="vrow"><span class="mono">Taslak</span><span><b>3 alan değişti</b><small>Bugün 14:05</small></span><span></span></div>
+              <div class="vrow"><span class="mono">S.3</span><span><b>Tarih küçüldü</b><small>12 Kas 10:40</small></span><span class="mut"><span class="dot ok" style="display:inline-block;margin-right:5px"></span>Etkin</span></div>
+              <div class="vrow cur"><span class="mono">S.2</span><span><b>Bağlaç ayrı satırda</b><small>2 Kas 16:12</small></span><span></span></div>
+              <div class="vrow"><span class="mono">S.1</span><span><b>İlk sürüm</b><small>28 Eki 11:03</small></span><span></span></div>
+            </div>
+            <div class="cvw" style="background:#fff">
+              <div class="tb"><span class="mut">Önceki</span><span class="fi sel" style="width:130px">Sürüm 1</span><span class="mut">→ Sonraki: <b style="color:var(--tx)">Sürüm 2</b></span><span class="sp"></span><span class="bt bt-s"><svg class="is"><use href="#i-undo"/></svg>Bu sürüme dön</span></div>
+              <div style="padding:18px 24px;display:grid;gap:10px">
+                <div style="font-size:14px;font-weight:600">4 alan değişti</div>
+                <div class="dfg">
+                  <span class="hh">Alan</span><span class="hh">Sürüm 1</span><span class="hh">Sürüm 2</span>
+                  <span class="k2">Bağlaçlar · Tek başına bağlaç</span><span class="o">Aynı satırda</span><span class="n2">Ayrı satırda</span>
+                  <span class="k2">Bağlaçlar · Bağlaç boyu</span><span class="o">%70</span><span class="n2">%55</span>
+                  <span class="k2">Satır bölme · İki isim</span><span class="o">Uzunluğa göre</span><span class="n2">Alt alta</span>
+                  <span class="k2">Fontlar · Bir etikette aile</span><span class="o">Serbest</span><span class="n2">İki aile</span>
+                </div>
+                <div class="mut">Dönünce Sürüm 2'nin kuralları yeni bir sürüm olarak yayınlanır; aradaki sürümler silinmez.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> sürümler (yeniden eskiye): not, tarih, etkin olan ve taslak işaretli; tıklanan sürüm "Sonraki", ondan önceki "Önceki" olur.</li>
+        <li><b>Üstte</b> karşılaştırılan sürümler ve "Bu sürüme dön" (yalnız etkin olmayan yayınlanmış sürümde; onay ister).</li>
+        <li><b>Ortada</b> değişen alanlar gruplarıyla; eski değer üstü çizili, yeni değer açık mor zeminde.</li>
+      </ul>
+    </figure>
+  </section>
+
+
+  <!-- ===================================================== 7 SAYFA ŞABLONLARI ===================================================== -->
+  <section class="blk" id="sayfa-sablonlari" aria-labelledby="h-bs">
+    <div class="scr-h"><span class="n">7</span><h2 id="h-bs">Baskı · Sayfa şablonları</h2><p>Baskı kağıdının yuvaları, kesim ve kayıt işaretleri. Solda şablonlar, ortada yuva düzenleyici, sağda beş sekmeli özellik paneli.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Sayfa şablonları maketi">
+        <div class="app" role="img" aria-label="Sayfa şablonları: solda şablon listesi, ortada cetvelli tuvalde A4 kağıt ve 35 numaralı yuva, üç yuva seçili, bir yuva uyarılı; sağda Yuva sekmesinde uyarı, şekil, merkez, çap ve Kaydet.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span>Tasarım dili</span><span>Şablonlar</span><span class="on">Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx">
+              <span class="btabs"><span>Masa</span><span class="on">Sayfa şablonları</span><span>Arşiv</span></span>
+              <span class="vl"></span>
+              <span class="cr"><b>A4 · 35'li Ø 38 mm</b></span>
+              <span class="cr" style="opacity:.85">Kaydedilmedi</span>
+              <span class="sp"></span>
+              <span class="cb q" style="padding:0 8px" title="Şablon işlemleri: çoğalt, arşivle"><svg class="is"><use href="#i-dots"/></svg></span>
+              <span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span>
+            </div>
+          </div>
+          <div class="ws" style="grid-template-columns:48px 270px minmax(0,1fr) 330px;height:680px">
+            <div class="rail">
+              <span class="rb on" title="Seç ve taşı (V)"><svg class="i"><use href="#i-cursor"/></svg></span>
+              <span class="rb" title="Daire yuva çiz (C)"><svg class="i"><use href="#j-circle"/></svg></span>
+              <span class="rb" title="Elips yuva çiz (E)"><svg class="i"><use href="#j-ellipse"/></svg></span>
+              <span class="rb" title="Dikdörtgen yuva çiz (R)"><svg class="i"><use href="#j-rect"/></svg></span>
+              <hr>
+              <span class="rb" title="Kaydır (Boşluk)"><svg class="i"><use href="#i-hand"/></svg></span>
+            </div>
+            <div class="pnl l">
+              <div class="ph"><span class="t">Sayfa şablonları</span><span class="c">6</span><span class="sp"></span><span class="bt bt-s" style="height:28px"><svg class="is"><use href="#i-plus"/></svg>Yeni<svg class="is"><use href="#i-chev"/></svg></span></div>
+              <div class="sec" style="gap:8px">
+                <span class="fi"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Ad ya da boyut</span></span>
+                <div class="ttabs"><span class="on">Hepsi</span><span>Etiket</span><span>Sticker</span></div>
+              </div>
+              <div style="padding:0 6px">
+                <div class="vrow cur" style="grid-template-columns:32px minmax(0,1fr) auto;border-radius:8px"><svg width="30" height="42" viewBox="0 0 210 297" style="box-shadow:0 0 0 1px var(--ln)"><use href="#slots35"/></svg><span><b>A4 · 35'li Ø 38 mm</b><small>Etiket · 3,8 cm · 35 yuva</small></span><span class="tg er">1</span></div>
+                <div class="vrow" style="grid-template-columns:32px minmax(0,1fr) auto"><svg width="30" height="42" viewBox="0 0 210 297" style="box-shadow:0 0 0 1px var(--ln)"><use href="#sheet2"/></svg><span><b>A4 · 21'li 63,5 × 38,1</b><small>Etiket · 21 yuva</small></span><span></span></div>
+                <div class="vrow" style="grid-template-columns:32px minmax(0,1fr) auto"><svg width="30" height="42" viewBox="0 0 210 297" style="box-shadow:0 0 0 1px var(--ln)"><use href="#slots35"/></svg><span><b>A4 · 63'lü Ø 25 mm</b><small>Etiket · 2,5 cm · 63 yuva</small></span><span></span></div>
+                <div class="vrow" style="grid-template-columns:32px minmax(0,1fr) auto"><svg width="30" height="42" viewBox="0 0 210 297" style="box-shadow:0 0 0 1px var(--ln)"><use href="#slots35"/></svg><span><b>A4 · 12'li Ø 52 mm</b><small>Etiket · 5,2 cm · 12 yuva</small></span><span></span></div>
+                <div class="vrow" style="grid-template-columns:32px minmax(0,1fr) auto"><svg width="30" height="42" viewBox="0 0 210 297"><rect width="210" height="297" fill="#fff" stroke="#d9d6cf" stroke-width="3"/><g fill="#c9c5d6"><rect x="20" y="30" width="80" height="14"/><rect x="110" y="30" width="70" height="14"/><rect x="20" y="60" width="120" height="14"/></g></svg><span><b>A4 sticker</b><small>Sticker · satır akışı</small></span><span></span></div>
+              </div>
+              <div class="sec" style="margin-top:auto"><div class="row" style="font-size:13px"><span class="sw"></span>Arşivdekileri göster</div></div>
+            </div>
+            <div class="cvw">
+              <div class="tb">
+                <span class="ib" title="Geri al (Ctrl Z)"><svg class="i"><use href="#i-undo"/></svg></span><span class="ib" title="İleri al (Ctrl Y)"><svg class="i"><use href="#i-redo"/></svg></span>
+                <span class="vl"></span>
+                <span class="ib on" title="Okuma sırası numaraları"><svg class="i"><use href="#j-list"/></svg></span>
+              </div>
+              <div class="selbar">
+                <b>3 yuva seçili</b>
+                <span class="vl2"></span>
+                <span class="bt" title="Sola, ortaya, sağa, üste, alta hizala; eşit aralıkla dağıt"><svg class="is"><use href="#i-dl"/></svg>Hizala<svg class="is"><use href="#i-chev"/></svg></span>
+                <span class="bt">Grubu kağıda ortala</span>
+                <span class="sp"></span>
+                <span class="ib" title="Çoğalt (Ctrl D)"><svg class="is"><use href="#i-copy"/></svg></span><span class="ib" title="Sil (Del)"><svg class="is"><use href="#i-trash"/></svg></span>
+              </div>
+              <div class="cv" style="--maj:80px;--min:8px;--o:158px;--ol:18px">
+                <div class="rl-c"></div>
+                <div class="rl-t"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span><span class="rl-hi" style="left:231.6px;width:179px"></span></div>
+                <div class="rl-l"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span><span>300</span><span class="rl-hi" style="top:33.2px;height:60.8px"></span></div>
+                <svg class="paper" style="position:absolute;left:180px;top:40px" width="336" height="475" viewBox="0 0 210 297">
+                  <use href="#slots35"/><use href="#regm"/>
+                  <text x="25" y="31.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">1</text><text x="65" y="31.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">2</text><text x="105" y="31.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">3</text><text x="145" y="31.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">4</text><text x="185" y="31.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">5</text><text x="25" y="71.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">6</text><text x="65" y="71.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">7</text><text x="105" y="71.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">8</text><text x="145" y="71.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">9</text><text x="185" y="71.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">10</text><text x="25" y="111.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">11</text><text x="65" y="111.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">12</text><text x="105" y="111.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">13</text><text x="145" y="111.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">14</text><text x="185" y="111.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">15</text><text x="25" y="151.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">16</text><text x="65" y="151.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">17</text><text x="105" y="151.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">18</text><text x="145" y="151.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">19</text><text x="185" y="151.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">20</text><text x="25" y="191.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">21</text><text x="65" y="191.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">22</text><text x="105" y="191.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">23</text><text x="145" y="191.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">24</text><text x="185" y="191.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">25</text><text x="25" y="231.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">26</text><text x="65" y="231.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">27</text><text x="105" y="231.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">28</text><text x="145" y="231.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">29</text><text x="185" y="231.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">30</text><text x="25" y="271.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">31</text><text x="65" y="271.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">32</text><text x="105" y="271.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">33</text><text x="145" y="271.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">34</text><text x="185" y="271.5" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8f88a3">35</text>
+                  <circle cx="25" cy="28.5" r="19.6" fill="none" stroke="#c4271b" stroke-width="1"/>
+                  <g fill="rgba(122,90,248,.08)" stroke="#7a5af8" stroke-width=".9"><circle cx="65" cy="28.5" r="19"/><circle cx="105" cy="28.5" r="19"/><circle cx="145" cy="28.5" r="19"/></g>
+                </svg>
+              </div>
+              <div class="sb"><span>A4 · <b>210 × 297 mm</b> · 35 yuva</span><span>Oklar <b>0,1 mm</b> · Shift <b>1 mm</b></span><span class="sp"></span><span class="zm"><span class="zb">−</span><b>%60</b><span class="zb">+</span><span class="zb">Sığdır</span><span class="zb">Gerçek boyut</span></span></div>
+            </div>
+            <div class="pnl r">
+              <div class="ftabs"><span class="on">Yuva</span><span>Izgara</span><span>Kesim</span><span>Hücre etiketi</span><span>Şablon</span></div>
+              <div class="sec">
+                <div class="iss er"><svg class="is er-i"><use href="#i-err"/></svg><span>Kayıt işareti 1. yuvaya çok yakın; makine işareti okuyamaz.</span><span class="fx"><span class="bt bt-s">Seç</span><span class="bt bt-s">Kenardan payını 8 mm yap</span></span></div>
+              </div>
+              <div class="sec">
+                <div class="sh">3 yuva seçili</div>
+                <div class="pr"><span>Şekil</span><span class="fi sel">Daire</span></div>
+                <div class="pr2"><label>Merkez x<span class="fi mono" style="color:#8d93a0">karışık</span></label><label>Merkez y<span class="fi mono">28,5 <span class="u">mm</span></span></label></div>
+                <div class="pr2"><label>Çap<span class="fi mono">38 <span class="u">mm</span></span></label><label>Döndürme<span class="fi mono">0 <span class="u">°</span></span></label></div>
+              </div>
+              <div class="pfoot">
+                <span class="bt bt-p bt-l bt-w">Kaydet <span class="k">Ctrl S</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Solda</b> şablonlar: Yeni (Etiket sayfası, Sticker sayfası), arama, tür süzgeci, uyarı sayısı, "Arşivdekileri göster". Rayda Seç (V), Daire (C), Elips (E), Dikdörtgen (R) yuva, Kaydır.</li>
+        <li><b>Ortada</b> kağıt, yuvalar, okuma sırası numaraları ve kayıt işaretleri; uyarılı yuva kırmızı. Kutu çizerek ya da Shift/Ctrl + tıkla çoklu seçim; seçim şeridinde Hizala menüsü, grubu ortala, çoğalt, sil. Üstte geri al, ileri al, numaralar.</li>
+        <li><b>Sağda</b> sekmeler: Yuva (uyarılar ve "Seç", şekil, merkez, ölçü, döndürme, köşe), Izgara (ızgara üreteci, ön ayarlar, Uygula), Kesim (yuva çizgisi, taşma payı, ayrı kesim dosyası, kayıt işaretleri), Hücre etiketi, Şablon (ad, tür, kağıt, etiket boyutu). Çoğalt ve Arşivle iş satırındaki ⋯ menüsünde; Kaydet panelin altında.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 8 ÜRETİM IZGARA ===================================================== -->
+  <section class="blk" id="izgara" aria-labelledby="h-iz">
+    <div class="scr-h"><span class="n">8</span><h2 id="h-iz">Üretim · ızgara görünümü ve parti menüsü</h2><p>Kuyruk başlığındaki ikonla açılan ikinci görünüm: işler büyük önizlemeyle. İş satırındaki parti adı açık: partiler gün gün, satırın menüsünde yeniden adlandır ve sil.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Üretim ızgara maketi">
+        <div class="app" role="img" aria-label="Üretim ızgara görünümü: üstte açık parti menüsü, gün başlıklarıyla partiler ve bir partinin yeniden adlandır, sil menüsü; altta büyük önizlemeli iş kartları, iki kart seçili; sağda işin bilgileri.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span class="on">Üretim</span><span>Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="bstat"><span class="dot"></span>Üretiliyor 2 · sırada 3</span><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx">
+              <span class="cr">Üretim<span class="sep">/</span></span>
+              <span class="cb" style="background:rgba(255,255,255,.14)"><b>21 Kasım partisi</b><svg class="is"><use href="#i-chev"/></svg></span>
+              <span class="vl"></span>
+              <span class="flow"><span>Kontrol et</span><i></i><span>Üret <b>2</b></span><i></i><span class="on">Karşılaştır <b>6</b></span><i></i><span>Onayla</span><i></i><span>Baskı masası</span></span>
+              <span class="sp"></span>
+              <span class="cb"><svg class="is"><use href="#i-check"/></svg>En iyilerini onayla</span>
+              <span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span>
+            </div>
+          </div>
+          <div class="ws" style="grid-template-columns:minmax(0,1fr) 310px;height:640px;position:relative">
+            <div class="pop" style="left:96px;top:4px;width:330px">
+              <div class="mi"><svg class="is"><use href="#i-layout"/></svg><b style="font-weight:500">Bütün işler</b><span class="sp"></span><small>57 iş</small></div>
+              <hr>
+              <div class="mh">Bugün</div>
+              <div class="mi on"><b>21 Kasım partisi</b><span class="sp"></span><small>12 iş · 14:05</small><span class="ib" title="Parti menüsü"><svg class="is"><use href="#i-dots"/></svg></span></div>
+              <div class="mi"><span>Elle eklenenler</span><span class="sp"></span><small>3 iş · 11:20</small></div>
+              <div class="mh">Dün</div>
+              <div class="mi"><span>Yurt dışı siparişleri</span><span class="sp"></span><small>25 iş · 17:42</small></div>
+              <div class="mh">Perşembe</div>
+              <div class="mi"><span>Düzeltme denemesi</span><span class="sp"></span><small>3 iş</small></div>
+              <div class="mh">12 Kas</div>
+              <div class="mi"><span>Kasım ilk parti</span><span class="sp"></span><small>14 iş</small></div>
+            </div>
+            <div class="pop" style="left:432px;top:96px;width:190px">
+              <div class="mi"><svg class="is"><use href="#i-pen"/></svg>Yeniden adlandır</div>
+              <div class="mi er-i"><svg class="is"><use href="#i-trash"/></svg>Partiyi sil</div>
+            </div>
+            <div class="cvw" style="background:var(--sf2)">
+              <div class="tb">
+                <span class="ib" title="Kuyruk görünümü"><svg class="i"><use href="#j-list"/></svg></span><span class="ib on" title="Izgara görünümü"><svg class="i"><use href="#i-layout"/></svg></span>
+                <span class="vl"></span>
+                <span class="fi" style="width:190px"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Ara</span><span class="k" style="margin-left:auto">/</span></span>
+                <span class="ttabs"><span class="on">Hepsi</span><span>Sorunlu <i>2</i></span><span>Hazır <i>6</i></span><span>Diğer <svg class="is" style="width:12px;height:12px"><use href="#i-chev"/></svg></span></span>
+                <span class="sp"></span>
+                <span class="ib" title="Sırala"><svg class="i"><use href="#i-sort"/></svg></span>
+                <span class="seg"><span class="on">Büyük</span><span>Orta</span><span>Liste</span></span>
+              </div>
+              <div class="selbar"><b>2 iş seçili</b><span class="bt bt-s">Üret <span class="k">U</span></span><span class="bt bt-s">En iyiyi onayla <span class="k">A</span></span><span class="ib" title="Sil (Del)"><svg class="is"><use href="#i-trash"/></svg></span><span class="ib" title="Daha fazla: AI notu, Görselle üret"><svg class="is"><use href="#i-dots"/></svg></span><span class="sp"></span><span class="ib" title="Seçimi kaldır (Esc)"><svg class="is"><use href="#i-x"/></svg></span></div>
+              <div class="gcards">
+                <div class="gcard"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ml"/></svg><div class="m"><span><span class="dot er"></span>Adet yok</span><b>9019 · Mila 1 yaşında</b></div></div>
+                <div class="gcard"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#df"/></svg><div class="m"><span><span class="dot wr"></span>1 uyarı</span><b>9015 · Defne · Vaftiz hatırası</b></div></div>
+                <div class="gcard cur"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ek2"/></svg><div class="m"><span><span class="dot rd"></span>Hazır · V2</span><b>9014 · Elif &amp; Kerem</b></div></div>
+                <div class="gcard"><span class="cbx on"><svg width="11" height="11"><use href="#i-check"/></svg></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#sm"/></svg><div class="m"><span><span class="dot rd"></span>Hazır · V1</span><b>9016 · Grazie! Giulia &amp; Luca</b></div></div>
+                <div class="gcard"><span class="cbx on"><svg width="11" height="11"><use href="#i-check"/></svg></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ac"/></svg><div class="m"><span><span class="dot rd"></span>Hazır · V3</span><b>9020 · Teşekkürler · Zeynep</b></div></div>
+                <div class="gcard"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200" opacity=".35"><use href="#art-gold"/></svg><div class="m"><span><span class="dot bl"></span>Üretiliyor…</span><b>9018 · Selin &amp; Mert</b></div></div>
+                <div class="gcard"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ml"/></svg><div class="m"><span><span class="dot rd"></span>Hazır · V1</span><b>9012 · Happy Birthday Mila</b></div></div>
+                <div class="gcard"><span class="cbx"></span><svg width="150" height="150" viewBox="0 0 200 200"><use href="#ac"/></svg><div class="m"><span><span class="dot ok"></span>Onaylı · V1</span><b>9011 · Ayşe &amp; Can</b></div></div>
+              </div>
+            </div>
+            <div class="pnl r">
+              <div class="ph"><span class="t"><span class="mono">№ 9014</span></span><span class="sp"></span><span class="mut" style="display:flex;align-items:center;gap:6px"><span class="dot rd"></span>Hazır</span></div>
+              <div class="sec">
+                <div class="sh">Müşteri metni<span class="sp"></span><span class="k">E</span></div>
+                <div class="fi ta">Elif &amp; Kerem 14.06.2027</div>
+              </div>
+              <div class="sec">
+                <div class="sh">İş</div>
+                <div class="pr2"><label>Sipariş no<span class="fi mono">9014</span></label><label>Adet<span class="fi mono">60</span></label></div>
+                <div class="pr"><span>Şablon</span><span class="fi sel">A15 · Yeşil çelenk</span></div>
+              </div>
+              <div class="pfoot">
+                <span class="bt bt-s bt-l bt-w">Karşılaştırmada aç <span class="k">K</span></span>
+                <span class="bt bt-p bt-l bt-w">V2'yi onayla <span class="k">Enter</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>İş satırında</b> parti adı açılır menü: "Bütün işler", partiler gün gün (Bugün, Dün, gün adı, tarih), iş sayısı ve saat; satırın ⋯ menüsünde Yeniden adlandır ve Partiyi sil (onaylı, geri alınabilir). Sağ üstte üretim sürerken mavi nokta.</li>
+        <li><b>Üstte</b> kuyruk / ızgara geçişi, arama, süzgeçler, sıralama, Büyük / Orta / Liste. Seçim varken toplu şerit (Üret U, En iyiyi onayla A, sil, ⋯). Kartta önizleme, durum noktası (Hazır koyu nötr), sorun sayısı.</li>
+        <li><b>Sağda</b> seçili işin bilgileri; "Karşılaştırmada aç" (K) ve "V2'yi onayla" (Enter).</li>
+      </ul>
+    </figure>
+  </section>
+
+
+  <!-- ===================================================== 9 AYARLAR, ARŞİV ===================================================== -->
+  <section class="blk" id="ayarlar" aria-labelledby="h-ay">
+    <div class="scr-h"><span class="n">9</span><h2 id="h-ay">Ayarlar ve Arşiv</h2><p>Form ve tablo ekranları dilin kurallarından türetildi: tuval yok, aynı paneller ve satırlar. Üç küçük örnek: Bağlantılar, Dil, Baskı arşivi.</p></div>
+    <figure class="mk" style="margin:0 0 20px">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Ayarlar Bağlantılar maketi">
+        <div class="app" role="img" aria-label="Ayarlar Bağlantılar: solda altı bölüm, ortada iki yapay zekâ hizmeti; Anthropic hazır, Google için anahtar giriş alanı açık.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span>Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span class="on">Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr">Ayarlar<span class="sep">/</span><b>Bağlantılar</b></span><span class="sp"></span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:260px minmax(0,1fr);height:470px">
+            <div class="pnl l">
+              <div class="glist" style="padding-top:12px">
+                <span class="on"><svg class="is"><use href="#j-key"/></svg>Bağlantılar</span><span><svg class="is"><use href="#j-gear"/></svg>Üretim</span><span><svg class="is"><use href="#j-font"/></svg>Fontlar</span><span><svg class="is"><use href="#j-coins"/></svg>Maliyet</span><span><svg class="is"><use href="#j-book"/></svg>Tasarım dilleri</span><span><svg class="is"><use href="#j-globe"/></svg>Dil</span>
+              </div>
+            </div>
+            <div class="ayc" style="background:#fff">
+              <div class="in">
+                <div class="grp">
+                  <h3 class="t2">Bağlantılar</h3>
+                  <div class="mut" style="font-size:13px">Anahtarlar bu bilgisayarda saklanır ve bir daha gösterilmez. Tasarım dilini oluşturmak anahtar istemez.</div>
+                </div>
+                <div class="grp" style="gap:0">
+                  <div class="prov"><span class="lg">A</span><span><b>Anthropic (Claude)</b><small>Günlük üretim · <span class="dot ok" style="display:inline-block;vertical-align:1px;margin-right:4px"></span>Hazır · 3 Kas</small></span><span class="row"><span class="bt bt-s">Anahtarı değiştir</span><span class="bt bt-q bt-d">Sil</span></span></div>
+                  <div class="prov" style="align-items:start"><span class="lg">G</span><span style="display:grid;gap:10px"><span><b>Google (Gemini)</b><small>Görüntü üretimi · <span class="dot" style="display:inline-block;vertical-align:1px;margin-right:4px"></span>Anahtar yok</small></span>
+                    <label class="fld"><b>Yeni anahtar</b><span class="fi foc mono">••••••••••••••••••</span><small>Anahtarı aistudio.google.com adresinden alırsın. Kaydedilince alan boşalır.</small></label>
+                    <span class="row"><span class="bt bt-q">Vazgeç</span><span class="bt bt-p">Kaydet</span></span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <figure class="mk" style="margin:0 0 20px">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Ayarlar Dil maketi">
+        <div class="app" role="img" aria-label="Ayarlar Dil: arayüz dili için Türkçe ve English seçimi.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span>Tasarım dili</span><span>Şablonlar</span><span>Baskı</span><span class="on">Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="cr">Ayarlar<span class="sep">/</span><b>Dil</b></span><span class="sp"></span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:260px minmax(0,1fr);height:300px">
+            <div class="pnl l">
+              <div class="glist" style="padding-top:12px">
+                <span><svg class="is"><use href="#j-key"/></svg>Bağlantılar</span><span><svg class="is"><use href="#j-gear"/></svg>Üretim</span><span><svg class="is"><use href="#j-font"/></svg>Fontlar</span><span><svg class="is"><use href="#j-coins"/></svg>Maliyet</span><span><svg class="is"><use href="#j-book"/></svg>Tasarım dilleri</span><span class="on"><svg class="is"><use href="#j-globe"/></svg>Dil</span>
+              </div>
+            </div>
+            <div class="ayc" style="background:#fff">
+              <div class="in">
+                <div class="grp">
+                  <h3 class="t2">Dil</h3>
+                  <label class="fld"><b>Arayüz dili</b><span class="seg" style="width:260px;height:34px"><span class="on" style="flex:1;justify-content:center">Türkçe</span><span style="flex:1;justify-content:center">English</span></span><small>Seçim bu bilgisayarda saklanır. İlk açılışta tarayıcının dili kullanılır.</small></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Baskı Arşiv maketi">
+        <div class="app" role="img" aria-label="Baskı Arşiv: arama, basılmış oturumlar tablosu; üzerine gelinen satırda Aç, Basılmadı ve Yeniden bas.">
+          <div class="bd">
+            <div class="bd-top"><div class="br"><svg width="28" height="28"><use href="#tp-mark"/></svg><span class="br-t"><b>TagPress</b><small>SellerOnData</small></span></div><div class="nv"><span>Üretim</span><span>Tasarım dili</span><span>Şablonlar</span><span class="on">Baskı</span><span>Ayarlar</span></div><div class="tr"><span class="firm" title="Tasarım dili"><svg class="is"><use href="#j-book"/></svg>GiftUpStore tarzı<svg class="is"><use href="#i-chev"/></svg></span></div></div>
+            <div class="ctx"><span class="btabs"><span>Masa</span><span>Sayfa şablonları</span><span class="on">Arşiv</span></span><span class="sp"></span><span class="cb q"><svg class="is"><use href="#i-kbd"/></svg></span></div>
+          </div>
+          <div class="ws" style="grid-template-columns:minmax(0,1fr);height:400px">
+            <div class="cvw" style="background:#fff">
+              <div class="tb"><span class="fi" style="width:340px"><svg class="is" style="color:#8d93a0"><use href="#i-search"/></svg><span style="color:#8d93a0">Sipariş no, oturum ya da sayfa adı</span></span><span class="sp"></span><span class="mut">14 oturum</span></div>
+              <div class="tbl">
+                <div class="tr-h" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px"><span>Oturum</span><span>Basıldı</span><span>Siparişler</span><span></span></div>
+                <div class="trw" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px;min-height:52px"><span><b style="font-weight:500">21 Kasım oturumu</b><br><small class="mut">3 sayfa · 5 kağıt · 127 etiket</small></span><span>Bugün 15:20</span><span class="mono">№ 9014 · № 9015 · № 9021</span><span></span></div>
+                <div class="trw act" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px;min-height:52px;outline:0;background:var(--sf2)"><span><b style="font-weight:500">Yurt dışı siparişleri</b> <span class="tg">yeniden basım</span><br><small class="mut">2 sayfa · 2 kağıt · 50 etiket</small></span><span>Dün 18:02</span><span class="mono">№ 8990 · № 8991 · № 8995 +4</span><span class="row" style="justify-content:flex-end;gap:4px"><span class="bt bt-s">Aç</span><span class="bt bt-q" title="Yanlışlıkla işaretlendiyse taslağa döndür">Basılmadı</span><span class="bt bt-s"><svg class="is"><use href="#i-print"/></svg>Yeniden bas</span></span></div>
+                <div class="trw" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px;min-height:52px"><span><b style="font-weight:500">20 Kasım oturumu</b><br><small class="mut">4 sayfa · 9 kağıt · 212 etiket</small></span><span>20 Kas 16:45</span><span class="mono">№ 8960 · № 8961 · № 8964 +9</span><span></span></div>
+                <div class="trw" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px;min-height:52px"><span><b style="font-weight:500">Kasım ilk parti</b><br><small class="mut">6 sayfa · 11 kağıt · 301 etiket</small></span><span>12 Kas 11:10</span><span class="mono">№ 8801 · № 8802 · № 8807 +11</span><span></span></div>
+                <div class="trw" style="grid-template-columns:minmax(0,1.3fr) 150px minmax(0,1.4fr) 300px;min-height:52px"><span><b style="font-weight:500">Sticker sayfaları</b><br><small class="mut">1 sayfa · 2 kağıt · 40 sticker</small></span><span>10 Kas 09:30</span><span class="mono">№ 8780</span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Ayarlar</b>: solda altı bölüm (Bağlantılar, Üretim, Fontlar, Maliyet, Tasarım dilleri, Dil); ortada en çok 720 px genişlikte, üstte etiketli alanlar. "Görünüm" yerine "Dil" geldi (koyu tema yok).</li>
+        <li><b>Bağlantılar</b>: her hizmette durum, Anahtarı gir/değiştir (alan yerinde açılır, Kaydet ve Vazgeç) ve Sil (onaylı). Diğer bölümler aynı kalıpla: Tasarım dillerinde yeni, varsayılan yap, yeniden adlandır, kopyala, sil.</li>
+        <li><b>Arşiv</b>: arama ve basılmış oturumlar; satır eylemleri (Aç, Basılmadı, Yeniden bas) satırın üzerine gelince ya da satır seçilince görünür.</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== 10 SÜSLÜ YAZI ===================================================== -->
+  <section class="blk" id="susli" aria-labelledby="h-su">
+    <div class="scr-h"><span class="n">10</span><h2 id="h-su">İçe aktarma · süslü yazı uyarısı</h2><p>Ayrıntı: sorunlu satırın altında iki yol ve ikisinin küçük önizlemesi. İlk tuvaldeki içe aktarma masasının bir parçası.</p></div>
+    <figure class="mk" style="margin:0">
+      <p class="hint">Maket geniştir; yana kaydırarak bakın.</p>
+      <div class="mk-scroll" tabindex="0" role="region" aria-label="Süslü yazı ayrıntı maketi">
+        <div class="app" role="img" aria-label="İçe aktarma tablosundan bir parça: süslü harfli satır, altında açıklama, Düz harfe çevir ve Olduğu gibi bas düğmeleri ile iki hâlin etiket önizlemesi.">
+          <div class="ws" style="grid-template-columns:minmax(0,1fr);border-top:0">
+            <div class="cvw" style="background:#fff">
+              <div class="tb"><span class="ttabs"><span class="on">Hepsi <i>14</i></span><span>Yalnızca sorunlu <i>6</i></span><span>Tekrarlar <i>1</i></span><span>Hariç tutulanlar <i>1</i></span></span><span class="sp"></span><span class="tg">1 yok sayıldı</span></div>
+              <div class="tbl">
+                <div class="tr-h"><span><span class="cbx"></span></span><span>Sipariş no</span><span>Metin</span><span>Adet</span><span>Boyut</span><span>Şablon</span><span>Sorun</span></div>
+                <div class="trw"><span><span class="cbx"></span></span><span class="mono">9014</span><span>Elif &amp; Kerem 14.06.2027</span><span class="mono">60</span><span>3,8 cm</span><span>A15 · Yeşil çelenk</span><span></span></div>
+                <div class="trw wr act"><span><span class="cbx"></span></span><span class="mono">9023</span><span style="font-family:'Cambria Math','Segoe UI Symbol',serif">𝓔𝓵𝓲𝓯 &amp; 𝓒𝓪𝓷</span><span class="mono">30</span><span>3,8 cm</span><span>C07 · Altın halka</span><span><span class="tg wr">Özel harf</span></span></div>
+                <div class="fixrow wr" style="align-items:flex-start;padding-top:10px;padding-bottom:12px">
+                  <div style="display:grid;gap:8px">
+                    <span>Süslü yazı var. Düz harfe çevrilirse etiketin fontuyla, olduğu gibi bırakılırsa bu stille basılır.</span>
+                    <div class="fx-demo">
+                      <div class="pv on"><svg width="96" height="96" viewBox="0 0 200 200"><use href="#art-gold"/><text x="100" y="108" text-anchor="middle" font-family="Great Vibes, Segoe Script, cursive" font-size="40" fill="#6b4f1d">Elif &amp; Can</text></svg>Düz harf · etiketin fontu</div>
+                                            <div class="pv"><svg width="96" height="96" viewBox="0 0 200 200"><use href="#art-gold"/><text x="100" y="108" text-anchor="middle" font-family="Cambria Math, Segoe UI Symbol, serif" font-size="30" fill="#6b4f1d">𝓔𝓵𝓲𝓯 &amp; 𝓒𝓪𝓷</text></svg>Olduğu gibi · yedek font</div>
+                    </div>
+                    <span class="fx" style="margin-left:0"><span class="bt bt-p" title="Yalnız süslü harfler değişir; Geri al ile dönülür">Düz harfe çevir</span><span class="bt bt-s">Olduğu gibi bas</span><span class="bt bt-q">Hariç tut</span></span>
+                  </div>
+                </div>
+                <div class="trw"><span><span class="cbx"></span></span><span class="mono">9020</span><span>Teşekkürler · Zeynep</span><span class="mono">100</span><span>2,5 cm</span><span>A12 · Kraft</span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="where">
+        <li><b>Satırın altında</b> açıklama, iki hâlin önizlemesi ve üç düğme: "Düz harfe çevir" (geri alınabilir), "Olduğu gibi bas" (uyarıyı kapatır, yedek fontla basar), "Hariç tut".</li>
+        <li><b>Üstte</b> "1 yok sayıldı" çipi: yok sayılan uyarıları listeler, her birinde "Geri getir".</li>
+        <li><b>Toplu</b> "Özel harfleri düz harfe çevir (2)" sağ paneldeki toplu işler listesinde (ilk tuval, ekran 3).</li>
+      </ul>
+    </figure>
+  </section>
+
+  <!-- ===================================================== KARAR BEKLEYENLER ===================================================== -->
+  <section class="blk" id="bekleyen" aria-labelledby="h-bek">
+    <p class="eb">Karar bekleyenler</p>
+    <h2 id="h-bek">İki makul yolu olanlar</h2>
+    <ol class="wait" style="margin-top:16px">
+      <li><b>Sağ üst köşe: tasarım dili seçici mi, firma ve hesap düğmeleri mi?</b><span>İlk tuvalde araç değiştirici, firma ve avatar vardı. Uygulama planı 1. aşamada bunların yerine tasarım dili seçiciyi öneriyor; bu sayfa planı izliyor. Platforma bağlanınca firma ve avatar geri gelir.</span></li>
+      <li><b>Şablonlar: kütüphane yalnız sol panel mi?</b><span>Maket kütüphaneyi 290 px'lik panelde küçük önizlemelerle gösteriyor. Bugünkü gibi tam genişlikte büyük ızgara da ayrı bir görünüm olarak kalabilir (Üretim'deki ızgara gibi, başlıktaki ikonla).</span></li>
+      <li><b>Kurallar ortası: şema mı, canlı motor önizlemesi mi?</b><span>Maket bugünkü oran şemasını gösteriyor. İstenirse aynı yerde seçili bir örneğin ücretsiz motor denemesi canlı gösterilebilir; daha gerçekçi ama her değişiklikte bir istek atar.</span></li>
+      <li><b>Örnekler: ayrıntı sağ panelde mi, pencerede mi?</b><span>Maket bugünkü pencereyi sağ panele aldı (Tezgâh düzeni). Pencere kalırsa ızgara tam genişlik olur, ayrıntı tıklayınca açılır.</span></li>
+    </ol>
+    <p class="foot">Maketler statiktir. Eylemler bugünkü TagPress ekranlarından alındı; kısayolu rozetle gösterilmeyenler ipucunda ve ? listesinde durur. Pencereler (şablon yükleme, temadan üretme, yayınlama notu, sürüme dönüş, silme onayları) bugünküyle aynı içerikte, Tezgâh pencere bileşeniyle açılır.</p>
+  </section>
+</div>

@@ -1,0 +1,121 @@
+{
+  "aciklama": "Ürünle gelen varsayılan şablonlar (scripts/varsayilan-sablonlar.mjs üretir; elle düzenlemeyin). Lisans: CC0 1.0.",
+  "lisans": "CC0-1.0",
+  "sablonlar": [
+    {
+      "key": "duz-daire",
+      "file": "duz-daire.png",
+      "kind": "label",
+      "imageBox": {
+        "x": 0,
+        "y": 0,
+        "w": 440,
+        "h": 440
+      },
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "Düz krem zemin, dekor yok; yazı ortada.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "ince-kenar",
+      "file": "ince-kenar.png",
+      "kind": "label",
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "Kenarda tek ince çizgi; iç alan boş ve dairesel.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "cift-kenar",
+      "file": "cift-kenar.png",
+      "kind": "label",
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "Kenarda biri kalın biri ince iki çizgi; iç alan boş ve dairesel.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "kurdele",
+      "file": "kurdele.png",
+      "kind": "label",
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0.309,
+      "notes": "Üstte yatay kurdele bandı (yazıya kapalı); yazı bandın altındaki alanda.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "kose-sus",
+      "file": "kose-sus.png",
+      "kind": "label",
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "İnce kenar çizgisi; çapraz dört köşede küçük yaprak süsü; iç alan dairesel.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "urun-dikdortgen",
+      "file": "urun-dikdortgen.png",
+      "kind": "label",
+      "cut": {
+        "shape": "rect",
+        "wMm": 63.5,
+        "hMm": 38.1,
+        "radiusMm": 0
+      },
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "Dikdörtgen ürün etiketi (63,5 × 38,1 mm); ince iç çerçeve; yazı ortada.",
+      "tags": [
+        "varsayilan"
+      ]
+    },
+    {
+      "key": "kare",
+      "file": "kare.png",
+      "kind": "label",
+      "cut": {
+        "shape": "rect",
+        "wMm": 40,
+        "hMm": 40,
+        "radiusMm": 0
+      },
+      "imageBox": null,
+      "area": {
+        "mode": "auto"
+      },
+      "ribbonTop": 0,
+      "notes": "Kare etiket (40 × 40 mm); ince iç çerçeve; yazı ortada.",
+      "tags": [
+        "varsayilan"
+      ]
+    }
+  ]
+}

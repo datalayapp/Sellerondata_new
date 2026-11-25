@@ -1,0 +1,106 @@
+{
+  "rail": {
+    "label": "Araçlar",
+    "hub": "Merkez",
+    "soon": "Yakında",
+    "soonHint": "{{name}} henüz açık değil."
+  },
+  "top": {
+    "menu": "Menüyü aç",
+    "nav": "{{name}} menüsü",
+    "skip": "İçeriğe geç"
+  },
+  "apps": {
+    "button": "Uygulamalar",
+    "label": "SellerOnData uygulamaları"
+  },
+  "org": {
+    "label": "Firma",
+    "button": "Firma: {{name}}",
+    "none": "Firma yok",
+    "suspended": "Askıda",
+    "closed": "Kapalı",
+    "closedUntil": "Kapalı · {{date}} tarihine kadar",
+    "settings": "Firma ayarları",
+    "create": "Yeni firma",
+    "tipCompany": "Firma: {{name}}",
+    "roles": {
+      "OWNER": "Firma sahibi",
+      "ADMIN": "Firma yöneticisi",
+      "MEMBER": "Çalışan"
+    },
+    "switchFailed": "Firma değiştirilemedi."
+  },
+  "lang": {
+    "label": "Dil"
+  },
+  "user": {
+    "button": "Kullanıcı menüsü: {{name}}",
+    "profile": "Hesabım",
+    "security": "Güvenlik",
+    "firms": "Firmalarım",
+    "logout": "Çıkış yap",
+    "label": "Hesap",
+    "support": "Yardım ve destek"
+  },
+  "common": {
+    "close": "Kapat",
+    "retry": "Tekrar dene",
+    "loading": "Yükleniyor",
+    "loadFailed": "Veriler yüklenemedi.",
+    "unexpected": "Beklenmeyen bir hata oldu. Sayfayı yenileyip tekrar deneyin.",
+    "more": "Diğer",
+    "prevPage": "Önceki sayfa",
+    "nextPage": "Sonraki sayfa",
+    "pageOf": "Sayfa {{page, number}} / {{pages, number}}",
+    "rangeOf": "{{from, number}}–{{to, number}} / {{total, number}} kayıt",
+    "rangeOfUnit": "{{from, number}}–{{to, number}} / {{total, number}} {{label}}"
+  },
+  "modalGuard": {
+    "title": "Yazdıklarınız silinsin mi?",
+    "body": "Pencereyi kapatırsanız burada yaptığınız değişiklikler kaybolur.",
+    "keep": "Düzenlemeye dön",
+    "discard": "Sil ve kapat",
+    "busy": "İşlem sürüyor"
+  },
+  "leave": {
+    "label": "Kaydedilmemiş değişiklik",
+    "title": "Değişiklikler kaydedilmedi",
+    "body": "Bu sayfadan çıkarsanız yaptığınız değişiklikler kaybolur.",
+    "stay": "Sayfada kal",
+    "leave": "Kaydetmeden çık"
+  },
+  "session": {
+    "offlineTitle": "Bağlantı yok.",
+    "offlineBody": "Sunucuya ulaşılamıyor. Oturumunuz açık, yazdıklarınız duruyor.",
+    "offlineError": "Sunucuya ulaşılamadı. Yazdıklarınız duruyor, bağlantı gelince yeniden deneyin.",
+    "orgTitle": "Firma değişti.",
+    "orgBody": "Bu sekme {{tab}} için açık, hesabınız başka sekmede {{current}} firmasına geçti. Bu sekmeden kaydedilmez; yazdıklarınız korunuyor.",
+    "orgBodyPlain": "Hesabınız başka sekmede başka bir firmaya geçti. Bu sekmeden kaydedilmez; yazdıklarınız korunuyor.",
+    "reload": "Sayfayı yenile",
+    "reloadAnyway": "Yine de yenile",
+    "reloadConfirm": "Yenileyince bu sayfada yazdıklarınız silinir.",
+    "resume": "{{org}} ile devam et",
+    "resumeFailed": "Bu firmaya dönülemedi. Sayfayı yenileyin.",
+    "busy": "Sistem şu anda yoğun. Birazdan kendiliğinden yeniden denenecek.",
+    "endedTitle": "Bu firmadaki üyeliğiniz sona erdi.",
+    "suspendedTitle": "Bu firmadaki üyeliğiniz askıya alındı.",
+    "endedBody": "Bu sekmeden kayıt yapılamaz. Sayfayı yenileyin.",
+    "endedBodyOther": "Bu sekmeden kayıt yapılamaz. Üyeliğiniz olan başka bir firmaya geçebilirsiniz.",
+    "switchTo": "{{org}} firmasına geç",
+    "logoutFailed": "Çıkış yapılamadı.",
+    "logoutFailedBody": "Oturumunuz hâlâ açık. Bağlantınızı kontrol edip yeniden deneyin."
+  },
+  "boundary": {
+    "title": "Bu bölüm açılamadı",
+    "pageTitle": "Sayfa açılamadı",
+    "body": "Beklenmeyen bir sorun oldu. Sayfayı yenileyin; sorun sürerse ana sayfaya dönün.",
+    "reload": "Sayfayı yenile",
+    "homeHub": "Genel Bakış'a dön",
+    "homeProduct": "{{name}} ana sayfasına dön",
+    "tech": "Teknik ayrıntı"
+  },
+  "support": {
+    "subject": "Destek isteği"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "common": {
+    "continue": "Continue",
+    "skip": "Skip",
+    "inactive": "Inactive",
+    "saveFailed": "Could not save"
+  },
+  "page": {
+    "tabTitle": "Setup",
+    "title": "Initial setup",
+    "sub": "Setup in a few steps; your progress is saved."
+  },
+  "progress": "STEP {{current}}/{{total}}",
+  "progressSr": "step {{current}}/{{total}}",
+  "req": {
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "foot": {
+    "back": "Back"
+  },
+  "stepper": {
+    "label": "Setup steps",
+    "state": {
+      "ok": "completed",
+      "skipped": "skipped",
+      "todo": "not done"
+    }
+  },
+  "steps": {
+    "tasiyicilar": {
+      "title": "Carriers",
+      "short": "The carriers you work with",
+      "need": "You cannot continue without selecting at least one carrier; invoices and tariffs are always tied to a carrier."
+    },
+    "faturalar": {
+      "title": "Sample invoices",
+      "short": "Helps with tariff selection",
+      "need": "You can skip this; it only makes setup easier."
+    },
+    "tarifeler": {
+      "title": "Tariffs",
+      "short": "Contracted price lists",
+      "need": "Required: invoices from a carrier without a tariff cannot be compared. If you skip this, the summary keeps a warning and that carrier's invoices cannot be audited."
+    },
+    "olcum": {
+      "title": "Measurement rules",
+      "short": "Dimensional weight, photos, tolerances",
+      "need": "The values come pre-filled with recommended settings; just review and confirm them."
+    },
+    "koliler": {
+      "title": "Box presets",
+      "short": "Standard box sizes",
+      "need": "You can skip this; add them later under Settings → Box presets."
+    },
+    "ozet": {
+      "title": "Summary",
+      "short": "Checklist"
+    }
+  },
+  "hub": {
+    "row": "Company details",
+    "rowDone": "Completed in Hub",
+    "rowWaiting": "Waiting in Hub",
+    "doneStrip": "Company details completed in Hub:",
+    "change": "Change in Hub",
+    "gateTitle": "Company details first",
+    "gateWarn": "Your company's currency and time zone haven't been confirmed in Hub yet. DeciShip calculates tariffs and invoices with them.",
+    "name": "Company",
+    "currency": "Currency",
+    "timeZone": "Time zone",
+    "pending": "{{value}} (awaiting confirmation)",
+    "confirm": "Confirm in Hub",
+    "returnNote": "Once you confirm, you'll come back here.",
+    "askAdmin": "Your company admin confirms the company details in Hub. Once they do, you can continue the DeciShip setup."
+  },
+  "banner": {
+    "region": "Setup",
+    "title": "Finish your setup.",
+    "body": "Configure your carriers, tariffs and measurement rules in a few steps; invoices can only be compared against a tariff.",
+    "continue": "Continue setup",
+    "close": "Close",
+    "closeTitle": "Close (you can reopen it from Settings → Setup wizard)",
+    "closeFailed": "Could not close"
+  },
+  "sample": {
+    "badge": "Sample",
+    "remove": "Remove",
+    "linesRead_one": "{{n}} line read",
+    "linesRead_other": "{{n}} lines read",
+    "linesCount_one": "{{count}} line",
+    "linesCount_other": "{{count}} lines",
+    "compared": "Compared with tariff",
+    "willCompare": "Will be compared once a tariff is added"
+  },
+  "carriers": {
+    "why": "You pick the carrier when uploading an invoice; DeciShip reads the invoice using that carrier's layout and compares it with its tariff. Select all the carriers you work with; you can also add more later on the Tariffs page.",
+    "legend": "Carriers (you can select more than one)",
+    "other": "Other carrier",
+    "hint": {
+      "express": "International express",
+      "domestic": "Domestic parcel",
+      "other": "If it is not listed, enter its name yourself"
+    },
+    "addedTag": "Added",
+    "otherName": "Other carrier name",
+    "otherNameHelp": "E.g. Sürat Kargo. You will map the invoice columns on the first upload.",
+    "otherAdded": "Other carriers added: {{names}}",
+    "count_one": "{{count}} carrier",
+    "count_other": "{{count}} carriers",
+    "added_one": "Carrier added",
+    "added_other": "{{count}} carriers added",
+    "addFailed": "Could not add carrier",
+    "addContinue": "Add and continue",
+    "errors": {
+      "none": "Select at least one carrier.",
+      "otherName": "Enter the carrier's name."
+    }
+  },
+  "rules": {
+    "why": "The values are pre-filled with recommended defaults; most companies confirm them as they are. You can change all of them later under <b>Settings</b>.",
+    "mobile": {
+      "title": "Measurement in the warehouse (mobile app)",
+      "divisor": "Dimensional weight divisor",
+      "divisorHelp": "The employee's screen calculates dimensional weight with this (usually 3000 for domestic, 5000 for express). Invoices are compared using the divisor in the tariff. A 40×30×25 box = {{desi}} dimensional weight",
+      "photos": "Required box photos",
+      "photosHelp": "Every measurement requires at least this many box photos. They serve as evidence in disputes; 1 is recommended, 0 turns photos off.",
+      "unitPcs": "pcs"
+    },
+    "tol": {
+      "title": "Comparison tolerances",
+      "desc": "Small deviations within these limits are not counted as differences, so rounding and scale differences do not clutter the list.",
+      "edge": "Edge tolerance",
+      "edgeHelp": "This margin is added to every edge of your measurement. If the carrier's weight falls within it, the line counts as compliant. Enter 0 to apply no margin.",
+      "weight": "Weight tolerance",
+      "weightHelp": "Counts as a weight discrepancy if the billed kg exceeds your measurement by this much.",
+      "amount": "Amount tolerance",
+      "amountHelp": "Anything above the expected amount by this much counts as a price difference. Entered in your company's currency; converted at the exchange rate on foreign-currency invoices.",
+      "fx": "Rate tolerance",
+      "fxHelp": "If the tariff is in another currency, a deviation up to this percentage from the converted amount is an exchange-rate effect, not a difference.",
+      "unknownSurcharges": "Count surcharges not in the tariff as differences",
+      "unknownSurchargesHelp": "Off (recommended): surcharges that are not defined in your tariff (e.g. import service fee) are added to Expected at the invoiced amount, and differences arise only from items the tariff defines. On: these charges are counted entirely as differences."
+    },
+    "errors": {
+      "divisor": "Enter a whole number between 1000 and 10000.",
+      "photos": "Enter a number between 0 and 10.",
+      "range10": "Enter a value between 0 and 10.",
+      "range100": "Enter a value between 0 and 100.",
+      "amount": "Enter a valid amount.",
+      "pct": "Enter a percentage between 0 and 20."
+    },
+    "confirmContinue": "Confirm and continue"
+  },
+  "tariffs": {
+    "why": "A tariff is the price list you have agreed with the carrier. DeciShip uses it to calculate \"what I should have paid\" for every invoice line; invoices from a carrier without a tariff are read but <b>cannot be compared</b> (\"No tariff\"). Upload the PDF or Excel file the carrier sent you; if you have no file, you can enter the prices manually.",
+    "hasSamples_one": "You uploaded {{count}} sample invoice: when importing from a PDF, the tables that match the service on your invoices are pre-selected. Once a tariff is added, the invoices are compared automatically below.",
+    "hasSamples_other": "You uploaded {{count}} sample invoices: when importing from a PDF, the tables that match the service on your invoices are pre-selected. Once a tariff is added, the invoices are compared automatically below.",
+    "tip": "Tip: if you upload a sample invoice first, the right tables in the PDF are selected automatically and your tariff is checked against real prices.",
+    "uploadSample": "Upload sample invoice",
+    "needCarrier": "Add a carrier first",
+    "backToCarriers": "Back to Carriers step",
+    "tariffBound": "A tariff is tied to a carrier.",
+    "count_one": "{{count}} tariff",
+    "count_other": "{{count}} tariffs",
+    "none": "No tariff",
+    "default": "Default",
+    "uploadFile": "Upload PDF / Excel",
+    "createManually": "Create manually",
+    "templateLead": "If you are preparing your own list,",
+    "templateLink": "download the Excel template",
+    "templateTail": ", fill it in and import it with \"Upload PDF / Excel\".",
+    "templateFailed": "Could not download the template",
+    "check": {
+      "title": "Your sample invoices against the tariff",
+      "comparing": "Comparing…",
+      "desc": "\"Tariff match\" shows whether the prices on the invoice agree with your tariff. If a country does not match (e.g. a country-specific discount), you can add it to the tariff with one click."
+    },
+    "missing": "There is no tariff for <b>{{names}}</b>. Invoices from these carriers cannot be compared. You can skip this for now and add one later on the <b>Tariffs</b> page.",
+    "skipNotRecommended": "Continue without a tariff (not recommended)"
+  },
+  "presets": {
+    "why": "Define the standard boxes you use often: the employee picks one with a single tap on mobile, the dimensions fill in automatically and a measurement takes seconds. K1–K3 were added as examples; change them to your own sizes, and delete or deactivate the ones you do not use."
+  },
+  "invoices": {
+    "pdfDisabled": "PDF reading is off; upload CSV or Excel.",
+    "why": "Add an invoice from your carrier <b>as a sample only</b>. DeciShip uses it to select the right tables in your tariff PDF and to check your tariff against real prices.",
+    "needCarrier": "Add a carrier first to upload a sample invoice.",
+    "carriers": "Carriers",
+    "carrierOf": "Invoice carrier",
+    "carrierOfLabel": "Invoice carrier:",
+    "reading": "Reading {{file}}…",
+    "readingPdf": "The PDF is being read with AI, which can take 10–30 seconds.",
+    "readingShort": "This takes a few seconds.",
+    "dropMore": "Add another sample invoice",
+    "drop": "Drop the sample invoice here, or click to select it",
+    "dropHintCarrier": "{{name}} invoice · CSV, Excel or PDF · no column mapping needed",
+    "dropHint": "CSV, Excel or PDF · no column mapping needed",
+    "dropHintNoPdf": "CSV or Excel · no column mapping needed",
+    "dropHintCarrierNoPdf": "{{name}} invoice · CSV or Excel · no column mapping needed",
+    "note": "Sample invoices do not appear in the Invoices list, on the Dashboard or in reports. You upload your real invoices from the Invoices page after setup.",
+    "continueTariffs": "Continue: Tariffs",
+    "continueWithout": "Continue without a sample invoice",
+    "errors": {
+      "pickCarrier": "Select the invoice's carrier first.",
+      "tooLarge": "File is too large (max {{max}} MB)."
+    },
+    "toast": {
+      "read": "Sample invoice read",
+      "removeFailed": "Could not remove"
+    }
+  },
+  "summary": {
+    "intro": "Review what you have done. Click a row to go back to that step.",
+    "state": {
+      "ok": "Done",
+      "skipped": "Skipped",
+      "todo": "Missing",
+      "notDone": "Not done"
+    },
+    "detail": {
+      "noCarriers": "No carriers",
+      "withoutTariff": "Without tariff: {{names}}",
+      "allTariffs": "Every carrier has a tariff",
+      "rules": "Dimensional weight divisor, photos and tolerances",
+      "presets_one": "{{count}} active box preset",
+      "presets_other": "{{count}} active box presets",
+      "presetsUnreviewed_one": "{{count}} sample box, not reviewed yet",
+      "presetsUnreviewed_other": "{{count}} sample boxes, not reviewed yet",
+      "invoices_one": "{{count}} sample invoice",
+      "invoices_other": "{{count}} sample invoices",
+      "noInvoices": "No invoice uploaded"
+    },
+    "missingRequired": "Required steps are missing: {{steps}}.",
+    "noTariffNote": "Invoices from carriers without a tariff cannot be compared.",
+    "finishAnyway": "You can still finish and complete the missing steps later from Settings → Setup wizard.",
+    "needCarrier": "Add at least one carrier to finish setup.",
+    "finish": "Finish setup",
+    "toast": {
+      "done": "Setup complete",
+      "doneMissing": "You can complete the missing steps from Settings → Setup wizard.",
+      "doneReady": "DeciShip is ready to use.",
+      "failed": "Could not finish setup"
+    }
+  },
+  "demo": {
+    "cardTitle": "No data yet?",
+    "start": "Try it with sample data first",
+    "startHelp": "Sample tariffs, measurements and two invoices are loaded so you can see how DeciShip finds discrepancies. You can remove them at any time.",
+    "loading": "Loading sample data…"
+  }
+}

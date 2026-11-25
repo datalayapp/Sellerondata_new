@@ -1,0 +1,124 @@
+/* Özet (önek td-ozet): ortada iki sütunlu kural özeti (maket .rule-sum), sağda yazı örnek föyü. Yalnız var(--…) belirteçleri. */
+
+.td-ozet {
+  background: var(--surface);
+}
+
+.td-ozet-bas {
+  display: grid;
+  gap: 6px;
+  padding: 22px 28px 6px;
+}
+
+/* Açıklama, tarz notu ve taslak notu tek soluk satırda; uzun not iki satırda kesilir, tamamı ipucunda. */
+.td-ozet-lead {
+  margin: 0;
+  max-width: 110ch;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-3);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.td-ozet-kurallar {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 40px;
+  padding: 20px 28px 40px;
+}
+
+.td-ozet-grup {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  padding: 8px 0;
+}
+
+.td-ozet-gb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.td-ozet-gb h2 {
+  flex: 1;
+  margin: 0;
+  font-family: var(--fm);
+  font-size: var(--tz-fs-section);
+  font-weight: 500;
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.td-ozet-grup p {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  line-height: 20px;
+  color: var(--text);
+}
+
+/* "Düzenle": mor yazı bağlantısı (zemin ve çerçeve yok). */
+.td-bag {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--primary-text);
+  cursor: pointer;
+}
+
+.td-bag:hover {
+  text-decoration: underline;
+}
+
+/* Föy */
+.td-ozet-liste {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.td-ozet-liste > li {
+  display: grid;
+  gap: 2px;
+}
+
+.td-ozet-liste > li.is-kapali {
+  opacity: 0.6;
+}
+
+.td-ozet-liste > li.td-ozet-kural {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+/* Font örneği föyde çerçevesiz (fontun kendi yazısı). */
+.td-ozet-ornek.td-yazi {
+  border: 0;
+  background: none;
+}
+
+.td-ozet-ornek.td-yazi.is-yok {
+  padding: 0;
+}
+
+.td-ozet-not {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.td-ozet-cumle {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--text);
+}

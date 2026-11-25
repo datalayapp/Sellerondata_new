@@ -1,0 +1,51 @@
+{
+  "jobStatus": {
+    "new": "Bekliyor",
+    "queued": "Sırada",
+    "generating": "Üretiliyor",
+    "ready": "Hazır",
+    "failed": "Üretilemedi",
+    "approved": "Onaylandı"
+  },
+  "designLanguage": {
+    "label": "Tasarım dili"
+  },
+  "templatePicker": {
+    "label": "Şablon",
+    "search": "Şablon ara",
+    "empty": "Şablon bulunamadı",
+    "none": "Şablonsuz bırak",
+    "loading": "Şablonlar yükleniyor…",
+    "noMatch": "\"{{q}}\" ile eşleşen şablon yok",
+    "suggested": "Önerilen",
+    "all": "Bütün şablonlar",
+    "fileMissing": "Dosya eksik",
+    "truncated": "İlk {{n}} şablon gösteriliyor; daraltmak için yazın."
+  },
+  "manualAdd": {
+    "title": "Elle ekle",
+    "text": "Metin",
+    "textHint": "Her satır sonu, müşterinin istediği satır bölmesi olarak saklanır.",
+    "textPlaceholder": "Ayşe & Can\n12.06.2026",
+    "template": "Şablon",
+    "templatePlaceholder": "Şablon seçin (sonradan da seçilebilir)",
+    "orderNo": "Sipariş no",
+    "quantity": "Adet",
+    "size": "Boyut",
+    "sizeDefault": "Varsayılan",
+    "sizeCm": "{{cm}} cm",
+    "keys": "Ctrl Enter ekler · Ctrl Shift Enter ekler ve üretir",
+    "close": "Kapat",
+    "add": "Ekle",
+    "addAndGenerate": "Ekle ve üret",
+    "added": "Sipariş eklendi",
+    "addedGenerating": "Sipariş eklendi ve üretime alındı",
+    "addedNotQueued": "Sipariş eklendi; üretim başlamadı: {{reason}}",
+    "addedOrder": "№ {{no}} eklendi",
+    "addedOrderGenerating": "№ {{no}} eklendi ve üretime alındı",
+    "openBatch": "Partiyi aç",
+    "failed": "Eklenemedi. {{detail}}",
+    "errorBlocks": "Hata düzelmeden üretime alınamaz",
+    "restoreDismissed": "Yok sayılan {{n}} uyarıyı geri getir"
+  }
+}

@@ -1,0 +1,22 @@
+node_modules/
+dist/
+build/
+.env
+storage/
+*.log
+.expo/
+apps/mobile/android/
+apps/mobile/ios/
+__pycache__/
+.pytest_cache/
+.venv/
+playwright-report/
+test-results/
+coverage/
+.impeccable/hook.cache.json
+**/.gradle/
+.gece/
+
+# Üretilen ekran görüntüleri (npm run screens vb.), izlenmez
+apps/web/screenshots/
+apps/mobile/screenshots/

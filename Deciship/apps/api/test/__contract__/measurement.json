@@ -1,0 +1,69 @@
+{
+  "endpoint": "GET /api/deciship/measurements/:id",
+  "status": 200,
+  "shape": {
+    "measurement": {
+      "boxPresetId": "null",
+      "canEdit": "boolean",
+      "clientId": "string",
+      "createdAt": "string",
+      "deleted": "boolean",
+      "deletedAt": "null",
+      "desi": "number",
+      "dimConfidence": "null",
+      "dimMethod": "string",
+      "heightCm": "number",
+      "history": [],
+      "id": "string",
+      "invoiceLines": [
+        {
+          "billedChargeableKg": "number",
+          "carrierName": "string",
+          "decision": "string",
+          "diffAmount": "number",
+          "diffTypes": [
+            "string"
+          ],
+          "dims": "null",
+          "expectedAmount": "number",
+          "id": "string",
+          "invoiceDate": "string",
+          "invoiceId": "string",
+          "invoiceNo": "string",
+          "measurementPinned": "boolean",
+          "netAmount": "number",
+          "ourChargeableKg": "number",
+          "packaging": "null",
+          "status": "string",
+          "trackingNo": "string"
+        }
+      ],
+      "invoiceStatus": "string",
+      "lengthCm": "number",
+      "measuredAt": "string",
+      "measuredBy": {
+        "id": "string",
+        "name": "string"
+      },
+      "note": "null",
+      "ocrWeightKg": "null",
+      "packaging": "string",
+      "photoCount": "number",
+      "photos": [
+        {
+          "id": "string",
+          "kind": "string",
+          "url": "string"
+        }
+      ],
+      "superseded": "boolean",
+      "trackingNo": "string",
+      "trackingRaw": "string",
+      "version": "number",
+      "volumetricKg5000": "number",
+      "weightKg": "number",
+      "weightMethod": "string",
+      "widthCm": "number"
+    }
+  }
+}

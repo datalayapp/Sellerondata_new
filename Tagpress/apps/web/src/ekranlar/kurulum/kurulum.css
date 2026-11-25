@@ -1,0 +1,204 @@
+/* Kurulum (kr- öneki). */
+
+.kr-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+
+.kr-types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-content: start;
+  padding: 24px 28px;
+}
+
+.kr-type {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-guided);
+  background: var(--surface);
+  text-align: left;
+}
+
+.kr-type:hover {
+  border-color: var(--border-hover);
+}
+
+.kr-type.is-on {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+  background: var(--tz-card-selected);
+}
+
+.kr-type-ic {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-3);
+}
+
+.kr-type b {
+  margin-top: 4px;
+  font-size: var(--tz-fs-guided);
+  font-weight: 600;
+}
+
+.kr-type small {
+  font-size: var(--tz-fs-panel);
+  line-height: 18px;
+  color: var(--text-3);
+}
+
+.kr-type-ck {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--tz-r-field);
+  background: var(--primary);
+  color: var(--surface);
+}
+
+.kr-feats {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 24px 24px 16px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.kr-feats h2 {
+  margin-bottom: 8px;
+  font: 500 var(--tz-fs-section) / 14px var(--fm);
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.kr-ft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.kr-ft > span {
+  flex: 1;
+  min-width: 0;
+}
+
+.kr-ft b {
+  display: block;
+  font-size: var(--tz-fs-body);
+  font-weight: 500;
+}
+
+.kr-ft small {
+  display: block;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.kr-ft.is-off b {
+  color: var(--text-2);
+}
+
+.kr-note {
+  margin-top: 8px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.kr-sp {
+  flex: 1;
+}
+
+.kr-feats ul {
+  display: grid;
+}
+
+.kr-more {
+  margin-top: 8px;
+}
+
+/* 2. ve 3. adım: tek sütun, 1. adımın kart ve satır diliyle. */
+.kr-pane {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  max-width: 760px;
+  padding: 24px 28px;
+}
+
+.kr-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kr-type:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.kr-type:disabled:hover {
+  border-color: var(--border);
+}
+
+.kr-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+  align-items: start;
+}
+
+/* Tablet ve telefon (≤ 1023 px): özellik listesi tür kartlarının altına iner. */
+@media (max-width: 1023px) {
+  .kr-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .kr-feats {
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+}
+
+/* Telefon (≤ 760 px): tür kartları iki sütun, form tek sütun. */
+@media (max-width: 760px) {
+  .kr-types {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .kr-type {
+    padding: 12px;
+  }
+
+  .kr-type-ck {
+    top: 10px;
+    right: 10px;
+  }
+
+  .kr-feats,
+  .kr-pane {
+    padding: 16px;
+  }
+
+  .kr-choices,
+  .kr-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

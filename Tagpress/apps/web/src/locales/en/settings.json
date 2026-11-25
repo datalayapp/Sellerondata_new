@@ -1,0 +1,217 @@
+{
+  "title": "Settings",
+  "nav": "Settings sections",
+  "sections": {
+    "connections": "Connections",
+    "production": "Production",
+    "fonts": "Fonts",
+    "cost": "Cost",
+    "designLanguages": "Design languages",
+    "features": "Features",
+    "org": "Company",
+    "language": "Language"
+  },
+  "state": {
+    "loading": "Loading",
+    "loadError": "Could not load",
+    "retry": "Try again",
+    "saved": "Saved.",
+    "save": "Save"
+  },
+  "connections": {
+    "intro": "Keys are stored on this computer and never shown again. Production and design language creation run on these keys; usage is paid.",
+    "warningTitle": "Attention",
+    "providers": {
+      "title": {
+        "anthropic": "Anthropic (Claude)",
+        "gemini": "Google (Gemini)"
+      },
+      "use": {
+        "anthropic": "Daily production (design, candidate picking, reading text in images) and design language creation.",
+        "gemini": "Image generation: backgrounds and pictures for labels."
+      }
+    },
+    "modelGroup": "Model and price",
+    "status": {
+      "none": "No key",
+      "saved": "Saved",
+      "savedOn": "Saved · {{date}}"
+    },
+    "notEncrypted": "Could not be encrypted on disk",
+    "enter": "Enter key",
+    "change": "Change key",
+    "delete": "Delete",
+    "newKey": "New key",
+    "newKeyHint": "Get the key at {{where}}. The field is cleared once saved.",
+    "tooShort": "The key must be at least 8 characters.",
+    "savedToast": "{{provider}} key saved.",
+    "deletedToast": "{{provider}} key deleted.",
+    "confirmTitle": "Delete the {{provider}} key?",
+    "confirmBody": "Without it, this service cannot be used for production. You can enter a new one any time.",
+    "platformIntro": "AI keys are kept on the SellerOnData platform.",
+    "platformBody": "The platform admin enters the keys; this company does not need its own. Spending is shown in Hub, under the subscription."
+  },
+  "production": {
+    "intro": "Defaults used when orders are produced. Changes are saved right away.",
+    "variants": {
+      "label": "Default number of variations",
+      "hint": "How many variations a run saves. More means more choice and more cost.",
+      "aria": "Number of variations"
+    },
+    "language": {
+      "label": "Default design language",
+      "hint": "Orders use this language unless you pick another one when importing.",
+      "notChosen": "Not chosen"
+    },
+    "advanced": "Advanced",
+    "advancedSummary": "Parallel jobs",
+    "concurrency": {
+      "label": "Jobs produced at once",
+      "hint": "A higher value is faster but may hit the AI service's rate limit. 1–8.",
+      "aria": "Jobs produced at once",
+      "decrease": "Decrease",
+      "increase": "Increase"
+    }
+  },
+  "fonts": {
+    "intro": "Fonts of the “{{name}}” design language. Fallback fonts are shared by all languages.",
+    "introNone": "Pick a design language first.",
+    "noLanguage": "No active design language. Fonts belong to a design language; create one under Design languages.",
+    "missingTitle_one": "{{count}} font file is missing",
+    "missingTitle_other": "{{count}} font files are missing",
+    "missingNoFile": "file name not set",
+    "missingHelp": "Upload the file below; its name must match the one in the profile.",
+    "sample": {
+      "label": "Sample text",
+      "hint": "All samples are drawn with this text. Up to 80 characters.",
+      "default": "Anna & Marco 12.10.2026"
+    },
+    "own": {
+      "title": "Fonts of this language",
+      "empty": "No fonts uploaded to this language yet."
+    },
+    "shared": {
+      "title": "Fallback fonts (shared)",
+      "empty": "No shared fallback fonts."
+    },
+    "drop": {
+      "title": "Drag font files here",
+      "hint": ".ttf, .otf, .woff, .woff2 · added to “{{name}}”",
+      "pick": "Choose files"
+    },
+    "inProfile": "In profile: {{id}}",
+    "notInProfile": "Not used in the profile",
+    "specimenFailed": "Sample could not be drawn.",
+    "specimenAlt": "{{name}} sample: {{text}}",
+    "uploadedOne": "{{name}} uploaded.",
+    "uploadedMany": "{{count}} fonts uploaded.",
+    "badType": "Only .ttf, .otf, .woff and .woff2 files can be uploaded."
+  },
+  "cost": {
+    "intro": "Estimated cost of AI calls. Amounts come from the price list; your invoice may differ slightly.",
+    "introFor": "Estimated cost of AI calls (“{{name}}” language). Amounts come from the price list; your invoice may differ slightly.",
+    "today": "Today",
+    "month": "This month",
+    "total": "Total",
+    "unpricedTitle_one": "{{count}} call has no known price",
+    "unpricedTitle_other": "{{count}} calls have no known price",
+    "unpricedBody": "Calls made with a model that is not in the price list are not included in the amounts above.",
+    "days": {
+      "title": "Last 31 days",
+      "total": "Total {{usd}}",
+      "view": "View",
+      "chart": "Chart",
+      "table": "Table",
+      "empty": "No spending in this period. Daily amounts appear here as bars once you produce.",
+      "peak": "Highest day {{usd}}",
+      "point": "{{day}} · {{usd}} · {{count}} calls",
+      "figure": "Daily cost over the last 31 days",
+      "pointLabel": "{{day}}: {{usd}}, {{count}} calls",
+      "colDay": "Day",
+      "colAmount": "Amount",
+      "colCalls": "Calls"
+    },
+    "byModel": "By model",
+    "byPurpose": "By purpose",
+    "noCalls": "No calls yet.",
+    "calls_one": "{{count}} call",
+    "calls_other": "{{count}} calls"
+  },
+  "designLanguages": {
+    "intro": "Each design language is a label style with its own rules, templates and fonts. A deleted language can be restored for 30 days.",
+    "listTitle": "Design languages",
+    "new": "New design language",
+    "empty": "No design languages yet. Start with a blank one or copy another.",
+    "badgeDefault": "Default",
+    "badgeDraft": "Has draft",
+    "metaNone": "No published version · {{count}} templates",
+    "metaVersion": "Version {{version}} · {{count}} templates",
+    "makeDefault": "Make default",
+    "more": "More actions for {{name}}",
+    "rename": "Rename",
+    "copy": "Make a copy",
+    "delete": "Delete",
+    "deleteDefault": "Delete (the default cannot be deleted)",
+    "confirmTitle": "Delete “{{name}}”?",
+    "confirmBody": "The language leaves the list. You can bring it back with “Undo” within 30 days.",
+    "undo": "Undo",
+    "undone": "Undone.",
+    "newName": "New name",
+    "form": {
+      "name": "Name",
+      "nameRequired": "Enter a name.",
+      "start": "Start from",
+      "startHint": "A copy carries the rules (profile); templates and fonts are not copied.",
+      "blank": "Blank language",
+      "copyOf": "Copy of “{{name}}”",
+      "create": "Create"
+    },
+    "defaultToast": "“{{name}}” is now the default design language.",
+    "createdToast": "“{{name}}” created and made the active language."
+  },
+  "language": {
+    "intro": "Choose the language the interface is shown in. Your choice is stored on this computer.",
+    "label": "Interface language",
+    "hint": "The screen switches right away.",
+    "aria": "Interface language"
+  },
+  "format": {
+    "price": "≈ {{input}} / {{output}} · 1M tokens",
+    "priceAbove": "≈ {{input}} / {{output}} · 1M tokens, {{aboveInput}} / {{aboveOutput}} for requests above {{k}}K",
+    "imagePrice": "≈ {{price}} / image (1K)",
+    "purposes": {
+      "design": "Design",
+      "pick": "Candidate picking",
+      "rank": "Candidate ranking",
+      "critique": "Visual check",
+      "transcribe": "Reading text in images",
+      "image": "Image generation"
+    }
+  },
+  "features": {
+    "intro": "Turn the tools you use on or off. Turning one off deletes nothing; it only stops new work with that tool.",
+    "groups": {
+      "production": "Production",
+      "import": "Import",
+      "image": "Images",
+      "learn": "Learning",
+      "print": "Printing",
+      "templates": "Templates",
+      "language": "Design language"
+    },
+    "paid": "Paid",
+    "always": "Always on",
+    "savedWith": "Saved. Linked features changed too: {{names}}.",
+    "setupTitle": "Setup",
+    "setupHint": "Answer the questions again; your previous answers are filled in.",
+    "setup": "Run setup again"
+  },
+  "org": {
+    "intro": "Your company's name.",
+    "name": "Company name",
+    "empty": "The company name cannot be empty.",
+    "tooLong": "The company name can be at most {{max}} characters.",
+    "platformHint": "The company name is changed in SellerOnData Hub.",
+    "openHub": "Open in Hub"
+  }
+}

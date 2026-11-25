@@ -1,0 +1,590 @@
+/* Baskı · Sayfa şablonları (maket 7: .ph, .ttabs, .vrow, .rail, .selbar, .paper, .ftabs, .pfoot). Renk ve ölçü yalnız belirteçten. */
+
+.bs-wait {
+  flex: 1;
+  background: var(--tz-canvas);
+}
+
+.bs-wait-l {
+  height: 2px;
+  margin: 0 14px;
+  background: var(--primary-soft);
+}
+
+/* ---------------------------------------------------------------- iş satırı */
+
+.bs-meta {
+  font-size: var(--tz-fs-small);
+  color: var(--sod-band-accent);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- liste (maket ekran 6: .tl-tb, .tgrid, .tcard) */
+
+.bs-tl {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 20px 24px 32px;
+  background: var(--tz-canvas);
+}
+
+.bs-tl-tb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.bs-tl-q {
+  width: 260px;
+  max-width: 100%;
+}
+
+.bs-tgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bs-tcard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.bs-tcard:hover {
+  border-color: var(--primary-line);
+}
+
+.bs-tcard-open {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bs-tcard-open:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
+.bs-tcard-th {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  background: var(--tz-canvas);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.bs-tcard-th .bs-thumb-p {
+  fill: var(--tz-paper);
+  stroke: var(--line);
+}
+
+.bs-tcard-th .bs-thumb-s {
+  fill: var(--primary-soft);
+  stroke: var(--primary-line);
+}
+
+.bs-tcard-b {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px 4px;
+  min-width: 0;
+}
+
+.bs-tcard-b b {
+  font-size: var(--tz-fs-panel);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bs-tcard-b small {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bs-tcard-f {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 10px 10px 14px;
+}
+
+.bs-used {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.bs-tcard.is-new {
+  border-style: dashed;
+  background: transparent;
+}
+
+.bs-tnew {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  padding: 24px;
+  border: 0;
+  background: none;
+  color: var(--primary-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.bs-tnew small {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.bs-tnew:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
+.bs-tnew-ic {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--tz-r-page);
+  background: var(--primary-soft);
+}
+
+.bs-thumb {
+  display: block;
+  flex: none;
+}
+
+.bs-thumb-p {
+  fill: var(--tz-paper);
+  stroke: var(--border-strong);
+}
+
+.bs-thumb-s {
+  fill: none;
+  stroke: var(--text-3);
+}
+
+.bs-empty {
+  margin: 0;
+  padding: 18px 14px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .bs-tl {
+    padding: 16px;
+  }
+
+  .bs-tl-q {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------------- sağ panel */
+
+.bs-mut {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  color: var(--text-3);
+}
+
+.bs-aside {
+  font-size: var(--tz-fs-status);
+  color: var(--text-3);
+}
+
+.bs-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.bs-num {
+  width: 100%;
+}
+
+.bs-sw {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 6px;
+}
+
+/* "Kâğıda ortalı tut" ve kısa açıklaması. */
+.bs-keep {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+
+/* Kenar payları (bilgi): dört küçük kutu. */
+.bs-mgn {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.bs-mgn > span {
+  display: grid;
+  gap: 2px;
+  padding: 6px 8px;
+  border-radius: var(--tz-r-field);
+  background: var(--surface-2);
+  font-size: var(--tz-fs-status);
+  color: var(--text-3);
+}
+
+.bs-mgn b {
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.bs-ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--success);
+}
+
+.bs-adv > .tz-gc:first-child {
+  border-top: 0;
+}
+
+.bs-tri {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.bs-tri > label {
+  display: grid;
+  gap: 3px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.bs-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bs-presets {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--tz-fs-small);
+}
+
+.bs-presets li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.bs-presets span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bs-color {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.bs-swatch {
+  flex: none;
+  width: var(--tz-ctl-h);
+  height: var(--tz-ctl-h);
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.bs-swatch:focus-visible {
+  border-color: var(--primary);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+/* ---------------------------------------------------------------- tuval */
+
+.bs-stage {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  outline: none;
+}
+
+.bs-stage:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus);
+}
+
+.bs-stage.is-draw {
+  cursor: crosshair;
+}
+
+.bs-stage.is-pan {
+  cursor: grab;
+}
+
+/* Kağıt ve yuvalar (dünya birimi; 1 px = 1 mm). */
+.bs-paper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--tz-paper);
+  box-shadow: var(--tz-sh-paper);
+}
+
+.bs-sheet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+}
+
+/* Çizgiler zoom'a bölünür (tezgah/tuval/cizgi.test.ts): ekranda sabit kalınlık. */
+.bs-guide,
+.bs-bleed,
+.bs-ghost,
+.bs-new,
+.bs-safe {
+  fill: none;
+  stroke-width: calc(0.75px / var(--tz-zoom));
+  stroke-dasharray: calc(4px / var(--tz-zoom)) calc(3px / var(--tz-zoom));
+}
+
+.bs-guide {
+  stroke: var(--border-strong);
+}
+
+.bs-bleed {
+  stroke: var(--line);
+}
+
+/* Basılamayan kenar (yazıcının basamadığı bant). */
+.bs-safe {
+  stroke: var(--tz-crop);
+  stroke-dasharray: calc(2px / var(--tz-zoom)) calc(3px / var(--tz-zoom));
+}
+
+/* Yuva çizgisi baskıda görünür: rengi ve kalınlığı şablondan (mm). */
+.bs-cutline {
+  fill: none;
+}
+
+.bs-ring {
+  stroke-width: calc(1.5px / var(--tz-zoom));
+}
+
+.bs-ring.is-sel {
+  fill: var(--primary-soft);
+  fill-opacity: 0.6;
+  stroke: var(--primary);
+}
+
+.bs-ring.is-warn {
+  fill: none;
+  stroke: var(--danger);
+}
+
+.bs-ghost,
+.bs-new {
+  stroke: var(--primary);
+  stroke-width: calc(1.25px / var(--tz-zoom));
+}
+
+.bs-new {
+  fill: var(--primary-soft);
+  fill-opacity: 0.5;
+}
+
+.bs-no {
+  fill: var(--tz-artboard-ink);
+  font-family: var(--fm);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bs-cell {
+  pointer-events: none;
+  user-select: none;
+}
+
+.bs-reg {
+  fill: var(--text);
+  stroke: var(--text);
+  pointer-events: none;
+}
+
+.bs-reg rect {
+  stroke: none;
+}
+
+.bs-reg line,
+.bs-reg circle {
+  fill: none;
+}
+
+.bs-marq {
+  position: absolute;
+  background: var(--tz-ruler-hi);
+  box-shadow: 0 0 0 calc(1px / var(--tz-zoom)) var(--primary);
+  pointer-events: none;
+}
+
+.bs-marq[hidden] {
+  display: none;
+}
+
+/* Ortala şeridi hep görünür: seçim yokken sade zemin, temizle düğmesi gizli. */
+.bs-selbar {
+  display: contents;
+}
+
+.bs-selbar.is-none .tz-selbar {
+  background: var(--surface-2);
+  border-bottom-color: var(--line-soft);
+}
+
+.bs-selbar.is-none .tz-selbar > .tz-ib:last-child {
+  visibility: hidden;
+}
+
+.bs-snap {
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+/* Sürüklerken akıllı kılavuz (kesim pembesi) ve ölçü çizgileri; kalınlık ekranda sabit. */
+.bs-guides {
+  pointer-events: none;
+}
+
+.bs-gl,
+.bs-ml {
+  stroke: var(--tz-cut);
+  stroke-width: calc(1px / var(--tz-zoom));
+}
+
+.bs-gl {
+  stroke-dasharray: calc(4px / var(--tz-zoom)) calc(3px / var(--tz-zoom));
+}
+
+/* Kılavuz etiketleri: dünya katmanında mm konumda, ters ölçekle ekranda sabit boyda. */
+.bs-pills {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.bs-pill {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(calc(1 / var(--tz-zoom)));
+  padding: 1px 5px;
+  border-radius: var(--tz-r-kbd);
+  font: 500 var(--tz-fs-status) / 16px var(--fm);
+  white-space: nowrap;
+}
+
+.bs-pill.is-guide {
+  background: var(--tz-cut);
+  color: var(--tz-tip-ink);
+}
+
+.bs-pill.is-pos {
+  transform: scale(calc(1 / var(--tz-zoom))) translate(4px, 4px);
+  transform-origin: 0 0;
+  background: var(--tz-tip-bg);
+  color: var(--tz-tip-ink);
+}
+
+.bs-cvhint {
+  position: absolute;
+  left: 40px;
+  bottom: 12px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+  box-shadow: var(--sh-sm);
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .bs-cvhint {
+    display: none;
+  }
+}
+
+/* Durum satırı: kağıt ölçüsü hiç kısalmaz; yalnız en uzun öge (Oklar…) üç noktayla kısalır. */
+.tz-sb > .bs-st-fix {
+  flex: none;
+}
+
+@media (forced-colors: active) {
+  .bs-marq {
+    outline: 1px solid Highlight;
+  }
+}

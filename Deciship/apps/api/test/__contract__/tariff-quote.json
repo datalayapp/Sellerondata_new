@@ -1,0 +1,26 @@
+{
+  "endpoint": "POST /api/deciship/tariffs/:id/quote",
+  "status": 200,
+  "shape": {
+    "adjustment": "number",
+    "adjustmentPct": "number",
+    "base": "number",
+    "basis": "string",
+    "chargeableKg": "number",
+    "currency": "string",
+    "discount": "number",
+    "freight": "number",
+    "fuel": "number",
+    "lines": [
+      {
+        "amount": "number",
+        "label": "string"
+      }
+    ],
+    "ok": "boolean",
+    "surcharges": "number",
+    "total": "number",
+    "volumetricKg": "number",
+    "zone": "string"
+  }
+}

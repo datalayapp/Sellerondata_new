@@ -1,0 +1,237 @@
+/* Düğme, ikon düğmesi, kısayol rozeti (maket .bt, .ib, .k). */
+
+.tz-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tz-kbd-h);
+  height: var(--tz-kbd-h);
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: var(--tz-r-kbd);
+  background: var(--surface-2);
+  font: 500 var(--tz-fs-kbd) / 1 var(--fm);
+  color: var(--text-2);
+  white-space: nowrap;
+  flex: none;
+}
+
+.tz-kbd--primary {
+  background: var(--tz-kbd-on-primary);
+  border-color: var(--tz-kbd-on-primary-line);
+  color: var(--tz-on-band);
+}
+
+.tz-kbd--band {
+  background: var(--tz-band-kbd);
+  border-color: var(--tz-band-btn-line);
+  color: var(--tz-on-band);
+}
+
+.tz-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: var(--tz-tool);
+  padding: 0 10px;
+  border-radius: var(--tz-r-tool);
+  border: 1px solid transparent;
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text);
+  transition: background-color var(--tz-dur) var(--tz-ease), border-color var(--tz-dur) var(--tz-ease);
+}
+
+.tz-btn--secondary {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+.tz-btn--secondary:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.tz-btn--primary {
+  background: var(--primary);
+  color: var(--tz-on-band);
+  font-weight: 600;
+}
+
+.tz-btn--primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.tz-btn--primary:active:not(:disabled) {
+  background: var(--primary-active);
+}
+
+.tz-btn--quiet {
+  color: var(--text-2);
+}
+
+.tz-btn--quiet:hover:not(:disabled) {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.tz-btn--danger {
+  color: var(--danger);
+}
+
+.tz-btn--danger:hover:not(:disabled) {
+  background: var(--danger-bg);
+}
+
+.tz-btn--mini {
+  height: var(--tz-btn-mini);
+  padding: 0 8px;
+  font-size: var(--tz-fs-small);
+  gap: 5px;
+}
+
+.tz-btn--page {
+  height: var(--tz-btn-page);
+  padding: 0 14px;
+  border-radius: var(--tz-r-page);
+  font-size: var(--tz-fs-body);
+}
+
+.tz-btn--guided {
+  height: var(--tz-btn-guided);
+  padding: 0 22px;
+  border-radius: var(--tz-r-guided);
+  font-size: var(--tz-fs-guided);
+  gap: 10px;
+}
+
+.tz-btn--wide {
+  width: 100%;
+}
+
+.tz-btn:disabled {
+  opacity: 0.5;
+}
+
+.tz-btn.is-loading {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.tz-btn-spin {
+  width: var(--tz-icon-sm);
+  height: var(--tz-icon-sm);
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: tz-spin 0.8s linear infinite;
+}
+
+@keyframes tz-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* kılavuzlu akışta sessiz düğme mor yazılı (maket .b48.q: "Atla, varsayılanla başla") */
+.tz-btn--guided.tz-btn--quiet {
+  color: var(--primary-text);
+  padding: 0 12px;
+}
+
+.tz-btn--guided.tz-btn--quiet:hover:not(:disabled) {
+  color: var(--primary-text);
+}
+
+.tz-btn--guided {
+  font-weight: 500;
+}
+
+.tz-btn--guided.tz-btn--primary {
+  font-weight: 600;
+}
+
+.tz-btn:focus-visible,
+.tz-ib:focus-visible {
+  outline-offset: 2px;
+}
+.tz-ib {
+  display: inline-grid;
+  place-items: center;
+  width: var(--tz-tool);
+  height: var(--tz-tool);
+  border-radius: var(--tz-r-tool);
+  color: var(--text-2);
+  flex: none;
+}
+
+.tz-ib--28 {
+  width: var(--tz-btn-mini);
+  height: var(--tz-btn-mini);
+}
+
+.tz-ib--26 {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--tz-r-field);
+}
+
+.tz-ib:hover:not(:disabled) {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.tz-btn-chev {
+  margin-left: -2px;
+  opacity: 0.7;
+}
+
+/* Basılı (açık/kapalı araç, seçili hiza): maketteki mor zeminli etkin araç düğmesi. */
+.tz-ib.is-on,
+.tz-ib[aria-pressed="true"],
+.tz-btn[aria-pressed="true"] {
+  background: var(--primary-soft);
+  border-color: var(--primary-line);
+  color: var(--primary-text);
+}
+
+.tz-ib[aria-pressed="true"]:hover:not(:disabled),
+.tz-btn[aria-pressed="true"]:hover:not(:disabled) {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+@media (forced-colors: active) {
+  .tz-ib[aria-pressed="true"],
+  .tz-btn[aria-pressed="true"] {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+}
+
+.tz-ib:disabled {
+  opacity: 0.4;
+}
+
+/* Bağlantı görünümlü düğme (maket .lnk): boyut sınıflarından sonra, onları ezer; basılıyken de yalnız mor yazı. */
+.tz-btn--link,
+.tz-btn--link[aria-pressed="true"] {
+  height: auto;
+  padding: 0;
+  gap: 4px;
+  border: 0;
+  border-radius: var(--tz-r-kbd);
+  background: none;
+  color: var(--primary-text);
+  font: 500 var(--tz-fs-small) / 16px var(--f);
+}
+
+.tz-btn--link:hover:not(:disabled),
+.tz-btn--link[aria-pressed="true"]:hover:not(:disabled) {
+  background: none;
+  color: var(--primary-text);
+  text-decoration: underline;
+}

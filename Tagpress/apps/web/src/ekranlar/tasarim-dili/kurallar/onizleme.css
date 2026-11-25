@@ -1,0 +1,31 @@
+/* Kurallar ortası (önek td-oz-): canlı motor önizlemesi ve yanında oran şeması. Yalnız var(--…) belirteçleri. */
+
+.td-oz-sec {
+  width: 280px;
+  max-width: 50%;
+}
+
+.td-oz-not {
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-oz-alti {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--tz-artboard-ink);
+}
+
+/* Önizleme gelmeden: boş kâğıt. */
+.td-oz-bos {
+  display: block;
+  background: var(--tz-paper);
+  box-shadow: var(--tz-sh-paper);
+}
+
+/* Şema tuvalde önizlemenin yanında küçük yardımcı; kâğıdı kesim şeklinde (kare zemin yok). */
+.td-oz-sema {
+  display: block;
+}

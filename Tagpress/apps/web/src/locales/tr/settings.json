@@ -1,0 +1,217 @@
+{
+  "title": "Ayarlar",
+  "nav": "Ayar bölümleri",
+  "sections": {
+    "connections": "Bağlantılar",
+    "production": "Üretim",
+    "fonts": "Fontlar",
+    "cost": "Maliyet",
+    "designLanguages": "Tasarım dilleri",
+    "features": "Özellikler",
+    "org": "Firma",
+    "language": "Dil"
+  },
+  "state": {
+    "loading": "Yükleniyor",
+    "loadError": "Yüklenemedi",
+    "retry": "Tekrar dene",
+    "saved": "Kaydedildi.",
+    "save": "Kaydet"
+  },
+  "connections": {
+    "intro": "Anahtarlar bu bilgisayarda saklanır ve bir daha gösterilmez. Üretim ve tasarım dili oluşturma bu anahtarlarla çalışır; kullanım ücretlidir.",
+    "warningTitle": "Dikkat",
+    "providers": {
+      "title": {
+        "anthropic": "Anthropic (Claude)",
+        "gemini": "Google (Gemini)"
+      },
+      "use": {
+        "anthropic": "Günlük üretim (tasarım, aday seçimi, görseldeki yazıyı okuma) ve tasarım dili oluşturma.",
+        "gemini": "Görsel üretimi: etiket için arka plan ve resim."
+      }
+    },
+    "modelGroup": "Model ve fiyat",
+    "status": {
+      "none": "Anahtar yok",
+      "saved": "Kayıtlı",
+      "savedOn": "Kayıtlı · {{date}}"
+    },
+    "notEncrypted": "Diskte şifrelenemedi",
+    "enter": "Anahtarı gir",
+    "change": "Anahtarı değiştir",
+    "delete": "Sil",
+    "newKey": "Yeni anahtar",
+    "newKeyHint": "Anahtarı {{where}} adresinden alırsın. Kaydedilince alan boşalır.",
+    "tooShort": "Anahtar en az 8 karakter olmalı.",
+    "savedToast": "{{provider}} anahtarı kaydedildi.",
+    "deletedToast": "{{provider}} anahtarı silindi.",
+    "confirmTitle": "{{provider}} anahtarı silinsin mi?",
+    "confirmBody": "Silinince bu hizmetle üretim yapılamaz. İstediğin zaman yenisini girebilirsin.",
+    "platformIntro": "Yapay zekâ anahtarları SellerOnData platformunda tutulur.",
+    "platformBody": "Anahtarları platform yöneticisi girer; bu firmada ayrıca anahtar gerekmez. Harcama Merkez'de, aboneliğin altında görünür."
+  },
+  "production": {
+    "intro": "Siparişler üretilirken kullanılan varsayılanlar. Değişiklik anında kaydedilir.",
+    "variants": {
+      "label": "Varsayılan varyasyon sayısı",
+      "hint": "Bir üretimde kaç varyasyon kaydedilir. Fazlası daha çok seçenek ve daha çok maliyet demektir.",
+      "aria": "Varyasyon sayısı"
+    },
+    "language": {
+      "label": "Varsayılan tasarım dili",
+      "hint": "İçe aktarırken ayrıca seçilmezse siparişler bu dille üretilir.",
+      "notChosen": "Seçilmedi"
+    },
+    "advanced": "Gelişmiş",
+    "advancedSummary": "Eşzamanlı iş",
+    "concurrency": {
+      "label": "Aynı anda üretilen iş",
+      "hint": "Daha yüksek değer hızlıdır ama yapay zekâ hizmetinin hız sınırına takılabilir. 1–8.",
+      "aria": "Aynı anda üretilen iş sayısı",
+      "decrease": "Azalt",
+      "increase": "Artır"
+    }
+  },
+  "fonts": {
+    "intro": "“{{name}}” tasarım dilinin fontları. Yedek fontlar bütün dillerde ortaktır.",
+    "introNone": "Önce bir tasarım dili seç.",
+    "noLanguage": "Etkin tasarım dili yok. Fontlar tasarım diline bağlıdır; Tasarım dilleri bölümünden bir dil oluştur.",
+    "missingTitle_one": "{{count}} fontun dosyası eksik",
+    "missingTitle_other": "{{count}} fontun dosyası eksik",
+    "missingNoFile": "dosya adı tanımsız",
+    "missingHelp": "Dosyayı aşağıdan yükle; adı profildeki ile aynı olmalı.",
+    "sample": {
+      "label": "Örnek yazı",
+      "hint": "Bütün örnekler bu yazıyla çizilir. En fazla 80 karakter.",
+      "default": "Anna & Marco 12.10.2026"
+    },
+    "own": {
+      "title": "Bu dilin fontları",
+      "empty": "Bu dile henüz font yüklenmedi."
+    },
+    "shared": {
+      "title": "Yedek fontlar (ortak)",
+      "empty": "Ortak yedek font yok."
+    },
+    "drop": {
+      "title": "Font dosyalarını buraya sürükle",
+      "hint": ".ttf, .otf, .woff, .woff2 · “{{name}}” diline eklenir",
+      "pick": "Dosya seç"
+    },
+    "inProfile": "Profilde: {{id}}",
+    "notInProfile": "Profilde kullanılmıyor",
+    "specimenFailed": "Örnek çizilemedi.",
+    "specimenAlt": "{{name}} örneği: {{text}}",
+    "uploadedOne": "{{name}} yüklendi.",
+    "uploadedMany": "{{count}} font yüklendi.",
+    "badType": "Yalnızca .ttf, .otf, .woff ve .woff2 dosyaları yüklenir."
+  },
+  "cost": {
+    "intro": "Yapay zekâ çağrılarının tahmini ücreti. Tutarlar fiyat listesinden hesaplanır; faturanla küçük farklar olabilir.",
+    "introFor": "Yapay zekâ çağrılarının tahmini ücreti (“{{name}}” dili). Tutarlar fiyat listesinden hesaplanır; faturanla küçük farklar olabilir.",
+    "today": "Bugün",
+    "month": "Bu ay",
+    "total": "Toplam",
+    "unpricedTitle_one": "{{count}} çağrının fiyatı bilinmiyor",
+    "unpricedTitle_other": "{{count}} çağrının fiyatı bilinmiyor",
+    "unpricedBody": "Fiyat listesinde olmayan bir modelle yapılan çağrılar yukarıdaki tutarlara dahil değil.",
+    "days": {
+      "title": "Son 31 gün",
+      "total": "Toplam {{usd}}",
+      "view": "Görünüm",
+      "chart": "Grafik",
+      "table": "Tablo",
+      "empty": "Bu dönemde harcama yok. Üretim yaptıkça günlük tutarlar burada çubuklarla görünür.",
+      "peak": "En yüksek gün {{usd}}",
+      "point": "{{day}} · {{usd}} · {{count}} çağrı",
+      "figure": "Son 31 günün günlük maliyeti",
+      "pointLabel": "{{day}}: {{usd}}, {{count}} çağrı",
+      "colDay": "Gün",
+      "colAmount": "Tutar",
+      "colCalls": "Çağrı"
+    },
+    "byModel": "Modele göre",
+    "byPurpose": "Amaca göre",
+    "noCalls": "Henüz çağrı yok.",
+    "calls_one": "{{count}} çağrı",
+    "calls_other": "{{count}} çağrı"
+  },
+  "designLanguages": {
+    "intro": "Her tasarım dili kendi kuralları, şablonları ve fontlarıyla bir etiket stilidir. Silinen dil 30 gün boyunca geri getirilebilir.",
+    "listTitle": "Tasarım dilleri",
+    "new": "Yeni tasarım dili",
+    "empty": "Henüz tasarım dili yok. Boş bir dille başlayabilir ya da başka dilin kopyasını çıkarabilirsin.",
+    "badgeDefault": "Varsayılan",
+    "badgeDraft": "Taslak var",
+    "metaNone": "Yayınlanmış sürüm yok · {{count}} şablon",
+    "metaVersion": "Sürüm {{version}} · {{count}} şablon",
+    "makeDefault": "Varsayılan yap",
+    "more": "{{name}} için diğer işlemler",
+    "rename": "Yeniden adlandır",
+    "copy": "Kopyasını oluştur",
+    "delete": "Sil",
+    "deleteDefault": "Sil (varsayılan dil silinemez)",
+    "confirmTitle": "“{{name}}” silinsin mi?",
+    "confirmBody": "Dil listeden kalkar. “Geri al” ile 30 gün içinde geri getirebilirsin.",
+    "undo": "Geri al",
+    "undone": "Geri alındı.",
+    "newName": "Yeni ad",
+    "form": {
+      "name": "Ad",
+      "nameRequired": "Bir ad yaz.",
+      "start": "Başlangıç",
+      "startHint": "Kopyada kurallar (profil) aktarılır; şablonlar ve fontlar aktarılmaz.",
+      "blank": "Boş dil",
+      "copyOf": "“{{name}}” dilinin kopyası",
+      "create": "Oluştur"
+    },
+    "defaultToast": "“{{name}}” varsayılan tasarım dili oldu.",
+    "createdToast": "“{{name}}” oluşturuldu ve etkin dil yapıldı."
+  },
+  "language": {
+    "intro": "Arayüzün hangi dilde görüneceğini seç. Seçim bu bilgisayarda saklanır.",
+    "label": "Arayüz dili",
+    "hint": "Seçince ekran hemen çevrilir.",
+    "aria": "Arayüz dili"
+  },
+  "format": {
+    "price": "≈ {{input}} / {{output}} · 1M token",
+    "priceAbove": "≈ {{input}} / {{output}} · 1M token, {{k}}K üstü istekte {{aboveInput}} / {{aboveOutput}}",
+    "imagePrice": "≈ {{price}} / görsel (1K)",
+    "purposes": {
+      "design": "Tasarım",
+      "pick": "Aday seçimi",
+      "rank": "Aday sıralama",
+      "critique": "Görsel denetim",
+      "transcribe": "Görseldeki yazıyı okuma",
+      "image": "Görsel üretimi"
+    }
+  },
+  "features": {
+    "intro": "Kullandığınız araçları açın ya da kapatın. Kapatmak veri silmez; yalnız o araçla yeni iş yapılmaz.",
+    "groups": {
+      "production": "Üretim",
+      "import": "İçe aktarma",
+      "image": "Görsel",
+      "learn": "Öğrenme",
+      "print": "Baskı",
+      "templates": "Şablonlar",
+      "language": "Tasarım dili"
+    },
+    "paid": "Ücretli",
+    "always": "Her zaman açık",
+    "savedWith": "Kaydedildi. Bağlı özellikler de değişti: {{names}}.",
+    "setupTitle": "Kurulum",
+    "setupHint": "Soruları yeniden cevaplayın; önceki cevaplarınız dolu gelir.",
+    "setup": "Kurulumu yeniden çalıştır"
+  },
+  "org": {
+    "intro": "Firmanızın adı.",
+    "name": "Firma adı",
+    "empty": "Firma adı boş olamaz.",
+    "tooLong": "Firma adı en çok {{max}} karakter olabilir.",
+    "platformHint": "Firma adı SellerOnData Merkez'de değişir.",
+    "openHub": "Merkez'de aç"
+  }
+}

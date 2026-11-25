@@ -1,0 +1,21 @@
+# API imajı için derleme bağlamı (SellerOnData/ kökü): yalnız gerekenler gönderilir
+*
+!Deciship/SPEC.md
+!Deciship/samples
+Deciship/samples/tools
+!Deciship/packages/core/package.json
+!Deciship/packages/core/src
+!Platform/packages/contracts/package.json
+!Platform/packages/contracts/src
+!Platform/packages/format/package.json
+!Platform/packages/format/src
+!Platform/packages/auth-kit/package.json
+!Platform/packages/auth-kit/src
+!Deciship/apps/api
+Deciship/apps/api/node_modules
+Deciship/apps/api/dist
+Deciship/apps/api/test
+Deciship/apps/api/storage
+Deciship/apps/api/src/generated
+**/.env
+**/*.log

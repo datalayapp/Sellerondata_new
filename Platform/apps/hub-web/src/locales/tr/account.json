@@ -1,0 +1,104 @@
+{
+  "accountArea": {
+    "head": {
+      "same": "Bu bilgiler tüm firmalarınızda aynıdır"
+    },
+    "nav": {
+      "label": "Hesabım",
+      "profile": "Profil",
+      "security": "Güvenlik",
+      "firms": "Firmalarım"
+    },
+    "profile": {
+      "personal": "Kişisel bilgiler",
+      "name": "Ad soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "noEmail": "E-posta yok",
+      "noPhone": "Bağlı telefon yok",
+      "phoneHelp": "Telefon davet koduyla bağlanır.",
+      "edit": "Düzenle",
+      "add": "Ekle",
+      "remove": "Kaldır",
+      "saved": "Profil kaydedildi",
+      "currentPassword": "Mevcut şifreniz",
+      "currentPasswordHelp": "E-posta veya telefon değişimi şifrenizle onaylanır.",
+      "needContact": "E-posta veya telefondan en az biri gerekli: girişte kullanılır.",
+      "noRecovery": "Şifrenizi unutursanız kurtarma yolu yok. E-posta ekleyin.",
+      "removePhone": "Telefonu kaldır",
+      "removePhoneBody": "Telefonla giriş kapanır, e-postanızla girmeye devam edersiniz. Yeniden bağlamak için davet kodu gerekir.",
+      "unverifiedHow": "Doğrulanmadı. Bağlantı bu adrese gönderildi.",
+      "pending": "Doğrulama bekliyor: {{email}}. Onaylayana kadar eski adresiniz geçerli.",
+      "pendingNoCurrent": "Doğrulama bekliyor: {{email}}.",
+      "pendingSent": "Doğrulama bağlantısı {{email}} adresine gönderildi.",
+      "resend": "Yeniden gönder",
+      "resent": "Bağlantı yeniden gönderildi.",
+      "cancelPending": "Vazgeç",
+      "pendingCanceled": "E-posta değişikliğinden vazgeçildi.",
+      "unverifiedMailOff": "Doğrulanmadı. Bu kurulumda e-posta gönderimi kapalı, yöneticinize başvurun.",
+      "preferences": "Tercihler"
+    },
+    "security": {
+      "password": "Şifre",
+      "change": "Değiştir",
+      "currentPassword": "Mevcut şifre",
+      "newPassword": "Yeni şifre",
+      "repeatPassword": "Yeni şifre (tekrar)",
+      "note": "Şifre değişince diğer cihazlardaki oturumlar kapanır.",
+      "submit": "Şifreyi değiştir",
+      "changed": "Şifre değiştirildi",
+      "sessions": "Açık oturumlar",
+      "noSessions": "Açık oturum yok",
+      "web": "Web tarayıcı",
+      "mobile": "Mobil uygulama",
+      "current": "Bu cihaz",
+      "revoke": "Çıkış yap",
+      "revoked": "Oturum kapatıldı",
+      "revokeFailed": "Oturum kapatılamadı",
+      "sessionsSub": "Bu hesapla giriş yapılmış cihazlar. Tanımadığınız bir cihaz görürseniz çıkış yaptırın ve şifrenizi değiştirin.",
+      "revokeOthers": "Diğer tüm oturumları kapat",
+      "revokedOthers": "Diğer oturumlar kapatıldı"
+    },
+    "language": {
+      "title": "Dil",
+      "change": "Değiştir"
+    },
+    "orgs": {
+      "title": "Firmalarım",
+      "open": "Merkez'de aç",
+      "suspended": "Üyeliğiniz askıda",
+      "none": "Henüz bir firmada değilsiniz.",
+      "create": "Firma oluştur",
+      "ownerNote": "Firma sahibi ayrılamaz. Önce sahipliği başka birine devredin.",
+      "ownerBody": "{{org}} firmasının sahibi sizsiniz. Firma sahibi ayrılamaz. Önce sahipliği başka birine devredin.",
+      "ownerAction": "Sahipliği devretmeye git",
+      "sub": "Üyesi olduğunuz firmalar. Firma bilgileri ve ekip, firmanın kendi sayfalarındadır.",
+      "active": "Etkin firma",
+      "closed": "Kapalı",
+      "purgeOn": "{{date}} tarihinde kalıcı olarak silinecek",
+      "reopen": "Geri aç",
+      "createNew": "Yeni firma oluştur"
+    },
+    "memberships": {
+      "status": {
+        "ACTIVE": "Açık",
+        "READ_ONLY": "Salt okunur",
+        "CANCELED": "İptal edildi"
+      }
+    }
+  },
+  "d9": {
+    "team": {
+      "filters": "Süzgeçler",
+      "inviteActionsFor": "{{name}} daveti için işlemler"
+    },
+    "billing": {
+      "title": "Abonelik ve araçlar",
+      "plan": "Plan",
+      "payment": "Ödeme"
+    },
+    "company": {
+      "more": "Firma için diğer işlemler"
+    }
+  }
+}

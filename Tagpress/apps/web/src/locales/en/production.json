@@ -1,0 +1,329 @@
+{
+  "sort": {
+    "createdDesc": "Added: newest first",
+    "createdAsc": "Added: oldest first",
+    "orderAsc": "Order no: low to high",
+    "orderDesc": "Order no: high to low",
+    "statusAsc": "Status: issues first",
+    "templateAsc": "Template: A to Z",
+    "templateDesc": "Template: Z to A"
+  },
+  "day": {
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "size": {
+    "cm": "{{v}} cm"
+  },
+  "toast": {
+    "undo": "Undo",
+    "undone": "Undone.",
+    "queued_one": "{{count}} job queued for generation.",
+    "queued_other": "{{count}} jobs queued for generation.",
+    "noneQueued": "No job could be queued.",
+    "approved_one": "{{count}} job approved.",
+    "approved_other": "{{count}} jobs approved.",
+    "noneApproved": "No suitable variation to approve.",
+    "noteAdded_one": "AI note added to {{count}} job.",
+    "noteAdded_other": "AI note added to {{count}} jobs.",
+    "noteCleared": "AI note cleared.",
+    "reviseQueued": "Change request queued.",
+    "reviseFailed": "Could not be queued.",
+    "skipped_one": "{{count}} job skipped: {{reason}}",
+    "skipped_other": "{{count}} jobs skipped: {{reason}}"
+  },
+  "title": "Production",
+  "aiNote": {
+    "title": "AI note",
+    "titleMany_one": "AI note for {{count}} job",
+    "titleMany_other": "AI note for {{count}} jobs",
+    "placeholder": "E.g. make the name bigger, keep clear of the flowers",
+    "hint": "The AI uses this note in the next generation. It replaces the current note of the selected jobs; leave it empty to clear it.",
+    "clear": "Clear",
+    "apply": "Apply note"
+  },
+  "image": {
+    "mode": "Generation mode",
+    "onTemplate": "Write on template",
+    "onTemplateBody": "The template never changes; the text is rendered on top of it.",
+    "generated": "New template from a theme",
+    "generatedBody": "A new template is drawn from your theme and the text is placed on it.",
+    "theme": "Theme",
+    "themePlaceholder": "E.g. pastel flower wreath, round inner area",
+    "keep": "Keep template in the library",
+    "keepHint": "If off, the template is used for this job only.",
+    "run": "Generate with image",
+    "runMany_one": "Generate {{count}} job with image",
+    "runMany_other": "Generate {{count}} jobs with image"
+  },
+  "kind": {
+    "text": "Text",
+    "imageOnTemplate": "Image on template",
+    "generatedTemplate": "New template from theme"
+  },
+  "empty": {
+    "noLanguage": "No design language. Create one in Settings.",
+    "toSettings": "Go to Settings"
+  },
+  "status": {
+    "today": "Today {{cost}}",
+    "month": "This month {{cost}}"
+  },
+  "panel": {
+    "label": "Order panel",
+    "title": "Order",
+    "position": "{{section}} · {{n}} / {{total}}",
+    "more": "More",
+    "revise": "Change this (AI)",
+    "revisePlaceholder": "For V{{no}}, e.g. make the date a bit smaller",
+    "reviseSubmit": "Change",
+    "image": "Generate with image",
+    "newVariant": "Generate a new option",
+    "new": "New",
+    "flag": "Flag V{{no}} for review",
+    "unflag": "Remove review flag",
+    "deleteVariant": "Delete option V{{no}}",
+    "deleteJob": "Delete order",
+    "generate": "Generate",
+    "toPrint": "Go to the print desk",
+    "unapprove": "Remove approval",
+    "adjust": "Detailed edit",
+    "design": "Design",
+    "approve": "Approve V{{no}}",
+    "approveNone": "Approve",
+    "nextHint": "Moves to the next one after approval",
+    "variants": "Options",
+    "pickHint": "Pick with 1–{{n}}",
+    "info": "Order details",
+    "text": "Customer text",
+    "edited": "Edited",
+    "editedHint": "Text in the file: {{raw}}",
+    "restore": "Back to the file's text",
+    "textHint": "The text changes only if you edit it.",
+    "textKeys": "Ctrl Enter saves · Esc cancels · variations become outdated when it changes",
+    "emptyText": "The text cannot be empty.",
+    "stale": "The text changed: some variations were made with the old text.",
+    "regenerate": "Regenerate",
+    "orderNo": "Order no",
+    "quantity": "Quantity",
+    "size": "Size",
+    "sizeCm": "{{v}} cm",
+    "defaultSize": "Default",
+    "template": "Template",
+    "noTemplate": "None",
+    "changeTemplate": "Change template",
+    "openTemplate": "Open in template editor",
+    "issues": "Issues",
+    "issuesOf": "Issues · V{{no}}",
+    "failed": "Generation failed:"
+  },
+  "approve": {
+    "staleTitle": "Approve a variation made with the old text?",
+    "staleBody": "This variation was made before the job's text changed. The preview may not match the current text.",
+    "staleConfirm": "Approve anyway",
+    "done": "Approved (V{{no}}). Queued on the print desk.",
+    "doneOrder": "No. {{order}} approved (V{{no}}). Queued on the print desk.",
+    "undo": "Undo"
+  },
+  "fix": {
+    "converted": "Text converted to plain letters.",
+    "refused": "Errors cannot be dismissed; fix them first."
+  },
+  "details": {
+    "title": "Details",
+    "summary": "lines, cost, log",
+    "rows": "Lines",
+    "rowsOf": "Lines (V{{no}})",
+    "colText": "Text",
+    "colFont": "Font",
+    "colSize": "Size",
+    "colRole": "Role",
+    "px": "{{v}} px",
+    "imageRows": "Made with an image model: no line measurements.",
+    "readText": "Text read from the image: “{{text}}”",
+    "noRows": "The selected variation has no line measurements.",
+    "cost": "Cost",
+    "thisVariant": "This variation",
+    "jobTotal": "Job total",
+    "model": "Model",
+    "profileVersion": "Design language version",
+    "rationale": "AI rationale",
+    "noRationale": "No rationale for this variation.",
+    "imageIssues": "Image issues",
+    "noImageIssues": "No image issues.",
+    "score": "Technical score",
+    "total": "Total {{v}}",
+    "fill": "fill {{v}}%",
+    "engine": "Engine: {{notes}}",
+    "noScore": "No score.",
+    "log": "Generation log",
+    "noLog": "No log for this job.",
+    "colPurpose": "Purpose",
+    "colTokens": "In / out",
+    "colTime": "Time",
+    "seconds": "{{v}} s",
+    "versions": "Versions",
+    "noVersions": "No variations yet.",
+    "staleV": "old text",
+    "approvedV": "approved",
+    "scoreV": "score {{v}}",
+    "select": "Select",
+    "selected": "Selected",
+    "role": {
+      "name": "Name",
+      "connector": "Connector",
+      "greeting": "Greeting",
+      "message": "Message",
+      "date": "Date",
+      "place": "Place",
+      "title": "Title",
+      "other": "Other"
+    },
+    "tier": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "connector": "Connector"
+    }
+  },
+  "drop": {
+    "title": "Drop the order file",
+    "body": "Orders go to the “Waiting to be generated” list; generation does not start."
+  },
+  "shortcuts": {
+    "groups": {
+      "panel": "Right panel",
+      "list": "List"
+    },
+    "approve": "Approve the selected option and move to the next",
+    "pick": "Pick an option",
+    "adjust": "Detailed edit",
+    "next": "Next order",
+    "prev": "Previous order",
+    "editText": "Edit customer text",
+    "revise": "Change this",
+    "regenerate": "Generate a new option",
+    "delete": "Delete order (can be undone)",
+    "close": "Close the panel",
+    "search": "Search",
+    "upload": "Upload file",
+    "generate": "Generate selected",
+    "approveBest": "Approve the best"
+  },
+  "type": {
+    "sticker": "Sticker"
+  },
+  "sections": {
+    "pending": {
+      "title": "Waiting to be generated",
+      "short": "Waiting",
+      "body": "Orders from a file or added by hand. Select the ones you want and generate.",
+      "hint_one": "{{count}} order waiting to be generated",
+      "hint_other": "{{count}} orders waiting to be generated"
+    },
+    "edit": {
+      "title": "Edit",
+      "short": "Edit",
+      "body": "Generated, waiting for your approval. Click a card to edit and approve on the right.",
+      "hint_one": "{{count}} order waiting for approval",
+      "hint_other": "{{count}} orders waiting for approval"
+    },
+    "approved": {
+      "title": "Approved",
+      "short": "Approved",
+      "body": "Queued on the print desk.",
+      "hint_one": "{{count}} order approved",
+      "hint_other": "{{count}} orders approved"
+    }
+  },
+  "strip": {
+    "print": "Print desk",
+    "more": "More",
+    "detailedImport": "Detailed import"
+  },
+  "tools": {
+    "label": "List tools",
+    "search": "Search order no or text",
+    "searchLabel": "Search order no, text or template",
+    "problems": "Issues",
+    "type": "Type",
+    "allTypes": "All",
+    "noMatch": "No orders match this filter",
+    "noMatchQuery": "No orders match “{{q}}”",
+    "clearFilter": "Clear filter",
+    "sort": "Sort"
+  },
+  "pending": {
+    "selectAll": "Select all",
+    "generate_one": "Generate selected ({{count}})",
+    "generate_other": "Generate selected ({{count}})"
+  },
+  "edit": {
+    "approveBest": "Approve the best",
+    "approveBestHint": "Approves the option the AI ranked first for each order; flagged options are skipped"
+  },
+  "approvedSec": {
+    "toPrint": "Open the print desk"
+  },
+  "card": {
+    "order": "No. {{v}}",
+    "quantity_one": "{{count}} pc",
+    "quantity_other": "{{count}} pcs",
+    "select": "Select: {{v}}",
+    "delete": "Delete: {{v}} (can be undone)",
+    "new": "Waiting",
+    "queued": "Queued",
+    "generating": "Generating…",
+    "failed": "Generation failed",
+    "retry": "Try again",
+    "approved": "Approved",
+    "approvedV": "Approved · V{{no}}",
+    "variant": "V{{no}}",
+    "variants_one": "{{count}} option",
+    "variants_other": "{{count}} options",
+    "warnings_one": "{{count}} warning",
+    "warnings_other": "{{count}} warnings",
+    "errors_one": "{{count}} error",
+    "errors_other": "{{count}} errors"
+  },
+  "intake": {
+    "emptyTitle": "Add your orders",
+    "emptyBody": "Orders in the file go to the “Waiting to be generated” list. Generation starts only when you select and start it.",
+    "dropTitle": "Drag your order file here",
+    "or": "or",
+    "upload": "Upload file",
+    "formats": ".json, .ndjson or .txt · you can also paste with Ctrl V",
+    "manual": "Add by hand",
+    "manualBody": "Type a single order yourself.",
+    "addToList": "Add to list",
+    "stripTitle": "Drop your order file here",
+    "last_one": "Last upload: {{file}} · {{count}} order · {{when}}",
+    "last_other": "Last upload: {{file}} · {{count}} orders · {{when}}",
+    "steps": {
+      "upload": {
+        "title": "Upload",
+        "body": "Orders land as cards under “Waiting to be generated”. Cards with issues show a warning."
+      },
+      "generate": {
+        "title": "Select and generate",
+        "body": "Tick the ones you want and click “Generate selected”. Delete what you don't need with the bin."
+      },
+      "approve": {
+        "title": "Edit and approve",
+        "body": "Click a card to open the edit panel on the right. Approved orders move to the print desk."
+      }
+    }
+  },
+  "upload": {
+    "added_one": "{{count}} order added to the list.",
+    "added_other": "{{count}} orders added to the list.",
+    "skipped_one": "{{count}} row not taken (duplicate or empty text).",
+    "skipped_other": "{{count}} rows not taken (duplicate or empty text).",
+    "nothing": "No new orders: the rows are already in the list or have no text.",
+    "noText": "No customer text field found in the file.",
+    "detailed": "Detailed import",
+    "fileType": "“{{name}}” could not be opened: only .json, .ndjson or .txt.",
+    "fileUnreadable": "“{{name}}” could not be read.",
+    "fileEmpty": "“{{name}}” is empty."
+  }
+}

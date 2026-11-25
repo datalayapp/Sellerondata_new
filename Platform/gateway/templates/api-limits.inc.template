@@ -1,0 +1,6 @@
+# /api/ konumlarına içe alınır (include /etc/nginx/conf.d/api-limits.inc). Uzantısı .inc: conf.d/*.conf ile kendiliğinden yüklenmez.
+# Sağlık uçları ve statik dosyalar bunu almaz. Anahtarı boş kalan kova (yükleme, kimlik) o isteği saymaz.
+limit_req zone=sod_api burst=${GATEWAY_API_BURST} nodelay;
+limit_req zone=sod_upload burst=${GATEWAY_UPLOAD_BURST} nodelay;
+limit_req zone=sod_auth burst=${GATEWAY_AUTH_BURST} nodelay;
+limit_conn sod_conn ${GATEWAY_CONN_PER_IP};

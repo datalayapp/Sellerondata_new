@@ -1,0 +1,607 @@
+/* İçe aktarma masası (önek ia-): maket 3; renk ve ölçü yalnız var(--…) belirteçleri. */
+
+.ia-root {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+}
+
+.ia-dropzone {
+  position: absolute;
+  inset: 8px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--primary);
+  border-radius: var(--tz-r-page);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+  font-size: var(--tz-fs-guided);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- karşılama */
+
+.ia-intake {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--surface);
+}
+
+.ia-intake-c {
+  width: 100%;
+  max-width: 640px;
+  display: grid;
+  gap: 16px;
+}
+
+.ia-drop {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 32px 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--tz-r-page);
+  background: var(--surface-2);
+  text-align: center;
+  color: var(--text-3);
+}
+
+.ia-drop-t {
+  font-size: var(--tz-fs-guided);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ia-drop-b {
+  max-width: 60ch;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.ia-drop-a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.ia-paste {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.ia-paste .tz-fi {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------- tablo */
+
+.ia-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface);
+}
+
+.ia-tbl {
+  min-width: 860px;
+  font-size: var(--tz-fs-panel);
+}
+
+.ia-head,
+.ia-row,
+.ia-fix {
+  display: grid;
+  /* maket T1 sadeleştirme: satır numarası sütunu yok (numara onay kutusunun adında) */
+  grid-template-columns: 40px 88px minmax(0, 1fr) 64px 84px 150px 140px;
+  gap: 0 8px;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ia-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  align-items: center;
+  height: var(--tz-row-head);
+  background: var(--surface-2);
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.ia-row {
+  align-items: center;
+  min-height: var(--tz-row-table);
+  scroll-margin: var(--tz-row-head) 0 8px;
+}
+
+.ia-row > .ia-c {
+  min-width: 0;
+}
+
+.ia-row.is-sel {
+  background: var(--tz-row-multi);
+}
+
+.ia-row.is-err {
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.ia-row.is-warn {
+  box-shadow: inset 3px 0 0 var(--tz-dot-warn);
+}
+
+.ia-row.is-act {
+  background: var(--tz-row-active);
+  outline: 1.5px solid var(--primary);
+  outline-offset: -1.5px;
+}
+
+.ia-row.is-sel.is-act {
+  background: var(--tz-row-multi);
+}
+
+.ia-row.is-edit {
+  align-items: start;
+  padding-block: 6px;
+}
+
+.ia-row.is-exc {
+  color: var(--text-3);
+  background: repeating-linear-gradient(135deg, transparent 0 8px, var(--surface-2) 8px 16px);
+}
+
+.ia-row.is-exc .ia-text-s {
+  text-decoration: line-through;
+}
+
+.ia-row.is-busy {
+  border-bottom-color: var(--primary-line);
+}
+
+.ia-c-cb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ia-c-text {
+  display: grid;
+  gap: 2px;
+}
+
+.ia-c-iss {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+/* yerinde düzenlenen hücreler: düz görünür, üstüne gelince ve odakta alan olur */
+.ia-cell {
+  width: 100%;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  border-radius: var(--tz-r-field);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-overflow: ellipsis;
+}
+
+.ia-cell:hover {
+  border-color: var(--line);
+}
+
+.ia-cell:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+.ia-cell[aria-invalid="true"] {
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+.ia-cell::placeholder {
+  color: var(--placeholder);
+}
+
+.ia-cell--sel {
+  cursor: pointer;
+}
+
+.ia-text {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 3px 6px;
+  border-radius: var(--tz-r-field);
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+.ia-text:hover {
+  background: var(--surface-2);
+}
+
+.ia-text-none {
+  color: var(--danger);
+  font-style: italic;
+}
+
+.ia-seg {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 7px;
+  vertical-align: middle;
+  background: var(--line);
+}
+
+.ia-mark {
+  margin-left: 8px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-mark--ed {
+  color: var(--primary-text);
+}
+
+.ia-sub {
+  padding: 0 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ia-raw {
+  padding: 0 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ia-edit {
+  display: grid;
+  gap: 4px;
+}
+
+.ia-edit .tz-fi {
+  width: 100%;
+}
+
+.ia-edit-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-link {
+  color: var(--primary-text);
+  font-size: var(--tz-fs-panel);
+  text-align: left;
+}
+
+.ia-link:hover:not(:disabled) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ia-link:disabled {
+  color: var(--text-3);
+  cursor: default;
+}
+
+.ia-edit-h .ia-link {
+  font-size: var(--tz-fs-small);
+}
+
+.ia-tpl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 28px;
+  padding: 0 4px;
+  border: 1px solid transparent;
+  border-radius: var(--tz-r-field);
+  color: inherit;
+  text-align: left;
+}
+
+.ia-tpl:hover {
+  border-color: var(--line);
+}
+
+.ia-tpl.is-invalid {
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+.ia-tpl-t {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ia-tpl-t.is-empty {
+  color: var(--text-3);
+}
+
+.ia-iss {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ia-more {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-exc-t {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Araç şeridindeki "N yok sayıldı" çipi (maket .tg). */
+.ia-dis {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.ia-dis:hover,
+.ia-dis[aria-expanded="true"] {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.ia-dis-l {
+  display: grid;
+  padding: 4px 0;
+}
+
+.ia-dis-l li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 12px;
+  font-size: var(--tz-fs-panel);
+}
+
+/* sorunlu satırın altındaki düzeltme şeridi (metin sütunundan başlar) */
+.ia-fix {
+  padding-block: 6px 8px;
+  font-size: var(--tz-fs-panel);
+}
+
+.ia-fix.is-err {
+  background: var(--danger-bg);
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.ia-fix.is-warn {
+  background: var(--warning-bg);
+  box-shadow: inset 3px 0 0 var(--tz-dot-warn);
+}
+
+.ia-fix-b {
+  grid-column: 3 / -1;
+  display: grid;
+  gap: 6px;
+}
+
+.ia-fix-i {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.ia-fix.is-err .ia-fix-ic {
+  color: var(--danger);
+}
+
+.ia-fix.is-warn .ia-fix-ic {
+  color: var(--warning);
+}
+
+.ia-fix-x {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Süslü yazı: iki hâlin etiket önizlemesi (maket T2 .fx-demo .pv); önerilen yol seçili çerçevede. */
+.ia-pv-l {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 4px 0 2px 23px;
+}
+
+.ia-pv {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-pv.is-on {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+  color: var(--primary-text);
+}
+
+.ia-pv img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.ia-prev {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding-left: 23px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-prev > div {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ia-prev dd {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------------- sağ panel */
+
+.ia-foot-r {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ia-warn-l {
+  margin-top: 4px;
+  padding-left: 16px;
+  list-style: disc;
+}
+
+.ia-sum {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 2px 8px;
+  font-size: var(--tz-fs-panel);
+}
+
+.ia-sum dt {
+  text-align: right;
+  font-size: var(--tz-fs-head);
+  font-weight: 600;
+}
+
+.ia-sum .is-err {
+  color: var(--danger);
+}
+
+.ia-sum .is-warn {
+  color: var(--warning);
+}
+
+.ia-links {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+}
+
+.ia-map {
+  display: grid;
+  gap: 2px;
+  padding: 0 14px 12px;
+}
+
+.ia-map-f {
+  margin-bottom: 4px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.ia-map-b {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: var(--tz-ctl-h);
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+  color: inherit;
+  text-align: left;
+}
+
+.ia-map-b:hover {
+  border-color: var(--border-hover);
+}
+
+.ia-map-b.is-missing {
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+.ia-map-v {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: var(--tz-fs-small);
+}
+
+.ia-map-v.is-empty {
+  color: var(--text-3);
+}
+
+.ia-map-b small {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}

@@ -1,0 +1,59 @@
+# SellerOnData TLS sonlandırıcı. Yalnız üretim katmanında çalışır (docker-compose.prod.yml, servis `caddy`).
+# Kural ve gerekçe: docs/mimari/07-guvenlik.md "TLS ve vekil"; açılış: docs/KURULUM.md "Üretim açılışı".
+#
+# Görevi dar: sertifika (Let's Encrypt, kendisi alır ve yeniler), http → https, www → kök, trafiği iç ağa aktarmak.
+# Güvenlik başlıkları burada yazılmaz: uygulamanınkiler gateway'de (gateway/conf/security-headers.conf, HSTS dahil),
+# sitenin başlıkları sitenin nginx'inde. Tek istisna sitenin HSTS'i: site nginx'i TLS'i bilmez (aşağıda `sod_hsts`).
+#
+# Vekil zinciri: istemci → Caddy → gateway → uygulama. Caddy istemcinin yazdığı X-Forwarded-For/Proto/Host'u yok sayar
+# (trusted_proxies tanımlı değil) ve kendi gördüğünü yazar. Gateway X-Forwarded-For'a yalnız Caddy'nin sabit adresinden
+# gelirse güvenir (GATEWAY_REAL_IP_FROM, üretim katmanında SOD_CADDY_IP'ye sabit).
+#
+# Ortam değişkenleri (compose verir): APP_HOST, SITE_HOST, ACME_EMAIL.
+# Sertifika yetkilisi yazılmaz: Caddy'nin varsayılanı Let's Encrypt, olmazsa ZeroSSL. Yerel denemede `localhost` ve
+# `*.localhost` adları Caddy'nin kendi yetkilisinden sertifika alır (dışarıya istek gitmez); ayrı yerel dosya gerekmez.
+{
+	email {$ACME_EMAIL}
+	servers {
+		# HTTP/3 (UDP 443) kapalı: dışa yalnız TCP 80 ve 443 açılır.
+		protocols h1 h2
+		timeouts {
+			# Yavaş başlık gönderen bağlantı (slowloris) tutulmaz. Gövdeye süre yok: telefondan yavaş yükleme kesilmesin.
+			read_header 30s
+		}
+	}
+	# Erişim günlüğü yok (site bloklarında `log` yok): gateway kendi günlüğünü jetonları maskeleyerek yazar.
+	# Hata günlüğü isteği de yazar: adres (davet, şifre sıfırlama, dosya bağlantısı jetonu) ve başlıklar (Referer) silinir.
+	log default {
+		output stderr
+		format filter {
+			wrap json
+			fields {
+				request>uri delete
+				request>headers delete
+			}
+		}
+	}
+}
+
+# Sitenin HSTS'i. Değer gateway'inkiyle aynı (gateway/conf/default.conf `$sod_hsts`; gateway/test/compose-order.test.mjs denetler).
+# Önce kısa süre ve preload yok: yanlış ayarda tarayıcılar günlerce http'yi reddetmesin. Uzatmak: KALANLAR "Yayından önce".
+(sod_hsts) {
+	header Strict-Transport-Security "max-age=86400; includeSubDomains"
+}
+
+# Uygulama (Merkez, DeciShip, API'ler). Host korunur, X-Forwarded-Proto https (gateway'in HSTS'i buna bağlı).
+{$APP_HOST} {
+	reverse_proxy gateway:80
+}
+
+# Tanıtım sitesi.
+{$SITE_HOST} {
+	import sod_hsts
+	reverse_proxy site:80
+}
+
+www.{$SITE_HOST} {
+	import sod_hsts
+	redir https://{$SITE_HOST}{uri} permanent
+}

@@ -1,0 +1,131 @@
+{
+  "status": 200,
+  "body": {
+    "id": "measurements",
+    "columns": [
+      {
+        "id": "tracking",
+        "label": "Takip no",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "method",
+        "label": "Yöntem",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "dims",
+        "label": "Ölçü (cm)",
+        "format": "text"
+      },
+      {
+        "id": "kg",
+        "label": "kg",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "desi",
+        "label": "Desi",
+        "format": "number"
+      },
+      {
+        "id": "by",
+        "label": "Ölçen",
+        "format": "text"
+      },
+      {
+        "id": "at",
+        "label": "Zaman",
+        "format": "datetime",
+        "sortable": true
+      },
+      {
+        "id": "photos",
+        "label": "Fotoğraf",
+        "format": "number"
+      },
+      {
+        "id": "version",
+        "label": "Sürüm",
+        "format": "number"
+      },
+      {
+        "id": "packaging",
+        "label": "Ambalaj",
+        "format": "text"
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/measurements?id=<id>",
+        "cells": {
+          "tracking": "794812345280",
+          "method": "Elle",
+          "dims": "33 × 25 × 20",
+          "kg": 3.3,
+          "desi": 5.5,
+          "by": "Mehmet Demir",
+          "at": "<zaman>",
+          "photos": 0,
+          "version": 1,
+          "packaging": "Kendi ambalajı"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/measurements?id=<id>",
+        "cells": {
+          "tracking": "571088001256",
+          "method": "Elle",
+          "dims": "30 × 25 × 20",
+          "kg": 3.8,
+          "desi": 5,
+          "by": "Mehmet Demir",
+          "at": "<zaman>",
+          "photos": 0,
+          "version": 1,
+          "packaging": "Kendi ambalajı"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/measurements?id=<id>",
+        "cells": {
+          "tracking": "1Z9X4A710341007819",
+          "method": "Elle",
+          "dims": "33 × 23 × 18",
+          "kg": 2.1,
+          "desi": 4.55,
+          "by": "Mehmet Demir",
+          "at": "<zaman>",
+          "photos": 0,
+          "version": 1,
+          "packaging": "Kendi ambalajı"
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/measurements?id=<id>",
+        "cells": {
+          "tracking": "794812345281",
+          "method": "Hazır koli",
+          "dims": "40 × 30 × 25",
+          "kg": 5.4,
+          "desi": 10,
+          "by": "Mehmet Demir",
+          "at": "<zaman>",
+          "photos": 0,
+          "version": 1,
+          "packaging": "Kendi ambalajı"
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 57
+  }
+}

@@ -1,0 +1,558 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EN: dosya yük sınırları (Mesaj 6) > açılmış boyut, satır ve sayfa sınırı 1`] = `
+[
+  "The Excel file is too large when unpacked, so it was not read. Delete unneeded sheets or split the file and upload the parts.",
+  "The file has too many rows (at most 200,000). Split the file and upload the parts.",
+  "The PDF is too long (at most 300 pages). Split the file and upload the parts.",
+]
+`;
+
+exports[`EN: fatura okuma kontrolü > sorunlu tablo 1`] = `
+{
+  "issues": [
+    "Tracking no: filled on 4/4 rows, 25% of values are in tracking no format.",
+    "Net amount: filled on 4/4 rows, number could not be read on 1 row.",
+    "Service: The selected column is not in this file.",
+    "Read problems on 4 rows: net amount could not be read as a number (1); unexpected tracking no format (should be 8–35 letters/digits) (3).",
+  ],
+  "warnings": [
+    "Read errors on 2 rows.",
+  ],
+}
+`;
+
+exports[`EN: itiraz metni > tam metin 1`] = `
+{
+  "body": "Dear FedEx Billing Team,
+
+On behalf of Demo Export (account 123456789), we have reviewed invoice 9-482-11735 dated Oct 27, 2026 against the dimensions and weights we recorded at packing time and our contracted tariff. We identified overcharges on the following 3 shipments:
+
+1) Tracking number 794812345305 (Oct 22, 2026) — Dimension discrepancy
+   Our measurement: 40 x 30.5 x 25 cm, 4.0 kg, chargeable 6.0 kg
+   Billed: 45 x 35 x 30 cm, 4.5 kg, chargeable 9.5 kg
+   Expected amount: 1,184.00 TRY · Billed amount: 1,642.50 TRY (excl. VAT)
+   Requested correction: 458.50 TRY
+
+2) Tracking number 794812345288 — Duplicate billing
+   This shipment has already been billed. Billed: 1,120.00 TRY (excl. VAT)
+   Requested correction: 1,120.00 TRY (full cancellation)
+
+3) Tracking number 794812345293 — Surcharge, Weight discrepancy
+   Our measurement: chargeable 4.5 kg
+   Billed: chargeable 1,250.0 kg
+   Surcharges: Address Correction 412.00 TRY, PEAK 12.50 TRY
+   Expected amount: — · Billed amount: 1,377.84 TRY (excl. VAT)
+   Requested correction: 412.00 TRY
+
+Total requested correction: 1,990.50 TRY (excl. VAT)
+
+Photos of our measurements are available on request. We kindly ask you to issue a credit note for the amounts above.
+
+Kind regards,
+Elif Kaya
+Demo Export
+Email: elif@demo.com
+Phone: +90 212 000 00 00",
+  "lineCount": 3,
+  "photoCount": 0,
+  "subject": "Invoice dispute — FedEx 9-482-11735 (3 shipments, 1,990.50 TRY)",
+  "total": 1990.5,
+}
+`;
+
+exports[`EN: itiraz metni > tek gönderi: tekil, müşteri no ve tarih yok 1`] = `
+{
+  "body": "Dear UPS Billing Team,
+
+On behalf of Demo Export, we have reviewed invoice X1 against the dimensions and weights we recorded at packing time and our contracted tariff. We identified overcharges on the following 1 shipment:
+
+1) Tracking number 794812345305 (Oct 22, 2026) — Dimension discrepancy
+   Our measurement: 40 x 30.5 x 25 cm, 4.0 kg, chargeable 6.0 kg
+   Billed: 45 x 35 x 30 cm, 4.5 kg, chargeable 9.5 kg
+   Expected amount: 1,184.00 USD · Billed amount: 1,642.50 USD (excl. VAT)
+   Requested correction: 458.50 USD
+
+Total requested correction: 458.50 USD (excl. VAT)
+
+Photos of our measurements are available on request. We kindly ask you to issue a credit note for the amounts above.
+
+Kind regards,
+Demo Export",
+  "lineCount": 1,
+  "photoCount": 0,
+  "subject": "Invoice dispute — UPS X1 (1 shipment, 458.50 USD)",
+  "total": 458.5,
+}
+`;
+
+exports[`EN: tarife içe aktarma > uyarı ve hatalar 1`] = `
+{
+  "currency": {
+    "checks": [
+      [
+        "CURRENCY_MISMATCH",
+        "Prices in the file are USD, tariff is TRY",
+        "Found in the file: USD sign in 2 cells; the tariff currency is TRY.",
+        "If the prices really are in USD, set the tariff currency to USD; otherwise upload the correct file.",
+      ],
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 1.0 kg and has no overflow price",
+        undefined,
+        "Shipments above 1.0 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "SUMMARY",
+        "1 zone × 2 weights read (2 prices)",
+        "Weights 0.5 kg – 1.0 kg. Weight rounding taken from the table: up to 1 kg: 0.5 kg, above that 1 kg.",
+        undefined,
+      ],
+    ],
+    "fixes": [
+      "Set the tariff currency to USD",
+    ],
+    "headline": {
+      "lines": [
+        "Prices in the file are USD, tariff is TRY",
+      ],
+      "status": "error",
+      "title": "Cannot be uploaded as is",
+    },
+  },
+  "lb": {
+    "checks": [
+      [
+        "WEIGHT_UNIT_LB",
+        "Weights are in pounds (lb)",
+        "The file mentions pounds: "Weight (lbs)", "1 lb", "2 lb". DeciShip compares weights in kilograms; 1 lb ≈ 0.454 kg.",
+        "This may be a US (lb) tariff; if you are sure it is the right tariff, turn on "Convert weights to kilograms".",
+      ],
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 2.0 kg and has no overflow price",
+        undefined,
+        "Shipments above 2.0 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "SUMMARY",
+        "1 zone × 2 weights read (2 prices)",
+        "Weights 1.0 kg – 2.0 kg. Weight rounding taken from the table: every 1 kg.",
+        undefined,
+      ],
+    ],
+    "fixes": [
+      "Convert weights from pounds (lb) to kilograms",
+    ],
+    "headline": {
+      "lines": [
+        "Weights are in pounds (lb)",
+      ],
+      "status": "error",
+      "title": "Cannot be uploaded as is",
+    },
+  },
+  "noSheet": {
+    "checks": [
+      [
+        "NO_RATES",
+        "No price table found in the file",
+        undefined,
+        "Upload a table with weights in the first column and zone prices in the others (you can download and fill in the Excel template).",
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "No price table found in the file",
+      ],
+      "status": "error",
+      "title": "Cannot be uploaded as is",
+    },
+  },
+  "ok": {
+    "checks": [
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 1.5 kg and has no overflow price",
+        undefined,
+        "Shipments above 1.5 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "SUMMARY",
+        "2 zones × 3 weights read (6 prices)",
+        "Weights 0.5 kg – 1.5 kg. Weight rounding taken from the table: up to 1.5 kg: 0.5 kg, above that 1 kg.",
+        undefined,
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "The file has no discount",
+        "The table ends at 1.5 kg and has no overflow price",
+        "2 zones, 0.5–1.5 kg · 2 country mappings · TRY",
+      ],
+      "status": "warning",
+      "title": "2 items to review",
+    },
+  },
+  "otherCurrency": {
+    "checks": [
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "OVERFLOW_KEPT",
+        "The file has no overflow row; the current overflow price of 1 zone is kept",
+        "Zone A: 3.00. Weights above the table (above 1.5 kg) are calculated at the old overflow price.",
+        "If the overflow prices do not fit the new table, correct them after saving the tariff.",
+      ],
+      [
+        "SURCHARGES_OTHER_CURRENCY",
+        "Surcharges and overflow prices are in TRY; the tariff is now in USD — check the surcharges",
+        "2 fixed amounts are written in TRY: Name: 5.00 TRY; Overflow zone A: 3.00 TRY. They are not converted automatically and count as USD as they are (e.g. 250 TRY → 250 USD).",
+        "After importing, replace these amounts with their USD equivalents in the tariff’s Surcharges section and the overflow row of the Price table and save, or add a Surcharges sheet to the file.",
+      ],
+      [
+        "SUMMARY",
+        "2 zones × 3 weights read (6 prices)",
+        "Weights 0.5 kg – 1.5 kg. Weight rounding taken from the table: up to 1.5 kg: 0.5 kg, above that 1 kg.",
+        undefined,
+      ],
+      [
+        "CONVERSIONS",
+        "The tariff currency will change TRY → USD",
+        undefined,
+        undefined,
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "The file has no discount",
+        "The file has no overflow row; the current overflow price of 1 zone is kept",
+        "2 zones, 0.5–1.5 kg · 1 country mapping · USD",
+      ],
+      "status": "warning",
+      "title": "3 items to review",
+    },
+  },
+  "sheet": {
+    "checks": [
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "SHEET_ROWS_SKIPPED",
+        "2 rows not read on the Zones / Surcharges sheet",
+        "Zones row 2: invalid country code or zone; Zones row 4: DE is already in zone A; this row was not imported",
+        undefined,
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 1.5 kg and has no overflow price",
+        undefined,
+        "Shipments above 1.5 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "SUMMARY",
+        "2 zones × 3 weights read (6 prices)",
+        "Weights 0.5 kg – 1.5 kg. Weight rounding taken from the table: up to 1.5 kg: 0.5 kg, above that 1 kg. 1 country mapping.",
+        undefined,
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "The file has no discount",
+        "2 rows not read on the Zones / Surcharges sheet",
+        "2 zones, 0.5–1.5 kg · 1 country mapping · TRY",
+      ],
+      "status": "warning",
+      "title": "3 items to review",
+    },
+  },
+  "skipped": {
+    "checks": [
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "SKIPPED_ROWS",
+        "Weight could not be read on 2 rows; these rows were not imported",
+        "Row 3: weight could not be read ("abc"). Row 4: weight cell is empty",
+        "Prices on these rows do not enter the tariff. If a row matters, fix the file and upload it again.",
+      ],
+      [
+        "PRICE_JUMP",
+        "Price more than triples at the next weight in 1 place",
+        "Zone A: 0.5 kg 1.00 → 1.0 kg 5.00",
+        "A price may have an extra zero or the wrong decimal separator.",
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 1.0 kg and has no overflow price",
+        undefined,
+        "Shipments above 1.0 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "SUMMARY",
+        "1 zone × 2 weights read (2 prices)",
+        "Weights 0.5 kg – 1.0 kg. Weight rounding taken from the table: up to 1 kg: 0.5 kg, above that 1 kg. Imported separately: 1 envelope price (pak/envelope shipments are checked against them). 1 pak/envelope price has no weight; treated as valid for any weight up to the carrier pak/envelope limit.",
+        undefined,
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "The file has no discount",
+        "Weight could not be read on 2 rows; these rows were not imported",
+        "1 zone, 0.5–1.0 kg · 1 country mapping · TRY",
+      ],
+      "status": "warning",
+      "title": "4 items to review",
+    },
+  },
+  "step": {
+    "checks": [
+      [
+        "NO_DISCOUNT",
+        "The file has no discount",
+        "Prices will be treated as net. If they are list prices, the expected amount comes out too high and false discrepancies appear.",
+        "Add a "Discount %" column to the price sheet. Enter 0 for net prices.",
+      ],
+      [
+        "MAX_WEIGHT_LOW",
+        "The table ends at 10.0 kg and has no overflow price",
+        undefined,
+        "Shipments above 10.0 kg cannot be priced. Add an "Overflow (each extra unit)" row if needed.",
+      ],
+      [
+        "STEP_RULE_UNUSED",
+        "1 "additional" row could not be used",
+        "Row 2, zone A: no weight row before the rule",
+        "The "Additional 0.5 kg" row must sit between two weight rows (e.g. 10.5 kg row, Additional 0.5 kg, 21 kg row).",
+      ],
+      [
+        "SUMMARY",
+        "1 zone × 1 weight read (1 price)",
+        "Weights 10.0 kg – 10.0 kg.",
+        undefined,
+      ],
+    ],
+    "fixes": [],
+    "headline": {
+      "lines": [
+        "The file has no discount",
+        "The table ends at 10.0 kg and has no overflow price",
+        "1 zone, 10.0–10.0 kg · 1 country mapping · TRY",
+      ],
+      "status": "warning",
+      "title": "3 items to review",
+    },
+  },
+}
+`;
+
+exports[`EN: özet, uyum, karşılaştırma > WhatsApp 1`] = `"DeciShip · FedEx invoice 9-482-11735 (27 Oct 2026): 18 shipments, 4 discrepancies, 1 unmatched. Overcharge ₺1,731.20. Last day to dispute: 4 Nov 2026."`;
+
+exports[`EN: özet, uyum, karşılaştırma > doğrudan tarife hesabı 1`] = `
+[
+  {
+    "adjustment": 0,
+    "adjustmentPct": 0,
+    "base": 1527.75,
+    "discount": 580.55,
+    "freight": 947.2,
+    "fuel": 236.8,
+    "lines": [
+      {
+        "amount": 1527.75,
+        "label": "Tariff price (Zone A, 6.0 kg)",
+      },
+      {
+        "amount": -580.55,
+        "label": "Discount 38%",
+      },
+      {
+        "amount": 236.8,
+        "label": "Fuel 25%",
+      },
+      {
+        "amount": 285,
+        "label": "Ek elleçleme",
+      },
+    ],
+    "ok": true,
+    "surcharges": 285,
+    "total": 1469,
+    "zone": "A",
+  },
+  {
+    "adjustment": 0,
+    "adjustmentPct": 0,
+    "base": 6550,
+    "discount": 2489,
+    "freight": 4061,
+    "fuel": 1015.25,
+    "lines": [
+      {
+        "amount": 6550,
+        "label": "Tariff price (Zone A, 35.0 kg, overflow 5 units)",
+      },
+      {
+        "amount": -2489,
+        "label": "Discount 38%",
+      },
+      {
+        "amount": 1015.25,
+        "label": "Fuel 25%",
+      },
+    ],
+    "ok": true,
+    "surcharges": 0,
+    "total": 5076.25,
+    "zone": "A",
+  },
+  {
+    "ok": false,
+    "reason": "The tariff has no zone for JP",
+  },
+  {
+    "ok": false,
+    "reason": "Destination country is unknown and the tariff has no general zone (*)",
+  },
+  {
+    "ok": false,
+    "reason": "The tariff has no price rows for zone D",
+  },
+]
+`;
+
+exports[`EN: özet, uyum, karşılaştırma > fatura özeti 1`] = `
+{
+  "all": "No discrepancy on compared lines",
+  "big": "1,100/1,200 lines compared · Discrepancy on 100 lines · No measurement found for 50 lines · No tariff for 50 lines",
+  "noDiff": "16/120 lines compared, no discrepancy · No measurement found for 53 lines · No tariff for 10 lines · 38 pak/envelope lines out of scope",
+  "note": "Overcharge covers only the excess amount on lines with a discrepancy (including duplicates); small differences within tolerance are not counted.",
+  "sentence": "19/120 lines compared · Discrepancy on 3 lines · No measurement found for 53 lines · No tariff for 10 lines · 38 pak/envelope lines out of scope",
+}
+`;
+
+exports[`EN: özet, uyum, karşılaştırma > karşılaştırma notları ve döküm 1`] = `
+{
+  "duplicate": {
+    "labels": [],
+    "note": "This tracking number has already been billed",
+    "reason": null,
+  },
+  "extreme": {
+    "labels": [
+      "Tariff price (Zone A, 6.0 kg)",
+      "Discount 38%",
+      "Fuel 25%",
+    ],
+    "note": undefined,
+    "reason": "The carrier’s price differs from the tariff by +744.59%; the service or zone may be different",
+  },
+  "favourable": {
+    "labels": [
+      "Tariff price (Zone A, 6.0 kg)",
+      "Discount 38%",
+      "Fuel 25%",
+    ],
+    "note": "Discrepancy in our favor",
+    "reason": "The carrier’s price differs from the tariff by −91.55%; the service or zone may be different",
+  },
+  "invoiceBasis": {
+    "labels": [
+      "Freight — at the invoiced price: ₺650.00 × 1,527.75/2,119.35 (6.0 kg / 9.5 kg)",
+      "Fuel — at the invoiced fuel: ₺100.00 × 1,527.75/2,119.35",
+      "Ek elleçleme",
+      "Would be, per the tariff",
+    ],
+    "note": "Calculated from the invoiced price (−50.53% vs tariff) · Weight is stated differently; no effect on the amount · Discrepancy in our favor",
+    "reason": "The carrier’s price differs from the tariff by −50.53%; the service or zone may be different",
+  },
+  "noBilledKg": {
+    "labels": [
+      "Tariff price (Zone A, 6.0 kg)",
+      "Discount 38%",
+      "Fuel 25%",
+    ],
+    "note": undefined,
+    "reason": "No billable weight on the invoice; expected amount is from the tariff only",
+  },
+  "noTariff": {
+    "labels": [],
+    "note": "The carrier has no valid tariff",
+    "reason": null,
+  },
+  "unknown": {
+    "labels": [
+      "Tariff price (Zone A, 6.0 kg)",
+      "Discount 38%",
+      "Fuel 25%",
+      "EPH Ücreti",
+    ],
+    "note": "Surcharges not in the tariff were added to Expected at their invoiced amount: EPH Ücreti ₺12.50",
+    "reason": null,
+  },
+}
+`;
+
+exports[`EN: özet, uyum, karşılaştırma > tarife uyumu 1`] = `
+[
+  [
+    "United Kingdom",
+    "United Kingdom (1 line): FedEx is charging 60% below your tariff — a gap this large usually means a different service or zone; check the tariff and the service.",
+  ],
+  [
+    "United States",
+    "United States (3 lines): FedEx is charging 55% above your tariff — a gap this large usually means a different service or zone; check the tariff and the service.",
+  ],
+  [
+    "Spain",
+    "Spain (3 lines): FedEx is charging 15% below your tariff — there may be a separate agreement.",
+  ],
+  [
+    "Unknown country",
+    "Unknown country (1 line): FedEx is charging 12% above your tariff — this may be an overcharge under your contract; you can dispute it.",
+  ],
+  [
+    "Germany",
+    "Germany (3 lines): FedEx is charging 8% above your tariff — this may be an overcharge under your contract; you can dispute it.",
+  ],
+  [
+    "France",
+    "France (1 line): in line with your tariff",
+  ],
+]
+`;

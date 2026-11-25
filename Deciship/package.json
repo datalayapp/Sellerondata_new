@@ -1,0 +1,10 @@
+{
+  "name": "deciship",
+  "private": true,
+  "description": "DeciShip MVP. Workspaces yok, kök betikler: ../package.json; her uygulama kendi node_modules dizinine sahip.",
+  "scripts": {
+    "dev:api": "npm --prefix apps/api run dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "test": "node ../scripts/test.mjs quick --scope Deciship"
+  }
+}

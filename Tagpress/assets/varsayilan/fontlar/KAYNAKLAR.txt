@@ -1,0 +1,32 @@
+Ürünle gelen varsayılan fontlar (assets/varsayilan/fontlar)
+
+Yeni bir firma açılınca varsayılan tasarım dilinin font klasörüne kopyalanır (apps/server/src/org/seed.ts); profil
+listesi packages/domain/src/defaults.ts (DEFAULT_FONTS). Hepsi açık lisanslıdır (SIL OFL 1.1), özgün kaynağından
+(google/fonts) indirildi ve değiştirilmedi (bayt bayt özgün). Sahibin tasarım dilinin fontlarından ya da eski
+projeden kopyalanmadı; sahibin kullandığı fontlardan (Great Vibes, Playfair Display, Nunito, Cinzel …) bilerek farklı
+seçildi: başka bir satıcının varsayılanı sahibin tarzına benzemesin. Ticari font (ör. Monotype Corsiva) buraya girmez.
+
+Dosya                     Aile / sürüm                 Tür        Lisans    Bayt      Türkçe (ğ Ğ ş Ş ı İ ö Ö ü Ü ç Ç)
+Lora[wght].ttf            Lora 3.008 (değişken)        serif      OFL 1.1   212 196   tam
+Parisienne-Regular.ttf    Parisienne 1.000             el yazısı  OFL 1.1    61 248   tam
+Montserrat[wght].ttf      Montserrat 9.000 (değişken)  sans       OFL 1.1   744 936   tam
+
+Kaynaklar
+  Lora        https://github.com/google/fonts/tree/main/ofl/lora        (Lora[wght].ttf, OFL.txt)
+  Parisienne  https://github.com/google/fonts/tree/main/ofl/parisienne  (Parisienne-Regular.ttf, OFL.txt;
+              packages/typeset/test-fonts içindekiyle aynı dosya)
+  Montserrat  https://github.com/google/fonts/tree/main/ofl/montserrat  (Montserrat[wght].ttf, OFL.txt)
+İndirme tarihi: 2026-11-21.
+
+Lisans metinleri: lisanslar/OFL-<aile>.txt (her biri telif satırıyla). Lora ve Parisienne adları "Reserved Font
+Name"dir: fontlar değiştirilmeden ve özgün adlarıyla dağıtılır (değiştirilirse ad değişmeli).
+Değişken fontlarda profil "Regular" adlı örneği kullanır (Lora/Regular, Montserrat/Regular).
+
+Türkçe kapsam fontkit ile denetlendi (hasGlyphForCodePoint): yukarıdaki harfler ve â î û & . , ' - rakamlar.
+Font değiştirmek ya da eklemek: dosyayı ve lisansını koyun, fontlar.json ve defaults.ts'i güncelleyin, sonra
+`pnpm vitest run apps/server/src/org packages/domain` (lisans, özet ve Türkçe kapsam testleri).
+
+sha256
+822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7  Lora[wght].ttf
+bc9ee17f022e20bc700797e5f557d14bfa43af0c98d9e6c9c5c1ca4ec7aacd57  Parisienne-Regular.ttf
+0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7  Montserrat[wght].ttf

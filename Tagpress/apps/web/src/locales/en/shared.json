@@ -1,0 +1,51 @@
+{
+  "jobStatus": {
+    "new": "Waiting",
+    "queued": "Queued",
+    "generating": "Generating",
+    "ready": "Ready",
+    "failed": "Failed",
+    "approved": "Approved"
+  },
+  "designLanguage": {
+    "label": "Design language"
+  },
+  "templatePicker": {
+    "label": "Template",
+    "search": "Search templates",
+    "empty": "No templates found",
+    "none": "Leave without template",
+    "loading": "Loading templates…",
+    "noMatch": "No template matches \"{{q}}\"",
+    "suggested": "Suggested",
+    "all": "All templates",
+    "fileMissing": "File missing",
+    "truncated": "Showing the first {{n}} templates; type to narrow down."
+  },
+  "manualAdd": {
+    "title": "Add manually",
+    "text": "Text",
+    "textHint": "Each line break is kept as the line split the customer asked for.",
+    "textPlaceholder": "Anna & Tom\n12.06.2026",
+    "template": "Template",
+    "templatePlaceholder": "Choose a template (can be set later)",
+    "orderNo": "Order no.",
+    "quantity": "Quantity",
+    "size": "Size",
+    "sizeDefault": "Default",
+    "sizeCm": "{{cm}} cm",
+    "keys": "Ctrl Enter adds · Ctrl Shift Enter adds and generates",
+    "close": "Close",
+    "add": "Add",
+    "addAndGenerate": "Add and generate",
+    "added": "Order added",
+    "addedGenerating": "Order added and sent to production",
+    "addedNotQueued": "Order added; production did not start: {{reason}}",
+    "addedOrder": "№ {{no}} added",
+    "addedOrderGenerating": "№ {{no}} added and sent to production",
+    "openBatch": "Open batch",
+    "failed": "Could not add. {{detail}}",
+    "errorBlocks": "Cannot be sent to production until the error is fixed",
+    "restoreDismissed": "Restore {{n}} dismissed warning(s)"
+  }
+}

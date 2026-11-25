@@ -1,0 +1,73 @@
+{
+  "status": 200,
+  "body": {
+    "id": "templates",
+    "columns": [
+      {
+        "id": "language",
+        "label": "Tasarım dili",
+        "format": "text"
+      },
+      {
+        "id": "name",
+        "label": "Şablon",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "kind",
+        "label": "Tür",
+        "format": "text"
+      },
+      {
+        "id": "cut",
+        "label": "Kesim",
+        "format": "text"
+      },
+      {
+        "id": "updatedAt",
+        "label": "Güncellendi",
+        "format": "datetime",
+        "sortable": true
+      }
+    ],
+    "rows": [
+      {
+        "id": "dil-zarif:a1",
+        "href": "/tagpress/#/sablonlar/a1",
+        "cells": {
+          "language": "Zarif",
+          "name": "a1",
+          "kind": "Etiket",
+          "cut": "Tasarım dilinin kesimi",
+          "updatedAt": "<zaman>"
+        }
+      },
+      {
+        "id": "dil-zarif:yuvarlak",
+        "href": "/tagpress/#/sablonlar/yuvarlak",
+        "cells": {
+          "language": "Zarif",
+          "name": "yuvarlak",
+          "kind": "Etiket",
+          "cut": "Ø38 mm daire",
+          "updatedAt": "<zaman>"
+        }
+      },
+      {
+        "id": "dil-cocuk:s1",
+        "href": "/tagpress/#/sablonlar/s1",
+        "cells": {
+          "language": "Çocuk",
+          "name": "s1",
+          "kind": "Sticker",
+          "cut": "63.5 × 38.1 mm yuvarlak köşeli",
+          "updatedAt": "<zaman>"
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 3
+  }
+}

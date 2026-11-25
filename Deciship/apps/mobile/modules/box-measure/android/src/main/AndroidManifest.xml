@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <uses-permission android:name="android.permission.CAMERA" />
+  <!-- AR zorunlu değil: ARCore desteklemeyen cihazlarda uygulama yine kurulur. -->
+  <uses-feature android:name="android.hardware.camera.ar" android:required="false" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+  <application>
+    <!-- "optional": ARCore yoksa uygulama çalışır; AR ölçümü açılırken kurulum istenir. -->
+    <meta-data android:name="com.google.ar.core" android:value="optional" />
+
+    <activity
+      android:name="expo.modules.boxmeasure.ArMeasureActivity"
+      android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|uiMode"
+      android:exported="false"
+      android:screenOrientation="portrait"
+      android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+  </application>
+</manifest>

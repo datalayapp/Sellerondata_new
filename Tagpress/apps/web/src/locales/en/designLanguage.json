@@ -1,0 +1,511 @@
+{
+  "title": "Design language",
+  "loading": "Loading…",
+  "noPublished": "This design language has no published version.",
+  "tabs": {
+    "ozet": "Summary",
+    "kurallar": "Rules",
+    "dene": "Try",
+    "ornekler": "Examples",
+    "ogren": "Learn",
+    "surumler": "Versions",
+    "olustur": "Create"
+  },
+  "actions": {
+    "publish": "Publish"
+  },
+  "draft": {
+    "line": "Draft · {{n}} fields changed · {{state}}",
+    "state": {
+      "saving": "Saving…",
+      "invalid": "Not saved: fix the marked fields",
+      "error": "Not saved",
+      "saved": "Saved to draft",
+      "pending": "Will be saved…"
+    }
+  },
+  "publish": {
+    "title": "Publish the draft?",
+    "body": "Once published, new productions use these rules. You can go back to an earlier version at any time.",
+    "noteLabel": "What changed? (short note)",
+    "notePlaceholder": "e.g. Secondary lines got a bit smaller",
+    "confirm": "Publish",
+    "done": "Version {{version}} published.",
+    "disabledHint": "No difference from the published version, or a field has an error."
+  },
+  "discard": {
+    "title": "Discard the draft?",
+    "body": "Unpublished changes are deleted. The published version stays as it is.",
+    "confirm": "Discard draft",
+    "done": "Draft discarded."
+  },
+  "empty": {
+    "title": "You have no design language yet",
+    "body": "A design language describes how your labels are written: which fonts, which line is large, how the & sign sits, where lines break. Everything is produced from these rules; your own style lives here, not in code.",
+    "step1": "Create an empty design language.",
+    "step2": "Upload your finished labels in Create; work out its rules together with AI.",
+    "step3": "Try it with sample orders and publish if you are happy.",
+    "create": "New design language",
+    "dialogTitle": "New design language",
+    "dialogBody": "An empty language is created with default values; you edit its rules afterwards.",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Wedding labels",
+    "cancel": "Cancel",
+    "confirm": "Create",
+    "created": "“{{name}}” created."
+  },
+  "date": {
+    "today": "Today {{time}}",
+    "yesterday": "Yesterday {{time}}"
+  },
+  "specimen": {
+    "none": "No sample",
+    "noFile": "No file",
+    "alt": "{{file}} sample: {{text}}"
+  },
+  "schema": {
+    "label": "Sample label diagram showing the line ratios",
+    "caption": "The number on the right is the line's ratio to the main line; the purple measure is the gap between lines.",
+    "primary": "Main line",
+    "secondary": "Secondary line",
+    "tertiary": "Date"
+  },
+  "summary": {
+    "sheetTitle": "Type specimen",
+    "sampleLabel": "Sample text",
+    "sampleText": "Aa Bb Cc 0123 &",
+    "noFonts": "No fonts yet.",
+    "kind": {
+      "script": "script",
+      "serif": "serif",
+      "sans": "sans-serif",
+      "display": "display"
+    },
+    "role": {
+      "primary": "main line",
+      "secondary": "secondary line",
+      "accent": "accent"
+    },
+    "glyphOnly": "special characters only",
+    "off": "off",
+    "glyphs": "Special characters",
+    "ratios": "Line ratios",
+    "draftNote": "The text below describes the unpublished draft.",
+    "edit": "Edit",
+    "editFor": "Edit: {{group}}"
+  },
+  "rules": {
+    "groupsLabel": "Rule groups",
+    "search": "Find a field",
+    "searchPlaceholder": "e.g. fill, connector, weight",
+    "searchLabel": "Find a field",
+    "saveFailed": "The draft could not be saved. {{message}} The faulty fields are marked; it saves on its own once you fix them.",
+    "noMatch": "No matching field",
+    "advanced": "Advanced settings",
+    "preview": {
+      "tools": "Preview tools",
+      "sample": "Example",
+      "sampleLabel": "Previewed example",
+      "free": "Short sample text",
+      "sampleText": "Anna & Luca 14.06.2027",
+      "refreshing": "Refreshing preview…",
+      "loading": "Preparing preview…",
+      "withDraft": "With the draft, free engine",
+      "withPublished": "With the published version, free engine",
+      "status": "Live preview · no AI, no cost · Ø {{mm}} mm",
+      "name": "Preview",
+      "draft": "Draft",
+      "published": "Published",
+      "lines_one": "{{count}} line",
+      "lines_other": "{{count}} lines",
+      "issues_one": "{{count}} issue",
+      "issues_other": "{{count}} issues",
+      "alt": "Preview: {{text}}",
+      "schema": "Schema",
+      "schemaTip": "Not the engine itself; shows the proportions of the lines."
+    },
+    "advancedCount": "{{n}} fields"
+  },
+  "field": {
+    "on": "On",
+    "off": "Off",
+    "generalLimit": "General limit",
+    "setLimit": "Set a limit",
+    "clearLimit": "Remove the limit",
+    "pickColor": "{{name}}: pick a color"
+  },
+  "editors": {
+    "remove": "Remove",
+    "fonts": {
+      "empty": "No fonts yet. Use “Add font” to pick from the uploaded fonts.",
+      "missing": "The font file was not found.",
+      "kind": "Kind",
+      "kinds": {
+        "script": "Script",
+        "serif": "Serif",
+        "sans": "Sans-serif",
+        "display": "Display"
+      },
+      "roles": "On which lines",
+      "rolesOf": "{{font}} roles",
+      "role": {
+        "primary": "Main",
+        "secondary": "Secondary",
+        "accent": "Accent"
+      },
+      "upperRun": "Capitals limit",
+      "upperRunOf": "{{font}} most consecutive capitals",
+      "noLimit": "No limit",
+      "setLimit": "Set a limit",
+      "clearLimit": "Remove the limit",
+      "note": "Note",
+      "notePlaceholder": "A short note shown to the AI and to you",
+      "lockTracking": "Letter spacing locked",
+      "inUse": "In use",
+      "inUseOf": "{{font}} in use",
+      "remove": "Remove {{font}} from the list",
+      "add": "Add font",
+      "loadFailed": "The uploaded fonts could not be read.",
+      "noneToAdd": "No new fonts to add. To upload a font, go to Settings > Fonts."
+    },
+    "glyphs": {
+      "empty": "No special character rules. For example, you can print “&” in another font at half size.",
+      "enabled": "Rule on",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "remove": "Delete the rule",
+      "which": "Which character",
+      "match": {
+        "chars": "These characters",
+        "word-initial-upper": "Capital at the start of a word",
+        "line-initial-upper": "Capital at the start of a line",
+        "digits": "Digits"
+      },
+      "chars": "Characters",
+      "letters": "Only these letters (empty = all)",
+      "font": "In which font",
+      "choose": "Choose",
+      "scale": "Size (multiple of the line's point size)",
+      "shift": "Shift up (em)",
+      "onlyWith": "Only together with these fonts (empty = any font)",
+      "needFonts": "Add a font in the Fonts group first.",
+      "add": "Add rule"
+    },
+    "chips": {
+      "remove": "Remove {{item}}",
+      "placeholder": "Type and press Enter; separate several with commas"
+    },
+    "scales": {
+      "ratioOf": "Ratio of the connector {{word}} (to the main line)",
+      "remove": "Remove the custom ratio for {{word}}",
+      "placeholder": "Connector (e.g. e)",
+      "wordLabel": "Connector to add a custom ratio for",
+      "add": "Add"
+    },
+    "pair": {
+      "lines": "{{n}} lines",
+      "min": "Fewest lines",
+      "max": "Most lines"
+    },
+    "examples": {
+      "empty": "No examples. Showing how you want a text split is stronger than writing a rule.",
+      "text": "Customer's text",
+      "lines": "Lines (one per line)",
+      "linesLabel": "Lines",
+      "linesPlaceholder": "Write each line separately",
+      "remove": "Delete the example",
+      "add": "Add example"
+    },
+    "cut": {
+      "sub": {
+        "cx": "Center X",
+        "cy": "Center Y",
+        "r": "Radius",
+        "rx": "Horizontal radius",
+        "ry": "Vertical radius",
+        "x": "Left",
+        "y": "Top",
+        "w": "Width",
+        "h": "Height",
+        "radius": "Corner radius"
+      },
+      "kinds": {
+        "circle": "Circle",
+        "ellipse": "Oval",
+        "rect": "Rectangle",
+        "polygon": "Polygon"
+      },
+      "points": "Corner points (one per line: x, y)"
+    },
+    "sizes": {
+      "id": "Name (as in the JSON)",
+      "cm": "Real size",
+      "frame": "Frame",
+      "remove": "Delete the size",
+      "add": "Add size"
+    },
+    "sheets": {
+      "empty": "No sticker sheets.",
+      "name": "Sheet name",
+      "shape": "Shape",
+      "rect": "Rectangle",
+      "circle": "Round",
+      "keywords": "This sheet if the product name contains any of these (empty = default sheet)",
+      "keywordsLabel": "Product keywords",
+      "diameter": "Text area diameter",
+      "maxW": "Text area width",
+      "maxH": "Text area height",
+      "slotW": "Slot width",
+      "slotH": "Slot height",
+      "gap": "Gap",
+      "padding": "Padding",
+      "remove": "Delete the sheet",
+      "add": "Add sheet"
+    }
+  },
+  "versions": {
+    "title": "Versions",
+    "other": "Other",
+    "loadFailed": "The versions could not be read",
+    "retry": "Try again",
+    "empty": "No versions yet. The history appears here once you publish the first rules.",
+    "listLabel": "Version list",
+    "version": "Version {{n}}",
+    "active": "Active",
+    "draft": "Draft",
+    "draftLower": "draft",
+    "previous": "Previous",
+    "compared": "Version to compare",
+    "first": "This is the first version; there is no earlier version to compare.",
+    "noDiff": "There is no rule difference between these two versions.",
+    "changed": "{{n}} fields changed.",
+    "revertTitle": "Go back to version {{version}}?",
+    "revertBody": "This version's rules are published as a NEW version and become active right away. The versions in between are not deleted; you can switch back at any time.",
+    "revert": "Go back to this version",
+    "revertNote": "Went back to version {{version}}",
+    "reverted": "The rules of version {{from}} were published as new version {{to}}.",
+    "code": "V.{{n}}",
+    "compareTools": "Comparison",
+    "nextArrow": "→ Next:",
+    "field": "Field",
+    "revertHint": "Going back publishes this version's rules as a new version; the versions in between are not deleted."
+  },
+  "enums": {
+    "fonts": {
+      "mixing": {
+        "single": "One family",
+        "two": "Two families",
+        "free": "Free"
+      }
+    },
+    "spacing": {
+      "align": {
+        "center": "Center",
+        "left": "Left",
+        "right": "Right"
+      }
+    },
+    "lineBreaking": {
+      "coupleStack": {
+        "always": "Always",
+        "option": "One of the candidates",
+        "never": "Never"
+      },
+      "customerBreaks": {
+        "hint": "Hint",
+        "strict": "Strict",
+        "ignore": "Ignore"
+      }
+    },
+    "weight": {
+      "mode": {
+        "stroke": "Stroke",
+        "real": "Real bold",
+        "none": "None"
+      },
+      "align": {
+        "outside": "Outside",
+        "center": "Center"
+      }
+    },
+    "stickers": {
+      "detect": {
+        "empty-template": "Empty template",
+        "product-field": "Has a product field"
+      }
+    }
+  },
+  "enforcement": {
+    "motor": {
+      "label": "Exact",
+      "hint": "The engine always applies this exactly."
+    },
+    "ai": {
+      "label": "Guides the AI",
+      "hint": "The AI reads this and decides accordingly; it is not enforced."
+    },
+    "ikisi": {
+      "label": "Both",
+      "hint": "The AI is told, and the engine also checks the result."
+    },
+    "sistem": {
+      "label": "System",
+      "hint": "Affects how the app behaves, not the production."
+    }
+  },
+  "diff": {
+    "sub": {
+      "kind": "shape",
+      "cx": "center X",
+      "cy": "center Y",
+      "r": "radius",
+      "rx": "horizontal radius",
+      "ry": "vertical radius",
+      "x": "left",
+      "y": "top",
+      "w": "width",
+      "h": "height",
+      "radius": "corner",
+      "points": "points"
+    },
+    "unit": {
+      "karakter": "chars",
+      "satir": "lines"
+    },
+    "empty": "empty",
+    "none": "none",
+    "on": "On",
+    "off": "Off",
+    "lines": "{{min}}–{{max}} lines",
+    "examples": "{{n}} examples",
+    "rules": "{{n}} rules: {{list}}",
+    "noRules": "no rules"
+  },
+  "describe": {
+    "titles": {
+      "genel": "General",
+      "fontlar": "Fonts",
+      "ozel-karakterler": "Special characters",
+      "boyut": "Size and fill",
+      "bosluk": "Line spacing",
+      "baglaclar": "Connectors",
+      "satir-bolme": "Line breaking",
+      "kalinlik-renk": "Weight and color",
+      "cikti": "Label sizes",
+      "sticker": "Stickers",
+      "baski": "Printing",
+      "kalite": "Quality flags"
+    },
+    "general": {
+      "name": "“{{name}}” design language.",
+      "styleNote": "Style note: {{note}}"
+    },
+    "fonts": {
+      "none": "No usable fonts have been added yet.",
+      "available": "{{n}} fonts are available: {{list}}.",
+      "mixing": {
+        "single": "A label uses a single font family (except special characters).",
+        "two": "A label uses at most two font families.",
+        "free": "The font family on a label is free."
+      },
+      "upperRun": "{{font}} is used for text with at most {{n}} capitals in a row.",
+      "lockTracking": "The letter spacing of {{font}} is left untouched."
+    },
+    "glyphs": {
+      "none": "There are no special character rules; every letter is set in its line's own font."
+    },
+    "glyph": {
+      "half": "at half size",
+      "scale": "at {{pct}} size",
+      "wordInitialLetters": "Capital {{letters}} at the start of a word",
+      "wordInitial": "Capitals at the start of a word",
+      "lineInitialLetters": "Capital {{letters}} at the start of a line",
+      "lineInitial": "Capitals at the start of a line",
+      "digits": "Digits",
+      "base": "{{match}} always uses {{font}}",
+      "shiftUp": "baseline {{n}} em higher",
+      "shiftDown": "baseline {{n}} em lower",
+      "only": "(only with {{list}})"
+    },
+    "size": {
+      "fillLocked": "The text fills {{fill}} of the area; this is the same in every design.",
+      "fillFree": "The text fills {{fill}} of the area; the AI may change this if needed.",
+      "tiers": "Secondary lines are {{secondary}} of the main line, tertiary lines {{tertiary}}, and a lone connector {{connector}}.",
+      "tiersLocked": "The engine applies these ratios; the AI only picks which class a line belongs to.",
+      "tiersFree": "The AI may choose line sizes that differ from the ratios.",
+      "limits": "Capital height is at most {{cap}} of the cut diameter; the point size stays between {{min}} and {{max}}.",
+      "initialsOneLine": "Text that is only initials is never stacked."
+    },
+    "spacing": {
+      "gaps": "The gap between lines is {{normal}} of the small line, {{beforeLast}} before the last date line, and {{connector}} around a lone connector.",
+      "align": "Lines are {{how}}.",
+      "alignHow": {
+        "center": "centered",
+        "left": "left-aligned",
+        "right": "right-aligned"
+      }
+    },
+    "connectors": {
+      "words": "Words counted as connectors: {{list}}.",
+      "none": "No connectors are defined.",
+      "dangling": "A connector left dangling at the start or end of a line goes on its own line.",
+      "symbolSpacing": "Breathing space is added around symbols like “&” when needed.",
+      "shiftRight": "A connector between two names shifts {{n}} em to the right.",
+      "shiftLeft": "A connector between two names shifts {{n}} em to the left.",
+      "scale": "The connector “{{word}}” is {{pct}} the size of the main line."
+    },
+    "lineBreaking": {
+      "nameOwnLine": "The name is on its own line and is the largest line.",
+      "couple": {
+        "always": "Couple names are always stacked as name / connector / name.",
+        "option": "For couple names, stacking is tried as one of the candidates.",
+        "never": "Couple names are never stacked."
+      },
+      "dateOwnLine": "The date stays on a separate line.",
+      "keepGreetings": "Short greetings are not split.",
+      "limits": "A line has at most {{chars}} characters and a label at most {{lines}} lines; most labels have {{min}}–{{max}} lines.",
+      "customer": {
+        "hint": "The line breaks the customer gave count as a hint.",
+        "strict": "The line breaks the customer gave are applied exactly.",
+        "ignore": "The line breaks the customer gave are ignored."
+      },
+      "noLone": "These never stand alone on a line: {{list}}.",
+      "examples": "The AI is shown {{n}} example breaks.",
+      "notes": "Note: {{note}}"
+    },
+    "weight": {
+      "stroke": "The text is thickened with a thin outline in its own color, {{n}} em of the main line's point size.",
+      "real": "The font's bold style is used for weight.",
+      "none": "The text is not thickened.",
+      "color": "The text color is {{color}}.",
+      "colorAuto": "The text color is {{color}}; on a dark background it switches to {{dark}} on its own."
+    },
+    "output": {
+      "line": "{{cut}} cut; sizes {{sizes}}, default {{def}} cm.",
+      "cut": {
+        "circle": "Circle",
+        "ellipse": "Oval",
+        "rect": "Rectangle",
+        "polygon": "Polygon"
+      }
+    },
+    "sticker": {
+      "on": "Sticker orders are on ({{detect}}); {{n}} sheets defined.",
+      "off": "Sticker orders are off.",
+      "detect": {
+        "product-field": "orders that have a product field",
+        "empty-template": "orders with an empty template"
+      }
+    },
+    "quality": {
+      "line": "A variation scoring below {{score}} is flagged “check”; anything under {{pt}} pt gives a warning."
+    }
+  },
+  "shortcuts": {
+    "primary": "Next step or publish",
+    "send": "Send",
+    "focusComposer": "Go to the message box",
+    "attach": "Add sample",
+    "toggleRev": "Compare with the previous version"
+  }
+}

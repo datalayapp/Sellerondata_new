@@ -1,0 +1,9 @@
+/* Sayı metni: rakamlar tablo hizalı, ayraçlar normal genişlikte (Num.tsx). */
+
+.tz-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.tz-num .tz-nn {
+  font-variant-numeric: normal;
+}

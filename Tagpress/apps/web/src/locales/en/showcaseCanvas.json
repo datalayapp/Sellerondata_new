@@ -1,0 +1,79 @@
+{
+  "title": "Canvas and layers",
+  "sections": {
+    "proposals": "Canvas: proposals",
+    "print": "Canvas: print preview",
+    "layers": "Layers"
+  },
+  "sample": {
+    "name": "Kerem & Elif",
+    "date": "11/21/2026",
+    "order": "Order {{n}}"
+  },
+  "sizeLabel": "{{w}} × {{h}} mm",
+  "status": {
+    "proposals": "{{n}} proposals · {{size}}",
+    "pages_one": "{{count}} page",
+    "pages_other": "{{count}} pages"
+  },
+  "proposals": {
+    "v1": "V1 Centered",
+    "v2": "V2 Stacked",
+    "v3": "V3 Single line",
+    "best": "Suggested",
+    "approve": "Approve",
+    "approved": "{{name}} approved",
+    "edit": "Adjust",
+    "note": "Click a label to select it; the rulers highlight it. Clicking empty canvas clears the selection. Drag with Space held or with the middle button to pan; Ctrl + wheel zooms."
+  },
+  "dock": {
+    "label": "Change this",
+    "placeholder": "Change this: make the text a little larger",
+    "send": "Send",
+    "sent": "Request sent"
+  },
+  "print": {
+    "many": "40 pages",
+    "preview": "Print preview",
+    "fitAll": "Fit all",
+    "page": "Page {{n}}",
+    "note": "The pink cut line and crop marks appear only in print preview. Pages outside the visible area are not drawn; they are drawn as you pan."
+  },
+  "layers": {
+    "sessionName": "Friday print run",
+    "rename": "Session name",
+    "cancel": "Cancel",
+    "save": "Save",
+    "saved": "Saved",
+    "view": "View",
+    "more": "More actions",
+    "duplicate": "Duplicate",
+    "duplicated": "Session duplicated",
+    "archive": "Move to archive",
+    "delete": "Delete",
+    "confirmTitle": "Delete this session?",
+    "confirmBody": "The session's 3 pages are deleted. The orders stay in the queue.",
+    "deleted": "Session deleted",
+    "undo": "Undo",
+    "restored": "Session restored",
+    "openDialog": "Dialog (editing)",
+    "openBusy": "Dialog (in progress)",
+    "toastUndo": "Undoable notification",
+    "toastError": "Error notification",
+    "errorMessage": "Could not create the file: template not found.",
+    "tipCut": "Show the cut line",
+    "cut": "Cut line",
+    "marks": "Crop marks",
+    "tipLong": "5 mm lines at the corners, 2 mm clear of the edge",
+    "dialogTitle": "AI note",
+    "noteLabel": "Note",
+    "notePlaceholder": "E.g. write names in capitals",
+    "dirtyHint": "Type something and press Esc: the yellow confirmation strip opens first.",
+    "inDialogMenu": "Saved notes",
+    "templateA": "Write names in capitals",
+    "templateB": "Move the date below",
+    "busyTitle": "Create the file",
+    "busyBody": "After you press Save, the dialog stays open while the work runs.",
+    "disabled": "Disabled (tooltip still shows)"
+  }
+}

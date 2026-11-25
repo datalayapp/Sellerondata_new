@@ -1,0 +1,116 @@
+{
+  "status": 200,
+  "body": {
+    "id": "jobs",
+    "columns": [
+      {
+        "id": "orderNo",
+        "label": "Sipariş no",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "product",
+        "label": "Ürün",
+        "format": "text"
+      },
+      {
+        "id": "language",
+        "label": "Tasarım dili",
+        "format": "text"
+      },
+      {
+        "id": "kind",
+        "label": "Tür",
+        "format": "text",
+        "hiddenByDefault": true
+      },
+      {
+        "id": "status",
+        "label": "Durum",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "quantity",
+        "label": "Adet",
+        "format": "number",
+        "sortable": true,
+        "align": "right"
+      },
+      {
+        "id": "createdAt",
+        "label": "Eklendi",
+        "format": "datetime",
+        "sortable": true
+      },
+      {
+        "id": "approvedAt",
+        "label": "Onaylandı",
+        "format": "datetime",
+        "sortable": true
+      }
+    ],
+    "rows": [
+      {
+        "id": "j-sirada",
+        "href": "/tagpress/#/uretim?is=j-sirada",
+        "cells": {
+          "orderNo": "ETSY-1007",
+          "product": "Kolye etiketi",
+          "language": "Zarif",
+          "kind": "Etiket",
+          "status": "Sırada",
+          "quantity": 1,
+          "createdAt": "<zaman>",
+          "approvedAt": null
+        }
+      },
+      {
+        "id": "j-sinir-kasim",
+        "href": "/tagpress/#/uretim?is=j-sinir-kasim",
+        "cells": {
+          "orderNo": "ETSY-1010",
+          "product": "Kolye etiketi",
+          "language": "Zarif",
+          "kind": "Etiket",
+          "status": "Yeni",
+          "quantity": 1,
+          "createdAt": "<zaman>",
+          "approvedAt": null
+        }
+      },
+      {
+        "id": "j-dusen",
+        "href": "/tagpress/#/uretim?is=j-dusen",
+        "cells": {
+          "orderNo": "ETSY-1005",
+          "product": "Kolye etiketi",
+          "language": "Çocuk",
+          "kind": "Etiket",
+          "status": "Onay bekliyor",
+          "quantity": 1,
+          "createdAt": "<zaman>",
+          "approvedAt": null
+        }
+      },
+      {
+        "id": "j-onay-2",
+        "href": "/tagpress/#/uretim?is=j-onay-2",
+        "cells": {
+          "orderNo": "ETSY-1004",
+          "product": "Bebek sticker",
+          "language": "Çocuk",
+          "kind": "Sticker",
+          "status": "Onaylandı",
+          "quantity": 1,
+          "createdAt": "<zaman>",
+          "approvedAt": "<zaman>"
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 9
+  }
+}

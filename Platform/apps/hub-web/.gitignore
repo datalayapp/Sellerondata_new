@@ -1,0 +1,4 @@
+e2e/prod/dist/
+test-results/
+playwright-report/
+

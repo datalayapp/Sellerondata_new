@@ -1,0 +1,23 @@
+{
+  "status": 201,
+  "body": {
+    "role": {
+      "key": "custom:<id>",
+      "kind": "custom",
+      "name": "Depo şefi",
+      "permissions": [
+        "deciship.measurements.capture",
+        "deciship.measurements.view_all"
+      ],
+      "memberCount": 0,
+      "inviteCount": 0,
+      "editable": true,
+      "permissionsLocked": false,
+      "deletable": true,
+      "edited": false,
+      "version": 1,
+      "description": "Ölçer ve bütün ölçümleri görür.",
+      "basedOn": "MEASURE"
+    }
+  }
+}

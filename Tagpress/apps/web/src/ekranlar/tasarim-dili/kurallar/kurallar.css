@@ -1,0 +1,241 @@
+/* Kurallar (önek td-): sağ paneldeki alan formu (orta önizleme `onizleme.css`). */
+
+/* Sol panelin en üstünde alan araması (bütün gruplarda arar). */
+.td-ara {
+  padding: 12px 14px 6px;
+}
+
+.td-uyari {
+  margin: 10px 0;
+  padding: 0 14px;
+}
+
+/* Sağ panel alanları: çizgisiz, boşlukla ayrılır (maket .pr). */
+.td-alanlar {
+  display: grid;
+  gap: 2px;
+  padding: 10px 6px 14px;
+}
+
+.td-alan {
+  display: grid;
+  grid-template-columns: var(--tz-prop-label) minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 8px;
+  min-height: var(--tz-ctl-h);
+  padding: 3px 8px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+}
+
+.td-alan.is-ust {
+  grid-template-columns: minmax(0, 1fr);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.td-alan > .td-alan-grup,
+.td-alan > .td-hata {
+  grid-column: 1 / -1;
+}
+
+/* Değişen alan: satırın açık mor zemini (maket), rozet yok. */
+.td-alan.is-degisti {
+  background: var(--primary-soft);
+}
+
+.td-alan-l {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-3);
+  cursor: default;
+}
+
+.td-alan-v {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.td-alan.is-ust .td-alan-v {
+  display: grid;
+}
+
+/* Metin alanı sütunu doldurur ("Ad" dar kalmasın). */
+.td-alan-v > .tz-fi,
+.td-alan-v > .td-renk {
+  flex: 1;
+}
+
+.td-anahtar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.td-renk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.td-renk input[type="color"] {
+  width: 36px;
+  height: var(--tz-ctl-h);
+  padding: 2px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.td-istebagli {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.td-hata {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+  font-size: var(--tz-fs-small);
+  color: var(--danger);
+}
+
+.td-hata code {
+  font-family: var(--fm);
+  color: var(--text-3);
+}
+
+/* Özel düzenleyiciler: dar sütunda alt alta. */
+.td-ed {
+  display: grid;
+  gap: 8px;
+}
+
+.td-ed-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.td-kutu {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-field);
+  background: var(--surface);
+}
+
+.td-kutu.is-kapali {
+  opacity: 0.7;
+}
+
+.td-ed-bos {
+  margin: 0;
+  padding: 12px;
+  text-align: center;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--tz-r-field);
+}
+
+.td-ed-ad {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+}
+
+.td-ed-ad span {
+  color: var(--text-2);
+}
+
+.td-ed-mono {
+  margin: 0;
+  font-family: var(--fm);
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.td-ed-uyari {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--danger);
+}
+
+.td-ed-not {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-ed-arac {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.td-ed-bosluk {
+  flex: 1;
+}
+
+.td-ed-ekle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.td-ed-ekle > .tz-fi {
+  flex: 1;
+  min-width: 120px;
+}
+
+.td-onaylar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.td-onay {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--tz-fs-panel);
+}
+
+.td-cipler {
+  display: grid;
+  gap: 6px;
+}
+
+.td-cipler ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.td-cipler li {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 8px;
+  font-size: var(--tz-fs-panel);
+  background: var(--surface-3);
+  border-radius: var(--tz-r-field);
+}

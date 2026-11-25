@@ -1,0 +1,61 @@
+{
+  "brand": {
+    "name": "TagPress",
+    "parent": "SellerOnData",
+    "home": "TagPress, Üretim"
+  },
+  "nav": {
+    "label": "Bölümler",
+    "production": "Üretim",
+    "designLanguage": "Tasarım dili",
+    "templates": "Şablonlar",
+    "print": "Baskı",
+    "settings": "Ayarlar",
+    "setup": "Kurulum",
+    "setupPending": "Eksik"
+  },
+  "routes": {
+    "importDesk": "İçe aktar",
+    "adjust": "Düzelt",
+    "printTemplates": "Sayfa şablonları",
+    "printArchive": "Arşiv",
+    "showcase": "Vitrin"
+  },
+  "top": {
+    "producing": "Üretiliyor {{running}}",
+    "queued": "sırada {{queued}}",
+    "offline": "Bağlantı yok",
+    "offlineHint": "Sunucuyla bağlantı yok; yeniden deneniyor."
+  },
+  "work": {
+    "back": "Geri",
+    "location": "Konum",
+    "flow": "Akış",
+    "tabs": "Bölüm",
+    "rename": "Yeniden adlandır",
+    "leftPanel": "Sol panel",
+    "rightPanel": "Sağ panel"
+  },
+  "steps": {
+    "label": "Adımlar"
+  },
+  "zoom": {
+    "percent": "%{{n}}",
+    "label": "Yakınlaştırma",
+    "selection": "Seçime"
+  },
+  "canvas": {
+    "label": "Tuval"
+  },
+  "form": {
+    "decrease": "Azalt",
+    "increase": "Artır"
+  },
+  "list": {
+    "select": "Satırı seç"
+  },
+  "narrow": {
+    "title": "Bu ekran geniş ekranda çalışır",
+    "body": "Bu ekranı bilgisayarda ya da tablette açın. Ayarlar ve Kurulum telefonda da açılır."
+  }
+}

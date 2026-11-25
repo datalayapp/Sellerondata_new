@@ -1,0 +1,17 @@
+{
+  "name": "@sellerondata/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Gerçek sisteme karşı uçtan uca testler. Sahte API yok: sod-e2e compose yığını üzerinde çalışır.",
+  "scripts": {
+    "e2e": "node run.mjs",
+    "stack:up": "node stack.mjs up",
+    "stack:reset": "node stack.mjs reset",
+    "stack:stop": "node stack.mjs stop"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "^24.0.0"
+  }
+}

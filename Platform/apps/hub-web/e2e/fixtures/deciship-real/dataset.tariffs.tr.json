@@ -1,0 +1,158 @@
+{
+  "status": 200,
+  "body": {
+    "id": "tariffs",
+    "columns": [
+      {
+        "id": "name",
+        "label": "Tarife",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "carrier",
+        "label": "Taşıyıcı",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "service",
+        "label": "Hizmet",
+        "format": "text"
+      },
+      {
+        "id": "divisor",
+        "label": "Desi böleni",
+        "format": "number"
+      },
+      {
+        "id": "from",
+        "label": "Başlangıç",
+        "format": "date",
+        "sortable": true
+      },
+      {
+        "id": "to",
+        "label": "Bitiş",
+        "format": "date",
+        "sortable": true
+      },
+      {
+        "id": "rates",
+        "label": "Fiyat satırı",
+        "format": "number"
+      },
+      {
+        "id": "countries",
+        "label": "Ülke sayısı",
+        "format": "number"
+      },
+      {
+        "id": "active",
+        "label": "Etkin",
+        "format": "text"
+      },
+      {
+        "id": "default",
+        "label": "Varsayılan",
+        "format": "text"
+      },
+      {
+        "id": "currency",
+        "label": "Para birimi",
+        "format": "text"
+      },
+      {
+        "id": "discount",
+        "label": "İndirim",
+        "format": "percent"
+      },
+      {
+        "id": "fuel",
+        "label": "Yakıt",
+        "format": "percent"
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs/<id>",
+        "cells": {
+          "name": "Aras Desi 2026",
+          "carrier": "Aras Kargo",
+          "service": "Yurtiçi Standart",
+          "divisor": 3000,
+          "from": "2026-01-01",
+          "to": "2026-12-31",
+          "rates": 30,
+          "countries": 1,
+          "active": "Evet",
+          "default": "Evet",
+          "currency": "TRY",
+          "discount": 10,
+          "fuel": 0
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs/<id>",
+        "cells": {
+          "name": "DHL Express Worldwide 2026",
+          "carrier": "DHL Express",
+          "service": "Express Worldwide",
+          "divisor": 5000,
+          "from": "2026-01-01",
+          "to": "2026-12-31",
+          "rates": 180,
+          "countries": 10,
+          "active": "Evet",
+          "default": "Evet",
+          "currency": "TRY",
+          "discount": 35,
+          "fuel": 24
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs/<id>",
+        "cells": {
+          "name": "FedEx International Economy 2026",
+          "carrier": "FedEx",
+          "service": "International Economy",
+          "divisor": 5000,
+          "from": "2026-01-01",
+          "to": "2026-12-31",
+          "rates": 150,
+          "countries": 10,
+          "active": "Evet",
+          "default": "Evet",
+          "currency": "TRY",
+          "discount": 38,
+          "fuel": 25
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/tariffs/<id>",
+        "cells": {
+          "name": "MNG Desi 2026",
+          "carrier": "MNG Kargo",
+          "service": "Standart",
+          "divisor": 3000,
+          "from": "2026-01-01",
+          "to": "2026-12-31",
+          "rates": 30,
+          "countries": 1,
+          "active": "Evet",
+          "default": "Evet",
+          "currency": "TRY",
+          "discount": 8,
+          "fuel": 3
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 6
+  }
+}

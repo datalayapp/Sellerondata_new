@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "production": "Üretim",
+    "designLanguage": "Tasarım dili",
+    "templates": "Şablonlar",
+    "print": "Baskı",
+    "settings": "Ayarlar"
+  },
+  "help": "Kısayolları göster",
+  "canvas": {
+    "zoomIn": "Yakınlaştır",
+    "zoomOut": "Uzaklaştır",
+    "fit": "Sığdır",
+    "actual": "Gerçek boyut",
+    "selection": "Seçime yakınlaştır",
+    "pan": "Kaydır (basılı tut)"
+  },
+  "groups": {
+    "navigation": "Gezinme",
+    "general": "Genel",
+    "canvas": "Tuval"
+  },
+  "keys": {
+    "space": "Boşluk",
+    "enter": "Enter",
+    "escape": "Esc",
+    "delete": "Del",
+    "backspace": "Backspace",
+    "tab": "Tab",
+    "ctrl": "Ctrl",
+    "shift": "Shift",
+    "alt": "Alt"
+  },
+  "panel": {
+    "title": "Klavye kısayolları"
+  }
+}

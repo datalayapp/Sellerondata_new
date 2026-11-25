@@ -1,0 +1,118 @@
+/* Baskı · Arşiv (maket 9: .tb, .tbl, .tr-h, .trw). Renk ve ölçü yalnız belirteçten. */
+
+.bs-ar-q {
+  width: 340px;
+  max-width: 100%;
+}
+
+.bs-ar-n {
+  font-size: var(--tz-fs-status);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.bs-ar-wait {
+  flex: 1;
+  background: var(--surface);
+}
+
+.bs-ar-msg {
+  padding: 16px;
+}
+
+.bs-ar-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface);
+}
+
+.bs-ar-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tz-fs-panel);
+}
+
+.bs-ar-tbl thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: var(--tz-row-head);
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  font: 500 var(--tz-fs-small) / 1 var(--f);
+  text-align: left;
+  color: var(--text-3);
+}
+
+.bs-ar-tbl td {
+  height: calc(var(--tz-row-table) + 14px);
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: middle;
+}
+
+.bs-ar-tbl td:first-child,
+.bs-ar-tbl th:first-child {
+  padding-left: 16px;
+}
+
+.bs-ar-tbl td:last-child {
+  width: 300px;
+  padding-right: 16px;
+}
+
+.bs-ar-tbl tbody tr:hover,
+.bs-ar-tbl tbody tr.is-sel {
+  background: var(--surface-2);
+}
+
+.bs-ar-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.bs-ar-name b {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Bildirim işareti (eski ölçüyle basıldı): odaklanabilir (odak çizgisi temelden), ipucu açıklar. */
+.bs-ar-flag {
+  display: inline-flex;
+  flex: none;
+  border-radius: var(--r-pill);
+}
+
+.bs-ar-tbl small {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Satır eylemleri: üzerine gelince, satır seçilince ya da klavye odağında görünür (düğmeler hep yerinde). */
+.bs-ar-acts {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity var(--tz-dur) var(--tz-ease);
+}
+
+.bs-ar-tbl tr:hover .bs-ar-acts,
+.bs-ar-tbl tr.is-sel .bs-ar-acts,
+.bs-ar-tbl tr:focus-within .bs-ar-acts {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .bs-ar-acts {
+    opacity: 1;
+  }
+}

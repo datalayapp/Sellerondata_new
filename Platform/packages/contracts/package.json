@@ -1,0 +1,12 @@
+{
+  "name": "@sellerondata/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SellerOnData ortak sözleşmeleri: ürün, rol, izin, jeton, olay, Merkez. Bağımlılıksız.",
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": { "test": "node --test test/*.test.ts", "typecheck": "tsc --noEmit" },
+  "devDependencies": { "@types/node": "^26.6.6", "typescript": "^7.0.2" }
+}

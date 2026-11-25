@@ -1,0 +1,505 @@
+{
+  "status": 200,
+  "body": {
+    "products": [
+      {
+        "key": "deciship",
+        "groups": [
+          {
+            "key": "web",
+            "label": {
+              "tr": "Web uygulaması",
+              "en": "Web app"
+            }
+          },
+          {
+            "key": "invoices",
+            "label": {
+              "tr": "Fatura",
+              "en": "Invoices"
+            }
+          },
+          {
+            "key": "reports",
+            "label": {
+              "tr": "Rapor",
+              "en": "Reports"
+            }
+          },
+          {
+            "key": "tariffs",
+            "label": {
+              "tr": "Tarife",
+              "en": "Tariffs"
+            }
+          },
+          {
+            "key": "measurements",
+            "label": {
+              "tr": "Ölçüm",
+              "en": "Measurements"
+            }
+          },
+          {
+            "key": "prices",
+            "label": {
+              "tr": "Fiyat",
+              "en": "Prices"
+            }
+          },
+          {
+            "key": "settings",
+            "label": {
+              "tr": "Ayarlar",
+              "en": "Settings"
+            }
+          }
+        ],
+        "permissions": [
+          {
+            "key": "deciship.web.access",
+            "label": {
+              "tr": "DeciShip web uygulamasına giriş",
+              "en": "Sign in to the DeciShip web app"
+            },
+            "group": "web",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.settings.manage",
+            "label": {
+              "tr": "Ayarları yönetme",
+              "en": "Manage settings"
+            },
+            "group": "settings",
+            "requires": [
+              "deciship.web.access",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": true
+          },
+          {
+            "key": "deciship.tariffs.view",
+            "label": {
+              "tr": "Tarifeleri görme",
+              "en": "View tariffs"
+            },
+            "group": "tariffs",
+            "requires": [
+              "deciship.web.access",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.tariffs.edit",
+            "label": {
+              "tr": "Tarifeleri düzenleme",
+              "en": "Edit tariffs"
+            },
+            "group": "tariffs",
+            "requires": [
+              "deciship.web.access",
+              "deciship.tariffs.view",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.invoices.upload",
+            "label": {
+              "tr": "Fatura yükleme, düzeltme ve silme",
+              "en": "Upload, correct and delete invoices"
+            },
+            "group": "invoices",
+            "requires": [
+              "deciship.web.access",
+              "deciship.invoices.view",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.lines.decide",
+            "label": {
+              "tr": "Fark kararı verme",
+              "en": "Decide on discrepancies"
+            },
+            "group": "invoices",
+            "requires": [
+              "deciship.web.access",
+              "deciship.invoices.view",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.disputes.manage",
+            "label": {
+              "tr": "İtiraz gönderme ve sonucunu girme",
+              "en": "Send disputes and record outcomes"
+            },
+            "group": "invoices",
+            "requires": [
+              "deciship.invoices.view",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.invoices.view",
+            "label": {
+              "tr": "Faturaları görme",
+              "en": "View invoices"
+            },
+            "group": "invoices",
+            "requires": [
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.reports.view",
+            "label": {
+              "tr": "Raporları görme",
+              "en": "View reports"
+            },
+            "group": "reports",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.data.export",
+            "label": {
+              "tr": "Veriyi dışa aktarma",
+              "en": "Export data"
+            },
+            "group": "reports",
+            "requires": [
+              "deciship.invoices.view",
+              "deciship.prices.view"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.measurements.capture",
+            "label": {
+              "tr": "Ölçüm yapma",
+              "en": "Capture measurements"
+            },
+            "group": "measurements",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.measurements.view_all",
+            "label": {
+              "tr": "Tüm ölçümleri görme",
+              "en": "View all measurements"
+            },
+            "group": "measurements",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.measurements.manage",
+            "label": {
+              "tr": "Ölçümleri yönetme",
+              "en": "Manage measurements"
+            },
+            "group": "measurements",
+            "requires": [
+              "deciship.measurements.view_all"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "deciship.prices.view",
+            "label": {
+              "tr": "Fiyatları görme",
+              "en": "View prices"
+            },
+            "group": "prices",
+            "requires": [],
+            "ownerOnly": false
+          }
+        ],
+        "roles": [
+          {
+            "key": "ADMIN",
+            "kind": "builtin",
+            "name": "Yönetici",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.settings.manage",
+              "deciship.tariffs.view",
+              "deciship.tariffs.edit",
+              "deciship.invoices.upload",
+              "deciship.lines.decide",
+              "deciship.disputes.manage",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.capture",
+              "deciship.measurements.view_all",
+              "deciship.measurements.manage",
+              "deciship.prices.view"
+            ],
+            "memberCount": 1,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": true,
+            "deletable": false,
+            "edited": false,
+            "version": 0,
+            "description": "Kurulum ve ayarlar dahil her şey."
+          },
+          {
+            "key": "AUDITOR",
+            "kind": "builtin",
+            "name": "Denetleyici",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.tariffs.view",
+              "deciship.tariffs.edit",
+              "deciship.invoices.upload",
+              "deciship.lines.decide",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.capture",
+              "deciship.measurements.view_all",
+              "deciship.measurements.manage",
+              "deciship.prices.view"
+            ],
+            "memberCount": 0,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": false,
+            "deletable": true,
+            "edited": false,
+            "version": 0,
+            "description": "Tarife, fatura ve fark kararları. Ayarlara giremez."
+          },
+          {
+            "key": "ACCOUNTING",
+            "kind": "builtin",
+            "name": "Muhasebe",
+            "permissions": [
+              "deciship.web.access",
+              "deciship.tariffs.view",
+              "deciship.invoices.upload",
+              "deciship.disputes.manage",
+              "deciship.invoices.view",
+              "deciship.reports.view",
+              "deciship.data.export",
+              "deciship.measurements.view_all",
+              "deciship.prices.view"
+            ],
+            "memberCount": 1,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": false,
+            "deletable": true,
+            "edited": false,
+            "version": 0,
+            "description": "Fatura yükler. Fatura, tarife ve raporları görür, dışa aktarır. İtirazı gönderir ve sonucunu girer."
+          },
+          {
+            "key": "MEASURE",
+            "kind": "builtin",
+            "name": "Ölçüm",
+            "permissions": [
+              "deciship.measurements.capture"
+            ],
+            "memberCount": 1,
+            "inviteCount": 2,
+            "editable": true,
+            "permissionsLocked": false,
+            "deletable": true,
+            "edited": false,
+            "version": 0,
+            "description": "Mobil uygulamada ölçüm yapar. Fiyat görmez."
+          },
+          {
+            "key": "custom:<id>",
+            "kind": "custom",
+            "name": "Depo şefi",
+            "permissions": [
+              "deciship.measurements.capture",
+              "deciship.measurements.view_all"
+            ],
+            "memberCount": 1,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": false,
+            "deletable": true,
+            "edited": false,
+            "version": 1,
+            "description": "Ölçer ve bütün ölçümleri görür.",
+            "basedOn": "MEASURE"
+          }
+        ],
+        "hiddenBuiltins": [],
+        "customRoleLimit": 20
+      },
+      {
+        "key": "tagpress",
+        "groups": [
+          {
+            "key": "web",
+            "label": {
+              "tr": "Web uygulaması",
+              "en": "Web app"
+            }
+          },
+          {
+            "key": "work",
+            "label": {
+              "tr": "İş",
+              "en": "Work"
+            }
+          },
+          {
+            "key": "ai",
+            "label": {
+              "tr": "Yapay zekâ",
+              "en": "AI"
+            }
+          },
+          {
+            "key": "reports",
+            "label": {
+              "tr": "Rapor",
+              "en": "Reports"
+            }
+          },
+          {
+            "key": "settings",
+            "label": {
+              "tr": "Ayarlar",
+              "en": "Settings"
+            }
+          }
+        ],
+        "permissions": [
+          {
+            "key": "tagpress.web.access",
+            "label": {
+              "tr": "TagPress web uygulamasına giriş",
+              "en": "Sign in to the TagPress web app"
+            },
+            "group": "web",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "tagpress.work.edit",
+            "label": {
+              "tr": "Etiket, şablon ve baskı işlerini değiştirme",
+              "en": "Edit labels, templates and print jobs"
+            },
+            "group": "work",
+            "requires": [
+              "tagpress.web.access"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "tagpress.ai.use",
+            "label": {
+              "tr": "Yapay zekâ kullanma",
+              "en": "Use AI"
+            },
+            "group": "ai",
+            "requires": [
+              "tagpress.web.access"
+            ],
+            "ownerOnly": false
+          },
+          {
+            "key": "tagpress.settings.manage",
+            "label": {
+              "tr": "Ayarlar, özellikler ve kurulum",
+              "en": "Settings, features and setup"
+            },
+            "group": "settings",
+            "requires": [
+              "tagpress.web.access",
+              "tagpress.work.edit"
+            ],
+            "ownerOnly": true
+          },
+          {
+            "key": "tagpress.reports.view",
+            "label": {
+              "tr": "Raporları ve verileri görme",
+              "en": "View reports and data"
+            },
+            "group": "reports",
+            "requires": [],
+            "ownerOnly": false
+          },
+          {
+            "key": "tagpress.data.export",
+            "label": {
+              "tr": "Veriyi dışa aktarma",
+              "en": "Export data"
+            },
+            "group": "reports",
+            "requires": [
+              "tagpress.reports.view"
+            ],
+            "ownerOnly": false
+          }
+        ],
+        "roles": [
+          {
+            "key": "ADMIN",
+            "kind": "builtin",
+            "name": "Yönetici",
+            "permissions": [
+              "tagpress.web.access",
+              "tagpress.work.edit",
+              "tagpress.ai.use",
+              "tagpress.settings.manage",
+              "tagpress.reports.view",
+              "tagpress.data.export"
+            ],
+            "memberCount": 2,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": true,
+            "deletable": false,
+            "edited": false,
+            "version": 0,
+            "description": "Ayarlar ve anahtarlar dahil her şey."
+          },
+          {
+            "key": "USER",
+            "kind": "builtin",
+            "name": "Kullanıcı",
+            "permissions": [
+              "tagpress.web.access",
+              "tagpress.work.edit",
+              "tagpress.ai.use",
+              "tagpress.reports.view",
+              "tagpress.data.export"
+            ],
+            "memberCount": 2,
+            "inviteCount": 0,
+            "editable": true,
+            "permissionsLocked": false,
+            "deletable": true,
+            "edited": false,
+            "version": 0,
+            "description": "Ayarlar dışında her şey."
+          }
+        ],
+        "hiddenBuiltins": [],
+        "customRoleLimit": 20
+      }
+    ]
+  }
+}

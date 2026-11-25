@@ -1,0 +1,392 @@
+/* Düzelt (önek dz-): yalnız var(--…) belirteçleri. Dünya katmanında 1 birim = 1 mm; ekranda sabit kalınlık için
+   ölçüler `var(--tz-zoom)` ile bölünür. */
+
+/* ---------------------------------------------------------------- tuval */
+
+.dz-stage {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  user-select: none;
+}
+
+.dz-stage:focus-visible {
+  outline-offset: -2px;
+}
+
+.dz-stage[data-tool="marquee"] .tz-cv {
+  cursor: crosshair;
+}
+
+.dz-stage[data-tool="pan"] .tz-cv {
+  cursor: grab;
+}
+
+.dz-stage[data-tool="text"] .tz-cv {
+  cursor: text;
+}
+
+.dz-stage[data-tool="zoom"] .tz-cv {
+  cursor: zoom-in;
+}
+
+.dz-stage[data-drag="move"] .tz-cv,
+.dz-stage[data-drag="pan"] .tz-cv {
+  cursor: grabbing;
+}
+
+.dz-stage[data-drag="marquee"] .tz-cv {
+  cursor: crosshair;
+}
+
+/* Kâğıt: kesim şeklinde beyaz zemin (tasarım pikseli kabında, şablon görselinin altında). */
+.dz-paper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  fill: var(--tz-paper);
+  stroke: none;
+  pointer-events: none;
+}
+
+/* Tasarım karesi: tasarım pikseliyle çizilir, mm'ye ölçeklenir (sol üst köşeden). */
+.dz-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.dz-tpl {
+  position: absolute;
+  max-width: none;
+  object-fit: fill;
+}
+
+.dz-cut {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  fill: none;
+  stroke: var(--primary);
+}
+
+/* Kesim dairesi tasarım pikseliyle çizilir (kap `--dz-k` ile mm'ye, dünya `--tz-zoom` ile ekrana ölçeklenir):
+   kalınlık ve kesik boyu ikisine bölünür, ekranda 1 px / 4–3 px kalır. */
+.dz-cut * {
+  stroke-width: calc(1px / (var(--tz-zoom) * var(--dz-k, 1)));
+  stroke-dasharray: calc(4px / (var(--tz-zoom) * var(--dz-k, 1))) calc(3px / (var(--tz-zoom) * var(--dz-k, 1)));
+}
+
+.dz-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: none;
+}
+
+.dz-layer svg {
+  display: block;
+  max-width: none;
+  overflow: visible;
+}
+
+/* Hizalanınca orta kılavuz: mor kesikli (maket Düzelt); kalınlık ve kesik boyu ekranda sabit. */
+.dz-guide {
+  position: absolute;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Kılavuz `.tz-wrect` ile ekran pikselinde (kesirli mm'de durur): kalınlık ve kesik boyu düz ekran pikseli. */
+.dz-guide.dz-guide--v {
+  width: 1px;
+  background: repeating-linear-gradient(to bottom, var(--primary) 0 5px, transparent 5px 9px);
+}
+
+.dz-guide.dz-guide--h {
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--primary) 0 5px, transparent 5px 9px);
+}
+
+/* Ortalama hedefi: ekranda sabit boyda artı işareti; konum dönüşümle (`worldRectStyle`), dünya birimine yuvarlanmaz. */
+.dz-goal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  color: var(--primary-text);
+  transform: translate(calc(var(--tz-x) * 1px), calc(var(--tz-y) * 1px)) translate(-50%, -50%) scale(calc(1 / var(--tz-zoom)));
+  pointer-events: none;
+}
+
+/* Çoklu seçimde satır çerçevesi `.tz-wrect` ile ekran pikselinde (yazıyla birlikte kayar): kesikli kenar düz 1 px. */
+.dz-linebox {
+  pointer-events: none;
+}
+
+.dz-linebox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--primary);
+}
+
+.dz-marquee {
+  background: var(--tz-ruler-hi);
+  box-shadow: 0 0 0 1px var(--primary);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- sol panel */
+
+/* Satır listesi (maket .ln): kart satırları `ListRow density="card"`; sarmalayıcı 6 px iç boşluk. */
+.dz-lines {
+  display: grid;
+  gap: 1px;
+  padding: 6px;
+}
+
+.dz-ln-no {
+  display: inline-block;
+  flex: none;
+  min-width: 22px;
+  font-size: var(--tz-fs-section);
+  line-height: 20px;
+  text-align: center;
+  border-radius: var(--tz-r-kbd);
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+
+.tz-lr.is-cur .dz-ln-no,
+.tz-lr.is-multi .dz-ln-no {
+  background: var(--primary);
+  color: var(--tz-on-band);
+}
+
+.dz-check {
+  display: grid;
+  gap: 6px;
+}
+
+.dz-ok {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tz-fs-panel);
+  color: var(--success);
+}
+
+.dz-ok svg {
+  flex: none;
+}
+
+/* ---------------------------------------------------------------- sağ panel */
+
+.dz-note {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.dz-grow {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Font kutusu seçili fontun kendi yazısıyla (maket .fi.sel 18 px). */
+.dz-font {
+  font-size: var(--tz-fs-sub);
+}
+
+.dz-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dz-spans {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.dz-span {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 8px;
+  font-size: var(--tz-fs-small);
+  border-radius: var(--tz-r-field);
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.dz-group {
+  padding: 0 14px 12px;
+}
+
+/* Ortalama düğmeleri (maket .tb): çerçevesiz; basılı hâlde yalnız açık mor zemin. */
+.dz-center {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.dz-center .tz-btn[aria-pressed="true"] {
+  border-color: transparent;
+}
+
+.dz-foot {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+}
+
+/* ---------------------------------------------------------------- durum ve iletiler */
+
+/* Durum satırı: adım kısalmaz; dar ekranda özet üç noktayla kısalır (tamamı ipucunda). */
+.tz-sb > .dz-sb-k {
+  flex: none;
+}
+
+.dz-sb-sum {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dz-msg {
+  width: 100%;
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+/* ---------------------------------------------------------------- küçük tezgâh (Üretim'in sağ paneli) */
+
+.dz-q {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-width: 0;
+}
+
+/* Küçük tuval: cetvelsiz, yuvarlak köşeli; üstte sol köşede geri al / sıfırla, altta sağda durum notu. */
+.dz-q-cv {
+  position: relative;
+  display: flex;
+  height: 176px;
+  border-radius: var(--tz-r-page);
+  overflow: hidden;
+  background: var(--tz-canvas);
+  box-shadow: inset 0 0 0 1px var(--line-soft);
+}
+
+.dz-q-cv--wait {
+  align-items: center;
+  justify-content: center;
+}
+
+.dz-q-tools {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--tz-r-tool);
+  background: var(--surface);
+  box-shadow: var(--sh-md);
+}
+
+.dz-q-note {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  padding: 1px 6px;
+  border-radius: var(--tz-r-kbd);
+  background: var(--surface);
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.dz-q-cv--wait .dz-q-note {
+  position: static;
+}
+
+/* Satır düğmeleri (maket .lchips): "Bütün yazı" ve her satır; elle ayarlı satırda küçük mor nokta. */
+.dz-q-lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dz-q-line {
+  max-width: 150px;
+}
+
+.dz-q-line > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dz-q-line[data-own]::after {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.dz-q-field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.dz-q-row {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+}
+
+.dz-q-center {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------------------------------------------------------------- büyük pencere */
+
+.dz-wd-wait {
+  display: grid;
+  flex: 1;
+  place-items: center;
+}
+
+.dz-wd-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.dz-wd-note svg {
+  flex: none;
+  color: var(--success);
+}

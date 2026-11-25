@@ -1,0 +1,49 @@
+{
+  "strip": {
+    "label": "Arşiv araçları"
+  },
+  "search": {
+    "placeholder": "Sipariş no, oturum ya da sayfa adı",
+    "label": "Arşivde ara",
+    "busy": "Aranıyor…",
+    "count_one": "{{count}} oturum",
+    "count_other": "{{count}} oturum"
+  },
+  "loadFailed": "Arşiv yüklenemedi. {{detail}}",
+  "empty": {
+    "title": "Henüz basılmış oturum yok",
+    "noMatch": "Aramaya uyan basılmış oturum yok",
+    "body": "Masada “Basıldı” dediğiniz oturumlar buraya gelir; hiçbiri silinmez. Sipariş numarasıyla aranır, tek tıkla yeniden basılır.",
+    "noLanguage": "Önce bir tasarım dili gerekli",
+    "noLanguageBody": "Baskı arşivi tasarım diline bağlıdır. Ayarlar'dan Tasarım dilleri bölümünde bir tane oluşturun.",
+    "toLanguages": "Tasarım dillerine git"
+  },
+  "col": {
+    "session": "Oturum",
+    "printed": "Basıldı",
+    "orders": "Siparişler",
+    "actions": "İşlemler"
+  },
+  "orderNo": "№ {{no}}",
+  "more_one": "+{{count}}",
+  "more_other": "+{{count}}",
+  "reprintTag": "yeniden basım",
+  "counts": "{{pages}} · {{sheets}} · {{labels}}",
+  "pages_one": "{{count}} sayfa",
+  "pages_other": "{{count}} sayfa",
+  "sheets_one": "{{count}} kağıt",
+  "sheets_other": "{{count}} kağıt",
+  "labels_one": "{{count}} etiket",
+  "labels_other": "{{count}} etiket",
+  "actions": {
+    "open": "Aç",
+    "unprint": "Basılmadı",
+    "unprintHint": "Yanlışlıkla işaretlendiyse taslağa döndür",
+    "reprint": "Yeniden bas"
+  },
+  "toast": {
+    "reprinted": "Yeni taslak: “{{name}}”. Masada açıldı.",
+    "reprintFailed": "Yeniden basılamadı. {{detail}}",
+    "unprinted": "Oturum yeniden taslak oldu; masada düzenlenebilir."
+  }
+}

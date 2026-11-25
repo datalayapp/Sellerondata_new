@@ -1,0 +1,39 @@
+#!/bin/sh
+# SellerOnData ön-commit kancası: yalnız hızlı işler (depo denetimi + sahnelenen dosyalarda lint ve uyarı tabanı).
+# Kurulum: npm run hooks:install   Kapatma: git config --unset core.hooksPath
+# Dosyalar LF satır sonlu kalmalı (.gitattributes).
+
+root=$(git rev-parse --show-toplevel) || exit 1
+cd "$root" || exit 1
+
+node scripts/repo-check.mjs --staged || exit 1
+
+# Uyarı: hem sahnelenmiş hem sahnelenmemiş değişikliği olan dosyalar (lint çalışma ağacındaki hâline bakar).
+unstaged=$(git diff --name-only)
+both=""
+for f in $(git diff --cached --name-only --diff-filter=ACMR); do
+  case "
+$unstaged
+" in *"
+$f
+"*) both="$both $f" ;; esac
+done
+if [ -n "$both" ]; then
+  echo "UYARI: şu dosyaların sahnelenmemiş değişikliği var; denetim çalışma ağacındaki hâline bakıyor:$both"
+fi
+
+# Lint: yalnız sahnelenmiş JS/TS dosyaları (çalışma ağacındaki içerikle). Lint araçları kurulu değilse atlanır.
+# Uyarı tabanı CI gibi (KALANLAR 0.5): bu dosyalarda kural başına uyarı HEAD'dekinden çoksa kanca durur.
+if [ ! -d tools/lint/node_modules/eslint ]; then
+  echo "kanca: tools/lint/node_modules yok, lint atlandı (kurmak için: npm run install:all)"
+  exit 0
+fi
+
+files=$(git diff --cached --name-only --diff-filter=ACMR | grep -E "\.(ts|tsx|mts|cts|js|mjs|cjs)$")
+[ -z "$files" ] && exit 0
+
+IFS="
+"
+set -f
+# shellcheck disable=SC2086
+node tools/lint/run.mjs --head-baseline $files || exit 1

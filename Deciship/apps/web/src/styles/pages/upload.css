@@ -1,0 +1,16 @@
+/* Fatura yükleme sayfası (Mesaj 14 Parça E). Boş iskelet: yalnız sahibi parça yazar. */
+
+/* Telefonda adım çubuğu: yalnız etkin adım (adı ve "Adım 2/3") görünür; 3. adım ekran dışında kalmaz. */
+@media (max-width: 767px) {
+  .wsteps {
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .wsteps .ws:not(.on) {
+    display: none;
+  }
+  .wsteps .ws.on {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,156 @@
+/* Temel vitrin (T1): matris satırları ve çerçeve örnekleri. Sayfa ve bölüm kutusu vitrin.css'te. */
+
+.tz-vt-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.tz-vt-lb {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.tz-vitrin-frame.tz-vt-app {
+  height: 600px;
+}
+
+.tz-vitrin-frame.tz-vt-short {
+  height: 164px;
+}
+
+.tz-vitrin-frame.tz-vt-tall {
+  height: 520px;
+}
+
+.tz-vt-app .tz-app,
+.tz-vt-short .tz-app,
+.tz-vt-tall .tz-app {
+  flex: 1;
+  min-width: 0;
+}
+
+.tz-vt-pad {
+  padding: 16px 24px;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-3);
+}
+
+.tz-vt-ph {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px dashed var(--line);
+}
+
+.tz-vt-wide {
+  width: 280px;
+}
+
+.tz-vt-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.tz-vt-issues {
+  display: grid;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.tz-vt-empty {
+  height: 200px;
+  border: 1px dashed var(--line);
+  border-radius: var(--tz-r-page);
+}
+
+.tz-vt-mut {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.tz-vt-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px 28px;
+}
+
+/* kısayol rozetinin zeminleri (birincil düğme ve bant) */
+.tz-vt-chip {
+  display: inline-flex;
+  align-items: center;
+  height: var(--tz-tool);
+  padding: 0 10px;
+  border-radius: var(--tz-r-tool);
+}
+
+.tz-vt-chip--primary {
+  background: var(--primary);
+}
+
+.tz-vt-chip--band {
+  background: var(--sod-band);
+}
+
+/* liste satırı yoğunlukları: üç dar panel yan yana */
+.tz-vt-lists {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 280px));
+  gap: 16px;
+  align-items: start;
+}
+
+.tz-vt-list {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tz-vt-box {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-page);
+  overflow: hidden;
+  padding-bottom: 6px;
+}
+
+/* ikon kümesi: ad altında */
+.tz-vt-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+}
+
+.tz-vt-ic {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  color: var(--text-2);
+}
+
+.tz-vt-ic small {
+  font-size: var(--tz-fs-section);
+  color: var(--text-3);
+}
+
+@media (max-width: 900px) {
+  .tz-vt-fields,
+  .tz-vt-lists {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tz-vt-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+}
+
+/* kılavuzlu akış örneği üst satırsız kurulur: bant yüksekliği (240) üst satır kadar (72) kısalır */
+.tz-vt-full .tz-app--full .tz-bd {
+  min-height: calc(var(--tz-band-full) - var(--tz-top-h));
+}

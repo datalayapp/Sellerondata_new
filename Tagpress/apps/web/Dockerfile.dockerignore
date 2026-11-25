@@ -1,0 +1,29 @@
+# TagPress web imajı için derleme bağlamı (SellerOnData/ kökü): yalnız gerekenler gönderilir.
+# Tagpress/data (sahibin gerçek verisi, API anahtarları) hiçbir koşulda imaja girmez.
+*
+!Platform/packages/contracts/package.json
+!Platform/packages/contracts/src
+!Platform/packages/format/package.json
+!Platform/packages/format/src
+!Platform/packages/shell/package.json
+!Platform/packages/shell/src
+!Platform/packages/auth-kit/package.json
+!Platform/packages/product-kit/package.json
+!Platform/gateway/conf/access-log.conf
+!Tagpress
+Tagpress/data
+Tagpress/**/node_modules
+Tagpress/**/dist
+Tagpress/.env
+Tagpress/.env.local
+Tagpress/.claude
+Tagpress/.impeccable
+Tagpress/.mcp.json
+Tagpress/docs
+Tagpress/*.md
+Tagpress/apps/web/e2e
+Tagpress/apps/web/test-results
+Tagpress/apps/web/playwright-report
+Platform/packages/*/node_modules
+**/.env
+**/*.log

@@ -1,0 +1,38 @@
+{
+  "aciklama": "Ürünle gelen varsayılan fontlar. Yalnız OFL ya da Apache lisanslı; her birinin lisans metni lisanslar/ altında. Ayrıntı: KAYNAKLAR.txt.",
+  "fontlar": [
+    {
+      "file": "Lora[wght].ttf",
+      "family": "Lora",
+      "kind": "serif",
+      "version": "3.008",
+      "license": "OFL-1.1",
+      "licenseFile": "lisanslar/OFL-lora.txt",
+      "source": "https://github.com/google/fonts/tree/main/ofl/lora",
+      "bytes": 212196,
+      "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7"
+    },
+    {
+      "file": "Parisienne-Regular.ttf",
+      "family": "Parisienne",
+      "kind": "script",
+      "version": "1.000",
+      "license": "OFL-1.1",
+      "licenseFile": "lisanslar/OFL-parisienne.txt",
+      "source": "https://github.com/google/fonts/tree/main/ofl/parisienne",
+      "bytes": 61248,
+      "sha256": "bc9ee17f022e20bc700797e5f557d14bfa43af0c98d9e6c9c5c1ca4ec7aacd57"
+    },
+    {
+      "file": "Montserrat[wght].ttf",
+      "family": "Montserrat",
+      "kind": "sans",
+      "version": "9.000",
+      "license": "OFL-1.1",
+      "licenseFile": "lisanslar/OFL-montserrat.txt",
+      "source": "https://github.com/google/fonts/tree/main/ofl/montserrat",
+      "bytes": 744936,
+      "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+    }
+  ]
+}

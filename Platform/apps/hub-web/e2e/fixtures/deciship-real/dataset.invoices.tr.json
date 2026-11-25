@@ -1,0 +1,211 @@
+{
+  "status": 200,
+  "body": {
+    "id": "invoices",
+    "columns": [
+      {
+        "id": "no",
+        "label": "Fatura",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "carrier",
+        "label": "Taşıyıcı",
+        "format": "text",
+        "sortable": true
+      },
+      {
+        "id": "date",
+        "label": "Tarih",
+        "format": "date",
+        "sortable": true
+      },
+      {
+        "id": "currency",
+        "label": "Para birimi",
+        "format": "text"
+      },
+      {
+        "id": "overcharge",
+        "label": "Fazla ödeme",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "billed",
+        "label": "Faturalanan",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "diff",
+        "label": "Fark",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "lines",
+        "label": "Satır",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "unmatched",
+        "label": "Eşleşmedi",
+        "format": "number",
+        "sortable": true
+      },
+      {
+        "id": "lastDay",
+        "label": "İtiraz son günü",
+        "format": "date"
+      },
+      {
+        "id": "dispute",
+        "label": "İtiraz",
+        "format": "text"
+      },
+      {
+        "id": "sentOn",
+        "label": "Gönderim tarihi",
+        "format": "date"
+      },
+      {
+        "id": "verified",
+        "label": "İtiraz listesinde",
+        "sortable": true,
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "recovered",
+        "label": "Geri alınan",
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "estimated",
+        "label": "İncele",
+        "format": "number",
+        "align": "right",
+        "currencyCell": "currency"
+      },
+      {
+        "id": "match",
+        "label": "Uyumlu",
+        "format": "number",
+        "hiddenByDefault": true
+      },
+      {
+        "id": "noTariff",
+        "label": "Tarife yok",
+        "format": "number",
+        "hiddenByDefault": true
+      }
+    ],
+    "rows": [
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "no": "K-2",
+          "carrier": "Sürat Kargo",
+          "date": "2026-11-02",
+          "lines": 1,
+          "match": 0,
+          "diff": 1,
+          "unmatched": 0,
+          "noTariff": 0,
+          "lastDay": "2026-11-10",
+          "dispute": "İşlendi",
+          "sentOn": null,
+          "currency": "TRY",
+          "billed": 140,
+          "overcharge": 40,
+          "verified": 0,
+          "recovered": 0,
+          "estimated": 0
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "no": "9-482-11735",
+          "carrier": "FedEx",
+          "date": "2026-10-27",
+          "lines": 18,
+          "match": 13,
+          "diff": 4,
+          "unmatched": 1,
+          "noTariff": 0,
+          "lastDay": "2026-11-04",
+          "dispute": "İtiraz gönderildi",
+          "sentOn": "2026-10-28",
+          "currency": "TRY",
+          "billed": 28501.33,
+          "overcharge": 611.2,
+          "verified": 458.5,
+          "recovered": 0,
+          "estimated": 1120
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "no": "K-3",
+          "carrier": "Sürat Kargo",
+          "date": "2026-10-12",
+          "lines": 3,
+          "match": 0,
+          "diff": 3,
+          "unmatched": 0,
+          "noTariff": 0,
+          "lastDay": "2026-10-20",
+          "dispute": "İşlendi",
+          "sentOn": null,
+          "currency": "TRY",
+          "billed": 321,
+          "overcharge": 21,
+          "verified": 0,
+          "recovered": 0,
+          "estimated": 0
+        }
+      },
+      {
+        "id": "<id>",
+        "href": "/deciship/invoices/<id>?tab=ALL",
+        "cells": {
+          "no": "K-1",
+          "carrier": "Sürat Kargo",
+          "date": "2026-10-10",
+          "lines": 8,
+          "match": 1,
+          "diff": 4,
+          "unmatched": 2,
+          "noTariff": 1,
+          "lastDay": "2026-10-18",
+          "dispute": "Kapandı",
+          "sentOn": "2026-10-15",
+          "currency": "TRY",
+          "billed": 766,
+          "overcharge": 130,
+          "verified": 30,
+          "recovered": 20,
+          "estimated": 10
+        }
+      }
+    ],
+    "page": 1,
+    "pageSize": 4,
+    "total": 6
+  }
+}

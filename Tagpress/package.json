@@ -1,0 +1,33 @@
+{
+  "name": "tagpress",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.17.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --no-bail --filter @tagpress/server --filter @tagpress/web dev",
+    "start": "pnpm --filter @tagpress/web build && pnpm --filter @tagpress/server start",
+    "test": "vitest run",
+    "test:olcum": "vitest run --config vitest.olcum.config.ts",
+    "test:pg": "vitest run --config vitest.pg.config.ts",
+    "typecheck": "pnpm -r typecheck",
+    "durum": "node scripts/durum.mjs",
+    "firma": "tsx scripts/firma.mjs",
+    "olc:motor": "tsx scripts/olc-motor.ts",
+    "aktar:pg": "tsx apps/server/src/bin/aktar-pg.ts"
+  },
+  "devDependencies": {
+    "@tagpress/domain": "workspace:*",
+    "@tagpress/engine": "workspace:*",
+    "@tagpress/templates": "workspace:*",
+    "@tagpress/typeset": "workspace:*",
+    "@types/node": "^26.6.6",
+    "happy-dom": "^21.0.4",
+    "playwright-core": "^1.63.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}

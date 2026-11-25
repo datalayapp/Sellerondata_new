@@ -1,0 +1,102 @@
+{
+  "status": 200,
+  "body": {
+    "product": "deciship",
+    "period": "2026-11",
+    "periodStart": "<zaman>",
+    "resetsAt": "<zaman>",
+    "currency": "TRY",
+    "enforced": true,
+    "freeAmount": 2500,
+    "creditAmount": 0,
+    "allowanceAmount": 2500,
+    "usedAmount": 0.04,
+    "remainingAmount": 2499.96,
+    "usedPct": 0,
+    "exhausted": false,
+    "tokens": {
+      "input": 9200,
+      "output": 500,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 9700
+    },
+    "calls": 3,
+    "cachedCalls": 0,
+    "durationMs": 6000,
+    "byKind": [
+      {
+        "kind": "SCALE_READ",
+        "label": "Tartı okuma",
+        "calls": 1,
+        "tokens": 1280,
+        "amount": 0.01,
+        "durationMs": 900
+      },
+      {
+        "kind": "INVOICE_PDF",
+        "label": "PDF fatura okuma",
+        "calls": 1,
+        "tokens": 5020,
+        "amount": 0,
+        "durationMs": 3000
+      },
+      {
+        "kind": "INVOICE_MAPPING",
+        "label": "Sütun eşleme",
+        "calls": 1,
+        "tokens": 3400,
+        "amount": 0.03,
+        "durationMs": 2100
+      }
+    ],
+    "estimatedCalls": 0,
+    "byMember": [
+      {
+        "memberId": "<id>",
+        "name": "Ayşe Yönetici",
+        "calls": 2,
+        "cachedCalls": 0,
+        "tokens": 6300,
+        "amount": 0.01
+      },
+      {
+        "memberId": null,
+        "name": "Kişi bilinmiyor",
+        "calls": 1,
+        "cachedCalls": 0,
+        "tokens": 3400,
+        "amount": 0.03
+      }
+    ],
+    "statusCounts": {
+      "ok": 2,
+      "refused": 1,
+      "truncated": 0,
+      "failed": 0
+    },
+    "previous": {
+      "period": "2026-10",
+      "from": "<zaman>",
+      "to": "<zaman>",
+      "calls": 1,
+      "tokens": 1050,
+      "usedAmount": 0.01
+    },
+    "months": [
+      {
+        "period": "2026-11",
+        "calls": 3
+      },
+      {
+        "period": "2026-10",
+        "calls": 1
+      },
+      {
+        "period": "2026-09",
+        "calls": 0
+      }
+    ],
+    "firstPeriod": "2026-09"
+  }
+}

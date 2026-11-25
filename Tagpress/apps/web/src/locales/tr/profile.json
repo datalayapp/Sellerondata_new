@@ -1,0 +1,364 @@
+{
+  "groups": {
+    "genel": {
+      "label": "Genel",
+      "help": "Tasarım dilinin adı ve ayarla söylenemeyen tarz notu."
+    },
+    "fontlar": {
+      "label": "Fontlar",
+      "help": "Hangi fontlar, hangi satırlarda ve hangi sınırlarla kullanılır."
+    },
+    "ozel-karakterler": {
+      "label": "Özel karakterler",
+      "help": "Belirli karakterleri başka bir fonttan ya da boyuttan basma kuralları."
+    },
+    "boyut": {
+      "label": "Boyut ve doluluk",
+      "help": "Yazının ne kadar büyük olduğu ve satırların birbirine oranı."
+    },
+    "bosluk": {
+      "label": "Satır aralığı ve hizalama",
+      "help": "Satırlar arasındaki görünen boşluk ve hizalama."
+    },
+    "baglaclar": {
+      "label": "Bağlaçlar",
+      "help": "&, and, e, y gibi bağlaçların nasıl dizildiği."
+    },
+    "satir-bolme": {
+      "label": "Satır bölme",
+      "help": "Metnin satırlara nasıl bölündüğü."
+    },
+    "kalinlik-renk": {
+      "label": "Kalınlık ve renk",
+      "help": "Harf kalınlığı ve yazı rengi."
+    },
+    "cikti": {
+      "label": "Etiket ölçüleri",
+      "help": "Kesim şekli, etiket boyutları ve şablonun yeri."
+    },
+    "sticker": {
+      "label": "Sticker",
+      "help": "Sticker siparişlerinin tespiti ve sayfaları."
+    },
+    "baski": {
+      "label": "Baskı",
+      "help": "Baskı sayfalarında fazlalık ve çözünürlük kuralları."
+    },
+    "kalite": {
+      "label": "Kalite işaretleri",
+      "help": "Varyasyonların kontrol ve okunurluk işaretleri."
+    }
+  },
+  "fields": {
+    "name": {
+      "label": "Ad",
+      "help": "Tasarım dilinin adı."
+    },
+    "description": {
+      "label": "Açıklama",
+      "help": "Kısa tanım: kimin, hangi işler için."
+    },
+    "ai": {
+      "instructions": {
+        "label": "Tarz notu",
+        "help": "Ayarla söylenemeyen tarz (ör. 'zarif, ferah, romantik'). Kesin kurallar buraya değil, ilgili ayara yazılır."
+      }
+    },
+    "fonts": {
+      "list": {
+        "label": "Font listesi",
+        "help": "Kullanılabilen fontlar, türleri, rolleri ve sınırları."
+      },
+      "mixing": {
+        "label": "Bir etikette font ailesi",
+        "help": "Tek aile: bütün satırlar aynı fontla (özel karakter kuralları hariç). İki aile ya da serbest."
+      }
+    },
+    "glyphRules": {
+      "label": "Özel karakter kuralları",
+      "help": "Ör. '&' her zaman IM FELL ile ve yarım boyutta; kelime başındaki büyük A başka fonttan. Her satırda geçerli."
+    },
+    "sizing": {
+      "fill": {
+        "label": "Doluluk",
+        "help": "Yazı, alana sığabileceği en büyük boyutun bu oranında olur. 1 = tamamen dolu."
+      },
+      "fillLocked": {
+        "label": "Doluluk sabit",
+        "help": "Açıkken her tasarım aynı doluluğu kullanır; kapalıyken AI önerebilir."
+      },
+      "tiers": {
+        "primary": {
+          "label": "Ana satır",
+          "help": "En büyük satır (genelde isim). Diğer oranlar buna göre."
+        },
+        "secondary": {
+          "label": "İkincil satır",
+          "help": "Ana satırdan küçük destek satırları."
+        },
+        "tertiary": {
+          "label": "Üçüncül satır",
+          "help": "En küçük satırlar (tarih, yer, uzun mesaj)."
+        },
+        "connector": {
+          "label": "Tek başına bağlaç",
+          "help": "Kendi satırındaki bağlacın ana satıra oranı."
+        }
+      },
+      "tiersLocked": {
+        "label": "Oranları motor uygulasın",
+        "help": "Açıkken AI yalnızca satırın sınıfını seçer, boyutu bu oranlar belirler."
+      },
+      "connectorScales": {
+        "label": "Bağlaca özel oran",
+        "help": "Belirli bir bağlaç için farklı oran (ör. 'e' 0,45)."
+      },
+      "maxCapHeight": {
+        "label": "Harf yüksekliği sınırı",
+        "help": "Kısa metinler aşırı büyümesin: büyük harf yüksekliği en fazla kesim çapının bu oranı."
+      },
+      "minPt": {
+        "label": "En küçük punto",
+        "help": "Hiçbir satır bunun altına inmez."
+      },
+      "maxPt": {
+        "label": "En büyük punto",
+        "help": "Hiçbir satır bunun üstüne çıkmaz."
+      },
+      "breathing": {
+        "label": "Nefes payı",
+        "help": "Yazı ile dekor arasında bırakılan boşluk (kesim çapına oran)."
+      },
+      "edgeMargin": {
+        "label": "Kesim payı",
+        "help": "Yazı ile kesim çizgisi arasında bırakılan boşluk (kesim çapına oran)."
+      },
+      "initials": {
+        "oneLine": {
+          "label": "Baş harfler tek satırda",
+          "help": "Yalnızca baş harf ('A & M') asla alt alta dizilmez."
+        },
+        "maxCapHeight": {
+          "label": "Baş harf yüksekliği",
+          "help": "Yalnızca baş harf olan etikette harf yüksekliği sınırı. Boş = genel sınır."
+        }
+      }
+    },
+    "spacing": {
+      "align": {
+        "label": "Hizalama",
+        "help": "Satırlar mürekkep kutusuna göre ortalanır (ya da sola/sağa yaslanır)."
+      },
+      "inkGaps": {
+        "normal": {
+          "label": "Satır arası",
+          "help": "Satırlar arasında görünen boşluk, küçük satırın puntosuna oran."
+        },
+        "beforeLast": {
+          "label": "Son küçük satırdan önce",
+          "help": "Tarih/yer gibi son küçük satırdan önceki boşluk."
+        },
+        "connector": {
+          "label": "Bağlaç çevresi",
+          "help": "Tek başına bağlaç satırının üstü ve altındaki boşluk."
+        }
+      },
+      "beforeLastRatio": {
+        "label": "Son satır eşiği",
+        "help": "Son satır üstündekinin bu oranından küçükse 'son küçük satır' sayılır."
+      }
+    },
+    "connectors": {
+      "words": {
+        "label": "Bağlaçlar",
+        "help": "Bağlaç sayılan kelime ve semboller (&, and, e, y…)."
+      },
+      "shiftEm": {
+        "label": "Bağlaç sağa kayması",
+        "help": "İki el yazısı ismin arasındaki tek başına bağlaç, isimlerin ortasından bu kadar sağa (isim puntosu cinsinden)."
+      },
+      "separateDangling": {
+        "label": "Asılı bağlaç olmaz",
+        "help": "'Elena' / 'e Martina' gibi satır başında/sonunda kalan bağlaç kendi satırına alınır."
+      },
+      "allowSymbolSpacing": {
+        "label": "& çevresine boşluk",
+        "help": "'Mina&Ali' yazısında & çevresine nefes boşluğu eklenebilir (metin değişmiş sayılmaz)."
+      }
+    },
+    "lineBreaking": {
+      "maxLineChars": {
+        "label": "Satır uzunluğu sınırı",
+        "help": "Hiçbir satır bu kadar karakteri geçmez."
+      },
+      "typicalLines": {
+        "label": "Tipik satır sayısı",
+        "help": "Çoğu etiketin satır aralığı (en az – en çok)."
+      },
+      "maxLines": {
+        "label": "En fazla satır",
+        "help": "Hiçbir etiket bundan çok satır olmaz."
+      },
+      "nameOwnLine": {
+        "label": "İsim kendi satırında",
+        "help": "Kişi adı kendi satırında ve en büyük satırdır."
+      },
+      "coupleStack": {
+        "label": "Çiftler alt alta",
+        "help": "Çift isimlerinde isim / & / isim dizilişi: her zaman, adaylardan biri ya da hiç."
+      },
+      "keepShortGreetings": {
+        "label": "Kısa selam bölünmez",
+        "help": "Açıkken en çok üç kelimelik selam ve teşekkür ifadeleri ('Thank You', 'Merry Christmas') hiç bölünmez; motor ve AI denetler. Bazı selamları bölüyorsanız (ör. bayram selamı iki satır) kapatın ve ayrımı satır bölme notlarına ve örneklere yazın."
+      },
+      "dateOwnLine": {
+        "label": "Tarih kendi satırında",
+        "help": "Tarih ayrı satırda durur."
+      },
+      "customerBreaks": {
+        "label": "Müşterinin satır sonları",
+        "help": "Müşteri çift boşlukla satır verdiyse: ipucu, kesin ya da yok say."
+      },
+      "noLoneWords": {
+        "label": "Tek başına satır olamayanlar",
+        "help": "Edat ve tanımlıklar (di, de, of, la…) ait olduğu ifadeyle kalır."
+      },
+      "notes": {
+        "label": "Satır bölme notları",
+        "help": "Kurallarla söylenemeyen bölme alışkanlıkları (AI okur)."
+      },
+      "examples": {
+        "label": "Örnek bölmeler",
+        "help": "Metin → satırlar örnekleri. AI'a gösterilir; kuraldan güçlüdür."
+      }
+    },
+    "weight": {
+      "mode": {
+        "label": "Kalınlaştırma",
+        "help": "Kontur: yazının kendi rengiyle ince kontur (fontta Bold yoksa). Gerçek: fontun kalın stili."
+      },
+      "widthEm": {
+        "label": "Kontur kalınlığı",
+        "help": "Ana satır puntosunun oranı. Etiket başına tek değer."
+      },
+      "minPx": {
+        "label": "En ince kontur",
+        "help": "Kontur en az bu kadar (px). 0 = sınır yok."
+      },
+      "maxPx": {
+        "label": "En kalın kontur",
+        "help": "Kontur en fazla bu kadar (px). 0 = sınır yok."
+      },
+      "align": {
+        "label": "Kontur hizası",
+        "help": "Dışa: harf içi boşluklar kapanmaz."
+      }
+    },
+    "color": {
+      "text": {
+        "label": "Yazı rengi",
+        "help": "Varsayılan yazı rengi."
+      },
+      "onDark": {
+        "label": "Koyu zeminde yazı rengi",
+        "help": "Zemin koyuysa kullanılacak renk."
+      },
+      "autoContrast": {
+        "label": "Otomatik kontrast",
+        "help": "Zemin koyuysa kendiliğinden açık renge geç."
+      }
+    },
+    "output": {
+      "designFramePx": {
+        "label": "Tasarım alanı",
+        "help": "Bütün hesapların yapıldığı kare alan (px)."
+      },
+      "cut": {
+        "label": "Kesim şekli",
+        "help": "Etiketin kesim çizgisi (daire, oval, dikdörtgen…)."
+      },
+      "templateBox": {
+        "label": "Şablonun yeri",
+        "help": "Şablon görselinin tasarım alanındaki konumu ve boyutu."
+      },
+      "sizes": {
+        "label": "Etiket boyutları",
+        "help": "JSON'daki boyut adı → cm ve çerçeve boyutu (px). Tasarım varsayılan boyutta yapılır; diğer boyutlarda şablon ve yazı orantılı ölçeklenir (içerik ölçeği, yoksa frame / tasarım alanı)."
+      },
+      "defaultSize": {
+        "label": "Varsayılan boyut",
+        "help": "Siparişte boyut yazmıyorsa."
+      }
+    },
+    "stickers": {
+      "enabled": {
+        "label": "Sticker siparişleri",
+        "help": "Açıkken bazı siparişler etiket yerine sticker olarak hazırlanır."
+      },
+      "detect": {
+        "label": "Sticker nasıl anlaşılır",
+        "help": "Ürün alanı olan sipariş ya da şablonu boş sipariş."
+      },
+      "sheets": {
+        "label": "Sticker sayfaları",
+        "help": "Sticker sayfaları: ürün anahtar kelimeleri ve ölçüler. Ölçüler pt cinsindendir (1 pt = 1/72 inç ≈ 0,35 mm; 108 pt = 38,1 mm)."
+      }
+    },
+    "printing": {
+      "labelExtraMin": {
+        "label": "Etiket fazlalığı (en az)",
+        "help": "Sipariş adedinin üstüne basılan en az fazla etiket."
+      },
+      "labelExtraMax": {
+        "label": "Etiket fazlalığı (en çok)",
+        "help": "Büyük siparişlerde basılan en çok fazla etiket."
+      },
+      "labelRoundUpMaxExtra": {
+        "label": "Sayfayı tamamla",
+        "help": "Kalan etiketler tam sayfaya en çok bu kadar eksikse sayfa aynı siparişle tamamlanır."
+      },
+      "labelExtraScaleLow": {
+        "label": "Fazlalık ölçeği (alt adet)",
+        "help": "Bu adet ve altında en az fazlalık basılır."
+      },
+      "labelExtraScaleHigh": {
+        "label": "Fazlalık ölçeği (üst adet)",
+        "help": "Bu adet ve üstünde en çok fazlalık basılır; arası orantılıdır."
+      },
+      "separateSameDesign": {
+        "label": "Aynı tasarımı ayır",
+        "help": "Aynı tasarım numaralı siparişler aynı karışık sayfaya konmaz (karışmasın diye)."
+      },
+      "stickerExtraMin": {
+        "label": "Sticker fazlalığı (en az)",
+        "help": "Sticker siparişlerinde adedin üstüne en az fazla."
+      },
+      "stickerExtraMax": {
+        "label": "Sticker fazlalığı (en çok)",
+        "help": "Sticker siparişlerinde adedin üstüne en çok fazla."
+      },
+      "stickerDpi": {
+        "label": "Sticker çözünürlüğü",
+        "help": "Sticker sayfalarının PNG ve raster PDF çözünürlüğü (dpi). Sticker'ın boyutu değişmez (mm); 300 yazıcılar için yeterli."
+      },
+      "dpi": {
+        "label": "Baskı çözünürlüğü",
+        "help": "PNG çıktısının ve raster PDF'in çözünürlüğü (dpi). 300 yazıcılar için yeterli."
+      },
+      "orderNamePattern": {
+        "label": "Sipariş adı deseni",
+        "help": "Baskı sayfasındaki sipariş adı (hücre etiketi). {orderNo}, {quantity}, {template}, {size}, {seq} ve sipariş dosyasındaki alan adları kullanılabilir; boşsa sipariş adı basılmaz."
+      }
+    },
+    "quality": {
+      "suspectScore": {
+        "label": "Kontrol eşiği",
+        "help": "Bu puanın altındaki varyasyon 'kontrol et' işaretlenir."
+      },
+      "readableMinPt": {
+        "label": "Okunurluk sınırı",
+        "help": "En küçük satır bunun altındaysa uyarı verilir."
+      }
+    }
+  }
+}

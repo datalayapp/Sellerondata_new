@@ -1,0 +1,89 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "packages/domain/src/adjust.test.ts"
+        ],
+        "createdAt": "2026-10-09T16:10:11.149Z",
+        "reason": "Claude: test fikstürü; etiket yazısının baskı rengi (yerleşim verisi), arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "packages/engine/src/verify.ts"
+        ],
+        "createdAt": "2026-10-09T16:43:41.135Z",
+        "reason": "Claude: çarpışma denetimi raster maskesinin rengi; ekranda görünmez, arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1a4db3",
+        "files": [
+          "packages/domain/src/print.ts"
+        ],
+        "createdAt": "2026-10-09T20:48:07.401Z",
+        "reason": "Claude: baskı sözleşmesi varsayılanı (kağıda basılan hücre etiketi/kesim çizgisi rengi, kullanıcının eski Figma değeri); arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000000",
+        "files": [
+          "packages/domain/src/print.ts"
+        ],
+        "createdAt": "2026-10-09T20:48:07.401Z",
+        "reason": "Claude: baskı sözleşmesi varsayılanı (kağıda basılan hücre etiketi/kesim çizgisi rengi, kullanıcının eski Figma değeri); arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000000",
+        "files": [
+          "apps/server/src/print.test.ts"
+        ],
+        "createdAt": "2026-10-09T20:58:27.711Z",
+        "reason": "Claude: test; baskı sözleşmesinin varsayılan kesim çizgisi/hücre etiketi renkleri (baskı verisi), arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1a4db3",
+        "files": [
+          "apps/server/src/print.test.ts"
+        ],
+        "createdAt": "2026-10-09T20:58:27.823Z",
+        "reason": "Claude: test; baskı sözleşmesinin varsayılan kesim çizgisi/hücre etiketi renkleri (baskı verisi), arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#ff0000",
+        "files": [
+          "packages/engine/src/print.test.ts"
+        ],
+        "createdAt": "2026-10-09T21:00:40.571Z",
+        "reason": "Claude: test fikstürü; baskı sayfasının piksel denetimi için şablon/yazı rengi, arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000000",
+        "files": [
+          "packages/engine/src/print.test.ts"
+        ],
+        "createdAt": "2026-10-09T21:00:40.728Z",
+        "reason": "Claude: test fikstürü; baskı sayfasının piksel denetimi için şablon/yazı rengi, arayüz rengi değil"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "packages/typeset/src/emoji.test.ts"
+        ],
+        "createdAt": "2026-11-21T21:30:00.000Z",
+        "reason": "Claude: test; etikete basılan yazının mürekkep rengi (baskı verisi), arayüz rengi değil"
+      }
+    ]
+  }
+}

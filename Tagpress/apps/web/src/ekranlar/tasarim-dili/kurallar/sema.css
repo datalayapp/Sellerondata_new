@@ -1,0 +1,48 @@
+/* Satır oranları şeması (önek td-sema): Kurallar tuvalinde küçük yardımcı ve Özet föyünde. Yalnız var(--…) belirteçleri;
+   SVG yazı boyu görünüm kutusu biriminde (Sema.tsx). */
+
+.td-sema {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.td-sema svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Kesim şekli: kâğıt zeminli kesikli çizgi (kare zemin yok). */
+.td-sema-kesim {
+  fill: var(--tz-paper);
+  stroke: var(--tz-ruler-minor);
+  stroke-dasharray: 4 3;
+}
+
+.td-sema-cubuk {
+  fill: var(--line);
+}
+
+.td-sema-oran {
+  font-family: var(--fm);
+  fill: var(--text-3);
+}
+
+/* Satırlar arası görünen boşluk: mor ölçü (kırmızı yalnız hata için). */
+.td-sema-bosluk path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1;
+}
+
+.td-sema-bosluk text {
+  font-family: var(--fm);
+  fill: var(--primary-text);
+}
+
+.td-sema figcaption {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}

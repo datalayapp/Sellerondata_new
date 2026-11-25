@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2a2d34" />
+    <meta name="description" content="SellerOnData Merkez: araçlarınızın sayıları, ekibiniz ve yetkileriniz tek yerde." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <title>SellerOnData</title>
+  </head>
+  <body>
+    <!--
+      THESIS: Merkez bir geçiş sayfası değil, sabah okunan bir hesap özeti. Ürün kartı + "Aç" düğmesi ve eş boy KPI ızgarası yok.
+      OWN-WORLD: D09 "Renk bandı" kabuğu (üst bant, `packages/shell`) + beyaz araç yüzeyi. Tasarım kuralları `docs/DESIGN.md`, IBM Plex, ince cetvel çizgileri, sağa hizalı sayılar. Renk yalnız durum ve etkin araçta.
+      STORY: Yönetici para nereye gitti, ne bekliyor sorusunu tek bakışta okur; satırdan Analiz, Veriler veya araca iner.
+      FIRST VIEWPORT: Solda baş rakam, seyri ve faturalanan tutarın parçalara bölünmüş şeridi; sağda cetvelli dönem satırları; altında önem ve tutara göre sıralı Bekleyenler. Tek ana eylem yok, her satır bir eylemdir.
+      FORM: Sızıntı şeridi (aday 5), hesap cetveli ve metrik satırlarıyla güçlendirildi. Seed 7f9c4c96.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
+    <!-- İlk kare: React gelmeden üst bant (Merkez grafiti) hazır. JS gecikse de araçlar arası geçişte bant kaybolmaz. React bunu ilk çizimde siler. `sod-rail` sınıf adı eski kalmadır, bugün gizlidir. -->
+    <div id="root"><div class="sod-boot" aria-hidden="true"><div class="sod-rail"></div></div></div>
+    <!-- blocking=render: yeni belgenin ilk karesi kabukla çizilsin (§8). -->
+    <script type="module" blocking="render" src="/src/main.tsx"></script>
+  </body>
+</html>

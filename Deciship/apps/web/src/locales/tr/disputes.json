@@ -1,0 +1,232 @@
+{
+  "title": "İtirazlar",
+  "sub_one": "{{n}} itiraz · {{unsent}} gönderilmedi",
+  "sub_other": "{{n}} itiraz · {{unsent}} gönderilmedi",
+  "unit": "fatura",
+  "listStatus": {
+    "UNSENT": "Gönderilmedi",
+    "SENT": "Gönderildi",
+    "CLOSED": "Kapandı",
+    "ALL": "Tümü"
+  },
+  "invoiceStatus": {
+    "NONE": "İşlendi",
+    "SENT": "İtiraz gönderildi",
+    "CLOSED": "Kapandı"
+  },
+  "outcome": {
+    "PENDING": "Bekliyor",
+    "RECOVERED": "Geri alındı",
+    "REJECTED": "Reddedildi"
+  },
+  "channel": {
+    "EMAIL": "E-posta",
+    "PORTAL": "Taşıyıcı portalı",
+    "OTHER": "Diğer"
+  },
+  "tabs": {
+    "label": "İtiraz durumu"
+  },
+  "filters": {
+    "search": "Fatura no",
+    "searchPh": "Fatura no ile ara",
+    "clear": "Aramayı temizle"
+  },
+  "sum": {
+    "aria": "İtiraz toplamları",
+    "claimed": "İtiraz edilen",
+    "pending": "Bekleyen",
+    "recovered": "Geri alınan",
+    "rejected": "Reddedilen",
+    "shortfall": "{{amount}} eksik geldi",
+    "unsent": "{{amount}} henüz gönderilmedi",
+    "period": "Tüm zamanlar"
+  },
+  "due": {
+    "title": "Süresi yaklaşanlar"
+  },
+  "deadline": {
+    "ttk": "TTK",
+    "carrierFallback": "Taşıyıcı",
+    "daysLeft_one": "{{n}} gün kaldı",
+    "daysLeft_other": "{{n}} gün kaldı",
+    "today": "bugün son gün",
+    "expired": "süresi doldu",
+    "onTime": "zamanında itiraz edildi",
+    "late": "süre geçtikten sonra",
+    "ttkFull": "TTK"
+  },
+  "cols": {
+    "invoice": "Fatura",
+    "claimed": "Talep",
+    "recovered": "Geri alınan",
+    "status": "Durum",
+    "deadlines": "Süre"
+  },
+  "row": {
+    "notSent_one": "{{n}} satır listede",
+    "notSent_other": "{{n}} satır listede",
+    "sentOn": "{{date}} gönderildi",
+    "shortfall": "{{amount}} eksik",
+    "unsentAfterSend_one": "{{n}} satır gönderilmedi",
+    "unsentAfterSend_other": "{{n}} satır gönderilmedi"
+  },
+  "empty": {
+    "none": {
+      "title": "Henüz itiraz yok",
+      "body": "Faturada farkı olan satırları itiraz listesine ekleyin; gönderdiğiniz itirazlar burada izlenir.",
+      "action": "Faturalara git"
+    },
+    "filtered": {
+      "title": "Bu fatura no ile itiraz yok"
+    },
+    "UNSENT": {
+      "title": "Gönderilmeyi bekleyen itiraz yok"
+    },
+    "SENT": {
+      "title": "Yanıt bekleyen itiraz yok"
+    },
+    "CLOSED": {
+      "title": "Kapanan itiraz yok"
+    }
+  },
+  "card": {
+    "title": "İtiraz",
+    "aria": "İtiraz durumu",
+    "round": "Tur {{n}}",
+    "unsent_one": "İtiraz listesinde {{n}} satır, talep <b>{{amount}}</b>. Taşıyıcıya gönderince işaretleyin.",
+    "unsent_other": "İtiraz listesinde {{n}} satır, talep <b>{{amount}}</b>. Taşıyıcıya gönderince işaretleyin.",
+    "unsentNoPrice_one": "İtiraz listesinde {{n}} satır. Taşıyıcıya gönderince işaretleyin.",
+    "unsentNoPrice_other": "İtiraz listesinde {{n}} satır. Taşıyıcıya gönderince işaretleyin.",
+    "nothingToSend": "İtiraz listesinde gönderilecek satır yok.",
+    "sentLine": "{{date}} gönderildi · {{channel}} · {{name}}",
+    "reference": "Vaka no {{ref}}",
+    "ttkLate": "TTK süresi geçtikten sonra",
+    "hintPrepare": "İtirazı muhasebe gönderir ve sonucunu girer.",
+    "hintReadOnly": "İtirazı muhasebe ve yönetici gönderir.",
+    "sums": {
+      "claimed": "Talep",
+      "recovered": "Geri alınan",
+      "rejected": "Reddedilen",
+      "pending": "Bekleyen",
+      "shortfall": "Eksik kalan"
+    },
+    "lines": {
+      "line": "Satır",
+      "claimed": "Talep",
+      "outcome": "Sonuç",
+      "recovered": "Geri alınan",
+      "lineNo": "Satır {{n}}"
+    },
+    "markSent": "Gönderildi olarak işaretle",
+    "addResult": "Sonuç gir",
+    "resend": "Yeniden gönder",
+    "revert": "Girişi iptal et",
+    "withdraw": "İtirazı geri çek",
+    "lockedLine": "Bu satır gönderilmiş itirazda. Kararı değiştirmek için önce itirazı geri çekin.",
+    "lockedDecision": "İtirazda",
+    "unsentAfterSend_one": "{{n}} satır listede, henüz gönderilmedi · {{amount}}",
+    "unsentAfterSend_other": "{{n}} satır listede, henüz gönderilmedi · {{amount}}",
+    "unsentAfterSendNoPrice_one": "{{n}} satır listede, henüz gönderilmedi",
+    "unsentAfterSendNoPrice_other": "{{n}} satır listede, henüz gönderilmedi"
+  },
+  "history": {
+    "title": "Geçmiş",
+    "sentOnly": "Gönderildi",
+    "sent": "Tur {{n}} gönderildi",
+    "recovered": "Geri alındı · dekont {{no}}",
+    "rejected": "Reddedildi",
+    "resultLines_one": "{{n}} satır",
+    "resultLines_other": "{{n}} satır",
+    "reverted": "Giriş iptal edildi: {{what}}",
+    "withdrawn": "Tur {{n}} geri çekildi",
+    "superseded": "Tur {{n}} yerine tur {{next}} gönderildi",
+    "by": "{{name}} · {{at}}",
+    "reason": "Neden: {{reason}}"
+  },
+  "send": {
+    "title": "Gönderildi olarak işaretle",
+    "resendTitle": "Yeniden gönder",
+    "intro_one": "{{n}} satır, talep <b>{{amount}}</b>.",
+    "intro_other": "{{n}} satır, talep <b>{{amount}}</b>.",
+    "introNoPrice_one": "{{n}} satır.",
+    "introNoPrice_other": "{{n}} satır.",
+    "pendingLines_one": "{{n}} satırın ölçümü ya da durumu değişti ama rakamı güncellenmedi. Göndermeden önce bu satırlara bakın.",
+    "pendingLines_other": "{{n}} satırın ölçümü ya da durumu değişti ama rakamı güncellenmedi. Göndermeden önce bu satırlara bakın.",
+    "resendIntro": "Bu tur kapanır; listedeki parası gelmemiş satırlar yeniden talep edilir.",
+    "sentOn": "Gönderim tarihi",
+    "channel": "Kanal",
+    "channelNote": "Nasıl gönderildi",
+    "reference": "Taşıyıcı vaka no (isteğe bağlı)",
+    "save": "Kaydet",
+    "resendSave": "Kaydet",
+    "cancel": "Vazgeç",
+    "toast": "İtiraz gönderildi olarak kaydedildi",
+    "resendToast": "Yeni tur kaydedildi",
+    "reopenText": "İtiraz metnini yeniden al"
+  },
+  "result": {
+    "title": "Sonuç gir",
+    "kind": "Sonuç",
+    "recovered": "Geri alındı",
+    "rejected": "Reddedildi",
+    "pickLines": "Satırlar",
+    "amountFor": "{{line}} geri alınan tutar (KDV hariç)",
+    "claim": "talep {{amount}}, KDV hariç",
+    "creditNoteNo": "Alacak dekontu no",
+    "creditNoteDate": "Dekont tarihi",
+    "rejectedOn": "Ret tarihi",
+    "reason": "Ret nedeni",
+    "shortfall": "Eksik kalan {{amount}}",
+    "save": "Kaydet",
+    "cancel": "Vazgeç",
+    "noPending": "Sonucu girilmemiş satır yok.",
+    "toastRecovered": "Alacak dekontu kaydedildi",
+    "toastRejected": "Ret kaydedildi",
+    "errPick": "En az bir satır seçin.",
+    "errCreditNote": "Dekont numarasını yazın.",
+    "errAmount": "Tutar sıfırdan büyük, talepten fazla değil ve en çok iki ondalıklı olmalı.",
+    "errReason": "Ret nedenini yazın."
+  },
+  "revert": {
+    "title": "Girişi iptal et",
+    "intro": "Giriş silinmez, geçmişte iptal edilmiş olarak kalır. Satırlar yeniden sonuç bekler.",
+    "introOld": "Giriş silinmez, geçmişte iptal edilmiş olarak kalır. Bu önceki turun girişi: satırlar itiraz listesine döner ve yeniden gönderince talep edilir.",
+    "which": "Hangi giriş",
+    "reason": "Neden",
+    "save": "Girişi iptal et",
+    "cancel": "Vazgeç",
+    "toast": "Giriş iptal edildi"
+  },
+  "withdraw": {
+    "title": "İtirazı geri çek",
+    "intro": "Kaydı geçmişte kalır. Satırların kararı yeniden değiştirilebilir.",
+    "blocked": "Bu itirazda alacak dekontu var. Önce dekont girişini iptal edin.",
+    "save": "Geri çek",
+    "toast": "İtiraz geri çekildi"
+  },
+  "field": {
+    "required": "Bu alan zorunlu.",
+    "future": "Tarih bugünden sonra olamaz.",
+    "beforeInvoice": "Tarih fatura tarihinden önce olamaz.",
+    "beforeSent": "Tarih itirazın gönderildiği günden önce olamaz."
+  },
+  "errors": {
+    "STALE": "Bu itiraz siz bakarken değişti; güncel hali yüklendi. Yeniden deneyin.",
+    "DISPUTE_ACTIVE": "Bu faturanın gönderilmiş itirazı zaten var; güncel hali yüklendi.",
+    "NO_SENDABLE_LINES": "İtiraz listesinde gönderilecek satır yok.",
+    "LINE_NOT_PENDING": "Seçilen satırlardan birinin sonucu zaten girilmiş; güncel hali yüklendi.",
+    "AMOUNT_EXCEEDS_CLAIM": "Geri alınan tutar talepten fazla olamaz.",
+    "REASON_REQUIRED": "Nedeni yazın.",
+    "CREDIT_NOTE_REQUIRED": "Dekont numarasını yazın.",
+    "HAS_RECOVERED_RESULTS": "Bu itirazda alacak dekontu var. Önce dekont girişini iptal edin.",
+    "SENT_ON_IN_FUTURE": "Tarih bugünden sonra olamaz.",
+    "RESULT_ON_IN_FUTURE": "Tarih bugünden sonra olamaz.",
+    "LINE_IN_DISPUTE": "Bu satır gönderilmiş itirazda. Kararı değiştirmek için önce itirazı geri çekin.",
+    "INVOICE_HAS_DISPUTE": "Bu faturanın gönderilmiş itirazı var. Silmek ya da para birimini değiştirmek için önce itirazı geri çekin.",
+    "RESULT_ON_BEFORE_SENT": "Tarih itirazın gönderildiği günden önce olamaz.",
+    "SELECTION_CHANGED": "İtiraz listesi bu arada değişti; kayıt yapılmadı. Güncel itiraz metnini alıp taşıyıcıya onu gönderin.",
+    "RESULT_LINES_RESENT": "Bu girişin satırları sonraki turda yeniden talep edildi; giriş iptal edilemez.",
+    "LINE_CHANGED": "Bu satırın kararı siz bakarken değişti; güncel hali yüklendi. Yeniden karar verin."
+  }
+}

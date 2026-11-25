@@ -1,0 +1,165 @@
+{
+  "kicker": "Setup",
+  "stepOf": "Step {{n}} of {{total}}",
+  "steps": {
+    "type": "Label type",
+    "language": "Design language",
+    "print": "Printing"
+  },
+  "type": {
+    "title": "What kind of labels do you make?",
+    "sub": "We turn on the tools to match."
+  },
+  "types": {
+    "wedding": "Wedding and engagement",
+    "baptism": "Baptism and birth",
+    "birthday": "Birthday",
+    "thanks": "Thank-you and keepsake",
+    "product": "Product label",
+    "sticker": "Sticker"
+  },
+  "typeHints": {
+    "wedding": "Names and date",
+    "baptism": "Baby name, date",
+    "birthday": "Name, age, date",
+    "thanks": "One-line thank-you",
+    "product": "Product name, weight",
+    "sticker": "Text with no backing"
+  },
+  "features": {
+    "title": "Features to turn on",
+    "paid": "Paid",
+    "more": "More features",
+    "moreSummary_one": "{{count}} on",
+    "moreSummary_other": "{{count}} on",
+    "note": "You can turn on the others in Settings."
+  },
+  "feat": {
+    "core_production": {
+      "name": "Production and comparison",
+      "desc": "Turns orders into labels and compares candidates."
+    },
+    "import_json": {
+      "name": "Bulk import",
+      "desc": "Adds orders in bulk from a JSON file."
+    },
+    "jobs_manual": {
+      "name": "Add jobs by hand",
+      "desc": "Type in a single order."
+    },
+    "adjust": {
+      "name": "Adjust",
+      "desc": "Fix text, font and layout by hand."
+    },
+    "revise": {
+      "name": "Ask for a change",
+      "desc": "Change a label with one sentence."
+    },
+    "image_onTemplate": {
+      "name": "Image generation: write on template",
+      "desc": "AI writes the text onto the template image."
+    },
+    "image_themeTemplate": {
+      "name": "Template from a theme",
+      "desc": "Generates a new template image from a theme."
+    },
+    "learn": {
+      "name": "Learn from edits",
+      "desc": "Suggests design language changes from your edits."
+    },
+    "print": {
+      "name": "Print desk, cut marks",
+      "desc": "Page layout, page templates, cutting and archive."
+    },
+    "print_stickers": {
+      "name": "Sticker pages",
+      "desc": "Lays out background-free text as stickers."
+    },
+    "templates_editor": {
+      "name": "Template editor",
+      "desc": "Draw and test the text area on a template."
+    },
+    "language_builder": {
+      "name": "Design language builder",
+      "desc": "AI builds the language from questions and samples."
+    },
+    "language_rules": {
+      "name": "Edit rules by hand",
+      "desc": "Rules, versions and rollback."
+    },
+    "language_multi": {
+      "name": "Multiple design languages",
+      "desc": "Separate languages for different styles."
+    },
+    "language_package": {
+      "name": "Language package",
+      "desc": "Export and import a design language."
+    },
+    "text_languages": {
+      "name": "Multiple text languages",
+      "desc": "Customer text in languages such as English or Italian."
+    }
+  },
+  "language": {
+    "title": "How should your design language be set up?",
+    "sub": "Build one from your samples or start with a ready-made language.",
+    "build": "Build from my samples",
+    "buildHint": "Questions and sample labels; uses AI, the cost is shown before it starts.",
+    "buildOff": "The design language builder is off; you can turn it on in step 1.",
+    "default": "Start with the default",
+    "defaultHint": "Starts with ready-made settings; you can change them later.",
+    "defaultHintName": "Starts with {{name}}; you can change it later.",
+    "note": "The builder opens when setup is finished."
+  },
+  "print": {
+    "title": "How do you print?",
+    "sub": "Your page template is prepared from these answers.",
+    "paper": "Paper",
+    "paperType": "Paper type",
+    "paperTypes": {
+      "plain": "Plain adhesive",
+      "precut": "Pre-cut"
+    },
+    "paperTypeHint": {
+      "plain": "The cut line is printed and you cut it.",
+      "precut": "The cut line is not printed, only shown on screen."
+    },
+    "who": "Who does the cutting?",
+    "whoMachine": "Cutting machine",
+    "whoHand": "By hand",
+    "cutter": "Machine",
+    "cutters": {
+      "silhouette": "Silhouette",
+      "cricut": "Cricut",
+      "scanncut": "Brother ScanNCut",
+      "plotter": "Optical-eye plotter (Graphtec etc.)",
+      "other": "Other"
+    },
+    "cutterHint": {
+      "silhouette": "The machine's software adds the marks; a cut file is provided.",
+      "cricut": "The machine's software adds the marks; a cut file is provided.",
+      "scanncut": "The cut line is printed, no marks.",
+      "plotter": "L marks are printed in four corners; a cut file is provided.",
+      "other": "The cut line is printed, no marks."
+    },
+    "sticker": "Sticker size",
+    "stickerHint": "Largest width; diameter for round stickers.",
+    "smaller": "Smaller",
+    "larger": "Larger",
+    "mm": "{{value}} mm",
+    "note": "These are starting values; you can change them in Printing → Page templates."
+  },
+  "skip": "Skip, start with defaults",
+  "cancel": "Cancel",
+  "back": "Back",
+  "next": "Continue",
+  "finish": "Finish",
+  "retry": "Try again",
+  "done": "Setup finished.",
+  "shortcuts": {
+    "next": "Continue",
+    "groups": {
+      "flow": "Setup"
+    }
+  }
+}

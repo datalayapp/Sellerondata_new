@@ -1,0 +1,660 @@
+/* Yerleşim: çalışma alanı ızgarası, ray, paneller, orta sütun, şeritler, liste satırı, sekmeler (maket .ws … .ttabs). */
+
+.tz-sp {
+  flex: 1;
+}
+
+.tz-ws {
+  display: grid;
+  grid-template-columns: var(--tz-ws-cols);
+  grid-template-rows: minmax(0, 1fr);
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  background: var(--surface);
+  border-top: 1px solid var(--tz-ws-line);
+}
+
+.tz-ws-c {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* Çekmece sarmalayıcısı (yalnız çalışma ekranında): geniş ekranda yok sayılır, panel ızgaranın sütunudur. */
+.tz-ws-side {
+  display: contents;
+}
+
+/* Tablet (761–1023 px), çalışma ekranı: tuval tam genişlik; paneller iş satırındaki düğmeyle tuvalin üstüne açılır. */
+@media (min-width: 761px) and (max-width: 1023px) {
+  .tz-ws--drawers {
+    position: relative;
+    grid-template-columns: var(--tz-ws-cols-narrow);
+  }
+
+  .tz-ws--drawers > .tz-ws-side {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    width: var(--tz-ws-side-w);
+    max-width: calc(100% - var(--tz-rail-w));
+    flex-direction: column;
+    background: var(--surface);
+    box-shadow: var(--sh-lg);
+  }
+
+  .tz-ws--drawers > .tz-ws-side > * {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .tz-ws--drawers > .tz-ws-side--l {
+    left: 0;
+  }
+
+  .tz-ws--drawers.tz-ws--rail > .tz-ws-side--l {
+    left: var(--tz-rail-w);
+  }
+
+  .tz-ws--drawers > .tz-ws-side--r {
+    right: 0;
+  }
+
+  .tz-ws--drawers[data-drawer="left"] > .tz-ws-side--l,
+  .tz-ws--drawers[data-drawer="right"] > .tz-ws-side--r {
+    display: flex;
+  }
+}
+
+/* Telefon (≤ 760 px), sütun ekranı: tek sütun; yan paneller içerik boyunda, orta kalan yükseklikte. */
+@media (max-width: 760px) {
+  .tz-ws--col {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--tz-ws-rows-stack);
+  }
+
+  .tz-ws--col > .tz-pnl {
+    max-height: 40vh;
+  }
+
+  .tz-ws--col > .tz-pnl--l {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .tz-ws--col > .tz-pnl--r {
+    border-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+}
+
+.tz-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  background: var(--surface);
+  border-right: 1px solid var(--line-soft);
+  min-height: 0;
+}
+
+.tz-rail hr {
+  width: 26px;
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  margin: 4px 0;
+}
+
+.tz-rail-b {
+  position: relative;
+  width: var(--tz-rail-btn);
+  height: var(--tz-rail-btn);
+  border-radius: var(--tz-r-rail);
+  display: grid;
+  place-items: center;
+  color: var(--text-2);
+}
+
+.tz-rail-b:hover {
+  background: var(--surface-3);
+}
+
+.tz-rail-b.is-on:hover {
+  background: var(--primary-soft);
+}
+
+.tz-rail-b:focus-visible {
+  outline-offset: -2px;
+}
+
+.tz-rail-b.is-on {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+.tz-pnl {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  background: var(--surface);
+}
+
+.tz-pnl--l {
+  border-right: 1px solid var(--line-soft);
+}
+
+.tz-pnl--r {
+  border-left: 1px solid var(--line-soft);
+}
+
+.tz-pnl-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--tz-panel-head);
+  padding: 0 12px 0 14px;
+  border-bottom: 1px solid var(--line-soft);
+  flex: none;
+}
+
+.tz-pnl-t {
+  font-size: var(--tz-fs-head);
+  font-weight: 600;
+}
+
+.tz-pnl-c {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.tz-pnl-b {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-top: 4px;
+}
+
+/* başlıktan sonraki ilk bölüm biraz daha açık (maket .ph + .sec) */
+.tz-pnl-b > .tz-sec:first-child {
+  padding-top: 14px;
+}
+
+.tz-pnl-f {
+  margin-top: auto;
+  padding: 12px 14px;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 8px;
+  background: var(--surface);
+}
+
+.tz-sec {
+  display: grid;
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.tz-sec-h {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tz-sec-h a,
+.tz-sec-h .tz-lnk {
+  color: var(--primary-text);
+  font: 500 var(--tz-fs-small) / 16px var(--f);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tz-sec-h .tz-kbd {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tz-sec-h h3 {
+  font: 500 var(--tz-fs-section) / 14px var(--fm);
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.tz-pr {
+  display: grid;
+  grid-template-columns: var(--tz-prop-label) minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tz-ctl-h);
+  font-size: var(--tz-fs-panel);
+}
+
+.tz-pr > label,
+.tz-pr > span {
+  color: var(--text-3);
+}
+
+.tz-pr-v {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tz-pr2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.tz-pr2 > label {
+  display: grid;
+  gap: 3px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.tz-gc {
+  border-top: 1px solid var(--line-soft);
+}
+
+.tz-gc-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: var(--tz-group-h);
+  padding: 0 14px;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+  text-align: left;
+}
+
+.tz-gc-h::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--text-3);
+  border-bottom: 1.5px solid var(--text-3);
+  transform: rotate(-45deg);
+  margin: 0 2px;
+  flex: none;
+  transition: transform var(--tz-dur) var(--tz-ease);
+}
+
+.tz-gc.is-open .tz-gc-h::before {
+  transform: rotate(45deg);
+}
+
+.tz-gc-h:hover {
+  background: var(--surface-2);
+}
+
+.tz-gc-h:focus-visible {
+  outline-offset: -2px;
+}
+
+.tz-gc-h b {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tz-gc-v {
+  margin-left: auto;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.tz-gc-b {
+  padding: 0 0 8px;
+}
+
+.tz-cc {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.tz-cc-b {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tz-tb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--tz-strip-h);
+  padding: 0 10px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface);
+  white-space: nowrap;
+  flex: none;
+}
+
+.tz-tb > .tz-sp {
+  min-width: 8px;
+}
+
+.tz-tb-g {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tz-tb-vl {
+  width: 1px;
+  height: 22px;
+  background: var(--line-soft);
+  margin: 0 6px;
+}
+
+.tz-tb-lb {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  margin-right: 2px;
+}
+
+.tz-selbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--tz-selbar-h);
+  padding: 0 12px;
+  background: var(--primary-soft);
+  border-bottom: 1px solid var(--primary-line);
+  font-size: var(--tz-fs-panel);
+  white-space: nowrap;
+  flex: none;
+}
+
+.tz-selbar .tz-btn {
+  height: var(--tz-btn-mini);
+  padding: 0 8px;
+  font-size: var(--tz-fs-small);
+}
+
+.tz-selbar-vl {
+  width: 1px;
+  height: 20px;
+  background: var(--primary-line);
+  margin: 0 4px;
+}
+
+.tz-sb {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: var(--tz-status-h);
+  padding: 0 12px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--surface);
+  font: var(--tz-fs-status) / 1 var(--fm);
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  flex: none;
+}
+
+.tz-sb b {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* metin kısalır (üç nokta), sağ uçtaki yakınlaştırma kısalmaz */
+.tz-sb > :not(.tz-sb-end):not(.tz-sp) {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-sb-end {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex: none;
+}
+
+.tz-lr {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: var(--tz-row-list);
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.tz-lr.is-cur {
+  background: var(--primary-soft);
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+
+.tz-lr.is-multi {
+  background: var(--tz-row-multi);
+}
+
+.tz-lr:not(.is-cur):not(.is-multi):hover {
+  background: var(--surface-2);
+}
+
+.tz-lr-cb {
+  display: inline-flex;
+  flex: none;
+}
+
+.tz-lr-b {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-align: left;
+}
+
+.tz-lr-b:focus-visible {
+  outline-offset: -2px;
+}
+
+.tz-lr-t {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tz-lr-t b {
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-lr-t b .tz-mono {
+  color: var(--text-3);
+  font-size: var(--tz-fs-small);
+  margin-right: 4px;
+}
+
+.tz-lr-t small {
+  font-size: var(--tz-fs-small);
+  line-height: 16px;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-lr-r {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+/* yoğunluk: auto (maket .vrow) — yükseklik içeriğe göre, metin kırılır */
+.tz-lr--auto {
+  height: auto;
+  min-height: var(--tz-row-list);
+}
+
+.tz-lr--auto .tz-lr-b {
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.tz-lr--auto .tz-lr-t b,
+.tz-lr--auto .tz-lr-t small {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* yoğunluk: compact (maket .glist) — 34 px, çizgisiz, içeriden yuvarlak seçim */
+.tz-lr--compact {
+  height: var(--tz-row-head);
+  margin: 0 6px;
+  padding: 0 10px;
+  gap: 8px;
+  border-bottom: 0;
+  border-radius: var(--tz-r-tool);
+}
+
+.tz-lr--compact:first-child {
+  margin-top: 6px;
+}
+
+.tz-lr--compact + .tz-lr--compact {
+  margin-top: 1px;
+}
+
+.tz-lr--compact .tz-lr-b {
+  gap: 8px;
+}
+
+.tz-lr--compact .tz-lr-l {
+  display: inline-flex;
+  color: var(--text-2);
+}
+
+.tz-lr--compact .tz-lr-t b {
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.tz-lr--compact.is-cur {
+  box-shadow: none;
+}
+
+.tz-lr--compact.is-cur .tz-lr-t b,
+.tz-lr--compact.is-cur .tz-lr-l {
+  color: var(--primary-text);
+}
+
+.tz-lr--compact.is-cur .tz-lr-t b {
+  font-weight: 600;
+}
+
+.tz-lr--compact .tz-lr-r {
+  font: var(--tz-fs-section) / 1 var(--fm);
+  color: var(--text-3);
+}
+
+/* yoğunluk: card (maket .ln) — kart satırı, çizgisiz; seçili: açık mor zemin + ince mor çerçeve */
+.tz-lr--card {
+  height: auto;
+  min-height: 0;
+  padding: 7px 8px;
+  border-bottom: 0;
+  border-radius: var(--tz-r-tool);
+}
+
+.tz-lr--card .tz-lr-b {
+  gap: 8px;
+}
+
+.tz-lr--card .tz-lr-t b {
+  font-size: var(--tz-fs-body);
+}
+
+.tz-lr--card.is-cur {
+  box-shadow: inset 0 0 0 1px var(--primary-line);
+}
+
+.tz-tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tz-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 7px;
+  border-radius: var(--tz-r-field);
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.tz-tabs button:hover:not(.is-on) {
+  background: var(--surface-2);
+}
+
+.tz-tabs button i {
+  font-style: normal;
+  color: var(--text-3);
+  font-size: var(--tz-fs-status);
+}
+
+.tz-tabs button.is-on {
+  background: var(--surface-3);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Özellik paneli sekmeleri (maket .ftabs): zeminsiz, seçili sekmenin altında 2 px mor çizgi. */
+.tz-tabs--ul {
+  gap: 2px;
+  padding: 8px 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tz-tabs--ul button {
+  height: 32px;
+  padding: 0 9px;
+  margin-bottom: -1px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+}
+
+.tz-tabs--ul button:hover:not(.is-on) {
+  background: none;
+  color: var(--text);
+}
+
+.tz-tabs--ul button.is-on {
+  background: none;
+  border-bottom-color: var(--primary);
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@sellerondata/lint-tools",
+  "private": true,
+  "description": "Depo geneli ESLint ve Prettier araçları (Mesaj 10 planı 3.8). Kökte node_modules oluşmasın diye burada kurulur; kök betik: npm run lint.",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.14.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.14.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.2"
+  }
+}

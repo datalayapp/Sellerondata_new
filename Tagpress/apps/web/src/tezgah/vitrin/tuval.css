@@ -1,0 +1,102 @@
+/* Vitrin: tuval ve katmanlar (T2). */
+
+.tz-vitrin-frame.tz-vt-frame {
+  height: 380px;
+}
+
+.tz-vitrin-frame.tz-vt-frame--tall {
+  height: 460px;
+}
+
+.tz-vt-hit {
+  display: block;
+  cursor: pointer;
+}
+
+.tz-vt-label {
+  display: block;
+  border-radius: 50%;
+  box-shadow: var(--tz-sh-paper);
+}
+
+.tz-vt-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--primary-line);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+  font-size: var(--tz-fs-section);
+  font-weight: 500;
+}
+
+.tz-vt-dock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tz-vt-dock > :first-child {
+  flex: 1;
+}
+
+.tz-vt-paper {
+  position: relative;
+  background: var(--tz-paper);
+  box-shadow: var(--tz-sh-paper);
+}
+
+.tz-vt-paper .tz-vt-label {
+  box-shadow: none;
+}
+
+.tz-vt-slot {
+  position: absolute;
+}
+
+.tz-vt-sw {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tz-fs-panel);
+  color: var(--text-2);
+}
+
+.tz-vt-note {
+  max-width: 72ch;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.tz-vt-pop,
+.tz-vt-form {
+  display: grid;
+  gap: 8px;
+  padding: 6px;
+}
+
+.tz-vt-lab {
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.tz-vt-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.tz-vt-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}

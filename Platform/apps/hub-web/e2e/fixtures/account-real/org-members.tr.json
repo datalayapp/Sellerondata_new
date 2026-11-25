@@ -1,0 +1,94 @@
+{
+  "status": 200,
+  "body": {
+    "members": [
+      {
+        "id": "<id>",
+        "personId": "<id>",
+        "name": "Ayşe Yılmaz",
+        "email": "ayse@ornek.test",
+        "emailVerified": false,
+        "phone": null,
+        "orgRole": "OWNER",
+        "status": "ACTIVE",
+        "lastActiveAt": "<zaman>",
+        "createdAt": "<zaman>",
+        "productRoles": {
+          "deciship": "ADMIN",
+          "tagpress": "ADMIN"
+        },
+        "resetCodeAllowed": false,
+        "personSuspended": false
+      },
+      {
+        "id": "<id>",
+        "personId": "<id>",
+        "name": "Burak Kaya",
+        "email": "burak@ornek.test",
+        "emailVerified": false,
+        "phone": null,
+        "orgRole": "ADMIN",
+        "status": "ACTIVE",
+        "lastActiveAt": null,
+        "createdAt": "<zaman>",
+        "productRoles": {
+          "deciship": "ACCOUNTING",
+          "tagpress": "ADMIN"
+        },
+        "resetCodeAllowed": false,
+        "personSuspended": false
+      },
+      {
+        "id": "<id>",
+        "personId": "<id>",
+        "name": "Mehmet Demir",
+        "email": null,
+        "emailVerified": false,
+        "phone": "+905559871201",
+        "orgRole": "MEMBER",
+        "status": "ACTIVE",
+        "lastActiveAt": "<zaman>",
+        "createdAt": "<zaman>",
+        "productRoles": {
+          "deciship": "MEASURE",
+          "tagpress": "USER"
+        },
+        "resetCodeAllowed": true,
+        "personSuspended": false
+      },
+      {
+        "id": "<id>",
+        "personId": "<id>",
+        "name": "Zeynep Arslan",
+        "email": "zeynep@ornek.test",
+        "emailVerified": false,
+        "phone": null,
+        "orgRole": "MEMBER",
+        "status": "SUSPENDED",
+        "lastActiveAt": null,
+        "createdAt": "<zaman>",
+        "productRoles": {
+          "deciship": "custom:<id>",
+          "tagpress": "USER"
+        },
+        "resetCodeAllowed": false,
+        "personSuspended": false
+      },
+      {
+        "id": "<id>",
+        "personId": "<id>",
+        "name": "Selin Koç",
+        "email": "selin@ornek.test",
+        "emailVerified": false,
+        "phone": null,
+        "orgRole": "MEMBER",
+        "status": "ACTIVE",
+        "lastActiveAt": null,
+        "createdAt": "<zaman>",
+        "productRoles": {},
+        "resetCodeAllowed": false,
+        "personSuspended": false
+      }
+    ]
+  }
+}

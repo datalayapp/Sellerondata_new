@@ -1,0 +1,657 @@
+/* Şablonlar (önek sb-): yalnız var(--…) belirteçleri. Dünya katmanında 1 birim = 1 mm; tasarım karesi `--sb-k`
+   (mm / tasarım pikseli) ile ölçeklenir. Tuvaldeki çizgiler ekranda sabit kalınlıkta: SVG çizgisi
+   `stroke-width: calc(… / (zoom × k))`; tutamak ve hedef işareti ters ölçekli (border/outline zoom'a bölünmez). */
+
+/* ---------------------------------------------------------------- genel */
+
+.sb-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sb-wrap {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sb-grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.sb-note {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  line-height: 1.4;
+  color: var(--text-3);
+}
+
+/* Açıklamayı ipucunda taşıyan sarmalayıcı (SagPanel `Ipucu`): yerleşimi değiştirmez, ipucu ona tutunur. */
+.sb-tip {
+  display: grid;
+  min-width: 0;
+}
+
+.sb-pad {
+  padding: 10px 14px 0;
+}
+
+.sb-wait {
+  flex: 1;
+  min-height: var(--tz-row-list);
+}
+
+.sb-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-small);
+}
+
+.sb-unsaved {
+  margin-left: 8px;
+  max-width: 40ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.sb-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.sb-link + .sb-link::before {
+  content: ", ";
+  display: inline-block;
+  white-space: pre;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- kütüphane (sol panel) */
+
+.sb-lib-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.sb-report {
+  padding: 10px 12px 0;
+}
+
+.sb-report-h {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.sb-report-h > span:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.sb-report-g {
+  display: block;
+  margin-top: 4px;
+}
+
+.sb-lib {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+}
+
+.sb-tile {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 6px 4px;
+  border: 1px solid transparent;
+  border-radius: var(--tz-r-tool);
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sb-tile:hover {
+  background: var(--surface-2);
+}
+
+.sb-tile.is-cur {
+  border-color: var(--primary-line);
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+
+.sb-tile-k {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-small);
+}
+
+.sb-tile.is-missing .sb-tile-k {
+  color: var(--danger);
+}
+
+/* Küçük resmin çerçevesi yalnız seçili döşemede (ortak `.or-thumb` kütüphane kapsamında ezilir). */
+.sb-tile .or-thumb {
+  border-color: transparent;
+}
+
+.sb-tile.is-cur .or-thumb {
+  border-color: var(--primary-line);
+}
+
+.sb-tile.is-missing .or-thumb {
+  border-color: var(--danger-line);
+  color: var(--danger);
+}
+
+/* ---------------------------------------------------------------- büyük ızgara */
+
+.sb-gv {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface-2);
+}
+
+.sb-gv-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.sb-gv-f {
+  display: grid;
+  gap: 8px;
+  width: min(100%, calc(var(--tz-panel-r) * 1.4));
+}
+
+.sb-gv .sb-report {
+  padding: 12px 16px 0;
+}
+
+.sb-grid {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(176px, 1fr));
+  align-content: start;
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  list-style: none;
+}
+
+.sb-card {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 14px 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-page);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sb-card:hover {
+  border-color: var(--primary-line);
+}
+
+.sb-card-k {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.sb-card-k small,
+.sb-card-s {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.sb-card-f {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* ---------------------------------------------------------------- tuval */
+
+.sb-stage {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  user-select: none;
+}
+
+.sb-stage:focus-visible {
+  outline-offset: -2px;
+}
+
+.sb-stage[data-manual][data-tool="ellipse"] .tz-cv,
+.sb-stage[data-manual][data-tool="rect"] .tz-cv,
+.sb-stage[data-manual][data-tool="polygon"] .tz-cv {
+  cursor: crosshair;
+}
+
+.sb-stage[data-tool="pan"] .tz-cv {
+  cursor: grab;
+}
+
+.sb-stage[data-drag] .tz-cv {
+  cursor: grabbing;
+}
+
+/* Tasarım karesi: tasarım pikseliyle çizilir, mm'ye ölçeklenir (sol üst köşeden). */
+.sb-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+}
+
+.sb-svg {
+  display: block;
+  overflow: visible;
+}
+
+/* Çizgi kalınlığı ve kesik boyu: kap `--sb-k` ile mm'ye, dünya `--tz-zoom` ile ekrana ölçeklenir. */
+.sb-ln {
+  fill: none;
+  stroke-width: calc(1px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+.sb-area {
+  fill: var(--primary);
+  fill-opacity: 0.08;
+  stroke: var(--primary);
+  stroke-width: calc(1.5px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+.sb-area.is-edit {
+  cursor: move;
+  pointer-events: all;
+}
+
+.sb-ghost {
+  fill: var(--tz-info);
+  fill-opacity: 0.08;
+  stroke: var(--tz-info);
+  stroke-width: calc(1.5px / (var(--tz-zoom) * var(--sb-k, 1)));
+  stroke-dasharray: calc(6px / (var(--tz-zoom) * var(--sb-k, 1))) calc(4px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+.sb-cutline {
+  stroke: var(--tz-crop);
+  stroke-dasharray: calc(4px / (var(--tz-zoom) * var(--sb-k, 1))) calc(3px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+.sb-draft {
+  fill: var(--primary);
+  fill-opacity: 0.06;
+  stroke: var(--primary-text);
+  stroke-dasharray: calc(4px / (var(--tz-zoom) * var(--sb-k, 1))) calc(3px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+polyline.sb-draft {
+  fill: none;
+}
+
+.sb-ribbon {
+  fill: var(--tz-dot-warn);
+  fill-opacity: 0.25;
+}
+
+.sb-ribbon-ln {
+  stroke: var(--warning);
+  stroke-dasharray: calc(4px / (var(--tz-zoom) * var(--sb-k, 1))) calc(3px / (var(--tz-zoom) * var(--sb-k, 1)));
+}
+
+/* Dekor taraması kırmızı değil (kırmızı yalnız hata): maketin işaret rengi. */
+.sb-hatch {
+  stroke: var(--tz-crop);
+  stroke-opacity: 0.7;
+}
+
+.sb-mask-on {
+  fill: var(--tz-paper);
+}
+
+/* Tutamak: temelin `.tz-hdl` görünümü (ters ölçekli 9 px kutu); seçili nokta dolu. */
+.sb-hdl.is-sel,
+.sb-hdl.is-first {
+  background: var(--primary);
+}
+
+/* Hedef merkez: ekranda sabit boyda artı işareti; ayarlı değilse soluk. */
+.sb-target {
+  position: absolute;
+  display: flex;
+  padding: 6px;
+  color: var(--primary-text);
+  transform: translate(-50%, -50%) scale(calc(1 / var(--tz-zoom)));
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.sb-target.is-fallback {
+  opacity: 0.5;
+}
+
+/* Tuval üstü notlar (sunucu bindirmesi). */
+.sb-ov-note {
+  position: absolute;
+  top: calc(var(--tz-ruler) + 10px);
+  left: calc(var(--tz-ruler) + 12px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 420px;
+  padding: 6px 10px;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-tool);
+  box-shadow: var(--tz-sh-dock);
+}
+
+/* ---------------------------------------------------------------- şerit ve katmanlar */
+
+.sb-strip-l {
+  font-size: var(--tz-fs-panel);
+  white-space: nowrap;
+}
+
+.sb-layers {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.sb-layer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
+  font-size: var(--tz-fs-panel);
+}
+
+.sb-layer small {
+  display: block;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* ---------------------------------------------------------------- deneme kutusu */
+
+.sb-try {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.sb-try-box {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+
+.sb-try-box .sb-try-ta {
+  padding-right: 64px;
+}
+
+/* "ücretsiz": metin alanının içinde, sağda, ilk satırın hizasında. */
+.sb-try-free {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: var(--tz-fs-small);
+  line-height: 18px;
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.sb-try-out {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sb-try-out > :first-child {
+  flex: 1;
+}
+
+.sb-try-res {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sb-try-fig {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.sb-try-fig img {
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  background: var(--tz-paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-kbd);
+}
+
+.sb-try-iss {
+  max-width: 28ch;
+  margin: 0;
+  padding-left: 16px;
+  color: var(--danger);
+}
+
+/* ---------------------------------------------------------------- sağ panel */
+
+.sb-aside {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* Durum satırı ögeleri kısalmaz. */
+.sb-st {
+  flex: none;
+  white-space: nowrap;
+}
+
+.sb-val {
+  font-size: var(--tz-fs-panel);
+  color: var(--text);
+}
+
+.sb-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--tz-fs-panel);
+}
+
+.sb-group {
+  display: grid;
+  gap: 10px;
+  padding: 0 14px 12px;
+}
+
+.sb-tags {
+  display: grid;
+  gap: 6px;
+}
+
+.sb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding-left: 8px;
+  font-size: var(--tz-fs-small);
+  border-radius: var(--tz-r-field);
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.sb-hist {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--tz-fs-small);
+}
+
+.sb-hist li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--text-2);
+}
+
+.sb-hist b {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sb-hist-at {
+  margin-left: auto;
+  color: var(--text-3);
+}
+
+.sb-foot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+}
+
+/* ---------------------------------------------------------------- pencereler ve bırakma */
+
+.sb-dlg {
+  display: grid;
+  gap: 14px;
+}
+
+.sb-up {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.sb-up-r {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.sb-up-img {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background: var(--tz-paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--tz-r-kbd);
+}
+
+.sb-up-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sb-up-f {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9rem;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sb-up-s {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  width: 7rem;
+  padding-top: 22px;
+}
+
+.sb-drop {
+  position: fixed;
+  inset: 12px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: var(--tz-fs-guided);
+  font-weight: 600;
+  color: var(--primary-text);
+  background: color-mix(in srgb, var(--primary-soft) 85%, transparent);
+  border: 2px dashed var(--primary);
+  border-radius: var(--tz-r-guided);
+  pointer-events: none;
+}

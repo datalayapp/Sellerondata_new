@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Ana sayfa",
+    "notFound": "Sayfa bulunamadı"
+  },
+  "home": {
+    "body": "Bu aracın ilk sayfası. Sayfalar eklendikçe menü burada büyür."
+  },
+  "gate": {
+    "noOrgTitle": "Önce bir firma seçin",
+    "noOrgBody": "Bu araç bir firmanın verisiyle çalışır. Merkez'den firmanızı seçin ya da yeni firma açın.",
+    "backHub": "Merkez'e dön"
+  },
+  "notFound": {
+    "body": "Bu adreste bir sayfa yok. Bağlantı eski olabilir.",
+    "home": "Ana sayfaya git"
+  }
+}

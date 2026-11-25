@@ -1,0 +1,612 @@
+{
+  "status": 200,
+  "body": {
+    "product": "tagpress",
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "compare": {
+      "from": "2026-08-31",
+      "to": "2026-09-30"
+    },
+    "filters": [
+      {
+        "id": "language",
+        "kind": "select",
+        "label": "Tasarım dili",
+        "options": [
+          {
+            "value": "dil-zarif",
+            "label": "Zarif"
+          },
+          {
+            "value": "dil-cocuk",
+            "label": "Çocuk"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "production",
+        "title": "Üretim",
+        "description": "Gelen ve onaylanan etiket işleri.",
+        "finding": {
+          "text": "Dönemde 6 iş geldi, 2 iş onaylandı."
+        },
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "production-kpis",
+            "items": [
+              {
+                "id": "jobs",
+                "label": "Gelen iş",
+                "hint": "Seçili dönemde eklenen etiket işleri.",
+                "value": 6,
+                "format": "number",
+                "goodDirection": "none",
+                "href": "/data/tagpress/jobs?filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 1
+              },
+              {
+                "id": "approved",
+                "label": "Onaylanan etiket",
+                "hint": "Seçili dönemde onaylanan etiket işleri.",
+                "value": 2,
+                "format": "number",
+                "goodDirection": "up",
+                "previous": 1
+              },
+              {
+                "id": "approval-rate",
+                "label": "Onay oranı",
+                "hint": "Dönemde gelen işlerden bugün onaylı olanların oranı.",
+                "value": 33.3,
+                "format": "percent",
+                "goodDirection": "up",
+                "previous": 100
+              }
+            ]
+          },
+          {
+            "kind": "timeseries",
+            "id": "production-series",
+            "title": "Gelen ve onaylanan",
+            "chart": "line",
+            "format": "number",
+            "series": [
+              {
+                "id": "jobs",
+                "label": "Gelen",
+                "points": [
+                  {
+                    "x": "2026-10-01",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-02",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-05",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-06",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-10",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-19",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-20",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-21",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-22",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-23",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-24",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-25",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-26",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-27",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-28",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-29",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-30",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-31",
+                    "y": 0
+                  }
+                ]
+              },
+              {
+                "id": "approved",
+                "label": "Onaylanan",
+                "points": [
+                  {
+                    "x": "2026-10-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-04",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-10",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-19",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-20",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-21",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-22",
+                    "y": 1
+                  },
+                  {
+                    "x": "2026-10-23",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-24",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-25",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-26",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-27",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-28",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-29",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-30",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-31",
+                    "y": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "languages",
+        "title": "Tasarım dilleri",
+        "description": "Onaylanan işlerin tasarım diline göre dağılımı.",
+        "finding": {
+          "text": "En çok onaylanan dil: Çocuk."
+        },
+        "widgets": [
+          {
+            "kind": "breakdown",
+            "id": "languages-breakdown",
+            "title": "Dile göre onaylanan",
+            "format": "number",
+            "items": [
+              {
+                "key": "dil-cocuk",
+                "label": "Çocuk",
+                "value": 1,
+                "share": 50
+              },
+              {
+                "key": "dil-zarif",
+                "label": "Zarif",
+                "value": 1,
+                "share": 50
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "print",
+        "title": "Baskı",
+        "description": "Basıldı işaretlenen oturumlar ve sayfaları.",
+        "finding": {
+          "text": "Dönemde 3 sayfa basıldı."
+        },
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "print-kpis",
+            "items": [
+              {
+                "id": "printed",
+                "label": "Basılan sayfa",
+                "hint": "Seçili dönemde basıldı işaretlenen oturumların sayfaları, kopyalar dahil.",
+                "value": 3,
+                "format": "number",
+                "goodDirection": "up",
+                "previous": 0
+              },
+              {
+                "id": "sessions",
+                "label": "Basılan oturum",
+                "value": 1,
+                "format": "number",
+                "goodDirection": "none",
+                "href": "/data/tagpress/prints?filter.status=printed&filter.from=2026-10-01&filter.to=2026-10-31",
+                "previous": 0
+              }
+            ]
+          },
+          {
+            "kind": "timeseries",
+            "id": "print-series",
+            "title": "Basılan sayfa",
+            "chart": "bar",
+            "format": "number",
+            "series": [
+              {
+                "id": "printed",
+                "label": "Basılan sayfa",
+                "points": [
+                  {
+                    "x": "2026-10-01",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-02",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-03",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-04",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-05",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-06",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-07",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-08",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-09",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-10",
+                    "y": 3
+                  },
+                  {
+                    "x": "2026-10-11",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-12",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-13",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-14",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-15",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-16",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-17",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-18",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-19",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-20",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-21",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-22",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-23",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-24",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-25",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-26",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-27",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-28",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-29",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-30",
+                    "y": 0
+                  },
+                  {
+                    "x": "2026-10-31",
+                    "y": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ai",
+        "title": "Yapay zekâ",
+        "description": "Yapay zekâ çağrılarının amaca göre dağılımı.",
+        "finding": {
+          "text": "Dönemde 4 yapay zekâ çağrısı yapıldı."
+        },
+        "widgets": [
+          {
+            "kind": "kpis",
+            "id": "ai-kpis",
+            "items": [
+              {
+                "id": "ai_calls",
+                "label": "Yapay zekâ çağrısı",
+                "hint": "Seçili dönemdeki yapay zekâ çağrılarının sayısı.",
+                "value": 4,
+                "format": "number",
+                "goodDirection": "none",
+                "previous": 1
+              },
+              {
+                "id": "failed-calls",
+                "label": "Başarısız çağrı",
+                "value": 1,
+                "format": "number",
+                "goodDirection": "down",
+                "previous": 0
+              }
+            ]
+          },
+          {
+            "kind": "breakdown",
+            "id": "ai-breakdown",
+            "title": "Amaca göre çağrı",
+            "format": "number",
+            "items": [
+              {
+                "key": "rank",
+                "label": "Aday seçimi",
+                "value": 1,
+                "share": 25
+              },
+              {
+                "key": "design",
+                "label": "Tasarım adayları",
+                "value": 1,
+                "share": 25
+              },
+              {
+                "key": "builder",
+                "label": "Tasarım dili oluşturucu",
+                "value": 1,
+                "share": 25
+              },
+              {
+                "key": "template",
+                "label": "Temadan şablon",
+                "value": 1,
+                "share": 25
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

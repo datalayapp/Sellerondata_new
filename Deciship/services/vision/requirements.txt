@@ -1,0 +1,6 @@
+fastapi>=0.115
+uvicorn>=0.32
+python-multipart>=0.0.12
+opencv-python-headless>=4.10,<6  # cv2.aruco is in the main package since 4.7
+numpy>=2.0
+pillow>=11.0

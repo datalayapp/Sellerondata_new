@@ -1,0 +1,30 @@
+{
+  "name": "@tagpress/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts --yerel",
+    "start": "tsx src/main.ts --yerel",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tagpress/domain": "workspace:*",
+    "@tagpress/typeset": "workspace:*",
+    "@tagpress/engine": "workspace:*",
+    "@tagpress/templates": "workspace:*",
+    "@tagpress/ai": "workspace:*",
+    "@tagpress/learn": "workspace:*",
+    "@tagpress/print": "workspace:*",
+    "fastify": "^5.12.7",
+    "zod": "^4.6.7",
+    "sharp": "^0.35.4",
+    "@sellerondata/auth-kit": "link:../../../Platform/packages/auth-kit",
+    "@sellerondata/product-kit": "link:../../../Platform/packages/product-kit",
+    "@sellerondata/contracts": "link:../../../Platform/packages/contracts",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1"
+  }
+}

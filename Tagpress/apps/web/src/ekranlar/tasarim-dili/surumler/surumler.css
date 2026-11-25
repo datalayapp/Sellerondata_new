@@ -1,0 +1,106 @@
+/* Sürümler (önek td-sv): solda geçmiş (maket .vrow), ortada araç şeridi ve üç sütunlu fark tablosu (maket .dfg). */
+
+.td-sv-pad {
+  padding: 12px 14px;
+}
+
+.td-sv-kod {
+  display: inline-block;
+  width: 54px;
+  font-family: var(--fm);
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+.td-sv-etkin {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.td-sv-sec {
+  width: 150px;
+}
+
+.td-sv-sonraki {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.td-sv-sonraki b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.td-sv {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 18px 24px 40px;
+  background: var(--surface);
+}
+
+.td-sv-not {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+.td-sv-hata {
+  margin: 0;
+  font-size: var(--tz-fs-panel);
+  color: var(--danger);
+}
+
+.td-sv-fark {
+  display: grid;
+  gap: 10px;
+}
+
+.td-sv-say {
+  margin: 0;
+  font-size: var(--tz-fs-head);
+  font-weight: 600;
+}
+
+.td-sv-tablo {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: var(--tz-fs-panel);
+}
+
+.td-sv-tablo th,
+.td-sv-tablo td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.td-sv-tablo thead th {
+  font-family: var(--fm);
+  font-size: var(--tz-fs-section);
+  font-weight: 500;
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.td-sv-tablo thead th:first-child {
+  width: 240px;
+}
+
+.td-sv-tablo tbody th {
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+.td-sv-eski s {
+  color: var(--text-3);
+}
+
+.td-sv-yeni {
+  background: var(--primary-soft);
+  font-weight: 500;
+}

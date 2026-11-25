@@ -1,0 +1,396 @@
+{
+  "status": 200,
+  "body": {
+    "product": "tagpress",
+    "from": "2026-10-01",
+    "to": "2026-10-31",
+    "kpis": [
+      {
+        "id": "approved",
+        "label": "Onaylanan etiket",
+        "hint": "Seçili dönemde onaylanan etiket işleri.",
+        "value": 2,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "up",
+        "tone": "good",
+        "href": "/analytics/tagpress",
+        "trend": [
+          {
+            "id": "current",
+            "label": "Bu dönem",
+            "points": [
+              {
+                "x": "2026-10-01",
+                "y": 0
+              },
+              {
+                "x": "2026-10-02",
+                "y": 0
+              },
+              {
+                "x": "2026-10-03",
+                "y": 0
+              },
+              {
+                "x": "2026-10-04",
+                "y": 1
+              },
+              {
+                "x": "2026-10-05",
+                "y": 0
+              },
+              {
+                "x": "2026-10-06",
+                "y": 0
+              },
+              {
+                "x": "2026-10-07",
+                "y": 0
+              },
+              {
+                "x": "2026-10-08",
+                "y": 0
+              },
+              {
+                "x": "2026-10-09",
+                "y": 0
+              },
+              {
+                "x": "2026-10-10",
+                "y": 0
+              },
+              {
+                "x": "2026-10-11",
+                "y": 0
+              },
+              {
+                "x": "2026-10-12",
+                "y": 0
+              },
+              {
+                "x": "2026-10-13",
+                "y": 0
+              },
+              {
+                "x": "2026-10-14",
+                "y": 0
+              },
+              {
+                "x": "2026-10-15",
+                "y": 0
+              },
+              {
+                "x": "2026-10-16",
+                "y": 0
+              },
+              {
+                "x": "2026-10-17",
+                "y": 0
+              },
+              {
+                "x": "2026-10-18",
+                "y": 0
+              },
+              {
+                "x": "2026-10-19",
+                "y": 0
+              },
+              {
+                "x": "2026-10-20",
+                "y": 0
+              },
+              {
+                "x": "2026-10-21",
+                "y": 0
+              },
+              {
+                "x": "2026-10-22",
+                "y": 1
+              },
+              {
+                "x": "2026-10-23",
+                "y": 0
+              },
+              {
+                "x": "2026-10-24",
+                "y": 0
+              },
+              {
+                "x": "2026-10-25",
+                "y": 0
+              },
+              {
+                "x": "2026-10-26",
+                "y": 0
+              },
+              {
+                "x": "2026-10-27",
+                "y": 0
+              },
+              {
+                "x": "2026-10-28",
+                "y": 0
+              },
+              {
+                "x": "2026-10-29",
+                "y": 0
+              },
+              {
+                "x": "2026-10-30",
+                "y": 0
+              },
+              {
+                "x": "2026-10-31",
+                "y": 0
+              }
+            ],
+            "role": "current"
+          },
+          {
+            "id": "previous",
+            "label": "Önceki dönem",
+            "points": [
+              {
+                "x": "2026-08-31",
+                "y": 0
+              },
+              {
+                "x": "2026-09-01",
+                "y": 0
+              },
+              {
+                "x": "2026-09-02",
+                "y": 0
+              },
+              {
+                "x": "2026-09-03",
+                "y": 0
+              },
+              {
+                "x": "2026-09-04",
+                "y": 0
+              },
+              {
+                "x": "2026-09-05",
+                "y": 0
+              },
+              {
+                "x": "2026-09-06",
+                "y": 0
+              },
+              {
+                "x": "2026-09-07",
+                "y": 0
+              },
+              {
+                "x": "2026-09-08",
+                "y": 0
+              },
+              {
+                "x": "2026-09-09",
+                "y": 0
+              },
+              {
+                "x": "2026-09-10",
+                "y": 0
+              },
+              {
+                "x": "2026-09-11",
+                "y": 0
+              },
+              {
+                "x": "2026-09-12",
+                "y": 0
+              },
+              {
+                "x": "2026-09-13",
+                "y": 0
+              },
+              {
+                "x": "2026-09-14",
+                "y": 0
+              },
+              {
+                "x": "2026-09-15",
+                "y": 0
+              },
+              {
+                "x": "2026-09-16",
+                "y": 1
+              },
+              {
+                "x": "2026-09-17",
+                "y": 0
+              },
+              {
+                "x": "2026-09-18",
+                "y": 0
+              },
+              {
+                "x": "2026-09-19",
+                "y": 0
+              },
+              {
+                "x": "2026-09-20",
+                "y": 0
+              },
+              {
+                "x": "2026-09-21",
+                "y": 0
+              },
+              {
+                "x": "2026-09-22",
+                "y": 0
+              },
+              {
+                "x": "2026-09-23",
+                "y": 0
+              },
+              {
+                "x": "2026-09-24",
+                "y": 0
+              },
+              {
+                "x": "2026-09-25",
+                "y": 0
+              },
+              {
+                "x": "2026-09-26",
+                "y": 0
+              },
+              {
+                "x": "2026-09-27",
+                "y": 0
+              },
+              {
+                "x": "2026-09-28",
+                "y": 0
+              },
+              {
+                "x": "2026-09-29",
+                "y": 0
+              },
+              {
+                "x": "2026-09-30",
+                "y": 0
+              }
+            ],
+            "role": "previous"
+          }
+        ]
+      },
+      {
+        "id": "pending",
+        "label": "Onay bekleyen",
+        "hint": "Şu an: tasarımı hazır, onay bekleyen işler. Seçili döneme bağlı değil.",
+        "value": 2,
+        "format": "number",
+        "goodDirection": "none",
+        "tone": "warning",
+        "href": "/data/tagpress/jobs?filter.status=ready"
+      },
+      {
+        "id": "printed",
+        "label": "Basılan sayfa",
+        "hint": "Seçili dönemde basıldı işaretlenen oturumların sayfaları, kopyalar dahil.",
+        "value": 3,
+        "format": "number",
+        "previous": 0,
+        "goodDirection": "up",
+        "href": "/data/tagpress/prints?filter.status=printed&filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "jobs",
+        "label": "Gelen iş",
+        "hint": "Seçili dönemde eklenen etiket işleri.",
+        "value": 6,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "none",
+        "href": "/data/tagpress/jobs?filter.from=2026-10-01&filter.to=2026-10-31"
+      },
+      {
+        "id": "queue",
+        "label": "Üretimde",
+        "hint": "Şu an üretilen ve sırada bekleyen işler. Seçili döneme bağlı değil.",
+        "value": 2,
+        "format": "number",
+        "goodDirection": "none",
+        "tone": "info",
+        "href": "/tagpress/#/uretim"
+      },
+      {
+        "id": "ai_calls",
+        "label": "Yapay zekâ çağrısı",
+        "hint": "Seçili dönemdeki yapay zekâ çağrılarının sayısı.",
+        "value": 4,
+        "format": "number",
+        "previous": 1,
+        "goodDirection": "none",
+        "href": "/analytics/tagpress"
+      }
+    ],
+    "alerts": [
+      {
+        "id": "failed-jobs",
+        "tone": "bad",
+        "title": "1 işin üretimi başarısız",
+        "body": "İşi açıp yeniden üretin ya da düzeltin.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Üretimi aç"
+      },
+      {
+        "id": "approval-dropped",
+        "tone": "warning",
+        "title": "Kesim değişti: 1 işin onayı düştü",
+        "body": "Şablonun kesimi değiştiği için bu işleri yeniden onaylayın.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Üretimi aç"
+      },
+      {
+        "id": "stuck-task",
+        "tone": "warning",
+        "title": "1 görev 15 dakikadan uzun sürüyor",
+        "body": "Üretim ya da baskı çıktısı takılmış olabilir.",
+        "href": "/tagpress/#/uretim",
+        "actionLabel": "Üretimi aç"
+      }
+    ],
+    "setup": {
+      "completed": true,
+      "href": "/tagpress/#/kurulum",
+      "label": "TagPress kurulumu",
+      "steps": [
+        {
+          "id": "setup",
+          "label": "Kurulum sorularını yanıtla",
+          "done": true,
+          "href": "/tagpress/#/kurulum",
+          "required": true
+        },
+        {
+          "id": "language",
+          "label": "Bir tasarım dili yayınla",
+          "done": true,
+          "href": "/tagpress/#/tasarim-dili",
+          "required": true
+        },
+        {
+          "id": "first-job",
+          "label": "İlk işi ekle",
+          "done": true,
+          "href": "/tagpress/#/uretim/ice-aktar",
+          "required": true
+        },
+        {
+          "id": "first-print",
+          "label": "İlk baskıyı yap",
+          "done": true,
+          "href": "/tagpress/#/baski/masa",
+          "required": false
+        }
+      ]
+    }
+  }
+}

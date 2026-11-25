@@ -1,0 +1,1135 @@
+{
+ "badge": {
+  "motor": "motor (kesin)",
+  "ai": "ai (yol gösterir)",
+  "ikisi": "ai + motor denetimi",
+  "sistem": "sistem"
+ },
+ "formatProfile": "\n## Genel (genel) — Tasarım dilinin adı ve ayarla söylenemeyen tarz notu.\n- name = \"Deneme\"\n  Ad · [sistem] — Tasarım dilinin adı.\n- description = \"\"\n  Açıklama · [sistem] — Kısa tanım: kimin, hangi işler için.\n- ai.instructions = \nZarif ve ferah.\nİsim belirgin.\n  Tarz notu · [ai (yol gösterir)] — Ayarla söylenemeyen tarz (ör. 'zarif, ferah, romantik'). Kesin kurallar buraya değil, ilgili ayara yazılır.\n\n## Fontlar (fontlar) — Hangi fontlar, hangi satırlarda ve hangi sınırlarla kullanılır.\n- fonts.list = []\n  Font listesi · [ai + motor denetimi] — Kullanılabilen fontlar, türleri, rolleri ve sınırları.\n- fonts.mixing = \"single\"\n  Bir etikette font ailesi · [ai + motor denetimi] — Tek aile: bütün satırlar aynı fontla (özel karakter kuralları hariç). İki aile ya da serbest.\n\n## Özel karakterler (ozel-karakterler) — Belirli karakterleri başka bir fonttan ya da boyuttan basma kuralları.\n- glyphRules = []\n  Özel karakter kuralları · [motor (kesin)] — Ör. '&' her zaman IM FELL ile ve yarım boyutta; kelime başındaki büyük A başka fonttan. Her satırda geçerli.\n\n## Boyut ve doluluk (boyut) — Yazının ne kadar büyük olduğu ve satırların birbirine oranı.\n- sizing.fill = 0.93\n  Doluluk · [motor (kesin)] · birim: oran — Yazı, alana sığabileceği en büyük boyutun bu oranında olur. 1 = tamamen dolu.\n- sizing.fillLocked = true\n  Doluluk sabit · [motor (kesin)] — Açıkken her tasarım aynı doluluğu kullanır; kapalıyken AI önerebilir.\n- sizing.tiers.primary = 1\n  Ana satır · [motor (kesin)] · birim: oran — En büyük satır (genelde isim). Diğer oranlar buna göre.\n- sizing.tiers.secondary = 0.75\n  İkincil satır · [motor (kesin)] · birim: oran — Ana satırdan küçük destek satırları.\n- sizing.tiers.tertiary = 0.6\n  Üçüncül satır · [motor (kesin)] · birim: oran — En küçük satırlar (tarih, yer, uzun mesaj).\n- sizing.tiers.connector = 0.55\n  Tek başına bağlaç · [motor (kesin)] · birim: oran — Kendi satırındaki bağlacın ana satıra oranı.\n- sizing.tiersLocked = true\n  Oranları motor uygulasın · [motor (kesin)] — Açıkken AI yalnızca satırın sınıfını seçer, boyutu bu oranlar belirler.\n- sizing.connectorScales = {}\n  Bağlaca özel oran · [motor (kesin)] — Belirli bir bağlaç için farklı oran (ör. 'e' 0,45).\n- sizing.maxCapHeight = 0.18\n  Harf yüksekliği sınırı · [motor (kesin)] · birim: oran — Kısa metinler aşırı büyümesin: büyük harf yüksekliği en fazla kesim çapının bu oranı.\n- sizing.minPt = 4\n  En küçük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun altına inmez.\n- sizing.maxPt = 40\n  En büyük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun üstüne çıkmaz.\n- sizing.breathing = 0.03\n  Nefes payı · [motor (kesin)] · birim: oran — Yazı ile dekor arasında bırakılan boşluk (kesim çapına oran).\n- sizing.edgeMargin = 0.03\n  Kesim payı · [motor (kesin)] · birim: oran — Yazı ile kesim çizgisi arasında bırakılan boşluk (kesim çapına oran).\n- sizing.initials.oneLine = true\n  Baş harfler tek satırda · [motor (kesin)] — Yalnızca baş harf ('A & M') asla alt alta dizilmez.\n- sizing.initials.maxCapHeight = null\n  Baş harf yüksekliği · [motor (kesin)] · birim: oran — Yalnızca baş harf olan etikette harf yüksekliği sınırı. Boş = genel sınır.\n\n## Satır aralığı ve hizalama (bosluk) — Satırlar arasındaki görünen boşluk ve hizalama.\n- spacing.align = \"center\"\n  Hizalama · [motor (kesin)] — Satırlar mürekkep kutusuna göre ortalanır (ya da sola/sağa yaslanır).\n- spacing.inkGaps.normal = 0.15\n  Satır arası · [motor (kesin)] · birim: oran — Satırlar arasında görünen boşluk, küçük satırın puntosuna oran.\n- spacing.inkGaps.beforeLast = 0.25\n  Son küçük satırdan önce · [motor (kesin)] · birim: oran — Tarih/yer gibi son küçük satırdan önceki boşluk.\n- spacing.inkGaps.connector = 0.1\n  Bağlaç çevresi · [motor (kesin)] · birim: oran — Tek başına bağlaç satırının üstü ve altındaki boşluk.\n- spacing.beforeLastRatio = 0.85\n  Son satır eşiği · [motor (kesin)] · birim: oran — Son satır üstündekinin bu oranından küçükse 'son küçük satır' sayılır.\n\n## Bağlaçlar (baglaclar) — &, and, e, y gibi bağlaçların nasıl dizildiği.\n- connectors.words = [\"&\"]\n  Bağlaçlar · [ai + motor denetimi] — Bağlaç sayılan kelime ve semboller (&, and, e, y…).\n- connectors.shiftEm = 0\n  Bağlaç sağa kayması · [motor (kesin)] · birim: em — İki el yazısı ismin arasındaki tek başına bağlaç, isimlerin ortasından bu kadar sağa (isim puntosu cinsinden).\n- connectors.separateDangling = true\n  Asılı bağlaç olmaz · [motor (kesin)] — 'Elena' / 'e Martina' gibi satır başında/sonunda kalan bağlaç kendi satırına alınır.\n- connectors.allowSymbolSpacing = true\n  & çevresine boşluk · [ai + motor denetimi] — 'Mina&Ali' yazısında & çevresine nefes boşluğu eklenebilir (metin değişmiş sayılmaz).\n\n## Satır bölme (satir-bolme) — Metnin satırlara nasıl bölündüğü.\n- lineBreaking.maxLineChars = 32\n  Satır uzunluğu sınırı · [ai + motor denetimi] · birim: karakter — Hiçbir satır bu kadar karakteri geçmez.\n- lineBreaking.typicalLines = [1,4]\n  Tipik satır sayısı · [ai (yol gösterir)] · birim: satır — Çoğu etiketin satır aralığı (en az – en çok).\n- lineBreaking.maxLines = 6\n  En fazla satır · [ai + motor denetimi] · birim: satır — Hiçbir etiket bundan çok satır olmaz.\n- lineBreaking.nameOwnLine = true\n  İsim kendi satırında · [ai + motor denetimi] — Kişi adı kendi satırında ve en büyük satırdır.\n- lineBreaking.coupleStack = \"option\"\n  Çiftler alt alta · [ai + motor denetimi] — Çift isimlerinde isim / & / isim dizilişi: her zaman, adaylardan biri ya da hiç.\n- lineBreaking.keepShortGreetings = true\n  Kısa selam bölünmez · [ai + motor denetimi] — Açıkken en çok üç kelimelik selam ve teşekkür ifadeleri ('Thank You', 'Merry Christmas') hiç bölünmez; motor ve AI denetler. Bazı selamları bölüyorsanız (ör. bayram selamı iki satır) kapatın ve ayrımı satır bölme notlarına ve örneklere yazın.\n- lineBreaking.dateOwnLine = true\n  Tarih kendi satırında · [ai + motor denetimi] — Tarih ayrı satırda durur.\n- lineBreaking.customerBreaks = \"hint\"\n  Müşterinin satır sonları · [ai + motor denetimi] — Müşteri çift boşlukla satır verdiyse: ipucu, kesin ya da yok say.\n- lineBreaking.noLoneWords = []\n  Tek başına satır olamayanlar · [ai + motor denetimi] — Edat ve tanımlıklar (di, de, of, la…) ait olduğu ifadeyle kalır.\n- lineBreaking.notes = \"\"\n  Satır bölme notları · [ai (yol gösterir)] — Kurallarla söylenemeyen bölme alışkanlıkları (AI okur).\n- lineBreaking.examples = [{\"text\":\"Mina & Ali 12.09.2026\",\"lines\":[\"Mina\",\"&\",\"Ali\",\"12.09.2026\"]}]\n  Örnek bölmeler · [ai (yol gösterir)] — Metin → satırlar örnekleri. AI'a gösterilir; kuraldan güçlüdür.\n\n## Kalınlık ve renk (kalinlik-renk) — Harf kalınlığı ve yazı rengi.\n- weight.mode = \"stroke\"\n  Kalınlaştırma · [motor (kesin)] — Kontur: yazının kendi rengiyle ince kontur (fontta Bold yoksa). Gerçek: fontun kalın stili.\n- weight.widthEm = 0.01\n  Kontur kalınlığı · [motor (kesin)] · birim: em — Ana satır puntosunun oranı. Etiket başına tek değer.\n- weight.minPx = 0\n  En ince kontur · [motor (kesin)] · birim: px — Kontur en az bu kadar (px). 0 = sınır yok.\n- weight.maxPx = 0\n  En kalın kontur · [motor (kesin)] · birim: px — Kontur en fazla bu kadar (px). 0 = sınır yok.\n- weight.align = \"outside\"\n  Kontur hizası · [motor (kesin)] — Dışa: harf içi boşluklar kapanmaz.\n- color.text = \"#000000\"\n  Yazı rengi · [motor (kesin)] — Varsayılan yazı rengi.\n- color.onDark = \"#FFFFFF\"\n  Koyu zeminde yazı rengi · [motor (kesin)] — Zemin koyuysa kullanılacak renk.\n- color.autoContrast = true\n  Otomatik kontrast · [motor (kesin)] — Zemin koyuysa kendiliğinden açık renge geç.\n\n## Etiket ölçüleri (cikti) — Kesim şekli, etiket boyutları ve şablonun yeri.\n- output.designFramePx = 440\n  Tasarım alanı · [sistem] · birim: px — Bütün hesapların yapıldığı kare alan (px).\n- output.cut = {\"kind\":\"circle\",\"cx\":219.82,\"cy\":219.82,\"r\":218.82}\n  Kesim şekli · [motor (kesin)] — Etiketin kesim çizgisi (daire, oval, dikdörtgen…).\n- output.templateBox = {\"x\":10,\"y\":10,\"w\":420,\"h\":420}\n  Şablonun yeri · [sistem] — Şablon görselinin tasarım alanındaki konumu ve boyutu.\n- output.sizes = [{\"id\":\"2.5\",\"cm\":2.5,\"framePx\":300},{\"id\":\"3.8\",\"cm\":3.8,\"framePx\":440},{\"id\":\"5.2\",\"cm\":5.2,\"framePx\":590}]\n  Etiket boyutları · [sistem] — JSON'daki boyut adı → cm ve çerçeve boyutu (px). Tasarım varsayılan boyutta yapılır; diğer boyutlarda şablon ve yazı orantılı ölçeklenir (içerik ölçeği, yoksa frame / tasarım alanı).\n- output.defaultSize = \"3.8\"\n  Varsayılan boyut · [sistem] — Siparişte boyut yazmıyorsa.\n\n## Sticker (sticker) — Sticker siparişlerinin tespiti ve sayfaları.\n- stickers.enabled = false\n  Sticker siparişleri · [sistem] — Açıkken bazı siparişler etiket yerine sticker olarak hazırlanır.\n- stickers.detect = \"empty-template\"\n  Sticker nasıl anlaşılır · [sistem] — Ürün alanı olan sipariş ya da şablonu boş sipariş.\n- stickers.sheets = []\n  Sticker sayfaları · [sistem] — Sticker sayfaları: ürün anahtar kelimeleri ve ölçüler. Ölçüler pt cinsindendir (1 pt = 1/72 inç ≈ 0,35 mm; 108 pt = 38,1 mm).\n\n## Baskı (baski) — Baskı sayfalarında fazlalık ve çözünürlük kuralları.\n- printing.labelExtraMin = 5\n  Etiket fazlalığı (en az) · [sistem] — Sipariş adedinin üstüne basılan en az fazla etiket.\n- printing.labelExtraMax = 10\n  Etiket fazlalığı (en çok) · [sistem] — Büyük siparişlerde basılan en çok fazla etiket.\n- printing.labelRoundUpMaxExtra = 5\n  Sayfayı tamamla · [sistem] — Kalan etiketler tam sayfaya en çok bu kadar eksikse sayfa aynı siparişle tamamlanır.\n- printing.labelExtraScaleLow = 20\n  Fazlalık ölçeği (alt adet) · [sistem] — Bu adet ve altında en az fazlalık basılır.\n- printing.labelExtraScaleHigh = 150\n  Fazlalık ölçeği (üst adet) · [sistem] — Bu adet ve üstünde en çok fazlalık basılır; arası orantılıdır.\n- printing.separateSameDesign = true\n  Aynı tasarımı ayır · [sistem] — Aynı tasarım numaralı siparişler aynı karışık sayfaya konmaz (karışmasın diye).\n- printing.stickerExtraMin = 5\n  Sticker fazlalığı (en az) · [sistem] — Sticker siparişlerinde adedin üstüne en az fazla.\n- printing.stickerExtraMax = 10\n  Sticker fazlalığı (en çok) · [sistem] — Sticker siparişlerinde adedin üstüne en çok fazla.\n- printing.dpi = 300\n  Baskı çözünürlüğü · [sistem] — PNG çıktısının ve raster PDF'in çözünürlüğü (dpi). 300 yazıcılar için yeterli.\n- printing.stickerDpi = 300\n  Sticker çözünürlüğü · [sistem] — Sticker sayfalarının PNG ve raster PDF çözünürlüğü (dpi). Sticker'ın boyutu değişmez (mm); 300 yazıcılar için yeterli.\n- printing.orderNamePattern = \"{orderNo}_{quantity}adet\"\n  Sipariş adı deseni · [sistem] — Baskı sayfasındaki sipariş adı (hücre etiketi). {orderNo}, {quantity}, {template}, {size}, {seq} ve sipariş dosyasındaki alan adları kullanılabilir; boşsa sipariş adı basılmaz.\n\n## Kalite işaretleri (kalite) — Varyasyonların kontrol ve okunurluk işaretleri.\n- quality.suspectScore = 70\n  Kontrol eşiği · [sistem] — Bu puanın altındaki varyasyon 'kontrol et' işaretlenir.\n- quality.readableMinPt = 4.5\n  Okunurluk sınırı · [sistem] · birim: pt — En küçük satır bunun altındaysa uyarı verilir.",
+ "formatProfileGroup": "\n## Boyut ve doluluk (boyut) — Yazının ne kadar büyük olduğu ve satırların birbirine oranı.\n- sizing.fill = 0.93\n  Doluluk · [motor (kesin)] · birim: oran — Yazı, alana sığabileceği en büyük boyutun bu oranında olur. 1 = tamamen dolu.\n- sizing.fillLocked = true\n  Doluluk sabit · [motor (kesin)] — Açıkken her tasarım aynı doluluğu kullanır; kapalıyken AI önerebilir.\n- sizing.tiers.primary = 1\n  Ana satır · [motor (kesin)] · birim: oran — En büyük satır (genelde isim). Diğer oranlar buna göre.\n- sizing.tiers.secondary = 0.75\n  İkincil satır · [motor (kesin)] · birim: oran — Ana satırdan küçük destek satırları.\n- sizing.tiers.tertiary = 0.6\n  Üçüncül satır · [motor (kesin)] · birim: oran — En küçük satırlar (tarih, yer, uzun mesaj).\n- sizing.tiers.connector = 0.55\n  Tek başına bağlaç · [motor (kesin)] · birim: oran — Kendi satırındaki bağlacın ana satıra oranı.\n- sizing.tiersLocked = true\n  Oranları motor uygulasın · [motor (kesin)] — Açıkken AI yalnızca satırın sınıfını seçer, boyutu bu oranlar belirler.\n- sizing.connectorScales = {}\n  Bağlaca özel oran · [motor (kesin)] — Belirli bir bağlaç için farklı oran (ör. 'e' 0,45).\n- sizing.maxCapHeight = 0.18\n  Harf yüksekliği sınırı · [motor (kesin)] · birim: oran — Kısa metinler aşırı büyümesin: büyük harf yüksekliği en fazla kesim çapının bu oranı.\n- sizing.minPt = 4\n  En küçük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun altına inmez.\n- sizing.maxPt = 40\n  En büyük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun üstüne çıkmaz.\n- sizing.breathing = 0.03\n  Nefes payı · [motor (kesin)] · birim: oran — Yazı ile dekor arasında bırakılan boşluk (kesim çapına oran).\n- sizing.edgeMargin = 0.03\n  Kesim payı · [motor (kesin)] · birim: oran — Yazı ile kesim çizgisi arasında bırakılan boşluk (kesim çapına oran).\n- sizing.initials.oneLine = true\n  Baş harfler tek satırda · [motor (kesin)] — Yalnızca baş harf ('A & M') asla alt alta dizilmez.\n- sizing.initials.maxCapHeight = null\n  Baş harf yüksekliği · [motor (kesin)] · birim: oran — Yalnızca baş harf olan etikette harf yüksekliği sınırı. Boş = genel sınır.",
+ "formatProfileExtra": "\n## Genel (genel) — Tasarım dilinin adı ve ayarla söylenemeyen tarz notu.\n- name = \"Deneme\"\n  Ad · [sistem] — Tasarım dilinin adı.\n- description = \"\"\n  Açıklama · [sistem] — Kısa tanım: kimin, hangi işler için.\n- ai.instructions = \nZarif ve ferah.\nİsim belirgin.\n  Tarz notu · [ai (yol gösterir)] — Ayarla söylenemeyen tarz (ör. 'zarif, ferah, romantik'). Kesin kurallar buraya değil, ilgili ayara yazılır.\n\n## Fontlar (fontlar) — Hangi fontlar, hangi satırlarda ve hangi sınırlarla kullanılır.\n- fonts.list = []\n  Font listesi · [ai + motor denetimi] — Kullanılabilen fontlar, türleri, rolleri ve sınırları.\n- fonts.mixing = \"single\"\n  Bir etikette font ailesi · [ai + motor denetimi] — Tek aile: bütün satırlar aynı fontla (özel karakter kuralları hariç). İki aile ya da serbest.\n\n## Özel karakterler (ozel-karakterler) — Belirli karakterleri başka bir fonttan ya da boyuttan basma kuralları.\n- glyphRules = []\n  Özel karakter kuralları · [motor (kesin)] — Ör. '&' her zaman IM FELL ile ve yarım boyutta; kelime başındaki büyük A başka fonttan. Her satırda geçerli.\n\n## Boyut ve doluluk (boyut) — Yazının ne kadar büyük olduğu ve satırların birbirine oranı.\n- sizing.fill = 0.93\n  Doluluk · [motor (kesin)] · birim: oran — Yazı, alana sığabileceği en büyük boyutun bu oranında olur. 1 = tamamen dolu.\n- sizing.fillLocked = true\n  Doluluk sabit · [motor (kesin)] — Açıkken her tasarım aynı doluluğu kullanır; kapalıyken AI önerebilir.\n- sizing.tiers.primary = 1\n  Ana satır · [motor (kesin)] · birim: oran — En büyük satır (genelde isim). Diğer oranlar buna göre.\n- sizing.tiers.secondary = 0.75\n  İkincil satır · [motor (kesin)] · birim: oran — Ana satırdan küçük destek satırları.\n- sizing.tiers.tertiary = 0.6\n  Üçüncül satır · [motor (kesin)] · birim: oran — En küçük satırlar (tarih, yer, uzun mesaj).\n- sizing.tiers.connector = 0.55\n  Tek başına bağlaç · [motor (kesin)] · birim: oran — Kendi satırındaki bağlacın ana satıra oranı.\n- sizing.tiersLocked = true\n  Oranları motor uygulasın · [motor (kesin)] — Açıkken AI yalnızca satırın sınıfını seçer, boyutu bu oranlar belirler.\n- sizing.connectorScales = {}\n  Bağlaca özel oran · [motor (kesin)] — Belirli bir bağlaç için farklı oran (ör. 'e' 0,45).\n- sizing.maxCapHeight = 0.18\n  Harf yüksekliği sınırı · [motor (kesin)] · birim: oran — Kısa metinler aşırı büyümesin: büyük harf yüksekliği en fazla kesim çapının bu oranı.\n- sizing.minPt = 4\n  En küçük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun altına inmez.\n- sizing.maxPt = 40\n  En büyük punto · [motor (kesin)] · birim: pt — Hiçbir satır bunun üstüne çıkmaz.\n- sizing.breathing = 0.03\n  Nefes payı · [motor (kesin)] · birim: oran — Yazı ile dekor arasında bırakılan boşluk (kesim çapına oran).\n- sizing.edgeMargin = 0.03\n  Kesim payı · [motor (kesin)] · birim: oran — Yazı ile kesim çizgisi arasında bırakılan boşluk (kesim çapına oran).\n- sizing.initials.oneLine = true\n  Baş harfler tek satırda · [motor (kesin)] — Yalnızca baş harf ('A & M') asla alt alta dizilmez.\n- sizing.initials.maxCapHeight = null\n  Baş harf yüksekliği · [motor (kesin)] · birim: oran — Yalnızca baş harf olan etikette harf yüksekliği sınırı. Boş = genel sınır.\n\n## Satır aralığı ve hizalama (bosluk) — Satırlar arasındaki görünen boşluk ve hizalama.\n- spacing.align = \"center\"\n  Hizalama · [motor (kesin)] — Satırlar mürekkep kutusuna göre ortalanır (ya da sola/sağa yaslanır).\n- spacing.inkGaps.normal = 0.15\n  Satır arası · [motor (kesin)] · birim: oran — Satırlar arasında görünen boşluk, küçük satırın puntosuna oran.\n- spacing.inkGaps.beforeLast = 0.25\n  Son küçük satırdan önce · [motor (kesin)] · birim: oran — Tarih/yer gibi son küçük satırdan önceki boşluk.\n- spacing.inkGaps.connector = 0.1\n  Bağlaç çevresi · [motor (kesin)] · birim: oran — Tek başına bağlaç satırının üstü ve altındaki boşluk.\n- spacing.beforeLastRatio = 0.85\n  Son satır eşiği · [motor (kesin)] · birim: oran — Son satır üstündekinin bu oranından küçükse 'son küçük satır' sayılır.\n\n## Bağlaçlar (baglaclar) — &, and, e, y gibi bağlaçların nasıl dizildiği.\n- connectors.words = [\"&\"]\n  Bağlaçlar · [ai + motor denetimi] — Bağlaç sayılan kelime ve semboller (&, and, e, y…).\n- connectors.shiftEm = 0\n  Bağlaç sağa kayması · [motor (kesin)] · birim: em — İki el yazısı ismin arasındaki tek başına bağlaç, isimlerin ortasından bu kadar sağa (isim puntosu cinsinden).\n- connectors.separateDangling = true\n  Asılı bağlaç olmaz · [motor (kesin)] — 'Elena' / 'e Martina' gibi satır başında/sonunda kalan bağlaç kendi satırına alınır.\n- connectors.allowSymbolSpacing = true\n  & çevresine boşluk · [ai + motor denetimi] — 'Mina&Ali' yazısında & çevresine nefes boşluğu eklenebilir (metin değişmiş sayılmaz).\n\n## Satır bölme (satir-bolme) — Metnin satırlara nasıl bölündüğü.\n- lineBreaking.maxLineChars = 32\n  Satır uzunluğu sınırı · [ai + motor denetimi] · birim: karakter — Hiçbir satır bu kadar karakteri geçmez.\n- lineBreaking.typicalLines = [1,4]\n  Tipik satır sayısı · [ai (yol gösterir)] · birim: satır — Çoğu etiketin satır aralığı (en az – en çok).\n- lineBreaking.maxLines = 6\n  En fazla satır · [ai + motor denetimi] · birim: satır — Hiçbir etiket bundan çok satır olmaz.\n- lineBreaking.nameOwnLine = true\n  İsim kendi satırında · [ai + motor denetimi] — Kişi adı kendi satırında ve en büyük satırdır.\n- lineBreaking.coupleStack = \"option\"\n  Çiftler alt alta · [ai + motor denetimi] — Çift isimlerinde isim / & / isim dizilişi: her zaman, adaylardan biri ya da hiç.\n- lineBreaking.keepShortGreetings = true\n  Kısa selam bölünmez · [ai + motor denetimi] — Açıkken en çok üç kelimelik selam ve teşekkür ifadeleri ('Thank You', 'Merry Christmas') hiç bölünmez; motor ve AI denetler. Bazı selamları bölüyorsanız (ör. bayram selamı iki satır) kapatın ve ayrımı satır bölme notlarına ve örneklere yazın.\n- lineBreaking.dateOwnLine = true\n  Tarih kendi satırında · [ai + motor denetimi] — Tarih ayrı satırda durur.\n- lineBreaking.customerBreaks = \"hint\"\n  Müşterinin satır sonları · [ai + motor denetimi] — Müşteri çift boşlukla satır verdiyse: ipucu, kesin ya da yok say.\n- lineBreaking.noLoneWords = []\n  Tek başına satır olamayanlar · [ai + motor denetimi] — Edat ve tanımlıklar (di, de, of, la…) ait olduğu ifadeyle kalır.\n- lineBreaking.notes = \"\"\n  Satır bölme notları · [ai (yol gösterir)] — Kurallarla söylenemeyen bölme alışkanlıkları (AI okur).\n- lineBreaking.examples = [{\"text\":\"Mina & Ali 12.09.2026\",\"lines\":[\"Mina\",\"&\",\"Ali\",\"12.09.2026\"]}]\n  Örnek bölmeler · [ai (yol gösterir)] — Metin → satırlar örnekleri. AI'a gösterilir; kuraldan güçlüdür.\n\n## Kalınlık ve renk (kalinlik-renk) — Harf kalınlığı ve yazı rengi.\n- weight.mode = \"stroke\"\n  Kalınlaştırma · [motor (kesin)] — Kontur: yazının kendi rengiyle ince kontur (fontta Bold yoksa). Gerçek: fontun kalın stili.\n- weight.widthEm = 0.01\n  Kontur kalınlığı · [motor (kesin)] · birim: em — Ana satır puntosunun oranı. Etiket başına tek değer.\n- weight.minPx = 0\n  En ince kontur · [motor (kesin)] · birim: px — Kontur en az bu kadar (px). 0 = sınır yok.\n- weight.maxPx = 0\n  En kalın kontur · [motor (kesin)] · birim: px — Kontur en fazla bu kadar (px). 0 = sınır yok.\n- weight.align = \"outside\"\n  Kontur hizası · [motor (kesin)] — Dışa: harf içi boşluklar kapanmaz.\n- color.text = \"#000000\"\n  Yazı rengi · [motor (kesin)] — Varsayılan yazı rengi.\n- color.onDark = \"#FFFFFF\"\n  Koyu zeminde yazı rengi · [motor (kesin)] — Zemin koyuysa kullanılacak renk.\n- color.autoContrast = true\n  Otomatik kontrast · [motor (kesin)] — Zemin koyuysa kendiliğinden açık renge geç.\n\n## Etiket ölçüleri (cikti) — Kesim şekli, etiket boyutları ve şablonun yeri.\n- output.designFramePx = 440\n  Tasarım alanı · [sistem] · birim: px — Bütün hesapların yapıldığı kare alan (px).\n- output.cut = {\"kind\":\"circle\",\"cx\":219.82,\"cy\":219.82,\"r\":218.82}\n  Kesim şekli · [motor (kesin)] — Etiketin kesim çizgisi (daire, oval, dikdörtgen…).\n- output.templateBox = {\"x\":10,\"y\":10,\"w\":420,\"h\":420}\n  Şablonun yeri · [sistem] — Şablon görselinin tasarım alanındaki konumu ve boyutu.\n- output.sizes = [{\"id\":\"2.5\",\"cm\":2.5,\"framePx\":300},{\"id\":\"3.8\",\"cm\":3.8,\"framePx\":440},{\"id\":\"5.2\",\"cm\":5.2,\"framePx\":590}]\n  Etiket boyutları · [sistem] — JSON'daki boyut adı → cm ve çerçeve boyutu (px). Tasarım varsayılan boyutta yapılır; diğer boyutlarda şablon ve yazı orantılı ölçeklenir (içerik ölçeği, yoksa frame / tasarım alanı).\n- output.defaultSize = \"3.8\"\n  Varsayılan boyut · [sistem] — Siparişte boyut yazmıyorsa.\n\n## Sticker (sticker) — Sticker siparişlerinin tespiti ve sayfaları.\n- stickers.enabled = false\n  Sticker siparişleri · [sistem] — Açıkken bazı siparişler etiket yerine sticker olarak hazırlanır.\n- stickers.detect = \"empty-template\"\n  Sticker nasıl anlaşılır · [sistem] — Ürün alanı olan sipariş ya da şablonu boş sipariş.\n- stickers.sheets = []\n  Sticker sayfaları · [sistem] — Sticker sayfaları: ürün anahtar kelimeleri ve ölçüler. Ölçüler pt cinsindendir (1 pt = 1/72 inç ≈ 0,35 mm; 108 pt = 38,1 mm).\n\n## Baskı (baski) — Baskı sayfalarında fazlalık ve çözünürlük kuralları.\n- printing.labelExtraMin = 5\n  Etiket fazlalığı (en az) · [sistem] — Sipariş adedinin üstüne basılan en az fazla etiket.\n- printing.labelExtraMax = 10\n  Etiket fazlalığı (en çok) · [sistem] — Büyük siparişlerde basılan en çok fazla etiket.\n- printing.labelRoundUpMaxExtra = 5\n  Sayfayı tamamla · [sistem] — Kalan etiketler tam sayfaya en çok bu kadar eksikse sayfa aynı siparişle tamamlanır.\n- printing.labelExtraScaleLow = 20\n  Fazlalık ölçeği (alt adet) · [sistem] — Bu adet ve altında en az fazlalık basılır.\n- printing.labelExtraScaleHigh = 150\n  Fazlalık ölçeği (üst adet) · [sistem] — Bu adet ve üstünde en çok fazlalık basılır; arası orantılıdır.\n- printing.separateSameDesign = true\n  Aynı tasarımı ayır · [sistem] — Aynı tasarım numaralı siparişler aynı karışık sayfaya konmaz (karışmasın diye).\n- printing.stickerExtraMin = 5\n  Sticker fazlalığı (en az) · [sistem] — Sticker siparişlerinde adedin üstüne en az fazla.\n- printing.stickerExtraMax = 10\n  Sticker fazlalığı (en çok) · [sistem] — Sticker siparişlerinde adedin üstüne en çok fazla.\n- printing.dpi = 300\n  Baskı çözünürlüğü · [sistem] — PNG çıktısının ve raster PDF'in çözünürlüğü (dpi). 300 yazıcılar için yeterli.\n- printing.stickerDpi = 300\n  Sticker çözünürlüğü · [sistem] — Sticker sayfalarının PNG ve raster PDF çözünürlüğü (dpi). Sticker'ın boyutu değişmez (mm); 300 yazıcılar için yeterli.\n- printing.orderNamePattern = \"{orderNo}_{quantity}adet\"\n  Sipariş adı deseni · [sistem] — Baskı sayfasındaki sipariş adı (hücre etiketi). {orderNo}, {quantity}, {template}, {size}, {seq} ve sipariş dosyasındaki alan adları kullanılabilir; boşsa sipariş adı basılmaz.\n\n## Kalite işaretleri (kalite) — Varyasyonların kontrol ve okunurluk işaretleri.\n- quality.suspectScore = 70\n  Kontrol eşiği · [sistem] — Bu puanın altındaki varyasyon 'kontrol et' işaretlenir.\n- quality.readableMinPt = 4.5\n  Okunurluk sınırı · [sistem] · birim: pt — En küçük satır bunun altındaysa uyarı verilir.\n\n## Açıklamasız alanlar\n- deneme.yeni = 1",
+ "profileLeaves": [
+  {
+   "path": "name",
+   "value": "Deneme"
+  },
+  {
+   "path": "description",
+   "value": ""
+  },
+  {
+   "path": "output.designFramePx",
+   "value": 440
+  },
+  {
+   "path": "output.cut",
+   "value": {
+    "kind": "circle",
+    "cx": 219.82,
+    "cy": 219.82,
+    "r": 218.82
+   }
+  },
+  {
+   "path": "output.templateBox",
+   "value": {
+    "x": 10,
+    "y": 10,
+    "w": 420,
+    "h": 420
+   }
+  },
+  {
+   "path": "output.sizes",
+   "value": [
+    {
+     "id": "2.5",
+     "cm": 2.5,
+     "framePx": 300
+    },
+    {
+     "id": "3.8",
+     "cm": 3.8,
+     "framePx": 440
+    },
+    {
+     "id": "5.2",
+     "cm": 5.2,
+     "framePx": 590
+    }
+   ]
+  },
+  {
+   "path": "output.defaultSize",
+   "value": "3.8"
+  },
+  {
+   "path": "fonts.list",
+   "value": []
+  },
+  {
+   "path": "fonts.mixing",
+   "value": "single"
+  },
+  {
+   "path": "glyphRules",
+   "value": []
+  },
+  {
+   "path": "sizing.fill",
+   "value": 0.93
+  },
+  {
+   "path": "sizing.fillLocked",
+   "value": true
+  },
+  {
+   "path": "sizing.tiers.primary",
+   "value": 1
+  },
+  {
+   "path": "sizing.tiers.secondary",
+   "value": 0.75
+  },
+  {
+   "path": "sizing.tiers.tertiary",
+   "value": 0.6
+  },
+  {
+   "path": "sizing.tiers.connector",
+   "value": 0.55
+  },
+  {
+   "path": "sizing.tiersLocked",
+   "value": true
+  },
+  {
+   "path": "sizing.connectorScales",
+   "value": {}
+  },
+  {
+   "path": "sizing.maxCapHeight",
+   "value": 0.18
+  },
+  {
+   "path": "sizing.minPt",
+   "value": 4
+  },
+  {
+   "path": "sizing.maxPt",
+   "value": 40
+  },
+  {
+   "path": "sizing.breathing",
+   "value": 0.03
+  },
+  {
+   "path": "sizing.edgeMargin",
+   "value": 0.03
+  },
+  {
+   "path": "sizing.initials.oneLine",
+   "value": true
+  },
+  {
+   "path": "sizing.initials.maxCapHeight",
+   "value": null
+  },
+  {
+   "path": "spacing.align",
+   "value": "center"
+  },
+  {
+   "path": "spacing.inkGaps.normal",
+   "value": 0.15
+  },
+  {
+   "path": "spacing.inkGaps.beforeLast",
+   "value": 0.25
+  },
+  {
+   "path": "spacing.inkGaps.connector",
+   "value": 0.1
+  },
+  {
+   "path": "spacing.beforeLastRatio",
+   "value": 0.85
+  },
+  {
+   "path": "connectors.words",
+   "value": [
+    "&"
+   ]
+  },
+  {
+   "path": "connectors.shiftEm",
+   "value": 0
+  },
+  {
+   "path": "connectors.separateDangling",
+   "value": true
+  },
+  {
+   "path": "connectors.allowSymbolSpacing",
+   "value": true
+  },
+  {
+   "path": "lineBreaking.maxLineChars",
+   "value": 32
+  },
+  {
+   "path": "lineBreaking.typicalLines",
+   "value": [
+    1,
+    4
+   ]
+  },
+  {
+   "path": "lineBreaking.maxLines",
+   "value": 6
+  },
+  {
+   "path": "lineBreaking.nameOwnLine",
+   "value": true
+  },
+  {
+   "path": "lineBreaking.coupleStack",
+   "value": "option"
+  },
+  {
+   "path": "lineBreaking.keepShortGreetings",
+   "value": true
+  },
+  {
+   "path": "lineBreaking.dateOwnLine",
+   "value": true
+  },
+  {
+   "path": "lineBreaking.customerBreaks",
+   "value": "hint"
+  },
+  {
+   "path": "lineBreaking.noLoneWords",
+   "value": []
+  },
+  {
+   "path": "lineBreaking.notes",
+   "value": ""
+  },
+  {
+   "path": "lineBreaking.examples",
+   "value": [
+    {
+     "text": "Mina & Ali 12.09.2026",
+     "lines": [
+      "Mina",
+      "&",
+      "Ali",
+      "12.09.2026"
+     ]
+    }
+   ]
+  },
+  {
+   "path": "weight.mode",
+   "value": "stroke"
+  },
+  {
+   "path": "weight.widthEm",
+   "value": 0.01
+  },
+  {
+   "path": "weight.minPx",
+   "value": 0
+  },
+  {
+   "path": "weight.maxPx",
+   "value": 0
+  },
+  {
+   "path": "weight.align",
+   "value": "outside"
+  },
+  {
+   "path": "color.text",
+   "value": "#000000"
+  },
+  {
+   "path": "color.onDark",
+   "value": "#FFFFFF"
+  },
+  {
+   "path": "color.autoContrast",
+   "value": true
+  },
+  {
+   "path": "stickers.enabled",
+   "value": false
+  },
+  {
+   "path": "stickers.detect",
+   "value": "empty-template"
+  },
+  {
+   "path": "stickers.sheets",
+   "value": []
+  },
+  {
+   "path": "ai.instructions",
+   "value": "Zarif ve ferah.\nİsim belirgin."
+  },
+  {
+   "path": "printing.labelExtraMin",
+   "value": 5
+  },
+  {
+   "path": "printing.labelExtraMax",
+   "value": 10
+  },
+  {
+   "path": "printing.labelRoundUpMaxExtra",
+   "value": 5
+  },
+  {
+   "path": "printing.labelExtraScaleLow",
+   "value": 20
+  },
+  {
+   "path": "printing.labelExtraScaleHigh",
+   "value": 150
+  },
+  {
+   "path": "printing.separateSameDesign",
+   "value": true
+  },
+  {
+   "path": "printing.stickerExtraMin",
+   "value": 5
+  },
+  {
+   "path": "printing.stickerExtraMax",
+   "value": 10
+  },
+  {
+   "path": "printing.dpi",
+   "value": 300
+  },
+  {
+   "path": "printing.stickerDpi",
+   "value": 300
+  },
+  {
+   "path": "printing.orderNamePattern",
+   "value": "{orderNo}_{quantity}adet"
+  },
+  {
+   "path": "quality.suspectScore",
+   "value": 70
+  },
+  {
+   "path": "quality.readableMinPt",
+   "value": 4.5
+  }
+ ],
+ "schemaFields": [
+  {
+   "path": "name",
+   "type": "string",
+   "label": "Ad",
+   "enforcement": "sistem",
+   "group": "genel",
+   "level": "temel",
+   "help": "Tasarım dilinin adı."
+  },
+  {
+   "path": "description",
+   "type": "string",
+   "default": "",
+   "label": "Açıklama",
+   "enforcement": "sistem",
+   "group": "genel",
+   "level": "temel",
+   "help": "Kısa tanım: kimin, hangi işler için."
+  },
+  {
+   "path": "output.designFramePx",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 440,
+   "label": "Tasarım alanı",
+   "enforcement": "sistem",
+   "group": "cikti",
+   "level": "ileri",
+   "unit": "px",
+   "help": "Bütün hesapların yapıldığı kare alan (px)."
+  },
+  {
+   "path": "output.cut",
+   "type": "nesne{kind, cx, cy, r} | nesne{kind, cx, cy, rx, ry} | nesne{kind, x, y, w, h, radius} | nesne{kind, points}",
+   "label": "Kesim şekli",
+   "enforcement": "motor (kesin)",
+   "group": "cikti",
+   "level": "ileri",
+   "help": "Etiketin kesim çizgisi (daire, oval, dikdörtgen…)."
+  },
+  {
+   "path": "output.templateBox",
+   "type": "nesne{x, y, w, h}",
+   "label": "Şablonun yeri",
+   "enforcement": "sistem",
+   "group": "cikti",
+   "level": "ileri",
+   "help": "Şablon görselinin tasarım alanındaki konumu ve boyutu."
+  },
+  {
+   "path": "output.sizes",
+   "type": "dizi<nesne{id, cm, framePx, contentScale}>",
+   "default": [
+    {
+     "id": "2.5",
+     "cm": 2.5,
+     "framePx": 300
+    },
+    {
+     "id": "3.8",
+     "cm": 3.8,
+     "framePx": 440
+    },
+    {
+     "id": "5.2",
+     "cm": 5.2,
+     "framePx": 590
+    }
+   ],
+   "label": "Etiket boyutları",
+   "enforcement": "sistem",
+   "group": "cikti",
+   "level": "ileri",
+   "help": "JSON'daki boyut adı → cm ve çerçeve boyutu (px). Tasarım varsayılan boyutta yapılır; diğer boyutlarda şablon ve yazı orantılı ölçeklenir (içerik ölçeği, yoksa frame / tasarım alanı)."
+  },
+  {
+   "path": "output.defaultSize",
+   "type": "string",
+   "default": "3.8",
+   "label": "Varsayılan boyut",
+   "enforcement": "sistem",
+   "group": "cikti",
+   "level": "ileri",
+   "help": "Siparişte boyut yazmıyorsa."
+  },
+  {
+   "path": "fonts.list",
+   "type": "dizi<nesne{id, family, style, file, kind, roles, enabled, maxUppercaseRun, lockTracking, note}>",
+   "default": [],
+   "label": "Font listesi",
+   "enforcement": "ai + motor denetimi",
+   "group": "fontlar",
+   "level": "temel",
+   "help": "Kullanılabilen fontlar, türleri, rolleri ve sınırları."
+  },
+  {
+   "path": "fonts.mixing",
+   "type": "seçenek: \"single\" | \"two\" | \"free\"",
+   "default": "single",
+   "label": "Bir etikette font ailesi",
+   "enforcement": "ai + motor denetimi",
+   "group": "fontlar",
+   "level": "temel",
+   "help": "Tek aile: bütün satırlar aynı fontla (özel karakter kuralları hariç). İki aile ya da serbest."
+  },
+  {
+   "path": "glyphRules",
+   "type": "dizi<nesne{id, label, match, fontId, scale, baselineShiftEm, onlyWithFonts, enabled}>",
+   "default": [],
+   "label": "Özel karakter kuralları",
+   "enforcement": "motor (kesin)",
+   "group": "ozel-karakterler",
+   "level": "temel",
+   "help": "Ör. '&' her zaman IM FELL ile ve yarım boyutta; kelime başındaki büyük A başka fonttan. Her satırda geçerli."
+  },
+  {
+   "path": "sizing.fill",
+   "type": "number",
+   "min": 0.3,
+   "max": 1,
+   "default": 0.9,
+   "label": "Doluluk",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Yazı, alana sığabileceği en büyük boyutun bu oranında olur. 1 = tamamen dolu."
+  },
+  {
+   "path": "sizing.fillLocked",
+   "type": "boolean",
+   "default": true,
+   "label": "Doluluk sabit",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "help": "Açıkken her tasarım aynı doluluğu kullanır; kapalıyken AI önerebilir."
+  },
+  {
+   "path": "sizing.tiers.primary",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 1,
+   "label": "Ana satır",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "oran",
+   "help": "En büyük satır (genelde isim). Diğer oranlar buna göre."
+  },
+  {
+   "path": "sizing.tiers.secondary",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 0.75,
+   "label": "İkincil satır",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Ana satırdan küçük destek satırları."
+  },
+  {
+   "path": "sizing.tiers.tertiary",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 0.6,
+   "label": "Üçüncül satır",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "unit": "oran",
+   "help": "En küçük satırlar (tarih, yer, uzun mesaj)."
+  },
+  {
+   "path": "sizing.tiers.connector",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 0.55,
+   "label": "Tek başına bağlaç",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Kendi satırındaki bağlacın ana satıra oranı."
+  },
+  {
+   "path": "sizing.tiersLocked",
+   "type": "boolean",
+   "default": true,
+   "label": "Oranları motor uygulasın",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "help": "Açıkken AI yalnızca satırın sınıfını seçer, boyutu bu oranlar belirler."
+  },
+  {
+   "path": "sizing.connectorScales",
+   "type": "sözlük<metin → number>",
+   "label": "Bağlaca özel oran",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "help": "Belirli bir bağlaç için farklı oran (ör. 'e' 0,45)."
+  },
+  {
+   "path": "sizing.maxCapHeight",
+   "type": "number",
+   "min": 0.02,
+   "max": 0.6,
+   "default": 0.18,
+   "label": "Harf yüksekliği sınırı",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Kısa metinler aşırı büyümesin: büyük harf yüksekliği en fazla kesim çapının bu oranı."
+  },
+  {
+   "path": "sizing.minPt",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 4,
+   "label": "En küçük punto",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "pt",
+   "help": "Hiçbir satır bunun altına inmez."
+  },
+  {
+   "path": "sizing.maxPt",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 40,
+   "label": "En büyük punto",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "pt",
+   "help": "Hiçbir satır bunun üstüne çıkmaz."
+  },
+  {
+   "path": "sizing.breathing",
+   "type": "number",
+   "min": 0,
+   "max": 0.2,
+   "default": 0.03,
+   "label": "Nefes payı",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "oran",
+   "help": "Yazı ile dekor arasında bırakılan boşluk (kesim çapına oran)."
+  },
+  {
+   "path": "sizing.edgeMargin",
+   "type": "number",
+   "min": 0,
+   "max": 0.2,
+   "default": 0.03,
+   "label": "Kesim payı",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "oran",
+   "help": "Yazı ile kesim çizgisi arasında bırakılan boşluk (kesim çapına oran)."
+  },
+  {
+   "path": "sizing.initials.oneLine",
+   "type": "boolean",
+   "default": true,
+   "label": "Baş harfler tek satırda",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "temel",
+   "help": "Yalnızca baş harf ('A & M') asla alt alta dizilmez."
+  },
+  {
+   "path": "sizing.initials.maxCapHeight",
+   "type": "number | null",
+   "default": null,
+   "label": "Baş harf yüksekliği",
+   "enforcement": "motor (kesin)",
+   "group": "boyut",
+   "level": "ileri",
+   "unit": "oran",
+   "help": "Yalnızca baş harf olan etikette harf yüksekliği sınırı. Boş = genel sınır."
+  },
+  {
+   "path": "spacing.align",
+   "type": "seçenek: \"center\" | \"left\" | \"right\"",
+   "default": "center",
+   "label": "Hizalama",
+   "enforcement": "motor (kesin)",
+   "group": "bosluk",
+   "level": "temel",
+   "help": "Satırlar mürekkep kutusuna göre ortalanır (ya da sola/sağa yaslanır)."
+  },
+  {
+   "path": "spacing.inkGaps.normal",
+   "type": "number",
+   "min": 0,
+   "default": 0.15,
+   "label": "Satır arası",
+   "enforcement": "motor (kesin)",
+   "group": "bosluk",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Satırlar arasında görünen boşluk, küçük satırın puntosuna oran."
+  },
+  {
+   "path": "spacing.inkGaps.beforeLast",
+   "type": "number",
+   "min": 0,
+   "default": 0.25,
+   "label": "Son küçük satırdan önce",
+   "enforcement": "motor (kesin)",
+   "group": "bosluk",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Tarih/yer gibi son küçük satırdan önceki boşluk."
+  },
+  {
+   "path": "spacing.inkGaps.connector",
+   "type": "number",
+   "min": 0,
+   "default": 0.1,
+   "label": "Bağlaç çevresi",
+   "enforcement": "motor (kesin)",
+   "group": "bosluk",
+   "level": "temel",
+   "unit": "oran",
+   "help": "Tek başına bağlaç satırının üstü ve altındaki boşluk."
+  },
+  {
+   "path": "spacing.beforeLastRatio",
+   "type": "number",
+   "min": 0,
+   "max": 1,
+   "default": 0.85,
+   "label": "Son satır eşiği",
+   "enforcement": "motor (kesin)",
+   "group": "bosluk",
+   "level": "ileri",
+   "unit": "oran",
+   "help": "Son satır üstündekinin bu oranından küçükse 'son küçük satır' sayılır."
+  },
+  {
+   "path": "connectors.words",
+   "type": "dizi<string>",
+   "default": [
+    "&"
+   ],
+   "label": "Bağlaçlar",
+   "enforcement": "ai + motor denetimi",
+   "group": "baglaclar",
+   "level": "temel",
+   "help": "Bağlaç sayılan kelime ve semboller (&, and, e, y…)."
+  },
+  {
+   "path": "connectors.shiftEm",
+   "type": "number",
+   "default": 0,
+   "label": "Bağlaç sağa kayması",
+   "enforcement": "motor (kesin)",
+   "group": "baglaclar",
+   "level": "ileri",
+   "unit": "em",
+   "help": "İki el yazısı ismin arasındaki tek başına bağlaç, isimlerin ortasından bu kadar sağa (isim puntosu cinsinden)."
+  },
+  {
+   "path": "connectors.separateDangling",
+   "type": "boolean",
+   "default": true,
+   "label": "Asılı bağlaç olmaz",
+   "enforcement": "motor (kesin)",
+   "group": "baglaclar",
+   "level": "temel",
+   "help": "'Elena' / 'e Martina' gibi satır başında/sonunda kalan bağlaç kendi satırına alınır."
+  },
+  {
+   "path": "connectors.allowSymbolSpacing",
+   "type": "boolean",
+   "default": true,
+   "label": "& çevresine boşluk",
+   "enforcement": "ai + motor denetimi",
+   "group": "baglaclar",
+   "level": "ileri",
+   "help": "'Mina&Ali' yazısında & çevresine nefes boşluğu eklenebilir (metin değişmiş sayılmaz)."
+  },
+  {
+   "path": "lineBreaking.maxLineChars",
+   "type": "integer",
+   "minExclusive": 0,
+   "max": 9007199254740991,
+   "default": 32,
+   "label": "Satır uzunluğu sınırı",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "unit": "karakter",
+   "help": "Hiçbir satır bu kadar karakteri geçmez."
+  },
+  {
+   "path": "lineBreaking.typicalLines",
+   "type": "dizi<?>",
+   "default": [
+    1,
+    4
+   ],
+   "label": "Tipik satır sayısı",
+   "enforcement": "ai (yol gösterir)",
+   "group": "satir-bolme",
+   "level": "ileri",
+   "unit": "satır",
+   "help": "Çoğu etiketin satır aralığı (en az – en çok)."
+  },
+  {
+   "path": "lineBreaking.maxLines",
+   "type": "integer",
+   "minExclusive": 0,
+   "max": 9007199254740991,
+   "default": 6,
+   "label": "En fazla satır",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "ileri",
+   "unit": "satır",
+   "help": "Hiçbir etiket bundan çok satır olmaz."
+  },
+  {
+   "path": "lineBreaking.nameOwnLine",
+   "type": "boolean",
+   "default": true,
+   "label": "İsim kendi satırında",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Kişi adı kendi satırında ve en büyük satırdır."
+  },
+  {
+   "path": "lineBreaking.coupleStack",
+   "type": "seçenek: \"always\" | \"option\" | \"never\"",
+   "default": "option",
+   "label": "Çiftler alt alta",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Çift isimlerinde isim / & / isim dizilişi: her zaman, adaylardan biri ya da hiç."
+  },
+  {
+   "path": "lineBreaking.keepShortGreetings",
+   "type": "boolean",
+   "default": true,
+   "label": "Kısa selam bölünmez",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Açıkken en çok üç kelimelik selam ve teşekkür ifadeleri ('Thank You', 'Merry Christmas') hiç bölünmez; motor ve AI denetler. Bazı selamları bölüyorsanız (ör. bayram selamı iki satır) kapatın ve ayrımı satır bölme notlarına ve örneklere yazın."
+  },
+  {
+   "path": "lineBreaking.dateOwnLine",
+   "type": "boolean",
+   "default": true,
+   "label": "Tarih kendi satırında",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Tarih ayrı satırda durur."
+  },
+  {
+   "path": "lineBreaking.customerBreaks",
+   "type": "seçenek: \"hint\" | \"strict\" | \"ignore\"",
+   "default": "hint",
+   "label": "Müşterinin satır sonları",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "ileri",
+   "help": "Müşteri çift boşlukla satır verdiyse: ipucu, kesin ya da yok say."
+  },
+  {
+   "path": "lineBreaking.noLoneWords",
+   "type": "dizi<string>",
+   "default": [],
+   "label": "Tek başına satır olamayanlar",
+   "enforcement": "ai + motor denetimi",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Edat ve tanımlıklar (di, de, of, la…) ait olduğu ifadeyle kalır."
+  },
+  {
+   "path": "lineBreaking.notes",
+   "type": "string",
+   "default": "",
+   "label": "Satır bölme notları",
+   "enforcement": "ai (yol gösterir)",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Kurallarla söylenemeyen bölme alışkanlıkları (AI okur)."
+  },
+  {
+   "path": "lineBreaking.examples",
+   "type": "dizi<nesne{text, lines}>",
+   "default": [],
+   "label": "Örnek bölmeler",
+   "enforcement": "ai (yol gösterir)",
+   "group": "satir-bolme",
+   "level": "temel",
+   "help": "Metin → satırlar örnekleri. AI'a gösterilir; kuraldan güçlüdür."
+  },
+  {
+   "path": "weight.mode",
+   "type": "seçenek: \"stroke\" | \"real\" | \"none\"",
+   "default": "stroke",
+   "label": "Kalınlaştırma",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "temel",
+   "help": "Kontur: yazının kendi rengiyle ince kontur (fontta Bold yoksa). Gerçek: fontun kalın stili."
+  },
+  {
+   "path": "weight.widthEm",
+   "type": "number",
+   "min": 0,
+   "max": 0.1,
+   "default": 0.01,
+   "label": "Kontur kalınlığı",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "temel",
+   "unit": "em",
+   "help": "Ana satır puntosunun oranı. Etiket başına tek değer."
+  },
+  {
+   "path": "weight.minPx",
+   "type": "number",
+   "min": 0,
+   "default": 0,
+   "label": "En ince kontur",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "ileri",
+   "unit": "px",
+   "help": "Kontur en az bu kadar (px). 0 = sınır yok."
+  },
+  {
+   "path": "weight.maxPx",
+   "type": "number",
+   "min": 0,
+   "default": 0,
+   "label": "En kalın kontur",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "ileri",
+   "unit": "px",
+   "help": "Kontur en fazla bu kadar (px). 0 = sınır yok."
+  },
+  {
+   "path": "weight.align",
+   "type": "seçenek: \"outside\" | \"center\"",
+   "default": "outside",
+   "label": "Kontur hizası",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "ileri",
+   "help": "Dışa: harf içi boşluklar kapanmaz."
+  },
+  {
+   "path": "color.text",
+   "type": "string",
+   "default": "#000000",
+   "label": "Yazı rengi",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "temel",
+   "help": "Varsayılan yazı rengi."
+  },
+  {
+   "path": "color.onDark",
+   "type": "string",
+   "default": "#FFFFFF",
+   "label": "Koyu zeminde yazı rengi",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "ileri",
+   "help": "Zemin koyuysa kullanılacak renk."
+  },
+  {
+   "path": "color.autoContrast",
+   "type": "boolean",
+   "default": true,
+   "label": "Otomatik kontrast",
+   "enforcement": "motor (kesin)",
+   "group": "kalinlik-renk",
+   "level": "ileri",
+   "help": "Zemin koyuysa kendiliğinden açık renge geç."
+  },
+  {
+   "path": "stickers.enabled",
+   "type": "boolean",
+   "default": false,
+   "label": "Sticker siparişleri",
+   "enforcement": "sistem",
+   "group": "sticker",
+   "level": "temel",
+   "help": "Açıkken bazı siparişler etiket yerine sticker olarak hazırlanır."
+  },
+  {
+   "path": "stickers.detect",
+   "type": "seçenek: \"product-field\" | \"empty-template\"",
+   "default": "empty-template",
+   "label": "Sticker nasıl anlaşılır",
+   "enforcement": "sistem",
+   "group": "sticker",
+   "level": "ileri",
+   "help": "Ürün alanı olan sipariş ya da şablonu boş sipariş."
+  },
+  {
+   "path": "stickers.sheets",
+   "type": "dizi<nesne{id, frameName, productKeywords, shape, maxW, maxH, slotW, slotH, gap, padding}>",
+   "default": [],
+   "label": "Sticker sayfaları",
+   "enforcement": "sistem",
+   "group": "sticker",
+   "level": "ileri",
+   "help": "Sticker sayfaları: ürün anahtar kelimeleri ve ölçüler. Ölçüler pt cinsindendir (1 pt = 1/72 inç ≈ 0,35 mm; 108 pt = 38,1 mm)."
+  },
+  {
+   "path": "ai.instructions",
+   "type": "string",
+   "default": "",
+   "label": "Tarz notu",
+   "enforcement": "ai (yol gösterir)",
+   "group": "genel",
+   "level": "temel",
+   "help": "Ayarla söylenemeyen tarz (ör. 'zarif, ferah, romantik'). Kesin kurallar buraya değil, ilgili ayara yazılır."
+  },
+  {
+   "path": "printing.labelExtraMin",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 5,
+   "label": "Etiket fazlalığı (en az)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "temel",
+   "help": "Sipariş adedinin üstüne basılan en az fazla etiket."
+  },
+  {
+   "path": "printing.labelExtraMax",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 10,
+   "label": "Etiket fazlalığı (en çok)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "temel",
+   "help": "Büyük siparişlerde basılan en çok fazla etiket."
+  },
+  {
+   "path": "printing.labelRoundUpMaxExtra",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 5,
+   "label": "Sayfayı tamamla",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Kalan etiketler tam sayfaya en çok bu kadar eksikse sayfa aynı siparişle tamamlanır."
+  },
+  {
+   "path": "printing.labelExtraScaleLow",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 20,
+   "label": "Fazlalık ölçeği (alt adet)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Bu adet ve altında en az fazlalık basılır."
+  },
+  {
+   "path": "printing.labelExtraScaleHigh",
+   "type": "integer",
+   "min": 1,
+   "max": 9007199254740991,
+   "default": 150,
+   "label": "Fazlalık ölçeği (üst adet)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Bu adet ve üstünde en çok fazlalık basılır; arası orantılıdır."
+  },
+  {
+   "path": "printing.separateSameDesign",
+   "type": "boolean",
+   "default": true,
+   "label": "Aynı tasarımı ayır",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Aynı tasarım numaralı siparişler aynı karışık sayfaya konmaz (karışmasın diye)."
+  },
+  {
+   "path": "printing.stickerExtraMin",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 5,
+   "label": "Sticker fazlalığı (en az)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "temel",
+   "help": "Sticker siparişlerinde adedin üstüne en az fazla."
+  },
+  {
+   "path": "printing.stickerExtraMax",
+   "type": "integer",
+   "min": 0,
+   "max": 9007199254740991,
+   "default": 10,
+   "label": "Sticker fazlalığı (en çok)",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "temel",
+   "help": "Sticker siparişlerinde adedin üstüne en çok fazla."
+  },
+  {
+   "path": "printing.dpi",
+   "type": "integer",
+   "min": 150,
+   "max": 1200,
+   "default": 300,
+   "label": "Baskı çözünürlüğü",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "PNG çıktısının ve raster PDF'in çözünürlüğü (dpi). 300 yazıcılar için yeterli."
+  },
+  {
+   "path": "printing.stickerDpi",
+   "type": "integer",
+   "min": 150,
+   "max": 1200,
+   "default": 300,
+   "label": "Sticker çözünürlüğü",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Sticker sayfalarının PNG ve raster PDF çözünürlüğü (dpi). Sticker'ın boyutu değişmez (mm); 300 yazıcılar için yeterli."
+  },
+  {
+   "path": "printing.orderNamePattern",
+   "type": "string",
+   "default": "{orderNo}_{quantity}adet",
+   "label": "Sipariş adı deseni",
+   "enforcement": "sistem",
+   "group": "baski",
+   "level": "ileri",
+   "help": "Baskı sayfasındaki sipariş adı (hücre etiketi). {orderNo}, {quantity}, {template}, {size}, {seq} ve sipariş dosyasındaki alan adları kullanılabilir; boşsa sipariş adı basılmaz."
+  },
+  {
+   "path": "quality.suspectScore",
+   "type": "number",
+   "min": 0,
+   "max": 100,
+   "default": 70,
+   "label": "Kontrol eşiği",
+   "enforcement": "sistem",
+   "group": "kalite",
+   "level": "ileri",
+   "help": "Bu puanın altındaki varyasyon 'kontrol et' işaretlenir."
+  },
+  {
+   "path": "quality.readableMinPt",
+   "type": "number",
+   "minExclusive": 0,
+   "default": 4.5,
+   "label": "Okunurluk sınırı",
+   "enforcement": "sistem",
+   "group": "kalite",
+   "level": "ileri",
+   "unit": "pt",
+   "help": "En küçük satır bunun altındaysa uyarı verilir."
+  }
+ ],
+ "formatSample": [
+  "1. ref-1 · şablon 7 · train\n   Müşteri metni: \"Mina & Ali\"\n   Kullanıcının satırları:\n   │ Mina   [script · 24 pt / 80 px]\n   │ &   [serif · 12 pt / 40 px · özel: \"&\" serif 40px]\n   │ Ali   [script · 24 pt / 80 px]\n   Programın önerisi: Mina & Ali",
+  "2. ref-2 · şablon — · test · frame 600px\n   Müşteri metni: \"Teşekkürler\\n2026\"\n   Kullanıcının satırları:\n   │ Teşekkürler 2026   [sans · 15 pt / 50 px]"
+ ],
+ "formatReplay": [
+  "10 referans (ayrılmış küme), kullanıcının kendi satırları motora verildi (AI yok, ücretsiz).\n\n## Taslak (v4)\n- en büyük satır ±%10 içinde: 7/10 (yerleşmeyen 1)\n- boyut motor/kullanıcı ortanca: 1.040 · sapma ortanca 0.060\n- blok yüksekliği sapması: 0.100 · blok merkezi uzaklığı 3.3 px (dx 1.5, dy -2.0)\n- boşluk farkı (|motor − kullanıcı|, em): satır arası 0.120 · son satır öncesi — · bağlaç 0.300\n  · normal: kullanıcı ortanca 0.20 · motor 0.25 (n=8; yaklaşık satırlar dahil)\n- en uzak etiketler: ref-3 (şablon 7, boyut ×1.30); ref-4 (şablon —, yerleşmedi: sığmadı)\n\n## Yayınlanan (v3)\n- en büyük satır ±%10 içinde: 7/10\n- boyut motor/kullanıcı ortanca: — · sapma ortanca 0.060\n- blok yüksekliği sapması: 0.100 · blok merkezi uzaklığı 3.3 px (dx 1.5, dy -2.0)\n- boşluk farkı (|motor − kullanıcı|, em): satır arası 0.120 · son satır öncesi — · bağlaç 0.300",
+  "3 referans (öğrenme kümesi), kullanıcının kendi satırları motora verildi (AI yok, ücretsiz).",
+  "5 referans (hepsi), kullanıcının kendi satırları motora verildi (AI yok, ücretsiz)."
+ ]
+}

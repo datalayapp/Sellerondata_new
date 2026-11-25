@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="bm_scan">Masayı tarayın: telefonu yavaşça gezdirin</string>
+  <string name="bm_corner1">Artı işaretini kolinin 1. alt köşesine getirip dokunun</string>
+  <string name="bm_corner2">2. köşeye dokunun (uzunluk)</string>
+  <string name="bm_corner3">3. köşeye dokunun (genişlik)</string>
+  <string name="bm_height">Telefonu yukarı doğrultun, artı işaretini üst köşeye getirip dokunun</string>
+  <string name="bm_done">Ölçüm tamam. Kaydet\'e basın</string>
+  <string name="bm_undo">Geri al</string>
+  <string name="bm_reset">Baştan başla</string>
+  <string name="bm_cancel">Vazgeç</string>
+  <string name="bm_save">Kaydet</string>
+  <string name="bm_dark">Ortam çok karanlık. Daha aydınlık bir yerde deneyin</string>
+  <string name="bm_slow">Telefonu daha yavaş hareket ettirin</string>
+  <string name="bm_features">Desenli bir yüzeye doğrultun, yavaşça gezdirin</string>
+  <string name="bm_len">U</string>
+  <string name="bm_wid">G</string>
+  <string name="bm_hei">Y</string>
+</resources>

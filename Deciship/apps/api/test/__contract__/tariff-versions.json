@@ -1,0 +1,21 @@
+{
+  "endpoint": "GET /api/deciship/tariffs/:id/versions",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "countryCount": "number",
+        "createdAt": "string",
+        "currency": "string",
+        "id": "string",
+        "label": "string",
+        "rateCount": "number",
+        "reason": "string",
+        "user": {
+          "name": "string"
+        },
+        "zoneCount": "number"
+      }
+    ]
+  }
+}

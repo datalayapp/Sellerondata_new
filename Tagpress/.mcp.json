@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "tagpress": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["--import", "tsx", "apps/mcp/src/main.ts"],
+      "env": {
+        "TAGPRESS_URL": "http://127.0.0.1:5420"
+      }
+    }
+  }
+}

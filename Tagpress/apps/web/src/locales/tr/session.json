@@ -1,0 +1,17 @@
+{
+  "gate": {
+    "noOrgTitle": "Etkin firma yok",
+    "noOrgBody": "TagPress bir firmanın içinde çalışır. Merkez'den bir firma seçin ya da açın.",
+    "backHub": "Merkez'e dön"
+  },
+  "readOnly": {
+    "label": "Yalnız görüntüleme",
+    "hint": "Bu firmada değişiklik izniniz yok. İzni firma yöneticiniz Merkez › Ekip'ten verir."
+  },
+  "access": {
+    "denied": "Bu işlem için yetkiniz yok."
+  },
+  "switchOrg": {
+    "confirm": "Kaydetmeden geç"
+  }
+}

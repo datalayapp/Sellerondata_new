@@ -1,0 +1,87 @@
+/* Büyük iş penceresi (tz-wd): ekranın üstünde, kenarlardan içeride; başlık, çalışma yüzeyi, alt şerit. */
+
+.tz-wd {
+  padding: 0;
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--sh-lg);
+  width: calc(100vw - 112px);
+  height: calc(100vh - 72px);
+  max-width: none;
+  max-height: none;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.tz-wd[open] {
+  display: flex;
+  animation: tz-fade-in var(--tz-dur) var(--tz-ease);
+}
+
+.tz-wd::backdrop {
+  background: var(--scrim);
+}
+
+.tz-wd-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 0 10px 0 20px;
+  border-bottom: 1px solid var(--line-soft);
+  flex: none;
+}
+
+.tz-wd-h h2 {
+  flex: none;
+  font-size: var(--tz-fs-sub);
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.tz-wd-sub {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-body);
+  color: var(--text-3);
+}
+
+.tz-wd-b {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Gövdedeki çalışma alanının üst çizgisi başlığın alt çizgisiyle çakışmasın. */
+.tz-wd-b > .tz-ws {
+  border-top: 0;
+}
+
+.tz-wd-f {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px 12px 20px;
+  border-top: 1px solid var(--line-soft);
+  flex: none;
+}
+
+/* Dar ekran: pencere neredeyse tam ekran. */
+@media (max-width: 1023px) {
+  .tz-wd {
+    width: calc(100vw - 24px);
+    height: calc(100vh - 24px);
+  }
+}
+
+@media (forced-colors: active) {
+  .tz-wd {
+    border: 1px solid CanvasText;
+  }
+}

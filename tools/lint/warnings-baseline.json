@@ -1,0 +1,10 @@
+{
+  "kurallar": {
+    "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/no-require-imports": 1,
+    "@typescript-eslint/no-unused-vars": 2,
+    "no-unused-vars": 6,
+    "prefer-const": 1,
+    "react-hooks/exhaustive-deps": 13
+  }
+}

@@ -1,0 +1,3302 @@
+[
+  {
+    "code": "fedex",
+    "name": "FedEx",
+    "tariffs": [
+      {
+        "name": "FedEx International Economy 2026",
+        "service": "International Economy",
+        "currency": "TRY",
+        "divisor": 5000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": 20,
+            "step": 0.5
+          },
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 38,
+        "fuelPct": 25,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "FR",
+            "zone": "A"
+          },
+          {
+            "country": "DE",
+            "zone": "A"
+          },
+          {
+            "country": "NL",
+            "zone": "A"
+          },
+          {
+            "country": "BE",
+            "zone": "A"
+          },
+          {
+            "country": "IT",
+            "zone": "A"
+          },
+          {
+            "country": "ES",
+            "zone": "A"
+          },
+          {
+            "country": "GB",
+            "zone": "B"
+          },
+          {
+            "country": "CH",
+            "zone": "B"
+          },
+          {
+            "country": "US",
+            "zone": "D"
+          },
+          {
+            "country": "CA",
+            "zone": "D"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "A",
+            "weightUpto": 0.5,
+            "price": 650
+          },
+          {
+            "zone": "A",
+            "weightUpto": 1,
+            "price": 724.53
+          },
+          {
+            "zone": "A",
+            "weightUpto": 1.5,
+            "price": 799.06
+          },
+          {
+            "zone": "A",
+            "weightUpto": 2,
+            "price": 873.59
+          },
+          {
+            "zone": "A",
+            "weightUpto": 2.5,
+            "price": 948.12
+          },
+          {
+            "zone": "A",
+            "weightUpto": 3,
+            "price": 1022.65
+          },
+          {
+            "zone": "A",
+            "weightUpto": 3.5,
+            "price": 1097.18
+          },
+          {
+            "zone": "A",
+            "weightUpto": 4,
+            "price": 1171.71
+          },
+          {
+            "zone": "A",
+            "weightUpto": 4.5,
+            "price": 1246.24
+          },
+          {
+            "zone": "A",
+            "weightUpto": 5,
+            "price": 1320.77
+          },
+          {
+            "zone": "A",
+            "weightUpto": 5.5,
+            "price": 1445.16
+          },
+          {
+            "zone": "A",
+            "weightUpto": 6,
+            "price": 1527.75
+          },
+          {
+            "zone": "A",
+            "weightUpto": 6.5,
+            "price": 1612.26
+          },
+          {
+            "zone": "A",
+            "weightUpto": 7,
+            "price": 1696.78
+          },
+          {
+            "zone": "A",
+            "weightUpto": 7.5,
+            "price": 1781.29
+          },
+          {
+            "zone": "A",
+            "weightUpto": 8,
+            "price": 1865.81
+          },
+          {
+            "zone": "A",
+            "weightUpto": 8.5,
+            "price": 1950.32
+          },
+          {
+            "zone": "A",
+            "weightUpto": 9,
+            "price": 2034.84
+          },
+          {
+            "zone": "A",
+            "weightUpto": 9.5,
+            "price": 2119.35
+          },
+          {
+            "zone": "A",
+            "weightUpto": 10,
+            "price": 2256.89
+          },
+          {
+            "zone": "A",
+            "weightUpto": 10.5,
+            "price": 2394.42
+          },
+          {
+            "zone": "A",
+            "weightUpto": 11,
+            "price": 2531.96
+          },
+          {
+            "zone": "A",
+            "weightUpto": 11.5,
+            "price": 2669.5
+          },
+          {
+            "zone": "A",
+            "weightUpto": 12,
+            "price": 2807.04
+          },
+          {
+            "zone": "A",
+            "weightUpto": 12.5,
+            "price": 2944.57
+          },
+          {
+            "zone": "A",
+            "weightUpto": 13,
+            "price": 3082.11
+          },
+          {
+            "zone": "A",
+            "weightUpto": 13.5,
+            "price": 3219.65
+          },
+          {
+            "zone": "A",
+            "weightUpto": 14,
+            "price": 3357.19
+          },
+          {
+            "zone": "A",
+            "weightUpto": 14.5,
+            "price": 3494.72
+          },
+          {
+            "zone": "A",
+            "weightUpto": 15,
+            "price": 3632.26
+          },
+          {
+            "zone": "A",
+            "weightUpto": 15.5,
+            "price": 3732.23
+          },
+          {
+            "zone": "A",
+            "weightUpto": 16,
+            "price": 3832.21
+          },
+          {
+            "zone": "A",
+            "weightUpto": 16.5,
+            "price": 3932.18
+          },
+          {
+            "zone": "A",
+            "weightUpto": 17,
+            "price": 4032.16
+          },
+          {
+            "zone": "A",
+            "weightUpto": 17.5,
+            "price": 4132.13
+          },
+          {
+            "zone": "A",
+            "weightUpto": 18,
+            "price": 4232.1
+          },
+          {
+            "zone": "A",
+            "weightUpto": 18.5,
+            "price": 4332.08
+          },
+          {
+            "zone": "A",
+            "weightUpto": 19,
+            "price": 4432.05
+          },
+          {
+            "zone": "A",
+            "weightUpto": 19.5,
+            "price": 4532.03
+          },
+          {
+            "zone": "A",
+            "weightUpto": 20,
+            "price": 4632
+          },
+          {
+            "zone": "A",
+            "weightUpto": 21,
+            "price": 4858.8
+          },
+          {
+            "zone": "A",
+            "weightUpto": 22,
+            "price": 5085.6
+          },
+          {
+            "zone": "A",
+            "weightUpto": 23,
+            "price": 5312.4
+          },
+          {
+            "zone": "A",
+            "weightUpto": 24,
+            "price": 5539.2
+          },
+          {
+            "zone": "A",
+            "weightUpto": 25,
+            "price": 5766
+          },
+          {
+            "zone": "A",
+            "weightUpto": 26,
+            "price": 5992.8
+          },
+          {
+            "zone": "A",
+            "weightUpto": 27,
+            "price": 6219.6
+          },
+          {
+            "zone": "A",
+            "weightUpto": 28,
+            "price": 6446.4
+          },
+          {
+            "zone": "A",
+            "weightUpto": 29,
+            "price": 6673.2
+          },
+          {
+            "zone": "A",
+            "weightUpto": 30,
+            "price": 6900
+          },
+          {
+            "zone": "B",
+            "weightUpto": 0.5,
+            "price": 767
+          },
+          {
+            "zone": "B",
+            "weightUpto": 1,
+            "price": 854.95
+          },
+          {
+            "zone": "B",
+            "weightUpto": 1.5,
+            "price": 942.89
+          },
+          {
+            "zone": "B",
+            "weightUpto": 2,
+            "price": 1030.84
+          },
+          {
+            "zone": "B",
+            "weightUpto": 2.5,
+            "price": 1118.78
+          },
+          {
+            "zone": "B",
+            "weightUpto": 3,
+            "price": 1206.73
+          },
+          {
+            "zone": "B",
+            "weightUpto": 3.5,
+            "price": 1294.67
+          },
+          {
+            "zone": "B",
+            "weightUpto": 4,
+            "price": 1382.62
+          },
+          {
+            "zone": "B",
+            "weightUpto": 4.5,
+            "price": 1470.56
+          },
+          {
+            "zone": "B",
+            "weightUpto": 5,
+            "price": 1558.51
+          },
+          {
+            "zone": "B",
+            "weightUpto": 5.5,
+            "price": 1705.29
+          },
+          {
+            "zone": "B",
+            "weightUpto": 6,
+            "price": 1802.75
+          },
+          {
+            "zone": "B",
+            "weightUpto": 6.5,
+            "price": 1902.47
+          },
+          {
+            "zone": "B",
+            "weightUpto": 7,
+            "price": 2002.2
+          },
+          {
+            "zone": "B",
+            "weightUpto": 7.5,
+            "price": 2101.92
+          },
+          {
+            "zone": "B",
+            "weightUpto": 8,
+            "price": 2201.66
+          },
+          {
+            "zone": "B",
+            "weightUpto": 8.5,
+            "price": 2301.38
+          },
+          {
+            "zone": "B",
+            "weightUpto": 9,
+            "price": 2401.11
+          },
+          {
+            "zone": "B",
+            "weightUpto": 9.5,
+            "price": 2500.83
+          },
+          {
+            "zone": "B",
+            "weightUpto": 10,
+            "price": 2663.13
+          },
+          {
+            "zone": "B",
+            "weightUpto": 10.5,
+            "price": 2825.42
+          },
+          {
+            "zone": "B",
+            "weightUpto": 11,
+            "price": 2987.71
+          },
+          {
+            "zone": "B",
+            "weightUpto": 11.5,
+            "price": 3150.01
+          },
+          {
+            "zone": "B",
+            "weightUpto": 12,
+            "price": 3312.31
+          },
+          {
+            "zone": "B",
+            "weightUpto": 12.5,
+            "price": 3474.59
+          },
+          {
+            "zone": "B",
+            "weightUpto": 13,
+            "price": 3636.89
+          },
+          {
+            "zone": "B",
+            "weightUpto": 13.5,
+            "price": 3799.19
+          },
+          {
+            "zone": "B",
+            "weightUpto": 14,
+            "price": 3961.48
+          },
+          {
+            "zone": "B",
+            "weightUpto": 14.5,
+            "price": 4123.77
+          },
+          {
+            "zone": "B",
+            "weightUpto": 15,
+            "price": 4286.07
+          },
+          {
+            "zone": "B",
+            "weightUpto": 15.5,
+            "price": 4404.03
+          },
+          {
+            "zone": "B",
+            "weightUpto": 16,
+            "price": 4522.01
+          },
+          {
+            "zone": "B",
+            "weightUpto": 16.5,
+            "price": 4639.97
+          },
+          {
+            "zone": "B",
+            "weightUpto": 17,
+            "price": 4757.95
+          },
+          {
+            "zone": "B",
+            "weightUpto": 17.5,
+            "price": 4875.91
+          },
+          {
+            "zone": "B",
+            "weightUpto": 18,
+            "price": 4993.88
+          },
+          {
+            "zone": "B",
+            "weightUpto": 18.5,
+            "price": 5111.85
+          },
+          {
+            "zone": "B",
+            "weightUpto": 19,
+            "price": 5229.82
+          },
+          {
+            "zone": "B",
+            "weightUpto": 19.5,
+            "price": 5347.8
+          },
+          {
+            "zone": "B",
+            "weightUpto": 20,
+            "price": 5465.76
+          },
+          {
+            "zone": "B",
+            "weightUpto": 21,
+            "price": 5733.38
+          },
+          {
+            "zone": "B",
+            "weightUpto": 22,
+            "price": 6001.01
+          },
+          {
+            "zone": "B",
+            "weightUpto": 23,
+            "price": 6268.63
+          },
+          {
+            "zone": "B",
+            "weightUpto": 24,
+            "price": 6536.26
+          },
+          {
+            "zone": "B",
+            "weightUpto": 25,
+            "price": 6803.88
+          },
+          {
+            "zone": "B",
+            "weightUpto": 26,
+            "price": 7071.5
+          },
+          {
+            "zone": "B",
+            "weightUpto": 27,
+            "price": 7339.13
+          },
+          {
+            "zone": "B",
+            "weightUpto": 28,
+            "price": 7606.75
+          },
+          {
+            "zone": "B",
+            "weightUpto": 29,
+            "price": 7874.38
+          },
+          {
+            "zone": "B",
+            "weightUpto": 30,
+            "price": 8142
+          },
+          {
+            "zone": "D",
+            "weightUpto": 0.5,
+            "price": 1007.5
+          },
+          {
+            "zone": "D",
+            "weightUpto": 1,
+            "price": 1123.02
+          },
+          {
+            "zone": "D",
+            "weightUpto": 1.5,
+            "price": 1238.54
+          },
+          {
+            "zone": "D",
+            "weightUpto": 2,
+            "price": 1354.06
+          },
+          {
+            "zone": "D",
+            "weightUpto": 2.5,
+            "price": 1469.59
+          },
+          {
+            "zone": "D",
+            "weightUpto": 3,
+            "price": 1585.11
+          },
+          {
+            "zone": "D",
+            "weightUpto": 3.5,
+            "price": 1700.63
+          },
+          {
+            "zone": "D",
+            "weightUpto": 4,
+            "price": 1816.15
+          },
+          {
+            "zone": "D",
+            "weightUpto": 4.5,
+            "price": 1931.67
+          },
+          {
+            "zone": "D",
+            "weightUpto": 5,
+            "price": 2047.19
+          },
+          {
+            "zone": "D",
+            "weightUpto": 5.5,
+            "price": 2240
+          },
+          {
+            "zone": "D",
+            "weightUpto": 6,
+            "price": 2368.01
+          },
+          {
+            "zone": "D",
+            "weightUpto": 6.5,
+            "price": 2499
+          },
+          {
+            "zone": "D",
+            "weightUpto": 7,
+            "price": 2630.01
+          },
+          {
+            "zone": "D",
+            "weightUpto": 7.5,
+            "price": 2761
+          },
+          {
+            "zone": "D",
+            "weightUpto": 8,
+            "price": 2892.01
+          },
+          {
+            "zone": "D",
+            "weightUpto": 8.5,
+            "price": 3023
+          },
+          {
+            "zone": "D",
+            "weightUpto": 9,
+            "price": 3154
+          },
+          {
+            "zone": "D",
+            "weightUpto": 9.5,
+            "price": 3284.99
+          },
+          {
+            "zone": "D",
+            "weightUpto": 10,
+            "price": 3498.18
+          },
+          {
+            "zone": "D",
+            "weightUpto": 10.5,
+            "price": 3711.35
+          },
+          {
+            "zone": "D",
+            "weightUpto": 11,
+            "price": 3924.54
+          },
+          {
+            "zone": "D",
+            "weightUpto": 11.5,
+            "price": 4137.73
+          },
+          {
+            "zone": "D",
+            "weightUpto": 12,
+            "price": 4350.91
+          },
+          {
+            "zone": "D",
+            "weightUpto": 12.5,
+            "price": 4564.08
+          },
+          {
+            "zone": "D",
+            "weightUpto": 13,
+            "price": 4777.27
+          },
+          {
+            "zone": "D",
+            "weightUpto": 13.5,
+            "price": 4990.46
+          },
+          {
+            "zone": "D",
+            "weightUpto": 14,
+            "price": 5203.64
+          },
+          {
+            "zone": "D",
+            "weightUpto": 14.5,
+            "price": 5416.82
+          },
+          {
+            "zone": "D",
+            "weightUpto": 15,
+            "price": 5630
+          },
+          {
+            "zone": "D",
+            "weightUpto": 15.5,
+            "price": 5784.96
+          },
+          {
+            "zone": "D",
+            "weightUpto": 16,
+            "price": 5939.93
+          },
+          {
+            "zone": "D",
+            "weightUpto": 16.5,
+            "price": 6094.88
+          },
+          {
+            "zone": "D",
+            "weightUpto": 17,
+            "price": 6249.85
+          },
+          {
+            "zone": "D",
+            "weightUpto": 17.5,
+            "price": 6404.8
+          },
+          {
+            "zone": "D",
+            "weightUpto": 18,
+            "price": 6559.76
+          },
+          {
+            "zone": "D",
+            "weightUpto": 18.5,
+            "price": 6714.72
+          },
+          {
+            "zone": "D",
+            "weightUpto": 19,
+            "price": 6869.68
+          },
+          {
+            "zone": "D",
+            "weightUpto": 19.5,
+            "price": 7024.65
+          },
+          {
+            "zone": "D",
+            "weightUpto": 20,
+            "price": 7179.6
+          },
+          {
+            "zone": "D",
+            "weightUpto": 21,
+            "price": 7531.14
+          },
+          {
+            "zone": "D",
+            "weightUpto": 22,
+            "price": 7882.68
+          },
+          {
+            "zone": "D",
+            "weightUpto": 23,
+            "price": 8234.22
+          },
+          {
+            "zone": "D",
+            "weightUpto": 24,
+            "price": 8585.76
+          },
+          {
+            "zone": "D",
+            "weightUpto": 25,
+            "price": 8937.3
+          },
+          {
+            "zone": "D",
+            "weightUpto": 26,
+            "price": 9288.84
+          },
+          {
+            "zone": "D",
+            "weightUpto": 27,
+            "price": 9640.38
+          },
+          {
+            "zone": "D",
+            "weightUpto": 28,
+            "price": 9991.92
+          },
+          {
+            "zone": "D",
+            "weightUpto": 29,
+            "price": 10343.46
+          },
+          {
+            "zone": "D",
+            "weightUpto": 30,
+            "price": 10695
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "A",
+            "perUnit": 150
+          },
+          {
+            "zone": "B",
+            "perUnit": 170
+          },
+          {
+            "zone": "D",
+            "perUnit": 230
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "REMOTE_AREA",
+            "name": "Uzak bölge ek ücreti",
+            "kind": "PER_KG",
+            "amount": 18.5
+          },
+          {
+            "code": "ADDITIONAL_HANDLING",
+            "name": "Ek elleçleme",
+            "kind": "FIXED",
+            "amount": 285
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "ups",
+    "name": "UPS",
+    "tariffs": [
+      {
+        "name": "UPS Express Saver 2026",
+        "service": "Express Saver",
+        "currency": "TRY",
+        "divisor": 5000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": 20,
+            "step": 0.5
+          },
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 32,
+        "fuelPct": 22,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "FR",
+            "zone": "Z1"
+          },
+          {
+            "country": "DE",
+            "zone": "Z1"
+          },
+          {
+            "country": "NL",
+            "zone": "Z1"
+          },
+          {
+            "country": "BE",
+            "zone": "Z1"
+          },
+          {
+            "country": "IT",
+            "zone": "Z1"
+          },
+          {
+            "country": "ES",
+            "zone": "Z1"
+          },
+          {
+            "country": "GB",
+            "zone": "Z2"
+          },
+          {
+            "country": "CH",
+            "zone": "Z2"
+          },
+          {
+            "country": "US",
+            "zone": "Z3"
+          },
+          {
+            "country": "CA",
+            "zone": "Z3"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "Z1",
+            "weightUpto": 0.5,
+            "price": 604.5
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 1,
+            "price": 673.81
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 1.5,
+            "price": 743.13
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 2,
+            "price": 812.44
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 2.5,
+            "price": 881.75
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 3,
+            "price": 951.06
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 3.5,
+            "price": 1020.38
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 4,
+            "price": 1089.69
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 4.5,
+            "price": 1159
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 5,
+            "price": 1228.32
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 5.5,
+            "price": 1344
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 6,
+            "price": 1420.81
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 6.5,
+            "price": 1499.4
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 7,
+            "price": 1578.01
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 7.5,
+            "price": 1656.6
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 8,
+            "price": 1735.2
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 8.5,
+            "price": 1813.8
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 9,
+            "price": 1892.4
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 9.5,
+            "price": 1971
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 10,
+            "price": 2098.91
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 10.5,
+            "price": 2226.81
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 11,
+            "price": 2354.72
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 11.5,
+            "price": 2482.64
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 12,
+            "price": 2610.55
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 12.5,
+            "price": 2738.45
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 13,
+            "price": 2866.36
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 13.5,
+            "price": 2994.27
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 14,
+            "price": 3122.19
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 14.5,
+            "price": 3250.09
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 15,
+            "price": 3378
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 15.5,
+            "price": 3470.97
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 16,
+            "price": 3563.96
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 16.5,
+            "price": 3656.93
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 17,
+            "price": 3749.91
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 17.5,
+            "price": 3842.88
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 18,
+            "price": 3935.85
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 18.5,
+            "price": 4028.83
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 19,
+            "price": 4121.81
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 19.5,
+            "price": 4214.79
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 20,
+            "price": 4307.76
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 21,
+            "price": 4518.68
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 22,
+            "price": 4729.61
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 23,
+            "price": 4940.53
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 24,
+            "price": 5151.46
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 25,
+            "price": 5362.38
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 26,
+            "price": 5573.3
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 27,
+            "price": 5784.23
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 28,
+            "price": 5995.15
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 29,
+            "price": 6206.08
+          },
+          {
+            "zone": "Z1",
+            "weightUpto": 30,
+            "price": 6417
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 0.5,
+            "price": 728
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 1,
+            "price": 811.47
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 1.5,
+            "price": 894.95
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 2,
+            "price": 978.42
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 2.5,
+            "price": 1061.89
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 3,
+            "price": 1145.37
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 3.5,
+            "price": 1228.84
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 4,
+            "price": 1312.32
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 4.5,
+            "price": 1395.79
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 5,
+            "price": 1479.26
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 5.5,
+            "price": 1618.58
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 6,
+            "price": 1711.08
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 6.5,
+            "price": 1805.73
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 7,
+            "price": 1900.39
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 7.5,
+            "price": 1995.04
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 8,
+            "price": 2089.71
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 8.5,
+            "price": 2184.36
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 9,
+            "price": 2279.02
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 9.5,
+            "price": 2373.67
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 10,
+            "price": 2527.72
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 10.5,
+            "price": 2681.75
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 11,
+            "price": 2835.8
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 11.5,
+            "price": 2989.84
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 12,
+            "price": 3143.88
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 12.5,
+            "price": 3297.92
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 13,
+            "price": 3451.96
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 13.5,
+            "price": 3606.01
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 14,
+            "price": 3760.05
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 14.5,
+            "price": 3914.09
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 15,
+            "price": 4068.13
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 15.5,
+            "price": 4180.1
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 16,
+            "price": 4292.08
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 16.5,
+            "price": 4404.04
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 17,
+            "price": 4516.02
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 17.5,
+            "price": 4627.99
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 18,
+            "price": 4739.95
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 18.5,
+            "price": 4851.93
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 19,
+            "price": 4963.9
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 19.5,
+            "price": 5075.87
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 20,
+            "price": 5187.84
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 21,
+            "price": 5441.86
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 22,
+            "price": 5695.87
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 23,
+            "price": 5949.89
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 24,
+            "price": 6203.9
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 25,
+            "price": 6457.92
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 26,
+            "price": 6711.94
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 27,
+            "price": 6965.95
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 28,
+            "price": 7219.97
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 29,
+            "price": 7473.98
+          },
+          {
+            "zone": "Z2",
+            "weightUpto": 30,
+            "price": 7728
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 0.5,
+            "price": 962
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 1,
+            "price": 1072.3
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 1.5,
+            "price": 1182.61
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 2,
+            "price": 1292.91
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 2.5,
+            "price": 1403.22
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 3,
+            "price": 1513.52
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 3.5,
+            "price": 1623.83
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 4,
+            "price": 1734.13
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 4.5,
+            "price": 1844.44
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 5,
+            "price": 1954.74
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 5.5,
+            "price": 2138.84
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 6,
+            "price": 2261.07
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 6.5,
+            "price": 2386.14
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 7,
+            "price": 2511.23
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 7.5,
+            "price": 2636.31
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 8,
+            "price": 2761.4
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 8.5,
+            "price": 2886.47
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 9,
+            "price": 3011.56
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 9.5,
+            "price": 3136.64
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 10,
+            "price": 3340.2
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 10.5,
+            "price": 3543.74
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 11,
+            "price": 3747.3
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 11.5,
+            "price": 3950.86
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 12,
+            "price": 4154.42
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 12.5,
+            "price": 4357.96
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 13,
+            "price": 4561.52
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 13.5,
+            "price": 4765.08
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 14,
+            "price": 4968.64
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 14.5,
+            "price": 5172.19
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 15,
+            "price": 5375.74
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 15.5,
+            "price": 5523.7
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 16,
+            "price": 5671.67
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 16.5,
+            "price": 5819.63
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 17,
+            "price": 5967.6
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 17.5,
+            "price": 6115.55
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 18,
+            "price": 6263.51
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 18.5,
+            "price": 6411.48
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 19,
+            "price": 6559.43
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 19.5,
+            "price": 6707.4
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 20,
+            "price": 6855.36
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 21,
+            "price": 7191.02
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 22,
+            "price": 7526.69
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 23,
+            "price": 7862.35
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 24,
+            "price": 8198.02
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 25,
+            "price": 8533.68
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 26,
+            "price": 8869.34
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 27,
+            "price": 9205.01
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 28,
+            "price": 9540.67
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 29,
+            "price": 9876.34
+          },
+          {
+            "zone": "Z3",
+            "weightUpto": 30,
+            "price": 10212
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "Z1",
+            "perUnit": 140
+          },
+          {
+            "zone": "Z2",
+            "perUnit": 165
+          },
+          {
+            "zone": "Z3",
+            "perUnit": 220
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "DELIVERY_AREA",
+            "name": "Teslimat bölgesi ek ücreti",
+            "kind": "PER_KG",
+            "amount": 17
+          },
+          {
+            "code": "LARGE_PACKAGE",
+            "name": "Büyük paket ek ücreti",
+            "kind": "FIXED",
+            "amount": 310
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "dhl",
+    "name": "DHL Express",
+    "tariffs": [
+      {
+        "name": "DHL Express Worldwide 2026",
+        "service": "Express Worldwide",
+        "currency": "TRY",
+        "divisor": 5000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": 30,
+            "step": 0.5
+          },
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 35,
+        "fuelPct": 24,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "FR",
+            "zone": "EU"
+          },
+          {
+            "country": "DE",
+            "zone": "EU"
+          },
+          {
+            "country": "NL",
+            "zone": "EU"
+          },
+          {
+            "country": "BE",
+            "zone": "EU"
+          },
+          {
+            "country": "IT",
+            "zone": "EU"
+          },
+          {
+            "country": "ES",
+            "zone": "EU"
+          },
+          {
+            "country": "GB",
+            "zone": "UK"
+          },
+          {
+            "country": "CH",
+            "zone": "UK"
+          },
+          {
+            "country": "US",
+            "zone": "WW"
+          },
+          {
+            "country": "CA",
+            "zone": "WW"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "EU",
+            "weightUpto": 0.5,
+            "price": 630.5
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 1,
+            "price": 702.79
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 1.5,
+            "price": 775.09
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 2,
+            "price": 847.38
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 2.5,
+            "price": 919.68
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 3,
+            "price": 991.97
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 3.5,
+            "price": 1064.26
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 4,
+            "price": 1136.56
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 4.5,
+            "price": 1208.85
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 5,
+            "price": 1281.15
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 5.5,
+            "price": 1401.81
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 6,
+            "price": 1481.92
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 6.5,
+            "price": 1563.89
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 7,
+            "price": 1645.88
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 7.5,
+            "price": 1727.85
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 8,
+            "price": 1809.84
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 8.5,
+            "price": 1891.81
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 9,
+            "price": 1973.79
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 9.5,
+            "price": 2055.77
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 10,
+            "price": 2189.18
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 10.5,
+            "price": 2322.59
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 11,
+            "price": 2456
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 11.5,
+            "price": 2589.42
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 12,
+            "price": 2722.83
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 12.5,
+            "price": 2856.23
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 13,
+            "price": 2989.65
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 13.5,
+            "price": 3123.06
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 14,
+            "price": 3256.47
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 14.5,
+            "price": 3389.88
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 15,
+            "price": 3523.29
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 15.5,
+            "price": 3620.26
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 16,
+            "price": 3717.24
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 16.5,
+            "price": 3814.21
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 17,
+            "price": 3911.2
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 17.5,
+            "price": 4008.17
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 18,
+            "price": 4105.14
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 18.5,
+            "price": 4202.12
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 19,
+            "price": 4299.09
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 19.5,
+            "price": 4396.07
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 20,
+            "price": 4493.04
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 20.5,
+            "price": 4603.04
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 21,
+            "price": 4713.04
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 21.5,
+            "price": 4823.03
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 22,
+            "price": 4933.03
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 22.5,
+            "price": 5043.03
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 23,
+            "price": 5153.03
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 23.5,
+            "price": 5263.03
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 24,
+            "price": 5373.02
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 24.5,
+            "price": 5483.02
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 25,
+            "price": 5593.02
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 25.5,
+            "price": 5703.02
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 26,
+            "price": 5813.02
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 26.5,
+            "price": 5923.01
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 27,
+            "price": 6033.01
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 27.5,
+            "price": 6143.01
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 28,
+            "price": 6253.01
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 28.5,
+            "price": 6363.01
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 29,
+            "price": 6473
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 29.5,
+            "price": 6583
+          },
+          {
+            "zone": "EU",
+            "weightUpto": 30,
+            "price": 6693
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 0.5,
+            "price": 747.5
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 1,
+            "price": 833.21
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 1.5,
+            "price": 918.92
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 2,
+            "price": 1004.63
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 2.5,
+            "price": 1090.34
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 3,
+            "price": 1176.05
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 3.5,
+            "price": 1261.76
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 4,
+            "price": 1347.47
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 4.5,
+            "price": 1433.18
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 5,
+            "price": 1518.89
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 5.5,
+            "price": 1661.93
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 6,
+            "price": 1756.91
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 6.5,
+            "price": 1854.1
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 7,
+            "price": 1951.3
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 7.5,
+            "price": 2048.48
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 8,
+            "price": 2145.68
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 8.5,
+            "price": 2242.87
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 9,
+            "price": 2340.07
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 9.5,
+            "price": 2437.25
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 10,
+            "price": 2595.42
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 10.5,
+            "price": 2753.58
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 11,
+            "price": 2911.75
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 11.5,
+            "price": 3069.93
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 12,
+            "price": 3228.1
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 12.5,
+            "price": 3386.26
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 13,
+            "price": 3544.43
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 13.5,
+            "price": 3702.6
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 14,
+            "price": 3860.77
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 14.5,
+            "price": 4018.93
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 15,
+            "price": 4177.1
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 15.5,
+            "price": 4292.06
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 16,
+            "price": 4407.04
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 16.5,
+            "price": 4522.01
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 17,
+            "price": 4636.98
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 17.5,
+            "price": 4751.95
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 18,
+            "price": 4866.91
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 18.5,
+            "price": 4981.89
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 19,
+            "price": 5096.86
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 19.5,
+            "price": 5211.83
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 20,
+            "price": 5326.8
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 20.5,
+            "price": 5457.21
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 21,
+            "price": 5587.62
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 21.5,
+            "price": 5718.03
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 22,
+            "price": 5848.44
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 22.5,
+            "price": 5978.85
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 23,
+            "price": 6109.26
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 23.5,
+            "price": 6239.67
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 24,
+            "price": 6370.08
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 24.5,
+            "price": 6500.49
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 25,
+            "price": 6630.9
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 25.5,
+            "price": 6761.31
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 26,
+            "price": 6891.72
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 26.5,
+            "price": 7022.13
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 27,
+            "price": 7152.54
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 27.5,
+            "price": 7282.95
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 28,
+            "price": 7413.36
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 28.5,
+            "price": 7543.77
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 29,
+            "price": 7674.18
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 29.5,
+            "price": 7804.59
+          },
+          {
+            "zone": "UK",
+            "weightUpto": 30,
+            "price": 7935
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 0.5,
+            "price": 988
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 1,
+            "price": 1101.29
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 1.5,
+            "price": 1214.57
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 2,
+            "price": 1327.86
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 2.5,
+            "price": 1441.14
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 3,
+            "price": 1554.43
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 3.5,
+            "price": 1667.71
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 4,
+            "price": 1781
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 4.5,
+            "price": 1894.28
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 5,
+            "price": 2007.57
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 5.5,
+            "price": 2196.64
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 6,
+            "price": 2322.18
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 6.5,
+            "price": 2450.64
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 7,
+            "price": 2579.11
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 7.5,
+            "price": 2707.56
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 8,
+            "price": 2836.03
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 8.5,
+            "price": 2964.49
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 9,
+            "price": 3092.96
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 9.5,
+            "price": 3221.41
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 10,
+            "price": 3430.47
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 10.5,
+            "price": 3639.52
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 11,
+            "price": 3848.58
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 11.5,
+            "price": 4057.64
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 12,
+            "price": 4266.7
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 12.5,
+            "price": 4475.75
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 13,
+            "price": 4684.81
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 13.5,
+            "price": 4893.87
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 14,
+            "price": 5102.93
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 14.5,
+            "price": 5311.97
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 15,
+            "price": 5521.04
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 15.5,
+            "price": 5672.99
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 16,
+            "price": 5824.96
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 16.5,
+            "price": 5976.91
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 17,
+            "price": 6128.88
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 17.5,
+            "price": 6280.84
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 18,
+            "price": 6432.79
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 18.5,
+            "price": 6584.76
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 19,
+            "price": 6736.72
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 19.5,
+            "price": 6888.69
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 20,
+            "price": 7040.64
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 20.5,
+            "price": 7213.01
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 21,
+            "price": 7385.38
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 21.5,
+            "price": 7557.74
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 22,
+            "price": 7730.11
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 22.5,
+            "price": 7902.48
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 23,
+            "price": 8074.85
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 23.5,
+            "price": 8247.22
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 24,
+            "price": 8419.58
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 24.5,
+            "price": 8591.95
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 25,
+            "price": 8764.32
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 25.5,
+            "price": 8936.69
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 26,
+            "price": 9109.06
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 26.5,
+            "price": 9281.42
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 27,
+            "price": 9453.79
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 27.5,
+            "price": 9626.16
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 28,
+            "price": 9798.53
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 28.5,
+            "price": 9970.9
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 29,
+            "price": 10143.26
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 29.5,
+            "price": 10315.63
+          },
+          {
+            "zone": "WW",
+            "weightUpto": 30,
+            "price": 10488
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "EU",
+            "perUnit": 145
+          },
+          {
+            "zone": "UK",
+            "perUnit": 168
+          },
+          {
+            "zone": "WW",
+            "perUnit": 225
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "REMOTE_AREA",
+            "name": "Uzak bölge teslimat",
+            "kind": "FIXED",
+            "amount": 240
+          },
+          {
+            "code": "INSURANCE",
+            "name": "Sigorta (gönderi bedeli %)",
+            "kind": "PCT",
+            "amount": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "aras",
+    "name": "Aras Kargo",
+    "tariffs": [
+      {
+        "name": "Aras Desi 2026",
+        "service": "Yurtiçi Standart",
+        "currency": "TRY",
+        "divisor": 3000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 10,
+        "fuelPct": 0,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "*",
+            "zone": "*"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "*",
+            "weightUpto": 1,
+            "price": 70
+          },
+          {
+            "zone": "*",
+            "weightUpto": 2,
+            "price": 78.52
+          },
+          {
+            "zone": "*",
+            "weightUpto": 3,
+            "price": 87.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 4,
+            "price": 96.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 5,
+            "price": 105.52
+          },
+          {
+            "zone": "*",
+            "weightUpto": 6,
+            "price": 115
+          },
+          {
+            "zone": "*",
+            "weightUpto": 7,
+            "price": 124.72
+          },
+          {
+            "zone": "*",
+            "weightUpto": 8,
+            "price": 134.68
+          },
+          {
+            "zone": "*",
+            "weightUpto": 9,
+            "price": 144.88
+          },
+          {
+            "zone": "*",
+            "weightUpto": 10,
+            "price": 155.32
+          },
+          {
+            "zone": "*",
+            "weightUpto": 11,
+            "price": 166
+          },
+          {
+            "zone": "*",
+            "weightUpto": 12,
+            "price": 176.92
+          },
+          {
+            "zone": "*",
+            "weightUpto": 13,
+            "price": 188.08
+          },
+          {
+            "zone": "*",
+            "weightUpto": 14,
+            "price": 199.48
+          },
+          {
+            "zone": "*",
+            "weightUpto": 15,
+            "price": 211.12
+          },
+          {
+            "zone": "*",
+            "weightUpto": 16,
+            "price": 223
+          },
+          {
+            "zone": "*",
+            "weightUpto": 17,
+            "price": 235.12
+          },
+          {
+            "zone": "*",
+            "weightUpto": 18,
+            "price": 247.48
+          },
+          {
+            "zone": "*",
+            "weightUpto": 19,
+            "price": 260.08
+          },
+          {
+            "zone": "*",
+            "weightUpto": 20,
+            "price": 272.92
+          },
+          {
+            "zone": "*",
+            "weightUpto": 21,
+            "price": 286
+          },
+          {
+            "zone": "*",
+            "weightUpto": 22,
+            "price": 299.32
+          },
+          {
+            "zone": "*",
+            "weightUpto": 23,
+            "price": 312.88
+          },
+          {
+            "zone": "*",
+            "weightUpto": 24,
+            "price": 326.68
+          },
+          {
+            "zone": "*",
+            "weightUpto": 25,
+            "price": 340.72
+          },
+          {
+            "zone": "*",
+            "weightUpto": 26,
+            "price": 355
+          },
+          {
+            "zone": "*",
+            "weightUpto": 27,
+            "price": 369.52
+          },
+          {
+            "zone": "*",
+            "weightUpto": 28,
+            "price": 384.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 29,
+            "price": 399.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 30,
+            "price": 414.52
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "*",
+            "perUnit": 13.5
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "KAPIDA_ODEME",
+            "name": "Kapıda ödeme hizmet bedeli",
+            "kind": "FIXED",
+            "amount": 14.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "yurtici",
+    "name": "Yurtiçi Kargo",
+    "tariffs": [
+      {
+        "name": "Yurtiçi Desi 2026",
+        "service": "Standart",
+        "currency": "TRY",
+        "divisor": 3000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 15,
+        "fuelPct": 5,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "*",
+            "zone": "*"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "*",
+            "weightUpto": 1,
+            "price": 75.6
+          },
+          {
+            "zone": "*",
+            "weightUpto": 2,
+            "price": 84.8
+          },
+          {
+            "zone": "*",
+            "weightUpto": 3,
+            "price": 94.26
+          },
+          {
+            "zone": "*",
+            "weightUpto": 4,
+            "price": 103.98
+          },
+          {
+            "zone": "*",
+            "weightUpto": 5,
+            "price": 113.96
+          },
+          {
+            "zone": "*",
+            "weightUpto": 6,
+            "price": 124.2
+          },
+          {
+            "zone": "*",
+            "weightUpto": 7,
+            "price": 134.7
+          },
+          {
+            "zone": "*",
+            "weightUpto": 8,
+            "price": 145.45
+          },
+          {
+            "zone": "*",
+            "weightUpto": 9,
+            "price": 156.47
+          },
+          {
+            "zone": "*",
+            "weightUpto": 10,
+            "price": 167.75
+          },
+          {
+            "zone": "*",
+            "weightUpto": 11,
+            "price": 179.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 12,
+            "price": 191.07
+          },
+          {
+            "zone": "*",
+            "weightUpto": 13,
+            "price": 203.13
+          },
+          {
+            "zone": "*",
+            "weightUpto": 14,
+            "price": 215.44
+          },
+          {
+            "zone": "*",
+            "weightUpto": 15,
+            "price": 228.01
+          },
+          {
+            "zone": "*",
+            "weightUpto": 16,
+            "price": 240.84
+          },
+          {
+            "zone": "*",
+            "weightUpto": 17,
+            "price": 253.93
+          },
+          {
+            "zone": "*",
+            "weightUpto": 18,
+            "price": 267.28
+          },
+          {
+            "zone": "*",
+            "weightUpto": 19,
+            "price": 280.89
+          },
+          {
+            "zone": "*",
+            "weightUpto": 20,
+            "price": 294.75
+          },
+          {
+            "zone": "*",
+            "weightUpto": 21,
+            "price": 308.88
+          },
+          {
+            "zone": "*",
+            "weightUpto": 22,
+            "price": 323.27
+          },
+          {
+            "zone": "*",
+            "weightUpto": 23,
+            "price": 337.91
+          },
+          {
+            "zone": "*",
+            "weightUpto": 24,
+            "price": 352.81
+          },
+          {
+            "zone": "*",
+            "weightUpto": 25,
+            "price": 367.98
+          },
+          {
+            "zone": "*",
+            "weightUpto": 26,
+            "price": 383.4
+          },
+          {
+            "zone": "*",
+            "weightUpto": 27,
+            "price": 399.08
+          },
+          {
+            "zone": "*",
+            "weightUpto": 28,
+            "price": 415.02
+          },
+          {
+            "zone": "*",
+            "weightUpto": 29,
+            "price": 431.22
+          },
+          {
+            "zone": "*",
+            "weightUpto": 30,
+            "price": 447.68
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "*",
+            "perUnit": 14.8
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "KAPIDA_ODEME",
+            "name": "Kapıda ödeme hizmet bedeli",
+            "kind": "FIXED",
+            "amount": 16
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "mng",
+    "name": "MNG Kargo",
+    "tariffs": [
+      {
+        "name": "MNG Desi 2026",
+        "service": "Standart",
+        "currency": "TRY",
+        "divisor": 3000,
+        "edgeRounding": "CEIL_CM",
+        "weightSteps": [
+          {
+            "upto": null,
+            "step": 1
+          }
+        ],
+        "discountPct": 8,
+        "fuelPct": 3,
+        "fuelVariable": false,
+        "validFrom": "2026-01-01",
+        "validTo": "2026-12-31",
+        "active": true,
+        "isDefault": true,
+        "zones": [
+          {
+            "country": "*",
+            "zone": "*"
+          }
+        ],
+        "rates": [
+          {
+            "zone": "*",
+            "weightUpto": 1,
+            "price": 67.2
+          },
+          {
+            "zone": "*",
+            "weightUpto": 2,
+            "price": 75.38
+          },
+          {
+            "zone": "*",
+            "weightUpto": 3,
+            "price": 83.79
+          },
+          {
+            "zone": "*",
+            "weightUpto": 4,
+            "price": 92.43
+          },
+          {
+            "zone": "*",
+            "weightUpto": 5,
+            "price": 101.3
+          },
+          {
+            "zone": "*",
+            "weightUpto": 6,
+            "price": 110.4
+          },
+          {
+            "zone": "*",
+            "weightUpto": 7,
+            "price": 119.73
+          },
+          {
+            "zone": "*",
+            "weightUpto": 8,
+            "price": 129.29
+          },
+          {
+            "zone": "*",
+            "weightUpto": 9,
+            "price": 139.08
+          },
+          {
+            "zone": "*",
+            "weightUpto": 10,
+            "price": 149.11
+          },
+          {
+            "zone": "*",
+            "weightUpto": 11,
+            "price": 159.36
+          },
+          {
+            "zone": "*",
+            "weightUpto": 12,
+            "price": 169.84
+          },
+          {
+            "zone": "*",
+            "weightUpto": 13,
+            "price": 180.56
+          },
+          {
+            "zone": "*",
+            "weightUpto": 14,
+            "price": 191.5
+          },
+          {
+            "zone": "*",
+            "weightUpto": 15,
+            "price": 202.68
+          },
+          {
+            "zone": "*",
+            "weightUpto": 16,
+            "price": 214.08
+          },
+          {
+            "zone": "*",
+            "weightUpto": 17,
+            "price": 225.72
+          },
+          {
+            "zone": "*",
+            "weightUpto": 18,
+            "price": 237.58
+          },
+          {
+            "zone": "*",
+            "weightUpto": 19,
+            "price": 249.68
+          },
+          {
+            "zone": "*",
+            "weightUpto": 20,
+            "price": 262
+          },
+          {
+            "zone": "*",
+            "weightUpto": 21,
+            "price": 274.56
+          },
+          {
+            "zone": "*",
+            "weightUpto": 22,
+            "price": 287.35
+          },
+          {
+            "zone": "*",
+            "weightUpto": 23,
+            "price": 300.36
+          },
+          {
+            "zone": "*",
+            "weightUpto": 24,
+            "price": 313.61
+          },
+          {
+            "zone": "*",
+            "weightUpto": 25,
+            "price": 327.09
+          },
+          {
+            "zone": "*",
+            "weightUpto": 26,
+            "price": 340.8
+          },
+          {
+            "zone": "*",
+            "weightUpto": 27,
+            "price": 354.74
+          },
+          {
+            "zone": "*",
+            "weightUpto": 28,
+            "price": 368.91
+          },
+          {
+            "zone": "*",
+            "weightUpto": 29,
+            "price": 383.31
+          },
+          {
+            "zone": "*",
+            "weightUpto": 30,
+            "price": 397.94
+          }
+        ],
+        "overflow": [
+          {
+            "zone": "*",
+            "perUnit": 12.9
+          }
+        ],
+        "surcharges": [
+          {
+            "code": "KAPIDA_ODEME",
+            "name": "Kapıda ödeme hizmet bedeli",
+            "kind": "FIXED",
+            "amount": 15
+          }
+        ]
+      }
+    ]
+  }
+]

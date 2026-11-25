@@ -1,0 +1,370 @@
+{
+  "filters": {
+    "all": "All",
+    "manual": "Drawn area",
+    "auto": "Automatic",
+    "missing": "File missing",
+    "generated": "Generated",
+    "sticker": "Sticker"
+  },
+  "sorts": {
+    "key": "Key (1, 2 … a1, a2)",
+    "keyDesc": "Key, reversed",
+    "updated": "Recently changed"
+  },
+  "fields": {
+    "kind": "Type",
+    "area": "Text area",
+    "ribbonTop": "Ribbon",
+    "textCenter": "Target center",
+    "ignoreDecorationInArea": "Write over the whole area",
+    "decoration": "Decoration settings",
+    "printedText": "Printed text",
+    "notes": "Notes",
+    "tags": "Tags",
+    "imageBox": "Image position",
+    "cut": "Cut"
+  },
+  "sources": {
+    "user": "manual",
+    "measured": "measured",
+    "learned": "learned",
+    "migrated": "from the old system",
+    "auto": "automatic"
+  },
+  "center": {
+    "label": "Target center",
+    "reset": "Reset to area center",
+    "source": "Source",
+    "editedSource": "manual (not saved)",
+    "sourceSamples": "{{label}}, {{n}} samples",
+    "unknown": "unknown",
+    "xy": "x {{x}}% · y {{y}}%",
+    "learnedNote": "This center was learned from real placements. If you move it on the canvas, its source becomes \"manual\" when you save.",
+    "measuredNote": "This center was measured from real placements. If you move it on the canvas, its source becomes \"manual\" when you save.",
+    "unset": "Not set: text sits at the center of the area (faint marker on the canvas). Drag the marker to set where the text usually goes.",
+    "unsetValue": "not set",
+    "unknownSource": "source unknown"
+  },
+  "unsupported": {
+    "body": "The server does not offer this feature yet. This button will work once the server side is added."
+  },
+  "kinds": {
+    "label": "Label",
+    "sticker": "Sticker",
+    "generated": "Generated"
+  },
+  "cut": {
+    "shapes": {
+      "inherit": "From the design language",
+      "circle": "Circle",
+      "rect": "Rectangle",
+      "roundRect": "Rounded corners",
+      "ellipse": "Oval"
+    },
+    "sizeCircle": "Ø{{d}} mm",
+    "size": "{{w}} × {{h}} mm",
+    "heading": "Cut",
+    "shape": "Cut shape",
+    "diameter": "Diameter",
+    "width": "Width",
+    "height": "Height",
+    "radius": "Corner radius",
+    "aspectTitle": "The image aspect ratio does not match the cut.",
+    "aspectBody": "Image is {{image}}, cut is {{cut}}; the image will be stretched to fit the cut when printed. Upload the image in the same aspect ratio as the cut.",
+    "hint": "This cut is specific to this template; the label is printed at this size. Upload the image in the same aspect ratio as the cut."
+  },
+  "noLanguage": {
+    "title": "You need a design language first",
+    "body": "Templates belong to a design language. Go to Settings, open Design languages, and create one.",
+    "action": "Go to design languages"
+  },
+  "library": {
+    "title": "Library",
+    "count_one": "{{count}} template",
+    "count_other": "{{count}} templates",
+    "scan": "Scan folder",
+    "scanHint": "Scans the template folder: adds new PNGs and marks missing ones as \"file missing\"",
+    "generate": "Generate template from theme",
+    "generateShort": "Generate from theme",
+    "upload": "Upload template",
+    "gridView": "Grid view",
+    "editorView": "Editor view",
+    "search": "Key, note, tag",
+    "searchLabel": "Search templates",
+    "sortLabel": "Sort: {{sort}}",
+    "filterLabel": "Template filter",
+    "other": "Other",
+    "otherItem": "{{label}} · {{count}}",
+    "list": "Templates",
+    "open": "Open template {{key}}",
+    "empty": "No templates in this design language yet",
+    "emptyBody": "Drag and drop template PNGs onto this screen, or put them in the template folder and press Scan folder. You can also describe a theme and have AI draw the template.",
+    "noMatch": "No matching templates",
+    "noMatchQuery": "No templates match the search \"{{q}}\" with the selected filter.",
+    "noMatchFilter": "No templates in this filter.",
+    "clearFilters": "Clear filters",
+    "loadFailed": "Could not load templates.",
+    "retry": "Try again"
+  },
+  "flags": {
+    "missing": "File missing",
+    "manualArea": "Area drawn",
+    "centerMeasured": "Center measured",
+    "ribbon": "Ribbon {{pct}}%"
+  },
+  "sync": {
+    "title": "Folder scanned:",
+    "added_one": "{{count}} added",
+    "added_other": "{{count}} added",
+    "updated_one": "{{count}} file changed",
+    "updated_other": "{{count}} files changed",
+    "missing_one": "{{count}} file missing",
+    "missing_other": "{{count}} files missing",
+    "group": {
+      "added": "Added",
+      "updated": "File changed",
+      "missing": "File missing (record kept, marked \"file missing\")"
+    },
+    "close": "Close report",
+    "upToDate": "Folder scanned: everything is up to date.",
+    "failed": "Could not scan the folder. {{error}}"
+  },
+  "editor": {
+    "prev": "Previous template",
+    "next": "Next template",
+    "unsaved": "Not saved: {{fields}}",
+    "notFound": "Template \"{{key}}\" not found",
+    "notFoundBody": "The key may be misspelled, or this design language has no such template. You can pick one from the library.",
+    "backToLibrary": "Back to templates"
+  },
+  "leave": {
+    "body": "{{fields}} not saved yet. It is kept as a draft in this browser session but not written to the server. To save, press Cancel and use Save."
+  },
+  "rail": {
+    "label": "Area tools"
+  },
+  "tools": {
+    "hint": {
+      "ellipse": "Drag on the canvas to draw. Shift: circle. Esc cancels.",
+      "rect": "Drag on the canvas to draw. Shift: square. Esc cancels.",
+      "polygon": "Click to place points; click the first point or press Enter to close. Esc cancels."
+    }
+  },
+  "strip": {
+    "label": "Canvas tools",
+    "zoomTarget": "Zoom to target"
+  },
+  "layers": {
+    "title": "Layers",
+    "area": "Text area",
+    "decoration": "Decoration",
+    "ribbon": "Ribbon band",
+    "target": "Target center",
+    "cut": "Cut line",
+    "server": "Server overlay",
+    "decorationHint": "Estimated in the browser",
+    "serverHint": "The server's exact result for the saved state",
+    "serverFailed": "The server overlay can't be generated right now; the estimated layers in the browser keep working.",
+    "serverStale": "The server overlay shows the saved state; your unsaved changes are not reflected."
+  },
+  "canvas": {
+    "label": "Template canvas: template image, text area and cut line"
+  },
+  "status": {
+    "areaAuto": "Area: automatic",
+    "areaManual": "Area: {{shape}}, manual",
+    "ribbon": "Ribbon {{pct}}%",
+    "shapes": {
+      "circle": "circle",
+      "ellipse": "oval",
+      "rect": "rectangle",
+      "polygon": "polygon"
+    }
+  },
+  "panel": {
+    "more": "More actions",
+    "revertAll": "Undo all changes",
+    "undo": "Undo",
+    "save": "Save"
+  },
+  "notice": {
+    "restoredTitle": "Your unsaved draft was restored.",
+    "restoredBody": "Changes you made to this template earlier but did not save: {{fields}}.",
+    "missingTitle": "The template file is not in the folder.",
+    "missingBody": "The record and settings are kept. It reconnects when you upload a PNG with the same key."
+  },
+  "area": {
+    "heading": "Text area",
+    "mode": "Text area mode",
+    "auto": "Automatic",
+    "manual": "Manual",
+    "autoHint": "The program finds the text area by looking at the decoration. Turn on the Server overlay layer to see the result; if you don't like it, switch to Manual and draw it.",
+    "manualHint": "Drag the shape and resize it with the handles. Arrow keys nudge by 1 px (10 px with Shift). Redraw with Oval, Rectangle or Polygon on the rail.",
+    "suggest": "Automatic suggestion",
+    "toPoints": "Edit with points",
+    "addPoint": "Add point",
+    "removePoint": "Delete point",
+    "pointsHint": "Double-click an edge to add a point; select a point and press Del to delete it.",
+    "suggestMissing": "The server doesn't have automatic suggestions yet.",
+    "suggestFailed": "Could not get a suggestion.",
+    "ghostTitle": "The suggested area is shown with a dashed line.",
+    "ghostBody": "If you apply it, the area switches to Manual mode; you can edit it afterwards.",
+    "apply": "Apply",
+    "dismiss": "Cancel",
+    "fullArea": "Allow writing over the whole area",
+    "fullAreaHint": "Decoration inside the area is not treated as an obstacle.",
+    "fullAreaManualOnly": "Only applies to a manually drawn area."
+  },
+  "ribbon": {
+    "label": "Ribbon",
+    "aria": "Ribbon band height (percent of the cut diameter)",
+    "closed": "{{mm}} mm closed",
+    "hint": "This much from the top of the cut is closed to text. The yellow band shows live on the canvas."
+  },
+  "info": {
+    "heading": "Template info",
+    "printed": "The template has printed text",
+    "printedHint": "So the AI and the checker know; text is not placed over printed text.",
+    "printedYes": "has printed text",
+    "printedNo": "no printed text",
+    "tagCount_one": "{{count}} tag",
+    "tagCount_other": "{{count}} tags",
+    "notes": "Notes",
+    "notesHint": "A short description for the AI. Example: flower wreath, circular inner area.",
+    "tags": "Tags",
+    "tagsHint": "So it can be found in search. Add with Enter or a comma.",
+    "addTag": "Add tag",
+    "removeTag": "Remove tag {{tag}}"
+  },
+  "decor": {
+    "heading": "Decoration settings",
+    "hint": "Decides what the program counts as decoration. The scan on the canvas shows changes instantly.",
+    "source": "Decoration source",
+    "sourceHint": "Automatic: uses transparency if there is a transparent region, otherwise color.",
+    "sources": {
+      "auto": "automatic",
+      "alpha": "transparency",
+      "color": "color"
+    },
+    "sourceOptions": {
+      "auto": "Automatic",
+      "alpha": "Transparency (filled pixels)",
+      "color": "Color (pixels different from the background)"
+    },
+    "threshold": "Color difference threshold",
+    "thresholdHint": "A low threshold also counts faint details as decoration.",
+    "dilate": "Expand",
+    "dilateHint": "Margin around the decoration.",
+    "px": "{{n}} px",
+    "kind": "Type"
+  },
+  "history": {
+    "heading": "Change history",
+    "empty": "No recorded changes yet.",
+    "samples": "{{n}} samples",
+    "generated": "Generated with the image model ({{date}}): \"{{prompt}}\""
+  },
+  "try": {
+    "defaultSample": "With love\nAyse & Ali",
+    "sample": "Sample text",
+    "placeholder": "Sample text (line break = line split)",
+    "free": "free",
+    "run": "Try this template",
+    "beforeAfter": "Try before and after",
+    "missing": "The server doesn't have previews yet.",
+    "failed": "Could not get the preview.",
+    "result": "Result",
+    "saved": "Saved state",
+    "draft": "With changes",
+    "alt": "{{label}} preview",
+    "pt": "{{n}} pt",
+    "close": "Close try result"
+  },
+  "cutConfirm": {
+    "title": "Save the cut change?",
+    "body_one": "{{count}} approved job will need checking again: the approval of the job approved with this template and not yet printed is removed; check it with the new cut in Production and approve again. Printed jobs are not touched.",
+    "body_other": "{{count}} approved jobs will need checking again: the approvals of jobs approved with this template and not yet printed are removed; check them with the new cut in Production and approve again. Printed jobs are not touched.",
+    "unknown": "The number of affected jobs could not be fetched. When the cut changes, jobs approved with this template and not yet printed lose their approval and need checking again. Printed jobs are not touched.",
+    "save": "Save"
+  },
+  "toast": {
+    "saved": "Saved: {{fields}}. Measured values and history were kept.",
+    "saveFailed": "Could not save. {{error}} Your changes are still on screen.",
+    "reverted": "Changes undone.",
+    "restore": "Restore"
+  },
+  "upload": {
+    "titleOne": "Upload template",
+    "titleMany_one": "Upload {{count}} template",
+    "titleMany_other": "Upload {{count}} templates",
+    "cancel": "Cancel",
+    "submit": "Upload",
+    "submitMany_one": "Upload {{count}} file",
+    "submitMany_other": "Upload {{count}} files",
+    "overwriteTitle": "{{keys}} already exists.",
+    "overwriteBody": "If you upload, the new file replaces the old one. The server backs up the old file before uploading, so you can go back.",
+    "key": "Key",
+    "kind": "Type",
+    "uploaded": "Uploaded",
+    "uploading": "Uploading",
+    "failed": "Upload failed",
+    "overwrites": "Will overwrite",
+    "remove": "Remove from list",
+    "hint": "PNG is recommended; twice the resolution of the template box is best. On a PNG with a transparent background, the decoration is found automatically.",
+    "problem": {
+      "invalidKey": "The key can't be empty and can't contain / \\ ? # % : * \" < > |.",
+      "duplicate": "The same key is used in two files."
+    },
+    "doneOne": "\"{{key}}\" uploaded.",
+    "doneMany_one": "{{count}} template uploaded.",
+    "doneMany_other": "{{count}} templates uploaded.",
+    "onlyPng": "Only PNG files can be uploaded. Skipped: {{names}}",
+    "drop": "Drop PNGs and we'll upload them as templates",
+    "readFailed": "Could not read the file."
+  },
+  "generate": {
+    "title": "Generate template from theme",
+    "cancel": "Cancel",
+    "submit": "Generate template",
+    "theme": "Theme",
+    "themeHint": "Describe how the template should look. Example: pastel flower wreath, empty and circular in the middle.",
+    "sample": "Sample text (optional)",
+    "sampleHint": "To show the model where the text will go.",
+    "key": "Key (optional)",
+    "keyHint": "If you leave it empty, the server picks a key.",
+    "keyError": {
+      "exists": "This key already exists.",
+      "invalid": "Invalid key."
+    },
+    "cost": "Uses the image model; every generation is paid, and the template engine analyzes the result automatically.",
+    "missing": "The server can't generate templates yet.",
+    "failed": "Could not generate the template.",
+    "queued": "Generating the template. When it's ready it shows up in the list as \"Generated\"."
+  },
+  "shortcuts": {
+    "save": "Save",
+    "undo": "Undo",
+    "toolSelect": "Select",
+    "toolEllipse": "Oval",
+    "toolRect": "Rectangle",
+    "toolPolygon": "Polygon",
+    "cancel": "Cancel drawing, drop the tool",
+    "finish": "Close polygon",
+    "deleteVertex": "Delete point",
+    "left": "Nudge left",
+    "right": "Nudge right",
+    "up": "Nudge up",
+    "down": "Nudge down",
+    "prev": "Previous template",
+    "next": "Next template",
+    "search": "Search templates",
+    "toggleView": "Grid or editor view",
+    "groups": {
+      "edit": "Editing",
+      "tools": "Tools",
+      "area": "Text area",
+      "library": "Library"
+    }
+  }
+}

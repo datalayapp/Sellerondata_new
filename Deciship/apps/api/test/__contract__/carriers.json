@@ -1,0 +1,41 @@
+{
+  "endpoint": "GET /api/deciship/carriers",
+  "status": 200,
+  "shape": {
+    "items": [
+      {
+        "active": "boolean",
+        "code": "string",
+        "createdAt": "string",
+        "defaultMapping": "null",
+        "effectivePackagingLimits": {
+          "ENVELOPE": {
+            "$oneOf": [
+              "null",
+              {
+                "maxEdgesCm": [
+                  "number"
+                ],
+                "maxKg": "number"
+              }
+            ]
+          },
+          "PAK": {
+            "$oneOf": [
+              "null",
+              {
+                "maxKg": "number",
+                "maxVolumeCm3": "number"
+              }
+            ]
+          }
+        },
+        "id": "string",
+        "invoiceCount": "number",
+        "name": "string",
+        "packagingLimits": "null",
+        "tariffCount": "number"
+      }
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "units": {
+    "weights_one": "{{formatted}} ağırlık",
+    "weights_other": "{{formatted}} ağırlık",
+    "zones_one": "{{formatted}} bölge",
+    "zones_other": "{{formatted}} bölge",
+    "countryMappings_one": "{{formatted}} ülke eşlemesi",
+    "countryMappings_other": "{{formatted}} ülke eşlemesi",
+    "surcharges_one": "{{formatted}} ek ücret",
+    "surcharges_other": "{{formatted}} ek ücret",
+    "prices_one": "{{formatted}} fiyat",
+    "prices_other": "{{formatted}} fiyat",
+    "cells_one": "{{formatted}} hücre",
+    "cells_other": "{{formatted}} hücre"
+  },
+  "wizard": {
+    "recheckFailed": "Yeniden kontrol yapılamadı",
+    "okLine": "{{weights}} × {{zones}} okundu.",
+    "reasons": {
+      "warnings_one": "{{formatted}} uyarı",
+      "warnings_other": "{{formatted}} uyarı",
+      "aiCaution": "yapay zekâ “Dikkat” dedi",
+      "aiReject": "yapay zekâ bu dosyayı önermiyor",
+      "serverAsked": "ek onay gerekiyor"
+    },
+    "err": {
+      "blocked": "Bu dosyada içe aktarmayı engelleyen bir sorun var; tarife değiştirilmedi.",
+      "ackRequired": "Tarife değiştirilmedi: önce uyarıları okuduğunuzu onaylayın.",
+      "generic": "Tarife değiştirilmedi. {{message}}"
+    },
+    "why": {
+      "expired": "Önizlemenin süresi doldu, dosyayı tekrar yükleyin.",
+      "blockedFixable": "Önce sorunları giderin: yukarıdaki düzeltmeyi açın ya da dosyayı düzeltip yeniden yükleyin.",
+      "blocked": "Önce sorunları giderin: dosyayı düzeltip yeniden yükleyin.",
+      "name": "Tarife adını yazın.",
+      "divisor": "Desi böleni pozitif bir sayı olmalı.",
+      "fuel": "Yakıt oranı 0–100 arasında olmalı.",
+      "rechecking": "Yeniden kontrol ediliyor…"
+    },
+    "titleNew": "Yeni tarife: kontrol et ve oluştur",
+    "titleImport": "Tarifeyi içe aktar",
+    "ackStrong": "Yapay zekâ önermiyor; riskleri anladım, yine de uygula.",
+    "ack": "Uyarıları okudum, yine de uygula.",
+    "backToTables": "Tablolara dön",
+    "cancel": "Vazgeç",
+    "ackFirst": "Önce uyarıları okuduğunuzu onaylayın.",
+    "create": "Tarifeyi oluştur",
+    "apply": "Uygula",
+    "expiredNote": "Tarifeniz değiştirilmedi.",
+    "dirtyNote": "Kaydedilmemiş değişiklikleriniz bu dosyayla değiştirilir.",
+    "aiAsk": "Yapay zekâya kontrol ettir",
+    "aiAskWhy": "Uyarıların sebebini açıklar, dosyanın doğru tarife olup olmadığını söyler.",
+    "details": "Ayrıntılar",
+    "aiQuiet": "İsterseniz <a>yapay zekâya da kontrol ettirin</a>."
+  },
+  "newFields": {
+    "title": "Tarife bilgileri",
+    "name": "Tarife adı",
+    "nameRequired": "Tarife adı gerekli.",
+    "namePlaceholder": "ör. FedEx International Priority 2026",
+    "service": "Hizmet",
+    "serviceHelp": "Faturadaki hizmet adı",
+    "servicePlaceholder": "IP, IE, Standart…",
+    "currency": "Para birimi",
+    "divisor": "Desi böleni",
+    "divisorHelp": "5000 uluslararası · 3000 desi",
+    "divisorBad": "Pozitif bir sayı girin.",
+    "fuel": "Yakıt ek ücreti",
+    "fuelBad": "0 ile 100 arasında olmalı.",
+    "fuelMode": "Yakıt oranı",
+    "fuelVariable": "Değişken (faturadaki oran kabul edilir)",
+    "fuelFixed": "Sözleşmede sabit",
+    "fuelModeHelp": "Yurt içi taşıyıcılarda çoğunlukla sabit",
+    "validFrom": "Geçerlilik başlangıcı",
+    "discount": "İndirim",
+    "discountHelp": "Sözleşmedeki indirim. Listedeki fiyatlar zaten net ise boş bırakın."
+  },
+  "docInfo": {
+    "title": "Belgedeki bilgiler",
+    "service": "Hizmet {{value}}",
+    "fuel": "Yakıt %{{value}}",
+    "validFrom": "Geçerlilik {{value}}",
+    "nowValue": "şu an {{value}}",
+    "nowFuel": "şu an %{{value}}",
+    "nowEmpty": "şu an boş"
+  },
+  "checks": {
+    "title": "Kontroller",
+    "errors_one": "{{formatted}} hata",
+    "errors_other": "{{formatted}} hata",
+    "warnings_one": "{{formatted}} uyarı",
+    "warnings_other": "{{formatted}} uyarı",
+    "none": "Sorun yok",
+    "noneDetail": "Engelleyici sorun ya da uyarı yok."
+  },
+  "preview": {
+    "title": "Fiyat önizlemesi",
+    "none": "Dosyada okunabilen fiyat yok.",
+    "weightUpto": "Ağırlık ≤ {{unit}}",
+    "perKg": "kg başı",
+    "showing": "{{shown}} / {{total}} ağırlık gösteriliyor.",
+    "counts": "{{countries}} · {{surcharges}}.",
+    "packTitle_one": "Poşet ve zarf fiyatları ({{formatted}} fiyat)",
+    "packTitle_other": "Poşet ve zarf fiyatları ({{formatted}} fiyat)",
+    "packaging": "Ambalaj",
+    "anyWeight": "her ağırlık",
+    "packDiscount": "{{pack}} indirimi %{{pct}}"
+  },
+  "compare": {
+    "title": "Mevcut tarifeyle karşılaştırma",
+    "bigDiff_one": "{{formatted}} bölgede büyük fark",
+    "bigDiff_other": "{{formatted}} bölgede büyük fark",
+    "consistent": "Tutarlı",
+    "noCommonShort": "ortak bölge yok",
+    "noCommon": "Mevcut tarifeyle ortak bölge yok; karşılaştırılamadı.",
+    "hint": "Aynı bölgelerin ortanca fiyatı. 0,5–2 kat dışı çoğu zaman yanlış para birimi ya da hizmet demektir.",
+    "zone": "Bölge",
+    "ratio": "Oran",
+    "current": "Mevcut ({{currency}})",
+    "thisFile": "Bu dosya ({{currency}})"
+  },
+  "source": {
+    "title": "Kaynak ve doğrulama",
+    "unverified": "doğrulanamadı",
+    "notFound_one": "{{formatted}} fiyat bulunamadı",
+    "notFound_other": "{{formatted}} fiyat bulunamadı",
+    "same": "PDF ile aynı"
+  },
+  "chip": {
+    "willUse": "Kullanılacak · geri al",
+    "use": "Kullan"
+  },
+  "sourceBody": {
+    "noText": "Fiyatlar PDF metniyle karşılaştırılamadı (taranmış görüntü). Önizlemedeki birkaç fiyatı PDF ile göz ile karşılaştırın.",
+    "readDirect": "{{checked}} doğrudan PDF metninden okundu.",
+    "readDirectMissing": "{{checked}} doğrudan PDF metninden okundu; {{missing}} okunamadı.",
+    "matched": "{{checked}} fiyattan {{matched}} tanesi PDF metninde birebir bulundu.",
+    "zone": "Bölge",
+    "weight": "Ağırlık",
+    "price": "Okunan fiyat",
+    "page": "Sayfa",
+    "showLess": "Daha az göster",
+    "showAll": "Tümünü göster ({{formatted}})",
+    "tables": "Tablolar: {{titles}}",
+    "pageLabel": "sayfa {{pages}}"
+  },
+  "fileHelp": {
+    "title": "Hangi dosyayı yüklemeliyim?",
+    "p1": "<b>Size özel anlaşmalı fiyat listesini</b> yükleyin; taşıyıcı temsilcinizden isteyebilirsiniz. Web sitesindeki genel liste fiyatları faturanızla uyuşmaz.",
+    "p2": "Türkiye çıkışlı, ağırlıklar kg ya da desi, para birimi faturalarınızla aynı olmalı.",
+    "p3": "En hızlısı Excel şablonu; taşıyıcının gönderdiği PDF de olur."
+  },
+  "ai": {
+    "loading": "Yapay zekâ dosyayı inceliyor… genelde 10–40 saniye sürer.",
+    "off": "Yapay zekâ kontrolü şu an kullanılamıyor; otomatik kontroller yapıldı.",
+    "failed": "Yapay zekâ kontrolü tamamlanamadı.",
+    "busy": "Yapay zekâ şu an yoğun; biraz sonra deneyin.",
+    "retry": "Tekrar dene",
+    "facts": {
+      "carrier": "Taşıyıcı",
+      "service": "Hizmet",
+      "origin": "Çıkış ülkesi",
+      "weightUnit": "Ağırlık birimi",
+      "currency": "Para birimi",
+      "validity": "Geçerlilik",
+      "listRate": "Liste fiyatı mı?",
+      "listYes": "Evet, genel liste fiyatı",
+      "listNo": "Hayır, anlaşmalı fiyat"
+    },
+    "title": "Yapay zekâ",
+    "verdict": {
+      "ok": "Uygun",
+      "caution": "Dikkat",
+      "reject": "Önerilmiyor"
+    },
+    "recheck": "Düzeltmeden sonra yeniden kontrol ettir",
+    "details": "Ayrıntılar",
+    "whatIsThis": "Bu dosya ne?",
+    "suggestedName": "Önerilen ad:",
+    "useName": "Bu adı kullan",
+    "model": "Model: {{model}}"
+  },
+  "issues": {
+    "suggestion": "Öneri:",
+    "rows_one": "Satır",
+    "rows_other": "{{formatted}} satır"
+  },
+  "pdf": {
+    "seconds": "{{n}} sn",
+    "cancel": "İptal et",
+    "queued": "Sırada bekliyor",
+    "other": {
+      "list": "Liste fiyatı",
+      "import": "İthalat"
+    },
+    "fuelPct": "yakıt %{{pct}}",
+    "fuelIndexed": "yakıt endeksli",
+    "asOf": "{{date}} itibarıyla",
+    "fit": {
+      "invoices": "Faturanıza uygun",
+      "tariff": "Tarifenizle aynı hizmet",
+      "default": "Önerilen"
+    },
+    "rescan": "Yeniden tara",
+    "scan": "PDF'i tara",
+    "scanAi": "Yapay zekâ ile tara",
+    "scanAiHint": "Otomatik okunamazsa · 20–60 sn",
+    "zonesOf": "Bölge {{zones}}",
+    "listTimesDiscount": "liste s. {{list}} × indirim s. {{discount}}",
+    "pageShort": "s. {{pages}}",
+    "selectOne": "En az bir tablo seçin.",
+    "modalLabel": "PDF'ten tarife",
+    "titlePick": "Hangi tablolar içe aktarılsın?",
+    "selectedFoot_one": "{{formatted}} tablo seçili. Uygulamadan önce kontrol özeti gelir.",
+    "selectedFoot_other": "{{formatted}} tablo seçili. Uygulamadan önce kontrol özeti gelir.",
+    "cancelBtn": "Vazgeç",
+    "take": "Seçilenleri içe aktar",
+    "pageCount_one": "{{formatted}} sayfa",
+    "pageCount_other": "{{formatted}} sayfa",
+    "progress": {
+      "aiScan": "Yapay zekâ PDF'i tarıyor…",
+      "scan": "PDF taranıyor…",
+      "aiExtract": "Seçilen tablolar okunuyor…",
+      "extract": "Seçilen tablolar içe aktarılıyor…"
+    },
+    "expected": {
+      "aiScan": "20–60 saniye",
+      "aiExtract": "30 saniye ile 2 dakika"
+    },
+    "aiOff": {
+      "title": "Yapay zekâ okuması şu an kapalı.",
+      "body": "Fiyat listesini Excel ya da CSV olarak yükleyin veya fiyatları şablona girin."
+    },
+    "err": {
+      "extract": "Tablolar içe aktarılamadı.",
+      "scan": "PDF taranamadı.",
+      "expired": "Belgenin süresi doldu; PDF’i yeniden yükleyin.",
+      "unchanged": "Tarifeniz değiştirilmedi."
+    },
+    "leadText": "Tablolar otomatik okunur, birkaç saniye sürer. Okunamazsa yapay zekâ ile tarayabilirsiniz.",
+    "leadImage": "Bu PDF taranmış görüntü gibi görünüyor; büyük olasılıkla yalnızca yapay zekâ ile okunabilir.",
+    "noTables": "Bu PDF’te fiyat tablosu bulunamadı.",
+    "guide": {
+      "suggest_invoices_one": "Faturalarınızda <b>{{name}}</b> kullanıldığı için bu hizmetin tablosu seçildi. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "suggest_invoices_other": "Faturalarınızda <b>{{name}}</b> kullanıldığı için bu hizmetin {{formatted}} tablosu seçildi; her biri farklı bir ülke grubunu kapsar, tüm ülkeler için hepsi gerekir. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "suggest_tariff_one": "Tarifeniz <b>{{name}}</b> olduğu için bu hizmetin tablosu seçildi. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "suggest_tariff_other": "Tarifeniz <b>{{name}}</b> olduğu için bu hizmetin {{formatted}} tablosu seçildi; her biri farklı bir ülke grubunu kapsar, tüm ülkeler için hepsi gerekir. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "suggest_default_one": "Önerilen: <b>{{name}}</b> hizmetinin tablosu seçildi. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "suggest_default_other": "Önerilen: <b>{{name}}</b> hizmetinin {{formatted}} tablosu seçildi; her biri farklı bir ülke grubunu kapsar, tüm ülkeler için hepsi gerekir. Yalnızca bu hizmeti kullanıyorsanız seçimi değiştirmeden devam edin.",
+      "regions": "<b>Dünya</b> ve <b>Avrupa</b> tabloları aynı hizmetin farklı ülke gruplarıdır.",
+      "net": "<b>net</b> = size özel indirimli fiyat.",
+      "single": "Bir tarife tek hizmet içermeli; başka bir hizmeti de kullanıyorsanız (ör. Economy) onun için ayrı tarife oluşturun."
+    },
+    "foundTables": "Bulunan tablolar",
+    "pricing": {
+      "legend": "Fiyatlar nasıl alınsın?",
+      "listDiscount": "Liste fiyatı × indirim tablosu",
+      "listDiscountDesc": "Sözleşmeye göre kesin hesap: liste fiyatları (s. {{list}}) indirim tablosundaki oranla (s. {{discount}}) düşülür. Faturalar da böyle hesaplanır.",
+      "net": "Net fiyat tablosu",
+      "netDesc": "Hazır indirimli tablo (s. {{pages}}). Yalnızca yaklaşık bir değer verir; faturadan az farklı olabilir.",
+      "differ": "İki yol {{compared}} fiyattan {{differing}} tanesinde farklı (en çok {{max}}); fark çoğunlukla ara ağırlıklarda.",
+      "same": "İki yol {{compared}} fiyatın hepsinde aynı sonucu veriyor.",
+      "unlinked_one": "Bir tablonun liste karşılığı yok; o tablo kendi fiyatıyla alınır.",
+      "unlinked_other": "{{formatted}} tablonun liste karşılığı yok; o tablolar kendi fiyatıyla alınır."
+    },
+    "otherTables": "Diğer tablolar ({{formatted}})",
+    "otherTablesHint": "liste fiyatı, ithalat",
+    "mixed": "<b>Seçilen tablolar farklı hizmetlere ait ({{services}}).</b> Aynı bölge ve ağırlık için biri diğerinin üzerine yazar, karşılaştırma yanlış çıkar. Bu tarifede tek hizmet bırakın; diğeri için ayrı tarife oluşturun.",
+    "takeCountryZones": "Ülke → bölge listesini de al",
+    "missingTables": "Tablolar eksik ya da yanlış mı?",
+    "templateFailed": "Şablon indirilemedi",
+    "downloadTemplate": "Şablonu indir",
+    "scanAiOff": "Yapay zekâ taraması şu an kullanılamıyor.",
+    "noTablesNoAi": "Bu PDF'teki tablolar otomatik okunamadı ve yapay zekâ okuması kapalı. Fiyat listesini Excel ya da CSV olarak yükleyin veya fiyatları şablona girin.",
+    "leadTextNoAi": "Tablolar otomatik okunur, birkaç saniye sürer.",
+    "leadImageNoAi": "Bu PDF taranmış görüntü gibi görünüyor ve yapay zekâ okuması kapalı. Fiyat listesini Excel ya da CSV olarak yükleyin."
+  }
+}

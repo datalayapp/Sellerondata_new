@@ -1,0 +1,338 @@
+{
+  "endpoint": "GET /api/deciship/invoices/:id",
+  "status": 200,
+  "shape": {
+    "invoice": {
+      "basis": {
+        "calculatedAt": "string",
+        "state": "string",
+        "tariffName": "string"
+      },
+      "carrier": {
+        "code": "string",
+        "id": "string",
+        "name": "string"
+      },
+      "createdAt": "string",
+      "currency": "string",
+      "dispute": {
+        "active": {
+          "$oneOf": [
+            "null",
+            {
+              "channel": "string",
+              "channelNote": {
+                "$oneOf": [
+                  "null",
+                  "string"
+                ]
+              },
+              "createdAt": "string",
+              "currency": "string",
+              "id": "string",
+              "lines": [
+                {
+                  "claimedAmount": "number",
+                  "id": "string",
+                  "invoiceLineId": "string",
+                  "lineNo": "number",
+                  "outcome": "string",
+                  "recoveredAmount": {
+                    "$oneOf": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "resultId": {
+                    "$oneOf": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "trackingNo": "string"
+                }
+              ],
+              "reference": "null",
+              "results": [
+                {
+                  "amount": "number",
+                  "creditNoteNo": "string",
+                  "enteredAt": "string",
+                  "enteredBy": {
+                    "id": "string",
+                    "name": "string"
+                  },
+                  "id": "string",
+                  "kind": "string",
+                  "lines": [
+                    {
+                      "amount": "number",
+                      "disputeLineId": "string"
+                    }
+                  ],
+                  "reason": "null",
+                  "resultOn": "string",
+                  "revertReason": "null",
+                  "revertedAt": "null",
+                  "revertedBy": "null"
+                }
+              ],
+              "round": "number",
+              "sentBy": {
+                "id": "string",
+                "name": "string"
+              },
+              "sentOn": "string",
+              "sums": {
+                "claimedAmount": "number",
+                "pendingAmount": "number",
+                "recoveredAmount": "number",
+                "rejectedAmount": "number",
+                "shortfallAmount": "number"
+              },
+              "supersededAt": "null",
+              "supersededById": "null",
+              "ttk": "string",
+              "ttkSentOn": "string",
+              "version": "number",
+              "withdrawReason": "null",
+              "withdrawnAt": "null",
+              "withdrawnBy": "null"
+            }
+          ]
+        },
+        "history": [
+          {
+            "channel": "string",
+            "channelNote": "null",
+            "createdAt": "string",
+            "currency": "string",
+            "id": "string",
+            "lines": [
+              {
+                "claimedAmount": "number",
+                "id": "string",
+                "invoiceLineId": "string",
+                "lineNo": "number",
+                "outcome": "string",
+                "recoveredAmount": {
+                  "$oneOf": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "resultId": {
+                  "$oneOf": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "trackingNo": "string"
+              }
+            ],
+            "reference": "null",
+            "results": [
+              {
+                "amount": "number",
+                "creditNoteNo": {
+                  "$oneOf": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "enteredAt": "string",
+                "enteredBy": {
+                  "id": "string",
+                  "name": "string"
+                },
+                "id": "string",
+                "kind": "string",
+                "lines": [
+                  {
+                    "amount": "number",
+                    "disputeLineId": "string"
+                  }
+                ],
+                "reason": {
+                  "$oneOf": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "resultOn": "string",
+                "revertReason": "null",
+                "revertedAt": "null",
+                "revertedBy": "null"
+              }
+            ],
+            "round": "number",
+            "sentBy": {
+              "id": "string",
+              "name": "string"
+            },
+            "sentOn": "string",
+            "sums": {
+              "claimedAmount": "number",
+              "pendingAmount": "number",
+              "recoveredAmount": "number",
+              "rejectedAmount": "number",
+              "shortfallAmount": "number"
+            },
+            "supersededAt": {
+              "$oneOf": [
+                "null",
+                "string"
+              ]
+            },
+            "supersededById": {
+              "$oneOf": [
+                "null",
+                "string"
+              ]
+            },
+            "ttk": {
+              "$oneOf": [
+                "null",
+                "string"
+              ]
+            },
+            "ttkSentOn": "string",
+            "version": "number",
+            "withdrawReason": {
+              "$oneOf": [
+                "null",
+                "string"
+              ]
+            },
+            "withdrawnAt": {
+              "$oneOf": [
+                "null",
+                "string"
+              ]
+            },
+            "withdrawnBy": {
+              "$oneOf": [
+                "null",
+                {
+                  "id": "string",
+                  "name": "string"
+                }
+              ]
+            }
+          }
+        ],
+        "recalcPendingLines": "number",
+        "selectionDigest": {
+          "$oneOf": [
+            "null",
+            "string"
+          ]
+        },
+        "sendableAmount": "number",
+        "sendableLineCount": "number",
+        "status": "string",
+        "sums": {
+          "$oneOf": [
+            "null",
+            {
+              "claimedAmount": "number",
+              "pendingAmount": "number",
+              "recoveredAmount": "number",
+              "rejectedAmount": "number",
+              "shortfallAmount": "number"
+            }
+          ]
+        },
+        "unsentAmount": "number",
+        "unsentLineCount": "number"
+      },
+      "fileFormat": "string",
+      "fileName": "string",
+      "fileUrl": "string",
+      "id": "string",
+      "importReport": {
+        "byReason": {
+          "*": {
+            "$oneOf": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "linesImported": "number",
+        "noTrackingAmount?": "number",
+        "rowsInFile": "number",
+        "skippedCount": "number",
+        "skippedRows": [
+          {
+            "amount?": "number",
+            "rawNet?": "string",
+            "reason": "string",
+            "row": "number",
+            "trackingRaw?": "string"
+          }
+        ],
+        "source": "string",
+        "version": "number"
+      },
+      "invoiceDate": "string",
+      "invoiceNo": "string",
+      "mapping": "any",
+      "periodFrom": "null",
+      "periodTo": "null",
+      "sourceFileId": "string",
+      "status": "string",
+      "tariff": {
+        "id": "string",
+        "name": "string"
+      },
+      "tariffId": "string",
+      "tariffSuspect": "boolean",
+      "tariffsUsed": [
+        {
+          "id": "string",
+          "lines": "number",
+          "name": "string"
+        }
+      ],
+      "totals": {
+        "acceptedLines": "number",
+        "billedTotal": "number",
+        "comparedBilledTotal": "number",
+        "diff": "number",
+        "estimatedLines": "number",
+        "estimatedOverchargeTotal": "number",
+        "expectedTotal": "number",
+        "flaggedLines": "number",
+        "fxMissing": "number",
+        "lines": "number",
+        "match": "number",
+        "noTariff": "number",
+        "overchargeByType": [
+          {
+            "amount": "number",
+            "lines": "number",
+            "type": "string"
+          }
+        ],
+        "overchargeTotal": "number",
+        "pakNoTariff": "number",
+        "pakUnmatched": "number",
+        "pendingLines": "number",
+        "reconciliation": {
+          "overchargeTotal": "number",
+          "steps": [
+            {
+              "amount": "number",
+              "key": "string",
+              "lines": "number"
+            }
+          ]
+        },
+        "uncheckedSurchargeTotal": "number",
+        "unmatched": "number",
+        "verifiedTotal": "number"
+      }
+    }
+  }
+}

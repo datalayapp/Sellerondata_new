@@ -1,0 +1,413 @@
+/* Tuval (maket .cv, .rl-*, .ab, .hd8, .szb, .dock, .zm). Dünya katmanında 1 birim = 1 mm. */
+
+.tz-cv {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background-color: var(--tz-canvas);
+  touch-action: none;
+  contain: content;
+}
+
+/* 5 mm ızgara: hücre boyu ve konumu görünümle birlikte doğrudan yazılır (--tz-grid-px, background-position). */
+.tz-cv[data-grid] {
+  background-image: linear-gradient(var(--tz-canvas-grid) 1px, transparent 1px), linear-gradient(90deg, var(--tz-canvas-grid) 1px, transparent 1px);
+  background-size: var(--tz-grid-px) var(--tz-grid-px);
+}
+
+.tz-cv.is-pan {
+  cursor: grab;
+}
+
+.tz-cv[data-dragging] {
+  cursor: grabbing;
+}
+
+.tz-cv-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-origin: 0 0;
+  --tz-mm: 1px;
+}
+
+/* Hareket sürerken dünya katmanı ayrı katmanda (yalnız birleştirme); durunca kalkar ve yeni ölçekte keskin çizilir. */
+.tz-cv[data-moving] .tz-cv-world {
+  will-change: transform;
+}
+
+.tz-cv-ov {
+  display: contents;
+}
+
+/* ---------------------------------------------------------------- cetvel */
+
+.tz-rl-c {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--tz-ruler);
+  height: var(--tz-ruler);
+  background: var(--tz-ruler-bg);
+  border-right: 1px solid var(--tz-ruler-line);
+  border-bottom: 1px solid var(--tz-ruler-line);
+  z-index: 3;
+}
+
+/* Çizgiler iki tekrarlı degradeyle (büyük 9 px, küçük 4 px); yalnız sayılar öğe. */
+.tz-rl {
+  position: absolute;
+  overflow: hidden;
+  background-color: var(--tz-ruler-bg);
+  background-repeat: no-repeat;
+  font: 10px / 1 var(--fm);
+  font-variant-numeric: tabular-nums;
+  color: var(--tz-ruler-major);
+  z-index: 2;
+  forced-color-adjust: none;
+  user-select: none;
+}
+
+.tz-rl--t {
+  left: var(--tz-ruler);
+  right: 0;
+  top: 0;
+  height: var(--tz-ruler);
+  border-bottom: 1px solid var(--tz-ruler-line);
+  background-image:
+    repeating-linear-gradient(90deg, var(--tz-ruler-major) 0 1px, transparent 1px var(--tz-rl-maj)),
+    repeating-linear-gradient(90deg, var(--tz-ruler-minor) 0 1px, transparent 1px var(--tz-rl-min));
+  background-size: calc(100% + var(--tz-rl-maj)) 9px, calc(100% + var(--tz-rl-maj)) 4px;
+  background-position: var(--tz-rl-o) 100%, var(--tz-rl-o) 100%;
+}
+
+.tz-rl--l {
+  top: var(--tz-ruler);
+  bottom: 0;
+  left: 0;
+  width: var(--tz-ruler);
+  border-right: 1px solid var(--tz-ruler-line);
+  background-image:
+    repeating-linear-gradient(180deg, var(--tz-ruler-major) 0 1px, transparent 1px var(--tz-rl-maj)),
+    repeating-linear-gradient(180deg, var(--tz-ruler-minor) 0 1px, transparent 1px var(--tz-rl-min));
+  background-size: 9px calc(100% + var(--tz-rl-maj)), 4px calc(100% + var(--tz-rl-maj));
+  background-position: 100% var(--tz-rl-o), 100% var(--tz-rl-o);
+}
+
+.tz-rl-j {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.tz-rl--t .tz-rl-j {
+  top: 3px;
+  padding-left: 3px;
+}
+
+/* Sol cetvel: sayılar yatay (maket); 3 karakterden uzun sayı görünürse dikey (22 px'e sığsın). */
+.tz-rl--l .tz-rl-j {
+  left: 2px;
+  padding-top: 3px;
+}
+
+.tz-rl--l.tz-rl--v .tz-rl-j {
+  left: 4px;
+  padding-top: 0;
+  padding-bottom: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg) translateY(-100%);
+  transform-origin: 50% 0;
+}
+
+.tz-rl-hi {
+  position: absolute;
+  background: var(--tz-ruler-hi);
+  border: 0 solid var(--primary);
+}
+
+.tz-rl--t .tz-rl-hi {
+  top: 0;
+  bottom: 0;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.tz-rl--l .tz-rl-hi {
+  left: 0;
+  right: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+/* ---------------------------------------------------------------- tuval öğeleri (dünya birimi) */
+
+.tz-ab {
+  position: absolute;
+}
+
+/* Ad ve alttaki düğmeler yakınlaştırmadan bağımsız boyda: ters ölçekle (yazı her ölçekte 12 px çizilir). */
+.tz-ab-nm {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: calc(6px / var(--tz-zoom));
+  transform: scale(calc(1 / var(--tz-zoom)));
+  transform-origin: 0 100%;
+  font-size: var(--tz-fs-small);
+  line-height: 18px;
+  color: var(--tz-artboard-ink);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Ad: tek satır; sığmazsa üç nokta. Ad içindeki öğeler (ad, kopya, kilit) satır içi, aralarında 6 px. */
+.tz-ab-n {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-ab-n > * + * {
+  margin-left: 6px;
+}
+
+.tz-ab-tg {
+  flex: none;
+}
+
+/*
+ * Boyu bilinen kutuda ad satırı kutunun ekrandaki genişliğini aşmaz; ad ve etiket gerekirse kısalır. (Etiketi sağa
+ * yaslamak ekranın işidir: `.tz-ab-tg { margin-left: auto }`.)
+ */
+.tz-ab.has-w > .tz-ab-nm {
+  max-width: calc(100% * var(--tz-zoom));
+}
+
+.tz-ab.has-w .tz-ab-tg {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tz-ab-nm b {
+  font-family: var(--fm);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.tz-ab.is-sel .tz-ab-nm,
+.tz-ab.is-sel .tz-ab-nm b {
+  color: var(--primary-text);
+}
+
+.tz-ab-below {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: calc(10px / var(--tz-zoom));
+  transform: scale(calc(1 / var(--tz-zoom)));
+  transform-origin: 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+/*
+ * Dünya kutusu ekran pikselinde (`worldRectStyle`). Chrome dünya katmanındaki kutunun konum ve boyutunu boyamadan önce
+ * 1 dünya birimine (1 mm) yuvarlar; kayan kutu (seçim çerçevesi) yazının yanında mm mm sıçrar ve 1 mm büyüyüp küçülür.
+ * Burada konum dönüşümle (yuvarlanmaz), boyut zoom'la çarpılmış ekran pikseliyle verilir; kutunun içi ekran pikselidir.
+ */
+.tz-wrect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--tz-w) * var(--tz-zoom) * 1px);
+  height: calc(var(--tz-h) * var(--tz-zoom) * 1px);
+  transform-origin: 0 0;
+  transform: translate(calc(var(--tz-x) * 1px), calc(var(--tz-y) * 1px)) scale(calc(1 / var(--tz-zoom)));
+}
+
+/*
+ * Arayüz çizgileri ekran pikselinde sabit kalır (dünya katmanı yakınlaştırmayla ölçeklenir). Chrome `border` ve
+ * `outline` kalınlığını en az 1 px'e yuvarlar; `calc(1px / zoom)` 1 dünya pikseline (= zoom kadar ekran pikseline)
+ * döner. Bu yüzden: çerçeve `box-shadow` yayılımıyla (yuvarlanmaz), tutamak ve rozet ters ölçekli kutuyla, SVG
+ * çizgisi `stroke-width: calc(… / zoom)` ile (HTML dönüşümünde `non-scaling-stroke` işlemez). Seçim çerçevesi
+ * `.tz-wrect` ile ekran pikselinde çizildiği için yayılımı, tutamağı ve rozeti düz ekran pikselidir.
+ */
+.tz-selbox {
+  position: absolute;
+  box-shadow: 0 0 0 1.5px var(--primary);
+  pointer-events: none;
+}
+
+/* Tutamak: 9 px kare, 1,5 px kenar; ekran ölçüsünde çizilip dünyaya göre ters ölçeklenir. */
+.tz-hdl {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--surface);
+  border: 1.5px solid var(--primary);
+  transform: translate(-50%, -50%) scale(calc(1 / var(--tz-zoom)));
+  pointer-events: auto;
+}
+
+.tz-hdl--nw {
+  left: 0;
+  top: 0;
+  cursor: nwse-resize;
+}
+
+.tz-hdl--n {
+  left: 50%;
+  top: 0;
+  cursor: ns-resize;
+}
+
+.tz-hdl--ne {
+  left: 100%;
+  top: 0;
+  cursor: nesw-resize;
+}
+
+.tz-hdl--e {
+  left: 100%;
+  top: 50%;
+  cursor: ew-resize;
+}
+
+.tz-hdl--se {
+  left: 100%;
+  top: 100%;
+  cursor: nwse-resize;
+}
+
+.tz-hdl--s {
+  left: 50%;
+  top: 100%;
+  cursor: ns-resize;
+}
+
+.tz-hdl--sw {
+  left: 0;
+  top: 100%;
+  cursor: nesw-resize;
+}
+
+.tz-hdl--w {
+  left: 0;
+  top: 50%;
+  cursor: ew-resize;
+}
+
+.tz-szb {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: calc(10px / var(--tz-zoom));
+  transform: translateX(-50%) scale(calc(1 / var(--tz-zoom)));
+  transform-origin: 50% 0;
+  background: var(--primary);
+  color: var(--tz-on-band);
+  font-size: var(--tz-fs-section);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 0 7px;
+  border-radius: var(--tz-r-kbd);
+  white-space: nowrap;
+}
+
+/* Çerçevenin içi ekran pikseli: tutamak ve rozet ayrıca ters ölçeklenmez. */
+.tz-selbox .tz-hdl {
+  transform: translate(-50%, -50%);
+}
+
+.tz-selbox .tz-szb {
+  margin-top: 10px;
+  transform: translateX(-50%);
+}
+
+.tz-cut,
+.tz-crop {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+}
+
+.tz-cut {
+  stroke: var(--tz-cut);
+}
+
+.tz-crop {
+  stroke: var(--tz-crop);
+}
+
+.tz-cut *,
+.tz-crop * {
+  stroke-width: calc(1px / var(--tz-zoom));
+}
+
+/* ---------------------------------------------------------------- tuval üstü */
+
+.tz-dock {
+  position: absolute;
+  left: 36px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 4;
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--tz-r-guided);
+  box-shadow: var(--tz-sh-dock);
+}
+
+.tz-cv:not(.has-rulers) .tz-dock {
+  left: 14px;
+}
+
+.tz-zm {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tz-zm-v {
+  min-width: 44px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text);
+}
+
+@media (forced-colors: active) {
+  .tz-selbox {
+    box-shadow: none;
+    outline: 2px solid Highlight;
+  }
+
+  .tz-hdl {
+    border-color: Highlight;
+    background: Canvas;
+  }
+
+  .tz-szb {
+    border: 1px solid CanvasText;
+  }
+
+  .tz-dock {
+    border-color: CanvasText;
+  }
+}

@@ -1,0 +1,99 @@
+/* Sayfa bölümü: yalnız sahibi olan ajan/sayfa yazar. build.mjs site.css'in ardına sabit sırayla ekler. Satır içi stil yok (CSP). */
+/* =============================================================== SAYFA: pricing (.pg-pricing-*) */
+.pg-pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+.pg-pricing-card { --c-main: var(--p-main); --c-text: var(--p-text); background: #fff; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.pg-pricing-card.is-open { border-color: var(--c-main); box-shadow: 0 8px 24px #0a1a3a14; }
+/* --p-*: ürün paleti, .pg-pricing-<ürün> sınıfında (üretilen styles/tokens.css). */
+.pg-pricing-bar { height: 8px; background: var(--c-main); }
+.pg-pricing-body { padding: 32px; display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.pg-pricing-id { display: flex; align-items: center; gap: 16px; }
+.pg-pricing-id h2 { font-size: 24px; line-height: 1.2; }
+.pg-pricing-desc { margin: 16px 0 0; min-height: 54px; color: var(--ink-2); }
+.pg-pricing-price { margin: 24px 0 0; font-size: 40px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+.pg-pricing-card.is-open .pg-pricing-price { color: var(--c-text); }
+.pg-pricing-sub { margin: 8px 0 0; font-size: 14px; line-height: 1.4; color: var(--ink-2); min-height: 20px; text-wrap: pretty; }
+.pg-pricing-list { list-style: none; margin: 24px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line); display: grid; gap: 16px; flex: 1; align-content: start; }
+.pg-pricing-list li { display: flex; gap: 16px; align-items: flex-start; }
+.pg-pricing-list svg { flex: none; margin-top: 5px; color: var(--c-text); }
+.pg-pricing-body .btn { margin-top: 32px; }
+.pg-pricing-note { margin: 48px 0 0; font-size: 20px; font-weight: 500; }
+.pg-pricing-faq-sec { padding-top: 0; }
+.pg-pricing-faq { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+.pg-pricing-faq p { text-wrap: pretty; }
+.pg-pricing-link { text-decoration: underline; text-underline-offset: 4px; font-weight: 500; color: var(--night); }
+@media (max-width: 900px) {
+  .pg-pricing-cards { grid-template-columns: 1fr; }
+  .pg-pricing-body { padding: 24px; }
+  .pg-pricing-price { font-size: 30px; }
+  .pg-pricing-desc { min-height: 0; }
+  .pg-pricing-faq { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* SON: pricing */
+
+/* =============================================================== SAYFA: about (.pg-about-*) */
+.phead.pg-about-head h1 { max-width: 960px; }
+.phead.pg-about-head .phead-eyebrow + h1 { margin-top: 24px; }
+.pg-about-story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.pg-about-story h2 { color: var(--night); }
+.pg-about-story p { margin: 16px 0 0; }
+/* Başlık etiketi (h2/h3) ama panoda düz eyebrow: h2/h3'ün 600 kalınlığı alınmaz. */
+.pg-about-cap { color: var(--ink-2); font-weight: 400; }
+.pg-about-story .pg-about-cap-2 { margin-top: 32px; }
+.pg-about-follow { padding-top: 0; }
+.pg-about-prs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.pg-about-pr { background: #fff; border: 1px solid #e9e6df; border-radius: 16px; padding: 32px; }
+.pg-about-ico { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: var(--paper); color: var(--night); }
+.pg-about-pr h3 { font-size: 24px; line-height: 1.2; margin: 24px 0 0; }
+.pg-about-pr p { margin: 8px 0 0; color: var(--ink-2); }
+.pg-about-fam { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+.pg-about-prod { --c-text: var(--p-text); display: flex; gap: 16px; align-items: flex-start; border: 1px solid var(--line); border-radius: 16px; padding: 24px; min-height: 44px; }
+/* --p-text: ürün paleti, .pg-about-<ürün> sınıfında (üretilen styles/tokens.css). */
+.pg-about-prod-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pg-about-prod-name { font-size: 20px; line-height: 28px; font-weight: 600; color: var(--c-text); }
+.pg-about-prod .nv-badge { color: var(--c-text); }
+.pg-about-prod-tag { display: block; margin-top: 4px; color: var(--ink-2); }
+.pg-about-co { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 48px; }
+.pg-about-co-line { margin: 16px 0 0; font-size: 24px; line-height: 1.3; font-weight: 500; }
+.pg-about-info { display: grid; grid-template-columns: auto 1fr; gap: 0 32px; margin: 32px 0 0; }
+/* Satırlar panodaki gibi içerik kutusuyla: 44 px + 1 px çizgi. */
+.pg-about-info dt, .pg-about-info dd { box-sizing: content-box; display: flex; align-items: center; min-height: 44px; margin: 0; border-top: 1px solid var(--line); }
+.pg-about-info dt { font-family: var(--mono); font-size: 14px; letter-spacing: .06em; line-height: 1.4; color: var(--ink-2); }
+.pg-about-mail { text-decoration: underline; }
+@media (max-width: 900px) {
+  .pg-about-story { grid-template-columns: 1fr; gap: 32px; }
+  .pg-about-prs, .pg-about-fam { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pg-about-info { grid-template-columns: 1fr; }
+  .pg-about-info dd { min-height: 44px; }
+}
+
+/* SON: about */
+
+/* =============================================================== SAYFA: contact (.pg-contact-*) */
+.pg-contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pg-contact-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; min-width: 0; }
+.pg-contact-ico { width: 48px; height: 48px; border-radius: 12px; background: #fff; border: 1px solid #e9e6df; display: flex; align-items: center; justify-content: center; flex: none; color: var(--night); }
+.pg-contact-card h2 { font-size: 24px; line-height: 1.25; }
+.pg-contact-card p { margin: 0; color: var(--ink-2); }
+.pg-contact-go { margin-top: auto; color: var(--night); text-decoration: underline; text-underline-offset: 4px; }
+.pg-contact-info { padding: 0 0 96px; }
+.pg-contact-cols { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; }
+.pg-contact-rows { margin: 0; border-bottom: 1px solid var(--line); }
+.pg-contact-row { box-sizing: content-box; display: grid; grid-template-columns: 160px 1fr; gap: 16px; align-items: center; min-height: 44px; border-top: 1px solid var(--line); }
+.pg-contact-row dt { color: var(--ink-2); }
+.pg-contact-row dd { margin: 0; }
+.pg-contact-mail { color: var(--night); text-decoration: underline; text-underline-offset: 4px; }
+.pg-contact-ph { font-family: var(--mono); font-size: 17px; color: var(--ink-2); }
+@media (max-width: 900px) {
+  .pg-contact-cards { grid-template-columns: 1fr; }
+  .pg-contact-cols { grid-template-columns: 1fr; gap: 24px; }
+  .pg-contact-info { padding-bottom: 64px; }
+}
+@media (max-width: 560px) {
+  .pg-contact-row { grid-template-columns: 1fr; gap: 0; }
+  .pg-contact-card { padding: 24px; }
+}
+
+/* SON: contact */

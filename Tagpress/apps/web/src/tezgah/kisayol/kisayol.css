@@ -1,0 +1,64 @@
+/* `?` listesi. */
+
+.tz-kp {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  align-items: start;
+  gap: 18px 28px;
+}
+
+.tz-kp-g h3 {
+  font: 500 var(--tz-fs-section) / 14px var(--fm);
+  letter-spacing: var(--tz-track-section);
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.tz-kp-g dl {
+  display: grid;
+  margin: 0;
+}
+
+.tz-kp-r {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: var(--tz-fs-panel);
+}
+
+.tz-kp-r dt {
+  min-width: 0;
+  color: var(--text);
+}
+
+.tz-kp-r dd {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.tz-kp-k {
+  display: inline-flex;
+  align-items: center;
+  height: var(--tz-kbd-h);
+  padding: 0 5px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: var(--tz-r-kbd);
+  background: var(--surface-2);
+  font: 500 var(--tz-fs-kbd) / 1 var(--fm);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.tz-kp-or {
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}

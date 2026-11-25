@@ -1,0 +1,40 @@
+/*
+ * Platform kipi: Tezgâh ortak kabuğun içinde (`AppShell workspace`). Üst satır kabuğun; iş satırı (`.tz-ctx`) ve tam bant
+ * (`.tz-hd`) kabuğun baş yuvasında (`.sod-band .sod-head`). Yerel kipte bu dosya yüklenmez (`oturum/giris.tsx`).
+ */
+
+/* `work` bandında kabuk pencere boyunda, `.sod-main` esnek sütun: çalışma alanı kalan yüksekliği doldurur. */
+.tz-app--shell {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+
+/* Tam bantta (Kurulum, `standard`) belge kayar. */
+.tz-app--shell.tz-app--full {
+  flex: none;
+  overflow: visible;
+}
+
+.sod-head > .tz-hd {
+  width: 100%;
+}
+
+/* Bant üstündeki öğeler (iş satırı, sağ küme): yerel kipteki `.tz-bd` kurallarının karşılığı. */
+.sod-band .tz-ctx :focus-visible,
+.tz-tr--shell :focus-visible {
+  outline-color: var(--tz-on-band);
+}
+
+.tz-tr--shell .tz-dot--busy {
+  background: var(--tz-band-dot-busy);
+}
+
+.tz-tr--shell {
+  margin-left: 0;
+}
+
+.tz-tr-ro .tz-dot-w {
+  color: var(--tz-on-band);
+  font-weight: 500;
+}

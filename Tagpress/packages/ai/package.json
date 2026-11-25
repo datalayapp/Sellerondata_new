@@ -1,0 +1,21 @@
+{
+  "name": "@tagpress/ai",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts",
+    "./builder/format": "./src/builder/format.ts",
+    "./builder/testing": "./src/builder/testing.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@tagpress/domain": "workspace:*",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  }
+}

@@ -1,0 +1,13 @@
+# Gerçek istemci IP'si. Gateway doğrudan internete bakıyorsa güvenilen vekil yoktur (varsayılan 127.0.0.1).
+# Önünde TLS sonlandıran vekil varsa GATEWAY_REAL_IP_FROM onun adresi olur; X-Forwarded-For o zaman okunur. Üretimde vekil
+# Caddy'dir (caddy/Caddyfile): üretim katmanı bu değeri Caddy'nin sabit iç ağ adresine (SOD_CADDY_IP) bağlar, .env'den ezilmez.
+# Caddy istemcinin X-Forwarded-For'unu yok sayıp tek adres yazar; real_ip_recursive yine de güvenilen adresleri sağdan atlar.
+set_real_ip_from ${GATEWAY_REAL_IP_FROM};
+real_ip_header X-Forwarded-For;
+real_ip_recursive on;
+
+# X-Forwarded-Proto yalnız güvenilen vekilden (doğrudan bağlanan eş) gelirse dikkate alınır; HSTS ve yukarı akışa giden şema buna bağlı.
+geo $realip_remote_addr $sod_trusted_proxy {
+  default 0;
+  ${GATEWAY_REAL_IP_FROM} 1;
+}

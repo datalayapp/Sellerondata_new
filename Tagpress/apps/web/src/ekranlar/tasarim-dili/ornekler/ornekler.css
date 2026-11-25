@@ -1,0 +1,225 @@
+/* Örnekler (önek td-or-) ve üç bölümün ortak parçaları (td-ref, td-mut, td-cv-msg). Yalnız var(--…) belirteçleri. */
+
+.td-mut {
+  margin: 0;
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+}
+
+/* Bitmiş etiket görseli: kâğıt, mm kenarlı (tuvalde 1 birim = 1 mm). */
+.td-ref {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  overflow: hidden;
+  background: var(--tz-paper);
+  box-shadow: var(--tz-sh-paper);
+}
+
+.td-ref img,
+.td-ref svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.td-ref-kutu {
+  fill: none;
+  stroke: var(--tz-crop);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.td-ref-yazi {
+  fill: var(--text);
+  font-family: var(--f);
+}
+
+/* Tuvalin ortasında ileti (boş durum, yükleniyor); dünya katmanının üstünde. */
+.td-cv-msg {
+  position: absolute;
+  inset: var(--tz-ruler) 0 0 var(--tz-ruler);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 24px;
+  pointer-events: none;
+}
+
+.td-cv-msg > * {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------------- Örnekler */
+
+.td-or-orta {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface-2);
+}
+
+.td-or-bos {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding: 24px;
+}
+
+.td-or-ara {
+  width: 300px;
+  max-width: 40%;
+}
+
+.td-or-kartlar {
+  list-style: none;
+  margin: 0;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.td-or-kart {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--tz-r-guided);
+  background: var(--surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Kartta etiket görseli doğrudan (gölgeli kâğıt yok); tuvalde gölge kalır. */
+.td-or-kart .td-ref {
+  box-shadow: none;
+}
+
+.td-or-kart:hover {
+  border-color: var(--line);
+}
+
+.td-or-kart[aria-current] {
+  border-color: var(--primary);
+  background: var(--tz-card-selected);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.td-or-kart:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.td-or-m {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+.td-or-m b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-panel);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.td-or-m small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}
+
+/* Sağ panel */
+.td-or-kunye {
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* "Bu örnek" segmenti satırı doldurur. */
+.td-or-kume .tz-seg {
+  width: 100%;
+}
+
+.td-or-kume .tz-seg > * {
+  flex: 1;
+  justify-content: center;
+}
+
+.td-or-ikili {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.td-or-ikili figure {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.td-or-ikili figcaption {
+  font-size: var(--tz-fs-small);
+  color: var(--text-2);
+  text-align: center;
+}
+
+.td-or-satir {
+  width: 100%;
+  margin-bottom: 8px;
+  border-collapse: collapse;
+  font-size: var(--tz-fs-panel);
+}
+
+.td-or-satir th {
+  padding: 4px 6px 4px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--tz-fs-small);
+  font-weight: 500;
+  color: var(--text-2);
+  text-align: left;
+}
+
+.td-or-satir th:last-child,
+.td-or-satir td:last-child {
+  padding-right: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.td-or-satir td {
+  padding: 5px 6px 5px 0;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+  color: var(--text);
+}
+
+.td-or-satir td:first-child {
+  font-weight: 500;
+}
+
+/* Font ve punto: soluk mono (maket .lines). */
+.td-or-satir td:nth-child(2),
+.td-or-satir td:nth-child(3) {
+  font-family: var(--fm);
+  font-size: var(--tz-fs-section);
+  color: var(--text-3);
+}
+
+.td-or-satir small {
+  display: block;
+  font-size: var(--tz-fs-small);
+  color: var(--text-3);
+}

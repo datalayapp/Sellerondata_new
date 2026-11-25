@@ -1,0 +1,174 @@
+// Yapay zekâ geçidi (ai-api) veri modeli, şema `ai`. Sözleşme: Platform/packages/contracts/src/aiSpend.ts.
+// Prisma'nın anlatamadığı kurallar (CHECK, kısmi benzersiz dizin, tek satırlı tablo) göç SQL'indedir.
+// Tablolar: anahtar deposu ve yönetici kaydı (G1), defter (G2), tavanlar ve firma bilgisi (G3), olay alıcısı (G4).
+// Tutarlar mikro USD tamsayı (BIGINT); zamanlar UTC.
+
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+  schemas  = ["ai"]
+}
+
+/// Sağlayıcı anahtarı. Gerçek anahtar yalnız `sealed` içinde, AES-256-GCM ile mühürlü (src/keystore/seal.ts); düz metin hiçbir
+/// sütunda yok. Mühür satırın kimliğine bağlı (ek doğrulanan veri: kapsam, firma, sağlayıcı): başka satıra taşınan mühür açılmaz.
+/// Kapsam `platform` (bugün tek kaynak, sağlayıcı başına bir satır) ya da ileride `org` (firmanın kendi anahtarı; `orgId` dolu).
+/// Durum: satır yok `missing`; `rejectedAt` dolu `rejected` (sağlayıcı son kullanımda ya da sınamada 401/403); yoksa `ok`.
+model ProviderKey {
+  id                 String    @id @db.Uuid
+  scope              String    @default("platform")
+  orgId              String?
+  provider           String
+  /// `v1.<anahtar kimliği>.<iv>.<etiket>.<şifreli metin>` (base64url).
+  sealed             String
+  /// Mühürleyen ana anahtarın kimliği (SHA-256 özetinin ilk 16 hanesi); döndürmede eski anahtarla açılır.
+  masterKeyId        String
+  last4              String
+  setById            String
+  setByName          String
+  setAt              DateTime  @default(now())
+  lastTestAt         DateTime?
+  lastTestOk         Boolean?
+  lastTestHttpStatus Int?
+  rejectedAt         DateTime?
+  updatedAt          DateTime  @updatedAt
+
+  @@schema("ai")
+}
+
+/// Platform yöneticisinin ve komutun her değişikliği (anahtar girme, kaldırma, sınama, ana anahtar döndürme, tavan, durdurma).
+/// Gizli bilgi yazılmaz: anahtardan yalnız son 4 hane.
+model AdminAudit {
+  id        String   @id @db.Uuid
+  at        DateTime @default(now())
+  /// Hesap `Person.id` ya da komutta `cli:<ad>`.
+  actorId   String
+  actorName String
+  action    String
+  provider  String?
+  orgId     String?
+  detail    Json?
+
+  @@index([at])
+  @@schema("ai")
+}
+
+/// Defter: her yukarı akış denemesi bir satır (sözleşme `AiLedgerCall`). Kabulde `pending` açılır, tek koşullu güncellemeyle kapanır.
+model AiCall {
+  id                 String    @id @db.Uuid
+  product            String
+  orgId              String
+  memberId           String?
+  purpose            String
+  origin             String
+  provider           String
+  requestedModel     String
+  servedModel        String?
+  stream             Boolean   @default(false)
+  inputTokens        Int       @default(0)
+  outputTokens       Int       @default(0)
+  cacheReadTokens    Int       @default(0)
+  cacheWrite5mTokens Int       @default(0)
+  cacheWrite1hTokens Int       @default(0)
+  inputImages        Int       @default(0)
+  outputImages       Int       @default(0)
+  costMicroUsd       BigInt    @default(0)
+  reservedMicroUsd   BigInt    @default(0)
+  priceVersion       String
+  status             String
+  errorCode          String?
+  httpStatus         Int?
+  estimated          Boolean   @default(false)
+  keySource          String    @default("platform")
+  toolRequestId      String
+  attempt            Int       @default(0)
+  startedAt          DateTime  @default(now())
+  finishedAt         DateTime?
+  durationMs         Int?
+  upstreamRequestId  String?
+
+  @@unique([product, toolRequestId, attempt])
+  @@index([orgId, startedAt])
+  @@index([startedAt])
+  @@schema("ai")
+}
+
+/// Günlük özet (sözleşme `AiSpendDaily`): gün UTC. Firma silinince ayrıntılı satırlar gider, bu kalır (ad ve kişi hiç yok).
+model AiSpendDaily {
+  day                DateTime @db.Date
+  orgId              String
+  product            String
+  purpose            String
+  model              String
+  status             String
+  keySource          String
+  calls              Int      @default(0)
+  inputTokens        BigInt   @default(0)
+  outputTokens       BigInt   @default(0)
+  cacheReadTokens    BigInt   @default(0)
+  cacheWrite5mTokens BigInt   @default(0)
+  cacheWrite1hTokens BigInt   @default(0)
+  outputImages       BigInt   @default(0)
+  costMicroUsd       BigInt   @default(0)
+
+  @@id([day, orgId, product, purpose, model, status, keySource])
+  @@index([orgId, day])
+  @@schema("ai")
+}
+
+/// Firma bilgisi (Hesap hizmet olaylarından). Ad ve saat dilimi `org.updated` (sürüm `version`), kapalılık `org.closed` /
+/// `org.reopened` (sürüm `stateVersion`). Silinen firmada satır kalır (`purgedAt`, ad null): gecikmiş olay firmayı yeniden kurmaz.
+/// `capOverrideMicroUsd`: yöneticinin ezdiği tek ortak aylık hak (null: `AI_ORG_MONTHLY_USD`).
+model Org {
+  id                  String    @id
+  name                String?
+  timeZone            String?
+  version             Int       @default(0)
+  stateVersion        Int       @default(0)
+  closedAt            DateTime?
+  purgedAt            DateTime?
+  capOverrideMicroUsd BigInt?
+  capOverriddenBy     String?
+  capOverriddenAt     DateTime?
+  updatedAt           DateTime  @updatedAt
+
+  @@schema("ai")
+}
+
+/// Firma × araç koruma tavanı (`subscription.updated.limits.aiSpendCapMonthlyUsd`); null: kayıttaki `ai.defaultCapUsd`.
+model OrgProductCap {
+  orgId       String
+  product     String
+  capMicroUsd BigInt?
+  version     Int      @default(0)
+  updatedAt   DateTime @updatedAt
+
+  @@id([orgId, product])
+  @@schema("ai")
+}
+
+/// Platform tavanları ve acil durdurma; tek satır (id = 1, göç açar). Tavan null: ortam varsayılanı.
+model PlatformLimits {
+  id                 Int       @id @default(1)
+  dailyCapMicroUsd   BigInt?
+  monthlyCapMicroUsd BigInt?
+  paused             Boolean   @default(false)
+  pausedAt           DateTime?
+  pausedBy           String?
+  updatedAt          DateTime  @default(now())
+
+  @@schema("ai")
+}
+
+/// Hizmet olayı alıcısının idempotans kaydı (`eventId`).
+model ProcessedEvent {
+  eventId     String   @id
+  processedAt DateTime @default(now())
+
+  @@index([processedAt])
+  @@schema("ai")
+}
